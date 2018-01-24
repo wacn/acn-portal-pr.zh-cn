@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="13954" parentID="13946" level="4" writerID="106" creatorID="22" nodeType="1059" template="302" sortOrder="7" createDate="2012-07-24T21:16:57" updateDate="2014-10-20T09:41:17" nodeName="Caching" urlName="caching" writerName="content" creatorName="Brad" path="-1,11978,11979,13946,13954" isDoc="">
+    <bodyText>
+      
+         <![CDATA[
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".banner_close").click(function () {
+            var dom = $(".banner_close").parent();
+            $(dom).removeClass("banner_content").addClass("content_hide");
+        });
+        $(".content_title").click(function () {
+
+            var dom = $(".banner_close").parent();
+            $(dom).removeClass("content_hide").addClass("banner_content");
+            $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+            $(this).parent().removeClass("grey_content").addClass("blue_content");
+            $(".triangle-up").css("display", "none");
+            $(this).find(".triangle-up").css("display", "block");
+            var strhref = $(this).attr('href');
+            var domID = strhref.substring(1, (strhref.length));
+            fetchdata(domID);
+            var secCount = $("section").length;
+            $("#page_body section").removeClass("content_show").addClass("content_hide");
+            $("#page_body section").each(function () {
+                if ($(this).attr('data-value') == domID) {
+                    $(this).removeClass("content_hide").addClass("content_show");
+
+                    previousScrollTop = 0;
+                    onscroll();
+                }
+            });
+        });
+        var previousScrollTop = 0;
+        $(window).on('scroll', onscroll);
+
+        $(window).on('resize', function (evt) {
+            var width = 0.16 * $('.content').width();
+            $('.left_content').css({
+                'width': width,
+            })
+        });
+        function onscroll(evt) {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var top = $(window).scrollTop();
+            var leftHeigth = $('.left_content').height();
+            if (Math.abs(top - previousScrollTop) < 20) return; // ie
+            var width = 0.16 * $('.content').width();
+            //(top > $('footer').offset().top - $(window).height())
+            if ((scrollTop + leftHeigth + $("footer").height() + $(".banner_content").height()) >= (scrollHeight)) {
+                // footer show up
+                $('.left_content').css({
+                    'position': 'absolute',
+                    'bottom': 0,
+                    'top': 'auto',
+                })
+            }
+            else {
+                // scroll up-->
+                $('.left_content').css({
+                    'position': 'fixed',
+                    'top': '108px',
+                    'bottom': 'auto',
+                    'width': width,
+                })
+            }
+            previousScrollTop = top;
+        }
+    });
+    //数据抓取
+    function fetchdata(vel) {
+        var locaUrl = window.location.href;
+        if (locaUrl.indexOf("#") > 0)
+            locaUrl = locaUrl.split("#")[0].toString() + "?" + vel;
+        //alert(locaUrl);
+        $.get(locaUrl);
+    }
+</script>
+<style>
+    .right_content_center h1 {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .right_content_center h3 {
+        margin-top: 45px;
+        font-weight: 600;
+    }
+
+    .ul-style p {
+        font-size: 16px;
+    }
+    /*main-content*/
+    .main-container {
+        background-color: #f8f8f8;
+    }
+
+    #serviceCenter {
+        width: 100%;
+        position: relative;
+        background-color: #f8f8f8;
+    }
+
+    footer {
+        Border-top: medium solid #ccc;
+    }
+
+    .content {
+        width: 100%;
+        min-width: 960px;
+        max-width: 1250px;
+        margin: 0 auto;
+        position: relative;
+    }
+    /*left-content*/
+    .left_content {
+        position: absolute;
+        width: 16%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #f8f8f8;
+        overflow: hidden;
+    }
+    /*right-content*/
+    .right_content {
+        margin-left: 16%;
+        width: 84%;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 369px;
+        position: relative;
+        background-color: #ffffff;
+    }
+
+
+    #serviceCenter .right_content_header {
+        position: absolute;
+        min-width: 805px;
+        top: 0;
+        left: 16%;
+        right: calc(50% - 50vw + 9px);
+        height: 369px;
+        background-repeat: no-repeat;
+        background-color: #E3F4ff;
+        background-image: url(http://resource.cdn.azure.cn/marketing-resource/css/images/CDN.png);
+        overflow: hidden;
+    }
+
+
+    .right_content_senction {
+        height: 100%;
+        background-color: white;
+    }
+
+    .header_content {
+        font-size: 14px;
+        color: #404040;
+        line-height: 1.5;
+        width: 80%;
+        width: 730px;
+        height: 42px;
+    }
+    /*div 白色背景*/
+    .white-background {
+        position: absolute;
+        background: white;
+        top: 0;
+        left: 16%;
+        right: calc(50% - 50vw + 9px);
+        bottom: 0;
+    }
+    /*ul-导航*/
+    .left_ul_content > li > a {
+        text-decoration: none;
+        display: block;
+        padding: 3px 0px 3px 16%;
+        margin-left: -16%;
+        text-transform: capitalize;
+        font-size: 14px;
+        line-height: 21px;
+        color: #555555;
+    }
+
+        .left_ul_content > li > a:hover {
+            background-color: #f0f0f0;
+        }
+
+    .left_ul_content {
+        list-style: none;
+        padding: 0px;
+        padding-left: 25px;
+        border: none;
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav_li_submenu {
+        font-size: 20px;
+        color: #5c5c5c;
+        padding-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        height: 28px;
+        line-height: 28px;
+    }
+
+    .li_computer {
+        background-repeat: no-repeat;
+        background-image: url('http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_compute.png');
+    }
+
+    .li_date {
+        background-repeat: no-repeat;
+        background-image: url('http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_date-base.png');
+    }
+
+    .li_application {
+        background-repeat: no-repeat;
+        background-image: url('http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_application.png');
+    }
+
+    .li_web {
+        background-repeat: no-repeat;
+        background-image: url('http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_web.png');
+    }
+    /*header  文字部分*/
+    .right_content_dis {
+        padding-top: 50px;
+        margin-left: 6.4%;
+        margin-bottom: 45px;
+    }
+
+    .rigth_content_title {
+        font-size: 40px;
+        color: #404040;
+    }
+
+    .rigth_content_subtitle {
+        font-size: 24px;
+        margin-left: 10px;
+        color: #404040;
+    }
+
+    .btn_style {
+        display: block;
+        font-size: 16px;
+        width: 155px;
+        height: 40px;
+        background-color: #ff3d00;
+        text-align: center;
+        padding: 7px;
+        box-sizing: border-box;
+        margin-right: 25px;
+    }
+
+        .btn_style:hover {
+            background-color: #fa6434;
+        }
+    /*header-ul 方块*/
+    .right_content_select {
+        height: 175px;
+        width: 100%;
+    }
+
+    .select_space {
+        margin-left: 1.2%;
+    }
+
+    .block_space {
+        margin-left: 0.8%;
+    }
+
+    .grey_content {
+        background-color: #ffffff;
+        float: left;
+        width: 23%;
+        height: 175px;
+    }
+
+        .grey_content a {
+            width: 23%;
+            height: 175px;
+            line-height: 1.5;
+            color: #4a4a4a;
+            font-size: 12px;
+        }
+
+        .grey_content:hover {
+            float: left;
+            background-color: #ccebff;
+        }
+
+            .grey_content:hover .triangle-up {
+                Display: none;
+            }
+
+    .blue_content {
+        background-color: #b3e1ff;
+        float: left;
+        width: 23%;
+        height: 175px;
+    }
+
+        .blue_content .triangle-up {
+            display: block;
+        }
+
+
+        .blue_content a {
+            width: 23%;
+            height: 175px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #4a4a4a;
+        }
+
+    .content_show {
+        display: block;
+    }
+
+    .nav_select {
+        color: #5c5c5c;
+        background-color: #DBDBDB;
+    }
+
+    .content_hide {
+        display: none;
+    }
+    /*header-ul 方块内部*/
+    .content_Item_title {
+        font-size: 20px;
+        color: #000000;
+        text-align: center;
+        padding-top: 25px;
+    }
+
+        .content_Item_title .left_img {
+            width: 20px;
+            height: 20px;
+            padding-top: 10px;
+        }
+
+        .content_Item_title .right_img {
+            width: 14px;
+            height: 14px;
+            margin-left: 0px;
+            padding-top: 10px;
+        }
+
+    .content_Item_content {
+        font-size: 12px;
+        color: #4a4a4a;
+        height: 15px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+        .content_Item_content .Item_strong {
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .content_Item_content .Item_preview {
+            padding: 3px;
+            background-color: rgb(0,160,253);
+            color: white;
+            font-size: 12px;
+            margin-left: 3px;
+            border-radius: 3px;
+        }
+
+        .content_Item_content .Item_case {
+            width: 64px;
+            height: 20px;
+            font-size: 14px;
+            color: #000000;
+            padding: 1px 4px;
+        }
+
+    .triangle-up {
+        display: none;
+        height: 15px;
+        width: 30px;
+        margin-top: 27px;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-image: url('http://resource.cdn.azure.cn/marketing-resource/css/images/triangule_.png');
+    }
+    /*bannner*/
+    .banner_content {
+        margin-top: 60px;
+        width: 100%;
+        max-width: 1064px;
+        height: 70px;
+        font-size: 20px;
+        color: #fff;
+        font-weight: 600;
+        background-color: #33a4fb;
+        margin-left: 8%;
+        min-width: 700px;
+        float: right;
+    }
+
+    .banner_content_distance {
+        float: left;
+        margin-left: 5.6%;
+        padding-top: 22px;
+    }
+
+    .banner_content .banner_content_link {
+        width: 66px;
+        font-size: 16px;
+        background-color: #ff3d00;
+        color: #fff;
+        padding: 8px 45px;
+        margin-left: 3.2%;
+    }
+
+        .banner_content .banner_content_link:hover {
+            Background-color: #fa6434;
+        }
+
+    .banner_content .large_span {
+        font-size: 30px;
+    }
+
+    .banner_close {
+        float: right;
+        margin-top: -40px;
+        margin-right: 10px;
+    }
+
+    .banner_content .Item_span {
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: white;
+        color: rgb(0,160,253);
+        font-size: 18px;
+        margin: 5px;
+        border-radius: 3px;
+    }
+    /*content*/
+
+    .right_content_center {
+        margin-left: 5.6%;
+        margin-right: 7.6%;
+        max-width: 910px;
+    }
+
+    .right_content_pricing {
+        margin: 0px;
+        padding-left: 5.6%;
+        padding-right: 7.6%;
+    }
+    /*pricing  价格*/
+    .pricingpage {
+        margin: 0 5%;
+    }
+
+        .pricingpage .feature_section p {
+            font-size: 14px;
+            color: #505050;
+        }
+
+    .wa-content {
+        margin: 0 5%;
+    }
+
+    .faqpage {
+        width: 100%;
+    }
+
+    .price_section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: #fff;
+        margin-bottom: 50px;
+        margin-top: 30px;
+    }
+
+        .price_section .section_title {
+            font-size: 18px;
+            line-height: 25px;
+            margin: 10px 5%;
+        }
+
+        .price_section .section_info {
+            font-size: 12px;
+            color: #969696;
+            margin-left: 5%;
+            background-color: white;
+        }
+
+    .pricingpage .price_section {
+        background-color: white;
+    }
+
+    .price_section table {
+        background-color: #fff;
+        border-top: 2px solid #c9c9c9;
+        border-bottom: 2px solid #c9c9c9;
+        border-spacing: 0;
+        border-collapse: collapse;
+        width: 90%;
+        text-align: center;
+        line-height: 1.2em;
+        color: #505050;
+        margin-left: 5%;
+        margin-bottom: 30px;
+    }
+
+    .price_section th {
+        font-size: 11px;
+        padding: 10px;
+        color: #505050;
+    }
+
+    .price_section td {
+        border-top: 1px solid #c9c9c9;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 10px;
+        color: #505050;
+    }
+
+    .left_align {
+        text-align: left;
+    }
+
+    .price_section p {
+        font-size: 14px;
+        color: #505050;
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .feature_section .section_title {
+        font-size: 30px;
+        line-height: normal;
+        font-weight: 100;
+        margin-bottom: 20px;
+    }
+
+    .price_content_dis {
+        margin-left: 4%;
+        padding-top: 10px;
+        float: left;
+    }
+
+
+    /*case  案例*/
+    .case-list {
+        padding: 0px;
+        display: block;
+        list-style: none;
+        margin-left: 60px;
+    }
+
+        .case-list .single-case {
+            display: inline-block;
+            width: 45%;
+            height: 350px;
+            background: #FDFDFD;
+            border: 1px solid #CDCDCD;
+            padding: 20px 18px;
+            box-sizing: border-box;
+            margin: 1%;
+            overflow: hidden;
+            vertical-align: top;
+            float: left;
+        }
+
+            .case-list .single-case img {
+                width: 42%;
+                height: 64px;
+                margin: 0px 18px 20px 0px;
+                float: left;
+            }
+
+            .case-list .single-case .info {
+                display: inline-block;
+                float: left;
+                font-size: 13px;
+                color: #000000;
+                line-height: 22px;
+            }
+
+                .case-list .single-case .info a {
+                    text-decoration: none;
+                    color: #00A0FF;
+                    font-size: 13px;
+                }
+
+            .case-list .single-case label {
+                font-size: 13px;
+                line-height: 125%;
+                color: #555555;
+                display: inline;
+            }
+
+            .case-list .single-case .disp {
+                margin-top: 84px;
+                margin-bottom: 15px;
+                font-size: 13px;
+                line-height: 22px;
+            }
+
+            .case-list .single-case .services {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+                .case-list .single-case .services .services-list {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: inline;
+                }
+
+                .case-list .single-case .services li {
+                    display: inline;
+                }
+
+                    .case-list .single-case .services li a {
+                        text-decoration: none;
+                        color: #00A0FF;
+                        font-size: 13px;
+                    }
+
+            .case-list .single-case .detail {
+                font-size: 13px;
+                line-height: 22px;
+                color: #555;
+            }
+
+        .case-list .arrow-right {
+            display: inline-block;
+            background: url("http://resource.cdn.azure.cn/marketing-resource/css/img/icon_link-arrow.png");
+            width: 4px;
+            height: 8px;
+            margin-left: 5px;
+            background-repeat: no-repeat;
+        }
+    .mysql-style{
+        display: block;
+        font-size: 14px;
+        text-transform: none;
+    }
+    /*1440 设计*/
+    @media(min-width:1250px) {
+        /*left 左侧导航*/
+        /*ul-导航*/
+        .mysql-style{
+            display: inline;
+            font-size: 10px;
+            text-transform: none;
+        }
+        .left_ul_content {
+            min-width: 180px;
+            margin-left: 0px;
+        }
+
+            /*.nav_li_submenu {
+            margin-left: 20px;
+        }*/
+
+            .left_ul_content > li > a {
+                margin-left: 0;
+                padding: 3px 0 3px 20px;
+                margin-left: -20px;
+            }
+        /*header-web 部分*/
+        .right_content_dis {
+            padding-top: 50px;
+            margin-left: 75px;
+            margin-bottom: 45px;
+        }
+        /*header-ul 部分*/
+        .header_content {
+        }
+
+        .right_content_select {
+            height: 175px;
+            width: 1050px;
+        }
+
+        .select_space {
+            margin-left: 20px;
+        }
+
+        .block_space {
+            margin-left: 10px;
+        }
+
+        .grey_content {
+            width: 250px;
+            background-color: #ffffff;
+            float: left;
+            height: 175px;
+        }
+
+            .grey_content a {
+                display: block;
+                width: 250px;
+                height: 175px;
+                line-height: 1.5;
+                color: #4a4a4a;
+                font-size: 12px;
+            }
+
+            .grey_content:hover {
+                float: left;
+                background-color: #ccebff;
+            }
+
+        .blue_content {
+            width: 250px;
+            background-color: #b3e1ff;
+            float: left;
+            height: 175px;
+        }
+
+            .blue_content a {
+                display: block;
+                width: 250px;
+                height: 175px;
+                font-size: 12px;
+                line-height: 1.5;
+                color: #4a4a4a;
+            }
+        /*content*/
+        .right_content_center {
+            margin-left: 70px;
+            margin-right: 70px;
+        }
+
+        .right_content_pricing {
+            padding-left: 25px;
+            padding-right: 70px;
+            margin-top: 50px;
+        }
+
+        .right_content_case {
+        }
+        /*pricing 价格*/
+        .pricingpage {
+            margin: 0 50px;
+        }
+
+        .wa-content {
+            margin: 0 50px;
+        }
+
+        .price_content_dis {
+            margin-left: 100px;
+        }
+
+        .price_section .section_title {
+            margin: 10px 50px;
+        }
+
+        .price_section table {
+            width: 810px;
+            margin-left: 50px;
+        }
+
+        .price_section p {
+            margin-left: 50px;
+            width: 810px;
+        }
+
+        .price_section .section_info {
+            margin-left: 50px;
+        }
+        /*case 案例*/
+        .case-list {
+            padding: 0px;
+            display: block;
+            list-style: none;
+        }
+
+            .case-list .single-case {
+                width: 465px;
+                height: 350px;
+                padding: 20px 18px;
+                margin: 8px;
+            }
+
+                .case-list .single-case img {
+                    width: 184px;
+                    height: 64px;
+                    margin: 0px 10px 20px 0px;
+                    float: left;
+                }
+
+        .banner_content_distance {
+            margin-left: 100px;
+        }
+
+        .banner_content .banner_content_link {
+            margin-left: 40px;
+        }
+    }
+    /*960px 设计*/
+    @media(max-width:960px) {
+        /*content 限制*/
+        .right_content {
+            min-width: 806px;
+        }
+
+        .right_content_header {
+            min-width: 805px;
+        }
+
+        .right_content_senction {
+            min-width: 805px;
+        }
+
+        .right_content_select {
+            min-width: 805px;
+        }
+
+        .banner_content {
+            min-width: 805px;
+        }
+    }
+</style>
+
+<div class="main_content" id='serviceCenter'>
+    <div class="content">
+        <div class='white-background'></div>
+        <!--left 左侧导航-->
+        <div class="left_content">
+            <?UMBRACO_MACRO hide="0" chunkpath="pricing-related" macroAlias="AzureChunkDisplayer" chunkname="home_features" />
+        </div>
+        <!--header 右侧-->
+        <div class="right_content_header">
+            <div class="right_content_dis">
+                <h1 style="line-height:27px;margin-bottom:0px;font-weight:400;">
+                    <a id="caching-trial" class="anchor"></a>
+                    <span class="rigth_content_title">内容传送网络</span>
+                    <span class="rigth_content_subtitle">  CDN</span>
+                </h1>
+                <div style="margin-top:20px;">
+                    <div style="float: left;">
+                        <a id="home_cdn_trial" class="btn_style" href="/pricing/1rmb-trial/" style="color:white;" target="_blank">我要试用</a>
+                    </div>
+                    <div class="header_content">
+                        <span style="display:block;padding-top:10px;">快速、现代的内容交付网络，用于传递高带宽内容。</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right_content_select">
+                <div class="blue_content select_space">
+                    <a id="home_cach_cs" href="#features" class="content_title">
+                        <div class="content_Item_title">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_feature.png" class="left_img" />
+                            功能
+                        </div>
+                        <div class="content_Item_content">可高度扩展改善</div>
+                        <div class="content_Item_content">加速响应速度</div>
+                        <div class="content_Item_content">运行性能</div>
+                        <span class="triangle-up" style="margin-top:32px;"></span>
+                    </a>
+                </div>
+                <div class="grey_content block_space">
+                    <a id="home_cach_price" href="#price" class="content_title">
+                        <div class="content_Item_title">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_price.png" class="left_img" />
+                            价格
+                        </div>
+                        <div class="content_Item_content">
+                            两种服务级别
+                        </div>
+                        <div class="content_Item_content">
+                            标准：
+                            <strong class="Item_strong">￥0.27 </strong>
+                            <span style="font-size:10px;">/GB起</span>
+                        </div>
+                        <div class="content_Item_content">
+                            高级：
+                            <strong class="Item_strong">￥0.54 </strong>
+                            <span style="font-size:10px;">/GB起</span>
+                        </div>
+                        <span class="triangle-up" style="margin-top:32px;"></span>
+                    </a>
+                </div>
+                <div class="grey_content block_space">
+                    <a id="home_cach_case" href="#case" class="content_title">
+                        <div class="content_Item_title">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_case.png" class="left_img" />
+                            案例
+                        </div>
+                        <div class="content_Item_content">
+                            信息通信： <span class="Item_case" style="background:#ef6130;color:#fff;">H3C</span>
+                        </div>
+                        <div class="content_Item_content" style="margin-top:20px;">
+                            社&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp交： <span class="Item_case" style="background:#8AAD19;color:#fff;">经纬</span>
+                        </div>
+                        <span class="triangle-up" style="margin-top:47px;"></span>
+                    </a>
+                </div>
+                <div class="grey_content block_space">
+                    <a id="home_cdn_doc" href="/documentation/services/cdn/" target="_blank">
+                        <div class="content_Item_title">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/service_center_course.png" class="left_img" />
+                            文档
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/external-link_grey_17X17.png" class="right_img" />
+                        </div>
+                        <div class="content_Item_content">如何管理</div>
+                        <div class="content_Item_content">如何删除内容</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--content 右侧-->
+        <div id="page_body" class="right_content">
+            <!--website 功能-->
+            <div class="right_content_senction">
+                <section data-value="features" style="clear:none; max-width:1050px;" class="content_show">
+                    <div class="right_content_center">
+                        <div style="margin-bottom: 150px;">
+                            <h3><a id="caching-goodExperience" class="anchor"></a>缩短数据与用户的距离，从而在全球任何位置都可提供优质的响应体验</h3>
+                            <p>利用 Windows Azure 中的 CDN 服务，使数据距离最终用户更近，帮助您构建可高度扩展、响应迅速的应用程序。轻松配置 CDN（内容传送网络）功能，提供快速、流畅的用户体验。</p>
+                            <p>Windows Azure CDN 将内容缓存到距离客户最近的位置来提高应用程序性能，以便您为客户提供最好的应用程序体验。</p>
+                            <p>CDN 服务新增对 HTTPS 协议加速支持。目前如果您想使用 CDN HTTPS 加速服务，请通过支持页面联系 Windows Azure 的支持团队开通 CDN HTTPS 加速服务。</p>
+                        </div>
+                    </div>
+                    <div class="banner_content" style="margin-top:125px;">
+                        <div>
+                            <div class="banner_content_distance">
+                                <span>想立即试用 CDN 服务？</span>
+                                <span class="large_span">1</span>元
+                                <span class="large_span">1</span>个月
+                                <span style="padding-left:20px;"> 先体验后购买</span>
+                            </div>
+                            <div style="padding-top: 22px;">
+                                <a id="cdn_1rmb" href="/pricing/1rmb-trial/" class="banner_content_link" target="_blank"><span style="color:white;">我要试用</span></a>
+                            </div>
+                        </div>
+                        <a id="banner_cdn" href="javascript:void(0)" class="banner_close">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/close_white.png" style="margin-top:5px;">
+                        </a>
+                    </div>
+                </section>
+            </div>
+            <!--pricing 价格-->
+            <div class="right_content_senction">
+                <section data-value="price" style="padding-top: 65px; clear: none; max-width: 1050px; " class="content_hide">
+                    <div class="calculator-detail-selector">
+                        <a id="price_detail_page_text_cdn">
+                            <span class="detail-tab selector  active-selector">查看详细价格列表</span>
+                        </a>
+                        <a id="price_detail_page_calculator_cdn">
+                            <span class="calculator-tab selector">使用价格估算器</span>
+                        </a>
+                    </div>
+                    <style>
+                        .calculator-detail-selector {
+                            margin-left: 315px;
+                        }
+
+                            .calculator-detail-selector .selector {
+                                font-size: 16px;
+                                color: #777;
+                                margin-bottom: 10px;
+                                width: 200px;
+                                border-bottom: 2px solid #eee;
+                                text-align: center;
+                                padding: 0 20px 10px 50px;
+                            }
+
+                            .calculator-detail-selector .detail-tab {
+                                margin-left: 20px;
+                                background: url("http://resource.cdn.azure.cn/marketing-resource/media/pricing_20X20.png") 20px 0 no-repeat;
+                            }
+
+                            .calculator-detail-selector .calculator-tab {
+                                background: url("http://resource.cdn.azure.cn/marketing-resource/media/calculator_20X20.png") 20px 0 no-repeat;
+                            }
+                            .calculator-detail-selector .detail-tab.active-selector {
+                                margin-left: 20px;
+                                background: url("http://resource.cdn.azure.cn/marketing-resource/media/pricing_hover_20X20.png") 20px 0 no-repeat;
+                            }
+
+                            .calculator-detail-selector .calculator-tab.active-selector {
+                                background: url("http://resource.cdn.azure.cn/marketing-resource/media/calculator_hover_20X20.png") 20px 0 no-repeat;
+                            }
+
+                            .calculator-detail-selector .active-selector {
+                                color: #000;
+                                border-bottom: 2px solid #b3e1ff;
+                            }
+
+                            .calculator-detail-selector .selector:hover {
+                                cursor: pointer;
+                                border-bottom: 2px solid #b3e1ff;
+                            }
+
+                        #calculator .related-service {
+                            margin: 35px 0 15px 75px;
+                            font-size: 14px;
+                        }
+
+                            #calculator .related-service .icon {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                background: url(//resource.cdn.azure.cn/marketing-resource/css/img/angledoubleup.png);
+                                background-size: contain;
+                                vertical-align: middle;
+                                margin-right: 5px;
+                                transition: all linear 0.4s;
+                            }
+
+                            #calculator .related-service.active .icon{
+                                transform: rotate3d(1,0,0, 180deg);
+                                transition: all linear 0.4s;
+                            }
+
+                        #calculator .service {
+                            padding-left: 75px;
+                            box-sizing: border-box;
+                        }
+
+                        #calculator .related {
+                            background-color: azure;
+                        }
+
+                        #calculator .text {
+                            margin: 0;
+                            padding: 30px 0 0 75px;
+                            box-sizing: border-box;
+                            width: 980px;
+                        }
+                    </style>
+                    <div id="calculator"></div>
+                    <script>
+                        CalculatorUIRenderer.AddService("cdn");
+                        CalculatorUIRenderer.AddService("data-transfer");
+                        CalculatorUIRenderer.AddService("support");
+
+                        // related services
+                        var relatedServices = ['media-services', 'traffic-manager', 'backup', 'hdinsight', 'mobile-service'];
+                        $("#calculator").append('<div class="related-service active">' +
+                          '<a class="icon" href="#"></a>' +
+                          '<a class="hint" href="#">显示您可能会用到的相关服务推荐</a>' +
+                        '</div>');
+                        CalculatorUIRenderer.AddService("media-services"),
+                        CalculatorUIRenderer.AddService("traffic-manager"),
+                        CalculatorUIRenderer.AddService("backup"),
+                        CalculatorUIRenderer.AddService("hdinsight"),
+                        CalculatorUIRenderer.AddService("mobile-service"),
+
+                        CalculatorUIRenderer.PostProcess();
+
+                        $("#calculator .service").each(function () {
+                            if (_(relatedServices).indexOf($(this).data('service')) != -1) {
+                                $(this).addClass('related hide');
+                            }
+                        })
+
+                        $("#calculator .related-service a").on('click', function (evt) {
+                            evt.preventDefault();
+                            $('#calculator .related').toggleClass('hide');
+                            $('#calculator .related-service').toggleClass('active');
+                            if ($('#calculator .related-service').hasClass('active')) {
+                                $('#calculator .related-service .hint').text("显示所有推荐的相关服务");
+                            } else {
+                                $('#calculator .related-service .hint').text("隐藏所有推荐的相关服务");
+                            }
+                        })
+                    </script>
+
+
+                    <div class="right_content_pricing">
+
+                        <script>
+                            $(".right_content_pricing").show();
+                            $("#calculator").hide();
+                            $(".calculator-detail-selector .selector").click(function () {
+                                $(".calculator-detail-selector .selector").removeClass("active-selector");
+                                $(this).addClass("active-selector");
+                            });
+                            $(".calculator-detail-selector .calculator-tab").click(function () {
+                                $(".right_content_pricing").hide();
+                                $("#calculator").show();
+                            });
+                            $(".calculator-detail-selector .detail-tab").click(function () {
+                                $(".right_content_pricing").show();
+                                $("#calculator").hide();
+                            });
+                        </script>
+
+
+                        <div class="pricingpage">
+                            <div>Azure CDN 通过将内容缓存到最靠近客户的位置来改进应用程序的性能。</div>
+                        </div>
+                        <div class="price_section">
+                            <div>
+                                <h2 class="section_title" style="font-size: 30px;font-weight:400;"><a id="caching-prcing_details" class="anchor"></a>定价详细信息</h2>
+                                <p>CDN 出站数据传输</p>
+                                <div class="section_info">*以下价格均为含税价格。</div>
+                                <div class="section_info">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                <table border="0" style="margin-bottom: 30px;">
+                                    <thead>
+                                        <tr>
+                                            <th class="left_align" style="width:50%;">服务</th>
+                                            <th class="left_align">标准版</th>
+                                            <th class="left_align">
+                                                高级版
+                                                <sup style="font-weight: normal;">1</sup>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="left_align">
+                                                CDN 数据传输（0 - 10 TB
+                                                <sup style="font-weight: normal;">2</sup>/月
+                                                )
+                                            </td>
+                                            <td class="left_align">¥0.45/GB</td>
+                                            <td class="left_align">¥0.90/GB</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">CDN 数据传输（10 - 50 TB/月）</td>
+                                            <td class="left_align">¥0.41/GB</td>
+                                            <td class="left_align">¥0.81/GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">CDN 数据传输（50 - 150 TB/月）</td>
+                                            <td class="left_align">¥0.36/GB</td>
+                                            <td class="left_align">¥0.73/GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">CDN 数据传输（150 - 500 TB/月）</td>
+                                            <td class="left_align">¥0.33/GB</td>
+                                            <td class="left_align">¥0.66/GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">CDN 数据传输（500 - 1024 TB/月）</td>
+                                            <td class="left_align">¥0.30/GB</td>
+                                            <td class="left_align">¥0.59/GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">CDN 数据传输（1024 - 5120 TB/月）</td>
+                                            <td class="left_align">¥0.27/GB</td>
+                                            <td class="left_align">¥0.54/GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left_align">CDN 数据传输（超过 5120 TB/月）</td>
+                                            <td class="left_align"><a id="CDN_contact_us" style="color: #008fbf;" href="/support/contact/" target="_blank">联系我们</a></td>
+                                            <td class="left_align"><a id="CDN_price_us" style="color: #008fbf;" href="/support/contact/" target="_blank">联系我们</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="section_info"><sup style="font-weight: normal;">1</sup>目前高级版CDN服务仅包括HTTPS协议加速，目前如果您想使用CDN HTTPS加速服务，请通过支持页面联系 Windows Azure 的支持团队开通。</div>
+                                <div class="section_info" id="SSL"><sup style="font-weight: normal;">2</sup>1 TB = 1,024 GB</div>
+                            </div>
+                        </div>
+                        <div class="wa-content">
+                            <h3><a id="caching-common_quation" class="anchor"></a>常见问题</h3>
+                            <br />
+                            <div class="faqpage">
+                                <div class="question">
+                                    <a id="CDN_price_question1" onclick="javascript:toggle(this);"><span class="plus"> </span>目前高级版 CDN 服务包括哪些加速类型？</a>
+                                    <div class="answer">
+                                        <p>目前上线的高级版 CDN 服务只包括 HTTPS 协议加速。目前如果您想使用 CDN HTTPS 加速服务，请通过支持页面联系 Windows Azure 的支持团队开通 CDN HTTPS 加速服务。</p>
+                                    </div>
+                                </div>
+                                <div class="question">
+                                    <a id="CDN_price_question1" onclick="javascript:toggle(this);"><span class="plus"> </span>在每月传输的数据超过 10TB 后，是否按更高等级的费率对所有数据传输计费？</a>
+                                    <div class="answer">
+                                        <p>不。属于每个等级的使用量将按照针对该等级的费率计费。例如，如果您在区域 1 产生了 50TB 的标准版 CDN 数据传输，前 10TB 将按照每 GB ¥ 0.45 的费率计费，剩下的 40TB 将按照每 GB ¥ 0.41 的费率计费。</p>
+                                    </div>
+                                </div>
+                                <div class="question">
+                                    <a id="CDN_price_question2" onclick="javascript:toggle(this);"><span class="plus"> </span>我是否可以指定用来为最终用户提供服务的 CDN 数据中心？ </a>
+                                    <div class="answer">
+                                        <p>不可以。该服务将根据最终用户的网络配置选择 CDN 数据中心，开发人员不能决定所用 CDN 数据中心。服务将按用户 ISP 首选的位置或从逻辑上判断“更近”（不一定是物理接近）的节点为用户提供服务。</p>
+                                    </div>
+                                </div>
+                                <div class="question">
+                                    <a id="CDN_price_question3" onclick="javascript:toggle(this);"><span class="plus"> </span>CDN 收费中是否包含对存储进行请求，以便检索数据并将数据从存储传输到 CDN 位置的费用？ </a>
+                                    <div class="answer">
+                                        <p>不包含。当 CDN 收到针对非位于边缘位置的对象请求时，将向 Azure 存储发出请求以获取数据。从存储读取数据以及将数据从存储传输到 CDN 的操作将按照标准的<a id="CDN_price_data" href="/pricing/details/data-transfer/" target="_blank">数据传输</a>费率收费。</p>
+                                    </div>
+                                </div>
+                                <div class="question">
+                                    <a id="CDN_price_question4" onclick="javascript:toggle(this);"><span class="plus"> </span>哪些因素会影响 CDN 本地缓存中内容的可用性，如何降低对频繁发出原始请求的需求？ </a>
+                                    <div class="answer">
+                                        <p>CDN 本地缓存中内容的可用性（通常称为“缓存功效”或“卸载”）会受到许多因素的影响，其中包括：</p>
+                                        <ul>
+                                            <li>有效期（“最大有效期”）标头值</li>
+                                            <li>开发人员的内容库的总大小（可以缓存的数量）</li>
+                                            <li>活动的工作集（当前缓存的数量）</li>
+                                            <li>流量（提供的数量）</li>
+                                            <li>缓存改动（将对象添加到缓存的频率，或老化的频率）</li>
+                                        </ul>
+                                        <p>例如，如果开发人员用对内容的改动频率更频繁，流量更大，则此开发人员的缓存效率将低于其他用户，因为换入和换出对象的频率会更高。这会导致更高的存储和数据传输费用，因为需要的原始请求更多。</p>
+                                        <p>为了降低发出原始请求的需求，您可以设置更长的最大有效期标头，从而允许 CDN 将对象保留更长时间。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-content" style="margin-top: 50px;">
+                            <h3><a id="caching-marketArea" class="anchor"></a>上市地区</h3>
+                            <p>CDN 服务在以下区域中提供：</p>
+                        </div>
+                        <div class="price_section" style="background-color: white; margin-bottom: 0;">
+                            <table border="0" style="margin-bottom: 30px; width: 60%;">
+                                <thead>
+                                    <tr><th class="left_align">地域</th><th class="left_align">区域</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left_align">中国大陆</td>
+                                        <td class="left_align">中国地区</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="wa-content">
+                            <h3><a id="caching-supportAggre" class="anchor"></a>支持和服务级别协议</h3>
+                            <p>Windows Azure 支持功能：</p>
+                            <p>我们免费向用户提供以下支持服务：</p>
+                        </div>
+                        <div class="price_section" style="background-color: white; margin-bottom: 0;">
+                            <table border="0" style="margin-bottom: 30px; width: 60%;" id="cloud_SI">
+                                <thead>
+                                    <tr><th> </th><th class="left_align">是否支持</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left_align">计费和订阅管理</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">服务仪表板</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">Web事件提交</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">中断/修复不受限制</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">电话支持</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">ICP备案支持</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>您可以 <a id="CDN_price_suppert" style="color: #00a8d9;" href="/zh-cn/support/support-ticket-form/?l=zh-cn">在线申请支持</a> ，也可以通过服务热线联系我们。</p>
+                            <p>服务热线：</p>
+                            <ul style="margin-left: 90px;">
+                                <li>400-089-0365<a id="icon_phone1" href="/zh-cn/support/contact/" style="display: inline-block;height: 20px;width: 20px;background-image: url(http://resource.cdn.azure.cn/marketing-resource/css/images/icons/phone.png);background-repeat: no-repeat;background-position: 2px 5px;background-size: 80%;margin-top: 0px;margin-left: 2px;"></a></li>
+                                <li>010-84563652<a id="icon_phone2" href="/zh-cn/support/contact/" style="display: inline-block;height: 20px;width: 20px;background-image: url(http://resource.cdn.azure.cn/marketing-resource/css/images/icons/phone.png);background-repeat: no-repeat;background-position: 2px 5px;background-size: 80%;margin-top: 0px;"> </a></li>
+                            </ul>
+                            <p>社区帮助：<a id="pricing_cdn_help" href="http://social.msdn.microsoft.com/Forums/zh-cn/windowsazurezhchs/threads" style="color: #00a8d9;">访问MSDN </a></p>
+                            <p>更多支持信息，请点击：<a id="CDN_price_moreinfomation" style="color: #00a8d9;" href="/zh-cn/support/plans/">http://www.windowsazure.cn/zh-cn/support/plans/</a></p>
+                            <p>我们保证至少在 99.5% 的时间 CDN 将响应客户端请求并交付请求的内容，而不会出现错误。我们将检查并接受来自您选择用来监控内容的任何商业上合理的独立度量系统的数据。您必须从测量系统中的标准代理列表中选择一组普遍可用的代理，这些代理通常可用且代表中华人民共和国的主要大城市区域中的至少五个不同的地理位置。</p>
+                            <p>若要了解有关服务级别协议的详细信息，请访问<a id="CDN_price_sla1" style="color: #00a8d9;" href="/zh-cn/support/legal/sla/" target="_blank">服务级别协议</a> 页。</p>
+                        </div>
+                    </div>
+                    <div class="banner_content">
+                        <div class="price_content_dis">
+                            <span style="font-size:12px;">
+                                从试用转为购买购买意味着什么？
+                            </span>
+                            <div style="font-size:16px;">
+                                即刻使用 最高<span class="Item_span">99.99%</span>的服务级别协议包含财务保障
+                                <span>每月<span class="Item_span">1T</span>的免费数据流量</span>
+                            </div>
+                        </div>
+                        <div style="float: left; padding-top:24px;">
+                            <a id="cdn_pia2" href="/pricing/pia/" class="banner_content_link" target="_blank" style="margin-left:10px;">
+                                <span style="color:white;">我要购买</span>
+                            </a>
+                        </div>
+                        <a id="home_cdn_price" href="javascript:void(0)" class="banner_close" style="margin-top:0px;">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/close_white.png" style=" margin-bottom: 0px;margin-top:5px;" />
+                        </a>
+                    </div>
+                </section>
+            </div>
+            <!--case 案例-->
+            <div class="right_content_senction">
+                <section data-value="case" style="padding-top: 45px; clear: none; max-width: 1050px;" class="content_hide">
+                    <div>
+                        <ul class="case-list">
+                            <li class="single-case">
+                                <a id="img_h3c1" target="_blank" href="/zh-cn/partnerancasestudy/case-studies/H3C/">
+                                    <img class="logo" src="http://resource.cdn.azure.cn/marketing-resource/css/img/h3c.png" />
+                                </a>
+                                <div class="info">
+                                    <a id="parter_casestudy_h3s" href="http://www.h3c.com.cn" target="case" rel="nofollow">www.h3c.com.cn</a><br />
+                                    <label>所属行业&nbsp;:&nbsp;</label><span class="industry">信息通信</span><br />
+                                    <label>机构规模&nbsp;:&nbsp;</label><span class="scale">5000 人</span>
+                                </div>
+                                <p class="disp">
+                                    杭州华三通信技术有限公司致力于IT基础架构产品及方案的研究、开发、生产、销售及服务。<br /> H3C 分步骤分阶段的将业务系统迁移到 Windows Azure。在杭州有自建的数据中心，拥有着丰富的计算资源和大量关键的业务系统和核心数据，在使用 Windows Azure 的同时，需要确保与自有数据中心的互联互通，对系统做出平滑的迁移，而不影响服务的可用性，在业务上相互协作。
+                                </p>
+                                <div class="services">
+                                    <label>所用服务&nbsp;:&nbsp;</label>
+                                    <ul class="services-list">
+                                        <li><a id="h3s_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                                        <li><a id="h3c_blance" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a>、</li>
+                                        <li><a id="h3s_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                                        <li><a id="h3s_cach" href="/home/features/caching/">CDN</a></li>
+                                    </ul>
+                                </div>
+                                <input type="hidden" value="基础结构服务,无缝衔接混合云" />
+                                <a id="parter_casestudy_hs" href="/zh-cn/partnerancasestudy/case-studies/H3C/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+                            </li>
+                            <li class="single-case" style="float:right;">
+                                <a id="img_renren" target="_blank" href="/zh-cn/partnerancasestudy/case-studies/renren/">
+                                    <img class="logo" src="http://resource.cdn.azure.cn/marketing-resource/css/img/15jingwei.png" />
+                                </a>
+                                <div class="info">
+                                    <a id="partner_casestudy_jw" href="http://www.jingwei.com/" target="case" rel="nofollow">www.jingwei.com</a><br />
+                                    <label>所属行业&nbsp;:&nbsp;</label><span class="industry">社交</span><br />
+                                    <label>机构规模&nbsp;:&nbsp;</label><span class="scale">500-2000 人</span>
+                                </div>
+                                <p class="disp">Windows Azure 为任何数据均提供规模弹性、高可用的云存储、备份和恢复解决方案。可用于已有的基础结构，从而增强用户现有应用程序和业务连续性策略以及提供包括视频、音频和图像等非结构化文本或二进制数据的云应用程序所需的存储。同时，Windows Azure 存储提供99.9%的服务级别协议（SLA），确保存储的高可靠性。经纬网选择 Windows Azure 的存储服务，无需搭建存储系统，从何节省更多的时间专注于业务本身。</p>
+                                <div class="services">
+                                    <label>所用服务&nbsp;:&nbsp;</label>
+                                    <ul class="services-list">
+                                        <li><a id="jingwei_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                                        <li><a id="jingwei_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                                        <li><a id="jingwei_cach" href="/home/features/caching/">CDN</a>、</li>
+                                        <li><a id="jingwei_Blob" href="/home/features/storage/">存储</a></li>
+                                    </ul>
+                                </div>
+                                <input type="hidden" value="基础结构服务,存储、备份和恢复" />
+                                <a id="partner_casestudy_jingwei" href="/zh-cn/partnerancasestudy/case-studies/renren/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="banner_content" style="margin-top:125px;">
+                        <div>
+                            <div class="banner_content_distance">
+                                <span>想立即试用 CDN 服务？</span>
+                                <span class="large_span">1</span>元
+                                <span class="large_span">1</span>个月
+                                <span style="padding-left:20px;"> 先体验后购买</span>
+                            </div>
+                            <div style="padding-top: 22px;">
+                                <a id="cdn_1rmb" href="/pricing/1rmb-trial/" class="banner_content_link" target="_blank"><span style="color:white;" target="_blank">我要试用</span></a>
+                            </div>
+                        </div>
+                        <a id="banner_cdn" href="javascript:void(0)" class="banner_close">
+                            <img src="http://resource.cdn.azure.cn/marketing-resource/css/images/close_white.png" style="margin-top:5px;">
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        function onload() {
+            var strUrl = window.location.href;
+            $(".left_ul_content>li>a").each(function () {
+                var strID = $(this).attr("id").split('_')[3];
+                if(strUrl.indexOf(strID)>=0)
+                {
+                    $(this).addClass("nav_select");
+                }
+            });
+            if (strUrl.indexOf("#") > 0) {
+                var secID = strUrl.split("#")[1].toString();
+                $(".content_title").each(function () {
+                    var strhref = $(this).attr('href');
+                    if (strhref.indexOf(secID) > 0) {
+                        fetchdata(secID);
+                        $(".content_title").parent().removeClass("blue_content").addClass("grey_content");
+                        $(this).parent().removeClass("grey_content").addClass("blue_content");
+
+                    }
+                });
+                $("section").each(function () {
+                    if ($(this).attr('data-value') == secID) {
+                        $("#page_body section").removeClass("content_show").addClass("content_hide");
+                        $(this).removeClass("content_hide").addClass("content_show");
+                    }
+                });
+            };
+        }
+        onload();
+    </script>
+
+</div>
+            ]]>
+    </bodyText>
+	<redirectURL></redirectURL>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>CDN功能- Azure 微软云</pageTitle>
+    <metaKeywords>Azure, 微软云, 内容传送网络, CDN, CDN 功能, 配置 CDN, CDN 服务, CDN 传输, 什么是 Azure CDN, 功能,CDN 价格, CDN 收费, 详细价格, 降价, 单价, 案例, 业务需求, 杭州华三通信, H3C, 经纬, 信息通讯, 社交</metaKeywords>
+    <metaDescription><![CDATA[Windows Azure CDN 服务缩短数据与用户的距离，将内容缓存到距离客户最近的位置来提高应用程序性能，以便您为客户提供最好的应用程序体验。]]></metaDescription>
+    <linkid>tour-features-caching</linkid>
+    <urlDisplayName>CDN</urlDisplayName>
+    <headerExpose />
+    <footerExpose />
+    <disqusComments>0</disqusComments>
+    <metaCanonical />
+    <isHeader>0</isHeader>
+    <pageTemplate />
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

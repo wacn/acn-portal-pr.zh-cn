@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2016-06-29T15:44:24" urlName="sql-database" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="sql-database" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/sql-server.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/css/sql-database@2x.png" />
+                        <h2>SQL 数据库<span>SQL Database</span></h2>
+                        <h4>可以存储大量的数据、可以在云端 SQL 数据库与本地 SQL Server 或其他 SQL 数据库实例之间创建和安排定期同步。</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_sql_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_sql_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <!-- <p>包含任务关键型功能的关系数据库即服务。</p>
+                <p>SQL 数据库是一种关系数据库即服务产品/服务，包含任务关键型功能。它支持现有 SQL Server 库和 API，可让你重复使用代码和脚本。只需几秒钟你即可在 Azure 上构建一个 SQL 数据库，而无需自己管理虚拟机或基础结构。SQL 数据库提供可预测的性能保证和行业领先的 99.99% 的可用性服务级别协议。</p>
+                <p>SQL 数据库提供内置数据支持，能够为任何时长最多 35 天的事务进行数据的时点还原。此外，你还可自动复制到你选择的其他 Azure 区域。这可让你轻松实现针对你的业务需求设计的灾难恢复策略。</p> -->
+                <p>Azure SQL 数据库是为<strong>应用开发人员</strong>构建的云数据库服务。该数据库即服务独一无二，<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-service-tiers" id="home-sql_sql-database-service-tiers">无需停机即可实时缩放</a>，帮助你高效交付多租户应用，进而让你有更多时间进行创新，加快产品投入市场的速度。SQL 数据库的<strong>内置智能</strong>将快速<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-advisor" id="home-sql_sql-database-advisor">了解应用的独特特征并进行动态调整</a>，从而最大化其性能、可靠性和数据保护能力。你可使用<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-develop-overview" id="home-sql_sql-database-develop-overview">喜欢的语言和平台生成安全的应用</a>并连接到 SQL 数据库。</p>
+                <h2>定价详细信息</h2>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <a href="javascript:void(0)" data-href="#tabContent1" id="home_single_database" class="active">单个数据库</a>
+                <a href="javascript:void(0)" data-href="#tabContent2" id="home_elastic_database">弹性数据库</a>
+                <div class="clearfix"></div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+                    <p>单个数据库是在性能需求可预测时，针对工作负载优化的完全孤立的数据库。你可以在“基本”、“标准”和“高级”服务级别缩小或扩大单个数据库，以便在您的应用刚好需要时获得其所需的性能和功能。每一层主要由其性能区分，性能用<a class="wa-selta" id="documentation-articles-sql-database-service-tiers-" style="color:#00a8d9;" target="_blank" href="/documentation/articles/sql-database-service-tiers/">数据库事务单位 (DTU) </a>衡量。请参阅<a target="_blank" class="wa-selta" id="/documentation/articles/sql-database-service-tiers/" href="/documentation/articles/sql-database-service-tiers/" style="color:#00a8d9;">服务层</a>以了解更多详情。</p>
+                    <h3>基本级别</h3>
+                    <p>设计用于具有轻型事务工作负荷的应用程序。“基本”级别的性能目标提供可预测的每小时事务速率。</p>
+                    <!-- <p>从2016年4月1日起，基本级别价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th></th>
+                            <th align="left"><strong>数据库事务单位</strong></th>
+                            <th align="left"><strong>包含的存储</strong></th>
+                            <th align="left"><strong>最大存储</strong></th>
+                            <!-- <th align="left"><strong>时点还原<br />（自助还原）</strong></th> -->
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>5 DTU</td>
+                            <td>2 GB</td>
+                            <td>2 GB</td>
+                            <!-- <td>7天</td> -->
+                            <td>¥1.04/天<br />（~¥32.24/月）</td>
+                        </tr>
+                    </table>
+                    <!-- END: Table1-Content-->
+                    <!-- BEGIN: Table2-Content-->
+                    <h3>标准级别</h3>
+                    <p>标准级别适用于事务型工作负载。它提供中级性能和内置业务连续性功能，包括时点恢复。“标准”级别的性能目标提供可预测的每分钟事务速率。</p>
+                    <p>提供最大的灵活性。支持所有虚拟机配置和功能。</p>
+                    <!-- <p>从2016年4月1日起，单个数据库标准级别价格将下调25.5%，以下是新价格：</p> -->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">                 
+                        <tr>
+                            <th></th>
+                            <th align="left"><strong>数据库事务单位</strong></th>
+                            <th align="left"><strong>包含的存储</strong></th>
+                            <th align="left"><strong>最大存储</strong></th>
+                            <!-- <th align="left"><strong>时点还原<br />（自助还原）</strong></th> -->
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>S0</td>
+                            <td>10 DTU</td>
+                            <td>250 GB</td>
+                            <td>250 GB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥3.13/天<br />（~¥97.03/月）</td>
+                        </tr>
+                        <tr>
+                            <td>S1</td>
+                            <td>20 DTU</td>
+                            <td>250 GB</td>
+                            <td>250 GB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥6.24/天<br />（~¥193.44/月）</td>
+                        </tr>
+                        <tr>
+                            <td>S2</td>
+                            <td>50 DTU</td>
+                            <td>250 GB</td>
+                            <td>250 GB</td>
+                           <!--  <td>14天内的任何点</td> -->
+                            <td>¥15.65/天<br />（~¥485.15/月）</td>
+                        </tr>
+                        <tr>
+                            <td>S3</td>
+                            <td>100 DTU</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                           <!--  <td>14天内的任何点</td> -->
+                            <td>¥31.27/天<br />（~¥969.37/月）</td>
+                        </tr> 
+                        <tr>
+                            <td>S4<sup style="color: #a5ce00; font-weight: bold">预览</sup></td>
+                            <td>200 DTU</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥32.45/天<br />（~¥1,005.95/月）</td>
+                        </tr> 
+                        <tr>
+                            <td>S6<sup style="color: #a5ce00; font-weight: bold">预览</sup></td>
+                            <td>400 DTU</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥64.89/天<br />（~¥2,011.59/月）</td>
+                        </tr> 
+                        <tr>
+                            <td>S7<sup style="color: #a5ce00; font-weight: bold">预览</sup></td>
+                            <td>800 DTU</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥129.79/天<br />（~¥4,023.49/月）</td>
+                        </tr> 
+                        <tr>
+                            <td>S9<sup style="color: #a5ce00; font-weight: bold">预览</sup></td>
+                            <td>1600 DTU</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥259.57/天<br />（~¥8,046.67/月）</td>
+                        </tr> 
+                        <tr>
+                            <td>S12<sup style="color: #a5ce00; font-weight: bold">预览</sup></td>
+                            <td>3000 DTU</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>14天内的任何点</td> -->
+                            <td>¥486.70/天<br />（~¥15,087.70/月）</td>
+                        </tr> 
+                    </table>
+					<!--
+                    <div class="tags-date">
+                        <div class="ms-date">从 12 月 31 日开始，S0 大小的使用费将作为 S1 大小的费用部分出现在你的账单上。</div><br />
+                    </div>
+					-->
+                    <!-- END: Table2-Content-->
+                    <!-- BEGIN: Table3-Content-->
+                    <h3>高级 RS<sup style="color: #a5ce00; font-weight: bold">预览</sup></h3>
+                        <p>高级 RS 为可接受有限耐久性保证和低服务级别协议的 IO 密集型工作负载所设计。高级 RS 运行会降低冗余的副本的数量，这意味着万一潜在的服务失败，捕获备份恢复数据可能需要五分钟的延迟。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">               
+                        <tr>
+                            <th></th>
+                            <th align="left"><strong>数据库事务单位</strong></th>
+                            <th align="left"><strong>包含的存储</strong></th>
+                            <th align="left"><strong>最大存储</strong></th>
+                            <!--<th align="left"><strong>时点还原<br />（自助还原）</strong></th>-->
+                            <th align="left"><strong>价格<sup style="color: #a5ce00; font-weight: bold">预览</sup></strong></th>
+                        </tr>
+                        <tr>
+                            <td>PRS1</td>
+                            <td>125 DTU</td>                            
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!--<td>35天</td>-->
+                            <td>¥24.20/天<br />（~¥750.28/月）</td>
+                        </tr>
+                        <tr>
+                            <td>PRS2</td>
+                            <td>250 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!--<td>35天</td>-->
+                            <td>¥48.40/天<br />（~¥1,500.56/月）</td>
+                        </tr
+                        <tr>
+                            <td>PRS4</td>
+                            <td>500 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!--<td>35天</td>-->
+                            <td>¥96.81/天<br />（~¥3,001.10/月）</td>
+                        </tr>
+                        <tr>
+                            <td>PRS6</td>
+                            <td>1000 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!--<td>35天</td>-->
+                            <td>¥193.62/天<br />（~¥6,002.13/月）</td>
+                        </tr>
+                    </table>
+                    <!-- END: Table3-Content-->
+                    <!-- BEGIN: Table4-Content-->
+                    <h3>高级级别</h3>
+                    <!-- <p>从2016年4月1日起，高级级别价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">               
+                        <tr>
+                            <th></th>
+                            <th align="left"><strong>数据库事务单位</strong></th>
+                            <th align="left"><strong>包含的存储</strong></th>
+                            <th align="left"><strong>最大存储</strong></th>
+                            <!-- <th align="left"><strong>时点还原<br />（自助还原）</strong></th> -->
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>P1</td>
+                            <td>125 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>35天</td> -->
+                            <td>¥96.81/天<br />（~¥3,001.11/月）</td>
+                        </tr>
+                        <tr>
+                            <td>P2</td>
+                            <td>250 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>35天</td> -->
+                            <td>¥193.62/天<br />（~¥6,002.22/月）</td>
+                        </tr
+                        <tr>
+                            <td>P4</td>
+                            <td>500 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>35天</td> -->
+                            <td>¥387.24/天<br />（~¥12,004.44/月）</td>
+                        </tr>
+                        <tr>
+                            <td>P6（原 P3）<sup style="font-weight: normal;">1</sup></td>
+                            <td>1000 DTU</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <!-- <td>35天</td> -->
+                            <td>¥774.47/天<br />（~¥24,008.57/月）</td>
+                        </tr>
+                            <tr>
+                            <td>P11</td>
+                            <td>1750 DTU</td>
+                            <td>1 TB</td>
+                            <td>1 TB</td>
+                            <!-- <td>35天</td> -->
+                            <td>¥1455.86/天<br />（~¥45,131.66/月）</td>
+                        </tr>
+                            <tr>
+                            <td>P15</td>
+                            <td>4000 DTU</td>
+                            <td>1 TB</td>
+                            <td>1 TB</td>
+                            <!-- <td>35天</td> -->
+                            <td>¥3327.61/天<br />（~¥103,155.91/月）</td>
+                        </tr>
+
+                    </table>
+                    <div class="tags-date">
+                        <div class="ms-date"><sup style="font-weight: normal;">1</sup>即日起，P3 正式更名为 P6。</div>
+                    </div>
+                    
+                    <h3>额外存储<sup style="color: #a5ce00; font-weight: bold">预览</sup></h3>
+                    <p>以下价格为预览版价格。</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left">
+                                <strong></strong>
+                            </th>
+                            <th align="left">
+                                <strong>价格<sup style="color: #a5ce00; font-weight: bold">预览</sup></strong>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>标准</td>
+                            <td>¥0.5406/月</td>
+                        </tr>
+                        <tr>
+                            <td>高级和高级 RS</td>
+                            <td>¥1.0812/月</td>
+                        </tr>
+                    </table>
+            
+                    <p>注意：传出的数据将按照常规<a id="SQL_Database_chuanshu" style="color: #00a8d9;" href="/pricing/details/data-transfer/" target="_blank">数据传输</a>费率收费。</p>
+                    <!-- END: Table4-Content-->
+                    <!-- BEGIN: Table5-Content-->
+                    <h3>活动异地复制</h3>
+                    <p>活动异地复制可在任意 Azure 区域内创建最多 4 个联机（可读）辅助数据库。辅助数据库可使用与主数据库相同的服务级别来创建，但在性能上可能有差异。辅助数据库按所选的性能级别价格的 1 倍定价。主数据库和辅助数据库之间的异地复制产生的流量费用包含在联机辅助数据库的费用内。活动异地复制适用于数据库服务的所有级别中。</p>
+                    <!-- END: Table5-Content-->
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->
+                <!-- BEGIN: TAB-CONTAINER-2 -->
+                <div class="tab-control-container" id="tabContent2">
+                    <!-- BEGIN: Table1-Content-->
+                    <h3>
+                        弹性数据库模型
+                        <!-- <span><sup style="color: #a5ce00;">预览版</sup></span>-->
+                    </h3>
+                    <p>使用弹性数据库池，你可以管理池（而不是单一数据库）的总体性能。池中的数据库称为弹性数据库，它们能够自动增减以满足需求。可轻松地向池添加数据库和从池中删除数据库，将应用从少量数据库扩展到数千个，而一切费用不会超出由你控制的预算范围。</p>
+                    <p>弹性数据库池在“基本”、“标准”和“高级”服务级别中可用。每一层主要由其总体性能区分，总体性能用<a id="documentation_articles_sql-database-service-tiers_understanding-dtus" href="/documentation/articles/sql-database-service-tiers/#understanding-dtus" style="color:#00a8d9;" target="_blank">弹性数据库事务单位 ( eDTU ) </a>衡量。请参阅<a id="documentation_articles_sql-database-service-tiers_understanding-dtus" href="/documentation/articles/sql-database-service-tiers/#understanding-dtus" style="color:#00a8d9;" target="_blank">弹性数据库池的服务层</a>以获取详情。弹性数据库模型现已正式上线。客户将继续享受如下 50% 的预览版折扣价格。</p>
+                    <h3>基本</h3>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>eDTU /每个池</strong></th>
+                            <th align="left"><strong>每个池包含的存储</strong></th>
+                            <th align="left"><strong>最大存储空间/每个池 <sup>1</sup></strong></th>
+                            <th align="left"><strong>最大 DB /每个池</strong></th>
+                            <th align="left"><strong>最大 eDTU /每个数据库</strong></th >
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>5 GB</td>
+                            <td>5 GB</td>
+                            <td>100</td>
+                            <td>5</td>
+                            <td>￥31.00/天<br/>（约 ￥961.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>10 GB</td>
+                            <td>10 GB</td>
+                            <td>200</td>
+                            <td>5</td>
+                            <td>￥62.00/天<br/>（约 ￥1,922.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>200</td>
+                            <td>20 GB</td>
+                            <td>20 GB</td>
+                            <td>500</td>
+                            <td>5</td>
+                            <td>￥124.00/天<br/>（约 ￥3,844.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td>29 GB</td>
+                            <td>29 GB</td>
+                            <td>500</td>
+                            <td>5</td>
+                            <td>￥186.00/天<br/>（约 ￥5,766.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>39 GB</td>
+                            <td>39 GB</td>
+                            <td>500</td>
+                            <td>5</td>
+                            <td>￥248.00/天<br/>（约 ￥7,688.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>800</td>
+                            <td>78 GB</td>
+                            <td>78 GB</td>
+                            <td>500</td>
+                            <td>5</td>
+                            <td>￥496.00/天<br/>（约 ￥15,376.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1200</td>
+                            <td>117 GB</td>
+                            <td>117 GB</td>
+                            <td>500</td>
+                            <td>5</td>
+                            <td>￥744.00/天<br/>（约 ￥23,064.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1600</td>
+                            <td>156 GB</td>
+                            <td>156 GB</td>
+                            <td>500</td>
+                            <td>5</td>
+                            <td>￥992.00/天<br/>（约 ￥30,752.00/月）</td>
+                        </tr>
+                    </table>
+                    <!-- END: Table1-Content-->
+                    <!-- BEGIN: Table2-Content-->
+                    <h3>标准</h3>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>eDTU /每个池</strong></th>
+                            <th align="left"><strong>每个池包含的存储</strong></th>
+                            <th align="left"><strong>最大存储空间/每个池 <sup>1</sup></strong></th>
+                            <th align="left"><strong>最大 DB /每个池</strong></th>
+                            <th align="left"><strong>最大 eDTU /每个数据库</strong></th >
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>50 GB</td>
+                            <td>500 GB</td>
+                            <td>100</td>
+                            <td>50</td>
+                            <td>￥46.00/天<br/>（约 ￥ 1,426.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>100 GB</td>
+                            <td>750 GB</td>
+                            <td>200</td>
+                            <td>100</td>
+                            <td>￥92.00/天<br/>（约 ￥ 2,852.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>200</td>
+                            <td>200 GB</td>
+                            <td>1 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥184.00天<br/>（约 ￥5,704.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td>300 GB</td>
+                            <td>1.25 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥276.00/天<br/>（约 ￥ 8,556.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>400 GB</td>
+                            <td>1.5 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥368.00/天<br/>（约 ￥11,408.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>800</td>
+                            <td>800 GB</td>
+                            <td>2 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥736.00/天<br/>（约 ￥22,816.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1200</td>
+                            <td>1.2 TB</td>
+                            <td>2.5 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥1,104.00/天  <br/>（约 ￥34,224.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1600</td>
+                            <td>1.6 TB</td>
+                            <td>3 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥1,472.00/天<br/>（约 ￥ 45,632.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>2000</td>
+                            <td>1.9 TB</td>
+                            <td>3.5 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥1,840.00/天<br/>（约 ￥ 57,040.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>2500</td>
+                            <td>2.4 TB</td>
+                            <td>4 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥2,300.00/天<br/>（约 ￥ 71,300.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>3000</td>
+                            <td>2.9 TB</td>
+                            <td>4 TB</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>￥2,760.00/天<br/>（约 ￥85,560.00/月）</td>
+                        </tr>
+                    </table>
+                    <!-- END: Table2-Content-->
+                    <!-- BEGIN: Table3-Content-->
+                    <h3>高级 RS<sup style="color: #a5ce00; font-weight: bold">预览</sup></h3>
+                        <p>高级 RS 为可接受有限耐久性保证和低服务级别协议的 IO 密集型工作负载所设计。高级 RS 运行会降低冗余的副本的数量，这意味着万一潜在的服务失败，捕获备份恢复数据可能需要五分钟的延迟。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                     <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>eDTU /每个池</strong></th>
+                            <th align="left"><strong>每个池包含的存储</strong></th>
+                            <th align="left"><strong>最大存储空间/每个池 <sup>1</sup></strong></th>
+                            <th align="left"><strong>最大 DB /每个池</strong></th>
+                            <th align="left"><strong>最大 eDTU /每个数据库</strong></th >
+                            <th align="left"><strong>价格<sup style="color: #a5ce00; font-weight: bold">预览</sup></strong></th>
+                        </tr>
+                        <tr>
+                            <td>125</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <td>50</td>
+                            <td>125</td>
+                            <td>￥71.25/天<br/>（约 ￥2,208.75/月）</td>
+                        </tr>
+                        <tr>
+                            <td>250</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>250</td>
+                            <td>￥142.5/天<br/>（约 ￥4,417.5/月）</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>500</td>
+                            <td>￥285.00/天<br/>（约 ￥8,835.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1000</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1000</td>
+                            <td>￥570.00/天<br/>（约 ￥17,670.00/月）</td>
+                        </tr>
+                    </table>   
+                    <!-- END: Table3-Content-->
+                    <!-- BEGIN: Table4-Content-->
+                    <h3>高级</h3>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>eDTU /每个池</strong></th>
+                            <th align="left"><strong>每个池包含的存储</strong></th>
+                            <th align="left"><strong>最大存储空间/每个池 <sup>1</sup></strong></th>
+                            <th align="left"><strong>最大 DB /每个池</strong></th>
+                            <th align="left"><strong>最大 eDTU /每个数据库</strong></th >
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>125</td>
+                            <td>250 GB</td>
+                            <td>1 TB</td>
+                            <td>50</td>
+                            <td>125</td>
+                            <td>￥285.00/天<br/>（约 ￥8,835.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>250</td>
+                            <td>500 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>250</td>
+                            <td>￥570.00/天<br/>（约 ￥17,670.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>500</td>
+                            <td>￥1140/天<br/>（约 ￥35,340.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1000</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1000</td>
+                            <td>￥2280.00/天<br/>（约 ￥70,680.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>1500</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1000</td>
+                            <td>￥3420.00/小时<br/>（约 ￥106,020.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>2000</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1750</td>
+                            <td>￥4,560.00/天<br/>（约 ￥141,360.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>2500</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1750</td>
+                            <td>￥5,700.00/天<br/>（约 ￥176,700.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>3000</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1750</td>
+                            <td>￥6,840.00/天<br/>（约 ￥212,040.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>3500</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>1750</td>
+                            <td>￥7,980.00/天<br/>（约 ￥247,380.00/月）</td>
+                        </tr>
+                        <tr>
+                            <td>4000</td>
+                            <td>750 GB</td>
+                            <td>1 TB</td>
+                            <td>100</td>
+                            <td>4000</td>
+                            <td>￥9,120.00/天<br/>（约 ￥282,720.00/月）</td>
+                        </tr>
+                    </table>
+                    <!-- END: Table4-Content-->
+                    <h3>额外存储<sup style="color: #a5ce00; font-weight: bold">预览</sup></h3>
+                    <p>以下价格为预览版价格。</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left">
+                                <strong></strong>
+                            </th>
+                            <th align="left">
+                                <strong>价格<sup style="color: #a5ce00; font-weight: bold">预览</sup></strong>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>标准</td>
+                            <td>¥0.5406/月</td>
+                        </tr>
+                        <tr>
+                            <td>高级和高级 RS</td>
+                            <td>¥1.0812/月</td>
+                        </tr>
+                    </table>
+                    <p>请参阅<a id="documentation_articles_sql-database-elastic-pool" href="/documentation/articles/sql-database-elastic-pool/" style="color:#00a8d9;" target="_blank">弹性数据库池</a>以了解有关弹性数据库池的更多信息。
+					<!-- ，以及参阅<a id="documentation_articles_sql-database-elastic-jobs-overview" href="/documentation/articles/sql-database-elastic-jobs-overview/" style="color:#00a8d9;" target="_blank">弹性数据库作业以了解如何统一管理弹性数据库。</a> --> </p>
+                    <!-- <p>注意：传出的数据将按照常规<a id="SQL_Database_chuanshu" style="color: #00a8d9;" href="/pricing/details/data-transfer/" target="_blank">数据传输</a>费率收费。</p>
+                    <div class="tags-date">
+                        <div class="ms-date"> <sup>1</sup>每个数据库的最大存储空间取决于池的服务层，如下所示：</div><br />
+                        <div class="ms-date">- 基本池中，每个数据库的最大存储空间为 2 GB。</div><br />
+                        <div class="ms-date">- 标准池中，每个数据库的最大存储空间为 250 GB。</div><br />
+                        <div class="ms-date">- 高级池中，每个数据库的最大存储空间为 500 GB。</div> 
+                    </div>-->
+                    <h3>活动异地复制</h3>
+                    <p>活动异地复制可在任意 Azure 区域内创建最多 4 个联机（可读）辅助数据库。辅助数据库可使用与主数据库相同的服务级别来创建，但在性能上可能有差异。辅助数据库按所选的性能级别价格的 1 倍定价。主数据库和辅助数据库之间的异地复制产生的流量费用包含在联机辅助数据库的费用内。活动异地复制适用于数据库服务的所有级别中。</p>
+                </div>
+                <!-- END: TAB-CONTAINER-2 -->
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question1">Azure SQL 数据库如何定价？</a>
+                                <section>
+                                     <p> 单个数据库（或弹性数据库）的总价是 DTU（或 eDTU）的价格加上预配的任何额外存储的价格。DTU（或 eDTU）价格包含无附加成本的特定量的存储。超出包含的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。额外存储的价格等于额外存储量乘以服务层的单价。每小时对 DTU 或 eDTU 以及任何额外存储进行计费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="SQL_Database_question2">预配了额外存储的单个数据库的定价示例</a>
+                                <section>
+                                    <p> 假设 S3 数据库预配了 1 TB。S3 包含的存储量为 250 GB，因此额外的存储量为 1 TB - 250 GB = 774 GB。预览期间，标准层中的额外存储的单价约为 ¥0.5406/GB/月，因此额外的存储价格为 774 GB * ¥0.5406/GB/月 = ¥418.42/月。因此，S3 数据库的总价为 eDTU ¥969.37/月 + 额外存储 ¥418.42/月 = ¥1387.79/月。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="SQL_Database_question3">预配了额外存储的弹性数据库的定价示例</a>
+                                <section>
+                                    <p> 假设 125 eDTU 高级池预配了 1 TB。125 eDTU 高级池包含的存储量为 250 GB，因此额外的存储量为 1 TB - 250 GB = 774 GB。预览期间，高级池中的额外存储的单价约为 ¥1.0812/GB/月，因此额外的存储价格为 774 GB * ¥1.0812/GB/月 = ¥836.85/月。因此，该数据库的总价为池 eDTU ￥8835.00/月 + 额外存储 ¥836.85/月 = ￥9671.85/月。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="SQL_Database_question4">高级 RS 与高级版有什么区别？</a>
+                                <section>
+                                     <p> 高级版专为要求高可用性和零停机时间的 IO 密集型生成工作负荷设计。高级版有 99.99% 可用性服务级别协议支持，具有容错能力，并能自动处理读取和写入可用性。</p>
+                                     <p>高级 RS（预览）专为可接受有限持久性保证和较低服务级别协议的 IO 密集型工作负荷设计。高级 RS 通过较少冗余副本运行，这表示出现可能的服务故障时，从备份恢复可能需要长达 5 分钟的数据捕获延迟。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="SQL_Database_question5">高级 RS 有服务级别协议吗？</a>
+                                <section>
+                                   <p> 高级 RS 在公共预览期间不提供服务级别协议。高级 RS 正式推出时，其服务级别协议将低于高级版服务级别协议。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="SQL_Database_question6">可否从高级 RS 升级到高级版？</a>
+                                <section>
+                                     <p> 是的，可随时将数据库从高级 RS 升级到高级版。</p>    
+                                </section>
+
+                            </div>
+                        </li>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>上市地区</h2>
+                <p>SQL 数据库在以下区域中提供：</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>地域</strong></th>
+                        <th align="left"><strong>区域</strong></th>
+                    </tr>
+                    <tr>
+                        <td>中国大陆</td>
+                        <td>中国东部数据中心 , 中国北部数据中心</td>
+                    </tr>
+                </table>
+                
+               <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="database-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>基本、标准和高级层级</p>
+				<p>我们保证单一或弹性的基本、标准或高级 Azure SQL 数据库与我们的 Internet 网关之间不低于 99.99% 的连接时间。</p>
+				<p>Web 和企业版（已停用）</p>
+				<p>我们保证至少在 99.9% 的时间内客户将能够在其 Web 版或企业版 Azure SQL 数据库与我们的 Internet 网关之间保持连接。</p>
+				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/sql-database/" id="pricing_database_sla">服务级别协议</a>页。</p>
+                </div>
+                <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
+                <!--END: Support and service code chunk-->
+              
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                       
+            <!--END: Support and service code chunk-->                                                                                    
+    ]]>
+    </bodyText>
+    <pageTitle>Azure SQL数据库定价 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-sql-database</linkid>
+    <metaKeywords>Azure, 微软云, Azure SQL 数据库, Azure SQL Database, 价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure SQL 数据库( SQL Database)的价格详情。SQL数据库分为单个数据库和弹性数据库，每种数据库又分为基本、标准和高级三个级别，用户可根据自己的需求选择不同的数据库及其级别。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户。]]></metaDescription>
+    <urlDisplayName>价格详情 - SQL 数据库</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="2" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T10:41:59" urlName="cognitive-services-face" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style>
+                .cognitive-banner{
+                    margin: 30px 0;
+                }
+                .cognitive-figure{
+                    padding-bottom: 30px;
+                    margin-bottom: 30px;
+                    border-bottom: 1px #ccc solid;
+                    overflow: hidden;
+                }
+                .cognitive-figure .col-md-3{
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                .cognitive-figure .col-md-9{
+                    padding-left: 2%;
+                    padding-right: 0;
+                }
+                .pricing-page-section .cognitive-figure .col-md-9 h2, .container .pure-content .pricing-page-section .cognitive-icon-group .cognitive-text h2{
+                    margin-top: 4px !important;
+                }
+                .cognitive-icon-group{
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                    list-style:none;
+                    padding-left:0 !important;
+                }
+                .cognitive-icon-group li{
+                    width:100%;
+                    overflow:hidden;
+                    margin-bottom: 30px !important;
+                }
+                .cognitive-icon-group li div{
+                    float: left;
+                }
+                .cognitive-icon{
+                    width: 10%;
+                    min-width: 100px;
+                    margin-right:-120px;
+                }
+                .cognitive-text{                   
+                    margin-left:120px;
+                }
+                .cognitive-icon-group li:last-child{
+                    margin-bottom: 0 !important;
+                }
+                @media only screen and (max-width: 769px){
+                    .cognitive-figure{
+                        padding-bottom: 20px;
+                    }
+                    .cognitive-figure .col-md-9{
+                        padding-left: 0;
+                    }
+                    .pricing-page-section .cognitive-figure .col-md-9 h2{
+                        margin-top: 26px !important;
+                    }
+                }
+            </style>
+            <!-- BEGIN: Cognitive-Services-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/images/cognitive-face-api-slice-01.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/css/images/home,features,cognitive-services,face.png" />
+                        <h2>人脸识别 API<span>Face API</span></h2>
+                        <h4>检测并比较相似的人脸，基于相似度将图像组织成组，识别图像中先前标记的人物。</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="face_1rmb-trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="face_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Cognitive-Services-TopBanner -->
+            <!-- BEGIN: Cognitive-Services-Content -->
+            <div class="pricing-page-section">   
+                <h2>人脸验证</h2> 
+                <p>检查两张人脸属于同一人的可能性。API 将返回一个可信度评分，用于说明这两张脸属于同一人的可能性为多大。</p>
+                <img src="//resource.cdn.azure.cn/marketing-resource/media/images/cognitive-services/cognitive-services-face-c01.png" class="cognitive-banner"/>                                                                
+            </div>
+            <div class="pricing-page-section">   
+                <h2>面部检测</h2> 
+                <p>检测图像中的一张或多张人脸，获取图像中人脸所在位置背面的矩形，以及包含基于机器学习的面部特征预测的人脸属性。提供的 面部属性特征包括：年龄、表情、性别、姿势、微笑和面部毛发，以及图像中每张脸上的 27 个特征点。</p>
+                <img src="//resource.cdn.azure.cn/marketing-resource/media/images/cognitive-services/cognitive-services-face-people.png" class="cognitive-banner"/>                                                                
+            </div>
+            
+            <div class="pricing-page-section">
+                <!-- <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/cognitive-services/cognitive-services-face-verification.png"/>
+                    </div>
+                    <div class="col-md-9">
+                        <h2>人脸验证</h2>
+                        <p>核对两张脸是否属于同一个人。并给出置信度评分。</p>
+                    </div>
+                </div> -->
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/cognitive-services/cognitive-services-face-identification.png"/>
+                    </div>
+                    <div class="col-md-9">
+                        <h2>面部识别</h2>
+                        <p>搜索并识别人脸。使用用户提供的数据标记人员和组并进行搜索，以便与先前未看的人脸相匹配。</p>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/cognitive-services/cognitive-services-face-similar-face-search.png"/>
+                    </div>
+                    <div class="col-md-9">
+                        <h2>相似脸搜索</h2>
+                        <p>轻松查找相似的人脸。给定一组人脸和一张新脸作为查询，该 API 将返回一组相似的人脸。</p>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/cognitive-services/cognitive-services-face-grouping.png"/>
+                    </div>
+                    <div class="col-md-9">
+                        <h2>面部分组</h2>
+                        <p>根据视觉相似度，将无法识别的多个人脸组织成组。</p>
+                    </div>
+                </div>
+
+                <h1>了解所有认知服务 API</h1>
+                <ul class="cognitive-icon-group">
+                    <li>
+                        <div class="cognitive-icon"><img src="//resource.cdn.azure.cn/marketing-resource/css/images/home,features,cognitive-services,face.png"/></div>
+                        <div class="cognitive-text">
+                            <h2>人脸识别 API</h2>
+                            <p>检测并比较相似的人脸，基于相似度将图像组织成组，识别图像中先前标记的人物。</p>
+                            <p><a id="face_face" href="/home/features/cognitive-services/face/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>                    
+                    <li>
+                        <div class="cognitive-icon"><img src="//resource.cdn.azure.cn/marketing-resource/css/images/home,features,cognitive-services,emotion.png"/></div>
+                        <div class="cognitive-text">
+                            <h2>情绪识别 API</h1>
+                            <p>分析面部，检测一系列情感，并对应用的响应进行个性化设置。</p>
+                            <p><a id="face_emotion" href="/home/features/cognitive-services/emotion/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cognitive-icon"><img src="//resource.cdn.azure.cn/marketing-resource/css/images/home,features,cognitive-services,computer-vision.png"/></div>
+                        <div class="cognitive-text">
+                           <h2>计算机视觉 API</h2>
+                        <p>从图像中提取丰富的信息，以便对视觉数据进行分类和处理，在计算机的辅助下审查图像，为策展服务提供帮助。</p>
+                        <p><a id="face_computer-vision" href="/home/features/cognitive-services/computer-vision/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>
+                </ul>
+                    
+            </div>
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
+            <!--END: Support and service code chunk-->   
+            <!-- END: Cognitive-Services-Content -->
+                          
+    ]]>
+    </bodyText>
+    <pageTitle>人脸识别API_智能应用程序 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>home-features-cognitive-services-face</linkid>
+    <metaKeywords>Azure, 认知服务, Cognitive Services, 人脸识别</metaKeywords>
+    <metaDescription><![CDATA[Azure 认知服务人脸识别 API 可以检测图片中一个或者多个人脸，并为人脸标记出边框，同时还可获得基于机器学习技术做出的面部特征预测。检测出人脸后，你可以直接将人脸方框输入到情绪识别 API 中来加速图像处理。可支持的人脸功能有：年龄、性别、头部姿态、微笑检测、胡须检测以及 27 个面部重要特征点位置。]]></metaDescription>
+    <urlDisplayName>认知服务 - 人脸识别 API</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

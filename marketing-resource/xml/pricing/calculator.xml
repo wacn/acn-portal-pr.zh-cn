@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="12024" parentID="12022" level="3" writerID="106" creatorID="22" nodeType="1059" template="1052" sortOrder="1" createDate="2012-05-29T21:01:50" updateDate="2014-10-16T08:22:41" nodeName="Calculator" urlName="calculator" writerName="content" creatorName="Brad" path="-1,11978,12022,12024" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+<!-- start filter related -->
+<style>
+  .calculator-filter {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 50px;
+  }
+  
+  .calculator-filter label {
+    font-size: 14px;
+    color: #555555;
+    vertical-align: middle;
+    line-height: 24px;
+    display: inline;
+  }
+  
+  .calculator-filter .value {
+    padding-left: 10px;
+  }
+  
+  .calculator-filter .checkbox-rect {
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    margin-right: 10px;
+  }
+  
+  .calculator-filter .drop-list {
+    display: inline-block;
+    font-size: 14px;
+    height: 28px;
+    vertical-align: middle;
+    line-height: 24px;
+    width: 240px;
+    border: 1px solid #919191;
+    box-sizing: border-box;
+    margin-right: 30px;
+    margin-left: 8px;
+    position: relative;
+    cursor: pointer;
+    z-index: 99;
+  }
+  
+  .calculator-filter .arrow-down {
+    display: inline-block;
+    position: absolute;
+    background: url("//resource.cdn.azure.cn/marketing-resource/css/img/icon_dropdown-arrow.png");
+    width: 8px;
+    height: 4px;
+    right: 5px;
+    top: 10px;
+  }
+  
+  .calculator-filter ul {
+    font-size: 14px;
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid #919191;
+    width: 240px;
+    left: -1px;
+    top: 2px;
+    background: white;
+    z-index: 10;
+  }
+  
+  .calculator-filter li {
+    padding-left: 10px;
+    line-height: 28px;
+  }
+  
+  .preload {
+    display: none;
+  }
+</style>
+
+<script src="//resource.cdn.azure.cn/marketing-resource/Content/calculator/calculatorconst.js" type="text/javascript"></script>
+<script src="//resource.cdn.azure.cn/marketing-resource/Content/calculator/calculatordatamodel.js" type="text/javascript"></script>
+
+<div class='preload'>
+  <img src='//resource.cdn.azure.cn/marketing-resource/css/img/right.png' />
+</div>
+<div class="calculator-filter">
+  <label class='calculator-filter-label'>请您选择需要估算的服务</label>
+  <div class="drop-list">
+    <span class="value" data-value="">全部</span>
+    <span class="arrow-down"></span>
+    <ul class='options hide'>
+      <li>
+        选择所有
+      </li>
+      <li>
+        清空所有
+      </li>
+      <!--
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_website></span>Web 应用
+      </li>
+	  -->
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_power-bi-embedded></span>Power BI 工作区集合
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_app-service></span>应用服务
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_virtual-machines></span>虚拟机
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_cloud-services></span>云服务
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_storage></span>存储
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_sql-database-basic></span>SQL 数据库
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_mobile-service></span>移动服务
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_event-hubs></span>事件中心
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_automation></span>自动化
+      </li>
+        <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_media-services></span>媒体服务
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_site-recovery></span>站点恢复
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_mysql-database-on-azure></span>MySQL Database on Azure
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_stream-analytics></span>流分析
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_redis-cache></span>Redis 缓存
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_notification-hub></span>通知中心
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_hdinsight></span>HDInsight
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_cdn></span>CDN
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_schedule></span>计划程序
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_backup></span>备份
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_service-bus></span>服务总线
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_virtual-network></span>VPN 网关
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_ip-address></span>IP 地址
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_traffic-manager></span>流量管理器
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_data-transfer></span>数据传输
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_networking></span>虚拟网络
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_application-gateway></span>应用程序网关
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_expressroute></span>ExpressRoute
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_key-vault></span>密钥保管库
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_sql-data-warehouse></span>SQL 数据仓库
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_azure-iot-hub></span>Azure IoT 中心
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_cosmos-db></span>Azure Cosmos DB
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_sql-server-stretch-database></span>SQL Server Stretch Database
+      </li>
+	  <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_cognitive-services></span>认知服务
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_analysis-services></span>Azure 分析服务
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  (function(){
+    $(document).on('updated', '.calculator-filter .checkbox-rect', function(evt){
+      evt.stopPropagation();
+      filter();
+    })
+  
+    $(document).on('click', function(evt){
+      if($(evt.target).parents('.calculator-filter').length == 0){
+        $('.calculator-filter ul').addClass('hide');
+      }
+    })
+  
+    $(document).on('click', '.calculator-filter .drop-list', function(evt){
+      if($(evt.target).parents('.options').length == 0)
+        $('.calculator-filter ul').toggleClass('hide');
+    })
+  
+    $(document).on('click', '.calculator-filter .options li', function(evt){
+      if($(evt.target).hasClass('checkbox-rect')){
+        return;
+      }
+      // text was clicked
+      // get options and filter results
+      var index = $(evt.target).index();
+      if( index == 0){
+        // select all was selected
+        $('.calculator-filter .checkbox-rect').addClass('active');
+      }
+    
+      if( index == 1){
+        // clear all was selected
+        $('.calculator-filter .checkbox-rect').removeClass('active');
+      }
+      $(this).find('.checkbox-rect').toggleClass('active');
+      filter();
+    })
+  
+  
+    function filter(){
+      var value = [];
+      var valueStr = "";
+      $('.calculator-filter .checkbox-rect.active').each(function(){
+        if($(this).parent().text() != "选择所有" && $(this).parent().text() != "清空所有"){
+          valueStr += $(this).parent().text().replace(/[\s\n]/g, "") + ','
+          value.push($(this).parent().text().replace(/[\s\n]/g, ""));
+        }
+      })
+      valueStr = valueStr.substring(0, valueStr.length-1);
+      if(valueStr.length > 15)
+        valueStr = valueStr.substring(0, 15) + "...";
+      $('.calculator-filter .value').text(valueStr);
+      if(value.length == 0){
+        // nothing was selected, show all
+        $('#calculator .service').removeClass('hide');
+        return;
+      }
+      // start filter
+      $('#calculator .service .cal_temp_name').each(function(){
+        var foundFlag = false;
+        var that = this;
+        _(value).each(function(valueItem){
+          if($(that).text().replace(/[\s]/g, '').startsWith(valueItem.replace().replace(/[\s]/g, '')))
+            foundFlag = true;
+        })
+        if(!foundFlag)
+          $(this).parent().addClass('hide');
+        else
+          $(this).parent().removeClass('hide');
+      })
+    }
+  })();
+</script>
+<!-- end filter related -->
+
+<div id="calculator"></div>
+
+<div class="sidebar-win calculator hide empty">
+            <div class="control">
+                <a href="#" class="close" id="closeCalculator"></a>
+            </div>
+            <ul class="calcul-list">
+                <span class="nothing">您还没有选择要估算价格的服务，调整左边数量进行添加</span>
+            </ul>
+            <div class="summary">
+                <div class="total">
+                    总价
+                    <p>
+                        <span class="num">￥1428.4</span>
+                        <span class="unit">/月</span>
+                    </p>
+                </div>
+                <div class="btn-group">
+                    <a class="calcul-btn buy" href="/pricing/pia/" id="sidebarWinCalculBuy">去购买</a>
+                    <a class="calcul-btn-white export" href="#" id="sidebarWinCalculExport">导出清单</a>
+                    <a class="calcul-btn-white reset" href="#" id="sidebarWinCalculReset">重置</a>
+                </div>
+                <p class="summary-text">
+                    还在犹豫不决？先<a href="/pricing/1rmb-trial/" id="sidebarWinCalculTry">试用</a>这些功能
+                </p>
+            </div>
+        </div>
+        <!-- end new sidebar-->
+
+
+
+        <!-- start calculator modal -->
+        <div class="preload">
+            <img src="//resource.cdn.azure.cn/marketing-resource/css/img/right.png">
+        </div>
+        <div class="modal modal-calculator hide">
+            <div class="container">
+                <a href="#" class="close" id="closeCalculatorModal"></a>
+                <p>我们将会把不同页面选择的服务项目添加到右边列表合并计算。您也可以手动删除或清空。</p>
+                <span class="checkbox-rect"></span>下次不再提示
+                <a class="btn btn-continue" href="#">知道了</a>
+            </div>
+        </div>
+        <!-- end calculator modal -->
+
+        <!-- start calculator shopinglist template -->
+        <script type="text/template" id="templPricingShopingList">
+            <% _.each(shopingList, function(item){%>
+            <li class="calcul-item">
+                <img src="<%= item.logoUrl %>">
+                <a class="delete" href="#"></a>
+                <div class="info">
+                    <div class="name">
+                        <span class="short" title="<%= item.name %>"><%= item.name %></span>
+                        <% if(item.name.length > 10) { %>
+                        <span>...</span>
+                        <% } %>
+                    </div>
+                    <span class="type">
+                        <% _.each(item.details, function(detail){ %>
+                        <%= detail  %>&nbsp;&nbsp;
+                        <% }) %>
+                    </span>
+                </div>
+                <div class="time">
+                    <%= item.number %><%= item.unit %>
+                </div>
+                <div class="detail">
+                    <div class="price">
+                        <span class="num">￥<%= item.currentMoney %></span>
+                        <span class="unit">/月</span>
+                    </div>
+                </div>
+            </li>
+            <% }) %>
+            <% if(shopingList.length == 0){ %>
+            <span class="nothing">您还没有选择要估算价格的服务，调整左边数量进行添加</span>
+            <% } %>
+        </script>
+        <!-- end calculator shopinglist template -->
+
+        <!-- start calculator animation layer -->
+        <div class="anima-calculator hide">
+            +1
+        </div>
+        <!-- end calculator animation layer -->
+
+<script>
+    CalculatorUIRenderer.AddService("app-service");
+	CalculatorUIRenderer.AddService("app-service-ssl");
+    CalculatorUIRenderer.AddService("cdn");
+    CalculatorUIRenderer.AddService("virtual-machines-windows");
+    CalculatorUIRenderer.AddService("virtual-machines-linux");
+    CalculatorUIRenderer.AddService("sql-server-standard");
+  CalculatorUIRenderer.AddService("virtual-machines-ml-server");
+    CalculatorUIRenderer.AddService("cloud-services");
+    CalculatorUIRenderer.AddService("storage-cold-hot-block-blob");
+	CalculatorUIRenderer.AddService("storage-cold-hot-block-blob-access");
+	CalculatorUIRenderer.AddService("storage-general-purpose-block-blob");
+	CalculatorUIRenderer.AddService("storage-general-purpose-block-blob-access");
+	CalculatorUIRenderer.AddService("storage-general-purpose-file");
+	CalculatorUIRenderer.AddService("storage-general-purpose-file-access");
+  CalculatorUIRenderer.AddService("storage-manager-disk-premium");
+  CalculatorUIRenderer.AddService("storage-manager-disk-premium-snapshots");
+  CalculatorUIRenderer.AddService("storage-manager-disk-standard");
+  CalculatorUIRenderer.AddService("storage-manager-disk-standard-snapshots");
+  CalculatorUIRenderer.AddService("storage-manager-disk-standard-access");
+  CalculatorUIRenderer.AddService("storage-ummanager-disk-premium");
+  CalculatorUIRenderer.AddService("storage-ummanager-disk-standard");
+	CalculatorUIRenderer.AddService("storage-ummanager-disk-blob");
+  CalculatorUIRenderer.AddService("storage-general-purpose-table");
+  CalculatorUIRenderer.AddService("storage-general-purpose-table-access");
+  CalculatorUIRenderer.AddService("storage-general-purpose-queues");
+  CalculatorUIRenderer.AddService("storage-general-purpose-queues-access");
+	CalculatorUIRenderer.AddService("storage-import-export");
+    CalculatorUIRenderer.AddService("sql-database-basic-standard-and-premium");
+    CalculatorUIRenderer.AddService("sql-elastic-database-basic-standard-and-premium");
+    CalculatorUIRenderer.AddService("mobile-service");
+    CalculatorUIRenderer.AddService("event-hubs");
+    CalculatorUIRenderer.AddService("automation");
+    CalculatorUIRenderer.AddService("media-services-encoder");
+	CalculatorUIRenderer.AddService("media-services-media-reserved-unit");
+	CalculatorUIRenderer.AddService("media-services-channels");
+    CalculatorUIRenderer.AddService("media-services-stream");
+    CalculatorUIRenderer.AddService("media-services-content-protect");
+    CalculatorUIRenderer.AddService("media-services-indexing");
+    CalculatorUIRenderer.AddService("media-services-media-reserved-redactor");
+    CalculatorUIRenderer.AddService("site-recovery");
+    CalculatorUIRenderer.AddService("mysql-database-on-azure");
+    CalculatorUIRenderer.AddService("cosmos-db_ssd");
+    CalculatorUIRenderer.AddService("cosmos-db_ru");
+    CalculatorUIRenderer.AddService("redis-cache");
+    CalculatorUIRenderer.AddService("stream-analytics");
+    CalculatorUIRenderer.AddService("notification-hub");
+	CalculatorUIRenderer.AddService("hdinsight-windows-hadoop-head");
+	CalculatorUIRenderer.AddService("hdinsight-windows-hadoop-data");
+	CalculatorUIRenderer.AddService("hdinsight-windows-hbase-head");
+	CalculatorUIRenderer.AddService("hdinsight-windows-hbase-region");
+	CalculatorUIRenderer.AddService("hdinsight-windows-hbase-zookeeper");
+	CalculatorUIRenderer.AddService("hdinsight-windows-storm-nimbus");
+	CalculatorUIRenderer.AddService("hdinsight-windows-storm-supervisor");
+	CalculatorUIRenderer.AddService("hdinsight-windows-storm-zookeeper");
+	CalculatorUIRenderer.AddService("hdinsight-linux-hadoop-head");
+	CalculatorUIRenderer.AddService("hdinsight-linux-hadoop-data");
+	CalculatorUIRenderer.AddService("hdinsight-linux-hbase-head");
+	CalculatorUIRenderer.AddService("hdinsight-linux-hbase-region");
+	CalculatorUIRenderer.AddService("hdinsight-linux-hbase-zookeeper");
+	CalculatorUIRenderer.AddService("hdinsight-linux-storm-nimbus");
+	CalculatorUIRenderer.AddService("hdinsight-linux-storm-supervisor");
+	CalculatorUIRenderer.AddService("hdinsight-linux-storm-zookeeper");
+	CalculatorUIRenderer.AddService("hdinsight-linux-spark-head");
+  CalculatorUIRenderer.AddService("hdinsight-linux-spark-worker");
+    CalculatorUIRenderer.AddService("schedule");
+    CalculatorUIRenderer.AddService("backup");
+    CalculatorUIRenderer.AddService("service-bus");
+    CalculatorUIRenderer.AddService("virtual-network");
+	CalculatorUIRenderer.AddService("virtual-network-data-transfer");
+	CalculatorUIRenderer.AddService("ip-address");
+    CalculatorUIRenderer.AddService("traffic-manager");
+	CalculatorUIRenderer.AddService("networking-inbound");
+    CalculatorUIRenderer.AddService("networking-outbound");
+    CalculatorUIRenderer.AddService("data-transferenter");
+    CalculatorUIRenderer.AddService("data-transfer");
+    CalculatorUIRenderer.AddService("application-gateway-basic");
+	CalculatorUIRenderer.AddService("application-gateway-waf");
+    CalculatorUIRenderer.AddService("application-gateway-data-process");
+    CalculatorUIRenderer.AddService("expressroute-unlimited");
+    CalculatorUIRenderer.AddService("expressroute-measurement");
+    CalculatorUIRenderer.AddService("expressroute-data");
+	CalculatorUIRenderer.AddService("power-bi-embedded");
+    CalculatorUIRenderer.AddService("key-vault");
+    CalculatorUIRenderer.AddService("sql-data-warehouse");
+    CalculatorUIRenderer.AddService("sql-server-stretch-database");
+    CalculatorUIRenderer.AddService("azure-iot-hub");
+    CalculatorUIRenderer.AddService("cognitive-services-face");
+	CalculatorUIRenderer.AddService("cognitive-services-emotion");
+	CalculatorUIRenderer.AddService("cognitive-services-computer-vision");
+	CalculatorUIRenderer.AddService("analysis-services-devp");
+	CalculatorUIRenderer.AddService("analysis-services-date");
+	CalculatorUIRenderer.AddService("analysis-services-ssl");
+	CalculatorUIRenderer.AddService("analysis-services-scale-out");
+    CalculatorUIRenderer.AddService("support");
+    
+    CalculatorUIRenderer.PostProcess();
+</script>
+]]>
+    </bodyText>
+    <isResponsive>true</isResponsive>
+    <umbracoNaviHide>1</umbracoNaviHide>
+    <pageTitle>Azure云产品价格估算器大全- Azure云计算</pageTitle>
+    <metaKeywords>Azure, 价格估算器, 数据传输, 1元试用</metaKeywords>
+    <metaDescription><![CDATA[针对您的方案，估算 Azure 各项服务的使用成本。可任意选择各种所需服务，及其不同的类型、级别、配置、实例等，轻易查看单价和总价，估算所需费用，也可导出清单，易于报价。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
+    <linkid>pricing-calculator</linkid>
+    <urlDisplayName>全套价格估算器</urlDisplayName>
+    <headerExpose>&lt;script type="text/javascript"&gt; var onPricingCalc="true";&lt;/script&gt;</headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>1</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

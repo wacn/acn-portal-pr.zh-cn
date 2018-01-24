@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-01T16:41:59" urlName="stream-analytics" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="stream-analytics" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/stream_analystics.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/css/stream-analytics@2x.png" />
+                        <h2>流分析<span>Stream Analytics</span></h2>
+                        <h4>云中的一种事件处理引擎，可实时快速开发，对现有数据属性进行深入了解。</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_site_trial_stream_analytics">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_site_pia_stream_analytics">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure 流分析</a>是云中的一种事件处理引擎，可实时地从设备、传感器、云基础结构和现有数据属性进行深入了解。通过与<a id="home_landing_event" class="link-btn_tow" style="color: #00a8d9;"  href="/home/features/event-hubs/" target="_blank">事件中心</a>的集成，组合解决方案可以在对数据进行实时流式处理的同时接收数百万事件并进行分析，以更好地了解模式、增强仪表板或开始执行操作。</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+                    <h2>定价详细信息</h2>
+                    <!--<p>流分析按处理的数据量以及进行处理所需的流式处理单位数来定价。</p>-->
+                    <!-- <p>从2016年4月1日起，价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong></strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>标准流式处理单元</td>
+                            <td>￥0.723/小时</td>
+                        </tr>
+                    </table>
+					<!--<p>自 2017 年 2 月 1 日起，Azure 流分析即将使用全新的定价模型，引入更为丰富的功能。流分析现有用户在 2017 年 12 月 31 之前或当前订阅期结束之前，可以继续使用现有定价模型。订阅到期后，所有流分析作业都将迁移到新的定价模型。</p>-->
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <ul>
+                        <!--
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="que-multiple_output_stream_analytics">“处理的数据量”是什么意思？</a>
+                                <section>
+                                    <p>流作业处理的实际数据量。流处理查询可能从事件源中一次或多次读取同一输入事件，这种情况通常在查询具有多个输出和/或多次引用同一输入时发生，此时将引发附加数据量，每次从事件源中读取这些数据时均收取费用。</p>
+                                </section>
+
+                            </div>
+                        </li>
+						-->
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="que-api_stream_analytics">什么是流式处理单元？</a>
+                                <section>
+                                    <p>流式处理单元是流处理计算能力单位，最大吞吐量为 1MB/s。流式处理单元数由客户通过 Azure 门户或流分析管理 API 进行选择。流式处理单元可用于扩展流处理作业以便实现较高的吞吐量。根据查询的复杂性和所需吞吐量，可能需要更多流式处理单元才能实现性能要求。</p>
+                                    <p>流式处理所用的单元数按小时计费，计费依据为在这一小时选择的最大单元数。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="que-influence-flow_stream_analytics">影响流作业价格的因素有哪些？</a>
+                                <section>
+                                    <p>影响流作业价格的主要因素是查询复杂性、查询所需的返回速率（延迟）以及处理的数据量。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="que-limit_stream_analytics">可以选择的流式处理单元数是否有限制？</a>
+                                <section>
+                                    <p>流式处理单元的数量没有限制。每个区域单个订阅的默认流式处理单元配额为 48。您可以通过填写支持工单来请求更多数量的流式处理单元。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="que-event-center_stream_analytics">运行流作业是否需要事件中心？</a>
+                                <section>
+                                    <p>建议将事件中心（Event Hub）作为可伸缩事件中转器，以用于流分析解决方案；不过流分析当前还支持从Azure Blob 拉入数据。我们将来可能会考虑与其他输入源集成。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>上市地区</h2>
+                <p>流分析服务在以下区域中提供：</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>地域</strong></th>
+                        <th align="left"><strong>区域</strong></th>
+                    </tr>
+                    <tr>
+                        <td>中国大陆</td>
+                        <td>中国东部数据中心 , 中国北部数据中心</td>
+                    </tr>
+                </table>
+                
+                <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="stream-contact-page"> Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>我们保证流分析 API 可用性至少为 99.9%。</p>
+				<p>我们保证在 99.9% 的时间，已部署的流分析作业将处理数据或可以处理数据。</p>
+				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/stream-analytics/" id="pricing_stream_sla">服务级别协议</a>页。</p>
+                </div>
+                <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
+                <!--END: Support and service code chunk-->
+              
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                       
+            <!--END: Support and service code chunk-->                                                                                    
+    ]]>
+    </bodyText>
+    <pageTitle>Azure流分析服务定价 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-stream-analytics</linkid>
+    <metaKeywords>Azure, 微软云, 流分析, Streaming Analytics, 价格, 数据处理, 分析服务, 流式处理, 1元试用</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure 流分析（Streaming Analytics）价格详情。Azure 流分析是一种实时数据分析云服务。流分析按处理的数据量以及进行处理所需的流式处理单位数来定价。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
+    <urlDisplayName>价格详情 - 流分析</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

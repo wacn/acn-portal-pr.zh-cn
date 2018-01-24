@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-06-30T15:41:59" urlName="storage" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+<style type="text/css">
+			.pricing-detail-tab .tab-nav{
+				padding-left: 0!important;
+				margin-top: 5px;
+				margin-bottom: 0;
+				overflow: hidden;
+			}
+			.pricing-detail-tab .tab-nav li {
+				list-style: none;
+				float: left;
+			}
+
+			.pricing-detail-tab .tab-nav li.active a {
+				border-bottom: 4px solid #00a3d9;
+			}
+
+			.pricing-detail-tab .tab-nav li.active a:hover {
+				border-bottom: 4px solid #00a3d9;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel{
+				display: none;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel.show-md{
+				display: block;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+				padding-left: 5px;
+				padding-right: 5px;
+				color: #00a3d9;
+				background-color: #FFF;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+				color: #FFF;
+				background-color: #00a3d9;				
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+				color: #FFF;
+				background-color: #00a3d9;				
+			}
+			.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+			background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+			}
+</style>  
+<tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+<!-- BEGIN: Product-Detail-TopBanner -->
+<div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+    <div class="common-banner-image">
+        <div class="common-banner-title">
+            <img src="//resource.cdn.azure.cn/marketing-resource/css/storage@2x.png" />
+            <h2>存储<span>Storage</span></h2>
+            <h4>适合各类数据的，经济可靠的云存储，提供高安全性保障，持久稳定存储，快速灵活扩容的能力。</h4>
+            <em><a href="/pricing/1rmb-trial/" id="home_storage_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+            <a href="/pricing/pia/" id="home_storage_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+        </div>
+    </div>
+</div>
+<!-- END: Product-Detail-TopBanner -->
+<div class="pricing-page-section">
+    <p>Azure 存储是一类可供您随时随地访问的高度持久、高度可用且高度可缩放的云存储。</p>
+    <p>根据存储容量、存储事务数（对存储执行的读写操作的次数）和<a id="stor-data-tran" style="color: #00a8d9;" href="/pricing/details/data-transfer/">已传输的数据</a>向客户收取 Azure 存储空间的费用。</p>
+    <p>存储分为五类：</p>
+    <p>块 Blob：块 Blob 是一种用于可靠地存储大量 Blob 数据的经济实用的可扩展方式。典型用例包括数据共享、大数据和备份。</p>
+    <p>文件：文件允许 Azure 数据中心的 VM 使用 SMB 协议安装共享文件系统，以及使用标准 Windows 文件 API 访问文件系统。虚拟机可以同时连接到这些文件系统，这使得您可以轻松地在不同角色和实例之间共享永久性数据。您还可以使用 Windows 文件 API 或文件 REST API 访问您的数据。</p>
+    <p>页 Blob 和磁盘：页 Blob 提供针对随机访问和频繁更新优化的块存储。由于其性能、持久性和可靠性较高，因此可将其用作 Azure 中的 VM 的永久性磁盘。</p>
+    <p>表：表是高度可缩放且极易使用的 NoSQL 数据库。它们为结构化数据和半结构化数据提供基于存储的密钥值。</p>
+	<p>队列：队列提供了一个用来计划异步任务的可靠的消息传递系统，并实现了永久性消息传递。</p>
+
+    <p>另外，我们提供了存储的四个冗余级别：</p>
+    <p>本地冗余存储 (LRS)：我们在一个区域内维护数据的多个副本以提供高持久性。</p>
+    <p>异地冗余存储 (GRS)：我们通过在同一地域内相隔数百英里的两个区域之间进行复制来异步提供额外的数据持久性。在两个区域中，我们维护数据的多个副本。</p>
+    <p>读取访问异地冗余存储 (RA-GRS)：除了异地冗余的存储服务外，我们提供对辅助区域（它具有主存储系统中数据的最终一致的版本）中存储帐户的只读访问。当主区域中的存储帐户不可用时，客户可以使用此服务访问其数据。</p>
+    <p>区域冗余存储 (ZRS)：除了像 LRS 一样存储三个副本，区域冗余存储空间 还会在一两个区域的数据中心之间异步复制数据，提供高于 LRS 的持久性。</p>
+</div>
+<!-- BEGIN: TAB-CONTROL -->
+<div>
+    <h3>存储功能比较</h3>
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <th align="left"> </th>
+            <th align="left"><strong>LRS</strong></th>
+            <th align="left"><strong>GRS</strong></th>
+            <th align="left"><strong>RA-GRS</strong></th>
+        </tr>
+        <tr>
+            <td>冗余性</td>
+            <td>一个区域内多个副本</td>
+            <td>一个区域内多个副本，并且两个区域之间有额外复制</td>
+            <td>一个区域内多个副本，并且两个区域之间有额外复制</td>
+        </tr>
+        <tr>
+            <td>对辅助区域内的副本进行读访问</td>
+            <td>N/A</td>
+            <td>否</td>
+            <td>是</td>
+        </tr>
+        <tr>
+            <td rowspan="2">可用性服务级别协议</td>
+            <td rowspan="2">所有读/写访问保证 99.9% 的可用性</td>
+            <td rowspan="2">所有读/写访问保证 99.9% 的可用性</td>
+            <td>对于写入保证 99.9% 的可用性</td>
+        </tr>
+        <tr>
+            <td style="background-color:rgba(237, 240, 245, 0.4)">当主区域中的数据不可用时对于从辅助区域读取数据保证 99.99% 的可用性</td>
+        </tr>
+    </table>
+    <h2>定价详细信息</h2>
+    <!-- BEGIN: TAB-CONTROL -->
+		<!-- BEGIN: Level 1 tab navigator -->
+		<div class="technical-azure-selector pricing-detail-tab">
+			<ul class="tab-nav">
+				<li class="active">
+					<a href="javascript:void(0)" data-href="#tabContent1" id="storage-blob" data-toggle="tab">Blob 存储</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" data-href="#tabContent2" id="storage-file" data-toggle="tab">文件存储</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" data-href="#tabContent3" id="storage-disk" data-toggle="tab">磁盘存储</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" data-href="#tabContent4" id="storage-table" data-toggle="tab">表存储</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" data-href="#tabContent5" id="storage-queue" data-toggle="tab">队列存储</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<!-- BEGIN: Table1-Content-1-->
+				<div class="tab-panel" id="tabContent1">
+						<!-- <p><h3>块 Blob</h3></p> -->
+						<p>块 Blob 存储用于流式处理和存储文档、视频、图片、备份和其他非结构化文本或二进制数据。以下是具有“热”和“冷”访问层的专用 Blob 存储帐户的定价。追加 Blob 也是按块 Blob 计量。</p>
+						<p><a id="storage-articles-storage-introduction" style="color: #00a8d9;" href="https://docs.azure.cn/storage/storage-introduction/	">了解更多</a></p>
+						<h4>数据存储价格</h4>
+						<p>这些是在块 Blob 中存储数据的成本。以下所示的价格按存储的数据大小 (GB) 按月收费。这些价格根据块 Blob 存储的访问层（“热”或“冷”）和你所选择的冗余选项以及存储的数据量而有所不同。</p>
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="center" colspan="2"><strong>LRS</strong></th>
+								<th align="center" colspan="2"><strong>GRS</strong></th>
+								<th align="center" colspan="2"><strong>RA-GRS</strong></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td align="center">冷</td>
+								<td align="center">热</td>
+								<td align="center">冷</td>
+								<td align="center">热</td>
+								<td align="center">冷</td>
+								<td align="center">热</td>
+							</tr>
+							<tr>
+								<td>前 100 TB /月</td>
+								<td align="center">￥0.11</td>
+								<td align="center">￥0.149</td>
+								<td align="center">￥0.22</td>
+								<td align="center">￥0.298</td>
+								<td align="center">￥0.279</td>
+								<td align="center">￥0.378</td>
+							</tr>
+							<tr>
+								<td>后 900 TB /月</td>
+								<td align="center">￥0.11</td>
+								<td align="center">￥0.1438</td>
+								<td align="center">￥0.22</td>
+								<td align="center">￥0.2876</td>
+								<td align="center">￥0.279</td>
+								<td align="center">￥0.3648</td>
+							</tr>
+							<tr>
+								<td>后  4000 TB /月</td>
+								<td align="center">￥0.11</td>
+								<td align="center">￥0.1436</td>
+								<td align="center">￥0.22</td>
+								<td align="center">￥0.2872</td>
+								<td align="center">￥0.279</td>
+								<td align="center">￥0.3643</td>
+							</tr>
+							<tr>
+								<td>超过 5000 TB /月</td>
+								<td align="center" colspan="2"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+								<td align="center" colspan="2"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+								<td align="center" colspan="2"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+							</tr>
+						</table>
+						<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+						<h4>操作和数据传输价格</h4>
+						<p>以下是针对块 Blob 数据的 HTTP 操作成本以及从块 Blob 检索数据或将数据写入到块 Blob 的成本。这些价格根据块 Blob 存储的访问层（“热”或“冷”）和你所选择的冗余选项而有所不同。</p>
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="center" colspan="2"><strong>LRS</strong></th>
+								<th align="center" colspan="2"><strong>GRS 和 RA-GRS</strong></th>
+							  
+							</tr>
+							<tr>
+								<td></td>
+								<td align="center">冷</td>
+								<td align="center">热</td>
+								<td align="center">冷</td>
+								<td align="center">热</td>
+							</tr>
+							<tr>
+								<td>列出并创建容器操作（按 10,000 计）</td>
+								<td align="center">￥0.09</td>
+								<td align="center">￥0.045</td>
+								<td align="center">￥0.18</td>
+								<td align="center">￥0.09</td>
+							   
+							</tr>
+							<tr>
+								<td>读取操作（按 10,000 计）</td>
+								<td align="center">￥0.03</td>
+								<td align="center">￥0.015</td>
+								<td align="center">￥0.03</td>
+								<td align="center">￥0.015</td>
+							   
+							</tr>
+							<tr>
+								<td>所有其他操作（按 10,000 计）</td>
+								<td align="center">￥0.03</td>
+								<td align="center">￥0.015</td>
+								<td align="center">￥0.03</td>
+								<td align="center">￥0.015</td>
+							
+							</tr>
+							<tr>
+								<td>数据检索 (GB)</td>
+								<td align="center">￥0.0657</td>
+								<td align="center">免费</td>
+								<td align="center">￥0.0657</td>
+								<td align="center">免费</td>
+							</tr>
+							<tr>
+								<td>数据写入 (GB)</td>
+								<td align="center">￥0.0164</td>
+								<td align="center">免费</td>
+								<td align="center">￥0.0328</td>
+								<td align="center">免费</td>
+							</tr>
+							<tr>
+								<td>异地复制数据传输 (GB)</td>
+								<td align="center">不适用</td>
+								<td align="center">不适用</td>
+								<td align="center">￥0.67</td>
+								<td align="center">￥0.67</td>
+							</tr>
+						</table>
+						<p>要查看常规用途存储帐户中的块 Blob 存储的定价，请查看<a id="pricing_storage_contact" style="color: #00a8d9;" href="/pricing/details/storage/blob/">块 Blob 价格</a>页面。</p>
+						<p>页 Blob 价格与标准磁盘价格相同，请查看<a id="pricing_storage_contact" style="color: #00a8d9;" href="javascript:void(0)" data-href="#tabContent3" >标准磁盘价格</a>页面。</p>
+						<!-- END: Table1-Content-1 -->
+				</div>
+				<!-- END: Table1-Content-1 -->
+
+				<!-- BEGIN: Table2-Content-1-->
+				<div class="tab-panel" id="tabContent2">
+					<!-- <h3>文件</h3> -->
+					<p>使用熟悉的 Windows API 或文件 REST API 在你的虚拟机上运行的应用程序之间共享文件。Azure 文件使用标准的 SMB 3.0 协议创建共享文件系统。</p>
+					<h4>数据存储价格</h4>
+						<p>这些是在文件存储中存储数据的成本。以下所示的价格按存储的数据大小 (GB) 按月收费。这些价格根据你选择的冗余选项而有所不同。</p>
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+							</tr>
+							<tr>
+								<td>¥1.4/GB</td>
+								<td>¥1.75/GB</td>
+							</tr>
+						</table>
+					<h4>操作和数据传输价格</h4>
+						<p>以下是针对文件数据的 HTTP 操作成本。这些价格根据你选择的冗余选项而有所不同。</p>				
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS)</th>
+							  
+							</tr>						
+							<tr>
+								<td>放置、创建容器操作（按 10,000 计）</td>
+								<td align="left">￥0.10</td>
+								<td align="left">￥0.20</td>						   
+							</tr>
+							<tr>
+								<td>列出操作（按 10,000 计）</td>
+								<td align="left">￥0.10</td>
+								<td align="left">￥0.10</td>						   
+							</tr>
+							<tr>
+								<td>除删除（此操作免费）之外的其他操作（按 10,000 计）</td>
+								<td align="left">￥0.01</td>
+								<td align="left">￥0.01</td>					
+							</tr>
+							<tr>
+								<td>文件协议操作 （按 10,000 计）</td>
+								<td align="left">￥0.01</td>
+								<td align="left">￥0.01</td>					
+							</tr>
+						</table>
+					<!-- END: Table2-Content-1 -->			
+				</div>  
+				<!-- END: Table2-Content-1 -->
+
+				<!-- BEGIN: Table3-Content-1-->	
+				<div class="tab-panel" id="tabContent3">
+					<!-- BEGIN: Tab level 2 navigator 3 -->
+					<ul class="tab-nav">
+						<li class="active">
+							<a href="javascript:void(0)" data-href="#tabContent3-1" data-toggle="tab" id="vm-vm-r-server-linux-general-purpose">托管磁盘</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" data-href="#tabContent3-2"  data-toggle="tab" id="vm-vm-r-server-linux-compute-optimized">非托管磁盘</a>
+						</li>
+					</ul>
+					<!-- END: Tab level 2 navigator 3 -->
+
+					<div class="tab-content">
+						<!-- BEGIN: Tab level 2 content 3-1 -->
+						<div class="tab-panel" id="tabContent3-1">
+							<p>Azure 托管磁盘是用于 Azure 虚拟机的新的和推荐的磁盘存储产品，方便永久存储数据。可对每个虚拟机使用多个托管磁盘。托管磁盘提供两种类型的持久存储选项：高级托管磁盘和标准托管磁盘。</p>
+							<p>如果对非托管磁盘的定价详情感兴趣，请参阅<a href="javascript:void(0)" id="pricing_storage_data-transfer"  data-href="#tabContent6" >非托管磁盘和页面 Blob </a>价格详情页面。</p>
+					
+							<h3>高级托管磁盘</h3>
+							<p>高级托管磁盘是基于高性能固态驱动器 (SSD) 的存储，旨在支持 I/O 密集型工作负荷，具有非常高的吞吐量和低延迟。借助高级托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
+							<p>高级托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量上限和每 GB 每月价格。可以选择最符合所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对每个 VM 配置最多 64 TB 的存储空间，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、FS 系列VM 大小的支持。</p>
+							<div class="tags-date">
+								<div class="ms-date">*以下价格均为含税价格。</div><br />
+								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+								<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
+							</div>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th align="left"><strong>磁盘类型</strong></th>
+									<th align="left"><strong>P4</strong></th>
+									<th align="left"><strong>P6</strong></th>
+									<th align="left"><strong>P10</strong></th>
+									<th align="left"><strong>P15</strong></th>
+									<th align="left"><strong>P20</strong></th>
+									<th align="left"><strong>P30</strong></th>
+									<th align="left"><strong>P40</strong></th>
+									<th align="left"><strong>P50</strong></th>
+								</tr>
+								<tr>
+									<td>磁盘大小</td>
+									<td>32 GB</td>
+									<td>64 GB</td>
+									<td>128 GB</td>
+									<td>256 GB</td>
+									<td>512 GB</td>
+									<td>1 TB</td>
+									<td>2 TB</td>
+									<td>4 TB</td>
+								</tr>
+								<tr>
+									<td>每月价格</td>
+									<td>￥47.53</td>
+									<td>￥91.9</td>
+									<td>￥132.15</td>
+									<td>￥254.86</td>
+									<td>￥490.93</td>
+									<td>￥906.29</td>
+									<td>￥1,736.83</td>
+									<td>￥3,322.63</td>
+								</tr>
+								<tr>
+									<td>每个磁盘的 IOP</td>
+									<td>120</td>
+									<td>240</td>
+									<td>500</td>
+									<td>1,100</td>
+									<td>2,300</td>
+									<td>5,000</td>
+									<td>7,500</td>
+									<td>7,500</td>
+								</tr>
+								<tr>
+									<td>每个磁盘的吞吐量</td>
+									<td>25 MB / 秒</td>
+									<td>50 MB / 秒</td>
+									<td>100 MB / 秒</td>
+									<td>125 MB / 秒</td>
+									<td>150 MB / 秒</td>
+									<td>200 MB / 秒</td>
+									<td>250 MB / 秒</td>
+									<td>250 MB / 秒</td>
+								</tr>
+							</table>
+							
+							<div class="tags-date">
+								<div class="ms-date">高级磁盘没有事务处理费用。</div>
+							</div>
+							<p>上述价格也适用于高级非托管磁盘。</p>
+					
+							<h3>标准托管磁盘</h3>
+							<p>标准托管磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
+							<p>标准托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。在 IOPS 和吞吐量方面，不同的标准磁盘大小之间没有区别。</p>
+							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
+							<div class="tags-date">
+								<div class="ms-date">*以下价格均为含税价格。</div><br />
+								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+								<p>快照价格按每月 ￥0.3/GB 的费率计费。</p>
+							</div>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th></th>
+									<th align="left"><strong>S4</strong></th>
+									<th align="left"><strong>S6</strong></th>
+									<th align="left"><strong>S10</strong></th>
+									<th align="left"><strong>S15</strong></th>
+									<th align="left"><strong>S20</strong></th>
+									<th align="left"><strong>S30</strong></th>
+									<th align="left"><strong>S40</strong></th>
+									<th align="left"><strong>S50</strong></th>
+									<!-- <th align="left"><strong>S60</strong></th> -->
+								</tr>
+								<tr>
+									<td>磁盘大小</td>
+									<td>32 GB</td>
+									<td>64 GB</td>
+									<td>128 GB</td>
+									<td>256 GB</td>
+									<td>512 GB</td>
+									<td>1 TB</td>
+									<td>2 TB</td>
+									<td>4 TB</td>
+									<!-- <td>8 TB</td> -->
+								</tr>
+								<tr>
+									<td>每月价格</td>
+									<td>￥8.64</td>
+									<td>￥17.28</td>
+									<td>￥34.56</td>
+									<td>￥69.12</td>
+									<td>￥138.24</td>
+									<td>￥276.48</td>
+									<td>￥552.96</td>
+									<td>￥1105.92</td>
+									<!-- <td>￥2211.84</td> -->
+								</tr>
+							</table>
+							<div class="tags-date">
+								<div class="ms-date">我们对每 10,000 个标准托管磁盘的事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</div>
+							</div>
+							<h4>本地冗余存储 (LRS)</h4>								
+							<p>在一个数据中心内创建数据的多个同步副本。</p>
+							<p>若要深入了解冗余选项以及如何使用这些选项以获取高可用性，请查看 <a id="pricing_storage_documentation-storage-redundancy" href="/documentation/articles/storage-redundancy/">Azure 存储空间复制页</a>。请注意，并非所有冗余类型对所有存储类型都适用。</p>
+							<!--
+							<h3>高级和标准托管快照（副本）</h3>
+							<p>托管快照是存储为标准磁盘的托管磁盘的只读副本。托管快照的费用与标准托管磁盘相同。例如，如果采集 P10 高级托管磁盘的快照，则托管快照的费用将等于 S10 标准磁盘。</p>
+							-->
+						</div>
+						<!-- END: Tab level 2 content 3-1-->
+
+						<!-- BEGIN: Tab level 2 content 3-2 -->
+						<!-- <h3>非托管磁盘</h3> -->
+						<div class="tab-panel" id="tabContent3-2">
+							<h3>高级非托管磁盘和页 Blob</h3>
+							<p>高级非托管磁盘是基于固态硬盘 (SSD) 的高性能存储器，旨在通过极大吞吐量和极低延迟来支持 I/O 密集型工作负荷。借助高级非托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
+							<p>高级非托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量限制和每 GB 每月价格。可选择最符合应用程序的所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对于每个 VM 配置最多 64 TB 的存储，，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级非托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、 FS 系列 VM 大小的支持。DS 系列虚拟机的定价和计费标准与 D 系列虚拟机相同。</p>
+							<div class="tags-date">
+								<div class="ms-date">*以下价格均为含税价格。</div><br />
+								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+							</div>
+							<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th align="left"><strong>磁盘类型</strong></th>
+									<th align="left"><strong>P10</strong></th>
+									<th align="left"><strong>P15</strong></th>
+									<th align="left"><strong>P20</strong></th>
+									<th align="left"><strong>P30</strong></th>
+									<th align="left"><strong>P40</strong></th>
+									<th align="left"><strong>P50</strong></th>
+									<th align="left"><strong>P60<sup>1</sup></strong></th>
+								</tr>
+								<tr>
+									<td>磁盘大小</td>
+									<td>128 GB</td>
+									<td>256 GB</td>
+									<td>512 GB</td>
+									<td>1 TB</td>
+									<td>2 TB</td>
+									<td>4 TB</td>
+									<td>8 TB</td>
+								</tr>
+								<tr>
+									<td>每月价格</td>
+									<td>￥132.15</td>
+									<td>￥254.86</td>
+									<td>￥490.93</td>
+									<td>￥906.29</td>
+									<td>￥1,736.83</td>
+									<td>￥3,322.63</td>
+									<td>￥6,343.21</td>
+								</tr>
+								<tr>
+									<td>每个磁盘的 IOP</td>
+									<td>500</td>
+									<td>1,100</td>
+									<td>2,300</td>
+									<td>5,000</td>
+									<td>7,500</td>
+									<td>7,500</td>
+									<td>7,500</td>
+								</tr>
+								<tr>
+									<td>每个磁盘的吞吐量</td>
+									<td>100 MB / 秒</td>
+									<td>125 MB / 秒</td>									
+									<td>150 MB / 秒</td>
+									<td>200 MB / 秒</td>
+									<td>250 MB / 秒</td>
+									<td>250 MB / 秒</td>
+									<td>250 MB / 秒</td>
+								</tr>
+							</table>
+							<div class="tags-date">
+								<div class="ms-date">高级磁盘没有事务处理费用。</div></br>
+								<div class="ms-date"><sup>1 </sup>Azure 不支持将 P60 作为虚拟机的磁盘。 页 Blob 支持通过 REST 访问 P60。</div>
+							</div>
+							<h3>标准非托管磁盘和页 Blob</h3>
+							<p>标准磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
+							<p>标准非托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
+							<div class="tags-date">
+								<div class="ms-date">*以下价格均为含税价格。</div><br />
+							</div>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th align="left"><strong>每月存储容量</strong></th>
+									<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+									<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+									<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+								</tr>
+								<tr>
+									<td>0 至 1 TB<sup>1</sup></td>
+									<td>¥ 0.44/GB</td>
+									<td>¥ 0.88/GB</td>
+									<td>¥ 1.056/GB</td>
+								</tr>
+								<tr>
+									<td>1 TB 至 50 TB</td>
+									<td>¥ 0.3667/GB</td>
+									<td>¥ 0.7334/GB</td>
+									<td>¥ 0.8801/GB</td>
+								</tr>
+								<tr>
+									<td>50 TB 至 500 TB</td>
+									<td>¥ 0.33/GB</td>
+									<td>¥ 0.66/GB</td>
+									<td>¥ 0.792/GB</td>
+								</tr>
+								<tr>
+									<td>500 TB 至 1000 TB</td>
+									<td>¥ 0.2933/GB</td>
+									<td>¥ 0.5866/GB</td>
+									<td>¥ 0.7039/GB</td>
+								</tr>
+								<tr>
+									<td>1000 TB 至 5000 TB</td>
+									<td>¥ 0.275/GB</td>
+									<td>¥ 0.55/GB</td>
+									<td>¥ 0.66/GB</td>
+								</tr>
+								<tr>
+									<td>大于 5000 TB</td>
+									<td align="left"><a id="pricing_storage_blob-disc_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+									<td align="left"><a id="pricing_storage_blob-disc_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+									<td align="left"><a id="pricing_storage_blob-disc_ra-grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+								</tr>
+							</table>
+							<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+							
+							<h4>操作和数据传输价格</h4>								
+							<p>对于标准非托管磁盘和页 Blob，我们按每 10,000 个事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</p>
+							<!--
+							<div class="tags-date">
+								<div class="ms-date">*以下价格均为含税价格。</div><br />
+							</div>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th align="left"><strong></strong></th>
+									<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+									<th align="left"><strong>异地冗余存储 (GRS)</th>
+								  
+								</tr>						
+								<tr>
+									<td>放置页 Blob、创建容器操作（按 10,000 计）</td>
+									<td align="left">￥0.0044</td>
+									<td align="left">￥0.0088</td>						   
+								</tr>
+								<tr>
+									<td>列出容器操作（按 10,000 计）</td>
+									<td align="left">￥0.0044</td>
+									<td align="left">￥0.0044</td>						   
+								</tr>
+								<tr>
+									<td>除删除（此操作免费）之外的其他操作（按 10,000 计）</td>
+									<td align="left">￥0.0044</td>
+									<td align="left">￥0.0044</td>						   
+								</tr>
+							</table>
+							-->
+						</div>
+						<!-- END: Tab level 2 content 3-2-->
+					</div>
+				</div>
+				<!-- END: Table3-Content-1 -->
+
+				<!-- BEGIN: Table4-Content-1 -->
+				<div class="tab-panel" id="tabContent4">
+					<!-- <h3>表</h3> -->
+						<p>表为非结构化及半结构化数据提供 NoSQL 存储器，适用于 Web 应用程序、地址簿和其他用户数据。</p>
+						<h4>数据存储价格</h4>
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong>每月存储容量</strong></th>
+								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+								<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+							</tr>
+							<tr>
+								<td>0 至 1TB<sup>1</sup></td>
+								<td>¥ 0.72/GB</td>
+								<td>¥ 0.95/GB</td>
+								<td>¥ 1.21/GB</td>
+							</tr>
+							<tr>
+								<td>1TB 至 50 TB</td>
+								<td>¥ 0.57/GB</td>
+								<td>¥ 0.80/GB</td>
+								<td>¥ 1.02/GB</td>
+							</tr>
+							<tr>
+								<td>大于 50 TB</td>
+								<td>¥ 0.54/GB</td>
+								<td>¥ 0.74/GB</td>
+								<td>¥ 0.94/GB</td>
+							</tr>
+						</table>
+						<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+						<h4>操作和数据传输价格</h4>
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS)</th>
+							  
+							</tr>						
+							<tr>
+								<td>放置表、创建容器操作（按 10,000 计）</td>
+								<td align="left">￥0.02</td>
+								<td align="left">￥0.04</td>						   
+							</tr>
+							<tr>
+								<td>批处理放置表、创建容器操作 （按 10,000 计）</td>
+								<td align="left">￥0.02</td>
+								<td align="left">￥0.04</td>					
+							</tr>
+							<tr>
+								<td>列出容器操作（按 10,000 计）</td>
+								<td align="left">￥0.02</td>
+								<td align="left">￥0.02</td>						   
+							</tr>
+							<tr>
+								<td>表读取操作（按 10,000 计）</td>
+								<td align="left">￥0.02</td>
+								<td align="left">￥0.02</td>					
+							</tr>
+							<tr>
+								<td>扫描容器操作 （按 10,000 计）</td>
+								<td align="left">￥0.04</td>
+								<td align="left">￥0.04</td>					
+							</tr>
+							<tr>
+								<td>表删除操作 （按 10,000 计）</td>
+								<td align="left">￥0.02</td>
+								<td align="left">￥0.02</td>					
+							</tr>
+							
+						</table>
+					<!-- END: Table4-Content-1 -->
+				</div>
+	        	<!-- END: Table4-Content-1 -->
+
+				<!-- BEGIN: Table5-Content-1-->
+				<div class="tab-panel" id="tabContent5">
+					<!-- <h3>队列</h3> -->
+					<p>队列为你的应用提供可靠的消息传送解决方案。</p>
+					<h4>数据存储价格</h4>
+					<div class="tags-date">
+						<div class="ms-date">*以下价格均为含税价格。</div><br />
+					</div>
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th align="left"><strong>每月存储容量</strong></th>
+							<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+							<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+							<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+						</tr>
+						<tr>
+							<td>0 至 1TB<sup>1</sup></td>
+							<td>¥ 0.72/GB</td>
+							<td>¥ 0.95/GB</td>
+							<td>¥ 1.21/GB</td>
+						</tr>
+						<tr>
+							<td>1TB 至 50 TB</td>
+							<td>¥ 0.57/GB</td>
+							<td>¥ 0.80/GB</td>
+							<td>¥ 1.02/GB</td>
+						</tr>
+						<tr>
+							<td>大于 50 TB</td>
+							<td>¥ 0.54/GB</td>
+							<td>¥ 0.74/GB</td>
+							<td>¥ 0.94/GB</td>
+						</tr>
+					</table>
+					
+					<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+
+					<h4>操作和数据传输价格</h4>								
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS)</th>
+							  
+							</tr>						
+							<tr>
+								<td>队列操作（按 10,000 计）</td>
+								<td align="left">￥0.02</td>
+								<td align="left">￥0.02</td>						   
+							</tr>
+						</table>
+					<!-- END: Table5-Content-1 -->
+				</div>
+				<!-- END: Table5-Content-1 -->
+			</div>
+		</div>
+	
+	<!-- END: TAB-CONTROL -->
+
+
+</div>
+
+
+<div class="pricing-page-section">
+				<h4>导入/导出</h4>
+		
+					<p>使用硬盘驱动器在 Azure 中传入或传出大量数据。<a href="/pricing/details/storage-import-export/" id="pricing_storage_storage-import-export">了解更多<i class="icon icon-arrow-right-thin"></i></a></p><br />
+				
+				<h4>数据冗余选项</h4>				
+				<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+							<th align="left">在一个数据中心内制作数据的多个同步副本</th>						  
+						</tr>						
+						<tr>
+							<td align="left"><strong>区域冗余存储 (ZRS)</strong></td>
+							<td align="left">在地区内的或跨地区的多个数据中心存储三个数据副本。仅限块 Blob</td>						   
+						</tr>
+						<tr>
+							<td align="left"><strong>地域冗余存储 (GRS)</strong></td>
+							<td align="left">与 LRS 相同，此外还可将多个异步副本存储到数百英里之外的第二个数据中心</td>						   
+						</tr>
+						<tr>
+							<td align="left"><strong>读取访问地域冗余存储 (RA-GRS)</strong></td>
+							<td align="left">与 GRS 相同，此外还可对第二个数据中心进行读取访问</td>						   
+						</tr>
+					</table>
+					<p>有关冗余选项以及如何使用这些选项以获取高可用性的详细信息，请查看 <a id="pricing_storage_documentation-storage-redundancy-2" href="/documentation/articles/storage-redundancy/">Azure 存储空间复制页</a>。请注意，并非所有冗余类型对所有存储类型都适用。<br />
+				
+</div>
+
+
+<!-- END: TAB-CONTROL -->
+
+<div class="pricing-page-section">
+    <div class="more-detail">
+        <h2>常见问题</h2>
+        <em>全部展开</em>
+		<h3>常规</h3>
+        <ul>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question1">如果我只是将存储服务用于一个月的几天，是否按比例分摊成本？</a>
+                    <section>
+                        <p>是。存储容量按一个月内每日的平均数据存储量 (以 GB 为单位) 计费。例如，如果您在前半个月持续使用了 10 GB 的存储量，而在后半个月未使用任何存储量，则将按 5 GB 的平均存储使用量进行计费。</p>
+                    </section>
+
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question2">我如何知道我在使用哪个数据冗余选项（见上文）？</a>
+                    <section>
+                        <p>创建存储帐户时可选择冗余。创建完毕后，可通过使用 Azure 门户或服务管理 API 来查看冗余。</p>
+                    </section>
+
+                </div>
+            </li>
+            <!-- <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question3">读取访问地域冗余存储是如何进行计费的？</a>
+                    <section>
+                        <p>将对存储帐户收取自此服务启用之时起至少 30 天的费用。例如，如果读取访问地域冗余存储于 5 月 1 日开启，5 月 5 日关闭，则将以 5 月 30 日为使用终止日对存储帐户收取相应的读取访问地域冗余存储费用。此后，将开始按地域冗余存储计费。</p>
+                        <p>如果读取访问地域冗余存储于 5 月 1 日开启，6 月 14 日关闭，则将以 6 月 14 日为使用终止日收取相应的读取地域冗余存储费用。6 月 15 日，地域冗余存储定价将开始生效。</p>
+                    </section>
+
+                </div>
+            </li> -->
+			<!-- <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question_monitor">如果我启用存储的“监视”功能，是否会额外收费？</a>
+                    <section>
+                        <p>会额外收费。“监视”功能默认状态不启用。“监视”功能产生的日志类型为 block blob ，会根据产生的日志大小收费。更多信息，请参阅：<a href="https://docs.azure.cn/storage/storage-monitor-storage-account/" id="pricing-storage_storage-monitor-storage-account">监视 Azure 经典管理门户中的存储帐户</a>。</p>
+                    </section>
+
+                </div>
+            </li> -->
+		</ul>
+		
+		<h3>Blob 存储</h3>
+        <ul>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question4">什么是 Blob 存储帐户以及它与常规用途存储帐户有何不同？</a>
+                    <section>
+                        <p>Blob 存储帐户是专用于存储数据作为 Blob 的存储帐户，使用户可以根据该帐户中的数据访问频率指定访问层。常规用途存储帐户可用于存储 Blob、文件、磁盘、表和队列。</p>
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question5">常规用途存储帐户中的块 Blob 价格是否已改变？</a>
+                    <section>
+                        <p>否。常规用途存储帐户中的块 Blob 价格尚未改变，请查看<a id="pricing_storage_question" style="color: #00a8d9;" href="/pricing/details/storage/blob/">块 Blob 价格</a>页面。</p>
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question6">查看 Azure 帐单时，如何才能区分是需要为 Blob 存储帐户付费还是需要为常规用途存储账户中的 Blob 付费？</a>
+                    <section>
+                        <p>如果在资源名称中出现“热”或“冷”，则意味着该费用与 Blob 存储帐户相关。例如，如果帐单中出现“标准 IO - 冷块 Blob (GB)”，则意味着你使用的是 Blob 存储帐户并需要为该帐户支付费用，而“标准 IO – 块 Blob (GB)”则是与使用常规用途存储帐户中的块 Blob 相关的计量。</p>
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question7">什么是“热”、“冷”访问层以及如何确定应使用哪一个？</a>
+                    <section>
+						<p>在 Blob 存储帐户中，可以将 blob 的访问层设为“热”、“冷”。存储 GB 定价按“冷”、“热”的顺序逐层增加，数据访问费用按“热”、“冷”的顺序逐层增加。和“冷”层应分别用于几乎无访问和偶有访问的数据，且这些数据的可用性服务级别协议需求较低。如果你不知道数据的访问模式，我们建议你刚开始的时候使用“热”层至少一个月，然后再来决定是否可以根据实际使用情况通过移动到“冷”存储来节省成本。</p>
+					<!-- <table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th align="left"><strong>计量单位</strong></th>
+							<th align="left"><strong>使用量</strong></th>
+							<th align="left"><strong>“冷”层中的成本</strong></th>
+							<th align="left"><strong>“热”层中的成本</strong></th>
+							<th align="left"><strong>“冷”层中的每月成本</strong></th>
+							<th align="left"><strong>“热”层中的每月成本</strong></th>
+						</tr>
+						<tr>
+							<td>每月 GB 数</td>
+							<td>50*1,024=51,200</td>
+							<td>￥0.11</td>
+							<td>￥0.149</td>
+							<td>￥5,632</td>
+							<td>￥7,628.8</td>
+						</tr>
+						<tr>
+							<td>10,000 次放置块 Blob、列出并创建容器操作</td>
+							<td>20%*10M/10,000=200</td>
+							<td>￥0.09</td>
+							<td>￥0.045</td>
+							<td>￥18</td>
+							<td>￥9</td>
+						</tr>
+						<tr>
+							<td>10,000 次其他操作</td>
+							<td>80%*10M/10,000=800</td>
+							<td>￥0.03</td>
+							<td>￥0.015</td>
+							<td>￥24</td>
+							<td>￥12</td>
+						</tr>
+						<tr>
+							<td>检索的数据 (GB)</td>
+							<td>20*1,024=20,480</td>
+							<td>￥0.0657</td>
+							<td>￥0</td>
+							<td>￥1,345.536</td>
+							<td>￥0</td>
+						</tr>
+						<tr>
+							<td>写入的数据 (GB)</td>
+							<td>10*1,024=10,240</td>
+							<td>￥0.0164</td>
+							<td>￥0</td>
+							<td>￥167.936</td>
+							<td>￥0</td>
+						</tr>
+						<tr>
+							<td><strong>每月总成本</strong></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>￥7,187.472</td>
+							<td>￥7,649.8</td>
+						</tr>
+						
+				</table>
+
+					<p>在此示例中，“冷”访问层的每月总成本 ￥7,187.472 低于“热”访问层的每月总成本 ￥7,649.8。因此，在此示例中将数据移动到“冷”访问层会大量节省成本。</p> -->
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question8">如果将 Blob 存储帐户从“冷”切换到“热”，是否会支付数据写入的费用？</a>
+                    <section>
+                        <p>我们将对从 Blob 存储帐户的“冷”切换到“热”的数据检索进行收费。例如，如果 Blob 存储帐户有 100 GB 数据，当从该帐户的“冷”切换到“热”时，将向你收取 100 * ￥0.0657 = ￥6.57 的数据检索费用。</p>
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question9">如果从 Blob 存储帐户的“热”切换到“冷”，是否会支付数据写入的费用？</a>
+                    <section>
+                        <p>否。如果你从帐户的“热”切换到“冷”，将无需为数据写入支付费用。如果你是直接将数据写入到 Blob 存储帐户的“冷”访问层，则只需支付数据写入的费用。</p>
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question10">什么是异地复制数据传输费用？</a>
+                    <section>
+                        <p>当你将数据写入到异地冗余存储 (GRS) 帐户时，该数据将被复制到另一个 Azure 区域。异地复制数据传输费用是将数据复制到另一个 Azure 区域的带宽成本。</p>
+                    </section>
+
+                </div>
+            </li>
+			
+		</ul>
+		
+		<h3>磁盘存储</h3>
+        <ul>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question11">如果我将空的 100GB 磁盘附加到我的虚拟机，是会向我收取整个 100 GB 的费用还是只收取我使用的存储空间的费用？</a>
+                    <section>
+                        <p>如果空的 100GB 磁盘由高级存储帐户提供支持，则将向你收取 P10 (128GB) 磁盘的费用。如果使用任何其他类型的存储帐户，则只会对用于存储写入磁盘的数据的存储空间计费，而无论分配的磁盘大小。</p>
+                    </section>
+
+                </div>
+            </li>
+			<li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="Storage_question12">与其他存储服务相同的服务级别协议是否会涵盖了高级存储？</a>
+                    <section>
+                        <p>可以。99.9% 读/写可用性也适用于高级存储帐户。</p>
+                    </section>
+
+                </div>
+            </li>
+		</ul> 
+		
+        <h3>托管磁盘</h3>
+		<ul>
+			<li>
+				<i class="icon icon-plus"></i>
+				<div>
+					<a  id="Storage_question14">如果我将 S10 或 P10 磁盘附加到虚拟机，将向我收取上面显示的整个数量的费用，还是只收取我使用的存储空间的费用？</a>
+					<section>
+                        <p>无论使用的磁盘空间有多少，都将针对配置的磁盘收取相同的费率。</p>
+                    </section>
+				</div>
+			</li>
+			<li>
+				<i class="icon icon-plus"></i>
+				<div>
+					<a  id="Storage_question15">显示的价格是每月价格。如果使用托管磁盘不到一个月，将怎样收费？</a>
+					<section>
+                        <p>将使用每月价格按小时和比例收费。</p>
+                    </section>
+				</div>
+			</li>
+		</ul>
+		<h3>文件存储</h3>
+		<ul>
+			<li>
+				<i class="icon icon-plus"></i>
+				<div>
+					<a  id="Storage_question14">如果我创建一个带 5 TB 配额的共享，则向整个 5 TB 收费还是只收取所用存储空间的费用？</a>
+					<section>
+                        <p>仅对所用存储空间计费，而非所设配额。</p>
+                    </section>
+				</div>
+			</li>
+		</ul>
+    </div>
+</div>
+<div class="pricing-page-section">
+    <h2>上市地区</h2>
+    <p>存储服务在以下区域中提供：</p>
+    <table cellpadding="0" cellspacing="0" class="table-col6">
+        <tr>
+            <th align="left"><strong>地域</strong></th>
+            <th align="left"><strong>区域</strong></th>
+        </tr>
+        <tr>
+            <td>中国大陆</td>
+            <td>中国东部数据中心 , 中国北部数据中心</td>
+        </tr>
+    </table>
+
+    <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="storage-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>我们保证至少在 99.99%（对于冷访问层为 99.9%）的时间成功地处理从读取访问异地冗余存储 (RA-GRS) 帐户读取数据的请求，但前提是在次要区域重试从主要区域读取数据的失败尝试</p>
+				<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理从本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户读取数据的请求。</p>
+				<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理将数据写入本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户，以及读取访问异地冗余存储 (RA-GRS) 帐户的请求。</p>
+				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/storage/" id="pricing_storage_sla">服务级别协议</a>页。</p>
+				<p>托管磁盘本身不提供有财务方面支持的服务级别协议。托管磁盘的可用性取决于所使用的基础存储和其所依附的虚拟机的服务级别协议。若要了解更多有关托管磁盘的服务级别协议的详细信息，请访问<a href="/support/sla/managed-disks/">托管磁盘服务级别协议</a>页。</p>
+	</div>
+</div>
+<!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />
+<!--END: Support and service code chunk-->
+    ]]>
+    </bodyText>
+    <pageTitle>Azure云存储_云数据 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage</linkid>
+    <metaKeywords>Azure, 存储, 解决方案, 应用程序</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure 存储（Storage）价格详情。Azure 存储是一类可供您随时随地访问的高度持久、高度可用且高度可缩放的云存储。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
+    <urlDisplayName>价格详情 - 存储</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

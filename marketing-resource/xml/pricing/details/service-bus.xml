@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="service-bus" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/media/images/production/service_bus01.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/production/service-bus-icon01.png" />
+                        <h2>服务总线<span>Service Bus</span></h2>
+                        <h4>使应用程序和设备在跨私有云和公有云场景下保持互联。</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_mess_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_mess_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure 服务总线是位于各个应用程序之间的消息传送基础结构，允许应用程序交换消息，从而扩大规模并提高恢复能力。</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <div class="tab-control-container tab-active">
+                    <h2>定价详细信息</h2>
+                    <p>基本级别和标准级别中包含服务总线。下面是它们之间的比较：</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>功能</strong></th>
+                            <th align="left"><strong>基本</strong></th>
+                            <th align="left"><strong>标准</strong></th>
+                        </tr>
+                        <tr>
+                            <td>队列</td>
+                            <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>计划的消息</td>
+                            <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+						<tr>
+                            <td>主题</td>
+                            <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>事务</td>
+                            <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>重复数据删除</td>
+                            <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>会话</td>
+                            <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>ForwardTo/SendVia</td>
+                            <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+						<tr>
+                            <td>消息大小</td>
+                            <td>256 KB</td>
+                            <td>256 KB</td>
+                        </tr>
+                        <tr>
+                            <td>中继</td>
+                            <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>事件中心<sup> 1</sup></td>
+                            <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>附送中转连接</td>
+                            <td>100</td>
+                            <td>1,000<sup> 2</sup></td>
+                        </tr>
+                        <tr>
+                            <td>中转连接（允许超额）</td>
+                            <td>-</td>
+                            <td><i class="icon icon-tick"></i>（可计费）</td>
+                        </tr>
+                    </table>
+                    <p><sup>1</sup> 在服务使用过程中，事件中心的使用将单独计费，请访问<a id="service_bus_transfer_price-page-event-center" href="/pricing/details/event-hubs/" target="_blank">事件中心价格页面</a>了解相关费率。</p>
+                    <p><sup>2</sup> 标准消息传送级别（通过基本费用）包括 1,000 个中转连接，可在关联的 Azure 订阅内跨所有队列、主题/订阅和事件中心共享这些中转连接。</p>
+
+                    <h2>消息传送操作</h2>
+                    <p>一个操作是指对服务总线服务的任何 API 调用。</p>
+                    <!--<p>从2016年4月1日起，消息传送操作的价格会下调 25.5%，以下是下调后的新价格：</p>-->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br>
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>基本</strong></th>
+                            <th align="left"><strong>&nbsp;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>操作</td>
+                            <td>每百万个操作 ¥0.31</td>
+                        </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>标准</strong></th>
+                            <th align="left"><strong>&nbsp;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>基础费用<sup> 1<sup></td>
+                            <td>¥63.29/月</td>
+                        </tr>
+                        <tr>
+                            <td>前 13M 次操作/月</td>
+                            <td>包含</td>
+                        </tr>
+                        <tr>
+                            <td>之后 88M 次操作（13M - 100M 次操作）/月</td>
+                            <td>每百万个操作¥5.21</td>
+                        </tr>
+                        <tr>
+                            <td>之后 2,400M 次操作（100M - 2,500M 次操作）/月</td>
+                            <td>每百万个操作¥3.20</td>
+                        </tr>
+                        <tr>
+                            <td>超过 2,500M 次操作/月</td>
+                            <td>每百万个操作 ¥1.27</td>
+                        </tr>
+                    </table>
+                    <p><sup>1</sup> 根据每月 31 天，每天按比例分配基础费用。</p>
+
+                    <h2>中转连接</h2>
+                    <p>AMQP 连接的数量或对服务总线的 HTTP 调用的数量。</p>
+                    <!--<p>从2016年4月1日起，中转连接的价格会下调 28.4%，以下是下调后的新价格：</p>-->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br>
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>标准级别</strong></th>
+                            <th align="left"><strong>&nbsp;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>前 1K/月</td>
+                            <td>包含</td>
+                        </tr>
+                        <tr>
+                            <td>之后 99K (1K – 100K)/月</td>
+                            <td>每月每个连接 ¥0.18</td>
+                        </tr>
+                        <tr>
+                            <td>之后 400K (100K – 500K)/月</td>
+                            <td>每月每个连接 ¥0.15</td>
+                        </tr>
+                        <tr>
+                            <td>超过 500K/月</td>
+                            <td>每月每个连接 ¥0.10</td>
+                        </tr>
+                    </table>
+                    <p>根据并发连接的峰值数量计费，按照每月 744 小时，每小时按比例分配费用。</p>
+					
+					<h2>混合连接</h2>
+                    <p>混合连接以每个侦听器为单位进行计费，它包括 5GB/每月的数据传输，如果超出该限额，还会对超出部分计费。</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>混合连接定价</strong></th>
+                            <th align="left"><strong>&nbsp;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>连接费用（包括 5GB 数据/每月） <sup>1</sup></td>
+                            <td>每月 ¥76.087/侦听器</br>（每小时 ¥0.102/侦听器）</td>
+                        </tr>
+                        <tr>
+                            <td>数据传输超额（数据超过包括的 5GB/每月）</td>
+                            <td>¥13.398/GB</td>
+                        </tr>
+                    </table>
+                    <div class="tags-date">
+                        <div class="ms-date"><sup>1</sup>5GB 的数据传输限制包括所有侦听器单位间的总数据传输。</div>
+                    </div>
+					
+                    <h2>中继</h2>
+                    <!--<p>中继仅在标准级别中可用，按消息量和中继小时数收费。</p>-->
+                    <!--<p>从2016年4月1日起，中继的价格会下调 25.6%，以下是下调后的新价格：</p>-->
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br>
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>中继定价</strong></th>
+                            <th align="left"><strong>&nbsp;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>中继小时数</td>
+                            <td>每 100 个中继小时¥0.52</td>
+                        </tr>
+                        <tr>
+                            <td>消息数</td>
+                            <td>每 10,000 条消息¥0.05</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_calculate_relay">如何计算中继的中继消息数？</a>
+                                <section>
+                                    <p>发送到服务总线中继或由服务总线中继发送的每条消息都计为可计费消息。一条消息定义为一个等于或小于 64 KB 的数据单元。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_calculate_topic">如何计算队列和主题的操作数？</a>
+                                <section>
+                                    <p>对于中转实体（队列、主题/订阅、消息缓冲区），一个操作是指对服务总线服务的任何 API 调用。</p>
+                                        <p>发送、接收或删除小于或等于 64 KB 的消息被视为一个可计费操作。如果消息大小超过 64 KB，将根据消息大小是 64 KB 的倍数计算可计费操作数。例如，发送到服务总线的一条 8 KB 消息将按一个操作计费，但发送到服务总线的一条 96 KB 消息将按两个操作计费。通过锁定读取 8 KB 消息，然后将该消息删除将按两个操作计费。</p>
+                                        <p>多次传送的同一消息（例如，消息发送给多个侦听器，或者在放弃、延期投寄或无法投寄后取回消息）将计为单独的操作。例如，如果一个主题具有 3 个订阅，则发送和随后接收的一条 64 KB 的消息将按 4 个可计费操作收费（1 个“传入”操作，3 个“传出”操作，假定所有消息均传送给所有订阅并在读取时删除）。</p>
+                                        <p>使用 PeekLock 的 ReceiveMode 接收消息，然后通过完全调用将消息删除将产生两个单独的操作。重新锁定消息也将产生一个操作。</p>
+                                        <p>此外，创建、读取（列出）、更新和删除队列、主题或订阅也将产生操作费用。</p>
+                                        <p>操作是指对队列或主题/订阅服务终结点进行的 API 调用。这包括管理、发送/接收和会话状态操作。</p>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <th align="left"><strong>操作类型</strong></th>
+                                                <th align="left"><strong>说明</strong></th>
+                                            </tr>
+                                            <tr>
+                                                <td>管理</td>
+                                                <td>对队列或主题/订阅进行创建、读取、更新、删除操作</td>
+                                            </tr>
+                                            <tr>
+                                                <td>消息传递</td>
+                                                <td>借助队列或主题/订阅发送和接收消息</td>
+                                            </tr>
+                                            <tr>
+                                                <td>会话状态</td>
+                                                <td>获取队列或主题/订阅的会话状态或设置该状态</td>
+                                            </tr>                                          
+                                        </table>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_calculate_hour">如何计算中继小时数？ </a>
+                                <section>
+                                    <p>将按每个服务总线中继处于“打开”状态的累积时间量对中继小时数收费。当启用中继的 WCF 服务（即“中继侦听器”）第一次连接到给定服务总线地址（服务命名空间 URL）时，中断将隐式实例化并在该地址中打开。仅当最后一个侦听器从其地址断开连接时，该中继才会关闭。因此，出于计费目的，在第一个中继侦听器连接到该中继的服务总线地址到最后一个中继侦听器从该地址断开连接的这段时间内，中继将被认为处于“打开”状态。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_bill_transfer">什么是中转连接，它的计费方式是怎样的？</a>
+                                <section>
+                                    <p>中转连接定义为下列其中一项：</p>
+                                    <ol>
+                                        <li>从客户端到服务总线主题/订阅、队列或事件中心的 AMQP 连接。</li>
+                                        <li>从接收超时值大于零的服务总线主题或队列接收消息的 HTTP 调用。<br/>超出附送数量（标准级别为 1,000）的峰值并发中转连接数的收费。峰值将每小时计量一次，按照每月 744 小时按比列分配费用，并在每月计费周期内累加。在计费周期结束时，将会针对按比例分配的小时峰值的总和应用附送数量（每月 1,000 个中转连接）。<br/>
+                                        示例<br/>
+                                            <ol>
+                                                <li>通过一个 AMQP 连接来与 10,000 台设备建立连接，并从服务总线主题接收命令，以及向事件中心发送遥测事件。如果所有设备每天连接 12 小时，则你需要支付以下连接费用（未包括任何其他服务总线费用）：10,000 个连接 * 12 小时 * 31 天/744 = 5,000 个中转连接。在扣除每月 1,000 个中转连接的限额后，你需要按每个中转连接¥0.18的费率支付 4,000 个中转连接的费用，总共 ¥720。</li>
+                                                <li>10,000 台设备通过 HTTP 从服务总线队列接收消息，超时不为零。如果所有设备每天连接 12 小时，则你需要支付以下连接费用（未包括任何其他服务总线费用）：10,000 个 HTTP 接收连接 * 12 小时/天 * 31 天/744 小时 = 5,000 个中转连接。</li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_transfer_queue">中转连接费用是否适用于队列和主题/订阅？</a>
+                                <section>
+                                    <p>是的，适用。不管有多少个发送系统/设备，使用 HTTP 发送事件都不必支付连接费用。使用超时值大于零的 HTTP 接收时事件（有时称为“长轮询”）会产生中转连接费用。无论连接是用于发送还是接收，AMQP 连接都会产生中转连接费用。请注意，在基础命名空间中，最多可使用 100 个免费中转连接，这也是每个 Azure 订阅允许的最大中转连接数。在每个 Azure 订阅中，任何/所有标准命名空间内的前 1,000 个中转连接都是免费提供的（不包括在基础费用内）。由于这些限额足以涵盖许多的服务到服务方案，因此通常仅当你打算对大量客户端使用 AMQP 或 HTTP 长轮询时，即，想要实现更高效的事件流或者启用与数以千计/数百万设备或应用实例的双向通信时，中转连接费用才会变得可观。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_standard_charge">如果我的 Azure 订阅中有多个标准命名空间，是否会向我多次收取基础费用？</a>
+                                <section>
+                                    <p>不。每个 Azure 订阅每月仅需支付一次消息传送标准版的每月基础费用。这意味着在你创建了一个标准级别的服务总线命名空间后，你将能够在同一 Azure 订阅下创建任意数目的标准级别命名空间，而不会产生附加的基础费用。</p>
+                                    <p>有关服务总线计费的其他常见问题，请参阅此<a href="http://msdn.microsoft.com/library/azure/hh667438.aspx" id="service-bus-msdn">MSDN 文章</a>。</p>
+                                </section>
+                            </div>
+                        </li>
+						<li >
+                            <div>
+                            <i class="icon icon-plus"></i>
+                            <a id="service_bus_standard_mixed">什么是混合连接？</a>
+                            <section>
+                                <p>混合连接可以在两个联网的应用程序之间建立双向二进制流通信，这两方或其中一方可驻留在 NAT 或防火墙之后。可以在任意平台上同时实施接受“中继”连接的侦听器以及发起“中继”连接的发送器，但应采用支持基本 WebSocket 功能（包括大多数 Web 浏览器中的 WebSocket API）的任意语言实施。</p>
+                            </section>
+                            </div>
+                        </li>
+                        
+                        <li >
+                            <div>
+                            <i class="icon icon-plus"></i>
+                            <a id="service_bus_standard_charging">使用混合连接时怎样计费？</a>
+                            <section>
+                                <p>创建首个混合连接侦听器时，将根据每个侦听器单位费率付费，要创建的每个单独的侦听器都采用相同的费率进行计费。服务中已包含每月 5GB 的免费数据传输。可在所有侦听器单位中利用这 5GB 免费数据传输。如果所有侦听器单位间的总数据传输超过 5GB，将对超额数据传输付费。</p>
+                                <p><strong>定价示例 1：</strong>如果安装了一个侦听器（如一个混合连接管理器实例）并连续运行一整月，且这个月内跨连接发送了 3GB 数据，那么总费用将为 ¥76.09。</p>
+                                <p><strong>定价示例 2：</strong>如果安装了一个侦听器（如一个混合连接管理器实例）并连续运行一整月，且这个月内跨连接发送了 10GB 数据，那么总费用将为 ¥143.077：¥76.087（连接和前 5GB）+ ¥66.99（额外的 5GB 数据）。</p>
+                                <p><strong>定价示例 3：</strong>如果安装了两个混合连接管理器实例（A 和 B）并连续运行一整月，且这个月内跨连接 A 发送了 3GB 数据，跨连接 B 发送了 6GB 数据，那么总费用将为 ¥205.766：¥76.087（连接 A）+ ¥76.087（连接 B）+ ¥53.592（4GB 数据超额，因 连接 A 3GB + 连接 B 6GB）。</p>
+                            </section>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div>
+                            <i class="icon icon-plus"></i>
+                            <a id="service_bus_standard_whether-accounting">连接到混合连接侦听器会不会有数据传输费用？</a>
+                            <section>
+                                <p>每次连接到侦听器将收取 64KB 的费用。将从每月为侦听器单位免费提供的 5GB 中减去上述数据量。每小时以 5 分钟为增量对侦听器单位费用进行计算。出于开发/测试目的的多次打开和关闭不会收费。</p>
+                            </section>
+                            </div>
+                        </li>
+                        <li >
+                            <div>
+                            <i class="icon icon-plus"></i>
+                            <a id="service_bus_standard_how">如何没有任何数据传输，混合连接侦听器可保持开启多久？ 保持连接开启的费用如何？</a>
+                            <section>
+                                <p>如果开启连接但未传输任何数据，我们将代表你每分钟传输 1KB 以保持连接可用。这样做的目的是使网络不会每隔几分钟就自动断开连接。</p>
+                            </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>上市地区</h2>
+                <p>服务总线在以下区域中提供：</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>地域</strong></th>
+                        <th align="left"><strong>区域</strong></th>
+                    </tr>
+                    <tr>
+                        <td>中国大陆</td>
+                        <td>中国东部数据中心 , 中国北部数据中心</td>
+                    </tr>
+                </table>
+
+    <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="messaging-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>对于服务总线中继，我们保证至少在 99.9% 时间里，正确配置的应用程序能够与已部署中继建立连接。</p>
+				<p>对于服务总线队列和主题，我们保证至少在 99.9% 时间里，正确配置的应用程序能够在已部署的队列或主题上发送或接收消息或执行其他操作。</p>
+				<!-- <p>对于服务总线的“基本”和“标准”通知中心级别，我们保证至少在 99.9% 的时间里，正确配置的应用程序能够通过在基本或标准通知中心层上部署的通知中心，发送通知或执行注册管理操作。</p> -->
+				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/messaging/" id="pricing_messaging_sla">服务级别协议</a>页。</p>
+                </div>
+                <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
+                <!--END: Support and service code chunk-->
+              
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                       
+            <!--END: Support and service code chunk-->                       
+    ]]>
+    </bodyText>
+    <pageTitle>服务总线 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-messaging</linkid>
+    <metaKeywords>Azure, 服务总线, 消息传送, 中转连接</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure 服务总线（Search Bus）价格详情。Azure 服务总线（Search Bus）是位于各个应用程序之间的消息传送基础结构，允许应用程序交换消息，从而扩大规模并提高恢复能力。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
+    <urlDisplayName>价格详情 - 服务总线</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
