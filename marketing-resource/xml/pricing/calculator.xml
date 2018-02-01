@@ -211,6 +211,12 @@
       <li>
         <span class='checkbox-rect' id=calculator_downlist_filter_analysis-services></span>Azure 分析服务
       </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_api-management></span>API 管理
+      </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_analysis-services></span>网络观察程序
+      </li>
     </ul>
   </div>
 </div>
@@ -471,6 +477,8 @@
 	CalculatorUIRenderer.AddService("analysis-services-date");
 	CalculatorUIRenderer.AddService("analysis-services-ssl");
 	CalculatorUIRenderer.AddService("analysis-services-scale-out");
+  CalculatorUIRenderer.AddService("api-management");
+  CalculatorUIRenderer.AddService("network-watcher");
     CalculatorUIRenderer.AddService("support");
     
     CalculatorUIRenderer.PostProcess();

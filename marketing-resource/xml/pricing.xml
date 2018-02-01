@@ -9,6 +9,9 @@
 		      	margin-right:14%;
 		      }
       	}
+      	.overview-content .nav_item{
+      	height:280px;
+      	}
 	      	
       </style>
 			<div class="overview-content">
@@ -68,7 +71,7 @@
 								</h2>
 								<ul title="网络"  class="low-price">
 									<li>
-										<a id="pricing_overview_network_networking" href="/pricing/details/virtual-network/" class="single-link">虚拟网络</a>
+										<a id="pricing_overview_network_networking" href="/pricing/details/networking/" class="single-link">虚拟网络</a>
 									</li>
 									<li>
 										<a id="pricing_overview_network_load-balancer" href="/pricing/details/load-balancer/" class="single-link">负载均衡器</a>
@@ -92,7 +95,10 @@
 										<a id="pricing_overview_network_data-transfer" href="/pricing/details/data-transfer/" class="single-link">数据传输（带宽）</a>
 									</li>
 									<li>
-										<a id="pricing_overview_network_reserved-ip-addresses" href="/pricing/details/ip-addresses/" class="single-link">IP 地址</a>
+										<a id="pricing_overview_network_reserved-ip-addresses" href="/pricing/details/reserved-ip-addresses/" class="single-link">IP 地址</a>
+									</li>
+									<li>
+										<a id="pricing_overview_network_reserved-network-watcher" href="/pricing/details/network-watcher/" class="single-link">网络观察程序</a>
 									</li>
 								</ul>
 							</div>
@@ -109,7 +115,7 @@
 										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/" class="single-link">存储</a>
 									</li>
 									<li>
-										<a id="pricing_overview_storage_back-up" href="/pricing/details/backup/" class="single-link">备份</a>
+										<a id="pricing_overview_storage_back-up" href="/pricing/details/back-up/" class="single-link">备份</a>
 									</li>
 									<li>
 										<a id="pricing_overview_storage_site-recovery" href="/pricing/details/site-recovery/" class="single-link">站点恢复</a>
@@ -138,9 +144,9 @@
 									<li>
 										<a id="pricing_overview_Web&Mobile_media-services" href="/pricing/details/media-services/" class="single-link">媒体服务</a>
 									</li>
-									<!-- <li>
+									<li>
 										<a id="pricing_overview_Web&Mobile_api-management" href="/pricing/details/api-management/" class="single-link">API 管理</a>
-									</li> -->
+									</li>
 
 									
 								</ul>
@@ -159,8 +165,7 @@
 									</li>
 									<li>
 										<a id="pricing_overview_database_mysql" href="/pricing/details/mysql/" class="single-link">
-											MySQL
-											<span class="mysql-style">Database on Azure</span>
+											MySQL Database on Azure 
 										</a>
 									</li>
 									<li>
@@ -168,8 +173,7 @@
 									</li>
 									<li>
 										<a id="pricing_overview_database_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link">
-											SQL Server
-											<span class="mysql-style">Stretch Database</span>
+											SQL Server Stretch Database
 										</a>
 									</li>									
 									<li>
@@ -241,12 +245,11 @@
 								</h2>
 								<ul title="企业集成">
 									<li>
-										<a id="pricing_overview_integration_messaging" href="/pricing/details/service-bus/" class="single-link">服务总线</a>
+										<a id="pricing_overview_integration_messaging" href="/pricing/details/messaging/" class="single-link">服务总线</a>
 									</li>
 									<li>
 										<a id="pricing_overview_integration_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link">
-											SQL Server
-											<span class="mysql-style">Stretch Database</span>
+											SQL Server Stretch Database
 										</a>
 									</li>									
 								</ul>
@@ -264,7 +267,7 @@
 										<a id="pricing_overview_security_key-vault" href="/pricing/details/key-vault/" class="single-link">密钥保管库 </a>
 									</li>
 									<li>
-										<a id="pricing_overview_security_identity" href="/pricing/details/active-directory/" class="single-link">Azure Active Directory</a>
+										<a id="pricing_overview_security_identity" href="/pricing/details/identity/" class="single-link">Azure Active Directory</a>
 									</li>
 									<li>
 										<a id="pricing_overview_security_multi-factor-authentication" href="/pricing/details/multi-factor-authentication/" class="single-link">多重身份验证</a>
@@ -284,7 +287,7 @@
 										<a id="pricing_overview_manage_automation" href="/pricing/details/automation/" class="single-link">自动化</a>
 									</li>
 								<li>
-										<a id="pricing_overview_manage_back-up" href="/pricing/details/backup/" class="single-link">备份</a>
+										<a id="pricing_overview_manage_back-up" href="/pricing/details/back-up/" class="single-link">备份</a>
 									</li>
 									<li>
 										<a id="pricing_overview_manage_site-recovery" href="/pricing/details/site-recovery/" class="single-link">站点恢复</a>
