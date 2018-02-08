@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<shd>
+  <category name="计算">
+    <service>
+      <name>虚拟机</name>
+      <slug>virtual-machines</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>云服务</name>
+      <slug>cloud-services</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service> 
+    <service>
+      <name>虚拟机规模集</name>
+      <slug>virtual-machine-scale-sets</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="网络">
+    <service>
+      <name>CDN</name>
+      <slug>cdn</slug>
+      <regions>
+        <global>true</global>
+      </regions>
+    </service>
+    <service has-inner-services="true">
+      <name>ExpressRoute</name>
+      <slug>expressroute</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+      <inner-services>
+        <service>
+          <name>ExpressRoute Circuits</name>
+          <slug>expressroute\circuits</slug>
+        </service>
+        <service>
+          <name>ExpressRoute 网关</name>
+          <slug>expressroute\gateways</slug>
+        </service>
+      </inner-services>
+    </service>
+    <service>
+      <name>虚拟网络</name>
+      <slug>virtual-network</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>流量管理器</name>
+      <slug>traffic-manager</slug>
+      <regions>
+        <global>true</global>
+      </regions>
+    </service>
+    <service>
+      <name>负载均衡器</name>
+      <slug>load-balancer</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>VPN 网关</name>
+      <slug>vpn-gateway</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>网络基础设施</name>
+      <slug>network-access</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>应用程序网关</name>
+      <slug>application-gateway</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>网络观察程序</name>
+      <slug>network-watcher</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="存储">  
+    <service>
+      <name>存储</name>
+      <slug>storage</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="Web + 移动">
+     <service has-inner-services="true">
+      <name>应用服务</name>
+      <slug>app-service</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+      <inner-services>
+        <service>
+          <name>Web 应用</name>
+          <slug>app-service\web</slug>
+        </service>
+        <service>
+          <name>移动应用</name>
+          <slug>app-service\mobile</slug>
+        </service>
+        <service>
+          <name>API 应用</name>
+          <slug>app-service\api</slug>
+        </service>
+      </inner-services>
+    </service>
+    <service>
+      <name>移动服务</name>
+      <slug>mobile-services</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service has-inner-services="true">
+      <name>媒体服务</name>
+      <slug>media-services</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+      <inner-services>
+        <service>
+          <name>媒体编码</name>
+          <slug>media-services\encoding</slug>
+        </service>
+        <service>
+          <name>实时和点播流媒体</name>
+          <slug>media-services\on-demand-streaming</slug>
+        </service>
+      </inner-services>
+    </service>
+    <service>
+      <name>通知中心</name>
+      <slug>notification-hubs</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="容器">
+    <service>
+      <name>批处理</name>
+      <slug>batch</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>Service Fabric</name>
+      <slug>service-fabric</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="数据库">
+    <service has-inner-services="true">
+      <name>SQL 数据库</name>
+      <slug>sql-database</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+      <inner-services>
+        <service>
+          <name>SQL 数据同步</name>
+          <slug>sql-database\data-sync</slug>
+        </service>
+      </inner-services>
+    </service>
+    <service>
+      <name>Azure Cosmos DB</name>
+      <slug>cosmos-db</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>MySQL Database on Azure</name>
+      <slug>mysql</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>SQL 数据仓库</name>
+      <slug>sql-data-warehouse</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>Redis 缓存</name>
+      <slug>redis-cache</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>SQL Server Stretch Database</name>
+      <slug>sql-server-stretch-database</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="数据 + 分析">
+    <service>
+      <name>HDInsight</name>
+      <slug>hdinsight</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>Power BI 工作区集合</name>
+      <slug>power-bi-embedded</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>Azure 分析服务</name>
+      <slug>analysis-services</slug>
+      <regions>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="AI 和认知服务">
+    <service has-inner-services="true">
+      <name>认知服务</name>
+      <slug></slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+      <inner-services>
+        <service>
+          <name>人脸识别 API</name>
+         <slug>face-api</slug>
+        </service>
+        <service>
+          <name>情绪识别 API</name>
+          <slug>Emotion-api</slug>
+        </service>
+        <service>
+           <name>计算机视觉 API </name>
+           <slug>Ecomputervision</slug>
+        </service>
+      </inner-services>
+    </service>
+  </category>
+  <category name="物联网">
+    <service>
+      <name>流分析</name>
+      <slug>stream-analytics</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>事件中心</name>
+      <slug>event-hubs</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>IoT 中心</name>
+      <slug>iot-hub</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>IoT 套件</name>
+      <slug>iot-suite</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="企业集成">
+    <service>
+      <name>服务总线</name>
+      <slug>service-bus</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="安全性 + 身份">
+    <service>
+      <name>Active Directory</name>
+      <slug>active-directory</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>多重身份验证</name>
+      <slug>multi-factor-authentication</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>密钥保管库</name>
+      <slug>key-vault</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>访问控制服务</name>
+      <slug>access-control</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+  </category>
+  <category name="监控 + 管理 ">
+     <service>
+      <name>备份</name>
+      <slug>backup</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>站点恢复</name>
+      <slug>site-recovery</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>计划程序</name>
+      <slug>scheduler</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+    <service>
+      <name>自动化</name>
+      <slug>automation</slug>
+      <regions>
+        <china-north>true</china-north>
+      </regions>
+    </service>
+     <service>
+      <name>Azure 门户</name>
+      <slug>azure-portal</slug>
+      <regions>
+        <global>true</global>
+      </regions>
+    </service>
+    <service>
+      <name>manage.windowsazure.cn</name>
+      <slug>management-portal</slug>
+      <regions>
+        <global>true</global>
+      </regions>
+    </service>
+    <service>
+      <name>www.azure.cn</name>
+      <slug>azure-microsoft-cn</slug>
+      <regions>
+        <global>true</global>
+      </regions>
+    </service>
+    <service>
+      <name>Azure 资源管理器</name>
+      <slug>azure-resource-manager</slug>
+      <regions>
+        <global>true</global>
+      </regions>
+    </service>
+  </category>
+  
+</shd>

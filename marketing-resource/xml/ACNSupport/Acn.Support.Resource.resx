@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptPrivacyStatement" xml:space="preserve">
+    <value>请接受隐私声明和协议</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="AccountMaxLengthError" xml:space="preserve">
+    <value>用户名长度过长</value>
+  </data>
+  <data name="Agreement" xml:space="preserve">
+    <value>协议</value>
+  </data>
+  <data name="AltEmail" xml:space="preserve">
+    <value>其他邮箱联系方式</value>
+  </data>
+  <data name="AltEmailFormatError" xml:space="preserve">
+    <value>电子邮件格式不符合</value>
+  </data>
+  <data name="AltEmailLengthError" xml:space="preserve">
+    <value>电子邮件长度过长</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>和</value>
+  </data>
+  <data name="AzureSeverity" xml:space="preserve">
+    <value>严重性（可见&lt;a href="http://windowsazure.cn/support/plans/"&gt;详情&lt;/a&gt;)</value>
+  </data>
+  <data name="AzureSeverity_A" xml:space="preserve">
+    <value>A - 关键业务影响，需要立即注意</value>
+  </data>
+  <data name="AzureSeverity_B" xml:space="preserve">
+    <value>B - 中等业务影响，业务或服务水平有所降低，但工作可合理继续，只是效率有所降低</value>
+  </data>
+  <data name="AzureSeverity_C" xml:space="preserve">
+    <value>C - 较小业务影响，业务运转顺利，遇到一些服务障碍或无服务障碍</value>
+  </data>
+  <data name="AzureSubs" xml:space="preserve">
+    <value>Windows Azure 订阅号</value>
+  </data>
+  <data name="AzureSubsMaxLengthError" xml:space="preserve">
+    <value>Windows Azure 订阅号长度过长</value>
+  </data>
+  <data name="AzureSupportForm_ApplyForSupport" xml:space="preserve">
+    <value>申请支持</value>
+  </data>
+  <data name="AzureSupportForm_Description" xml:space="preserve">
+    <value>请输入您的详细资料及描述您需要支持的问题。&lt;br /&gt;我们的工作人员会尽快与您联络。</value>
+  </data>
+  <data name="CookieError" xml:space="preserve">
+    <value>您的浏览器安全设置阻止了来自网站的Cookie从而无法提交表单。</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="EmailFormatError" xml:space="preserve">
+    <value>电子邮件格式不符合。请输入电子邮箱全名 &amp;mdash; useraccount@example.com</value>
+  </data>
+  <data name="EmailMaxLengthError" xml:space="preserve">
+    <value>电子邮件长度过长</value>
+  </data>
+  <data name="IAgree" xml:space="preserve">
+    <value>我同意</value>
+  </data>
+  <data name="InputAccount" xml:space="preserve">
+    <value>请输入用户名</value>
+  </data>
+  <data name="InputAzureSubs" xml:space="preserve">
+    <value>请输入Windows Azure 订阅号</value>
+  </data>
+  <data name="InputDetailUserInfo" xml:space="preserve">
+    <value>请输入您的详细资料：</value>
+  </data>
+  <data name="InputEmail" xml:space="preserve">
+    <value>请输入电子邮件</value>
+  </data>
+  <data name="InputName" xml:space="preserve">
+    <value>请输入名字</value>
+  </data>
+  <data name="InputPhone" xml:space="preserve">
+    <value>请输入电话</value>
+  </data>
+  <data name="InputSurname" xml:space="preserve">
+    <value>请输入姓氏</value>
+  </data>
+  <data name="InputTicketDetail" xml:space="preserve">
+    <value>请输入支持问题详细描述</value>
+  </data>
+  <data name="InputTicketTitle" xml:space="preserve">
+    <value>请输入支持问题标题</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="NameMaxLengthError" xml:space="preserve">
+    <value>名字长度过长</value>
+  </data>
+  <data name="O365SupportForm_ApplyForSuport" xml:space="preserve">
+    <value>申请支持</value>
+  </data>
+  <data name="O365SupportForm_Description" xml:space="preserve">
+    <value>请输入您的详细资料及描述您需要支持的问题。&lt;br /&gt;我们的工作人员会尽快与您联络。</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="PhoneFormatError" xml:space="preserve">
+    <value>电话格式不符合</value>
+  </data>
+  <data name="PhoneMaxLengthError" xml:space="preserve">
+    <value>电话长度过长</value>
+  </data>
+  <data name="PrivacyStatement" xml:space="preserve">
+    <value>隐私声明</value>
+  </data>
+  <data name="SelectPreferredContact" xml:space="preserve">
+    <value>请选择优先联系方式</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="SurnameMaxLengthError" xml:space="preserve">
+    <value>姓氏长度过长</value>
+  </data>
+  <data name="TicketDetail" xml:space="preserve">
+    <value>请详细描述您需要支持的问题  （剩余字数：</value>
+  </data>
+  <data name="TicketDetailMaxLengthError" xml:space="preserve">
+    <value>支持问题长度过长</value>
+  </data>
+  <data name="TicketTitle" xml:space="preserve">
+    <value>支持问题标题</value>
+  </data>
+  <data name="TicketTitleMaxLengthError" xml:space="preserve">
+    <value>标题长度过长</value>
+  </data>
+  <data name="TicketType" xml:space="preserve">
+    <value>支持类型</value>
+  </data>
+  <data name="TicketTypeEmptyError" xml:space="preserve">
+    <value>请选择一个选项</value>
+  </data>
+  <data name="TicketType_Billing" xml:space="preserve">
+    <value>账单问题</value>
+  </data>
+  <data name="TicketType_Contract" xml:space="preserve">
+    <value>合同</value>
+  </data>
+  <data name="TicketType_ICP" xml:space="preserve">
+    <value>ICP备案</value>
+  </data>
+  <data name="TicketType_Presales" xml:space="preserve">
+    <value>产品咨询</value>
+  </data>
+  <data name="TicketType_Technical" xml:space="preserve">
+    <value>技术</value>
+  </data>
+  <data name="Attachement_CountError" xml:space="preserve">
+    <value>最多可上传3个附件</value>
+  </data>
+  <data name="Attachement_SizeError" xml:space="preserve">
+    <value>单个文件小于等于2M</value>
+  </data>
+  <data name="Attachement_TypeError" xml:space="preserve">
+    <value>支持的格式:jpg, jpeg, bmp, png, gif,txt,rar,zip,doc,docx,ini,conf,eml, xlsx, xls, pdf</value>
+  </data>
+  <data name="AltEmailHint" xml:space="preserve">
+    <value>最多两个联系方式，用逗号分隔（,）</value>
+  </data>
+  <data name="AttachFile" xml:space="preserve">
+    <value>上传附件</value>
+  </data>
+  <data name="SelectList_Blank" xml:space="preserve">
+    <value>请选择</value>
+  </data>
+  <data name="InputError" xml:space="preserve">
+    <value>输入错误！</value>
+  </data>
+  <data name="TicketType_Quota" xml:space="preserve">
+    <value>配额申请</value>
+  </data>
+  <data name="TicketType_SubscriptionManagement" xml:space="preserve">
+    <value>订阅管理</value>
+  </data>
+  <data name="TicketType_Billing_L1Name" xml:space="preserve">
+    <value>问题类型</value>
+  </data>
+  <data name="TicketType_Quota_L1Name" xml:space="preserve">
+    <value>配额类型</value>
+  </data>
+  <data name="TicketType_Suscription_L1Name" xml:space="preserve">
+    <value>问题类型</value>
+  </data>
+  <data name="TicketType_Technical_L1Name" xml:space="preserve">
+    <value>服务类型</value>
+  </data>
+  <data name="TicketType_Technical_L2Name" xml:space="preserve">
+    <value>问题类型</value>
+  </data>
+  <data name="TicketType_Technical_L3Name" xml:space="preserve">
+    <value>分类</value>
+  </data>
+  <data name="TicketType_Tip" xml:space="preserve">
+    <value>提示：此类支持时间为工作日周一至周五 9:00-18:00 (节假日除外)，关于您提交的服务请求，我们的支持人员将在工作日尽快与您取得联系</value>
+  </data>
+  <data name="OptionAQ1" xml:space="preserve">
+    <value>该问题是否影响到了您的生产环境?</value>
+  </data>
+  <data name="OptionAQ2" xml:space="preserve">
+    <value>您是否可以和技术支持工程师一起7*24工作直到问题解决?</value>
+  </data>
+  <data name="OptionAQ3" xml:space="preserve">
+    <value>该问题是否影响到了您多个用户?</value>
+  </data>
+  <data name="OptionAQ3_AffectedUserNum" xml:space="preserve">
+    <value>请填写受到影响的客户数量</value>
+  </data>
+  <data name="OptionAQ4" xml:space="preserve">
+    <value>该问题影响到了您的哪个或哪些服务？ （剩余字数： </value>
+  </data>
+  <data name="OptionAWarning" xml:space="preserve">
+    <value>请确保所填信息的真实性，否则您的严重级别可能会被降级！</value>
+  </data>
+  <data name="OptionA_No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="OptionA_Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Modal_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Modal_OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="OptionAEnableInfo" xml:space="preserve">
+    <value>A - 关键业务影响，服务水平明显下降</value>
+  </data>
+  <data name="OptionAQ3_AffectedUserNumError" xml:space="preserve">
+    <value>请输入数字。</value>
+  </data>
+  <data name="OptionA_Alert" xml:space="preserve">
+    <value>抱歉，您的当前情况不符合A的要求，请适当选择B或者C。</value>
+  </data>
+  <data name="Ticket_RightBrace" xml:space="preserve">
+    <value>）</value>
+  </data>
+  <data name="OptionACheckError" xml:space="preserve">
+    <value>请选择"是"或“否”。</value>
+  </data>
+  <data name="OptionAQ4_EmptyError" xml:space="preserve">
+    <value>请输入受到影响的服务的详细描述。</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>回主页</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>重新登陆</value>
+  </data>
+  <data name="SupportLoadAccountError" xml:space="preserve">
+    <value>该Live账号不支持，请使用您的Azure China账号重试 （格式如：xxx@yyy.partner.onmschina.cn，或相应的AAD绑定账号）。</value>
+  </data>
+  <data name="SwitchAccount" xml:space="preserve">
+    <value>切换账号</value>
+  </data>
+  <data name="Ticket_LeftBrace" xml:space="preserve">
+    <value>（</value>
+  </data>
+  <data name="TicketType_Commerce_O365" xml:space="preserve">
+    <value>商务支持</value>
+  </data>
+  <data name="TicketType_ICP_O365" xml:space="preserve">
+    <value>ICP备案</value>
+  </data>
+  <data name="TicketType_Technical_O365" xml:space="preserve">
+    <value>技术支持</value>
+  </data>
+  <data name="O365ResultBodyFail" xml:space="preserve">
+    <value>我们无法递交您的申请信息。请您等待10分钟后重新填写并递交申请。给您带来的不便，敬请谅解！</value>
+  </data>
+  <data name="O365ResultBodySuccess1front" xml:space="preserve">
+    <value>我们已经收到您的支持申请, 根据您的问题描述为您创建了服务事件SR：</value>
+  </data>
+  <data name="O365ResultFooter1Fail" xml:space="preserve">
+    <value>您可以通过联系世纪互联的支持团队寻求帮助：</value>
+  </data>
+  <data name="O365ResultFooter2Fail" xml:space="preserve">
+    <value>电话支持，请拨打：+86 400 089 0365</value>
+  </data>
+  <data name="O365ResultFooter3Fail" xml:space="preserve">
+    <value>邮箱支持，请联系：office365support@oe.21vianet.com</value>
+  </data>
+  <data name="O365ResultTitleFail" xml:space="preserve">
+    <value>很抱歉</value>
+  </data>
+  <data name="O365ResultTitleSuccess" xml:space="preserve">
+    <value>谢谢</value>
+  </data>
+  <data name="O365ResultBodySuccess1behind" xml:space="preserve">
+    <value>，我们会尽快通过您提供的邮件或者电话等联系方式与您取得联系！</value>
+  </data>
+  <data name="TicketResultButtionRefill" xml:space="preserve">
+    <value>重新填写</value>
+  </data>
+  <data name="TicketResultButtionBackTo365" xml:space="preserve">
+    <value>返回O365</value>
+  </data>
+  <data name="AzureResultBodyFail1" xml:space="preserve">
+    <value>我们无法递交您的申请信息，错误代码：</value>
+  </data>
+  <data name="AzureResultBodyFail2" xml:space="preserve">
+    <value>请您尝试调整后重新填写并递交申请，或直接拨打世纪互联支持热线(+86 400 089 0365)寻求帮助。</value>
+  </data>
+  <data name="AzureResultBodyFail3" xml:space="preserve">
+    <value>给您带来的不便，敬请谅解！</value>
+  </data>
+  <data name="AzureResultBodyFailReason_Repeat" xml:space="preserve">
+    <value>重复提交。</value>
+  </data>
+  <data name="AzureResultBodySuccess1behind" xml:space="preserve">
+    <value>，请留意您的邮箱或手机，相关支持工程师将会尽快与您联系。</value>
+  </data>
+  <data name="AzureResultBodySuccess1front" xml:space="preserve">
+    <value>根据您的问题描述为您创建了服务事件SR：</value>
+  </data>
+  <data name="AzureResultBodySuccess2" xml:space="preserve">
+    <value>如果您希望了解该事件的进展或有任何问题，可以拨打世纪互联支持热线(+86 400 089 0365)咨询，</value>
+  </data>
+  <data name="AzureResultBodySuccess3" xml:space="preserve">
+    <value>请向客服代表提供事件号码，以方便为您尽快转接到相应工程师。</value>
+  </data>
+  <data name="AzureTicketTitleFail" xml:space="preserve">
+    <value>很抱歉，我们无法递交您的申请信息！</value>
+  </data>
+  <data name="AzureTicketTitleSuccess" xml:space="preserve">
+    <value>Azure 支持申请提交成功！</value>
+  </data>
+  <data name="AzureResultBodyFailReasonOthers" xml:space="preserve">
+    <value>其他异常。</value>
+  </data>
+  <data name="AzureResultBodyFailReasonSameTicket" xml:space="preserve">
+    <value>已经存在相同工单：</value>
+  </data>
+  <data name="TipOf21vMaintain" xml:space="preserve">
+    <value>我们计划将于2017年10月22日晨间0:30-8:30期间进行系统例行维护工作。系统维护期间，此工单创建入口将短暂关闭。如需支持，请通过世纪互联热线电话400-089-0365或010-84563652联系我们。对您造成任何不便我们深表歉意，并感谢您一如既往的理解与支持！</value>
+  </data>
+  <data name="AzureIdExpiredErrDiv" xml:space="preserve">
+    <value>该订阅已失效，请选择另一有效订阅。</value>
+  </data>
+  <data name="SupportPlanType" xml:space="preserve">
+    <value>支持计划</value>
+  </data>
+  <data name="TicketEventStartTime" xml:space="preserve">
+    <value>问题开始时间</value>
+  </data>
+  <data name="TicketEventStartTime_Placeholder" xml:space="preserve">
+    <value>请输入时间，如 13:11</value>
+  </data>
+  <data name="HistoryRecord" xml:space="preserve">
+    <value>历史记录</value>
+  </data>
+  <data name="SearchRecordByCreateTimeTitle" xml:space="preserve">
+    <value>查询工单创建时间</value>
+  </data>
+  <data name="SubmitApplication" xml:space="preserve">
+    <value>提交申请</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>至</value>
+  </data>
+  <data name="SupportAzureNoPermissionErrorInfo" xml:space="preserve">
+    <value>你没有权限提交SevA的表单</value>
+  </data>
+  <data name="SupportO365NotAdminErrorInfo" xml:space="preserve">
+    <value>只有管理员能提交表单</value>
+  </data>
+</root>
