@@ -1,0 +1,3112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Msg_ImgEdit_NonAdmin_NotAllowed" xml:space="preserve">
+    <value>无法编辑其他用户发布的 VHD 镜像 #</value>
+  </data>
+  <data name="Msg_ImgPublish_Blob_Url_Invalid" xml:space="preserve">
+    <value>需要一个 VHD 镜像的有效 Azure Blob 网址 &lt;br/&gt; http://&amp;lt;storage-account-name&amp;gt;.blob.core.chinacloudapi.cn/&amp;lt;container-name&amp;gt;/&amp;lt;blob-name&amp;gt; or http://&amp;lt;storage-account-name&amp;gt;.blob.core.windows.net/&amp;lt;container-name&amp;gt;/&amp;lt;blob-name&amp;gt;</value>
+  </data>
+  <data name="Msg_ImgPublish_Blob_Url_Toolong" xml:space="preserve">
+    <value>Blob 网址过长。上限为 256 个字符</value>
+  </data>
+  <data name="Msg_ImgPublish_Desc_Length_Limit" xml:space="preserve">
+    <value>详细描述的上限为40000个字符</value>
+  </data>
+  <data name="Msg_ImgPublish_Each_Package_Name" xml:space="preserve">
+    <value>各软件包名称</value>
+  </data>
+  <data name="Msg_ImgPublish_Each_Tag_Name" xml:space="preserve">
+    <value>各标记名称</value>
+  </data>
+  <data name="Msg_ImgPublish_Name_Length_Limit" xml:space="preserve">
+    <value>名称的上限为 50 个字符</value>
+  </data>
+  <data name="Msg_ImgPublish_Name_Required" xml:space="preserve">
+    <value>需要填写名称</value>
+  </data>
+  <data name="Msg_ImgPublish_Packages_Length_Limit" xml:space="preserve">
+    <value>软件包列表过长。上限为 256 个字符</value>
+  </data>
+  <data name="Msg_ImgPublish_Package_Char_Allowed" xml:space="preserve">
+    <value>应仅包含字母、数字、空格、汉字、短划线 (-) 或 (.)</value>
+  </data>
+  <data name="Msg_ImgPublish_Package_Length_Limit" xml:space="preserve">
+    <value>应不少于 2 个字符并且不超过 40 个字符</value>
+  </data>
+  <data name="Msg_ImgPublish_Package_Nosequence_Dashdot" xml:space="preserve">
+    <value>每个短划线 (-) 或 (.) 符号应紧接前后字母或数字</value>
+  </data>
+  <data name="Msg_ImgPublish_Package_Startend_Alphanum" xml:space="preserve">
+    <value>应以字母、汉字或数字开始和结束</value>
+  </data>
+  <data name="Msg_ImgPublish_Platform_Required" xml:space="preserve">
+    <value>需要平台</value>
+  </data>
+  <data name="Msg_ImgPublish_Platform_TooLong" xml:space="preserve">
+    <value>平台名称过长</value>
+  </data>
+  <data name="Msg_ImgPublish_Recommend_Package" xml:space="preserve">
+    <value>强烈建议您提供软件包</value>
+  </data>
+  <data name="Msg_ImgPublish_Tags_Length_Limit" xml:space="preserve">
+    <value>标记列表过长。上限为 256 个字符</value>
+  </data>
+  <data name="Msg_Shared_Accept_ISVPolicy" xml:space="preserve">
+    <value>需要接受 Azure 市场参与政策</value>
+  </data>
+  <data name="Msg_ImgPublish_Term_Url_Invalid" xml:space="preserve">
+    <value>最终用户协议网址应为有效网址并且不超过 256 个字符</value>
+  </data>
+  <data name="Msg_ImgPublish_Version_Desc_Length_Limit" xml:space="preserve">
+    <value>版本描述的上限为1024个字符</value>
+  </data>
+  <data name="Msg_ImgUpgrade_Admin_NotAllowed" xml:space="preserve">
+    <value>即使管理员用户也无法为其他用户升级镜像 #</value>
+  </data>
+  <data name="Msg_NonAdmin_User" xml:space="preserve">
+    <value>非管理员用户 #</value>
+  </data>
+  <data name="View_Title" xml:space="preserve">
+    <value>Azure 市场</value>
+  </data>
+  <data name="View_List_Index_Intro_Text1" xml:space="preserve">
+    <value>Azure 市场是可以轻松部署在 Azure 上的预配置操作系统、应用程序和开发栈的目录。查找您喜爱的软件并快速部署， 或加入社区、建立虚拟机镜像然后与他人分享。&lt;a href="~/documentation/index"&gt;了解更多。&lt;/a&gt;</value>
+  </data>
+  <data name="View_List_Index_Intro_Text2" xml:space="preserve">
+    <value>Azure 市场由 Microsoft 提供，并由北京世纪互联宽带数据中心有限公司在中国进行运营。此网站上的虚拟机镜像由社区成员提供并授权。Microsoft 及世纪互联不负责检查这些镜像文件的兼容性和性能，并且不提供任何许可权利或相关支持。</value>
+  </data>
+  <data name="View_Shared_Classic_VHD" xml:space="preserve">
+    <value>虚拟机镜像</value>
+  </data>
+  <data name="Msg_CommentLimit_512" xml:space="preserve">
+    <value>评论不应超过 512 个字符</value>
+  </data>
+  <data name="Msg_Image_DeleteConfirm" xml:space="preserve">
+    <value>您确定要删除该镜像吗？</value>
+  </data>
+  <data name="Msg_ImgPublish_EndPoint_LclDupNotAllowed" xml:space="preserve">
+    <value>指定本地端口已被一个终结点占用 (*)</value>
+  </data>
+  <data name="Msg_ImgPublish_EndPoint_PubDupNotAllowed" xml:space="preserve">
+    <value>指定公用端口已被一个终结点占用 (*)</value>
+  </data>
+  <data name="Msg_ImgPublish_EndPoint_ShouldBeInRange" xml:space="preserve">
+    <value>公共端口和本地端口号都应在 [1-65535] 范围内</value>
+  </data>
+  <data name="Msg_ImgPublish_EndPoint_ShouldBeInt" xml:space="preserve">
+    <value>公共端口和本地端口都应是数字</value>
+  </data>
+  <data name="Msg_ImgRate_Blocked" xml:space="preserve">
+    <value>您被管理员阻止进行评级和评论</value>
+  </data>
+  <data name="Msg_ImgRate_NeedSignIn" xml:space="preserve">
+    <value>您需要&lt;a href="{0}"&gt;登录&lt;/a&gt;进行评级、评论或投票</value>
+  </data>
+  <data name="Msg_ImgRate_NoSelfRate" xml:space="preserve">
+    <value>您无法对自己的镜像评级</value>
+  </data>
+  <data name="Msg_RateVote_NeedSignIn" xml:space="preserve">
+    <value>您需要登录进行投票</value>
+  </data>
+  <data name="Msg_RateVote_NoSelfVote" xml:space="preserve">
+    <value>您无法对自己的评论投票</value>
+  </data>
+  <data name="Msg_WhyReport_Comment" xml:space="preserve">
+    <value>您为何报告这个评论</value>
+  </data>
+  <data name="View_lbl_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="View_lbl_Cancel_Cap" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="View_lbl_Comment_Fmt" xml:space="preserve">
+    <value>评论</value>
+  </data>
+  <data name="View_lbl_Comments_Fmt" xml:space="preserve">
+    <value>评论</value>
+  </data>
+  <data name="View_lbl_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="View_lbl_DeleteIt" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="View_lbl_Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="View_lbl_EndPoints" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="View_lbl_ImageLegal" xml:space="preserve">
+    <value>最终用户协议网址</value>
+  </data>
+  <data name="View_lbl_ImageName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="View_lbl_Insert" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="View_lbl_LclPort" xml:space="preserve">
+    <value>本地端口</value>
+  </data>
+  <data name="View_lbl_Log" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="View_lbl_NoComments" xml:space="preserve">
+    <value>0 评论</value>
+  </data>
+  <data name="View_lbl_NoVotes" xml:space="preserve">
+    <value>无投票</value>
+  </data>
+  <data name="View_lbl_Packages" xml:space="preserve">
+    <value>软件包</value>
+  </data>
+  <data name="View_lbl_Platform" xml:space="preserve">
+    <value>平台</value>
+  </data>
+  <data name="View_lbl_Post_Cap" xml:space="preserve">
+    <value>公布</value>
+  </data>
+  <data name="View_lbl_Publisher" xml:space="preserve">
+    <value>发布者</value>
+  </data>
+  <data name="View_lbl_PubPort" xml:space="preserve">
+    <value>公共端口</value>
+  </data>
+  <data name="View_lbl_RateAdd" xml:space="preserve">
+    <value>添加新评论或评级</value>
+  </data>
+  <data name="View_lbl_RateEdit" xml:space="preserve">
+    <value>编辑您的评论或评级</value>
+  </data>
+  <data name="View_lbl_Report" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="View_lbl_Save_Cap" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="View_lbl_Showing" xml:space="preserve">
+    <value>显示 </value>
+  </data>
+  <data name="View_lbl_SignIn" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="View_lbl_Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="View_lbl_Tags" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="View_lbl_Update" xml:space="preserve">
+    <value>升级</value>
+  </data>
+  <data name="View_lbl_UploadedDate" xml:space="preserve">
+    <value>上传日期</value>
+  </data>
+  <data name="View_lbl_Vote_Fmt" xml:space="preserve">
+    <value>投票</value>
+  </data>
+  <data name="View_lbl_Votes_Fmt" xml:space="preserve">
+    <value>投票</value>
+  </data>
+  <data name="View_Shared_DistPickPartial_lbl_Other" xml:space="preserve">
+    <value>其他发行版</value>
+  </data>
+  <data name="View_Shared_DistPickPartial_lbl_Supported" xml:space="preserve">
+    <value>Azure 支持的发行版</value>
+  </data>
+  <data name="View_Shared_DistPickPartial_Supported_Text" xml:space="preserve">
+    <value>以上发行版已经过测试并且&lt;a href="https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/"&gt;当前支持 Azure &lt;/a&gt;。在发布至 Azure 市场前，请全面测试您的镜像。</value>
+  </data>
+  <data name="View_Shared_EPPartial_lbl_NewEP" xml:space="preserve">
+    <value>添加新的端口</value>
+  </data>
+  <data name="View_ttip_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="View_ttip_CancelClose" xml:space="preserve">
+    <value>取消并关闭</value>
+  </data>
+  <data name="View_ttip_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="View_Vhd_Index_Delete_ttip_MinOneLoc" xml:space="preserve">
+    <value>您应选择至少一个位置。要删除该镜像，请使用 [删除] 按钮。</value>
+  </data>
+  <data name="View_Vhd_Index_Edit_Text" xml:space="preserve">
+    <value>编辑镜像的详细信息</value>
+  </data>
+  <data name="View_Shared_MMP_Policy" xml:space="preserve">
+    <value>我同意&lt;a target="_blank" href="{0}"&gt; Azure 市场参与政策&lt;/a&gt;。</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Desc" xml:space="preserve">
+    <value>详细描述</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_NewThumbnail" xml:space="preserve">
+    <value>上传镜像的缩略图</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Packages" xml:space="preserve">
+    <value>软件包</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Publish" xml:space="preserve">
+    <value>发布</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_PublishUrl" xml:space="preserve">
+    <value>VHD文件的地址</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Regions" xml:space="preserve">
+    <value>地区</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_RmThumbnail" xml:space="preserve">
+    <value>删除该缩略图</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Tags" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Thumbnail" xml:space="preserve">
+    <value>上传缩略图</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Upgrade" xml:space="preserve">
+    <value>发布升级</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_UpgradeUrl" xml:space="preserve">
+    <value>要升级的 VHD 文件的网址</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_VerDesc" xml:space="preserve">
+    <value>镜像版本描述</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_VerDesc_Limit" xml:space="preserve">
+    <value>限制：10~1024个字</value>
+  </data>
+  <data name="View_Required_Text" xml:space="preserve">
+    <value>必需字段</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_Text" xml:space="preserve">
+    <value>发布一个镜像</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_ttip_MinOneLoc" xml:space="preserve">
+    <value>您应选择至少一个位置。</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_ttip_Publish" xml:space="preserve">
+    <value>发布一个镜像</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_ttip_Upgrade" xml:space="preserve">
+    <value>发布升级</value>
+  </data>
+  <data name="View_Vhd_Index_Upgrade_Text" xml:space="preserve">
+    <value>发布升级镜像</value>
+  </data>
+  <data name="View_Vhd_Show_ImgRate_lbl_NoRatesOrComments" xml:space="preserve">
+    <value>无评级或评论</value>
+  </data>
+  <data name="View_Vhd_Show_ImgRate_lbl_RateOrAndComment_Fmt" xml:space="preserve">
+    <value>评级和/或评论</value>
+  </data>
+  <data name="View_Vhd_Show_ImgRate_lbl_RatesOrAndComments_Fmt" xml:space="preserve">
+    <value>评级和/或评论</value>
+  </data>
+  <data name="View_Vhd_Show_ImgRate_ttip_New" xml:space="preserve">
+    <value>公布您的评级和评论</value>
+  </data>
+  <data name="View_Vhd_Show_ImgRate_ttip_Update" xml:space="preserve">
+    <value>公布您的评级和评论的更新</value>
+  </data>
+  <data name="View_Vhd_Show_lbl_NewVersion" xml:space="preserve">
+    <value>新版本</value>
+  </data>
+  <data name="View_Vhd_Show_lbl_NewVersions" xml:space="preserve">
+    <value>新版本</value>
+  </data>
+  <data name="View_Vhd_Show_lbl_OldVersion" xml:space="preserve">
+    <value>旧版本</value>
+  </data>
+  <data name="View_Vhd_Show_lbl_OldVersions" xml:space="preserve">
+    <value>旧版本</value>
+  </data>
+  <data name="View_Vhd_Show_lbl_Regions" xml:space="preserve">
+    <value>地区</value>
+  </data>
+  <data name="View_Vhd_Show_ReportImg_Text" xml:space="preserve">
+    <value>这些镜像的技术支持由镜像发布者提供或通过评级部分由社区提供。您应只报告您认为有安全风险和/或含有非法、攻击性或不恰当内容的镜像。其他问题，请直接联络发布者或在下方评论中留言。</value>
+  </data>
+  <data name="Msg_ClickToContact" xml:space="preserve">
+    <value>点击这里联络该用户</value>
+  </data>
+  <data name="Msg_CommentBlocked" xml:space="preserve">
+    <value>被阻止：评论</value>
+  </data>
+  <data name="Msg_CommentRequired" xml:space="preserve">
+    <value>必需提供评论</value>
+  </data>
+  <data name="Msg_ImgDelete_ImgVersionAlreadyDeleted" xml:space="preserve">
+    <value>该镜像版本可能已经删除</value>
+  </data>
+  <data name="Msg_ImgEdit_OnlyAllowedForOwnImages" xml:space="preserve">
+    <value>您无法编辑其他用户发布的镜像</value>
+  </data>
+  <data name="Msg_ImgNotFound" xml:space="preserve">
+    <value>镜像没有找到</value>
+  </data>
+  <data name="Msg_ImgPublish_Blocked" xml:space="preserve">
+    <value>您被管理员阻止进行发布或升级</value>
+  </data>
+  <data name="Msg_ImgPublish_PublishCount" xml:space="preserve">
+    <value>当前发布的镜像</value>
+  </data>
+  <data name="Msg_ImgPublish_ReachedQuota" xml:space="preserve">
+    <value>您达到了发布限额</value>
+  </data>
+  <data name="Msg_PublishBlocked" xml:space="preserve">
+    <value>被阻止：发布</value>
+  </data>
+  <data name="Msg_RateVote_AlreadyUnVoted" xml:space="preserve">
+    <value>已取消投票</value>
+  </data>
+  <data name="Msg_RateVote_AlreadyVoted" xml:space="preserve">
+    <value>已投票</value>
+  </data>
+  <data name="Msg_RateVote_NoVoteForOwnVhdComment" xml:space="preserve">
+    <value>不允许对自己的评论或 VHD 评论进行投票</value>
+  </data>
+  <data name="Msg_Report_AlreadyReported" xml:space="preserve">
+    <value>您已经对该评论投票</value>
+  </data>
+  <data name="Msg_Report_NeedSignIn" xml:space="preserve">
+    <value>您需要登录后再报告</value>
+  </data>
+  <data name="Msg_Report_NoReportEmptyComment" xml:space="preserve">
+    <value>您无法报告空的评论</value>
+  </data>
+  <data name="Msg_Report_NoSelfReport" xml:space="preserve">
+    <value>您无法报告自己的评论</value>
+  </data>
+  <data name="Msg_SelectRegionForScript1" xml:space="preserve">
+    <value>请选择一个地区以查看部署命令行。</value>
+  </data>
+  <data name="Msg_Signup_InvalidUrl" xml:space="preserve">
+    <value>输入一个网址 (应以 http:// 或 https:// 开头并且不超过 256 个字符)。</value>
+  </data>
+  <data name="Msg_Signup_RequiredNameOrOrganization" xml:space="preserve">
+    <value>您必须输入您的名字或您的组织</value>
+  </data>
+  <data name="View_lbl_ACSProvider" xml:space="preserve">
+    <value>ACS 名字标识符和提供者</value>
+  </data>
+  <data name="View_lbl_AdminFlag" xml:space="preserve">
+    <value>管理员标记</value>
+  </data>
+  <data name="View_lbl_AdminSettings" xml:space="preserve">
+    <value>管理员设置</value>
+  </data>
+  <data name="View_lbl_Blog" xml:space="preserve">
+    <value>网络日志</value>
+  </data>
+  <data name="View_lbl_Comment" xml:space="preserve">
+    <value>评论</value>
+  </data>
+  <data name="View_lbl_Contact" xml:space="preserve">
+    <value>联系人</value>
+  </data>
+  <data name="View_lbl_EmailAddress" xml:space="preserve">
+    <value>电子邮件地址</value>
+  </data>
+  <data name="View_lbl_Phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="View_lbl_FaceBook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="View_lbl_LastActivityDate" xml:space="preserve">
+    <value>上次登录日期</value>
+  </data>
+  <data name="View_lbl_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="View_lbl_None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="View_lbl_Organization" xml:space="preserve">
+    <value>组织</value>
+  </data>
+  <data name="View_lbl_Rating" xml:space="preserve">
+    <value>评级</value>
+  </data>
+  <data name="View_lbl_Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="View_lbl_Subscribe" xml:space="preserve">
+    <value>订阅</value>
+  </data>
+  <data name="view_lbl_TrustedUser" xml:space="preserve">
+    <value>可信用户</value>
+  </data>
+  <data name="View_lbl_Url_Cap" xml:space="preserve">
+    <value>网址</value>
+  </data>
+  <data name="View_lbl_VisibilityOnlyYou" xml:space="preserve">
+    <value>仅自己可见</value>
+  </data>
+  <data name="View_lbl_VisibilityOnlyYouAdmin" xml:space="preserve">
+    <value>仅您自己或网站管理员可见</value>
+  </data>
+  <data name="View_lbl_Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="View_Shared_SignupPartial_CreateProfile_Header" xml:space="preserve">
+    <value>完善账户信息</value>
+  </data>
+  <data name="View_Shared_SignupPartial_EditProfile_Header" xml:space="preserve">
+    <value>完善账户信息</value>
+  </data>
+  <data name="View_Shared_VotingPartial_ttip_UnVote" xml:space="preserve">
+    <value>删除您的投票</value>
+  </data>
+  <data name="View_Shared_VotingPartial_ttip_Vote" xml:space="preserve">
+    <value>对该评论投票</value>
+  </data>
+  <data name="View_User_Show_lbl_AvgRatingForUserImages" xml:space="preserve">
+    <value>用户已发布镜像的平均评级</value>
+  </data>
+  <data name="View_User_Show_lbl_PublishCount" xml:space="preserve">
+    <value>发布数</value>
+  </data>
+  <data name="View_User_Show_lbl_RatingCount" xml:space="preserve">
+    <value>评级和评论数</value>
+  </data>
+  <data name="View_User_Show_UserImages_Header" xml:space="preserve">
+    <value>{0}发布的镜像</value>
+  </data>
+  <data name="View_User_Show_UserRatings_Header" xml:space="preserve">
+    <value>{0}评论的镜像</value>
+  </data>
+  <data name="View_User_Show_YourImages_Header" xml:space="preserve">
+    <value>我的镜像</value>
+  </data>
+  <data name="View_YourRatings_Header" xml:space="preserve">
+    <value>我评论的镜像</value>
+  </data>
+  <data name="View_VMDepotHyphen" xml:space="preserve">
+    <value>Azure 市场 - {0}</value>
+  </data>
+  <data name="Msg_NoPublish_QuotaExeeded" xml:space="preserve">
+    <value>由于已超出限额，您无法发布任何镜像。</value>
+  </data>
+  <data name="Msg_NoPublish_QuotaReached" xml:space="preserve">
+    <value>由于已达到限额，您无法发布任何镜像。</value>
+  </data>
+  <data name="Msg_PublishBlocked_ContactAdmin" xml:space="preserve">
+    <value>由于网站管理员的阻止，您无法发布或升级任何镜像。
+&lt;br /&gt;如果您有任何问题，请联络管理员。</value>
+  </data>
+  <data name="Msg_ThisIsYou" xml:space="preserve">
+    <value>您的信息</value>
+  </data>
+  <data name="Msg_WhyReport_User" xml:space="preserve">
+    <value>您为何报告这个用户</value>
+  </data>
+  <data name="Msg_YouAreAdmin" xml:space="preserve">
+    <value>您是该网站的管理员。</value>
+  </data>
+  <data name="View_lbl_Administrator" xml:space="preserve">
+    <value>管理员</value>
+  </data>
+  <data name="View_lbl_Images_Fmt" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="View_lbl_Image_Fmt" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="View_lbl_ModifiedTime" xml:space="preserve">
+    <value>修改时间</value>
+  </data>
+  <data name="View_lbl_NoImages" xml:space="preserve">
+    <value>没有镜像</value>
+  </data>
+  <data name="View_lbl_Published" xml:space="preserve">
+    <value>已发布</value>
+  </data>
+  <data name="View_lbl_PublishQuota" xml:space="preserve">
+    <value>发布限额</value>
+  </data>
+  <data name="View_lbl_Quota" xml:space="preserve">
+    <value>限额</value>
+  </data>
+  <data name="Msg_PublishQuota_Text_Fmt" xml:space="preserve">
+    <value> {0}，每个镜像最多 {1} GB，每个镜像最多 {2} 版本</value>
+  </data>
+  <data name="Msg_RequiresValidEmail" xml:space="preserve">
+    <value>需要一个有效的电子邮件地址</value>
+  </data>
+  <data name="Msg_Signup_RequiredFields1" xml:space="preserve">
+    <value>需要您的名字或您的组织。需要一个有效的电子邮件地址。您还需接受 Azure 市场参与政策。其他为选填项。</value>
+  </data>
+  <data name="Msg_Signup_RequiredFields2" xml:space="preserve">
+    <value>需要您的名字或您的组织。需要一个有效的电子邮件地址。其他为选填项。</value>
+  </data>
+  <data name="View_lbl_Ok_Caps" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="View_lbl_AcceptingTOU" xml:space="preserve">
+    <value>我接受 &lt;a target="_blank" href="{0}"&gt; Azure 市场参与政策&lt;/a&gt;。</value>
+  </data>
+  <data name="View_lbl_BlogURL" xml:space="preserve">
+    <value>博客</value>
+  </data>
+  <data name="View_lbl_CommentBlocked" xml:space="preserve">
+    <value>评论被阻止</value>
+  </data>
+  <data name="View_lbl_MaxImgCountQuota" xml:space="preserve">
+    <value>镜像数最高限额</value>
+  </data>
+  <data name="View_lbl_MaxImgSizeQuota" xml:space="preserve">
+    <value>镜像大小最高限额，GB</value>
+  </data>
+  <data name="View_lbl_PublishBlocked" xml:space="preserve">
+    <value>发布被阻止</value>
+  </data>
+  <data name="View_lbl_RemovePhoto" xml:space="preserve">
+    <value>删除该照片</value>
+  </data>
+  <data name="View_lbl_UploadNewPhoto" xml:space="preserve">
+    <value>上传新头像</value>
+  </data>
+  <data name="View_lbl_UploadPhoto" xml:space="preserve">
+    <value>上传头像</value>
+  </data>
+  <data name="View_lbl_WebsiteURL" xml:space="preserve">
+    <value>网站地址</value>
+  </data>
+  <data name="View_ProfileCreate_ttip" xml:space="preserve">
+    <value>创建用户配置文件</value>
+  </data>
+  <data name="View_ProfileUpdate_ttip" xml:space="preserve">
+    <value>更新用户配置文件</value>
+  </data>
+  <data name="View_Shared_SignupPartial_DefaultUsrSettings_Text_fmt" xml:space="preserve">
+    <value>当前默认用户设置：最大镜像数为 {0}，最大镜像大小为 {1}G。&lt;br /&gt;使用 -1 下面反映这些默认值</value>
+  </data>
+  <data name="View_Shared_SignupPartial_ttip_AdminFlag" xml:space="preserve">
+    <value>该用户会对其他用户显示为管理员吗？每个使用 ACS 登录的用户都会更新该标记。它用于显示，并不给予或撤销任何管理员权限。如果您仅使用 ACS 从管理员中清除某人，您可能要清除这个标记，而不用等他们登录。</value>
+  </data>
+  <data name="Msg_ArgumentTooLong" xml:space="preserve">
+    <value>{0}  过长</value>
+  </data>
+  <data name="Msg_DefaultWithText_Fmt" xml:space="preserve">
+    <value>默认值 ({0})</value>
+  </data>
+  <data name="Msg_ImageFile_NeedSigninBeforeBlobUpload" xml:space="preserve">
+    <value>上传 blob 前需要验证登录</value>
+  </data>
+  <data name="Msg_ImageFile_ShouldNot_Fmt" xml:space="preserve">
+    <value>图像应为 .jpg、.jpe、.jpeg、.png 或 .gif ，而不是 {0}</value>
+  </data>
+  <data name="Msg_ImageFile_SizeLimit_Fmt" xml:space="preserve">
+    <value>图像文件应小于 {0} KB</value>
+  </data>
+  <data name="Msg_ImageFile_TypeShouldNot_Fmt" xml:space="preserve">
+    <value>图像类型应为 jpeg、png 或 gif，而不是 {0}</value>
+  </data>
+  <data name="Msg_ImageFile_VerificationFailed" xml:space="preserve">
+    <value>图标图像验证失败</value>
+  </data>
+  <data name="Msg_IncorrectInputData" xml:space="preserve">
+    <value>不正确的输入数据</value>
+  </data>
+  <data name="Msg_IncorrectInputState" xml:space="preserve">
+    <value>不正确的输入状态</value>
+  </data>
+  <data name="Msg_Notification_BlockingStatus" xml:space="preserve">
+    <value>受阻状态</value>
+  </data>
+  <data name="Msg_Notification_CommentBlocked" xml:space="preserve">
+    <value>您现在被阻止进行评论。</value>
+  </data>
+  <data name="Msg_Notification_CommentUnBlocked" xml:space="preserve">
+    <value>您不再被阻止进行评论！</value>
+  </data>
+  <data name="Msg_Notification_MaxImageCountUpdated_Fmt" xml:space="preserve">
+    <value>您的最大镜像数已更新至：{0}</value>
+  </data>
+  <data name="Msg_Notification_MaxImageSizeUpdated_Fmt" xml:space="preserve">
+    <value>您的最大镜像大小已更新至：{0}</value>
+  </data>
+  <data name="Msg_Notification_PublishBlocked" xml:space="preserve">
+    <value>您现在被阻止进行发布。</value>
+  </data>
+  <data name="Msg_Notification_PublishUnBlocked" xml:space="preserve">
+    <value>您不再被阻止进行发布！</value>
+  </data>
+  <data name="Msg_Notification_Quota" xml:space="preserve">
+    <value>限额</value>
+  </data>
+  <data name="Msg_Notification_StatusChange_Fmt1" xml:space="preserve">
+    <value>您的 {0} 已被系统管理员更改</value>
+  </data>
+  <data name="Msg_Notification_StatusChange_Fmt2" xml:space="preserve">
+    <value>您的 {0} 和 {1} 已被系统管理员更改</value>
+  </data>
+  <data name="Msg_Notification_StatusChange_Fmt3" xml:space="preserve">
+    <value>您的 {0}、{1} 和 {2} 已被系统管理员更改</value>
+  </data>
+  <data name="Msg_Notification_TrustedStatus" xml:space="preserve">
+    <value>可信状态</value>
+  </data>
+  <data name="Msg_Notification_YouAreNotTrustedUser" xml:space="preserve">
+    <value>您不再是可信用户。</value>
+  </data>
+  <data name="Msg_Notification_YouAreTrustedUser" xml:space="preserve">
+    <value>您现在是可信用户！恭喜！</value>
+  </data>
+  <data name="Msg_UserEditDenied" xml:space="preserve">
+    <value>您无法编辑该用户信息</value>
+  </data>
+  <data name="Msg_UserUpdate_OnlyAdminOrOwner" xml:space="preserve">
+    <value>只有管理员或用户自己可以编辑用户记录</value>
+  </data>
+  <data name="View_lbl_DeployScript" xml:space="preserve">
+    <value>部署脚本</value>
+  </data>
+  <data name="View_Shared_TACTemplate_TAC_Text2" xml:space="preserve">
+    <value>我确认我将从服务商获得该软件，服务商的&lt;a target="_blank" href="{0}"&gt;最终用户协议&lt;/a&gt;适用于该软件。</value>
+  </data>
+  <data name="Msg_Email_MissingRequiresSettings" xml:space="preserve">
+    <value>缺少发送邮件所需的设置</value>
+  </data>
+  <data name="Msg_Invalid_Captacha" xml:space="preserve">
+    <value>验证码无效</value>
+  </data>
+  <data name="Msg_MailHasBeenSent" xml:space="preserve">
+    <value>邮件已成功发送</value>
+  </data>
+  <data name="Msg_RequiresEmailSubjectText" xml:space="preserve">
+    <value>需要邮件、主题和文字</value>
+  </data>
+  <data name="Msg_RequiresSubject" xml:space="preserve">
+    <value>需要主题</value>
+  </data>
+  <data name="Msg_RequiresText" xml:space="preserve">
+    <value>需要文字</value>
+  </data>
+  <data name="View_Conatct_Index_lbl_EnterCharsYouSee" xml:space="preserve">
+    <value>输入您看到的字符</value>
+  </data>
+  <data name="View_Contact_Confirmation_Confirm_Header" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="View_Contact_Index_ttip_SendMail" xml:space="preserve">
+    <value>发送邮件</value>
+  </data>
+  <data name="View_lbl_From" xml:space="preserve">
+    <value>发件人</value>
+  </data>
+  <data name="View_lbl_Locations" xml:space="preserve">
+    <value>所在地</value>
+  </data>
+  <data name="View_lbl_Message" xml:space="preserve">
+    <value>消息</value>
+  </data>
+  <data name="View_lbl_New" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="View_lbl_Next" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="View_lbl_Operation" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="View_lbl_Prev" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="View_lbl_Subject" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="View_lbl_Submit_Cap" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="View_lbl_Text" xml:space="preserve">
+    <value> 文字</value>
+  </data>
+  <data name="View_lbl_Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="View_lbl_My_Vhd_Publish_Time" xml:space="preserve">
+    <value>发布时间</value>
+  </data>
+  <data name="View_lbl_TotalMB" xml:space="preserve">
+    <value>总 MB</value>
+  </data>
+  <data name="View_lbl_YourEmail" xml:space="preserve">
+    <value>您的邮件</value>
+  </data>
+  <data name="View_List_Messages_lbl_NewMessages" xml:space="preserve">
+    <value>新消息</value>
+  </data>
+  <data name="View_List_Messages_lbl_ReadMessages" xml:space="preserve">
+    <value>阅读消息</value>
+  </data>
+  <data name="View_List_Messages_ttip_NotificationTimeUTC" xml:space="preserve">
+    <value>通知时间，世界标准时间</value>
+  </data>
+  <data name="View_List_Messages_YourNotifications_Header" xml:space="preserve">
+    <value>您的通知</value>
+  </data>
+  <data name="View_List_Scheduled_lbl_ScheduledOperations" xml:space="preserve">
+    <value>排队中</value>
+  </data>
+  <data name="View_List_StatusCompleted_lbl_CompletedOperations" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="View_List_StatusPending_lbl_InprogressOperations" xml:space="preserve">
+    <value>上传中</value>
+  </data>
+  <data name="View_List_Status_PublishStatus_Header" xml:space="preserve">
+    <value>上传状态</value>
+  </data>
+  <data name="Msg_Errors_403" xml:space="preserve">
+    <value>您正在试图访问一个您没有查看权限的页面。</value>
+  </data>
+  <data name="Msg_Errors_404" xml:space="preserve">
+    <value>很遗憾，您请求的页面无法找到。请确认您已使用正确的地址，如果是的话请&lt;a href="https://www.azure.cn/support/contact/" target="_blank"&gt;联系我们&lt;/a&gt;以便我们调查这个问题。</value>
+  </data>
+  <data name="Msg_Errors_EmailError" xml:space="preserve">
+    <value>显然，我们的邮件服务器今天不工作。请寄给我们留言&lt;a href="mailto:juniwang@microsoft.com"&gt;juniwang@microsoft.com&lt;/a&gt;，我们将查明此事。</value>
+  </data>
+  <data name="Msg_Errors_Exception" xml:space="preserve">
+    <value>很遗憾，我们处理您的请求时遇到一个问题。如果您愿意提供你试图所做的详细信息，请&lt;a href="https://www.azure.cn/support/contact/" target="_blank"&gt;联系我们&lt;/a&gt;以便我们调查这个问题。</value>
+  </data>
+  <data name="Msg_Errors_Exceptions_ViewDetails" xml:space="preserve">
+    <value>查看异常的详细信息</value>
+  </data>
+  <data name="View_Errors_403_Header" xml:space="preserve">
+    <value>您不能这样做</value>
+  </data>
+  <data name="View_Errors_404_Header" xml:space="preserve">
+    <value>页面没有找到</value>
+  </data>
+  <data name="View_Errors_EmailError_Header" xml:space="preserve">
+    <value>我们有一个非常糟糕的一天</value>
+  </data>
+  <data name="View_Errors_Exception_Header" xml:space="preserve">
+    <value>服务器错误</value>
+  </data>
+  <data name="View_lbl_ContactUS" xml:space="preserve">
+    <value>联系我们</value>
+  </data>
+  <data name="View_lbl_DateAdded" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+  <data name="View_lbl_Featured" xml:space="preserve">
+    <value>默认排序</value>
+  </data>
+  <data name="View_lbl_MSOpenTechInc" xml:space="preserve">
+    <value>&amp;copy; 2014 Microsoft Open Technologies, Inc. 京ICP备09042378号-18</value>
+  </data>
+  <data name="View_lbl_PrivacyCookies" xml:space="preserve">
+    <value>隐私和 Cookies</value>
+  </data>
+  <data name="View_List_ListPartial_lbl_SortBy" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="View_Admin_CommentReports_Header" xml:space="preserve">
+    <value>评论报告</value>
+  </data>
+  <data name="View_Admin_ImageFeatures_Header" xml:space="preserve">
+    <value>镜像列表</value>
+  </data>
+  <data name="View_Admin_ImageFeatures_ttip_Reset" xml:space="preserve">
+    <value>重置镜像特性初始状态</value>
+  </data>
+  <data name="View_Admin_ImageFeatures_ttip_Submit" xml:space="preserve">
+    <value>提交镜像特性的变更</value>
+  </data>
+  <data name="View_Admin_ImageReports_Header" xml:space="preserve">
+    <value>镜像报告</value>
+  </data>
+  <data name="View_Admin_Log_Comment_Header" xml:space="preserve">
+    <value>评论日志</value>
+  </data>
+  <data name="View_Admin_Log_Image_Header" xml:space="preserve">
+    <value>活动日志</value>
+  </data>
+  <data name="View_Admin_Log_Profile_Header" xml:space="preserve">
+    <value>配置文件日志</value>
+  </data>
+  <data name="View_Admin_Log_Rating_Header" xml:space="preserve">
+    <value>评级日志</value>
+  </data>
+  <data name="View_Admin_Reports_lbl_DeleteSelComment" xml:space="preserve">
+    <value>删除已选评论</value>
+  </data>
+  <data name="View_Admin_Reports_ttip_DeleteComment" xml:space="preserve">
+    <value>删除该评论并评级</value>
+  </data>
+  <data name="View_Admin_Reports_ttip_DeleteSelComment" xml:space="preserve">
+    <value>删除已选评论及所有相关评级</value>
+  </data>
+  <data name="View_Admin_UserReports_Header" xml:space="preserve">
+    <value>用户报告</value>
+  </data>
+  <data name="View_Admin_Users_ttip_Blocked" xml:space="preserve">
+    <value>用户受阻？例如：发布受阻或评论受阻</value>
+  </data>
+  <data name="View_Admin_User_Header" xml:space="preserve">
+    <value>用户信息</value>
+  </data>
+  <data name="View_Admin_Publisher_Header" xml:space="preserve">
+    <value>用户/服务商信息</value>
+  </data>
+  <data name="View_lbl_AvgRating" xml:space="preserve">
+    <value>平均评级</value>
+  </data>
+  <data name="View_lbl_Blocked" xml:space="preserve">
+    <value>受阻</value>
+  </data>
+  <data name="View_lbl_Commented" xml:space="preserve">
+    <value>已评级</value>
+  </data>
+  <data name="View_lbl_Deleted" xml:space="preserve">
+    <value>已删除</value>
+  </data>
+  <data name="View_lbl_Image" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="View_lbl_ImageComment" xml:space="preserve">
+    <value>镜像评论</value>
+  </data>
+  <data name="View_lbl_LastActivity" xml:space="preserve">
+    <value>上次登录</value>
+  </data>
+  <data name="View_lbl_MaxGB" xml:space="preserve">
+    <value>最大 GB</value>
+  </data>
+  <data name="View_lbl_MaxImages" xml:space="preserve">
+    <value>最大镜像</value>
+  </data>
+  <data name="View_lbl_NoneFound" xml:space="preserve">
+    <value>未找到</value>
+  </data>
+  <data name="View_lbl_ReportComment" xml:space="preserve">
+    <value>报告评论</value>
+  </data>
+  <data name="View_lbl_ReportedBy" xml:space="preserve">
+    <value>报告者</value>
+  </data>
+  <data name="View_lbl_Reports" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="View_lbl_Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="View_lbl_Total" xml:space="preserve">
+    <value>总计</value>
+  </data>
+  <data name="View_lbl_Trusted" xml:space="preserve">
+    <value>可信</value>
+  </data>
+  <data name="View_lbl_User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="Msg_ManageFeaturedImg" xml:space="preserve">
+    <value>管理镜像特性</value>
+  </data>
+  <data name="Msg_ShouldbeAdmin" xml:space="preserve">
+    <value>您需要管理员权限访问此页面。</value>
+  </data>
+  <data name="View_lbl_PublishStatus" xml:space="preserve">
+    <value>上传状态</value>
+  </data>
+  <data name="View_Admin_Entites_ListOf_Fmt" xml:space="preserve">
+    <value>{0} 列表</value>
+  </data>
+  <data name="View_Admin_Entities_ttip_Reset" xml:space="preserve">
+    <value> 将批准和拒绝重置为初始状态</value>
+  </data>
+  <data name="View_Admin_Entities_ttip_Submit" xml:space="preserve">
+    <value>提交批准和拒绝的变更</value>
+  </data>
+  <data name="View_lbl_ActionDate" xml:space="preserve">
+    <value>操作日期</value>
+  </data>
+  <data name="View_lbl_Approved" xml:space="preserve">
+    <value>已批准</value>
+  </data>
+  <data name="View_lbl_Count" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="View_lbl_Images" xml:space="preserve">
+    <value>上架申请</value>
+  </data>
+  <data name="View_lbl_Platforms" xml:space="preserve">
+    <value>平台</value>
+  </data>
+  <data name="View_lbl_Rejected" xml:space="preserve">
+    <value>已拒绝</value>
+  </data>
+  <data name="View_lbl_DeleteVhdVersion" xml:space="preserve">
+    <value>删除该版本</value>
+  </data>
+  <data name="View_lbl_RequestDate" xml:space="preserve">
+    <value>请求日期</value>
+  </data>
+  <data name="View_lbl_Term" xml:space="preserve">
+    <value>条款</value>
+  </data>
+  <data name="View_lbl_AccountDetails" xml:space="preserve">
+    <value>账户详细信息</value>
+  </data>
+  <data name="View_lbl_Back" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="View_lbl_BrowseImages" xml:space="preserve">
+    <value>浏览镜像</value>
+  </data>
+  <data name="View_lbl_Delete_Caps" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="View_lbl_Edit_Caps" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="View_lbl_Forums" xml:space="preserve">
+    <value>论坛</value>
+  </data>
+  <data name="View_lbl_Glance" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="View_lbl_Help_Caps" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="View_lbl_LearnMore" xml:space="preserve">
+    <value>了解更多</value>
+  </data>
+  <data name="View_lbl_LocationID" xml:space="preserve">
+    <value>账号位置</value>
+  </data>
+  <data name="View_lbl_Manage" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="View_lbl_MyAccount" xml:space="preserve">
+    <value>我的账户</value>
+  </data>
+  <data name="View_lbl_MyImages" xml:space="preserve">
+    <value>发布成功的镜像</value>
+  </data>
+  <data name="View_lbl_MyReviews" xml:space="preserve">
+    <value>我的评论</value>
+  </data>
+  <data name="View_lbl_Notifications" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="View_lbl_Notification_Caps" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="View_lbl_Share_Caps" xml:space="preserve">
+    <value>共享</value>
+  </data>
+  <data name="View_lbl_SignInJoinCommunity" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;&lt;b&gt;登录&lt;/b&gt;&lt;/a&gt; 并加入社区</value>
+  </data>
+  <data name="View_lbl_SignOut" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="View_lbl_UpdatedTime" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+  <data name="View_lbl_Upgrade_Caps" xml:space="preserve">
+    <value>发布升级</value>
+  </data>
+  <data name="View_lbl_Users" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="View_lbl_Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="View_lbl_VhdSize" xml:space="preserve">
+    <value>VHD 大小</value>
+  </data>
+  <data name="View_lbl_View_Caps" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="View_lb_DeployScript_Caps" xml:space="preserve">
+    <value>部署脚本</value>
+  </data>
+  <data name="View_lb_Publish_Caps" xml:space="preserve">
+    <value>发布</value>
+  </data>
+  <data name="View_Shared_ImageLogPartial_Header" xml:space="preserve">
+    <value>版本记录</value>
+  </data>
+  <data name="View_Sign_Login_Header" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="View_lbl_LinkedIn" xml:space="preserve">
+    <value>LinkedIn</value>
+  </data>
+  <data name="View_lbl_ShareOn" xml:space="preserve">
+    <value>共享在：</value>
+  </data>
+  <data name="View_Shared_Master_ShareImage" xml:space="preserve">
+    <value>我发现这个用于 Azure 的有趣镜像位于 {0}</value>
+  </data>
+  <data name="View_Shared_Master_ShareImages" xml:space="preserve">
+    <value>发现这个用于 Azure 的有趣镜像位于 {0}</value>
+  </data>
+  <data name="View_lbl_AllRegions" xml:space="preserve">
+    <value>所有地区</value>
+  </data>
+  <data name="View_Shared_RatingPartial_ttip_NoRating" xml:space="preserve">
+    <value>无评级</value>
+  </data>
+  <data name="View_ttip_ClearSearch" xml:space="preserve">
+    <value>清除搜索</value>
+  </data>
+  <data name="View_ttip_Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Msg_Logout_SigningOut" xml:space="preserve">
+    <value>正在登出</value>
+  </data>
+  <data name="View_StatusPending_CancelOnLocation_ttip" xml:space="preserve">
+    <value>取消复制{0}地区</value>
+  </data>
+  <data name="View_lbl_NotClearNew" xml:space="preserve">
+    <value>看不清？换一个</value>
+  </data>
+  <data name="RSS_Description" xml:space="preserve">
+    <value>使用 Azure 市场 和 Azure，开发人员可以创建并共享基于linux的虚拟机镜像。Azure 市场由 Microsoft 提供。</value>
+  </data>
+  <data name="Current_Culture_Code" xml:space="preserve">
+    <value>zh-CN</value>
+  </data>
+  <data name="View_lbl_Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="View_lbl_CancelCopy" xml:space="preserve">
+    <value>取消复制</value>
+  </data>
+  <data name="View_lbl_UpdateLocations" xml:space="preserve">
+    <value>更新所在地</value>
+  </data>
+  <data name="View_lbl_CopystateAborted" xml:space="preserve">
+    <value>已终止</value>
+  </data>
+  <data name="View_lbl_CopyStateFailed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="View_lbl_CopystateInvalid" xml:space="preserve">
+    <value>无效</value>
+  </data>
+  <data name="View_lbl_CopyStatePending" xml:space="preserve">
+    <value>待处理</value>
+  </data>
+  <data name="View_lbl_CopyStateSuccess" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="Msg_ImgPublish_Platform_Criteria" xml:space="preserve">
+    <value>平台名称不应超过 50 个字符并且不应包含逗号</value>
+  </data>
+  <data name="Msg_Errors_Exceptions_HideDetails" xml:space="preserve">
+    <value>隐藏</value>
+  </data>
+  <data name="Msg_SignIn_OrgID_Message" xml:space="preserve">
+    <value>请使用您的 Azure 中国账号登录，例如：someone@example.partner.onmschina.cn</value>
+  </data>
+  <data name="Share_Images_Text" xml:space="preserve">
+    <value>在 Azure 市场上发现这些用于 Azure 的有趣镜像</value>
+  </data>
+  <data name="Share_Image_Text" xml:space="preserve">
+    <value>在 Azure 市场上发现这个用于 Azure 的有趣镜像</value>
+  </data>
+  <data name="View_lbl_HelpSearch" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="View_lbl_Help" xml:space="preserve">
+    <value>文档与帮助</value>
+  </data>
+  <data name="View_lbl_OperationID" xml:space="preserve">
+    <value>OperationID</value>
+  </data>
+  <data name="View_lbl_VMDeployStatus" xml:space="preserve">
+    <value>虚拟机部署状态</value>
+  </data>
+  <data name="Msg_ImgPublish_Description_Required" xml:space="preserve">
+    <value>详细描述必选</value>
+  </data>
+  <data name="View_lbl_AllCurrentandFutureRegions" xml:space="preserve">
+    <value>所有当前和未来区域</value>
+  </data>
+  <data name="View_lbl_AllCurrentRegions" xml:space="preserve">
+    <value>所有当前区域</value>
+  </data>
+  <data name="View_lbl_AllFutureRegions" xml:space="preserve">
+    <value>所有未来区域</value>
+  </data>
+  <data name="View_lbl_FutureRegions" xml:space="preserve">
+    <value>未来区域</value>
+  </data>
+  <data name="View_lbl_ProcessingWaitSpin" xml:space="preserve">
+    <value>正在处理您的请求，请稍等...</value>
+  </data>
+  <data name="View_lbl_All" xml:space="preserve">
+    <value>所有</value>
+  </data>
+  <data name="View_lbl_AvailableInFutureRegions" xml:space="preserve">
+    <value>在未来区域可用</value>
+  </data>
+  <data name="Msg_InvalidEmailAddress" xml:space="preserve">
+    <value>无效的邮件地址</value>
+  </data>
+  <data name="Msg_InvalidPhone" xml:space="preserve">
+    <value>无效的电话</value>
+  </data>
+  <data name="Msg_InvalidLegalTermsdUrl" xml:space="preserve">
+    <value>最终用户协议 URL 必须有效，最长为 {0}。</value>
+  </data>
+  <data name="Msg_InvalidPlatformNameLength" xml:space="preserve">
+    <value>平台名称仅限于{0} 个字符。</value>
+  </data>
+  <data name="Msg_InvalidVhdUrl" xml:space="preserve">
+    <value>无效的 VHD 文件 URL</value>
+  </data>
+  <data name="Msg_OrganizationNameMaxLength" xml:space="preserve">
+    <value>组织名称仅限于 {0} 个字符。</value>
+  </data>
+  <data name="Msg_TermsandConditionAccept" xml:space="preserve">
+    <value>必须同意发布和更新的条款和条件</value>
+  </data>
+  <data name="Msg_UserNameMaxLength" xml:space="preserve">
+    <value>名称仅限于 {0} 个字符。</value>
+  </data>
+  <data name="Msg_VhdUrlMaxLength" xml:space="preserve">
+    <value>VHD 文件 URL 长度仅限于 {0} 个字符。</value>
+  </data>
+  <data name="View_lbl_CreateVM_ToolTip" xml:space="preserve">
+    <value>创建 Azure 虚拟机，基于</value>
+  </data>
+  <data name="Msg_404Error" xml:space="preserve">
+    <value>404 这不是您在寻找的网页。</value>
+  </data>
+  <data name="Msg_AzureProfileSessionExpired" xml:space="preserve">
+    <value>&lt;br/&gt;&lt;br&gt;您的 Azure 配置文件的服务器会话已过期，请 &lt;a href="{2}?vhdId={0}&amp;version={1}"&gt;重试&lt;/a&gt;</value>
+  </data>
+  <data name="Msg_AzureSubscriptionNull" xml:space="preserve">
+    <value>'Azure 订阅'</value>
+  </data>
+  <data name="Msg_CloudServiceNameValidate" xml:space="preserve">
+    <value>&lt;font color="red"&gt; 云服务 名称必选，且只包含字母，数字和连字符。&lt;br/&gt; 必须以字母或数字开头和结尾。&lt;br/&gt; 必须包含 3-63 个字符。&lt;/font&gt;</value>
+  </data>
+  <data name="Msg_FailedSubscriptionRetrieval" xml:space="preserve">
+    <value>检索订阅信息失败。</value>
+  </data>
+  <data name="Msg_ImgIdNull" xml:space="preserve">
+    <value>'ImageID'</value>
+  </data>
+  <data name="Msg_ImgNotAvailable" xml:space="preserve">
+    <value>镜像不可用</value>
+  </data>
+  <data name="Msg_ImgVersionIdNull" xml:space="preserve">
+    <value>'ImageVersionID'</value>
+  </data>
+  <data name="Msg_NoRegionFoundForSubscription1" xml:space="preserve">
+    <value>在此 'Azure 订阅' 下没有找到区域。</value>
+  </data>
+  <data name="Msg_NoRegionFoundForSubscription2" xml:space="preserve">
+    <value>收到的 'Azure 订阅' 下没有找到区域 {0}</value>
+  </data>
+  <data name="Msg_NoSubscriptions" xml:space="preserve">
+    <value>您的 Azure 配置文件中没有 Azure 订阅信息。重新设置信息&lt;a href="{2}?vhdId={0}&amp;version={1}&amp;removeKey=true"&gt; OK &lt;/a&gt;</value>
+  </data>
+  <data name="Msg_NoSubscriptionsForImage" xml:space="preserve">
+    <value>很抱歉，支持此镜像所在区域的 Azure 配置文件中没有订阅信息。请尝试其他镜像。如需重新设置订阅配置文件，单击&lt;a href="{2}?vhdId={0}&amp;version={1}&amp;removeKey=true"&gt;此处&lt;/a&gt;。</value>
+  </data>
+  <data name="Msg_PasswordMismatch" xml:space="preserve">
+    <value> 您输入的密码不匹配。</value>
+  </data>
+  <data name="Msg_PasswordValidate" xml:space="preserve">
+    <value>密码必选且必须符合以下五项要求： 小写字符、大写字符、数字、特殊字符 、 最小长度为 8 字符</value>
+  </data>
+  <data name="Msg_RegionNull" xml:space="preserve">
+    <value>'区域'</value>
+  </data>
+  <data name="Msg_SetValidPublishProfile1" xml:space="preserve">
+    <value>请设置有效的订阅文件。</value>
+  </data>
+  <data name="Msg_SetValidPublishProfile2" xml:space="preserve">
+    <value>请设置有效的订阅文件。解析当前订阅文件失败。</value>
+  </data>
+  <data name="Msg_StorageAccountNameValidate" xml:space="preserve">
+    <value>存储账户的长度为 3-24 个字符。 只能包含小写字母和数字 </value>
+  </data>
+  <data name="Msg_StorageAccountNull" xml:space="preserve">
+    <value>'存储账户'</value>
+  </data>
+  <data name="Msg_UserNameValidate" xml:space="preserve">
+    <value>用户名必选，且须包含 3-20 个字符。</value>
+  </data>
+  <data name="Msg_VMNameValidate" xml:space="preserve">
+    <value>虚拟机名称必选，且只能包含字母，数字和连字符。必须以字母或数字开头和结尾。须包含 3-15 个字符。</value>
+  </data>
+  <data name="Msg_VmSizeNotAvailableForSubscription" xml:space="preserve">
+    <value>虚拟机大小 {0} 在收到的 'Azure 订阅' 下区域 {1} 中不可用。</value>
+  </data>
+  <data name="Msg_VMSizeNull" xml:space="preserve">
+    <value>'虚拟机大小'</value>
+  </data>
+  <data name="Msg__AzureProfileAuthFailedMessage" xml:space="preserve">
+    <value>我们不能通过您提供的 Azure 订阅文件进行认证。这可能是因为在 Azure 门户中对应的管理证书已被删除所致。请获取新的 &lt;a target="_blank" href="http:// go.microsoft.com/fwlink/?LinkID=301774"&gt;Azure 订阅文件&lt;/a&gt; 并更新您的 &lt;a href="{2}?vhdId={0}&amp;version={1}&amp;removeKey=true"&gt;Azure 市场配置&lt;/a&gt;。</value>
+  </data>
+  <data name="View_Launch_DeployVM_Title" xml:space="preserve">
+    <value>部署虚拟机 - 虚拟机配置</value>
+  </data>
+  <data name="Msg_InvalidAzureProfile" xml:space="preserve">
+    <value>&lt;br/&gt;&lt;br&gt;您的 Azure 配置文件无效，可能是因为 Azure 门户中相应的管理证书已删除。请获取新的 Azure 订阅文件并&lt;a href="~/VM/Launch?vhdId={0}&amp;version={1}&amp;removeKey=true"&gt;重试&lt;/a&gt;。</value>
+  </data>
+  <data name="View_Launch_lbl_VMDeployWait" xml:space="preserve">
+    <value>正在调度虚拟机部署，请稍等...</value>
+  </data>
+  <data name="View_Launch_Show_lbl_AzureSubscription" xml:space="preserve">
+    <value>Azure 订阅</value>
+  </data>
+  <data name="View_Launch_Show_lbl_ConfigEndpointsTooltip" xml:space="preserve">
+    <value>您可通过配置、添加或删除端口，以便其他资源与您的虚拟机进行通信。</value>
+  </data>
+  <data name="View_Launch_Show_lbl_ImgLicenseText" xml:space="preserve">
+    <value>来自开源社区的镜像遵循其开源社区的许可证协议并分发。</value>
+  </data>
+  <data name="View_Launch_Show_lbl_Region" xml:space="preserve">
+    <value>区域/虚拟网络</value>
+  </data>
+  <data name="View_Launch_Show_lbl_StorageAccount" xml:space="preserve">
+    <value>存储账户</value>
+  </data>
+  <data name="View_Launch_Show_lbl_UpdateCurrAzureSubscription_Tooltip" xml:space="preserve">
+    <value>在您浏览器本地存储中更新当前 Azure 订阅信息</value>
+  </data>
+  <data name="View_lbl_AdvancedText" xml:space="preserve">
+    <value>高级</value>
+  </data>
+  <data name="View_lbl_ChooseVMSizesTooltip" xml:space="preserve">
+    <value>虚拟机大小，根据运行应用需要的计算资源和工作负荷来选择虚拟机大小。</value>
+  </data>
+  <data name="View_lbl_DNSName" xml:space="preserve">
+    <value>云服务 名称</value>
+  </data>
+  <data name="View_lbl_UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="View_lbl_VMName" xml:space="preserve">
+    <value>虚拟机名称</value>
+  </data>
+  <data name="View_lbl_VmNameTooltip" xml:space="preserve">
+    <value>虚拟机名称，请使用能描述虚拟机用途的名称，越简短越方便使用。</value>
+  </data>
+  <data name="View_lbl_VMSize" xml:space="preserve">
+    <value>虚拟机大小</value>
+  </data>
+  <data name="View_DeployResult_lbl_DeployVMRequestStatus" xml:space="preserve">
+    <value>您可以关闭此页，之后在任何时间访问&lt;a href="{0}"&gt;虚拟机部署状态&lt;/a&gt;查看当前状态。</value>
+  </data>
+  <data name="View_DeployResult_lbl_DeployVMRequestStatusOnEmail1" xml:space="preserve">
+    <value>部署 Azure 虚拟机的请求已被安排，一旦您的虚拟机可以使用 (通常 15-25 分钟以后)，您将会在&lt;b&gt;&lt;i&gt;{0}&lt;/i&gt;&lt;/b&gt; 收到&lt;text&gt;邮件通知&lt;/text&gt;。您可在下方查看当前状态。&lt;br /&gt;</value>
+  </data>
+  <data name="View_DeployResult_lbl_DeployVMRequestStatusOnEmail2" xml:space="preserve">
+    <value>部署 Azure 虚拟机的请求已被安排，一旦您的虚拟机可以使用 (通常 15-25 分钟以后)，您将会收到&lt;text&gt;邮件通知&lt;/text&gt;。您可在下方查看当前状态。&lt;br /&gt;</value>
+  </data>
+  <data name="View_DeployResult_lbl_Title" xml:space="preserve">
+    <value>部署虚拟机 - 虚拟机部署状态</value>
+  </data>
+  <data name="View_lbl_CheckDnsAvailability" xml:space="preserve">
+    <value>查看云服务的可用性</value>
+  </data>
+  <data name="View_lbl_CheckEndpointAvailability" xml:space="preserve">
+    <value>查看端口的可用性</value>
+  </data>
+  <data name="View_lbl_CloudServiceCheckAvailableFailed" xml:space="preserve">
+    <value>检查云服务可用性的请求失败，请&lt;a id="RetryCheckCloudServiceAvailability" href="#"&gt;重试&lt;/a&gt;。</value>
+  </data>
+  <data name="View_lbl_EndpointCheckAvailableFailed" xml:space="preserve">
+    <value>检查端口可用性的请求失败，请&lt;a id="RetryCheckEndpointAvailability" href="#"&gt;重试&lt;/a&gt;。</value>
+  </data>
+  <data name="View_lbl_PublicEndpoint" xml:space="preserve">
+    <value>公共端口: </value>
+  </data>
+  <data name="View_lbl_EndpointOccupied" xml:space="preserve">
+    <value> 正在被占用, 请修改映射端口 </value>
+  </data>
+  <data name="View_lbl_DnsAvailable" xml:space="preserve">
+    <value>云服务名称可用。</value>
+  </data>
+  <data name="View_lbl_DnsNotAvailable" xml:space="preserve">
+    <value>云服务名称不可用。</value>
+  </data>
+  <data name="View_VM_StorageAccountPickerPartial_Lbl_CreateNewCloudService" xml:space="preserve">
+    <value>创建新的云服务</value>
+  </data>
+  <data name="View_VM_StorageAccountPickerPartial_Lbl_UseExistedCloudService" xml:space="preserve">
+    <value>使用已有云服务</value>
+  </data>
+  <data name="View_lbl_CloudServicePortsOccupied" xml:space="preserve">
+    <value>该云服务以下公共端口已被占用: </value>
+  </data>
+  <data name="View_lbl_CloudServicePortsOccupiedReminder" xml:space="preserve">
+    <value>请勿再次使用以上公共端口, 否则会造成镜像部署失败. </value>
+  </data>
+  <data name="View_lbl_VMDNSNameTooltip" xml:space="preserve">
+    <value>虚拟机的 DNS 名称，用此名称来找到您的网站或者连接到您的虚拟机。</value>
+  </data>
+  <data name="View_VM_DeployResult_RequestId_Lbl" xml:space="preserve">
+    <value>您的请求 ID 是 {0}。如需任何支持，请提供此ID。</value>
+  </data>
+  <data name="Msg_ReservedUserNamesNotAllowed" xml:space="preserve">
+    <value>不允许的用户名 '{0}'</value>
+  </data>
+  <data name="View_lbl_ConfirmPassword" xml:space="preserve">
+    <value>再次确认密码</value>
+  </data>
+  <data name="View_lbl_Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="View_VM_RegionPickerPartial_FetchStorageAccountFailedMsg" xml:space="preserve">
+    <value>获取当前区域存储账户的请求失败，请&lt;a id="RetryGetStorageAccountNames" href="#"&gt;重试&lt;/a&gt;。</value>
+  </data>
+  <data name="View_VM_RegionPickerPartial_RegionSelectTitle" xml:space="preserve">
+    <value>可创建虚拟机的 Azure 数据中心区域</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_CloudServiceName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_ImageDetailUrl" xml:space="preserve">
+    <value>镜像详情</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_StatusMsg" xml:space="preserve">
+    <value>状态信息</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_Succeeded" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_Time" xml:space="preserve">
+    <value>部署时间</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Title" xml:space="preserve">
+    <value>完成虚拟机操作</value>
+  </data>
+  <data name="View_VM_Status_Title" xml:space="preserve">
+    <value>虚拟机部署状态</value>
+  </data>
+  <data name="View_VM_StorageAccountPickerPartial_Lbl_CreateNewStorageAcc" xml:space="preserve">
+    <value>虚拟机所在的 Azure 上的存储账号</value>
+  </data>
+  <data name="View_VM_StorageAccountPickerPartial_Lbl_CurrStorageAcc" xml:space="preserve">
+    <value>当前存储账户</value>
+  </data>
+  <data name="View_VM_StorageAccountPickerPartial_Lbl_NoStorageAccExists" xml:space="preserve">
+    <value>添加新的账户</value>
+  </data>
+  <data name="View_VM_StorageAccountPickerPartial_Lbl_SelStorageAcc" xml:space="preserve">
+    <value>用来存放与虚拟机绑定磁盘的存储账户</value>
+  </data>
+  <data name="View_VM_SusbsriptionPickerPartial_Lbl_SelAzureSubsriptionTitle" xml:space="preserve">
+    <value>用于创建虚拟机的 Azure 订阅</value>
+  </data>
+  <data name="View_VM_SusbsriptionPickerPartial_Msg_RegionFetchingFailed" xml:space="preserve">
+    <value>&lt;font color="red"&gt; 请求提取当前订阅的区域失败，请 &lt;a id="{0}" href="#"&gt;重试&lt;/a&gt; &lt;/font&gt;</value>
+  </data>
+  <data name="View_VM_SusbsriptionPickerPartial_Msg_CloudServiceFetchingFailed" xml:space="preserve">
+    <value>&lt;font color="red"&gt; 请求获取当前订阅的云服务失败，请 &lt;a id="{0}" href="#"&gt;重试&lt;/a&gt; &lt;/font&gt;</value>
+  </data>
+  <data name="Msg_Error" xml:space="preserve">
+    <value>处理您的请求发生错误。</value>
+  </data>
+  <data name="View_Lbl_AdminText" xml:space="preserve">
+    <value>管理员</value>
+  </data>
+  <data name="View_Lbl_NoText" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="View_lbl_View_TitleCase" xml:space="preserve">
+    <value>查看</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_Email" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_Flags" xml:space="preserve">
+    <value>标记</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_Organization" xml:space="preserve">
+    <value>组织</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_UpdatedTime" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_Urls" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="View_ProfileLogPartial_Lbl_VhdLimit" xml:space="preserve">
+    <value>Vhd 限值</value>
+  </data>
+  <data name="View_Lbl_CommentText" xml:space="preserve">
+    <value>评论</value>
+  </data>
+  <data name="View_Lbl_PublishText" xml:space="preserve">
+    <value>发布</value>
+  </data>
+  <data name="Lbl_RegionChinaEast" xml:space="preserve">
+    <value>中国东部数据中心（上海）</value>
+  </data>
+  <data name="Lbl_RegionChinaNorth" xml:space="preserve">
+    <value>中国北部数据中心（北京）</value>
+  </data>
+  <data name="Lbl_lbl_SelectVirtualNetwork" xml:space="preserve">
+    <value>选择虚拟网络 </value>
+  </data>
+  <data name="Lbl_lbl_SelectSubnet" xml:space="preserve">
+    <value>选择子网 </value>
+  </data>
+  <data name="View_DeployResult_lbl_Confirmation" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="View_lbl_Photo" xml:space="preserve">
+    <value>照片</value>
+  </data>
+  <data name="View_lbl_DeleteThisVersion" xml:space="preserve">
+    <value>删除此版本</value>
+  </data>
+  <data name="View_lbl_QQ" xml:space="preserve">
+    <value>QQ</value>
+  </data>
+  <data name="View_lbl_WeChat" xml:space="preserve">
+    <value>微信</value>
+  </data>
+  <data name="View_lbl_Weibo" xml:space="preserve">
+    <value>微博</value>
+  </data>
+  <data name="View_Master_ISV_Registration" xml:space="preserve">
+    <value>服务商入驻</value>
+  </data>
+  <data name="View_lbl_Free" xml:space="preserve">
+    <value>免费</value>
+  </data>
+  <data name="View_lbl_Preferential_Price" xml:space="preserve">
+    <value>服务优惠价:</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_Property" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="View_lbl_Property" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Msg_VMReady" xml:space="preserve">
+    <value>基于{0}的虚机已经就绪:</value>
+  </data>
+  <data name="View_lbl_SKU" xml:space="preserve">
+    <value>SKU</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Deployment" xml:space="preserve">
+    <value>部署方式</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Email" xml:space="preserve">
+    <value>客服邮箱</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_RecommendedInstanceType" xml:space="preserve">
+    <value>推荐配置</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Scope" xml:space="preserve">
+    <value>适用范围</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Source" xml:space="preserve">
+    <value>来源网站</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_ServiceHours" xml:space="preserve">
+    <value>服务时间</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_ServiceProviderName" xml:space="preserve">
+    <value>客服名称</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_shortDesc" xml:space="preserve">
+    <value>简要描述</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Telephone" xml:space="preserve">
+    <value>客服电话</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_VirtualMachineCount" xml:space="preserve">
+    <value>推荐虚拟的数量</value>
+  </data>
+  <data name="View_ISV_ApplyAzureAccount" xml:space="preserve">
+    <value>申请 Azure 账号</value>
+  </data>
+  <data name="View_lbl_MyImage_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="View_lbl_MyImage_Update" xml:space="preserve">
+    <value>发布新版本</value>
+  </data>
+  <data name="View_lbl_Account" xml:space="preserve">
+    <value>账户</value>
+  </data>
+  <data name="View_lbl_OperatingSystem" xml:space="preserve">
+    <value>操作系统</value>
+  </data>
+  <data name="View_lbl_Faild" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="View_lbl_Pending" xml:space="preserve">
+    <value>发布中</value>
+  </data>
+  <data name="View_lbl_Succeed" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="View_ISV_Not_Found" xml:space="preserve">
+    <value>指定的ISV不存在</value>
+  </data>
+  <data name="Msg_SignIn_SignupButton" xml:space="preserve">
+    <value>前往注册</value>
+  </data>
+  <data name="Msg_SignIn_OrgID" xml:space="preserve">
+    <value>立即登录</value>
+  </data>
+  <data name="View_lbl_Header_Portal" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="View_lbl_Header_Image" xml:space="preserve">
+    <value>Azure 市场</value>
+  </data>
+  <data name="View_APP_Name" xml:space="preserve">
+    <value>Azure 市场</value>
+  </data>
+  <data name="View_lbl_Documentation_Publisher_Guide" xml:space="preserve">
+    <value>Azure 市场服务商指南</value>
+  </data>
+  <data name="View_lbl_Status_Info" xml:space="preserve">
+    <value>状态信息</value>
+  </data>
+  <data name="View_lbl_ISV" xml:space="preserve">
+    <value>服务商</value>
+  </data>
+  <data name="View_Vhd_Index_Current_SourceBlobUrl" xml:space="preserve">
+    <value>原始VHD文件地址</value>
+  </data>
+  <data name="View_VM_StatusPendingPartial_Title" xml:space="preserve">
+    <value>部署中的虚拟机</value>
+  </data>
+  <data name="View_VM_StatusPendingPartial_Deploying" xml:space="preserve">
+    <value>部署中</value>
+  </data>
+  <data name="View_Shared_AzureTip" xml:space="preserve">
+    <value>提示:</value>
+  </data>
+  <data name="View_Shared_ARM_Text" xml:space="preserve">
+    <value> ARM 模板</value>
+  </data>
+  <data name="View_Shared_ARM_Text_Long" xml:space="preserve">
+    <value>Azure 资源管理模板</value>
+  </data>
+  <data name="View_Vhd_Index_PublishARM_Text" xml:space="preserve">
+    <value>发布 Azure 资源管理模板</value>
+  </data>
+  <data name="View_lbl_View_Image_Log" xml:space="preserve">
+    <value>查看活动日志</value>
+  </data>
+  <data name="View_lbl_View_UserProfile_Log" xml:space="preserve">
+    <value>查看用户配置文件日志</value>
+  </data>
+  <data name="View_VHD_Need_ISV" xml:space="preserve">
+    <value>您还不能发布镜像</value>
+  </data>
+  <data name="View_lbl_Deploy" xml:space="preserve">
+    <value>立即部署</value>
+  </data>
+  <data name="View_lbl_CreateARM_ToolTip" xml:space="preserve">
+    <value>创建资源组，基于</value>
+  </data>
+  <data name="View_Vhd_Index_Arm_Upgrade_Text" xml:space="preserve">
+    <value>升级 Azure 资源管理模板</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Arm_UpgradeUrl" xml:space="preserve">
+    <value>上传ARM 模板文件</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_Arm_VerDesc" xml:space="preserve">
+    <value>ARM 模板版本描述</value>
+  </data>
+  <data name="View_lbl_Email" xml:space="preserve">
+    <value>邮箱</value>
+  </data>
+  <data name="View_Admin_Email_Header" xml:space="preserve">
+    <value>邮箱地址列表</value>
+  </data>
+  <data name="View_lbl_Required_Field" xml:space="preserve">
+    <value>打&lt;font color="red"&gt;*&lt;/font&gt;号为必填项，请填写完整，谢谢您的配合。</value>
+  </data>
+  <data name="View_lbl_ISV_List" xml:space="preserve">
+    <value>服务商</value>
+  </data>
+  <data name="Msg_ImageFile_SizeVerificationFailed" xml:space="preserve">
+    <value>上传图片尺寸不是1: 1</value>
+  </data>
+  <data name="View_lbl_Cloud_Server_Price" xml:space="preserve">
+    <value>云服务器费用:</value>
+  </data>
+  <data name="View_lbl_View_Fee" xml:space="preserve">
+    <value>查看费用</value>
+  </data>
+  <data name="View_ARMLaunch_DeployVM_Title" xml:space="preserve">
+    <value>Azure 资源管理部署 - 部署配置</value>
+  </data>
+  <data name="View_ARMTrialLaunch_DeployVM_Title" xml:space="preserve">
+    <value>Azure 资源管理部署 - 部署配置</value>
+  </data>
+  <data name="View_lbl_Apply_For_Trial" xml:space="preserve">
+    <value>联系服务商</value>
+  </data>
+  <data name="View_Shared_Trail" xml:space="preserve">
+    <value>定制服务</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_Exception" xml:space="preserve">
+    <value>异常信息</value>
+  </data>
+  <data name="View_VM_StatusCompletedPartial_Lbl_ExceptionDetails" xml:space="preserve">
+    <value>异常详细</value>
+  </data>
+  <data name="View_Shared_OrgId" xml:space="preserve">
+    <value>Azure 中国账号</value>
+  </data>
+  <data name="View_lbl_ISV_Name" xml:space="preserve">
+    <value>服务商名称</value>
+  </data>
+  <data name="View_Shared_Third_party" xml:space="preserve">
+    <value>我确认在&lt;a href="{0}"  target="_blank"&gt;Azure上使用第三方产品的相关条款&lt;/a&gt;。</value>
+  </data>
+  <data name="Msg_ImgPChina_Publish_Agreement" xml:space="preserve">
+    <value>需要接受 Azure 中国市场服务商协议</value>
+  </data>
+  <data name="View_Shared_Publish_Agreement" xml:space="preserve">
+    <value>我同意 &lt;a target="_blank" href="{0}"&gt; Azure 中国市场服务商协议&lt;/a&gt;.</value>
+  </data>
+  <data name="Msg_Shared_Accept_All" xml:space="preserve">
+    <value>需要接受 Azure 市场参与政策及镜像发布者最终用户协议</value>
+  </data>
+  <data name="View_Shared_Not_Available" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Msg_InvalidImageVersionDescMinLength" xml:space="preserve">
+    <value>镜像版本描述至少需要10个字符。</value>
+  </data>
+  <data name="Msg_ImgPublish_Source_Url_Invalid" xml:space="preserve">
+    <value>来源网址必须是有效的网址。</value>
+  </data>
+  <data name="Msg_SignIn_OrgID_Again" xml:space="preserve">
+    <value>重新登录</value>
+  </data>
+  <data name="View_Sign_ReLogin_Header" xml:space="preserve">
+    <value>登录失败</value>
+  </data>
+  <data name="Msg_Required" xml:space="preserve">
+    <value>必须填写{0}。</value>
+  </data>
+  <data name="View_lbl_PublisherLicenseAgreement" xml:space="preserve">
+    <value>按服务商许可协议</value>
+  </data>
+  <data name="View_lbl_FeedbackContent" xml:space="preserve">
+    <value>反馈内容</value>
+  </data>
+  <data name="View_lbl_FeedbackType" xml:space="preserve">
+    <value>反馈类型</value>
+  </data>
+  <data name="Validate_EmailAddress" xml:space="preserve">
+    <value>{0}不是一个有效的邮箱地址。</value>
+  </data>
+  <data name="Validate_MaxLength" xml:space="preserve">
+    <value>{0}的长度不能超过{1}。</value>
+  </data>
+  <data name="Validate_StringLength" xml:space="preserve">
+    <value>{0}必须是一个长度{2}-{1}之间的文本。</value>
+  </data>
+  <data name="View_Admin_Feedback_Header" xml:space="preserve">
+    <value>反馈列表</value>
+  </data>
+  <data name="View_lbl_Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="View_lbl_FeedbackTime" xml:space="preserve">
+    <value>反馈时间</value>
+  </data>
+  <data name="View_Lb_Category_Commercial" xml:space="preserve">
+    <value>商业应用</value>
+  </data>
+  <data name="View_Lb_Category_Dev_Tools" xml:space="preserve">
+    <value>开发运维工具</value>
+  </data>
+  <data name="View_Lb_Category_Infrastructure" xml:space="preserve">
+    <value>基础软件组件</value>
+  </data>
+  <data name="View_Lb_Category_Open_Source" xml:space="preserve">
+    <value>开源专区</value>
+  </data>
+  <data name="View_Lb_Category_Solution_Collateral" xml:space="preserve">
+    <value>定制服务</value>
+  </data>
+  <data name="View_Shared_Material_Library" xml:space="preserve">
+    <value>素材库</value>
+  </data>
+  <data name="Msg_Notification_CanApproveISV" xml:space="preserve">
+    <value>您现在可以审批ISV了。</value>
+  </data>
+  <data name="Msg_Notification_CannotApproveISV" xml:space="preserve">
+    <value>您不再可以审批ISV了。</value>
+  </data>
+  <data name="View_lbl_ISVApprover" xml:space="preserve">
+    <value>ISV审批者</value>
+  </data>
+  <data name="View_lbl_ApproveDescription" xml:space="preserve">
+    <value>审批备注</value>
+  </data>
+  <data name="View_ISV_Status_Approving" xml:space="preserve">
+    <value>审批中</value>
+  </data>
+  <data name="View_ISV_Status_Fail" xml:space="preserve">
+    <value>未通过</value>
+  </data>
+  <data name="View_ISV_Status_Success" xml:space="preserve">
+    <value>已通过</value>
+  </data>
+  <data name="View_ISV_Status_Waiting" xml:space="preserve">
+    <value>等待</value>
+  </data>
+  <data name="View_lbl_ISVStep1Approver" xml:space="preserve">
+    <value>ISV初审</value>
+  </data>
+  <data name="View_lbl_ISVStep2Approver" xml:space="preserve">
+    <value>ISV二审</value>
+  </data>
+  <data name="View_lbl_ISVStep3Approver" xml:space="preserve">
+    <value>ISV终审</value>
+  </data>
+  <data name="Msg_Notification_ISVNode1Approver" xml:space="preserve">
+    <value>你现在是ISV初审者了。</value>
+  </data>
+  <data name="Msg_Notification_ISVNode2Approver" xml:space="preserve">
+    <value>你现在是ISV二审者了。</value>
+  </data>
+  <data name="Msg_Notification_ISVNode3Approver" xml:space="preserve">
+    <value>你现在是ISV终审者了。</value>
+  </data>
+  <data name="Msg_Notification_NotISVNode1Approver" xml:space="preserve">
+    <value>你现在不是ISV初审者了。</value>
+  </data>
+  <data name="Msg_Notification_NotISVNode2Approver" xml:space="preserve">
+    <value>你现在不是ISV二审者了。</value>
+  </data>
+  <data name="Msg_Notification_NotISVNode3Approver" xml:space="preserve">
+    <value>你现在不是ISV终审者了</value>
+  </data>
+  <data name="Msg_Notification_ISVApproveStatus" xml:space="preserve">
+    <value>ISV审批状态</value>
+  </data>
+  <data name="View_Shared_Search_PlaceHolder" xml:space="preserve">
+    <value>搜索名称/标签</value>
+  </data>
+  <data name="View_Vhd_Index_Publish_lbl_OpenSource" xml:space="preserve">
+    <value>开源</value>
+  </data>
+  <data name="View_lbl_MyImage_ApplyOnSelves" xml:space="preserve">
+    <value>申请上架</value>
+  </data>
+  <data name="Msg_ManageImgIndex" xml:space="preserve">
+    <value>管理镜像索引</value>
+  </data>
+  <data name="View_lbl_ESReIndex" xml:space="preserve">
+    <value>重新索引ES</value>
+  </data>
+  <data name="View_lbl_DeploymentType" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="View_lbl_VhdFrom" xml:space="preserve">
+    <value>来源</value>
+  </data>
+  <data name="View_lbl_ApprovedTime" xml:space="preserve">
+    <value>审批日期</value>
+  </data>
+  <data name="View_lbl_AzureAccount" xml:space="preserve">
+    <value>Azure 账号</value>
+  </data>
+  <data name="Msg_offerId_AlreadyExists" xml:space="preserve">
+    <value>ID已经存在。</value>
+  </data>
+  <data name="Msg_RequiresValidVersion" xml:space="preserve">
+    <value>版本号必须为&amp;lt;number&amp;gt;.&amp;lt;number&amp;gt;.&amp;lt;number&amp;gt;格式。</value>
+  </data>
+  <data name="Msg_KeeplessPublisherID" xml:space="preserve">
+    <value>缺少PublisherID</value>
+  </data>
+  <data name="View_lbl_AppliedOnboard" xml:space="preserve">
+    <value>上架审批中</value>
+  </data>
+  <data name="Msg_Delete" xml:space="preserve">
+    <value>您确定要删除？</value>
+  </data>
+  <data name="Msg_Download" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="Msg_InputEmailPromptMessage" xml:space="preserve">
+    <value>如果有多个邮箱地址，请用半角分号（;）连接。</value>
+  </data>
+  <data name="Msg_InputSearchVhd" xml:space="preserve">
+    <value>搜索镜像</value>
+  </data>
+  <data name="Msg_Required_SelectEmailType" xml:space="preserve">
+    <value>请选择邮件类型</value>
+  </data>
+  <data name="Msg_SelectGroup" xml:space="preserve">
+    <value>- 请选择分组 -</value>
+  </data>
+  <data name="Msg_Vhd_DeleteVhdContent" xml:space="preserve">
+    <value>一旦删除，该服务不能再恢复</value>
+  </data>
+  <data name="Msg_Vhd_DeleteVhdTitle" xml:space="preserve">
+    <value>您确定要删除该服务？</value>
+  </data>
+  <data name="Msg_Vhd_RejectDeleteVhdTitle" xml:space="preserve">
+    <value>您确定要拒绝该服务的删除申请？</value>
+  </data>
+  <data name="View_Admin_VhdInformation" xml:space="preserve">
+    <value>镜像信息</value>
+  </data>
+  <data name="View_lbl_Approval" xml:space="preserve">
+    <value>批准</value>
+  </data>
+  <data name="View_lbl_ApproveStatus" xml:space="preserve">
+    <value>审批结果</value>
+  </data>
+  <data name="View_lbl_Categories" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="View_lbl_DateOfApply" xml:space="preserve">
+    <value>申请日期</value>
+  </data>
+  <data name="View_lbl_DeleteApply" xml:space="preserve">
+    <value>删除申请</value>
+  </data>
+  <data name="View_lbl_EnglishName" xml:space="preserve">
+    <value>英文名称</value>
+  </data>
+  <data name="View_lbl_ImageDocument" xml:space="preserve">
+    <value>文档</value>
+  </data>
+  <data name="View_lbl_LastModifiedDate" xml:space="preserve">
+    <value>最后修改日期</value>
+  </data>
+  <data name="View_lbl_Logos" xml:space="preserve">
+    <value>Logos</value>
+  </data>
+  <data name="View_lbl_OfferId" xml:space="preserve">
+    <value>服务ID</value>
+  </data>
+  <data name="View_lbl_OfferVersion" xml:space="preserve">
+    <value>版本号</value>
+  </data>
+  <data name="View_lbl_PublisherId" xml:space="preserve">
+    <value>Publisher Id</value>
+  </data>
+  <data name="View_lbl_Reject" xml:space="preserve">
+    <value>拒绝</value>
+  </data>
+  <data name="View_lbl_ShortDescription" xml:space="preserve">
+    <value>简要描述</value>
+  </data>
+  <data name="View_lbl_VhdName" xml:space="preserve">
+    <value>服务名称</value>
+  </data>
+  <data name="View_Settled_Title" xml:space="preserve">
+    <value>我的服务商</value>
+  </data>
+  <data name="View_lbl_Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="View_lbl_Activated" xml:space="preserve">
+    <value>已激活</value>
+  </data>
+  <data name="View_lbl_ActiveStatus" xml:space="preserve">
+    <value>激活状态</value>
+  </data>
+  <data name="View_lbl_ApplicationId" xml:space="preserve">
+    <value>Application Id</value>
+  </data>
+  <data name="View_lbl_AppliedOnVersion" xml:space="preserve">
+    <value>新版本申请</value>
+  </data>
+  <data name="View_lbl_ApprovalStatus" xml:space="preserve">
+    <value>审批状态</value>
+  </data>
+  <data name="View_lbl_Arm" xml:space="preserve">
+    <value>ARM</value>
+  </data>
+  <data name="View_lbl_CompanyName" xml:space="preserve">
+    <value>公司名称</value>
+  </data>
+  <data name="View_lbl_HandOff_URL" xml:space="preserve">
+    <value>Handoff URL</value>
+  </data>
+  <data name="View_lbl_ID" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="View_lbl_InActivated" xml:space="preserve">
+    <value>未激活</value>
+  </data>
+  <data name="View_lbl_Modify_HandOff_URL" xml:space="preserve">
+    <value>修改 Handoff URL</value>
+  </data>
+  <data name="View_lbl_Modify_PIR_HandoffURL" xml:space="preserve">
+    <value>修改 PIR/Handoff URL</value>
+  </data>
+  <data name="View_lbl_Offer" xml:space="preserve">
+    <value>Offer</value>
+  </data>
+  <data name="View_lbl_PIR_Image_Name" xml:space="preserve">
+    <value>PIR ImageName</value>
+  </data>
+  <data name="View_lbl_PublishedVhd" xml:space="preserve">
+    <value>已上架</value>
+  </data>
+  <data name="View_lbl_Solution" xml:space="preserve">
+    <value>Solution</value>
+  </data>
+  <data name="View_lbl_UpdateContent" xml:space="preserve">
+    <value>更新内容</value>
+  </data>
+  <data name="View_lbl_Vhd" xml:space="preserve">
+    <value>VM</value>
+  </data>
+  <data name="View_lbl_VhdRequest" xml:space="preserve">
+    <value>编辑申请</value>
+  </data>
+  <data name="View_Shared_Published_ARM" xml:space="preserve">
+    <value>已发布的 Azure 资源管理模板</value>
+  </data>
+  <data name="View_Shared_Published_Classic_VHD" xml:space="preserve">
+    <value>已发布的虚拟机镜像</value>
+  </data>
+  <data name="View_Shared_Published_Trail" xml:space="preserve">
+    <value>已发布的定制服务</value>
+  </data>
+  <data name="View_lbl_Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="View_Document_CommonProblems" xml:space="preserve">
+    <value>常见问题</value>
+  </data>
+  <data name="View_Document_DeploymentOrUseVhd" xml:space="preserve">
+    <value>镜像部署与使用</value>
+  </data>
+  <data name="View_Document_GeneralProblems" xml:space="preserve">
+    <value>通用和常见问题</value>
+  </data>
+  <data name="View_Document_MakeOrDevelopVhd" xml:space="preserve">
+    <value>镜像制作与开发</value>
+  </data>
+  <data name="View_Document_PublishOrMaintainVhd" xml:space="preserve">
+    <value>镜像发布与维护</value>
+  </data>
+  <data name="View_Document_RelatedWithAzure" xml:space="preserve">
+    <value>Azure 相关</value>
+  </data>
+  <data name="View_Feeback_Question_Apply" xml:space="preserve">
+    <value>申请问题</value>
+  </data>
+  <data name="View_Feeback_Question_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="View_Feeback_Question_PublishVhd" xml:space="preserve">
+    <value>镜像发布问题</value>
+  </data>
+  <data name="View_Feedback_Question_FillForm" xml:space="preserve">
+    <value>填表问题</value>
+  </data>
+  <data name="View_lbl_CollapseAll" xml:space="preserve">
+    <value>全部折叠</value>
+  </data>
+  <data name="View_lbl_ExpandAll" xml:space="preserve">
+    <value>全部展开</value>
+  </data>
+  <data name="View_lbl_UserFeedback" xml:space="preserve">
+    <value>用户反馈</value>
+  </data>
+  <data name="Msg_Notification_DeleteAccount" xml:space="preserve">
+    <value>您确定要删除此账号么？</value>
+  </data>
+  <data name="Msg_Required_InputApprovalNote" xml:space="preserve">
+    <value>拒绝时必须填写审批备注</value>
+  </data>
+  <data name="View_ISV_AddUser" xml:space="preserve">
+    <value>新增用户</value>
+  </data>
+  <data name="View_ISV_AuditISV" xml:space="preserve">
+    <value>服务商审批</value>
+  </data>
+  <data name="View_ISV_BasicInfo" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="View_ISV_BusinessLicense" xml:space="preserve">
+    <value>营业执照</value>
+  </data>
+  <data name="View_ISV_BusinessLicenseUpload" xml:space="preserve">
+    <value>营业执照扫描上传</value>
+  </data>
+  <data name="View_ISV_CompanyAddress" xml:space="preserve">
+    <value>公司地址</value>
+  </data>
+  <data name="View_ISV_CompanyArea" xml:space="preserve">
+    <value>公司所在地区</value>
+  </data>
+  <data name="View_ISV_CompanyBasicInfo" xml:space="preserve">
+    <value>公司基本信息</value>
+  </data>
+  <data name="View_ISV_CompanyContactEmail" xml:space="preserve">
+    <value>联系人邮箱</value>
+  </data>
+  <data name="View_ISV_CompanyDetailAddress" xml:space="preserve">
+    <value>公司详细地址</value>
+  </data>
+  <data name="View_ISV_CompanyEmail" xml:space="preserve">
+    <value>公司邮箱</value>
+  </data>
+  <data name="View_ISV_CompanyEnglishName" xml:space="preserve">
+    <value>英文公司简称</value>
+  </data>
+  <data name="View_ISV_CompanyEnglishNamePrompt" xml:space="preserve">
+    <value>公司简称的英文版本。最多30个英文字母。</value>
+  </data>
+  <data name="View_ISV_CompanyName" xml:space="preserve">
+    <value>公司简称</value>
+  </data>
+  <data name="View_ISV_CompanyNamePrompt" xml:space="preserve">
+    <value>在用户界面中我们主要使用这个名称。最多15个汉字或30个英文字母。</value>
+  </data>
+  <data name="View_ISV_CompanyPhone" xml:space="preserve">
+    <value>公司电话</value>
+  </data>
+  <data name="View_ISV_CompanyWebsite" xml:space="preserve">
+    <value>公司网站</value>
+  </data>
+  <data name="View_ISV_ContactName" xml:space="preserve">
+    <value>联系人姓名</value>
+  </data>
+  <data name="View_ISV_ContactPhone" xml:space="preserve">
+    <value>联系人电话</value>
+  </data>
+  <data name="View_ISV_CustomerInfo" xml:space="preserve">
+    <value>客服信息</value>
+  </data>
+  <data name="View_ISV_ExamplePrompt" xml:space="preserve">
+    <value>如：xxxx@xxxx.partner.onmschina.cn</value>
+  </data>
+  <data name="View_ISV_FillApplication" xml:space="preserve">
+    <value>请填写下面的表格以完成申请过程，我们会尽快审批并联系您告知结果。</value>
+  </data>
+  <data name="View_ISV_FillMoreInfo" xml:space="preserve">
+    <value>尽可能多地填写完善的信息，能够加速审批进程。</value>
+  </data>
+  <data name="View_ISV_ISVApplyInformation" xml:space="preserve">
+    <value>ISV申请信息</value>
+  </data>
+  <data name="View_ISV_ISVId" xml:space="preserve">
+    <value>服务商ID</value>
+  </data>
+  <data name="View_ISV_License" xml:space="preserve">
+    <value>版权说明</value>
+  </data>
+  <data name="View_ISV_MarketingType" xml:space="preserve">
+    <value>主要市场推广方式</value>
+  </data>
+  <data name="View_ISV_MarketIntroduction" xml:space="preserve">
+    <value>目标市场</value>
+  </data>
+  <data name="View_ISV_Next" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="View_ISV_OrganizationCode" xml:space="preserve">
+    <value>双软认证编号 或 机构代码ID</value>
+  </data>
+  <data name="View_ISV_Product" xml:space="preserve">
+    <value>产品</value>
+  </data>
+  <data name="View_ISV_ProductAuthCert" xml:space="preserve">
+    <value>产品授权证明文件</value>
+  </data>
+  <data name="View_ISV_ProductDesc" xml:space="preserve">
+    <value>产品介绍</value>
+  </data>
+  <data name="View_ISV_ProductDescPrompt" xml:space="preserve">
+    <value>本信息主要用户审批用，不会用于页面展示。 尽可能多地填写完善的信息，能够加速审批进程。</value>
+  </data>
+  <data name="View_ISV_ProductDescription" xml:space="preserve">
+    <value>解决方案和产品介绍</value>
+  </data>
+  <data name="View_ISV_ProductDescriptionValidate" xml:space="preserve">
+    <value>完善产品介绍，最多3000个字。</value>
+  </data>
+  <data name="View_ISV_ProductionInfo" xml:space="preserve">
+    <value>产品信息</value>
+  </data>
+  <data name="View_ISV_RegisterCompanyName" xml:space="preserve">
+    <value>公司注册名称</value>
+  </data>
+  <data name="View_ISV_SalesChannel" xml:space="preserve">
+    <value>主要销售渠道</value>
+  </data>
+  <data name="View_ISV_Showcases" xml:space="preserve">
+    <value>成功案例</value>
+  </data>
+  <data name="View_ISV_TargetCustomers" xml:space="preserve">
+    <value>主要客户</value>
+  </data>
+  <data name="View_ISV_TargetMarketShare" xml:space="preserve">
+    <value>目标市场份额</value>
+  </data>
+  <data name="View_ISV_UniqueIdentification" xml:space="preserve">
+    <value>您的公司在 Azure 系统中的唯一标识。</value>
+  </data>
+  <data name="View_ISV_UniqueIdentificationValidate" xml:space="preserve">
+    <value>只能包含小写字母，数字，减号或下划线。例如: microsoft</value>
+  </data>
+  <data name="View_ISV_UpdateRole" xml:space="preserve">
+    <value>更改权限</value>
+  </data>
+  <data name="View_ISV_UploadAttachment" xml:space="preserve">
+    <value>上传附件</value>
+  </data>
+  <data name="View_ISV_UserManage" xml:space="preserve">
+    <value>服务商用户管理</value>
+  </data>
+  <data name="View_ISV_VerifyAsAzurePartner" xml:space="preserve">
+    <value>验证为Azure 市场伙伴</value>
+  </data>
+  <data name="View_lbl_AddMore" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="View_lbl_Permission" xml:space="preserve">
+    <value>权限</value>
+  </data>
+  <data name="View_lbl_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="View_Required_CompanyAddress" xml:space="preserve">
+    <value>必须填写公司详细地址</value>
+  </data>
+  <data name="View_Required_CompanyContactEmail" xml:space="preserve">
+    <value>必须填写联系人邮箱</value>
+  </data>
+  <data name="View_Required_CompanyEmail" xml:space="preserve">
+    <value>必须填写公司邮箱</value>
+  </data>
+  <data name="View_Required_DisplayNameEn" xml:space="preserve">
+    <value>必须填写英文公司简称</value>
+  </data>
+  <data name="View_Validate_DisplayNameEnValidate" xml:space="preserve">
+    <value>最多30个英文字母。</value>
+  </data>
+  <data name="View_Required_DisplayName" xml:space="preserve">
+    <value>必须填写公司简称</value>
+  </data>
+  <data name="View_Validate_DisplayNameValidate" xml:space="preserve">
+    <value>最多15个汉字或30个英文字母。</value>
+  </data>
+  <data name="View_Required_CompanyPhone" xml:space="preserve">
+    <value>必须填写公司电话</value>
+  </data>
+  <data name="View_Required_CompanyWebsite" xml:space="preserve">
+    <value>必须填写公司网站</value>
+  </data>
+  <data name="View_Validate_CompanyWebsiteMaxLength" xml:space="preserve">
+    <value>公司网站长度不能超过 </value>
+  </data>
+  <data name="View_Required_CompanyContactName" xml:space="preserve">
+    <value>必须填写联系人姓名</value>
+  </data>
+  <data name="View_Required_CompanyContactPhone" xml:space="preserve">
+    <value>必须填写联系人电话</value>
+  </data>
+  <data name="View_Validate_Email" xml:space="preserve">
+    <value>请输入有效的电子邮件地址</value>
+  </data>
+  <data name="View_Required_PublisherId" xml:space="preserve">
+    <value>必须填写服务商ID</value>
+  </data>
+  <data name="View_Validate_PublisherIdRegistered" xml:space="preserve">
+    <value>此ID已经被注册</value>
+  </data>
+  <data name="View_Validate_PublisherId" xml:space="preserve">
+    <value>只能包含小写字母，数字或减号。发布后不可修改</value>
+  </data>
+  <data name="View_Required_BusinessLicense" xml:space="preserve">
+    <value>必须上传营业执照扫描件</value>
+  </data>
+  <data name="View_Validate_BusinessLicenseSize" xml:space="preserve">
+    <value>扫描件不能大于2M</value>
+  </data>
+  <data name="View_Validate_BusinessLicense" xml:space="preserve">
+    <value>扫描件必须是jpg或jpeg格式的</value>
+  </data>
+  <data name="View_Required_OrganizationCode" xml:space="preserve">
+    <value>必须填写机构代码</value>
+  </data>
+  <data name="View_Validate_ClaimName" xml:space="preserve">
+    <value>请填写正确的 Azure 中国账号</value>
+  </data>
+  <data name="View_Validate_ProdAuthCertLengthValidate" xml:space="preserve">
+    <value>产品授权证明文件不能大于2M</value>
+  </data>
+  <data name="View_Validate_ProdAuthCert" xml:space="preserve">
+    <value>产品授权证明文件必须是jpg或jpeg格式的</value>
+  </data>
+  <data name="View_Required_CompanyName" xml:space="preserve">
+    <value>必须填写公司注册名称</value>
+  </data>
+  <data name="View_Validate_CompanyWebsiteUrl" xml:space="preserve">
+    <value>请输入有效的网站地址</value>
+  </data>
+  <data name="View_Shared_Area" xml:space="preserve">
+    <value>地区</value>
+  </data>
+  <data name="View_Shared_Company" xml:space="preserve">
+    <value>公司</value>
+  </data>
+  <data name="View_Shared_Country" xml:space="preserve">
+    <value>国家</value>
+  </data>
+  <data name="View_Shared_IncorrectFormat" xml:space="preserve">
+    <value>格式不正确</value>
+  </data>
+  <data name="View_Shared_Marketplace" xml:space="preserve">
+    <value>市场</value>
+  </data>
+  <data name="View_Shared_Microsoft" xml:space="preserve">
+    <value>微软</value>
+  </data>
+  <data name="View_Shared_NotNull" xml:space="preserve">
+    <value>不能为空</value>
+  </data>
+  <data name="View_Shared_Tip" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="View_ISV_AzureCustomer" xml:space="preserve">
+    <value>Azure 客服</value>
+  </data>
+  <data name="View_ISV_AzureIssuesAndAnswers" xml:space="preserve">
+    <value>Azure 及市场相关的具体问题和解答</value>
+  </data>
+  <data name="View_ISV_AzureMarketIntroduction" xml:space="preserve">
+    <value>Azure 市场介绍</value>
+  </data>
+  <data name="View_ISV_AzureMarketIntroductionDesc" xml:space="preserve">
+    <value>&lt;p&gt;Azure 市场由世纪互联运营，是一个联机应用程序和服务市场，它通过独立软件服务商（ISV）能够成为 Azure 客户（Customer）提供多种形式的解决方案，包括单机VM，ARM以及解决方案。单机VM镜像仅限于部署单台虚拟机应用；ARM可以一键部署多台VM虚拟机、虚拟机镜像、虚拟网络、Subnet、负载均衡器、存储资源等各种Azure资源；解决方案提供各种应用场景下的应用系统方案。&lt;/p&gt;&lt;p&gt;Azure 市场和 Azure 云平台有世纪互联运营。无论服务商或者 Azure 用户，均可以在 Azure 云平台注册 Azure 账号，并通过此账号注册和登录Azure 市场（注意Global Azure 和中国版 Azure 的账号不能通用）。所有的注册流程均通过在线方式完成。&lt;/p&gt;&lt;p&gt;由于 Azure 市场基于 Azure 云平台，因此软件服务商可以充分利用Azure云平台的强大资源整合能力，开发高品质的软件，并制作成镜像。镜像测试可以通过强大的PowerShell和Azure-cli来完成。&lt;/p&gt;&lt;p&gt;服务商在 Azure 市场注册后，便可以在 Azure 市场发布、测试和管理镜像。注意服务商必须在中国大陆有法人实体，方能注册审批通过。&lt;/p&gt;&lt;p&gt;Azure 用户通过 Azure 市场，可以将VM镜像或者ARM一键部署到 Azure 云平台，并在 Azure 云平台查看和管理部署的资源。&lt;/p&gt;</value>
+  </data>
+  <data name="View_ISV_AzureMarketIntroductionPicDesc" xml:space="preserve">
+    <value>上图描述了服务商、客户和 Azure 市场的关系。</value>
+  </data>
+  <data name="View_ISV_AzureRelatedFeedback" xml:space="preserve">
+    <value>Azure 市场相关反馈</value>
+  </data>
+  <data name="View_ISV_AzureRelatedIssue" xml:space="preserve">
+    <value>Azure 相关问题及 Azure 开发需求</value>
+  </data>
+  <data name="View_ISV_AzureTechnicalSupport" xml:space="preserve">
+    <value>Azure 市场技术支持</value>
+  </data>
+  <data name="View_ISV_LicenseDescription" xml:space="preserve">
+    <value>例如：xx软件公司依法独立享有该软件之所有权利，此镜像为用户提供免费试用。该软件试用者（含个人、法人或其他组织）：&amp;lt;br&amp;gt;1.非经xx公司授权许可，不得下载、传播。&amp;lt;br&amp;gt;2.对其功能、性能、界面，可以进行必要的修改，但不得去除Powered By xx公司的版本标示。&amp;lt;br&amp;gt;凡有上述侵权行为的个人、法人或其它组织，必须立即停止侵权并对其侵权造成的一切不良后果承担全部责任。</value>
+  </data>
+  <data name="View_ISV_MarketInfo" xml:space="preserve">
+    <value>市场信息</value>
+  </data>
+  <data name="View_ISV_MarketInfoUseRange" xml:space="preserve">
+    <value>本信息主要用户审批用，不会用于页面展示</value>
+  </data>
+  <data name="View_ISV_MarketingTypeDesc" xml:space="preserve">
+    <value>如：线上广告、线下地推</value>
+  </data>
+  <data name="View_ISV_MarketIntroductionDesc" xml:space="preserve">
+    <value>完善市场介绍，最多1000个字。</value>
+  </data>
+  <data name="View_ISV_Previous" xml:space="preserve">
+    <value>上一步</value>
+  </data>
+  <data name="View_ISV_SalesChannelDesc" xml:space="preserve">
+    <value>如：代理商、线下分销、线上应用市场</value>
+  </data>
+  <data name="View_ISV_SettledImmediately" xml:space="preserve">
+    <value>立即入驻</value>
+  </data>
+  <data name="View_ISV_ShowcasesDesc" xml:space="preserve">
+    <value>完善成功案例，最多2000个字。</value>
+  </data>
+  <data name="View_ISV_Together" xml:space="preserve">
+    <value>立即成为 Azure 市场合作伙伴&lt;br&gt;一起扬帆起航</value>
+  </data>
+  <data name="View_ISV_Troubleshoot" xml:space="preserve">
+    <value>疑难解答与意见建议</value>
+  </data>
+  <data name="View_lbl_HelpDesc" xml:space="preserve">
+    <value>丰富的参考文档，面向服务商和用户的部署指南</value>
+  </data>
+  <data name="View_Require_PictureMaxLengthValidate" xml:space="preserve">
+    <value>上传的图片大小不能超过</value>
+  </data>
+  <data name="View_ISV_InformationOf" xml:space="preserve">
+    <value>的信息</value>
+  </data>
+  <data name="Msg_DeleteRejectContent" xml:space="preserve">
+    <value>您正要申请删除的服务有未上架的版本，请先删除所有此服务的未上架版本再提交删除申请。</value>
+  </data>
+  <data name="Msg_DeleteVersion" xml:space="preserve">
+    <value>您确定要删除该版本吗？</value>
+  </data>
+  <data name="Msg_DeleteVersionContent" xml:space="preserve">
+    <value>一旦删除，该版本不能再恢复</value>
+  </data>
+  <data name="Msg_SendOfferFailed" xml:space="preserve">
+    <value>申请发送失败</value>
+  </data>
+  <data name="Msg_SendOfferSuccessfully" xml:space="preserve">
+    <value>申请发送成功</value>
+  </data>
+  <data name="Msg_SubmitDeleteOffer" xml:space="preserve">
+    <value>确认提交删除申请吗？</value>
+  </data>
+  <data name="Msg_SubmitDeleteOfferContent" xml:space="preserve">
+    <value>我们将在审批后彻底删除此服务，删除后无法恢复。</value>
+  </data>
+  <data name="View_ISV_Approval" xml:space="preserve">
+    <value>通过审批</value>
+  </data>
+  <data name="View_ISV_ApprovalOperation" xml:space="preserve">
+    <value>审批操作</value>
+  </data>
+  <data name="View_ISV_Operating" xml:space="preserve">
+    <value>操作中</value>
+  </data>
+  <data name="View_ISV_PublishAll" xml:space="preserve">
+    <value>全部发布</value>
+  </data>
+  <data name="View_ISV_ReturnAzureMarketplace" xml:space="preserve">
+    <value>回到 Azure 市场首页</value>
+  </data>
+  <data name="View_ISV_SubmitSuccessNotification" xml:space="preserve">
+    <value>您的服务商注册申请已经成功提交，Azure 市场会及时开始审批您的申请。如果需要补充信息或材料，我们会通过您申请中预留的联系方式和您取得联系。如果您有任何其他问题请联系</value>
+  </data>
+  <data name="View_ISV_ViewAzureMarketplace" xml:space="preserve">
+    <value>去 Azure 市场查看</value>
+  </data>
+  <data name="View_ISV_WithoutStatusInfo" xml:space="preserve">
+    <value>没有状态信息</value>
+  </data>
+  <data name="Msg_AnswerDate" xml:space="preserve">
+    <value>我们将在一个工作日内给您答复，谢谢！</value>
+  </data>
+  <data name="Msg_MaxLength100" xml:space="preserve">
+    <value>最长100个字</value>
+  </data>
+  <data name="Msg_Notification_CustomerInfo" xml:space="preserve">
+    <value>注意一般开源软件不能填写客服信息，否则可能可能造成版权法律问题。</value>
+  </data>
+  <data name="Msg_Required_LegalURL" xml:space="preserve">
+    <value>URL 地址不合法</value>
+  </data>
+  <data name="Msg_Required_NameNotNull" xml:space="preserve">
+    <value>名称不能为空</value>
+  </data>
+  <data name="Msg_Required_RepeatedURL" xml:space="preserve">
+    <value>URL 重复</value>
+  </data>
+  <data name="Msg_WorkDay" xml:space="preserve">
+    <value>工作日</value>
+  </data>
+  <data name="View_ISV_Contact" xml:space="preserve">
+    <value>联系方式</value>
+  </data>
+  <data name="View_ISV_ISVIdRuleDesc" xml:space="preserve">
+    <value>只能包含小写字母，数字，减号或下划线。例如：windows-server-2016, sql-server-2016</value>
+  </data>
+  <data name="View_ISV_ISVIdUsedDesc" xml:space="preserve">
+    <value>与服务商ID一同组成 Azure 系统中的唯一标识。发布后不可修改。</value>
+  </data>
+  <data name="View_ISV_NewPublishDescription1" xml:space="preserve">
+    <value>您的服务已成功提交，请于</value>
+  </data>
+  <data name="View_ISV_NewPublishDescription2" xml:space="preserve">
+    <value>未上架服务</value>
+  </data>
+  <data name="View_ISV_NewPublishDescription3" xml:space="preserve">
+    <value>查看，修改或进行预览，并在确认无误后申请上架。如果需要补充信息或者发布存在技术问题，我们会通过您预留的联系方式和您取得联系。如果您有任何其他有关发布的问题请联系</value>
+  </data>
+  <data name="View_ISV_UploadAttachmentDesc" xml:space="preserve">
+    <value>用于上传主模板文件引用各种其他模板文件或安装包等。</value>
+  </data>
+  <data name="View_ISV_VhdPublishUrlDesc" xml:space="preserve">
+    <value>填写要发布的vhd文件在 Azure上 的url地址</value>
+  </data>
+  <data name="View_ISV_VhdPublishUrlPrompt" xml:space="preserve">
+    <value>例如下面的url:https://mystorage.blob.core.chin-acloudapi.cn/vhds/myapp-7.14-centos7.2-2016-08-04.vhd，“mystorage”是 Azure 中的存储账号，&amp;#58;vhds&amp;#58;是容器名称，&amp;#58;myapp-7.14-centos7.2 -2016-08-04.vhd&amp;#58;是vhd文件名称，注意&amp;#58;vhds&amp;#58;在Azure中必须设置为&amp;#58;公共Blob&amp;#58;属性。</value>
+  </data>
+  <data name="View_lbl_AddHelpDocument" xml:space="preserve">
+    <value>添加新的文档</value>
+  </data>
+  <data name="View_lbl_ChangeToPublishArm" xml:space="preserve">
+    <value>切换发布 ARM 模板</value>
+  </data>
+  <data name="View_lbl_ChangeToPublishVhd" xml:space="preserve">
+    <value>切换发布虚拟机镜像</value>
+  </data>
+  <data name="View_lbl_Cover" xml:space="preserve">
+    <value>封面</value>
+  </data>
+  <data name="View_lbl_CoverDesc" xml:space="preserve">
+    <value>这张图片将出现在 Azure 门户和 Azure 市场中您的产品详细页。分辨率必须为533x324</value>
+  </data>
+  <data name="View_lbl_DescriptionDesc" xml:space="preserve">
+    <value>一般包含该服务的产品详情、使用说明和技术详情三部分，支持富文本编辑，可以采用多种文字格式，并可以插入图片、表格等内容形式。&amp;lt;br /&amp;gt;下面几点需要注意：&amp;lt;br /&amp;gt;1. 软件说明一般200字左右。 &amp;lt;br /&amp;gt;2. 技术详情一般包括登录说明、软件安装位置、系统启动停止操作、log查找等。</value>
+  </data>
+  <data name="View_lbl_DocumentName" xml:space="preserve">
+    <value>文档名称</value>
+  </data>
+  <data name="View_lbl_DocumentUrlAddress" xml:space="preserve">
+    <value>文档 URL 地址</value>
+  </data>
+  <data name="View_lbl_EndPointsDesc" xml:space="preserve">
+    <value>多个端口请用逗号拼接(例如：123,456)</value>
+  </data>
+  <data name="View_lbl_EndPointsPrompt" xml:space="preserve">
+    <value>镜像部署时，缺省提供的端口服务。注意端口号22为Linux虚拟机缺省的ssh登陆端口，端口号3389为Windows虚拟机缺省的远程登录端口，不需要手动添加。</value>
+  </data>
+  <data name="View_lbl_HelpDocument" xml:space="preserve">
+    <value>帮助文档</value>
+  </data>
+  <data name="View_lbl_HelpDocumentExample" xml:space="preserve">
+    <value>如:</value>
+  </data>
+  <data name="View_lbl_HelpDocumentNotification" xml:space="preserve">
+    <value>注意：如果使用 Github Markdown 转制的页面，请去掉尾部的 &lt;code&gt;.md&lt;/code&gt; 后缀。</value>
+  </data>
+  <data name="View_lbl_Information" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="View_lbl_InputPublishName" xml:space="preserve">
+    <value>输入平台发行版名称</value>
+  </data>
+  <data name="View_lbl_LessThanThree" xml:space="preserve">
+    <value>最多3个</value>
+  </data>
+  <data name="View_lbl_OfferVersionRuleDesc" xml:space="preserve">
+    <value>格式为&amp;lt;number&amp;gt;.&amp;lt;number&amp;gt;.&amp;lt;number&amp;gt;，如1.0.0。</value>
+  </data>
+  <data name="View_lbl_OfferVersionUsedDesc" xml:space="preserve">
+    <value>请注意次版本号用于标识您的服务在 Azure 系统中的版本，并非您提供的软件或服务的版本号。</value>
+  </data>
+  <data name="View_lbl_OtherPublishVersion" xml:space="preserve">
+    <value>其它发行版</value>
+  </data>
+  <data name="View_lbl_PageNotification" xml:space="preserve">
+    <value>本信息会用于审批和展示，带 &lt;font color="red"&gt;*&lt;/font&gt; 号的为必填项，请填写完整，谢谢配合。</value>
+  </data>
+  <data name="View_lbl_PlatformDescription1" xml:space="preserve">
+    <value>已有的发行版是通过了测试并且支持 Azure。在发布至</value>
+  </data>
+  <data name="View_lbl_PlatformDescription2" xml:space="preserve">
+    <value>市场前，请全面测试您的镜像。</value>
+  </data>
+  <data name="View_lbl_Publish" xml:space="preserve">
+    <value>发布</value>
+  </data>
+  <data name="View_lbl_PublishSourceDesc" xml:space="preserve">
+    <value>一般填写该软件或服务的主站地址</value>
+  </data>
+  <data name="View_lbl_ShortDescriptionDesc" xml:space="preserve">
+    <value>简要描述该服务的基本功能、特点和适用范围等。</value>
+  </data>
+  <data name="View_lbl_SKURuleDesc" xml:space="preserve">
+    <value>只能包含小写字母，数字，减号或下划线。例如：datacenter_zh-cn, express_en-us</value>
+  </data>
+  <data name="View_lbl_SKUUsedDesc" xml:space="preserve">
+    <value>用于描述语言，级别，收费模式等，只有一种SKU的情况可写standard。发布后不可修改。</value>
+  </data>
+  <data name="View_lbl_Updating" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="View_lbl_Upload" xml:space="preserve">
+    <value>上传</value>
+  </data>
+  <data name="View_lbl_UploadARMUrlDesc" xml:space="preserve">
+    <value>如果您的ARM 模板由多个文件组成，请将主模板文件上传到这里，引用的其他模板文件作为附件上传。</value>
+  </data>
+  <data name="View_lbl_UploadMorePictures" xml:space="preserve">
+    <value>更多图片</value>
+  </data>
+  <data name="View_lbl_UploadMorePicturesDesc" xml:space="preserve">
+    <value>这张图片将出现在 Azure 市场中您的产品详细页。截图分辨率必须为533x324</value>
+  </data>
+  <data name="View_lbl_UploadOtherPictures" xml:space="preserve">
+    <value>上传其他图片（PNG格式）</value>
+  </data>
+  <data name="View_lbl_UploadPictures" xml:space="preserve">
+    <value>上传图标（PNG格式）</value>
+  </data>
+  <data name="View_lbl_UploadPicturesDesc" xml:space="preserve">
+    <value>至少115x115</value>
+  </data>
+  <data name="View_lbl_UserAgreement" xml:space="preserve">
+    <value>最终用户协议</value>
+  </data>
+  <data name="View_Required_ARMVersionDescription" xml:space="preserve">
+    <value> 请填 Azure 资源管理模板版本描述</value>
+  </data>
+  <data name="View_Validate_VersionDescriptionMaxLength" xml:space="preserve">
+    <value>Azure 资源管理模板版本描述的上限为1024个字符</value>
+  </data>
+  <data name="View_Validate_VersionDescriptionMinLength" xml:space="preserve">
+    <value>Azure 资源管理模板版本描述的下限为10个字符</value>
+  </data>
+  <data name="View_Required_BlobUrl" xml:space="preserve">
+    <value>ARM 模板文件的网址必填</value>
+  </data>
+  <data name="View_Validate_DescriptionMinLength" xml:space="preserve">
+    <value>详细描述至少需要10个字符</value>
+  </data>
+  <data name="View_Required_EulaEx" xml:space="preserve">
+    <value>需要填写最终用户协议网址</value>
+  </data>
+  <data name="View_Required_EulaFile" xml:space="preserve">
+    <value>需要上传最终用户协议网址</value>
+  </data>
+  <data name="View_Validate_FormNotValidate" xml:space="preserve">
+    <value>表单中有未通过验证的项</value>
+  </data>
+  <data name="View_Required_Id" xml:space="preserve">
+    <value>必须填写ID</value>
+  </data>
+  <data name="View_Validate_IdExist" xml:space="preserve">
+    <value>该ID已经存在</value>
+  </data>
+  <data name="View_Validate_IdMaxLengthOf50" xml:space="preserve">
+    <value>ID不能超过50个字符</value>
+  </data>
+  <data name="View_Validate_IdRule" xml:space="preserve">
+    <value>ID必须只包含小写字母数字字符，短划线或下划线</value>
+  </data>
+  <data name="View_Required_ImageFile" xml:space="preserve">
+    <value>必须上传图标</value>
+  </data>
+  <data name="View_Validate_ImageFileSize" xml:space="preserve">
+    <value>图标不能大于200K</value>
+  </data>
+  <data name="View_Validate_ImageFileSquareMinWidth" xml:space="preserve">
+    <value>该图标必须为最低115px宽的正方形</value>
+  </data>
+  <data name="View_Validate_ImageHeight" xml:space="preserve">
+    <value>该图标高必须为115</value>
+  </data>
+  <data name="View_Validate_ImageMaxSize" xml:space="preserve">
+    <value>图片不能大于1MB</value>
+  </data>
+  <data name="View_Validate_ImageOldLogoSize" xml:space="preserve">
+    <value>老的图标不符合要求，请重新上传</value>
+  </data>
+  <data name="View_Validate_ImagePNG" xml:space="preserve">
+    <value>图片必须是PNG格式的</value>
+  </data>
+  <data name="View_Validate_ImageWidth" xml:space="preserve">
+    <value>该图标宽必须为255</value>
+  </data>
+  <data name="View_Validate_LogoPNG" xml:space="preserve">
+    <value>Logo必须是PNG格式的</value>
+  </data>
+  <data name="View_Validate_ScreenShotCoverSize" xml:space="preserve">
+    <value>该图片尺寸必须为（宽533x高324）</value>
+  </data>
+  <data name="View_Required_ScreenShotCoverLogoSize" xml:space="preserve">
+    <value>老的图片不符合要求，请重新上传</value>
+  </data>
+  <data name="View_Validate_ScreenShotMaxCount" xml:space="preserve">
+    <value>图片不能超过4张</value>
+  </data>
+  <data name="View_Required_SelectCategory" xml:space="preserve">
+    <value>需要勾选类型</value>
+  </data>
+  <data name="View_Required_SelectCategoryNum" xml:space="preserve">
+    <value>类型必须选择1到3个</value>
+  </data>
+  <data name="View_Required_ShortDescription" xml:space="preserve">
+    <value>请填写简要描述</value>
+  </data>
+  <data name="View_Validate_ShortDescriptionRule" xml:space="preserve">
+    <value>必须为长度50以内的中文或者长度100以内的英文</value>
+  </data>
+  <data name="View_Required_SourceEx" xml:space="preserve">
+    <value>需要填写来源网站</value>
+  </data>
+  <data name="View_Required_VersionInfo" xml:space="preserve">
+    <value>需要填写版本号信息</value>
+  </data>
+  <data name="View_Validate_VersionInfoRule" xml:space="preserve">
+    <value>版本号格式必须为number.number.number</value>
+  </data>
+  <data name="View_Required_VhdEnglishName" xml:space="preserve">
+    <value>需要填写英文名称</value>
+  </data>
+  <data name="View_Validate_VhdEnglishNameRule" xml:space="preserve">
+    <value>英文名称不能包含中文</value>
+  </data>
+  <data name="View_Validate_VhdNameLength" xml:space="preserve">
+    <value>必须为长度25以内的中文或者长度50以内的英文</value>
+  </data>
+  <data name="View_Shared_ARMInfo" xml:space="preserve">
+    <value>Azure 资源管理模板信息</value>
+  </data>
+  <data name="View_Shared_TrailInfo" xml:space="preserve">
+    <value>定制服务信息</value>
+  </data>
+  <data name="View_Vhd_InvalidISVGuide" xml:space="preserve">
+    <value>请阅读&lt;a href="~/documentation/publishguide" target="_blank"&gt; Azure 市场服务商指南&lt;/a&gt;查看详细流程。</value>
+  </data>
+  <data name="View_Vhd_InvalidISVPrompt" xml:space="preserve">
+    <value>您还不能发布服务。您必须&lt;a href="~/isv/new" target="_blank"&gt;认证&lt;/a&gt;成为 Azure 市场合作伙伴。</value>
+  </data>
+  <data name="View_Vhd_PublishVersionAfterApproval" xml:space="preserve">
+    <value>管理员审批后才能发布新版本的镜像！</value>
+  </data>
+  <data name="View_Vhd_VersionExist" xml:space="preserve">
+    <value>已经存在一个版本更新。</value>
+  </data>
+  <data name="Msg_Vhd_ApproveApply" xml:space="preserve">
+    <value>您确定要批准该申请？</value>
+  </data>
+  <data name="Msg_Vhd_ReturnApply" xml:space="preserve">
+    <value>请填写退回申请的原因：</value>
+  </data>
+  <data name="Msg_Vhd_SubmitApply" xml:space="preserve">
+    <value>您确定要提交该申请？</value>
+  </data>
+  <data name="View_lbl_ContinueEdit" xml:space="preserve">
+    <value>继续编辑</value>
+  </data>
+  <data name="View_lbl_Editing" xml:space="preserve">
+    <value>编辑中</value>
+  </data>
+  <data name="View_lbl_Return" xml:space="preserve">
+    <value>退回</value>
+  </data>
+  <data name="View_lbl_Review" xml:space="preserve">
+    <value>审批</value>
+  </data>
+  <data name="View_lbl_SubmitOffer" xml:space="preserve">
+    <value>提交审批</value>
+  </data>
+  <data name="View_Validate_PortRange" xml:space="preserve">
+    <value>端口必须介于[1 - 65535]区间</value>
+  </data>
+  <data name="View_Validate_PortNumberOnly" xml:space="preserve">
+    <value>端口只能包含数字</value>
+  </data>
+  <data name="View_Validate_PortFormatError" xml:space="preserve">
+    <value>端口格式错误</value>
+  </data>
+  <data name="View_Validate_PortCannotDuplicate" xml:space="preserve">
+    <value>端口不可重复</value>
+  </data>
+  <data name="View_Validate_LargerVersionNum" xml:space="preserve">
+    <value>版本号必须大于之前的版本</value>
+  </data>
+  <data name="View_Required_SKU" xml:space="preserve">
+    <value>需要填写SKU</value>
+  </data>
+  <data name="View_Required_SKUMaxLength" xml:space="preserve">
+    <value>SKU不能超过50个字符</value>
+  </data>
+  <data name="View_Required_SKURegex" xml:space="preserve">
+    <value>SKU必须只包含小写字母数字字符，短划线或下划线</value>
+  </data>
+  <data name="View_Validate_BlobUrlMaxLength" xml:space="preserve">
+    <value>有效网址并且不超过 256 个字符</value>
+  </data>
+  <data name="View_Required_VersionDescription" xml:space="preserve">
+    <value>请填写镜像版本描述</value>
+  </data>
+  <data name="View_Vhd_Cover" xml:space="preserve">
+    <value>截屏</value>
+  </data>
+  <data name="View_Vhd_Data" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="View_Vhd_InnerVersionNum" xml:space="preserve">
+    <value>内部版本号</value>
+  </data>
+  <data name="View_Vhd_OriginalData" xml:space="preserve">
+    <value>原数据</value>
+  </data>
+  <data name="View_Vhd_UpdateData" xml:space="preserve">
+    <value>更改后</value>
+  </data>
+  <data name="View_Vhd_UploadLogo" xml:space="preserve">
+    <value>上传Logo</value>
+  </data>
+  <data name="View_Vhd_ViewDetail" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="View_Vhd_Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="View_Vhd_ARMAttachment" xml:space="preserve">
+    <value>ARM附件</value>
+  </data>
+  <data name="View_Vhd_GetGithubZip" xml:space="preserve">
+    <value>获取GitHub用的zip</value>
+  </data>
+  <data name="View_Vhd_GetPIRCode" xml:space="preserve">
+    <value>获取发布PIR镜像命令</value>
+  </data>
+  <data name="View_Vhd_Link" xml:space="preserve">
+    <value>链接</value>
+  </data>
+  <data name="Msg_SignIn_AzureAccountMessage" xml:space="preserve">
+    <value>如果您还没有 Azure 中国账号，请联系您所在组织的管理员。管理员可以登录 Azure &lt;a href="https://manage.windowsazure.cn" target="_blank"&gt;管理门户&lt;/a&gt;，使用 Azure Active Directory(AAD) 来创建您的 Azure 中国账号。</value>
+  </data>
+  <data name="Msg_SignIn_NoAzureSubscribe" xml:space="preserve">
+    <value>如果您还没有 Azure 订阅</value>
+  </data>
+  <data name="View_lbl_IsNotISV" xml:space="preserve">
+    <value>您还没有申请成为服务商。</value>
+  </data>
+  <data name="Msg_AzureSubscribeMessage" xml:space="preserve">
+    <value>请先&amp;amp;lt;a href="https://www.azure.cn/pricing/pia/" target="_blank"&amp;amp;gt;购买&amp;amp;lt;/a&amp;amp;gt; Azure 账号及订阅。您也可以申请&amp;amp;lt;a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank"&amp;amp;gt;免费试用&amp;amp;lt;/a&amp;amp;gt;。</value>
+  </data>
+  <data name="Msg_NeedAzureSubscription" xml:space="preserve">
+    <value>开始使用微软 Azure ，你需要一个 Azure 订阅</value>
+  </data>
+  <data name="Msg_NoAzureSubscription" xml:space="preserve">
+    <value>您没有 Azure 订阅</value>
+  </data>
+  <data name="Msg_NotValidatedAzureSubscription" xml:space="preserve">
+    <value>我们无法找到您作为服务管理员或共同管理员的任何 Azure 订阅。&amp;lt;br /&amp;gt;您已使用 Azure 活动目录&amp;lt;b&amp;gt;{0}&amp;lt;/b&amp;gt;中的用户&amp;lt;b&amp;gt;{1}&amp;lt;/b&amp;gt;登录。&amp;lt;br /&amp;gt;如果这不是你预期要使用的帐户，请&amp;lt;a href="~/Sign/Logout"&amp;gt;登出&amp;lt;/a&amp;gt;并使用其他帐户登录。&amp;lt;br /&amp;gt;</value>
+  </data>
+  <data name="Msg_SubscribeAzure" xml:space="preserve">
+    <value>请先&lt;a href="https://www.azure.cn/pricing/pia/" target="_blank"&gt;购买&lt;/a&gt; Azure 账号及订阅。您也可以申请&lt;a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank"&gt;免费试用&lt;/a&gt;。</value>
+  </data>
+  <data name="View_lbl_ManageUser" xml:space="preserve">
+    <value>管理用户</value>
+  </data>
+  <data name="View_lbl_Whole" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="View_ThirdPartyProduct" xml:space="preserve">
+    <value>第三方产品。</value>
+  </data>
+  <data name="View_ThirdPartyProduct_Four" xml:space="preserve">
+    <value>(iv) 如果您配合服务安装或使用了任何第三方产品，则您安装和使用此类产品的方式不应导致我们的知识产权或技术必须承担本协议未包括的任何义务。</value>
+  </data>
+  <data name="View_ThirdPartyProduct_One" xml:space="preserve">
+    <value>(i) 我们可能会向您提供第三方产品。对第三方产品的使用将受您和提供该第三方产品的第三方签订的单独条款的约束。为了方便起见，我们可能在您的服务账单中包含针对第三方产品的收费。不过我们（以及我们的服务商）不对第三方产品承担任何责任。</value>
+  </data>
+  <data name="View_ThirdPartyProduct_Three" xml:space="preserve">
+    <value>(iii) 如果您配合服务安装或使用了任何第三方产品，则您（而非我们）应通过相应行动（例如，通过使用应用程序编程接口或作为服务一部分的其他技术手段），监管和控制此类产品在服务中的安装和使用。我们将不会私自运行此类第三方产品，也不会创建任何副本。</value>
+  </data>
+  <data name="View_ThirdPartyProduct_Two" xml:space="preserve">
+    <value>(ii) 对于您配合服务安装或使用的任何第三方产品，您应独自承担责任。我们并不是管辖您对任何第三方产品的使用的任何条款的当事方，亦不受该等条款约束。</value>
+  </data>
+  <data name="Msg_AddFailed" xml:space="preserve">
+    <value>添加失败</value>
+  </data>
+  <data name="Msg_AddSucceeded" xml:space="preserve">
+    <value>添加成功</value>
+  </data>
+  <data name="Msg_CannotDeleteApprovedOffer" xml:space="preserve">
+    <value>不能直接删除已经通过审批的服务</value>
+  </data>
+  <data name="Msg_ConfirmPublishUpdateContent" xml:space="preserve">
+    <value>这是一个新版本的更新内容，你是否要申请上架这个新版本。</value>
+  </data>
+  <data name="Msg_DeleteFailed" xml:space="preserve">
+    <value>删除失败</value>
+  </data>
+  <data name="Msg_DeleteSucceeded" xml:space="preserve">
+    <value>删除成功</value>
+  </data>
+  <data name="Msg_DoNotReSubmitFeedback" xml:space="preserve">
+    <value>您的反馈正在处理中，请勿重复提交。</value>
+  </data>
+  <data name="Msg_FeedBackFailed" xml:space="preserve">
+    <value>您的反馈提交失败</value>
+  </data>
+  <data name="Msg_FeedBackSucceeded" xml:space="preserve">
+    <value>您的反馈已提交</value>
+  </data>
+  <data name="Msg_ImageIsNotPNG" xml:space="preserve">
+    <value>上传的图片不是PNG格式</value>
+  </data>
+  <data name="Msg_InvalidCode" xml:space="preserve">
+    <value>无效的激活码</value>
+  </data>
+  <data name="Msg_InvalidClaimName" xml:space="preserve">
+    <value>无效的 Azure 中国账号</value>
+  </data>
+  <data name="Msg_NeedDeleteUnpublishedVersion" xml:space="preserve">
+    <value>您正要申请删除的服务有未上架的版本，请先删除所有此服务的未上架版本再提交删除申请</value>
+  </data>
+  <data name="Msg_NoPermission" xml:space="preserve">
+    <value>亲爱的用户，您没有权限进行该操作</value>
+  </data>
+  <data name="Msg_NotISV" xml:space="preserve">
+    <value>您还没有认证成为ISV</value>
+  </data>
+  <data name="Msg_SaveSucceeded" xml:space="preserve">
+    <value>保存成功</value>
+  </data>
+  <data name="Msg_SubmitDeleteApplySuccess" xml:space="preserve">
+    <value>提交删除申请成功</value>
+  </data>
+  <data name="Msg_UpdateFailed" xml:space="preserve">
+    <value>更新失败</value>
+  </data>
+  <data name="Msg_UpdateSucceeded" xml:space="preserve">
+    <value>更新成功</value>
+  </data>
+  <data name="Msg_UserAlreadyExist" xml:space="preserve">
+    <value>用户已存在</value>
+  </data>
+  <data name="Msg_UserNotExist" xml:space="preserve">
+    <value>用户不存在</value>
+  </data>
+  <data name="View_List_AllVhds" xml:space="preserve">
+    <value>所有镜像</value>
+  </data>
+  <data name="View_List_Editing" xml:space="preserve">
+    <value>正在编辑</value>
+  </data>
+  <data name="View_List_MyInformation" xml:space="preserve">
+    <value>我的信息</value>
+  </data>
+  <data name="View_List_PublishedOffer" xml:space="preserve">
+    <value>已上架服务</value>
+  </data>
+  <data name="View_List_OffersToBePublished" xml:space="preserve">
+    <value>未上架服务</value>
+  </data>
+  <data name="View_ISV_CompanyCity" xml:space="preserve">
+    <value>请填写城市</value>
+  </data>
+  <data name="View_Required_CompanyCity" xml:space="preserve">
+    <value>必须填写公司所在城市</value>
+  </data>
+  <data name="View_vhd_leadsGen_addtionalEmails" xml:space="preserve">
+    <value>额外联系人邮箱</value>
+  </data>
+  <data name="View_vhd_leadsGen_ConnectString" xml:space="preserve">
+    <value>连接串</value>
+  </data>
+  <data name="View_vhd_leadsGen_disable" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="View_vhd_leadsGen_enable" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="View_Vhd_LeadsGen_Title" xml:space="preserve">
+    <value>是否收集用户信息</value>
+  </data>
+  <data name="Msg_NoDeleteOwn" xml:space="preserve">
+    <value>您不能删除自己信息</value>
+  </data>
+  <data name="Msg_NoUpdateOwnSuperAdmin" xml:space="preserve">
+    <value>您不能更改自己的管理权限</value>
+  </data>
+  <data name="Msg_PleaseLoginAgain" xml:space="preserve">
+    <value>即将跳转到登录页，请重新登录</value>
+  </data>
+  <data name="Msg_ShouldbeSuperAdmin" xml:space="preserve">
+    <value>您需要管理权限</value>
+  </data>
+  <data name="View_ISV_AddAdmin" xml:space="preserve">
+    <value>新增管理员</value>
+  </data>
+  <data name="View_ISV_SuperAdmin" xml:space="preserve">
+    <value>管理权限</value>
+  </data>
+  <data name="View_ISV_UpdateAdmin" xml:space="preserve">
+    <value>更改管理员权限</value>
+  </data>
+  <data name="View_ImageSizes_Title" xml:space="preserve">
+    <value>推荐虚拟机大小</value>
+  </data>
+  <data name="View_Validate_ImageSize_Required" xml:space="preserve">
+    <value>请选择虚拟机大小</value>
+  </data>
+  <data name="View_Validate_ImageSize_MaxSize" xml:space="preserve">
+    <value>选择的虚拟机数量最大为{0}个</value>
+  </data>
+  <data name="View_ISV_Insight" xml:space="preserve">
+    <value>分析数据</value>
+  </data>
+  <data name="View_Vhd_PricingModel_BYOL" xml:space="preserve">
+    <value>自带许可</value>
+  </data>
+  <data name="View_Vhd_PricingModel_BYOL_Free30" xml:space="preserve">
+    <value>免费试用（30天）</value>
+  </data>
+  <data name="View_Vhd_PricingModel_BYOL_Free90" xml:space="preserve">
+    <value>免费试用（90天）</value>
+  </data>
+  <data name="View_Vhd_PricingModel_BYOL_NoFree" xml:space="preserve">
+    <value>无免费试用</value>
+  </data>
+  <data name="View_Vhd_PricingModel_BYOL_Type" xml:space="preserve">
+    <value>自带许可类型</value>
+  </data>
+  <data name="View_Vhd_PricingModel_Free" xml:space="preserve">
+    <value>免费</value>
+  </data>
+  <data name="View_Vhd_PricingModel_Title" xml:space="preserve">
+    <value>定价模式</value>
+  </data>
+  <data name="Msg_ApprovalUpdate" xml:space="preserve">
+    <value>操作完成，同意了该更新内容。</value>
+  </data>
+  <data name="Msg_DisapprovalUpdate" xml:space="preserve">
+    <value>操作完成，拒绝了该更新内容。</value>
+  </data>
+  <data name="Msg_NotExistOffer" xml:space="preserve">
+    <value>这个申请不存在或者已经被审核过了</value>
+  </data>
+  <data name="Msg_ReturnSucceeded" xml:space="preserve">
+    <value>操作完成，退回了该更新内容。</value>
+  </data>
+  <data name="Msg_SendEmailFailed" xml:space="preserve">
+    <value>通知邮件发送失败。</value>
+  </data>
+  <data name="Msg_Vhd_RejectApply" xml:space="preserve">
+    <value>请填写拒绝申请的原因：</value>
+  </data>
+  <data name="View_ISV_DataDiskPublishUrlDesc" xml:space="preserve">
+    <value>填写要发布的 Data disk 文件在 Azure上 的url地址</value>
+  </data>
+</root>
