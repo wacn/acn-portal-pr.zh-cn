@@ -148,9 +148,9 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong></strong></th>
-								<th align="center" colspan="2"><strong>LRS</strong></th>
-								<th align="center" colspan="2"><strong>GRS</strong></th>
-								<th align="center" colspan="2"><strong>RA-GRS</strong></th>
+								<th align="center" colspan="2"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="center" colspan="2"><strong>异地冗余存储 (GRS)</strong></th>
+								<th align="center" colspan="2"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
 							</tr>
 							<tr>
 								<td></td>
@@ -204,8 +204,8 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong></strong></th>
-								<th align="center" colspan="2"><strong>LRS</strong></th>
-								<th align="center" colspan="2"><strong>GRS 和 RA-GRS</strong></th>
+								<th align="center" colspan="2"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="center" colspan="2"><strong>异地冗余存储 (GRS) 和 读取访问跨异地冗余存储(RA-GRS)</strong></th>
 							  
 							</tr>
 							<tr>
@@ -342,7 +342,7 @@
 							<p>Azure 托管磁盘是用于 Azure 虚拟机的新的和推荐的磁盘存储产品，方便永久存储数据。可对每个虚拟机使用多个托管磁盘。托管磁盘提供两种类型的持久存储选项：高级托管磁盘和标准托管磁盘。</p>
 							<p>如果对非托管磁盘的定价详情感兴趣，请参阅<a href="javascript:void(0)" id="pricing_storage_data-transfer"  data-href="#tabContent6" >非托管磁盘和页面 Blob </a>价格详情页面。</p>
 					
-							<h3>高级托管磁盘</h3>
+							<h4>高级托管磁盘</h4>
 							<p>高级托管磁盘是基于高性能固态驱动器 (SSD) 的存储，旨在支持 I/O 密集型工作负荷，具有非常高的吞吐量和低延迟。借助高级托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
 							<p>高级托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量上限和每 GB 每月价格。可以选择最符合所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对每个 VM 配置最多 64 TB 的存储空间，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、FS 系列VM 大小的支持。</p>
 							<div class="tags-date">
@@ -413,7 +413,7 @@
 							</div>
 							<p>上述价格也适用于高级非托管磁盘。</p>
 					
-							<h3>标准托管磁盘</h3>
+							<h4>标准托管磁盘</h4>
 							<p>标准托管磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
 							<p>标准托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。在 IOPS 和吞吐量方面，不同的标准磁盘大小之间没有区别。</p>
 							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
@@ -474,7 +474,7 @@
 						<!-- END: Tab level 2 content 3-1-->
 
 						<!-- BEGIN: Tab level 2 content 3-2 -->
-						<!-- <h3>非托管磁盘</h3> -->
+						<!-- <h4>非托管磁盘</h4> -->
 						<div class="tab-panel" id="tabContent3-2">
 							<h3>高级非托管磁盘和页 Blob</h3>
 							<p>高级非托管磁盘是基于固态硬盘 (SSD) 的高性能存储器，旨在通过极大吞吐量和极低延迟来支持 I/O 密集型工作负荷。借助高级非托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
@@ -540,7 +540,7 @@
 								<div class="ms-date">高级磁盘没有事务处理费用。</div></br>
 								<div class="ms-date"><sup>1 </sup>Azure 不支持将 P60 作为虚拟机的磁盘。 页 Blob 支持通过 REST 访问 P60。</div>
 							</div>
-							<h3>标准非托管磁盘和页 Blob</h3>
+							<h4>标准非托管磁盘和页 Blob</h4>
 							<p>标准磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
 							<p>标准非托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
 							<div class="tags-date">
@@ -592,9 +592,10 @@
 							</table>
 							<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
 							
-							<h4>操作和数据传输价格</h4>								
-							<p>对于标准非托管磁盘和页 Blob，我们按每 10,000 个事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</p>
-							<!--
+							<h4>操作和数据传输价格</h4>
+							<p>如果页 blob 事务不是通过虚拟机执行的，则按事务对其计费。对于每个事务，单次操作应被视为写入、读取或删除操作计费。若读取或写入事务的大小超过 64 KB，则每超过 64 KB 需支付一次额外的读取或写入输入/输出 (IO) 费用，每个事务最多收取 15 个 IO 的费用。如果事务大小超过 1 MB [64 KB x (1 个事务 + 15 个 IO)]，则无论事务大小，不再对其他 IO 计费。</p>						
+							<!-- <p>对于标准非托管磁盘和页 Blob，我们按每 10,000 个事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</p> -->
+							
 							<div class="tags-date">
 								<div class="ms-date">*以下价格均为含税价格。</div><br />
 							</div>
@@ -603,25 +604,44 @@
 									<th align="left"><strong></strong></th>
 									<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
 									<th align="left"><strong>异地冗余存储 (GRS)</th>
+									<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
 								  
 								</tr>						
 								<tr>
-									<td>放置页 Blob、创建容器操作（按 10,000 计）</td>
+									<td>写入操作<sup>1</sup>（按 10,000 计）</td>
 									<td align="left">￥0.0044</td>
-									<td align="left">￥0.0088</td>						   
+									<td align="left">￥0.0044</td>						   
+									<td align="left">￥0.0044</td>			   
 								</tr>
 								<tr>
-									<td>列出容器操作（按 10,000 计）</td>
+									<td>写入额外 IO 单位（按 10,000 计）</td>
+									<td align="left">免费</td>
+									<td align="left">免费</td>						   
+									<td align="left">免费</td>						   
+								</tr>
+								<tr>
+									<td>读取操作<sup>2</sup>（按 10,000 计）</td>
 									<td align="left">￥0.0044</td>
+									<td align="left">￥0.0044</td>						   
 									<td align="left">￥0.0044</td>						   
 								</tr>
 								<tr>
-									<td>除删除（此操作免费）之外的其他操作（按 10,000 计）</td>
+									<td>读取额外 IO 单位（按 10,000 计）</td>
+									<td align="left">免费</td>
+									<td align="left">免费</td>						   
+									<td align="left">免费</td>						   
+								</tr>
+								<tr>
+									<td>删除操作</td>	
 									<td align="left">￥0.0044</td>
+									<td align="left">￥0.0044</td>						   
 									<td align="left">￥0.0044</td>						   
 								</tr>
 							</table>
-							-->
+							<div class="tags-date">
+								<div class="ms-date"><sup>1 </sup>以下 API 调用视为写入操作：AbortCopyBlob、AppendBlock、BreakBlobLease、BreakContainerLease、ChangeBlobLease、ChangeContainerLease、CopyBlob、CreateContainer、IncrementalCopyBlob、PutBlob、PutGeoMessage、PutGeoRepairMessageMeasurementEvent、PutGeoVerificationMessageMeasurementEvent、PutPage、SetBlobMetadata、SetBlobProperties、SetBlobServiceProperties、SetContainerACL、SetContainerMetadata、SnapshotBlob 和 UndeleteBlob。</div><br />
+								<div class="ms-date"><sup>2 </sup> 以下 API 调用视为读取操作：AcquireBlobLease、AcquireContainerLease、BlobPreflightRequest、GeoBootstrap、GetBlob、GetBlobLeaseInfo、GetBlobMetadata、GetBlobProperties、GetBlobServiceProperties、GetBlobServiceStats、GetBlockList、GetContainerACL、GetContainerMetadata、GetContainerProperties、GetCopyInformation、GetEncryptionKey、GetPageRegions、ReleaseBlobLease、ReleaseContainerLease、RenewBlobLease 和 RenewContainerLease。</div>
+							</div>
 						</div>
 						<!-- END: Tab level 2 content 3-2-->
 					</div>
@@ -756,14 +776,32 @@
 								<th align="left"><strong></strong></th>
 								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
 								<th align="left"><strong>异地冗余存储 (GRS)</th>
+								<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
 							  
 							</tr>						
 							<tr>
-								<td>队列操作（按 10,000 计）</td>
+								<td>队列类别 1 <sup>1</sup> 操作（按 10,000 计）</td>
+								<td align="left">￥0.003663</td>					   
+								<td align="left">￥0.003663</td>					   
+								<td align="left">￥0.003663</td>					   
+							</tr>
+							<tr>
+								<td>队列类别 2 <sup>2</sup> 操作（按 10,000 计）</td>
 								<td align="left">￥0.02</td>
-								<td align="left">￥0.02</td>						   
+								<td align="left">￥0.02</td>					   
+								<td align="left">￥0.02</td>					   
+							</tr>
+							<tr>
+								<td>异地复制数据传输（按 GB）</td>
+								<td align="left">免费</td>
+								<td align="left">免费</td>					   
+								<td align="left">免费</td>					   
 							</tr>
 						</table>
+						<div class="tags-date">
+							<div class="ms-date"><sup>1 </sup>以下队列操作计为类别 1：CreateQueue、ListQueues、PutMessage、SetQueueMetadata、UpdateMessage、ClearMessages、DeleteMessage、DeleteQueue、GetMessageWrite、GetMessagesWrite。</div><br />
+							<div class="ms-date"><sup>2 </sup>以下队列操作计为类别 2：GetMessage、GetMessages、GetQueueMetadata、GetQueueServiceProperties、GetQueueAcl、PeekMessage、PeekMessages、GetMessageRead、GetMessagesRead。</div>
+						</div>
 					<!-- END: Table5-Content-1 -->
 				</div>
 				<!-- END: Table5-Content-1 -->
