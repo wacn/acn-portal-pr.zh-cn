@@ -100,146 +100,43 @@
 			color: #40c5af;
 			background-color: #FFF;	
 		}
-		/*festival2018*/
-		.homePageMain.festival2018 .homepage-quickstart .quickstart-item img{
-			height:150px;
-			right:0;
-		}
-		.homePageMain.festival2018 .buying_row.festival{
-			background:#fab300 url('http://resource.cdn.azure.cn/marketing-resource/media/images/homepage/1RMB_homepage_banner_slice.png') no-repeat center center;
-		}
-		.homePageMain.festival2018 .buying_row .inner_box .inner_box-button{
-			background:#da210f ;
-		}
-		.homePageMain.festival2018 .buying_row .inner_box .inner_box-button:hover{
-			background:#f21a0f ;
-		}
-		@media only screen and (max-width: 981px){
-			.homePageMain.festival2018 .homepage-quickstart .container .row .quickstart-item img {
-			    height: 130px;
-			}
-			.homePageMain.festival2018 .buying_row.festival{
-				background:#fab300;
-				position:relative;
-			}
-			.homePageMain.festival2018 .buying_row.festival:before{
-				content:'';
-				position:absolute;
-				left:0;
-				bottom:0;
-				height:215px;
-				width:101px;
-				background:url('http://resource.cdn.azure.cn/marketing-resource/media/images/homepage/2018_CNY1RMB_slice_left@2x.png') no-repeat;
-				background-size:contain;
-			}
-			.homePageMain.festival2018 .buying_row.festival:after{
-				content:'';
-				position:absolute;
-				right:0;
-				top:0;
-				height:215px;
-				width:95px;
-				background:url('http://resource.cdn.azure.cn/marketing-resource/media/images/homepage/2018_CNY1RMB_slice@2x-right.png') no-repeat;
-				background-size:contain;
+		@media only screen and (min-width: 980px){
+			.homePageMain .row_box3 .item-box {
+			    min-height: 290px ;
 			}
 		}
-		#petalbox {
-		    position: fixed;
-		    top: 0;
-		    left: 0;
-		    width: 100%;
-		    height:100%;
-		    z-index: 99999;
-		    pointer-events: none;
-		}
-		#petalbox > div {
-		    position: absolute;
-		    -webkit-animation-iteration-count: 1, 1;
-		    -webkit-animation-direction: normal, normal;
-		    -webkit-animation-timing-function: linear, ease-in;
-		    -webkit-backface-visibility: hidden;
-		    animation-iteration-count: 1, 1;
-		    animation-direction: normal, normal;
-		    animation-timing-function: linear, ease-in;
-		    backface-visibility: hidden;
-		}
-		#petalbox > div > img {
-		    position: absolute;
-		    -webkit-animation-iteration-count: infinite;
-		    -webkit-animation-direction: normal;
-		    -webkit-animation-timing-function: linear;
-		    -webkit-backface-visibility: hidden;
-		    animation-iteration-count: infinite;
-		    animation-direction: normal;
-		    animation-timing-function: linear;
-		    backface-visibility: hidden;
-		    max-width:45px;
-		    max-height:45px;
-		}
-		@-webkit-keyframes fade {
-		    0%, 90% {
-		        opacity: 1;
-		    }
-		    100% {
-		        opacity: 0;
-		    }
-		}
-		@keyframes fade {
-		    0%, 90% {
-		        opacity: 1;
-		    }
-		    100% {
-		        opacity: 0;
-		    }
-		}
-		@-webkit-keyframes drop {
-		    0% {
-		        -webkit-transform: translate3d(0, 0, 0);
-		        transform: translate3d(0, 0, 0);
-		    }
-		    100% {
-		        -webkit-transform: translate3d(0, 1100px, 0);
-		        transform: translate3d(0, 1100px, 0);
-		    }
-		}
-		@keyframes drop {
-		    0% {
-		    	-webkit-transform: translate3d(0, 0, 0);
-		        transform: translate3d(0, 0, 0);
-		    }
-		    100% {
-		    	-webkit-transform: translate3d(0, 1100px, 0);
-		        transform: translate3d(0, 1100px, 0);
-		    }
-		}
-		@-webkit-keyframes clockwiseSpin {
-		    0% {
-		        -webkit-transform: none;
-		        transform: none;
-		    }
-		    100% {
-		        -webkit-transform: rotate(720deg);
-		        transform: rotate(720deg);
-		    }
-		}
-		@keyframes clockwiseSpin {
-		    0% {
-		        -webkit-transform: none;
-		        transform: none;
-		    }
-		    100% {
-		        -webkit-transform: rotate(720deg);
-		        transform: rotate(720deg);
-		    }
-		}
+		
 	</style>
-		<div id="petalbox"></div>
-		<div class="homePageMain festival2018">
+		<div class="homePageMain">
 			<div class="swiper-container">
 				<div class="swiper-container">
 				<div class="banner_box swiper-wrapper" id="banner_box">
 					<!--banner-->
 					<div class="banner swiper-slide image-banner" style="" idx="0">
+						<a target="_blank" id="bannerBtn_3_api-management" href="/home/features/api-management/" class="background container" rel="nofollow">
+							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/azure_api-management_banner.png">
+							<div class="banner-content">
+								<div class="banner-title device-desktop-banner">
+									API 管理预览版上线
+								</div>
+								<div class="banner-title device-mobile-banner">
+									API 管理预览版上线
+								</div>
+								<div class="banner-p device-desktop-banner" style="height:80px;">
+									提供一流的开发人员体验<br/>几分钟内发布、管理、保护和分析 API
+								</div>
+								<div class="banner-p device-mobile-banner">
+									提供一流的开发人员体验<br/>几分钟内发布、管理、保护和分析 API
+								</div>
+								<span class="promo-link">
+									<div class="banner_btn">
+										<span>立即查看</span><i class="icon icon-arrow-right"></i>
+									</div>
+								</span>
+							</div>
+						</a>
+					</div>
+					<div class="banner swiper-slide image-banner" style="" idx="1">
 						<a target="_blank" id="bannerBtn_0_azure-goglobal" href="//www.microsoft.com/china/azure/" class="background container" rel="nofollow">
 							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/promo-minisite-acn_slice_banner.png">
 							<div class="banner-content">
@@ -265,7 +162,7 @@
 							</div>
 						</a>
 					</div>
-					<div class="banner swiper-slide image-banner" style="" idx="1">
+					<div class="banner swiper-slide image-banner" style="" idx="2">
 						<a target="_blank" id="bannerBtn_0_azure-hdinsight" href="/pricing/details/hdinsight/" class="background container" rel="nofollow">
 							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/hdinsight-price-drop_slice_banner.png">
 							<div class="banner-content">
@@ -291,7 +188,7 @@
 							</div>
 						</a>
 					</div>
-					<div class="banner swiper-slide image-banner" style="" idx="2">
+					<div class="banner swiper-slide image-banner" style="" idx="3">
 						<a target="_blank" id="bannerBtn_1_azure-network-watcher" href="/home/features/network-watcher/" class="background container" rel="nofollow">
 							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/azure_network-watcher_banner.png">
 							<div class="banner-content">
@@ -315,31 +212,8 @@
 							</div>
 						</a>
 					</div>
-					<!-- <div class="banner swiper-slide image-banner" style="" idx="3">
-						<a target="_blank" id="bannerBtn_3_api-management" href="/home/features/api-management/" class="background container" rel="nofollow">
-							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/azure_api-management_banner.png">
-							<div class="banner-content">
-								<div class="banner-title device-desktop-banner">
-									API 管理预览版上线
-								</div>
-								<div class="banner-title device-mobile-banner">
-									API 管理预览版上线
-								</div>
-								<div class="banner-p device-desktop-banner" style="height:80px;">
-									提供一流的开发人员体验<br/>几分钟内发布、管理、保护和分析 API
-								</div>
-								<div class="banner-p device-mobile-banner">
-									提供一流的开发人员体验<br/>几分钟内发布、管理、保护和分析 API
-								</div>
-								<span class="promo-link">
-									<div class="banner_btn">
-										<span>立即查看</span><i class="icon icon-arrow-right"></i>
-									</div>
-								</span>
-							</div>
-						</a>
-					</div> -->
-					<div class="banner swiper-slide image-banner" style="" idx="3">
+					
+					<div class="banner swiper-slide image-banner" style="" idx="4">
 						<a target="_blank" id="bannerBtn_1_azure-certificate_promotion_slice" href="/campaigns/certificate-promotion/" class="background container" rel="nofollow">
 							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/azure_certificate_promotion_slice_banner.png">
 							<div class="banner-content">
@@ -365,7 +239,7 @@
 							</div>
 						</a>
 					</div>
-					<div class="banner swiper-slide image-banner" style="" idx="4">
+					<!-- <div class="banner swiper-slide image-banner" style="" idx="4">
 						<a target="_blank" id="bannerBtn_1_azure-playbook_acn_slice" href="//docs.azure.cn/zh-cn/articles/azure-china-purchasing-guidance/" class="background container" rel="nofollow">
 							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/azure_playbook_acn_slice_banner.png">
 							<div class="banner-content">
@@ -390,7 +264,7 @@
 								</span>
 							</div>
 						</a>
-					</div>
+					</div> -->
 					<!-- <div class="banner swiper-slide image-banner" style="" idx="4">
 						<a target="_blank" id="bannerBtn_1_azure-account" href="//docs.azure.cn/zh-cn/billing/" class="background container" rel="nofollow">
 							<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/azure-account_slice_banner.png">
@@ -739,7 +613,7 @@
 			</div>
 			<div class="homepage-quickstart">
 				<div class="container">
-					<div class="row" style="display:none">
+					<div class="row">
 						<a target="_blank" class="col-md-4 quickstart-item" href="https://school.azure.cn/category?filter=%7B%22curriculumDirectionId%22%3A%221%22%2C%22curriculumCategoryId%22%3A%220%22%2C%22courseCategoryId%22%3A%220%22%7D" id="homepage_quickstart-starter-guide">
 							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/rocket.png" alt="">
 							<div class="device-desktop-banner"><span class="link link-sharp-btn blue large"><span>新手入门</span><i class="icon icon-arrow-right "></i></span></div>
@@ -765,37 +639,10 @@
 											alt="">
 							<div class="device-desktop-banner"><span class="link link-sharp-btn blue large" rel="nofollow"><span>最新公告</span><i class="icon icon-arrow-right"></i></span></div>
 							<span class="link link-sharp-btn blue large device-mobile-banner" rel="nofollow"><span>最新公告</span></span>
-							<p>新 Azure SQL Server 镜像发布</p>
+							<p>Azure API 管理公共预览版发布 </p>
 						</a>
-						
+
 					</div>
-					<div class="row">
-						<a target="_blank" class="col-md-4 quickstart-item" href="https://school.azure.cn/category?filter=%7B%22curriculumDirectionId%22%3A%221%22%2C%22curriculumCategoryId%22%3A%220%22%2C%22courseCategoryId%22%3A%220%22%7D" id="homepage_quickstart-starter-guide">
-							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/rocket@2x.png" class="hidden-xs hidden-sm" alt="">
-							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/mobile_slice@2x-10.png" class="hidden-md hidden-lg" alt="">
-							<div class="device-desktop-banner"><span class="link link-sharp-btn blue large"><span>新手入门</span><i class="icon icon-arrow-right "></i></span></div>
-							<span class="link link-sharp-btn blue large device-mobile-banner"><span>新手入门</span></span>
-							<p>助你了解 Azure ，提高工作效率，节省运营成本</p>
-						</a>
-						<a target="_blank" class="col-md-4 quickstart-item" href="https://school.azure.cn/category?filter=%7B%22curriculumDirectionId%22%3A%222%22%2C%22curriculumCategoryId%22%3A%220%22%2C%22courseCategoryId%22%3A%220%22%7D" id="homepage_quickstart-support_public-security-registration">
-							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/study@2x.png" class="hidden-xs hidden-sm"
-											alt="">
-							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/mobile_slice@2x-11.png" class="hidden-md hidden-lg" alt="">
-							<div class="device-desktop-banner"><span class="link link-sharp-btn blue large"><span>实用教程</span><i class="icon icon-arrow-right"></i></span></div>
-							<span class="link link-sharp-btn blue large device-mobile-banner"><span>实用教程</span></span>
-							<p style="">客户场景解析，详解架构和实现，助力构建云上应用和服务</p>
-						</a>
-						<a class="col-md-4 quickstart-item" href="/what-is-new/" id="homepage_quickstart-what-is-new_2017-september_standard-managed-disks">
-							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/news@2x.png" class="hidden-xs hidden-sm"
-											alt="">
-							<img data-rjs="2" src="//resource.cdn.azure.cn/marketing-resource/media/images/homepage/mobile_slice@2x-12.png" class="hidden-md hidden-lg" alt="">
-							<div class="device-desktop-banner"><span class="link link-sharp-btn blue large" rel="nofollow"><span>最新公告</span><i class="icon icon-arrow-right"></i></span></div>
-							<span class="link link-sharp-btn blue large device-mobile-banner" rel="nofollow"><span>最新公告</span></span>
-							<p>新 Azure SQL Server 镜像发布</p>
-						</a>
-						
-					</div>
-					
 				</div>
 			</div>
 			<!--BEGIN: 1 RMB Trial -->
@@ -912,6 +759,226 @@
 					</div>
 					<div class="_bottom clearfix">
 
+						<!--API Management -->
+						<div class="col-md-3 col-xs-6 item-box">
+							<sup style="color: #a5ce00; font-weight: bold; text-transform: uppercase; font-family: '微软雅黑'; font-size: 20px;position:absolute;right:10px;top:12px;" class="wa-previewTag"> 预览</sup>
+							<a href="/home/features/api-management/" id="homepage_services_api-management">
+								<h2 class="bigger-header">API 管理</h2>
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 140 96"  width="140px" height="96px" style="enable-background:new 0 0 140 96;" xml:space="preserve">
+									<style type="text/css">
+										.api-manament0{fill-rule:evenodd;clip-rule:evenodd;fill:#85C9D5;}
+										.api-manament1{fill-rule:evenodd;clip-rule:evenodd;fill:#EDF0F4;}
+										.api-manament2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament3{fill-rule:evenodd;clip-rule:evenodd;fill:#B5C0CE;}
+										.api-manament4{fill-rule:evenodd;clip-rule:evenodd;fill:#33B4DF;}
+										.api-manament5{fill-rule:evenodd;clip-rule:evenodd;fill:#7B4D87;}
+										.api-manament6{fill-rule:evenodd;clip-rule:evenodd;fill:#482255;}
+										.api-manament7{fill-rule:evenodd;clip-rule:evenodd;fill:none;}
+										.api-manament8{fill-rule:evenodd;clip-rule:evenodd;fill:#E3F3F6;}
+										.api-manament9{fill-rule:evenodd;clip-rule:evenodd;fill:#A3BF3A;}
+										.api-manament10{fill-rule:evenodd;clip-rule:evenodd;fill:#8BA63C;}
+										.api-manament11{fill-rule:evenodd;clip-rule:evenodd;fill:#5E6D80;}
+										.api-manament12{fill-rule:evenodd;clip-rule:evenodd;fill:#88909B;}
+										.api-manament13{fill:#85C9D5;}
+										.api-manament14{fill:#E56225;}
+										.api-manament15{fill-rule:evenodd;clip-rule:evenodd;fill:#2F75BB;}
+										.api-manament16{fill:#00A2D8;}
+										.api-manament17{fill-rule:evenodd;clip-rule:evenodd;fill:#00A2D8;}
+										.api-manament18{fill:#F79E1C;}
+										.api-manament19{fill-rule:evenodd;clip-rule:evenodd;fill:#2ABAEC;}
+										.api-manament20{fill:#F7B218;}
+										.api-manament21{fill:#009480;}
+										.api-manament22{fill-rule:evenodd;clip-rule:evenodd;fill:#009480;}
+										.api-manament23{fill:#2ABAEC;}
+										.api-manament24{fill:#323A45;}
+										.api-manament25{fill:#88909B;}
+										.api-manament26{fill:#A3BF3A;}
+										.api-manament27{fill:#80A23E;}
+										.api-manament28{fill:#7B4D87;}
+										.api-manament29{fill:#2F75BB;}
+										.api-manament30{opacity:0.15;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament31{fill:#A5D9E2;}
+										.api-manament32{fill-rule:evenodd;clip-rule:evenodd;fill:#323A45;}
+										.api-manament33{fill:#FFFFFF;}
+										.api-manament34{fill:#DAEFF3;}
+										.api-manament35{fill:#2A65AF;}
+										.api-manament36{fill:#F6ECF4;}
+										.api-manament37{fill:none;}
+										.api-manament38{fill-rule:evenodd;clip-rule:evenodd;fill:#F9BA19;}
+										.api-manament39{fill:#F6931D;}
+										.api-manament40{fill:#5E6D80;}
+										.api-manament41{fill:#6B903D;}
+										.api-manament42{fill-rule:evenodd;clip-rule:evenodd;}
+										.api-manament43{fill:#00B8E2;}
+										.api-manament44{fill:none;stroke:#85C9D5;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;}
+										.api-manament45{fill:#2A89CA;}
+										.api-manament46{opacity:0.3;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament47{opacity:0.3;fill:#FFFFFF;}
+										.api-manament48{fill-rule:evenodd;clip-rule:evenodd;fill:#78B843;}
+										.api-manament49{fill:#78B843;}
+										.api-manament50{fill:#005BA3;}
+										.api-manament51{fill:#9AD9E9;}
+										.api-manament52{fill:#0F80B0;}
+										.api-manament53{fill:#005F87;}
+										.api-manament54{fill:#B7D332;}
+										.api-manament55{fill:#7FB900;}
+										.api-manament56{fill:#66C8E7;}
+										.api-manament57{fill:#33B4DF;}
+										.api-manament58{opacity:0.6;fill:#FFFFFF;}
+										.api-manament59{opacity:0.4;fill:#FFFFFF;}
+										.api-manament60{opacity:0.1;clip-path:url(#XMLID_228_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament61{opacity:0.1;clip-path:url(#XMLID_229_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament62{fill:#73BDCD;}
+										.api-manament63{opacity:0.6;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament64{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+										.api-manament65{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;}
+										.api-manament66{clip-path:url(#XMLID_241_);fill:none;}
+										.api-manament67{fill-rule:evenodd;clip-rule:evenodd;fill:#F7B218;}
+										.api-manament68{opacity:0.35;clip-path:url(#XMLID_279_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament69{opacity:0.8;fill:#FFFFFF;}
+										.api-manament70{opacity:0.35;clip-path:url(#XMLID_280_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament71{fill-rule:evenodd;clip-rule:evenodd;fill:#DB5B26;}
+										.api-manament72{fill-rule:evenodd;clip-rule:evenodd;fill:#F58B1F;}
+										.api-manament73{opacity:0.35;clip-path:url(#XMLID_281_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament74{fill-rule:evenodd;clip-rule:evenodd;fill:#404B59;}
+										.api-manament75{opacity:0.1;clip-path:url(#XMLID_358_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament76{fill-rule:evenodd;clip-rule:evenodd;fill:#D1B0D3;}
+										.api-manament77{opacity:0.15;clip-path:url(#XMLID_363_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament78{fill-rule:evenodd;clip-rule:evenodd;fill:#15B2E7;}
+										.api-manament79{fill-rule:evenodd;clip-rule:evenodd;fill:#E1F3F8;}
+										.api-manament80{opacity:0.15;clip-path:url(#XMLID_414_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament81{opacity:0.15;clip-path:url(#XMLID_591_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament82{opacity:0.3;clip-path:url(#XMLID_592_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament83{opacity:0.15;clip-path:url(#XMLID_1891_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament84{fill-rule:evenodd;clip-rule:evenodd;fill:#7C8737;}
+										.api-manament85{opacity:0.3;clip-path:url(#XMLID_1944_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament86{opacity:0.15;clip-path:url(#XMLID_1946_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament87{fill:#CCCBCB;}
+										.api-manament88{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament89{opacity:0.1;clip-path:url(#XMLID_1956_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament90{opacity:0.1;clip-path:url(#XMLID_1957_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament91{display:none;}
+										.api-manament92{fill:#45B6F4;}
+										.api-manament93{fill:#89919C;}
+										.api-manament94{fill:#61ADD1;}
+										.api-manament95{fill:#3899C6;}
+										.api-manament96{fill:#F78F08;}
+										.api-manament97{fill:#C1BFBC;}
+										.api-manament98{fill:#B3B4B5;}
+										.api-manament99{fill:#7AC3E1;}
+										.api-manament100{opacity:0.12;fill:#333333;enable-background:new    ;}
+										.api-manament101{fill:#7A7A7A;}
+										.api-manament102{opacity:0.48;}
+										.api-manament103{fill:#A0A1A2;}
+										.api-manament104{fill:#A1DEF0;}
+										.api-manament105{fill:#804998;}
+										.api-manament106{fill:#0072C6;}
+										.api-manament107{fill:#59B4D9;}
+										.api-manament108{fill:#3999C6;}
+										.api-manament109{fill:#B8D432;}
+										.api-manament110{opacity:0.8;fill:#FFFFFF;enable-background:new    ;}
+										.api-manament111{opacity:0.2;fill:#FFFFFF;enable-background:new    ;}
+										.api-manament112{fill:#7FBA00;}
+										.api-manament113{fill:#414141;}
+										.api-manament114{fill:#0078D7;}
+										.api-manament115{fill:#414142;}
+										.api-manament116{fill:#D1B972;}
+										.api-manament117{fill:#FEE087;}
+										.api-manament118{fill:#B1CE2D;}
+										.api-manament119{fill:#FCD116;}
+										.api-manament120{fill:#719904;}
+										.api-manament121{fill-rule:evenodd;clip-rule:evenodd;fill:#804898;}
+										.api-manament122{fill-rule:evenodd;clip-rule:evenodd;fill:#6B2980;}
+										.api-manament123{fill:#6B2980;}
+										.api-manament124{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
+										.api-manament125{opacity:0.2;fill:#1E1E1E;enable-background:new    ;}
+										.api-manament126{fill:#33BCF0;}
+										.api-manament127{opacity:0.2;fill:#636363;}
+										.api-manament128{opacity:0.1;clip-path:url(#XMLID_1960_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament129{fill:#8B77B6;}
+										.api-manament130{fill:#9B6CAC;}
+										.api-manament131{fill:#874B94;}
+										.api-manament132{opacity:0.4;fill:#7FBA00;enable-background:new    ;}
+										.api-manament133{opacity:0.8;fill:#7FBA00;enable-background:new    ;}
+										.api-manament134{opacity:0.6;fill:#7FBA00;enable-background:new    ;}
+										.api-manament135{opacity:0.25;fill:#7FBA00;enable-background:new    ;}
+										.api-manament136{fill:#DD5900;}
+										.api-manament137{fill:#FF8C00;}
+										.api-manament138{fill-rule:evenodd;clip-rule:evenodd;fill:#3E3E3E;}
+										.api-manament139{fill:url(#path3060_1_);}
+										.api-manament140{fill:#1870C5;}
+										.api-manament141{fill:#72BFDF;}
+										.api-manament142{fill:#3C3938;}
+										.api-manament143{fill:#0072AC;}
+										.api-manament144{fill:#0079B6;}
+										.api-manament145{fill:#00A2D9;}
+										.api-manament146{fill:#BFDC34;}
+										.api-manament147{fill:#898989;}
+										.api-manament148{fill:#EDF0F5;}
+										.api-manament149{fill:#A3A4A7;}
+										.api-manament150{fill:#353535;}
+										.api-manament151{fill:#FF8C02;}
+										.api-manament152{fill:#00AC8C;}
+										.api-manament153{fill:#6EC2E9;}
+										.api-manament154{fill:#442359;}
+										.api-manament155{fill:#6DC0E6;}
+										.api-manament156{fill:#432056;}
+										.api-manament157{fill:#86CAD7;}
+										.api-manament158{fill:#009E48;}
+										.api-manament159{fill:#68217A;}
+										.api-manament160{fill:#E5E5E5;}
+										.api-manament161{opacity:0.15;fill:#FFFFFF;enable-background:new    ;}
+										.api-manament162{fill:#3898C6;}
+										.api-manament163{fill:#80BA42;}
+										.api-manament164{fill:#B3D234;}
+										.api-manament165{opacity:0.1;clip-path:url(#XMLID_1961_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament166{opacity:0.1;clip-path:url(#XMLID_1962_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament167{opacity:0.1;clip-path:url(#XMLID_1963_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament168{opacity:0.1;clip-path:url(#XMLID_1965_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament169{opacity:0.35;clip-path:url(#XMLID_1967_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament170{opacity:0.1;clip-path:url(#XMLID_1968_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament171{opacity:0.15;clip-path:url(#XMLID_1969_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament172{opacity:0.35;clip-path:url(#XMLID_1970_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament173{opacity:0.1;clip-path:url(#XMLID_1971_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}
+										.api-manament174{fill-rule:evenodd;clip-rule:evenodd;fill:#008EBE;}
+										.api-manament175{fill:#017F6F;}
+										.api-manament176{opacity:0.1;clip-path:url(#XMLID_1972_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}
+										.api-manament177{opacity:0.15;clip-path:url(#XMLID_1975_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament178{opacity:0.15;clip-path:url(#XMLID_1976_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament179{opacity:0.15;clip-path:url(#XMLID_1978_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament180{opacity:0.15;clip-path:url(#XMLID_1979_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament181{clip-path:url(#XMLID_1980_);fill:none;}
+										.api-manament182{opacity:0.1;clip-path:url(#XMLID_1981_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament183{opacity:0.3;clip-path:url(#XMLID_1982_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+										.api-manament184{fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;}
+										.api-manament185{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}
+										.api-manament186{fill:#BAD80A;}
+										.api-manament187{clip-path:url(#SVGID_2_);}
+										.api-manament188{fill:#00BCF2;}
+										.api-manament189{clip-path:url(#SVGID_4_);}
+										.api-manament190{fill:#5AB4DA;}
+										.api-manament191{fill:none;stroke:#5AB4DA;stroke-width:0.75;stroke-miterlimit:10;}
+									</style>
+									<g>
+										<path class="api-manament107" d="M103.7,44.6c0.3-1.8,0.5-3.6,0.5-5.5c0-16.3-13.3-29.6-29.6-29.6c-12.5,0-23.5,7.8-27.7,19.3
+											c-1.6-0.4-3.2-0.6-4.9-0.6C30,28.3,20.3,38,20.3,50S30,71.7,42,71.7c0.6,0,15.7,0,30.8,0v-6c-15.1,0-30.2,0-30.8,0
+											c-8.7,0-15.7-7-15.7-15.7s7-15.7,15.7-15.7c2,0,3.9,0.4,5.7,1.1l3.2,1.3l0.8-3.3c2.6-10.5,12-17.8,22.8-17.8
+											c13,0,23.5,10.6,23.5,23.5c0,7.2-2.4,10.4-2.4,10.4s4.7,0.1,7.2,0.5c3.6,0.6,7.2,3.9,7.2,7.8s-3.3,7.8-7.2,7.8c0,0-8.5,0-16.4,0
+											c-0.9-11.8-10.8-21.1-22.9-21.1c-3.7,0-7.4,0.9-10.7,2.6l2.8,5.3c2.4-1.3,5.1-1.9,7.9-1.9c9.3,0,16.9,7.6,16.9,16.9
+											S73,84.4,63.7,84.4c-3.1,0-6.1-0.8-8.7-2.4l-3.1,5.2c3.6,2.1,7.6,3.3,11.8,3.3c11.2,0,20.5-8.1,22.5-18.7c8,0,16.7,0,16.7,0
+											c7.3,0,13.3-6.6,13.3-13.9C116.3,50.8,110.7,45,103.7,44.6z"/>
+										<circle class="api-manament159" cx="64.3" cy="68.1" r="10.9"/>
+									</g>
+								</svg>
+								<div class="home-p">在几分钟内发布、管理、保证安全并分析你的 API<br /></div>
+							</a>
+							<div class="links-box">
+								<a class="home-h2-link" href="/pricing/details/api-management/" id="homepage_services_pricing_api-management">0.2511 </a>
+								<a class="single-link" href="/pricing/details/api-management/" id="homepage_services_pricing_cosmos-db">元/小时 起</a>
+								<i class="icon icon-arrow-right"></i>
+							</div>
+						</div>
+						<!--API Management-->
 						<div class="col-md-3 col-xs-6 item-box">
 							<div class="price-reduction"></div>
 							<a href="/home/features/hdinsight/" id="homepage_services_hdinsight">
@@ -2708,225 +2775,8 @@
 							</div>
 						</div>
 						<!--Azure 网络观察程序 end-->
-						<!--API Management -->
-						<!-- <div class="col-md-3 col-xs-6 item-box">
-							<a href="/home/features/api-management/" id="homepage_services_api-management">
-								<h2 class="bigger-header">API 管理</h2>
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 140 96"  width="140px" height="96px" style="enable-background:new 0 0 140 96;" xml:space="preserve">
-									<style type="text/css">
-										.api-manament0{fill-rule:evenodd;clip-rule:evenodd;fill:#85C9D5;}
-										.api-manament1{fill-rule:evenodd;clip-rule:evenodd;fill:#EDF0F4;}
-										.api-manament2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament3{fill-rule:evenodd;clip-rule:evenodd;fill:#B5C0CE;}
-										.api-manament4{fill-rule:evenodd;clip-rule:evenodd;fill:#33B4DF;}
-										.api-manament5{fill-rule:evenodd;clip-rule:evenodd;fill:#7B4D87;}
-										.api-manament6{fill-rule:evenodd;clip-rule:evenodd;fill:#482255;}
-										.api-manament7{fill-rule:evenodd;clip-rule:evenodd;fill:none;}
-										.api-manament8{fill-rule:evenodd;clip-rule:evenodd;fill:#E3F3F6;}
-										.api-manament9{fill-rule:evenodd;clip-rule:evenodd;fill:#A3BF3A;}
-										.api-manament10{fill-rule:evenodd;clip-rule:evenodd;fill:#8BA63C;}
-										.api-manament11{fill-rule:evenodd;clip-rule:evenodd;fill:#5E6D80;}
-										.api-manament12{fill-rule:evenodd;clip-rule:evenodd;fill:#88909B;}
-										.api-manament13{fill:#85C9D5;}
-										.api-manament14{fill:#E56225;}
-										.api-manament15{fill-rule:evenodd;clip-rule:evenodd;fill:#2F75BB;}
-										.api-manament16{fill:#00A2D8;}
-										.api-manament17{fill-rule:evenodd;clip-rule:evenodd;fill:#00A2D8;}
-										.api-manament18{fill:#F79E1C;}
-										.api-manament19{fill-rule:evenodd;clip-rule:evenodd;fill:#2ABAEC;}
-										.api-manament20{fill:#F7B218;}
-										.api-manament21{fill:#009480;}
-										.api-manament22{fill-rule:evenodd;clip-rule:evenodd;fill:#009480;}
-										.api-manament23{fill:#2ABAEC;}
-										.api-manament24{fill:#323A45;}
-										.api-manament25{fill:#88909B;}
-										.api-manament26{fill:#A3BF3A;}
-										.api-manament27{fill:#80A23E;}
-										.api-manament28{fill:#7B4D87;}
-										.api-manament29{fill:#2F75BB;}
-										.api-manament30{opacity:0.15;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament31{fill:#A5D9E2;}
-										.api-manament32{fill-rule:evenodd;clip-rule:evenodd;fill:#323A45;}
-										.api-manament33{fill:#FFFFFF;}
-										.api-manament34{fill:#DAEFF3;}
-										.api-manament35{fill:#2A65AF;}
-										.api-manament36{fill:#F6ECF4;}
-										.api-manament37{fill:none;}
-										.api-manament38{fill-rule:evenodd;clip-rule:evenodd;fill:#F9BA19;}
-										.api-manament39{fill:#F6931D;}
-										.api-manament40{fill:#5E6D80;}
-										.api-manament41{fill:#6B903D;}
-										.api-manament42{fill-rule:evenodd;clip-rule:evenodd;}
-										.api-manament43{fill:#00B8E2;}
-										.api-manament44{fill:none;stroke:#85C9D5;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;}
-										.api-manament45{fill:#2A89CA;}
-										.api-manament46{opacity:0.3;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament47{opacity:0.3;fill:#FFFFFF;}
-										.api-manament48{fill-rule:evenodd;clip-rule:evenodd;fill:#78B843;}
-										.api-manament49{fill:#78B843;}
-										.api-manament50{fill:#005BA3;}
-										.api-manament51{fill:#9AD9E9;}
-										.api-manament52{fill:#0F80B0;}
-										.api-manament53{fill:#005F87;}
-										.api-manament54{fill:#B7D332;}
-										.api-manament55{fill:#7FB900;}
-										.api-manament56{fill:#66C8E7;}
-										.api-manament57{fill:#33B4DF;}
-										.api-manament58{opacity:0.6;fill:#FFFFFF;}
-										.api-manament59{opacity:0.4;fill:#FFFFFF;}
-										.api-manament60{opacity:0.1;clip-path:url(#XMLID_228_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament61{opacity:0.1;clip-path:url(#XMLID_229_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament62{fill:#73BDCD;}
-										.api-manament63{opacity:0.6;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament64{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
-										.api-manament65{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;}
-										.api-manament66{clip-path:url(#XMLID_241_);fill:none;}
-										.api-manament67{fill-rule:evenodd;clip-rule:evenodd;fill:#F7B218;}
-										.api-manament68{opacity:0.35;clip-path:url(#XMLID_279_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament69{opacity:0.8;fill:#FFFFFF;}
-										.api-manament70{opacity:0.35;clip-path:url(#XMLID_280_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament71{fill-rule:evenodd;clip-rule:evenodd;fill:#DB5B26;}
-										.api-manament72{fill-rule:evenodd;clip-rule:evenodd;fill:#F58B1F;}
-										.api-manament73{opacity:0.35;clip-path:url(#XMLID_281_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament74{fill-rule:evenodd;clip-rule:evenodd;fill:#404B59;}
-										.api-manament75{opacity:0.1;clip-path:url(#XMLID_358_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament76{fill-rule:evenodd;clip-rule:evenodd;fill:#D1B0D3;}
-										.api-manament77{opacity:0.15;clip-path:url(#XMLID_363_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament78{fill-rule:evenodd;clip-rule:evenodd;fill:#15B2E7;}
-										.api-manament79{fill-rule:evenodd;clip-rule:evenodd;fill:#E1F3F8;}
-										.api-manament80{opacity:0.15;clip-path:url(#XMLID_414_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament81{opacity:0.15;clip-path:url(#XMLID_591_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament82{opacity:0.3;clip-path:url(#XMLID_592_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament83{opacity:0.15;clip-path:url(#XMLID_1891_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament84{fill-rule:evenodd;clip-rule:evenodd;fill:#7C8737;}
-										.api-manament85{opacity:0.3;clip-path:url(#XMLID_1944_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament86{opacity:0.15;clip-path:url(#XMLID_1946_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament87{fill:#CCCBCB;}
-										.api-manament88{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament89{opacity:0.1;clip-path:url(#XMLID_1956_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament90{opacity:0.1;clip-path:url(#XMLID_1957_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament91{display:none;}
-										.api-manament92{fill:#45B6F4;}
-										.api-manament93{fill:#89919C;}
-										.api-manament94{fill:#61ADD1;}
-										.api-manament95{fill:#3899C6;}
-										.api-manament96{fill:#F78F08;}
-										.api-manament97{fill:#C1BFBC;}
-										.api-manament98{fill:#B3B4B5;}
-										.api-manament99{fill:#7AC3E1;}
-										.api-manament100{opacity:0.12;fill:#333333;enable-background:new    ;}
-										.api-manament101{fill:#7A7A7A;}
-										.api-manament102{opacity:0.48;}
-										.api-manament103{fill:#A0A1A2;}
-										.api-manament104{fill:#A1DEF0;}
-										.api-manament105{fill:#804998;}
-										.api-manament106{fill:#0072C6;}
-										.api-manament107{fill:#59B4D9;}
-										.api-manament108{fill:#3999C6;}
-										.api-manament109{fill:#B8D432;}
-										.api-manament110{opacity:0.8;fill:#FFFFFF;enable-background:new    ;}
-										.api-manament111{opacity:0.2;fill:#FFFFFF;enable-background:new    ;}
-										.api-manament112{fill:#7FBA00;}
-										.api-manament113{fill:#414141;}
-										.api-manament114{fill:#0078D7;}
-										.api-manament115{fill:#414142;}
-										.api-manament116{fill:#D1B972;}
-										.api-manament117{fill:#FEE087;}
-										.api-manament118{fill:#B1CE2D;}
-										.api-manament119{fill:#FCD116;}
-										.api-manament120{fill:#719904;}
-										.api-manament121{fill-rule:evenodd;clip-rule:evenodd;fill:#804898;}
-										.api-manament122{fill-rule:evenodd;clip-rule:evenodd;fill:#6B2980;}
-										.api-manament123{fill:#6B2980;}
-										.api-manament124{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
-										.api-manament125{opacity:0.2;fill:#1E1E1E;enable-background:new    ;}
-										.api-manament126{fill:#33BCF0;}
-										.api-manament127{opacity:0.2;fill:#636363;}
-										.api-manament128{opacity:0.1;clip-path:url(#XMLID_1960_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament129{fill:#8B77B6;}
-										.api-manament130{fill:#9B6CAC;}
-										.api-manament131{fill:#874B94;}
-										.api-manament132{opacity:0.4;fill:#7FBA00;enable-background:new    ;}
-										.api-manament133{opacity:0.8;fill:#7FBA00;enable-background:new    ;}
-										.api-manament134{opacity:0.6;fill:#7FBA00;enable-background:new    ;}
-										.api-manament135{opacity:0.25;fill:#7FBA00;enable-background:new    ;}
-										.api-manament136{fill:#DD5900;}
-										.api-manament137{fill:#FF8C00;}
-										.api-manament138{fill-rule:evenodd;clip-rule:evenodd;fill:#3E3E3E;}
-										.api-manament139{fill:url(#path3060_1_);}
-										.api-manament140{fill:#1870C5;}
-										.api-manament141{fill:#72BFDF;}
-										.api-manament142{fill:#3C3938;}
-										.api-manament143{fill:#0072AC;}
-										.api-manament144{fill:#0079B6;}
-										.api-manament145{fill:#00A2D9;}
-										.api-manament146{fill:#BFDC34;}
-										.api-manament147{fill:#898989;}
-										.api-manament148{fill:#EDF0F5;}
-										.api-manament149{fill:#A3A4A7;}
-										.api-manament150{fill:#353535;}
-										.api-manament151{fill:#FF8C02;}
-										.api-manament152{fill:#00AC8C;}
-										.api-manament153{fill:#6EC2E9;}
-										.api-manament154{fill:#442359;}
-										.api-manament155{fill:#6DC0E6;}
-										.api-manament156{fill:#432056;}
-										.api-manament157{fill:#86CAD7;}
-										.api-manament158{fill:#009E48;}
-										.api-manament159{fill:#68217A;}
-										.api-manament160{fill:#E5E5E5;}
-										.api-manament161{opacity:0.15;fill:#FFFFFF;enable-background:new    ;}
-										.api-manament162{fill:#3898C6;}
-										.api-manament163{fill:#80BA42;}
-										.api-manament164{fill:#B3D234;}
-										.api-manament165{opacity:0.1;clip-path:url(#XMLID_1961_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament166{opacity:0.1;clip-path:url(#XMLID_1962_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament167{opacity:0.1;clip-path:url(#XMLID_1963_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament168{opacity:0.1;clip-path:url(#XMLID_1965_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament169{opacity:0.35;clip-path:url(#XMLID_1967_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament170{opacity:0.1;clip-path:url(#XMLID_1968_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament171{opacity:0.15;clip-path:url(#XMLID_1969_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament172{opacity:0.35;clip-path:url(#XMLID_1970_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament173{opacity:0.1;clip-path:url(#XMLID_1971_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}
-										.api-manament174{fill-rule:evenodd;clip-rule:evenodd;fill:#008EBE;}
-										.api-manament175{fill:#017F6F;}
-										.api-manament176{opacity:0.1;clip-path:url(#XMLID_1972_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}
-										.api-manament177{opacity:0.15;clip-path:url(#XMLID_1975_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament178{opacity:0.15;clip-path:url(#XMLID_1976_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament179{opacity:0.15;clip-path:url(#XMLID_1978_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament180{opacity:0.15;clip-path:url(#XMLID_1979_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament181{clip-path:url(#XMLID_1980_);fill:none;}
-										.api-manament182{opacity:0.1;clip-path:url(#XMLID_1981_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament183{opacity:0.3;clip-path:url(#XMLID_1982_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-										.api-manament184{fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;}
-										.api-manament185{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}
-										.api-manament186{fill:#BAD80A;}
-										.api-manament187{clip-path:url(#SVGID_2_);}
-										.api-manament188{fill:#00BCF2;}
-										.api-manament189{clip-path:url(#SVGID_4_);}
-										.api-manament190{fill:#5AB4DA;}
-										.api-manament191{fill:none;stroke:#5AB4DA;stroke-width:0.75;stroke-miterlimit:10;}
-									</style>
-									<g>
-										<path class="api-manament107" d="M103.7,44.6c0.3-1.8,0.5-3.6,0.5-5.5c0-16.3-13.3-29.6-29.6-29.6c-12.5,0-23.5,7.8-27.7,19.3
-											c-1.6-0.4-3.2-0.6-4.9-0.6C30,28.3,20.3,38,20.3,50S30,71.7,42,71.7c0.6,0,15.7,0,30.8,0v-6c-15.1,0-30.2,0-30.8,0
-											c-8.7,0-15.7-7-15.7-15.7s7-15.7,15.7-15.7c2,0,3.9,0.4,5.7,1.1l3.2,1.3l0.8-3.3c2.6-10.5,12-17.8,22.8-17.8
-											c13,0,23.5,10.6,23.5,23.5c0,7.2-2.4,10.4-2.4,10.4s4.7,0.1,7.2,0.5c3.6,0.6,7.2,3.9,7.2,7.8s-3.3,7.8-7.2,7.8c0,0-8.5,0-16.4,0
-											c-0.9-11.8-10.8-21.1-22.9-21.1c-3.7,0-7.4,0.9-10.7,2.6l2.8,5.3c2.4-1.3,5.1-1.9,7.9-1.9c9.3,0,16.9,7.6,16.9,16.9
-											S73,84.4,63.7,84.4c-3.1,0-6.1-0.8-8.7-2.4l-3.1,5.2c3.6,2.1,7.6,3.3,11.8,3.3c11.2,0,20.5-8.1,22.5-18.7c8,0,16.7,0,16.7,0
-											c7.3,0,13.3-6.6,13.3-13.9C116.3,50.8,110.7,45,103.7,44.6z"/>
-										<circle class="api-manament159" cx="64.3" cy="68.1" r="10.9"/>
-									</g>
-								</svg>
-								<div class="home-p">在几分钟内发布、管理、保证安全并分析你的 API<br /></div>
-							</a>
-							<div class="links-box">
-								<a class="home-h2-link" href="/pricing/details/api-management/" id="homepage_services_pricing_api-management">5.24 </a>
-								<a class="single-link" href="/pricing/details/api-management/" id="homepage_services_pricing_cosmos-db">元/天 起</a>
-								<i class="icon icon-arrow-right"></i>
-							</div>
-						</div> -->
-						<!--API Management-->
+						
+						
 						<!--mysql-->
 						<div class="col-md-3 col-xs-6 item-box">
 							<div class="price-reduction"></div>
@@ -3164,57 +3014,7 @@
 							</div>
 						</div>
 						<!--mysql end-->
-						<!--media service-->
-						<div class="col-md-3 col-xs-6 item-box">
-							<div class="price-reduction"></div>
-							<a href="/home/features/media-services/" id="homepage_services_media-services">
-								<h2 class="bigger-header">媒体服务</h2>
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-											 viewBox="0 0 48 48" width="140px" height="96px" style="enable-background:new 0 0 48 48;" xml:space="preserve">
-										<style type="text/css">
-											.media-services0{fill:#323A45;}
-											.media-services1{opacity:0.15;fill:#FFFFFF;enable-background:new    ;}
-											.media-services2{fill:#FFFFFF;}
-											.media-services3{fill:#15B2E7;}
-											.media-services4{fill:#E1F3F8;}
-										</style>
-										<title>icons-azure</title>
-										<g id="_Group_">
-											<path id="_Compound_Path_media-services" class="media-services0" d="M45,35.5L24,48L3,35.5v-23L24,0l21,12.5V35.5z"/>
-											<g id="_Clip_Group_media-services">
-												<g>
-													<g>
-														<defs>
-															<polygon id="SVGID_1_media-services" points="45,35.5 24,48 3,35.5 3,12.5 24,0 45,12.5 					"/>
-														</defs>
-														<clipPath id="SVGID_2_media-services">
-															<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-														</clipPath>
-													</g>
-												</g>
-											</g>
-										</g>
-										<g>
-											<path class="media-services1" d="M45,12.4"/>
-											<path class="media-services1" d="M45,35.5L24,48c-5.9-10.6-3.4-24.1,6.7-31.2c4.3-3,9.3-4.5,14.3-4.4V35.5z"/>
-										</g>
-										<path id="_Compound_Path_2media-services" class="media-services2" d="M24,11c7.2,0,13,5.8,13,13s-5.8,13-13,13s-13-5.8-13-13S16.8,11,24,11z"/>
-										<path id="_Compound_Path_3media-services" class="media-services3" d="M24,14c5.5,0,10,4.5,10,10s-4.5,10-10,10s-10-4.5-10-10S18.5,14,24,14z"/>
-										<path id="_Compound_Path_4media-services" class="media-services2" d="M21,18v12l10-6L21,18z"/>
-										<path id="_Compound_Path_5media-services" class="media-services4" d="M21,24v6l10-6H21z"/>
-										</svg>
-
-
-								<div class="home-p">随时随地安全地跨设备传送媒体<br />内容提供可伸缩的端到端媒体解决方案</div>
-							</a>
-							<div class="links-box">
-								<a class="home-h2-link" href="/pricing/details/media-services/" id="homepage_services_pricing_media-services">0.10</a>
-								<a class="single-link" href="/pricing/details/media-services/" id="homepage_services_pricing_media-services">元/分钟 起</a>
-								<i class="icon icon-arrow-right"></i>
-							</div>
-						</div>
-						<!--media service end-->
-
+						
 						<!--VM-->
 						<div class="col-md-3 col-xs-6 item-box">
 							<!-- <div class="price-reduction"></div> -->
@@ -3374,7 +3174,57 @@
 								<i class="icon icon-arrow-right"></i>
 							</div>
 						</div>
-						
+						<!--media service-->
+						<div class="col-md-3 col-xs-6 item-box">
+							<div class="price-reduction"></div>
+							<a href="/home/features/media-services/" id="homepage_services_media-services">
+								<h2 class="bigger-header">媒体服务</h2>
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											 viewBox="0 0 48 48" width="140px" height="96px" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+										<style type="text/css">
+											.media-services0{fill:#323A45;}
+											.media-services1{opacity:0.15;fill:#FFFFFF;enable-background:new    ;}
+											.media-services2{fill:#FFFFFF;}
+											.media-services3{fill:#15B2E7;}
+											.media-services4{fill:#E1F3F8;}
+										</style>
+										<title>icons-azure</title>
+										<g id="_Group_">
+											<path id="_Compound_Path_media-services" class="media-services0" d="M45,35.5L24,48L3,35.5v-23L24,0l21,12.5V35.5z"/>
+											<g id="_Clip_Group_media-services">
+												<g>
+													<g>
+														<defs>
+															<polygon id="SVGID_1_media-services" points="45,35.5 24,48 3,35.5 3,12.5 24,0 45,12.5 					"/>
+														</defs>
+														<clipPath id="SVGID_2_media-services">
+															<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+														</clipPath>
+													</g>
+												</g>
+											</g>
+										</g>
+										<g>
+											<path class="media-services1" d="M45,12.4"/>
+											<path class="media-services1" d="M45,35.5L24,48c-5.9-10.6-3.4-24.1,6.7-31.2c4.3-3,9.3-4.5,14.3-4.4V35.5z"/>
+										</g>
+										<path id="_Compound_Path_2media-services" class="media-services2" d="M24,11c7.2,0,13,5.8,13,13s-5.8,13-13,13s-13-5.8-13-13S16.8,11,24,11z"/>
+										<path id="_Compound_Path_3media-services" class="media-services3" d="M24,14c5.5,0,10,4.5,10,10s-4.5,10-10,10s-10-4.5-10-10S18.5,14,24,14z"/>
+										<path id="_Compound_Path_4media-services" class="media-services2" d="M21,18v12l10-6L21,18z"/>
+										<path id="_Compound_Path_5media-services" class="media-services4" d="M21,24v6l10-6H21z"/>
+										</svg>
+
+
+								<div class="home-p">随时随地安全地跨设备传送媒体<br />内容提供可伸缩的端到端媒体解决方案</div>
+							</a>
+							<div class="links-box">
+								<a class="home-h2-link" href="/pricing/details/media-services/" id="homepage_services_pricing_media-services">0.10</a>
+								<a class="single-link" href="/pricing/details/media-services/" id="homepage_services_pricing_media-services">元/分钟 起</a>
+								<i class="icon icon-arrow-right"></i>
+							</div>
+						</div>
+						<!--media service end-->
+
 						<!--Azure 分析服务-->
 						<div class="col-md-3 col-xs-6 item-box">
 							<a href="/home/features/analysis-services/" id="homepage_services_analysis-services">
@@ -4180,33 +4030,32 @@
 						<div class="col-md-3 col-xs-6 item-box">
 							<a href="/home/features/sql-server-stretch-database/" id="homepage_services_sql-server-stretch-database">
 							<h2 class="mysql-header bigger-header">SQL Server<br /><span> Stretch Database</span> </h2>
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 50 50"  width="140px" height="96px" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-<style type="text/css">
-	.sqlssd0{fill:#00A2D8;}
-	.sqlssd1{fill:#2ABAEC;}
-	.sqlssd2{fill:#FFFFFF;}
-	.sqlssd3{fill:#7FBA00;}
-	.sqlssd4{fill:#B8D432;}
-</style>
-<path class="sqlssd0" d="M24.9,6.8L24.9,6.8H6v36.3c0,3.7,8.3,6.8,18.6,6.8v0h0.2c0,0,0,0,0,0v0l0,0c10.4,0,18.9-3.1,18.9-6.8V6.8H24.9z
-	"/>
-<path class="sqlssd1" d="M24.6,50h0.3c10.4,0,18.9-3.1,18.9-6.8V6.8H24.6V50z"/>
-<path class="sqlssd2" d="M43.7,6.8c0,3.8-8.4,6.8-18.9,6.8S6,10.6,6,6.8C6,3.1,14.4,0,24.9,0S43.7,3.1,43.7,6.8"/>
-<path class="sqlssd3" d="M39.9,6.4c0,2.5-6.7,4.5-15,4.5s-15-2-15-4.5s6.7-4.5,15-4.5S39.9,3.9,39.9,6.4"/>
-<path class="sqlssd4" d="M36.7,9.2c2-0.8,3.1-1.7,3.1-2.8c0-2.5-6.7-4.5-15-4.5c-8.3,0-15,2-15,4.5c0,1,1.2,2,3.1,2.8
-	c2.7-1.1,7-1.8,11.9-1.8C29.7,7.4,34,8.1,36.7,9.2"/>
-<path class="sqlssd2" d="M18.3,31.4c0,1.1-0.4,2-1.2,2.6c-0.8,0.6-1.9,0.9-3.4,0.9c-1.2,0-2.2-0.2-3.1-0.7v-2.6c0.9,0.8,2,1.2,3.1,1.2
-	c0.6,0,1-0.1,1.3-0.3s0.4-0.5,0.4-0.9c0-0.4-0.1-0.7-0.4-0.9s-0.9-0.6-1.8-1c-1.8-0.8-2.7-2-2.7-3.5c0-1.1,0.4-1.9,1.2-2.6
-	c0.8-0.6,1.8-1,3.1-1c1.2,0,2.1,0.2,2.9,0.5v2.5C17,25,16.1,24.7,15,24.7c-0.5,0-0.9,0.1-1.2,0.3c-0.3,0.2-0.4,0.5-0.4,0.9
-	c0,0.4,0.1,0.7,0.4,0.9c0.2,0.2,0.7,0.5,1.5,0.9c1.1,0.5,1.9,1.1,2.4,1.6C18.1,29.9,18.3,30.6,18.3,31.4z"/>
-<path class="sqlssd2" d="M31,28.7c0,1.4-0.3,2.6-0.9,3.6c-0.6,1-1.5,1.7-2.7,2.2l3.4,3.2h-3.5l-2.5-2.7c-1,0-2-0.3-2.8-0.8
-	c-0.8-0.5-1.5-1.2-2-2.1s-0.7-1.9-0.7-3c0-1.2,0.2-2.3,0.7-3.3c0.5-1,1.2-1.7,2.1-2.2c0.9-0.5,1.9-0.8,3.1-0.8
-	c1.1,0,2.1,0.3,2.9,0.8c0.9,0.5,1.5,1.2,2,2.1C30.8,26.5,31,27.5,31,28.7z M28.2,28.8c0-1.2-0.3-2.1-0.8-2.8s-1.2-1-2.1-1
-	c-0.9,0-1.7,0.3-2.2,1c-0.6,0.7-0.8,1.6-0.8,2.8c0,1.2,0.3,2.1,0.8,2.8c0.5,0.7,1.3,1,2.2,1c0.9,0,1.6-0.3,2.2-1
-	C27.9,30.9,28.2,30,28.2,28.8z"/>
-<polygon class="sqlssd2" points="40,34.7 33,34.7 33,22.9 35.6,22.9 35.6,32.5 40,32.5 "/>
-</svg>
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50"  width="140px" height="96px" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+							<style type="text/css">
+								.sqlssd0{fill:#00A2D8;}
+								.sqlssd1{fill:#2ABAEC;}
+								.sqlssd2{fill:#FFFFFF;}
+								.sqlssd3{fill:#7FBA00;}
+								.sqlssd4{fill:#B8D432;}
+							</style>
+							<path class="sqlssd0" d="M24.9,6.8L24.9,6.8H6v36.3c0,3.7,8.3,6.8,18.6,6.8v0h0.2c0,0,0,0,0,0v0l0,0c10.4,0,18.9-3.1,18.9-6.8V6.8H24.9z
+								"/>
+							<path class="sqlssd1" d="M24.6,50h0.3c10.4,0,18.9-3.1,18.9-6.8V6.8H24.6V50z"/>
+							<path class="sqlssd2" d="M43.7,6.8c0,3.8-8.4,6.8-18.9,6.8S6,10.6,6,6.8C6,3.1,14.4,0,24.9,0S43.7,3.1,43.7,6.8"/>
+							<path class="sqlssd3" d="M39.9,6.4c0,2.5-6.7,4.5-15,4.5s-15-2-15-4.5s6.7-4.5,15-4.5S39.9,3.9,39.9,6.4"/>
+							<path class="sqlssd4" d="M36.7,9.2c2-0.8,3.1-1.7,3.1-2.8c0-2.5-6.7-4.5-15-4.5c-8.3,0-15,2-15,4.5c0,1,1.2,2,3.1,2.8
+								c2.7-1.1,7-1.8,11.9-1.8C29.7,7.4,34,8.1,36.7,9.2"/>
+							<path class="sqlssd2" d="M18.3,31.4c0,1.1-0.4,2-1.2,2.6c-0.8,0.6-1.9,0.9-3.4,0.9c-1.2,0-2.2-0.2-3.1-0.7v-2.6c0.9,0.8,2,1.2,3.1,1.2
+								c0.6,0,1-0.1,1.3-0.3s0.4-0.5,0.4-0.9c0-0.4-0.1-0.7-0.4-0.9s-0.9-0.6-1.8-1c-1.8-0.8-2.7-2-2.7-3.5c0-1.1,0.4-1.9,1.2-2.6
+								c0.8-0.6,1.8-1,3.1-1c1.2,0,2.1,0.2,2.9,0.5v2.5C17,25,16.1,24.7,15,24.7c-0.5,0-0.9,0.1-1.2,0.3c-0.3,0.2-0.4,0.5-0.4,0.9
+								c0,0.4,0.1,0.7,0.4,0.9c0.2,0.2,0.7,0.5,1.5,0.9c1.1,0.5,1.9,1.1,2.4,1.6C18.1,29.9,18.3,30.6,18.3,31.4z"/>
+							<path class="sqlssd2" d="M31,28.7c0,1.4-0.3,2.6-0.9,3.6c-0.6,1-1.5,1.7-2.7,2.2l3.4,3.2h-3.5l-2.5-2.7c-1,0-2-0.3-2.8-0.8
+								c-0.8-0.5-1.5-1.2-2-2.1s-0.7-1.9-0.7-3c0-1.2,0.2-2.3,0.7-3.3c0.5-1,1.2-1.7,2.1-2.2c0.9-0.5,1.9-0.8,3.1-0.8
+								c1.1,0,2.1,0.3,2.9,0.8c0.9,0.5,1.5,1.2,2,2.1C30.8,26.5,31,27.5,31,28.7z M28.2,28.8c0-1.2-0.3-2.1-0.8-2.8s-1.2-1-2.1-1
+								c-0.9,0-1.7,0.3-2.2,1c-0.6,0.7-0.8,1.6-0.8,2.8c0,1.2,0.3,2.1,0.8,2.8c0.5,0.7,1.3,1,2.2,1c0.9,0,1.6-0.3,2.2-1
+								C27.9,30.9,28.2,30,28.2,28.8z"/>
+							<polygon class="sqlssd2" points="40,34.7 33,34.7 33,22.9 35.6,22.9 35.6,32.5 40,32.5 "/>
+							</svg>
 
 
 								<div class="home-p">可将冷热交互数据从<br />SQL Server 2016 动态拉伸到 Azure</div>
@@ -4592,8 +4441,7 @@
 					<div class="col-md-3 col-xs-6 item-box">
 							<a href="/home/features/service-bus/" id="homepage_services_servibus">
 								<h2 class="bigger-header">服务总线</h2>
-								<svg version="1.1" id="Layer_1servibus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="140px" height="96px"
-	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style>.servibus-0{fill-rule:evenodd;clip-rule:evenodd;fill:#85C9D5;}.servibus-1{fill-rule:evenodd;clip-rule:evenodd;fill:#EDF0F4;}.servibus-2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-3{fill-rule:evenodd;clip-rule:evenodd;fill:#B5C0CE;}.servibus-4{fill-rule:evenodd;clip-rule:evenodd;fill:#33B4DF;}.servibus-5{fill-rule:evenodd;clip-rule:evenodd;fill:#7B4D87;}.servibus-6{fill-rule:evenodd;clip-rule:evenodd;fill:#482255;}.servibus-7{fill-rule:evenodd;clip-rule:evenodd;fill:none;}.servibus-8{fill-rule:evenodd;clip-rule:evenodd;fill:#E3F3F6;}.servibus-9{fill-rule:evenodd;clip-rule:evenodd;fill:#A3BF3A;}.servibus-10{fill-rule:evenodd;clip-rule:evenodd;fill:#8BA63C;}.servibus-11{fill-rule:evenodd;clip-rule:evenodd;fill:#5E6D80;}.servibus-12{fill-rule:evenodd;clip-rule:evenodd;fill:#88909B;}.servibus-13{fill:#85C9D5;}.servibus-14{fill:#E56225;}.servibus-15{fill-rule:evenodd;clip-rule:evenodd;fill:#2F75BB;}.servibus-16{fill:#00A2D8;}.servibus-17{fill-rule:evenodd;clip-rule:evenodd;fill:#00A2D8;}.servibus-18{fill:#F79E1C;}.servibus-19{fill-rule:evenodd;clip-rule:evenodd;fill:#2ABAEC;}.servibus-20{fill:#F7B218;}.servibus-21{fill:#009480;}.servibus-22{fill-rule:evenodd;clip-rule:evenodd;fill:#009480;}.servibus-23{fill:#2ABAEC;}.servibus-24{fill:#323A45;}.servibus-25{fill:#88909B;}.servibus-26{fill:#A3BF3A;}.servibus-27{fill:#80A23E;}.servibus-28{fill:#7B4D87;}.servibus-29{fill:#2F75BB;}.servibus-30{opacity:0.15;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-31{fill:#A5D9E2;}.servibus-32{fill-rule:evenodd;clip-rule:evenodd;fill:#323A45;}.servibus-33{fill:#FFFFFF;}.servibus-34{fill:#DAEFF3;}.servibus-35{fill:#2A65AF;}.servibus-36{fill:#F6ECF4;}.servibus-37{fill:none;}.servibus-38{fill-rule:evenodd;clip-rule:evenodd;fill:#F9BA19;}.servibus-39{fill:#F6931D;}.servibus-40{fill:#5E6D80;}.servibus-41{fill:#6B903D;}.servibus-42{fill-rule:evenodd;clip-rule:evenodd;}.servibus-43{fill:#00B8E2;}.servibus-44{fill:none;stroke:#85C9D5;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;}.servibus-45{fill:#2A89CA;}.servibus-46{opacity:0.3;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-47{opacity:0.3;fill:#FFFFFF;}.servibus-48{fill-rule:evenodd;clip-rule:evenodd;fill:#78B843;}.servibus-49{fill:#78B843;}.servibus-50{fill:#005BA3;}.servibus-51{fill:#9AD9E9;}.servibus-52{fill:#66C8E7;}.servibus-53{fill:#33B4DF;}.servibus-54{opacity:0.6;fill:#FFFFFF;}.servibus-55{opacity:0.4;fill:#FFFFFF;}.servibus-56{opacity:0.1;clip-path:url(#XMLID_358_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-57{opacity:0.1;clip-path:url(#XMLID_359_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-58{fill:#73BDCD;}.servibus-59{opacity:0.6;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-60{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}.servibus-61{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;}.servibus-62{clip-path:url(#XMLID_753_);fill:none;}.servibus-63{fill-rule:evenodd;clip-rule:evenodd;fill:#F7B218;}.servibus-64{opacity:0.35;clip-path:url(#XMLID_770_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-65{opacity:0.8;fill:#FFFFFF;}.servibus-66{opacity:0.35;clip-path:url(#XMLID_771_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-67{fill-rule:evenodd;clip-rule:evenodd;fill:#DB5B26;}.servibus-68{fill-rule:evenodd;clip-rule:evenodd;fill:#F58B1F;}.servibus-69{opacity:0.35;clip-path:url(#XMLID_1466_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-70{fill-rule:evenodd;clip-rule:evenodd;fill:#404B59;}.servibus-71{opacity:0.1;clip-path:url(#XMLID_1467_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-72{fill-rule:evenodd;clip-rule:evenodd;fill:#D1B0D3;}.servibus-73{opacity:0.15;clip-path:url(#XMLID_1468_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-74{fill-rule:evenodd;clip-rule:evenodd;fill:#15B2E7;}.servibus-75{fill-rule:evenodd;clip-rule:evenodd;fill:#E1F3F8;}.servibus-76{opacity:0.15;clip-path:url(#XMLID_1604_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-77{opacity:0.15;clip-path:url(#XMLID_1605_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-78{opacity:0.3;clip-path:url(#XMLID_1943_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-79{opacity:0.15;clip-path:url(#XMLID_1944_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-80{fill-rule:evenodd;clip-rule:evenodd;fill:#7C8737;}.servibus-81{opacity:0.3;clip-path:url(#XMLID_1945_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-82{opacity:0.15;clip-path:url(#XMLID_1946_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-83{fill:#CCCBCB;}.servibus-84{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-85{opacity:0.1;clip-path:url(#XMLID_1947_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-86{opacity:0.1;clip-path:url(#XMLID_1948_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-87{display:none;}.servibus-88{fill:#45B6F4;}.servibus-89{fill:#89919C;}.servibus-90{fill:#61ADD1;}.servibus-91{fill:#3899C6;}.servibus-92{fill:#F78F08;}.servibus-93{fill:#C1BFBC;}.servibus-94{fill:#B3B4B5;}.servibus-95{fill:#7AC3E1;}.servibus-96{opacity:0.12;fill:#333333;enable-background:new    ;}.servibus-97{fill:#7A7A7A;}.servibus-98{opacity:0.48;}.servibus-99{fill:#A0A1A2;}.servibus-100{fill:#A1DEF0;}.servibus-101{fill:#804998;}.servibus-102{fill:#0072C6;}.servibus-103{fill:#59B4D9;}.servibus-104{fill:#3999C6;}.servibus-105{fill:#B8D432;}.servibus-106{opacity:0.8;fill:#FFFFFF;enable-background:new    ;}.servibus-107{opacity:0.2;fill:#FFFFFF;enable-background:new    ;}.servibus-108{fill:#7FBA00;}.servibus-109{fill:#414141;}.servibus-110{fill:#0078D7;}.servibus-111{fill:#414142;}.servibus-112{fill:#D1B972;}.servibus-113{fill:#FEE087;}.servibus-114{fill:#B1CE2D;}.servibus-115{fill:#FCD116;}.servibus-116{fill:#719904;}.servibus-117{fill-rule:evenodd;clip-rule:evenodd;fill:#804898;}.servibus-118{fill-rule:evenodd;clip-rule:evenodd;fill:#6B2980;}.servibus-119{fill:#6B2980;}.servibus-120{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}.servibus-121{opacity:0.2;fill:#1E1E1E;enable-background:new    ;}.servibus-122{fill:#33BCF0;}.servibus-123{opacity:0.2;fill:#636363;}.servibus-124{opacity:0.1;clip-path:url(#XMLID_1949_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-125{fill:#8B77B6;}.servibus-126{fill:#9B6CAC;}.servibus-127{fill:#874B94;}.servibus-128{opacity:0.4;fill:#7FBA00;enable-background:new    ;}.servibus-129{opacity:0.8;fill:#7FBA00;enable-background:new    ;}.servibus-130{opacity:0.6;fill:#7FBA00;enable-background:new    ;}.servibus-131{opacity:0.25;fill:#7FBA00;enable-background:new    ;}.servibus-132{fill:#DD5900;}.servibus-133{fill:#FF8C00;}.servibus-134{fill-rule:evenodd;clip-rule:evenodd;fill:#3E3E3E;}.servibus-135{fill:url(#path3060_1_);}.servibus-136{fill:#1870C5;}.servibus-137{fill:#72BFDF;}.servibus-138{fill:#3C3938;}.servibus-139{fill:#0072AC;}.servibus-140{fill:#0079B6;}.servibus-141{fill:#00A2D9;}.servibus-142{fill:#BFDC34;}.servibus-143{fill:#898989;}.servibus-144{fill:#EDF0F5;}.servibus-145{fill:#A3A4A7;}.servibus-146{fill:#353535;}.servibus-147{fill:#FF8C02;}.servibus-148{fill:#00AC8C;}.servibus-149{fill:#6EC2E9;}.servibus-150{fill:#442359;}.servibus-151{fill:#6DC0E6;}.servibus-152{fill:#432056;}.servibus-153{fill:#86CAD7;}.servibus-154{fill:#009E48;}.servibus-155{fill:#68217A;}.servibus-156{fill:#E5E5E5;}.servibus-157{opacity:0.15;fill:#FFFFFF;enable-background:new    ;}.servibus-158{fill:#3898C6;}.servibus-159{fill:#80BA42;}.servibus-160{fill:#B3D234;}.servibus-161{opacity:0.1;clip-path:url(#XMLID_1950_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-162{opacity:0.1;clip-path:url(#XMLID_1951_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-163{opacity:0.1;clip-path:url(#XMLID_1952_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-164{opacity:0.1;clip-path:url(#XMLID_1953_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-165{opacity:0.35;clip-path:url(#XMLID_1954_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-166{opacity:0.1;clip-path:url(#XMLID_1955_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-167{opacity:0.15;clip-path:url(#XMLID_1956_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-168{opacity:0.35;clip-path:url(#XMLID_1957_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-169{opacity:0.1;clip-path:url(#XMLID_1958_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}.servibus-170{fill-rule:evenodd;clip-rule:evenodd;fill:#008EBE;}.servibus-171{fill:#017F6F;}.servibus-172{opacity:0.1;clip-path:url(#XMLID_1959_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}.servibus-173{opacity:0.15;clip-path:url(#XMLID_1960_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-174{opacity:0.15;clip-path:url(#XMLID_1961_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-175{opacity:0.15;clip-path:url(#XMLID_1962_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-176{opacity:0.15;clip-path:url(#XMLID_1963_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-177{clip-path:url(#XMLID_1964_);fill:none;}.servibus-178{opacity:0.1;clip-path:url(#XMLID_1965_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-179{opacity:0.3;clip-path:url(#XMLID_1966_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-180{fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;}.servibus-181{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}</style><polygon class="servibus-29" points="48,12 41,12 41,7 7,7 7,12 0,12 0,0 48,0 "/><polygon class="servibus-29" points="47.9,36 41,36 41,42 7,42 7,36 -0.1,36 -0.1,48 47.9,48 "/><g><path class="servibus-13" d="M28.9,25.3c-1.2,1.3-2.9,2-4.7,2c0,0,0,0-0.1,0c-1.8,0-3.4-0.7-4.7-1.9L11,17v17h26V17L28.9,25.3z"/><path class="servibus-13" d="M20.2,24.6c1.1,1.1,2.4,1.6,4,1.6c1.5,0,2.9-0.6,4-1.7L37,15v-1H11v1L20.2,24.6z"/></g></svg>
+								<svg version="1.1" id="Layer_1servibus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="140px" height="96px" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve"><style>.servibus-0{fill-rule:evenodd;clip-rule:evenodd;fill:#85C9D5;}.servibus-1{fill-rule:evenodd;clip-rule:evenodd;fill:#EDF0F4;}.servibus-2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-3{fill-rule:evenodd;clip-rule:evenodd;fill:#B5C0CE;}.servibus-4{fill-rule:evenodd;clip-rule:evenodd;fill:#33B4DF;}.servibus-5{fill-rule:evenodd;clip-rule:evenodd;fill:#7B4D87;}.servibus-6{fill-rule:evenodd;clip-rule:evenodd;fill:#482255;}.servibus-7{fill-rule:evenodd;clip-rule:evenodd;fill:none;}.servibus-8{fill-rule:evenodd;clip-rule:evenodd;fill:#E3F3F6;}.servibus-9{fill-rule:evenodd;clip-rule:evenodd;fill:#A3BF3A;}.servibus-10{fill-rule:evenodd;clip-rule:evenodd;fill:#8BA63C;}.servibus-11{fill-rule:evenodd;clip-rule:evenodd;fill:#5E6D80;}.servibus-12{fill-rule:evenodd;clip-rule:evenodd;fill:#88909B;}.servibus-13{fill:#85C9D5;}.servibus-14{fill:#E56225;}.servibus-15{fill-rule:evenodd;clip-rule:evenodd;fill:#2F75BB;}.servibus-16{fill:#00A2D8;}.servibus-17{fill-rule:evenodd;clip-rule:evenodd;fill:#00A2D8;}.servibus-18{fill:#F79E1C;}.servibus-19{fill-rule:evenodd;clip-rule:evenodd;fill:#2ABAEC;}.servibus-20{fill:#F7B218;}.servibus-21{fill:#009480;}.servibus-22{fill-rule:evenodd;clip-rule:evenodd;fill:#009480;}.servibus-23{fill:#2ABAEC;}.servibus-24{fill:#323A45;}.servibus-25{fill:#88909B;}.servibus-26{fill:#A3BF3A;}.servibus-27{fill:#80A23E;}.servibus-28{fill:#7B4D87;}.servibus-29{fill:#2F75BB;}.servibus-30{opacity:0.15;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-31{fill:#A5D9E2;}.servibus-32{fill-rule:evenodd;clip-rule:evenodd;fill:#323A45;}.servibus-33{fill:#FFFFFF;}.servibus-34{fill:#DAEFF3;}.servibus-35{fill:#2A65AF;}.servibus-36{fill:#F6ECF4;}.servibus-37{fill:none;}.servibus-38{fill-rule:evenodd;clip-rule:evenodd;fill:#F9BA19;}.servibus-39{fill:#F6931D;}.servibus-40{fill:#5E6D80;}.servibus-41{fill:#6B903D;}.servibus-42{fill-rule:evenodd;clip-rule:evenodd;}.servibus-43{fill:#00B8E2;}.servibus-44{fill:none;stroke:#85C9D5;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;}.servibus-45{fill:#2A89CA;}.servibus-46{opacity:0.3;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-47{opacity:0.3;fill:#FFFFFF;}.servibus-48{fill-rule:evenodd;clip-rule:evenodd;fill:#78B843;}.servibus-49{fill:#78B843;}.servibus-50{fill:#005BA3;}.servibus-51{fill:#9AD9E9;}.servibus-52{fill:#66C8E7;}.servibus-53{fill:#33B4DF;}.servibus-54{opacity:0.6;fill:#FFFFFF;}.servibus-55{opacity:0.4;fill:#FFFFFF;}.servibus-56{opacity:0.1;clip-path:url(#XMLID_358_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-57{opacity:0.1;clip-path:url(#XMLID_359_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-58{fill:#73BDCD;}.servibus-59{opacity:0.6;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-60{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}.servibus-61{fill-rule:evenodd;clip-rule:evenodd;fill:#80A23E;}.servibus-62{clip-path:url(#XMLID_753_);fill:none;}.servibus-63{fill-rule:evenodd;clip-rule:evenodd;fill:#F7B218;}.servibus-64{opacity:0.35;clip-path:url(#XMLID_770_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-65{opacity:0.8;fill:#FFFFFF;}.servibus-66{opacity:0.35;clip-path:url(#XMLID_771_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-67{fill-rule:evenodd;clip-rule:evenodd;fill:#DB5B26;}.servibus-68{fill-rule:evenodd;clip-rule:evenodd;fill:#F58B1F;}.servibus-69{opacity:0.35;clip-path:url(#XMLID_1466_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-70{fill-rule:evenodd;clip-rule:evenodd;fill:#404B59;}.servibus-71{opacity:0.1;clip-path:url(#XMLID_1467_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-72{fill-rule:evenodd;clip-rule:evenodd;fill:#D1B0D3;}.servibus-73{opacity:0.15;clip-path:url(#XMLID_1468_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-74{fill-rule:evenodd;clip-rule:evenodd;fill:#15B2E7;}.servibus-75{fill-rule:evenodd;clip-rule:evenodd;fill:#E1F3F8;}.servibus-76{opacity:0.15;clip-path:url(#XMLID_1604_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-77{opacity:0.15;clip-path:url(#XMLID_1605_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-78{opacity:0.3;clip-path:url(#XMLID_1943_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-79{opacity:0.15;clip-path:url(#XMLID_1944_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-80{fill-rule:evenodd;clip-rule:evenodd;fill:#7C8737;}.servibus-81{opacity:0.3;clip-path:url(#XMLID_1945_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-82{opacity:0.15;clip-path:url(#XMLID_1946_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-83{fill:#CCCBCB;}.servibus-84{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-85{opacity:0.1;clip-path:url(#XMLID_1947_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-86{opacity:0.1;clip-path:url(#XMLID_1948_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-87{display:none;}.servibus-88{fill:#45B6F4;}.servibus-89{fill:#89919C;}.servibus-90{fill:#61ADD1;}.servibus-91{fill:#3899C6;}.servibus-92{fill:#F78F08;}.servibus-93{fill:#C1BFBC;}.servibus-94{fill:#B3B4B5;}.servibus-95{fill:#7AC3E1;}.servibus-96{opacity:0.12;fill:#333333;enable-background:new    ;}.servibus-97{fill:#7A7A7A;}.servibus-98{opacity:0.48;}.servibus-99{fill:#A0A1A2;}.servibus-100{fill:#A1DEF0;}.servibus-101{fill:#804998;}.servibus-102{fill:#0072C6;}.servibus-103{fill:#59B4D9;}.servibus-104{fill:#3999C6;}.servibus-105{fill:#B8D432;}.servibus-106{opacity:0.8;fill:#FFFFFF;enable-background:new    ;}.servibus-107{opacity:0.2;fill:#FFFFFF;enable-background:new    ;}.servibus-108{fill:#7FBA00;}.servibus-109{fill:#414141;}.servibus-110{fill:#0078D7;}.servibus-111{fill:#414142;}.servibus-112{fill:#D1B972;}.servibus-113{fill:#FEE087;}.servibus-114{fill:#B1CE2D;}.servibus-115{fill:#FCD116;}.servibus-116{fill:#719904;}.servibus-117{fill-rule:evenodd;clip-rule:evenodd;fill:#804898;}.servibus-118{fill-rule:evenodd;clip-rule:evenodd;fill:#6B2980;}.servibus-119{fill:#6B2980;}.servibus-120{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}.servibus-121{opacity:0.2;fill:#1E1E1E;enable-background:new    ;}.servibus-122{fill:#33BCF0;}.servibus-123{opacity:0.2;fill:#636363;}.servibus-124{opacity:0.1;clip-path:url(#XMLID_1949_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-125{fill:#8B77B6;}.servibus-126{fill:#9B6CAC;}.servibus-127{fill:#874B94;}.servibus-128{opacity:0.4;fill:#7FBA00;enable-background:new    ;}.servibus-129{opacity:0.8;fill:#7FBA00;enable-background:new    ;}.servibus-130{opacity:0.6;fill:#7FBA00;enable-background:new    ;}.servibus-131{opacity:0.25;fill:#7FBA00;enable-background:new    ;}.servibus-132{fill:#DD5900;}.servibus-133{fill:#FF8C00;}.servibus-134{fill-rule:evenodd;clip-rule:evenodd;fill:#3E3E3E;}.servibus-135{fill:url(#path3060_1_);}.servibus-136{fill:#1870C5;}.servibus-137{fill:#72BFDF;}.servibus-138{fill:#3C3938;}.servibus-139{fill:#0072AC;}.servibus-140{fill:#0079B6;}.servibus-141{fill:#00A2D9;}.servibus-142{fill:#BFDC34;}.servibus-143{fill:#898989;}.servibus-144{fill:#EDF0F5;}.servibus-145{fill:#A3A4A7;}.servibus-146{fill:#353535;}.servibus-147{fill:#FF8C02;}.servibus-148{fill:#00AC8C;}.servibus-149{fill:#6EC2E9;}.servibus-150{fill:#442359;}.servibus-151{fill:#6DC0E6;}.servibus-152{fill:#432056;}.servibus-153{fill:#86CAD7;}.servibus-154{fill:#009E48;}.servibus-155{fill:#68217A;}.servibus-156{fill:#E5E5E5;}.servibus-157{opacity:0.15;fill:#FFFFFF;enable-background:new    ;}.servibus-158{fill:#3898C6;}.servibus-159{fill:#80BA42;}.servibus-160{fill:#B3D234;}.servibus-161{opacity:0.1;clip-path:url(#XMLID_1950_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-162{opacity:0.1;clip-path:url(#XMLID_1951_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-163{opacity:0.1;clip-path:url(#XMLID_1952_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-164{opacity:0.1;clip-path:url(#XMLID_1953_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-165{opacity:0.35;clip-path:url(#XMLID_1954_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-166{opacity:0.1;clip-path:url(#XMLID_1955_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-167{opacity:0.15;clip-path:url(#XMLID_1956_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-168{opacity:0.35;clip-path:url(#XMLID_1957_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-169{opacity:0.1;clip-path:url(#XMLID_1958_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}.servibus-170{fill-rule:evenodd;clip-rule:evenodd;fill:#008EBE;}.servibus-171{fill:#017F6F;}.servibus-172{opacity:0.1;clip-path:url(#XMLID_1959_);fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}.servibus-173{opacity:0.15;clip-path:url(#XMLID_1960_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-174{opacity:0.15;clip-path:url(#XMLID_1961_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-175{opacity:0.15;clip-path:url(#XMLID_1962_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-176{opacity:0.15;clip-path:url(#XMLID_1963_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-177{clip-path:url(#XMLID_1964_);fill:none;}.servibus-178{opacity:0.1;clip-path:url(#XMLID_1965_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-179{opacity:0.3;clip-path:url(#XMLID_1966_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}.servibus-180{fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;}.servibus-181{opacity:0.1;fill-rule:evenodd;clip-rule:evenodd;fill:#F1F1F2;}</style><polygon class="servibus-29" points="48,12 41,12 41,7 7,7 7,12 0,12 0,0 48,0 "/><polygon class="servibus-29" points="47.9,36 41,36 41,42 7,42 7,36 -0.1,36 -0.1,48 47.9,48 "/><g><path class="servibus-13" d="M28.9,25.3c-1.2,1.3-2.9,2-4.7,2c0,0,0,0-0.1,0c-1.8,0-3.4-0.7-4.7-1.9L11,17v17h26V17L28.9,25.3z"/><path class="servibus-13" d="M20.2,24.6c1.1,1.1,2.4,1.6,4,1.6c1.5,0,2.9-0.6,4-1.7L37,15v-1H11v1L20.2,24.6z"/></g></svg>
 
 								<div class="home-p">使应用程序和设备<br />在跨私有云和公有云场景下保持互联</div>
 							</a>
@@ -4795,7 +4643,7 @@
 			
 					<div class="all-production">
 						<a id="homepage_services_All_Services" href="#" class="read-more">
-							<span>全部 40 个云产品</span>
+							<span>全部 41 个云产品</span>
 							<i class="icon icon-arrow-down-sharp"></i>
 						</a>
 					</div>
@@ -4898,114 +4746,7 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-	        (function() {
-	        /* Define the number of leaves to be used in the animation */
-	        var NUMBER_OF_LEAVES = 60;
-
-	        /*
-	         Called when the "Falling Leaves" page is completely loaded.
-	         */
-	        function init() {
-	            /* Get a reference to the element that will contain the leaves */
-	            var container = document.getElementById('petalbox');
-
-	            /* Fill the empty container with new leaves */
-	            try {
-	                for (var i = 0;
-	                     i < NUMBER_OF_LEAVES;
-
-	                     i++) {
-	                    container.appendChild(createALeaf());
-	                }
-	            }
-	            catch(e) {
-	            }
-	        }
-
-	        /*
-	         Receives the lowest and highest values of a range and
-	         returns a random integer that falls within that range.
-	         */
-	        function randomInteger(low, high) {
-	            return low + Math.floor(Math.random() * (high - low));
-	        }
-
-	        /*
-	         Receives the lowest and highest values of a range and
-	         returns a random float that falls within that range.
-	         */
-	        function randomFloat(low, high) {
-	            return low + Math.random() * (high - low);
-	        }
-
-	        /*
-	         Receives a number and returns its CSS pixel value.
-	         */
-	        function pixelValue(value) {
-	            return value + 'px';
-	        }
-
-	        /*
-	         Returns a duration value for the falling animation.
-	         */
-	        function durationValue(value) {
-	            return value + 's';
-	        }
-
-	        /*
-	         Uses an img element to create each leaf. "Leaves.css" implements two spin
-	         animations for the leaves: clockwiseSpin and counterclockwiseSpinAndFlip. This
-	         function determines which of these spin animations should be applied to each leaf.
-
-	         */
-	        function createALeaf() {
-	            /* Start by creating a wrapper div, and an empty img element */
-	            var leafDiv = document.createElement('div');
-	            var image = document.createElement('img');
-	            var maxWidth = document.body.clientWidth;
-
-	            /* Randomly choose a leaf image and assign it to the newly created element */
-	            image.src ='http://resource.cdn.azure.cn/marketing-resource/media/images/homepage/2018_CNY-0'+ randomInteger(3, 5) + '.png';
-
-	            /* Position the leaf at a random location along the screen */
-	            leafDiv.style.top = pixelValue(randomInteger(-200, -100));
-	            leafDiv.style.left = randomInteger(0, maxWidth-45)  + 'px';
-
-	            /* Randomly choose a spin animation */
-	            var spinAnimationName = 'clockwiseSpin';        /* Set the -webkit-animation-name property with these values */
-	            leafDiv.style.webkitAnimationName ='fade, drop';
-	            leafDiv.style.animationName ='fade, drop';
-	            image.style.webkitAnimationName = spinAnimationName;
-	            image.style.animationName = spinAnimationName;
-	            image.style.width = Math.floor(Math.random()*(26)+20) + 'px';
-
-	            /* 随机下落时间 */
-	            var fadeAndDropDuration = durationValue(randomFloat(3, 9));
-
-	            /* 随机旋转时间 */
-	            var spinDuration = durationValue(randomFloat(4, 7));
-
-	            leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
-	            leafDiv.style.animationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
-
-	            // 随机delay时间
-	            var leafDelay = durationValue(randomFloat(0, 2));
-
-	            leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
-	            leafDiv.style.animationDelay = leafDelay + ', ' + leafDelay;
-	            image.style.webkitAnimationDuration = spinDuration;
-	            image.style.animationDuration = spinDuration;
-	            leafDiv.appendChild(image);
-	            return leafDiv;
-	        }
-	        if(window.screen.width > 768){
-	        	init();
-	        }
-	        
-	    }
-	)();
-	</script>
+		
 			]]>
     </bodyText>
     <siteName>Azure云计算–安全可信的智能云服务平台</siteName>
