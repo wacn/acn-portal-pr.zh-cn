@@ -71,7 +71,7 @@
 								</h2>
 								<ul title="网络"  class="low-price">
 									<li>
-										<a id="pricing_overview_network_networking" href="/pricing/details/networking/" class="single-link">虚拟网络</a>
+										<a id="pricing_overview_network_virtual-network" href="/pricing/details/virtual-network/" class="single-link">虚拟网络</a>
 									</li>
 									<li>
 										<a id="pricing_overview_network_load-balancer" href="/pricing/details/load-balancer/" class="single-link">负载均衡器</a>
@@ -95,7 +95,7 @@
 										<a id="pricing_overview_network_data-transfer" href="/pricing/details/data-transfer/" class="single-link">数据传输（带宽）</a>
 									</li>
 									<li>
-										<a id="pricing_overview_network_reserved-ip-addresses" href="/pricing/details/reserved-ip-addresses/" class="single-link">IP 地址</a>
+										<a id="pricing_overview_network_ip-addresses" href="/pricing/details/ip-addresses/" class="single-link">IP 地址</a>
 									</li>
 									<li>
 										<a id="pricing_overview_network_reserved-network-watcher" href="/pricing/details/network-watcher/" class="single-link">网络观察程序</a>
@@ -115,7 +115,7 @@
 										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/" class="single-link">存储</a>
 									</li>
 									<li>
-										<a id="pricing_overview_storage_back-up" href="/pricing/details/back-up/" class="single-link">备份</a>
+										<a id="pricing_overview_storage_backup" href="/pricing/details/backup/" class="single-link">备份</a>
 									</li>
 									<li>
 										<a id="pricing_overview_storage_site-recovery" href="/pricing/details/site-recovery/" class="single-link">站点恢复</a>
@@ -134,9 +134,6 @@
 								<ul title="Web + Mobile"  class="low-price">
                                     <li>
 										<a id="pricing_overview_Web&Mobile_app-service" href="/pricing/details/app-service/" class="single-link">应用服务</a>
-									</li>
-									<li>
-										<a id="pricing_overview_Web&Mobile_mobile-services" href="/pricing/details/mobile-services/" class="single-link">移动服务</a>
 									</li>									
 									<li>
 										<a id="pricing_overview_Web&Mobile_cdn" href="/pricing/details/cdn/" class="single-link">CDN</a>
@@ -145,9 +142,8 @@
 										<a id="pricing_overview_Web&Mobile_media-services" href="/pricing/details/media-services/" class="single-link">媒体服务</a>
 									</li>
 									<li>
-										<a id="pricing_overview_Web&Mobile_api-management" href="/pricing/details/api-management/" class="single-link">API 管理</a>
+										<a id="pricing_overview_Web&Mobile_mobile-services" href="/pricing/details/mobile-services/" class="single-link">移动服务</a>
 									</li>
-
 									
 								</ul>
 							</div>
@@ -190,9 +186,9 @@
 							<div class="nav_item larger_item" id="nav_item_pri">
 								<a id="overview_anchor_analytics" class="anchor"></a>
 								<h2 class="nav_title">
-									智能 + 分析
+									分析
 								</h2>
-								<ul title="智能 + 分析">
+								<ul title="分析">
 									
 									<li>
 										<a id="pricing_overview_analytics_hdinsight" href="/pricing/details/hdinsight/" class="single-link">HDInsight</a>
@@ -201,13 +197,32 @@
 										<a id="pricing_overview_analytics_stream-analytics" href="/pricing/details/stream-analytics/" class="single-link">流分析</a>
 									</li>
 									<li>
-										<a id="pricing_overview_analytics_cognitive-services" href="/pricing/details/cognitive-services/" class="single-link">认知服务</a>
-									</li>
-									<li>
 										<a id="pricing_overview_analytics_power-bi-embedded" href="/pricing/details/power-bi-embedded/" class="single-link">Power BI 工作区集合</a>
 									</li>
 									<li>
 										<a id="pricing_overview_analytics_analysis-services" href="/pricing/details/analysis-services/" class="single-link">Azure 分析服务</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="nav_item larger_item" id="nav_item_pri">
+								<a id="overview_anchor_analytics" class="anchor"></a>
+								<h2 class="nav_title">
+									AI
+								</h2>
+								<ul title="AI">
+									<li>
+										<a id="pricing_overview_analytics_cognitive-services" href="/pricing/details/cognitive-services/" class="single-link">认知服务</a>
+									</li>
+									<li>
+										<a id="pricing_overview_analytics_cognitive-services-face-api" href="/pricing/details/cognitive-services/" class="single-link"> - 人脸识别 API</a>
+									</li>
+									<li>
+										<a id="pricing_overview_analytics_cognitive-services-computer-vision" href="/pricing/details/cognitive-services/" class="single-link"> - 计算机视觉 API</a>
+									</li>
+									<li>
+										<a id="pricing_overview_analytics_cognitive-services-emotion" href="/pricing/details/cognitive-services/" class="single-link"> - 情绪识别 API</a>
 									</li>
 								</ul>
 							</div>
@@ -245,13 +260,17 @@
 								</h2>
 								<ul title="企业集成">
 									<li>
-										<a id="pricing_overview_integration_messaging" href="/pricing/details/messaging/" class="single-link">服务总线</a>
+										<a id="pricing_overview_integration_service-bus" href="/pricing/details/service-bus/" class="single-link">服务总线</a>
 									</li>
 									<li>
 										<a id="pricing_overview_integration_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link">
 											SQL Server Stretch Database
 										</a>
-									</li>									
+									</li>
+
+									<li>
+										<a id="pricing_overview_Web&Mobile_api-management" href="/pricing/details/api-management/" class="single-link">API 管理</a>
+									</li>								
 								</ul>
 							</div>
 						</div>
@@ -267,7 +286,7 @@
 										<a id="pricing_overview_security_key-vault" href="/pricing/details/key-vault/" class="single-link">密钥保管库 </a>
 									</li>
 									<li>
-										<a id="pricing_overview_security_identity" href="/pricing/details/identity/" class="single-link">Azure Active Directory</a>
+										<a id="pricing_overview_security_active-directory" href="/pricing/details/active-directory/" class="single-link">Azure Active Directory</a>
 									</li>
 									<li>
 										<a id="pricing_overview_security_multi-factor-authentication" href="/pricing/details/multi-factor-authentication/" class="single-link">多重身份验证</a>
@@ -287,7 +306,7 @@
 										<a id="pricing_overview_manage_automation" href="/pricing/details/automation/" class="single-link">自动化</a>
 									</li>
 								<li>
-										<a id="pricing_overview_manage_back-up" href="/pricing/details/back-up/" class="single-link">备份</a>
+										<a id="pricing_overview_manage_backup" href="/pricing/details/backup/" class="single-link">备份</a>
 									</li>
 									<li>
 										<a id="pricing_overview_manage_site-recovery" href="/pricing/details/site-recovery/" class="single-link">站点恢复</a>
