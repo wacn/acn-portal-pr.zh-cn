@@ -24,7 +24,7 @@
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">
                 <h2>定价详细信息</h2>
-                <p>自动化采用两个级别提供：免费和基本。自动化基本级别计费基于月份中使用的作业运行时间分钟数。每当有一个或多个作业运行时，将对自动化基本级别收取费用。作业跨地理区域进行聚合。</p> 
+                <p>流程自动化的费用是在作业运行时发生的。只收取超过免费包含单元的分钟/小时。</p> 
                 <!-- <p>从2016年4月1日起， 价格会下调 25.6%，以下是下调后的新价格：</p> -->
                 <div class="tags-date">
                     <div class="ms-date">*以下价格均为含税价格。</div><br>
@@ -33,18 +33,13 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <th align="left"><strong>&nbsp;</strong></th>
-                        <th align="left"><strong>免费</strong></th>
-                        <th align="left"><strong>基本</strong></th>
-                    </tr>
-                    <tr>
-                        <td>每月价格</td>
-                        <td>免费</td>
-                        <td>￥0.01元/分钟</td>
+                        <th align="left"><strong>免费单位（每月）</strong></th>
+                        <th align="left"><strong>价格</strong></th>
                     </tr>
                     <tr>
                         <td>作业运行时间</td>
                         <td>500 分钟</td>
-                        <td>无限制</td>
+                        <td>￥0.01元/分钟</td>
                     </tr>
                 </table>
             </div>
@@ -57,22 +52,22 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="auto_price_question1">基本级别的计费方式是怎样的？</a>
+                                <a id="auto_price_question1">如何计费？</a>
                                 <section>
-                                    <p>我们基于与你订阅关联的所有自动化帐户间使用的作业运行时间总分钟数来对你进行计费。例如，在 1 个月中使用 5,000分钟会产生 ￥50 的费用。</p>
+                                    <p>我们为您提供免费使用的服务。对于自动化，我们基于与你订阅关联的所有自动化帐户间使用的作业运行时间总分钟数来对你进行计费。例如，在 1 个月中使用 5,500 分钟会产生 ￥50 的费用。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="auto_price_question2">是否在订阅级别应用针对免费使用的自动化配额？</a>
+                                <a id="auto_price_question2">每个月包含哪些免费单元?</a>
                                 <section>
-                                    <p>可以。如果每个订阅每个月要多使用 500 分钟的自动化，则需要将它转换为基本级别。</p>
+                                    <p>包括免费单元，你可以免费使用，而且每个月都可以恢复。在一个月的免费单元中所有的使用费用都是按标准的价格收费的。这些免费的单元不能使用给订阅用户提供折扣或者每月固定的信用额度。</p>
                                 </section>
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="auto_price_question3">我能否将我的自动化服务从免费版升级到基本版？</a>
@@ -80,7 +75,7 @@
                                     <p>可以，通过针对订阅中的自动化帐户在“缩放”页上更新层级特性可以支持对现有自动化订阅的升级。升级将应用于订阅中的所有自动化帐户。</p>
                                 </section>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
