@@ -6,6 +6,35 @@
          <div class="section-component">
             <div class="more-detail">
             	 <h1>重要通知</h1>
+            	 <h3>2018年3月</h3>
+                <ul>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-march_azure-site-recovery"><span>3/20</span>请在 2018 年 3 月 31 日前更新使用访问控制身份验证的 Azure 站点恢复<i class="icon icon-update"></i></a>
+							<section>
+								<p>Azure 站点恢复（Azure Site Recovery）有助于协调复制，保护运行中的工作负荷。Site Recovery Provider（也称为 DRA）和恢复服务（也称为 MARS）代理的旧版本使用的访问控制身份验证服务即将停用。为避免中断，请在 2018 年 3 月 31 日之前更新这些旧版本。</p>
+								<p>早期版本的 DRA（5.1.2700 之前）和 MARS 代理（2.0.9096 之前）依赖于访问控制服务功能进行身份验证，此服务计划将在 2018 年四月全面弃用。新版本的 DRA（5.1.2700 或更高版本）和 MARS 代理（2.0.9096 或更高版本）使用最新的 Azure Active Directory 身份验证机制，其中包含基于角色的控制和更精细的访问功能。对于现在仍使用 5.1.2700 之前的 DRA 版本和/或 2.0.9096 之前的 MARS 代理、将服务器复制到一个或多个恢复服务保管库的用户，请更新您的旧版本，以便继续使用站点恢复服务及其即将推出的功能。如果您已执行这些更新，无需执行其他操作。新版本依赖于 Azure Active Directory 而非访问控制。</p>
+								<p>我们建议您在 2018 年 3 月 31 日之前，将 DRA 实例更新到版本 5.1.2700 或更高版本，将 MARS 代理更新到版本 2.0.9096 或更高版本。请在此日期之前完成所有更新，以免 Azure 站点恢复中的复制和故障转移配置出现失败。</p>
+								<p>您可以在 Azure 门户上更新：</p>
+								<ol>
+									<li>登录<a href="//portal.azure.cn/">Azure 门户</a>；</li>
+									<li>打开“恢复服务保管库”菜单项；</li>
+									<li>选择提示此更新的横幅，查看其他步骤；</li>
+									<li>按照这些步骤，在服务器上将 Site Recovery Provider 和 MARS 代理更新到最新版本；</li>
+									<li>要完成此过程并更新身份验证服务，请在门户中的已注册服务器页面上选择“更新身份验证服务”。</li>
+								</ol>
+								<p>有关详细信息，请阅读此<a href="//social.technet.microsoft.com/wiki/contents/articles/50899.upgrade-from-azure-access-control-services-to-azure-active-directory-for-azure-site-recovery.aspx?WT.mc_id=azurebg_email_Trans_33786_1598_CXP_Site_Recovery_upgrade_ACS_deprecation_NoAcct/">详细步骤</a>。</p>
+								<p>如有任何问题，可通过如下选项获得支持：</p>
+								<ul>
+									<li>点击 Azure 门户的<a href="//portal.azure.cn/?l=en.en-us#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview/">“帮助和支持”</a>页面获取技术支持；</li>
+									<li>在线<a href="//support.azure.cn/support/support-azure/">创建工单</a>；</li>
+									<li>拨打世纪互联技术支持热线：400-089-0365。</li>
+								</ul>
+							</section>
+						</div>
+					</li>
+                </ul>
                <h3>2018年1月</h3>
                 <ul>
                 	<li>
@@ -80,6 +109,46 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
+							<a href="#" id="service-fabric_year_2018-March_service-health"><span>3/28</span>Azure 服务运行状况服务正式发布 <i class="icon icon-update"></i></a>
+							<section>
+								<p>我们很高兴地宣布 Azure Service Health（ASH）服务在中国正式发布。这是一个个性化的仪表板，可在 Azure 服务过程中遇到问题时提供指导和支持。与提供基本状态信息的服务仪表板相比，ASH 可为您的资源提供量身定制的信息。它还可帮助您做有计划的维护准备及其它变更，以防您的资源可用性受到影响。从 ASH 个性化仪表板中您可以查看：</p>
+									<ul style="list-style:none;">
+										<li>服务问题 —— Azure 服务中影响资源的现有问题；</li>
+										<li>维护计划 —— 在 Azure 中即将影响资源的维护活动；</li>
+										<li>运行状况建议 —— 宕机、Azure 某项功能停止、配额超量等报告及操作建议；</li>
+										<li>运行状况历史 ——影响资源运行的各种历史问题，包括问题解决后的事后总结；</li>
+										<li>运行状况警报 —— 针对服务运行状况的主动通知。</li>
+									</ul>
+									<p>要了解更多信息，请参阅<a href="/features/service-health/">Azure 服务运行状况</a>页面和<a href="//docs.azure.cn/zh-cn/service-health/">技术文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-March_cognitive-emotion-to-face"><span>3/23</span>Azure 情绪识别 API 并入 Azure 人脸识别 API 并将于 2019 年 2 月 15 日停用 <i class="icon icon-update"></i></a>
+							<section>
+								<p>参与 Azure 认知服务情绪识别 API 预览计划的用户，Azure 情绪识别 API 现已并入 Azure 人脸识别 API 。人脸识别 API 已正式发布，并集成了情绪识别 API（ 预览版）中的情绪检测功能。人脸识别 API 能够比较图片中的人脸，识别以前标记的人并将同一个人的照片进行分组。自 2019 年 2 月 15 日起，情绪识别 API （预览版）将停用。</p>
+								<p><strong>建议操作</strong></p>
+								<p>您需要修改所有引用情绪识别 API 的现有代码。人脸识别 API 与情绪识别 API 使用相似的 REST 接口。要访问人脸识别 API 中的情绪识别功能，请使用<a href="//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236" id="service-fabric_year_2018-March_face-check">人脸 - 检测</a>操作，并将人脸识别 API 的“returnFaceAttributes”参数设置为“returnFaceAttributes=emotion”。有关详细信息，请参考<a href="//docs.azure.cn/zh-cn/cognitive-services/emotion/home/">情绪识别 API 文档</a>。</p>
+								<p>请根据您的服务等级，在下面列出的日期之前迁移到人脸识别 API：</p>
+								<ul>
+									<li> 如果您通过现有（以前创建）的 Azure 密钥使用情绪识别 API（ 预览版）的免费版、基本版和标准版，请您 2019 年 2 月 15 日之前迁移到人脸识别 API。</li>
+									<li>如果您即将使用全新密钥，请使用<a href="/home/features/cognitive-services/face/" id="service-fabric_year_2018-March-23_face-api">人脸识别 API</a>。</li>
+								</ul>
+								<p>点击<a href="//docs.azure.cn/zh-cn/cognitive-services/face/overview/" id="service-fabric_year_2018-March_face-api-more">此处</a>进一步了解人脸识别 API 的各项功能，或者立即开始<a href="/pricing/1rmb-trial-full/?form-type=identityauth" id="service-fabric_year_2018-March_full-1rmb">免费试用</a>。 </p>
+								<p>如有任何问题，可通过如下选项获得技术支持：</p>
+								<ul>
+									<li>您可打开 Azure 门户的“<a href="//portal.azure.cn/?l=zh-hans.zh-cn#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview/" id="service-fabric_year_2018-March_support">帮助和支持</a>”页面获取技术支持；</li>
+									<li>在线创建工单：<a href="//support.azure.cn/support/support-azure/" id="service-fabric_year_2018-March_online-support-azure">https://support.azure.cn/support/support-azure/</a>；</li>
+									<li>拨打世纪互联技术支持热线：400-089-0365。</li>
+								</ul>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
 							<a href="#" id="service-fabric_year_2018-March_cognitive"><span>3/1</span>Azure 认知服务的人脸识别 API 降价通知 <i class="icon icon-update"></i></a>
 							<section>
 								<p>从 2018 年 3 月 1 日开始，Azure 认知服务的人脸识别 API 价格下调，降幅高达 50%。它集成了包括百万级识别在内的几项改进，能更好地帮助客户实现他们的愿景。要了解此服务及定价的更多信息，请访问<a href="/home/features/cognitive-services/" id="service-fabric_year_2018-March_feature-cognitive-services">认知服务功能</a>页面和<a href="/pricing/details/cognitive-services/" id="service-fabric_year_2018-March_pricing-cognitive-services">认知服务价格详情</a>页面。</p>
@@ -89,7 +158,7 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2018-March_apim"><span>3/1</span>Azure API 管理公共预览版正式发布 <i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2018-March_apim"><span>3/1</span>Azure API 管理公共预览版正式发布</a>
 							<section>
 								<p>我们在 2018 年 3 月 1 日正式推出 Azure API 管理（API Management）公共预览版。Azure API 管理是用于将 API 发布给外部和内部客户的成套全生命周期解决方案。客户使用 API 管理为在任何位置托管的现有后端服务快速创建一致的现代化 API 网关，帮助客户防止滥用和过度使用，并深入了解使用情况和运行状况。</p>
 								<p>使用 Azure API 管理 的主要场景包括：</p>
@@ -114,7 +183,7 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2018-feb_vm"><span>2/1</span>新 Azure SQL Server 镜像正式发布 <i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2018-feb_vm"><span>2/1</span>新 Azure SQL Server 镜像正式发布</a>
 							<section>
 								<p>SQL Server 2017 是第一个在 Linux（除 Windows 以外）上可用的 SQL Server 发行版，现在您可以在您所在地区可用的 Ubuntu Linux 发行版的 Azure 虚拟机上运行 SQL Server。该镜像适用于独立实例，包括对 SQL Server 可用的所有版本：开发人员版、Express 版、Web 版、标准版和企业版。</p>
 								<p>请参阅<a href="//docs.microsoft.com/zh-cn/azure/virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine" id="service-fabric_year_2018-feb_provision-sql-server-linux-virtual-machine">基于 Linux 的 SQL Server VM</a>或<a href="//docs.azure.cn/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision/" id="service-fabric_year_2018-feb_virtual-machines-windows-portal-sql-server-provision">基于 Windows 的 SQL Server VM</a>尽快入门。要配置适用于您场景的 SQL Server 虚拟机，请执行下列操作：</p>
