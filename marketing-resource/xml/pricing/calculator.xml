@@ -217,6 +217,9 @@
       <li>
         <span class='checkbox-rect' id=calculator_downlist_filter_network-watcher></span>网络观察程序
       </li>
+      <li>
+        <span class='checkbox-rect' id=calculator_downlist_filter_monitor></span>Azure 监控器
+      </li>
     </ul>
   </div>
 </div>
@@ -478,6 +481,7 @@
 	CalculatorUIRenderer.AddService("analysis-services-scale-out");
   CalculatorUIRenderer.AddService("api-management");
   CalculatorUIRenderer.AddService("network-watcher");
+    CalculatorUIRenderer.AddService("azure-monitor");
     CalculatorUIRenderer.AddService("support");
     
     CalculatorUIRenderer.PostProcess();

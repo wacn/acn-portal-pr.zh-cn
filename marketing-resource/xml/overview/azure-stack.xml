@@ -315,21 +315,21 @@
 						height:400px;
 
 					}.video-streaming .image-box img {
-    max-width: 400px;
-	max-height: 400px;
-}
-					
-					.smartCampaignMain .application-scenario .image-notice {
-    padding-bottom: 37px;
-}
-					@media only screen and (max-width: 980px){
-						.smartCampaignMain .application-scenario .website-scenario.col-md-6 .image-box {
-						height:auto;
-
+					    max-width: 400px;
+						max-height: 400px;
 					}
-					.smartCampaignMain .application-scenario .image-notice {
-    padding-bottom: 30px;
-}
+										
+										.smartCampaignMain .application-scenario .image-notice {
+					    padding-bottom: 37px;
+					}
+										@media only screen and (max-width: 980px){
+											.smartCampaignMain .application-scenario .website-scenario.col-md-6 .image-box {
+											height:auto;
+
+										}
+										.smartCampaignMain .application-scenario .image-notice {
+					    padding-bottom: 30px;
+					}
 					}
 					.smartCampaignMain .application-scenario .website-scenario.col-md-6 {
 					    width:50%
@@ -352,35 +352,123 @@
 					    right: 170px;
 					    bottom: 100px;
 					}
+					.casestudy-banner .common-banner-image .common-banner-title .video-center {
+					    position: absolute;
+					    width: 100%;
+					    right: 0;
+						display: none;
+					    }
+						.casestudy-banner .common-banner-image .common-banner-title .video-center .video-close {
+							position: absolute;
+							right: 0;
+							top: 0;
+							width: 36px;
+							height: 36px;
+							background: rgba(0, 0, 0, 0.6);
+							text-align: center;
+							z-index: 999;
+							border-radius: 50%;
+							color: white;
+							line-height: 30px;
+							}
+					    .casestudy-banner .common-banner-image .common-banner-title .video-center .video-instance {
+						    width: 640px;
+						    height: 360px;
+						    margin: 0 auto;
+						}
+						.video-instance {
+						    position: relative;
+						}
+						.video-js {
+						    display: block;
+						    vertical-align: top;
+						    box-sizing: border-box;
+						    position: relative;
+						    padding: 0;
+						    font-size: 10px;
+						    line-height: 1;
+						    font-weight: 400;
+						    font-style: normal;
+						    font-family: Arial,Helvetica,sans-serif;
+						    -webkit-user-select: none;
+						    -moz-user-select: none;
+						    -ms-user-select: none;
+						    user-select: none;
+						}
+						.casestudy-banner .common-banner-image .common-banner-title .video-center .video-js {
+					    width: 100%;
+					    height: 100%;
+					    z-index: 99;
+					    background: 0 0;
+					}
+					.video-js .vjs-tech {
+					    position: absolute;
+					    top: 0;
+					    left: 0;
+					}
+					.video-js .vjs-tech, .video-js.vjs-fill {
+					    width: 100%;
+					    height: 100%;
+					}
+						.video-js *, .video-js :after, .video-js :before {
+					    box-sizing: inherit;
+					}
+					audio, canvas, progress, video {
+					    display: inline-block;
+					    vertical-align: baseline;
+					}
+					.vjs-text-track-display {
+					    position: absolute;
+					    bottom: 3em;
+					    left: 0;
+					    right: 0;
+					    top: 0;
+					    pointer-events: none;
+					}
+					.vjs-hidden {
+					    display: none!important;
+					}
       	</style>
 		<div class="industry-solution smartCampaignMain video-streaming">
 			<div class="banner casestudy-banner" style="height:370px; background: url('http://resource.cdn.azure.cn/marketing-resource/css/images/stack-urban-view-banner.jpg') no-repeat center center;">
-				<div class="container">
-					<div class="video-detail">
-	                <div class="case-study-layer">
-	                    <div class="banner-image" style="height:370px;">
-							<h1>Azure Stack</h1>
-							<p><strong>将 Azure 延伸到您的数据中心，打造创新的混合云应用</strong></p>
-							<p>凭借一致的开发流程、DevOps 工具和开源组件提升开发效率</p>
-							<p>根据您的实际需要，选用最适合您的混合云部署方式</p>
-							<p>通过集成式系统交付，快速搭建并运行</p>
-							<p class="stack-btn-ms"><a href="https://azure.microsoft.com/zh-cn/overview/azure-stack/development-kit/" target="_blank">获取 Azure Stack 开发工具包<i class="icon icon-arrow-right"></i></a></p>
-						</div>
+				<div class="container common-banner-image">
+					<div class="common-banner-title">
+						<div class="video-detail">
+			                <div class="case-study-layer">
+			                    <div class="banner-image" style="height:370px;">
+									<h1>Azure Stack</h1>
+									<p><strong>将 Azure 延伸到您的数据中心，打造创新的混合云应用</strong></p>
+									<p>凭借一致的开发流程、DevOps 工具和开源组件提升开发效率</p>
+									<p>根据您的实际需要，选用最适合您的混合云部署方式</p>
+									<p>通过集成式系统交付，快速搭建并运行</p>
+									<p class="stack-btn-ms"><a href="https://azure.microsoft.com/zh-cn/overview/azure-stack/development-kit/" target="_blank">获取 Azure Stack 开发工具包<i class="icon icon-arrow-right"></i></a></p>
+								</div>
+			                </div>
+			                <a href="#" class="video-play-button" id="case-study-video-player"></a>
+		                	<!-- <a href="//resource.cdn.azure.cn/marketing-resource/media/azure-stack-video-hybrid-cloud.mp4" download=""></a> -->
+	            		</div>
+	            		<div class="video-center">  
+	                        <div class="video-instance">                            
+	                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+	                                   poster="" data-setup='{ "controls": false }'>
+	                                <source src="//resource.cdn.azure.cn/marketing-resource/media/azure-stack-video-hybrid-cloud.mp4" type='video/mp4'>
+	                            </video>
+	                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+	                        </div>
+	                    </div>
 	                </div>
-                	<a href="https://azure.microsoft.com/en-us/resources/videos/azure-and-azure-stack-use-cases/" target="_blank" class="video-play-button" id="case-study-video-player"></a>
-            	</div>
 				</div>
 			</div>
 			
 			<div class="tab-control-selector">
 				<div class="solution-section-tab">
 					<div class="tab-controller-slider">
-						<a href="#" data-href="#tabContent2-1" id="industry-convergemedia-tab1" class="active">概述<span class="slider-box"></span></a>
-		                <a href="#" data-href="#tabContent2-2" id="industry-convergemedia-tab2">使用案例</a>
+						<a href="#tabContent2-1" data-href="#tabContent2-1" id="industry-convergemedia-tab1" class="active">概述<span class="slider-box"></span></a>
+		                <a href="#tabContent2-2" data-href="#tabContent2-2" id="industry-convergemedia-tab2">使用案例</a>
 		               
-		                <a href="#" data-href="#tabContent2-4" id="industry-convergemedia-tab4">合作伙伴</a>
-		                <a href="#" data-href="#tabContent2-5" id="industry-convergemedia-tab5">集成系统</a>
-		                <a href="https://docs.microsoft.com/zh-cn/azure/azure-stack/" target="_blank">文档</a>
+		                <a href="#tabContent2-3" data-href="#tabContent2-3" id="industry-convergemedia-tab3">集成系统</a>
+		                <a href="#tabContent2-4" data-href="#tabContent2-4" id="industry-convergemedia-tab4">合作伙伴</a>
+		                <a href="//docs.azure.cn/zh-cn/azure-stack/" target="_blank">文档</a>
 					</div>
 				</div>
 				<div class="solution-section tab-control-container tab-control-container-slider tab-active" id="tabContent2-1">
@@ -393,8 +481,8 @@
 									<div class="content-box">
 										<h2>基于混合云构建现代化应用</h2>
 										<p>Azure Stack 是 Azure 的延伸，将云计算的灵活性和快节奏创新带到企业的本地环境。只有 Azure Stack 才能让您企业的数据中心提供 Azure 服务，同时有效平衡平台的灵活性与可控性，实现真正一致的混合云平台。</p>
-										<p class="clear"><a href="https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409">请阅读白皮书，了解 Azure Stack 的详细信息<i class="icon icon-arrow-right"></i></a></p>
-										<p class="clear"><a href="//resource.cdn.azure.cn/marketing-resource/media/Azure_Stack_an_Extension_of_Azure_ZH_CN.pdf" download="">下载 Azure Stack 产品简介<i class="icon icon-arrow-right"></i></a></p>
+										<p class="clear"><a href="//resource.cdn.azure.cn/marketing-resource/media/Azure-Stack-white-paper-CN-v3.pdf" download="">请阅读白皮书，了解 Azure Stack 的详细信息<i class="icon icon-arrow-right"></i></a></p>
+										<p class="clear"><a href="//resource.cdn.azure.cn/marketing-resource/media/Azure_Stack_an_Extension_of_Azure_Chinese version0402.pdf" download="">下载 Azure Stack 产品简介<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
 							<div class="col-md-4 text-align">
@@ -416,8 +504,8 @@
 												<li>通用的 DevOps — 通过 Jenkins 和 Visual Studio Team Services 进行持续部署和集成，以及通过 Chef 和 Azure PowerShell DSC 扩展实现自动化。</li>
 												<li>开源 — 使用广泛的开源技术，包括Java、Python、Node.js、PHP、Docker 集成式容器、Mesosphere DC/OS 和 Cloud Foundry 等。</li>
 											</ul>
-											<p class="clear"><a href="https://azure.microsoft.com/zh-cn/overview/azure-stack/development-kit/">了解有关 ASDK (Azure Stack Development Kit) 的详细信息<i class="icon icon-arrow-right"></i></a></p>
-											<p class="clear"><a href="https://azure.microsoft.com/zh-cn/campaigns/developer-guide/">了解有关基于 Azure 开发的详细信息<i class="icon icon-arrow-right"></i></a></p>
+											<!-- <p class="clear"><a href="//resource.cdn.azure.cn/marketing-resource/media/Azure_Developer_Guide_eBook_zh-CN.pdf" download="">了解有关 ASDK (Azure Stack Development Kit) 的详细信息<i class="icon icon-arrow-right"></i></a></p> -->
+											<p class="clear"><a href="//resource.cdn.azure.cn/marketing-resource/media/Azure_Developer_Guide_eBook_zh-CN.pdf" download="">了解有关基于 Azure 开发的详细信息<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
 							</div>
@@ -428,7 +516,7 @@
 								<div class="content-box">
 									<h2>在本地运行 Azure 服务</h2>
 									<p>根据您的业务和技术需求，对云上和本地的部署进行最佳组合。Azure 基础设施即服务 (IaaS) 的交付远远超出传统的虚拟化。借助虚拟机规模集，可实现现代化工作负荷的快速部署和真正的自动缩放。与 Azure 一致的平台即服务 (PaaS) 功能为云应用带来了混合部署选择和可移植性。在本地运行完全托管的 PaaS、无服务器计算、分布式微服务体系结构和容器管理。</p>
-									<p class="clear"><a href="https://aka.ms/GettingStartedWithAR">阅读关于 Azure Resource Manager 的白皮书<i class="icon icon-arrow-right"></i></a></p>
+									<p class="clear"><a  href="//resource.cdn.azure.cn/marketing-resource/media/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf" download="">阅读关于 Azure Resource Manager 的白皮书（英文版）<i class="icon icon-arrow-right"></i></a></p>
 								</div>
 							</div>
 							<div class="col-md-4 text-align">
@@ -446,7 +534,7 @@
 										<h2>通过集成式系统简化交付过程</h2>
 										<p>专注于使用提供与 Azure 一致体验的集成系统来优化您的应用程序。通过联想、Dell EMC 和思科的 Azure Stack 专用的集成系统快速搭建并运行。通过定期发布的软件更新，体验 Azure 的不断创新。此外，可以轻松将 Azure Stack 与其他解决方案集成在一起，如监控和身份认证服务。</p>
 														
-										<p class="clear"><a href="https://aka.ms/azurestackoperatordocs">深入了解如何管理和操作 Azure Stack 基础架构<i class="icon icon-arrow-right"></i></a></p>
+										<p class="clear"><a href="//docs.azure.cn/zh-cn/azure-stack/"  target="_blank">深入了解如何管理和操作 Azure Stack 基础架构<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
 							</div>
@@ -479,7 +567,7 @@
 									<div class="content-box">
 										<h2>边缘和离线环境解决方案</h2>
 										<p>通过 Azure Stack 实现数据的本地处理以满足低延迟和连接性需求，然后在 Azure 中进行汇总和进一步分析，在整个过程中共享同一套应用程序逻辑。此方案汇集了边缘计算和云计算的优势，带来前所未有的商业价值。从工厂车间、游轮、到远端站点，Azure Stack 客户正在借助我们真正一致的混合云技术的强大力量实现聚合分析与决策。</p>
-										<p class="clear"><a href="https://azure.microsoft.com/en-us/resources/videos/azure-and-azure-stack-working-together-build-2017/">观看视频，了解详细信息<i class="icon icon-arrow-right"></i></a></p>
+										<p class="clear"><a href="https://azure.microsoft.com/en-us/resources/videos/azure-and-azure-stack-working-together-build-2017/" target="_blank">观看视频，了解详细信息<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
 								<div class="col-md-4 text-align">
@@ -515,61 +603,26 @@
 						</section>
 					</div>
 				</div>
-				<div class="solution-section tab-control-container tab-control-container-slider" id="tabContent2-4">
+				<div class="solution-section tab-control-container tab-control-container-slider" id="tabContent2-3">
 					<div class="container">
 						<div class="container">
-							<p><strong>* 以下链接基于在全球其他地区由微软运营的 Microsoft Azure，仅供由世纪互联运营的 Microsoft Azure 客户参考。</strong></p>
-							<br/>
+							<!-- <p><strong>* 以下链接基于在全球其他地区由微软运营的 Microsoft Azure，仅供由世纪互联运营的 Microsoft Azure 客户参考。</strong></p>
+							<br/> -->
 							<section class="section1">
-								<div class="row">
-									<div class="col-md-8 col-md-5-center">
-										<div class="content-box">
-											<h2>联系技术和解决方案合作伙伴</h2>
-											<p>获得运行 Azure Stack 或创建在 Azure Stack 上运行的混合解决方案所需的帮助。</p>
-											<p class="clear"><a href="https://azure.microsoft.com/en-us/partners/directory/?product=azure-stack">寻找技术或解决方案合作伙伴<i class="icon icon-arrow-right"></i></a></p>
-										</div>
-									</div>
-									<div class="col-md-4 text-align">
-										<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/write-azure-software.png" alt="" />
+								<div class="row row-01">
+								<div class="col-md-4 text-align">
+									<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/huawei-logo-hero.png" alt="" />
+								</div>
+								<div class="col-md-8 col-md-5-center">
+									<div class="content-box">
+										<h2>华为 Azure Stack 混合云解决方案</h2>
+										<p>微软和华为联合打造业界领先的混合云解决方案，加快您上云的进程，提供真正意义上的一站式云解决方案，助力企业和服务提供商方便快捷地部署、运行和管理云应用，可为您带来和公有云一致的体验。该联合方案由支持英特尔®至强®处理器的华为新一代 FusionServer 服务器、华为 CloudEngine 交换机、以及为用户提供 360° 视角，对华为 Azure Stack 基础设施进行全方位管理和监控的华为 eSight 管理软件组成。</p>
+										<p>华为 Azure Stack 混合云解决方案提供全面的部署服务，简化的支持模式，您只需拨打一个服务支持号码，即有专业团队处理您的所有技术支持需求。</p>
+										<p class="clear"><a href="http://e.huawei.com/cn/solutions/business-needs/data-center/azure-stack/" target="_blank">了解更多<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
-							</section>
-							<section class="section">
-								<div class="row">
-									<div class="col-md-8 col-md-5-center">
-										<div class="content-box">
-											<h2>从 Azure 应用商店获取软件和服务</h2>
-											<p>通过 Azure Stack 联合服务，将 Azure 应用商店中的精选软件和服务引入 Azure Stack。</p>
-											<p class="clear"><a href="https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-marketplace-azure-items">从 Azure 应用商店中寻找适用于 Azure Stack 的软件<i class="icon icon-arrow-right"></i></a></p>
-										</div>
-									</div>
-									<div class="col-md-4 text-align">
-										<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/design-deploy-operate-solutions.png" alt="" />
-									</div>
 								</div>
 							</section>
-							<section class="section">
-								<div class="row">
-									<div class="col-md-8 col-md-5-center">
-										<div class="content-box">
-											<h2>合作伙伴：让云业务不断增长</h2>
-											<p>无论您是应用程序开发人员、系统集成商还是托管服务提供商，都可以借助 Azure Stack 触达新客户。</p>
-											<p class="clear"><a href="https://go.microsoft.com/fwlink/?LinkId=851757&clcid=0x409">通过此 Azure Stack 合作伙伴白皮书了解详细信息<i class="icon icon-arrow-right"></i></a></p>
-										</div>
-									</div>
-									<div class="col-md-4 text-align">
-										<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/operate-azure-services-datacenter.png" alt="" />
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="solution-section tab-control-container tab-control-container-slider" id="tabContent2-5">
-					<div class="container">
-						<div class="container">
-							<p><strong>* 以下链接基于在全球其他地区由微软运营的 Microsoft Azure，仅供由世纪互联运营的 Microsoft Azure 客户参考。</strong></p>
-							<br/>
 							<section class="section1">
 								<div class="row row-01">
 								<div class="col-md-4 text-align">
@@ -579,7 +632,7 @@
 									<div class="content-box">
 										<h2>Lenovo ThinkAgile SX for Microsoft Azure Stack</h2>
 										<p>ThinkAgile SX for Microsoft Azure Stack 支持在用户自己的数据中心启用 Azure 云服务，帮助加速数字化转型进程。这是一项专门构建的预集成统包式机架规模解决方案，使您能够将更多精力用于开发云服务和应用程序，而不是过多地管理您的基础架构。Lenovo ThinkAgile SX for Microsoft Azure Stack 将显著加速价值实现并降低整体成本。该解决方案基于 Lenovo 行业领先、高度可靠的数据中心服务器、网络基础架构和 Microsoft Azure Stack。Lenovo 提供单点联络，支持端到端的解决方案，从而客户在整个产品生命周期内都能轻松获取帮助。</p>
-										<p class="clear"><a href="https://azure.microsoft.com/en-us/overview/azure-stack/integrated-systems/lenovo-thinkagile-sx/">了解更多<i class="icon icon-arrow-right"></i></a></p>
+										<p class="clear"><a href="http://b2b.lenovo.com.cn/product/converged-system/Lenovo_ThinkAgile_SX_for_Microsoft_Azure_Stack" target="_blank">了解更多<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
 								</div>
@@ -594,7 +647,7 @@
 										<h2>Dell EMC Cloud for Microsoft Azure Stack</h2>
 										<p>Dell EMC Cloud for Microsoft Azure Stack 是一个混合云平台，用于在本地提供与Azure一致体验的基础架构和平台即服务 (IaaS 和PaaS)。企业可跨 Azure 和 Azure Stack 安全地访问、创建和共享应用服务，用于传统和基于云的应用程序。Dell EMC Cloud for Microsoft Azure Stack 采用行业一流的超融合基础设施、网络、备份、加密以及由 Microsoft 提供的应用程序开发工具。它提供企业级的性能、弹性和安全性，其中包含由 Dell EMC 专家提供的集成部署服务。Dell EMC 提供的单点支持可有效降低您的操作风险，灵活的消费模型也使其更易于使用。</p>
 										
-										<p class="clear"><a href="https://azure.microsoft.com/en-us/overview/azure-stack/integrated-systems/dell-emc/">了解更多<i class="icon icon-arrow-right"></i></a></p>
+										<p class="clear"><a href="https://www.dellemc.com/zh-cn/solutions/cloud/microsoft-azure-stack.htm" target="_blank">了解更多<i class="icon icon-arrow-right"></i></a></p>
 									</div>
 								</div>
 								</div>
@@ -608,7 +661,7 @@
 										<div class="content-box">
 											<h2>Azure Stack 适用的 Cisco 集成系统</h2>
 											<p>Azure Stack 适用的 Cisco 集成系统是一种混合云解决方案，旨在在数据中心中高效运行一致的 Azure 服务。Microsoft Azure Stack 适用的 Cisco 集成系统基于业界领先的 Cisco UCS，通过基于策略的管理、API 自动化以及硬件抽象，实现快速可扩展性，支持混合云工作负载。</p>
-											<p class="clear"><a href="https://azure.microsoft.com/en-us/overview/azure-stack/integrated-systems/cisco/">了解更多<i class="icon icon-arrow-right"></i></a></p>
+											<p class="clear"><a href="https://www.cisco.com/c/en/us/solutions/data-center/integrated-system-microsoft-azure-stack/index.html" target="_blank">了解更多</i></a></p>
 										</div>
 									</div>
 								</div>
@@ -628,6 +681,56 @@
 								</div>
 								</div>
 							</section> -->
+						</div>
+					</div>
+				</div>
+				<div class="solution-section tab-control-container tab-control-container-slider" id="tabContent2-4">
+					<div class="container">
+						<div class="container">
+							<!-- <p><strong>* 以下链接基于在全球其他地区由微软运营的 Microsoft Azure，仅供由世纪互联运营的 Microsoft Azure 客户参考。</strong></p>
+							<br/> -->
+							<section class="section1">
+								<div class="row">
+									<div class="col-md-8 col-md-5-center">
+										<div class="content-box">
+											<h2>联系技术和解决方案合作伙伴</h2>
+											<p>获得运行 Azure Stack 或创建在 Azure Stack 上运行的混合解决方案所需的帮助。</p>
+											<p class="clear"><a href="/overview/azure-stack/partner/">寻找技术或解决方案合作伙伴<i class="icon icon-arrow-right"></i></a></p>
+										</div>
+									</div>
+									<div class="col-md-4 text-align">
+										<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/write-azure-software.png" alt="" />
+									</div>
+								</div>
+							</section>
+							<section class="section">
+								<div class="row">
+									<div class="col-md-8 col-md-5-center">
+										<div class="content-box">
+											<h2>从 Azure 应用商店获取软件和服务</h2>
+											<p>通过 Azure Stack 联合服务，将 Azure 应用商店中的精选软件和服务引入 Azure Stack。</p>
+											<p class="clear"><a href="//docs.azure.cn/zh-cn/azure-stack/azure-stack-marketplace-azure-items" target="_blank">从 Azure 应用商店中寻找适用于 Azure Stack 的软件<i class="icon icon-arrow-right"></i></a></p>
+										</div>
+									</div>
+									<div class="col-md-4 text-align">
+										<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/design-deploy-operate-solutions.png" alt="" />
+									</div>
+								</div>
+							</section>
+							<section class="section">
+								<div class="row">
+									<div class="col-md-8 col-md-5-center">
+										<div class="content-box">
+											<h2>合作伙伴：让云业务不断增长</h2>
+											<p>无论您是应用程序开发人员、系统集成商还是托管服务提供商，都可以借助 Azure Stack 触达新客户。</p>
+											<p class="clear"><a href="https://resource.cdn.azure.cn/marketing-resource/media/extend-your-azure-business-opportunity-with-azure-stack.pdf" download="">通过此 Azure Stack 合作伙伴白皮书了解详细信息（英文版）<i class="icon icon-arrow-right"></i></a></p>
+										</div>
+									</div>
+									<div class="col-md-4 text-align">
+										<img class="img-responsive" src="//resource.cdn.azure.cn/marketing-resource/media/operate-azure-services-datacenter.png" alt="" />
+									</div>
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
