@@ -28,10 +28,43 @@
       </div>
       <nav class="nav auto-scroll loading" data-fullscreen="true" data-top="header">
         <ul class="accordian-menu" data-accordiandisabled="desktop" data-accordianinteraction="exclusive">
-          <li class="nav-index">
-            <a id="nav_homepage" href="https://www.azure.cn/" title="首页">
-              <span>首页</span>
+          <li class="nav-know-azure">
+            <a class="menu-title icon-arrow-down-sharp2" id="nav_know-azure" href="#" title="认识 Azure">
+              <span>认识 Azure</span>
             </a>
+            <ul class="sub-menu menu-child full-width auto-height" data-child=".level3-menu|.navigation-promotion">
+              <li>
+                <div class="level3-container">
+                  <dl class="level3-menu">
+                    <dt>
+                      <a id="nav_what-is-azure" href="https://www.azure.cn/home/features/what-is-azure/" 
+                         title="什么是 Azure ?">什么是 Azure ?</a>
+                    </dt>
+                    <dd>了解 Azure 服务基础知识</dd>
+                    <dt>
+                      <a id="nav_china-azure-vs-global-azure" href="https://www.microsoft.com/china/azure" 
+                         title="中国版 Azure (世纪互联运营) vs. 全球版 Azure" 
+                         target="_blank">中国版 Azure (世纪互联运营) vs. 全球版 Azure</a>
+                    </dt>
+                    <dd>哪种公有云最适合你?</dd>
+                    <dt>
+                      <a id="nav_azure-services" href="https://docs.microsoft.com/zh-cn/azure/china/china-get-started-service-availability" 
+                         title="Azure 可用服务" target="_blank">Azure 可用服务</a>
+                    </dt>
+                    <dd>中国版 Azure (世纪互联运营)和全球版 Azure 可用服务列表</dd>
+                    <dt>
+                      <a id="nav_get-started" href="https://school.azure.cn/category?filter=%7B%22curriculumDirectionId%22%3A%221%22%2C%22curriculumCategoryId%22%3A%220%22%2C%22courseCategoryId%22%3A%220%22%7D" 
+                         title="新手入门" target="_blank">新手入门</a>
+                    </dt>
+                    <dd>助你了解 Azure, 提高工作效率, 节省运营成本</dd>
+                    <dt>
+                      <a id="nav_azure-webinars" href="https://www.azure.cn/webinars/" title="Azure 直播课">Azure 直播课</a>
+                    </dt>
+                    <dd>观看直播演示, 参与专家问答</dd>
+                  </dl>
+                </div>
+              </li>
+            </ul>
           </li>
           <li class="nav-product">
             <a class="menu-title icon-arrow-down-sharp2" id="nav_service" href="#" title="产品">
@@ -39,11 +72,6 @@
             </a>
             <ul class="accordian-menu sub-menu tab-nav tab-content menu-child auto-height" data-event="mouseenter" data-child=".level3-menu|.navigation-promotion"
                 data-accordiandisabled="desktop">
-              <li class="">
-                <a id="nav_product_what-is-windows-azure" href="https://www.azure.cn/home/features/what-is-azure/" data-href="#service_tab11" title="认识Azure" data-toggle="link">认识 Azure</a>
-                <div class="menu-child tab-panel level3-container" id="service_tab11">
-                </div>
-              </li>
               <li class="active">
                 <a id="nav_product_compute" class="menu-title expand icon-arrow-down-sharp2" href="#service_tab1" title="计算" data-toggle="tab">计算</a>
                 <div class="menu-child tab-panel level3-container" id="service_tab1">
@@ -103,6 +131,10 @@
                       <a id="nav_product_network-traffic-manager" href="https://www.azure.cn/home/features/traffic-manager/" title="流量管理器">流量管理器</a>
                     </dt>
                     <dd>发送传入流量，以实现高性能和高可用性</dd>
+                    <dt>
+                      <a id="nav_product_ccs" href="https://www.azure.cn/home/features/ccs/" title="云连接服务">云连接服务</a>
+                    </dt>
+                    <dd>提供与 Azure 安全、稳定、可预期的专线连接</dd>
                     <dt>
                       <a id="nav_product_network-express-route" href="https://www.azure.cn/home/features/expressroute/" title="ExpressRoute">ExpressRoute</a>
                     </dt>
@@ -338,6 +370,10 @@
                       <a id="nav_product_manage-and-secure-scheduler" href="https://www.azure.cn/home/features/scheduler/" title="计划程序">计划程序</a>
                     </dt>
                     <dd>根据简单或复杂的定期计划运行作业</dd>
+                    <dt>
+                      <a id="nav_product_manage-and-secure-azure-monitor" href="https://www.azure.cn/home/features/monitor/" title="Azure Monitor">Azure Monitor</a>
+                    </dt>
+                    <dd>高精度、实时监控所有Azure资源的数据</dd>
                   </dl>
                 </div>
               </li>
@@ -565,6 +601,10 @@
                       <a id="nav_documentation_network-traffic-manager" href="https://docs.azure.cn/zh-cn/traffic-manager/" title="流量管理器">流量管理器</a>
                     </dt>
                     <dd>根据高性能和高可用性要求路由传入流量</dd>
+                    <dt>
+                      <a id="nav_documentation_ccs" href="https://docs.azure.cn/zh-cn/articles/cloud-connection-service/cloud-connection-service-quick-start" title="云连接服务">云连接服务</a>
+                    </dt>
+                    <dd>提供与 Azure 安全、稳定、可预期的专线连接</dd>
                     <dt>
                       <a id="nav_documentation_network-express-route" href="https://docs.azure.cn/zh-cn/expressroute/" title="ExpressRoute">ExpressRoute</a>
                     </dt>

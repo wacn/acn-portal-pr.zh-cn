@@ -34,6 +34,13 @@
         <global>true</global>
       </regions>
     </service>
+    <service>
+      <name>云连接服务</name>
+      <slug>cloud-connection</slug>
+      <regions>
+        <china-north>true</china-north>
+      </regions>
+    </service>
     <service has-inner-services="true">
       <name>ExpressRoute</name>
       <slug>expressroute</slug>
@@ -258,7 +265,7 @@
       </regions>
     </service>
   </category>
-  <category name="数据 + 分析">
+  <category name="分析">
     <service>
       <name>HDInsight</name>
       <slug>hdinsight</slug>
@@ -276,14 +283,14 @@
       </regions>
     </service>
     <service>
-      <name>Azure 分析服务</name>
+      <name>Azure Analysis Services</name>
       <slug>analysis-services</slug>
       <regions>
         <china-north>true</china-north>
       </regions>
     </service>
   </category>
-  <category name="AI 和认知服务">
+  <category name="AI">
     <service has-inner-services="true">
       <name>认知服务</name>
       <slug></slug>
@@ -437,6 +444,53 @@
       <regions>
         <global>true</global>
       </regions>
+    </service>
+    <service>
+      <name>Azure Monitor</name>
+      <slug>monitor</slug>
+      <regions>
+        <china-east>true</china-east>
+        <china-north>true</china-north>
+      </regions>
+      <inner-services>
+        <service>
+          <name>指标和警报</name>
+          <slug>monitor\alert</slug>
+          <regions>
+            <china-east>true</china-east>
+            <china-north>true</china-north>
+          </regions>
+        </service>
+        <service>
+          <name>活动日志和警报</name>
+          <slug>monitor\activity-log</slug>
+          <regions>
+            <global>true</global>
+          </regions>
+        </service>
+        <service>
+          <name>诊断日志</name>
+          <slug>monitor\diagnose-log</slug>
+          <regions>
+            <global>true</global>
+          </regions>
+        </service>
+        <service>
+          <name>自动扩展</name>
+          <slug>monitor\auto-scale</slug>
+          <regions>
+            <china-east>true</china-east>
+            <china-north>true</china-north>
+          </regions>
+        </service>
+        <service>
+          <name>操作组</name>
+          <slug>monitor\ops-group</slug>
+          <regions>
+            <global>true</global>
+          </regions>
+        </service>
+      </inner-services>
     </service>
     <service>
       <name>Azure 资源管理器</name>
