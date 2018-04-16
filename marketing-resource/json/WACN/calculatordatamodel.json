@@ -11252,7 +11252,7 @@
         "azure-monitor": {
             "Name": "Azure 监控器",
             "Types": [{
-                "Name": "Azure 监控器",
+                "Name": "度量值",
                 "Features": [{
                     "Name": "指标查询（免费包含 1,000,000 个标准 API 调用）",
                     "PricePeriod": "PricePeriodEnum.Monthly",
@@ -11268,8 +11268,11 @@
                         "MaxUnit": "5000",
                         "PriceUnit": "其他标准 API 调用（/1,000 个）"
                     }]
-                },
-                {
+                }]
+            },
+            {
+                "Name": "通知",
+                "Features": [{
                     "Name": "电子邮件（免费包含 1,000 封电子邮件）",
                     "PricePeriod": "PricePeriodEnum.Monthly",
                     "PriceUnit": "个",
