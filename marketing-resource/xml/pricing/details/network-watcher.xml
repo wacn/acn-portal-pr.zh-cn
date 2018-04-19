@@ -24,36 +24,39 @@
 			
 			<div class="pricing-page-section">
                 <h2>定价详细信息</h2>
+                <div class="tags-date">
+                    <div class="ms-date">*以下价格均为含税价格。</div><br />
+                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                </div>
 				<table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>功能</strong></th>
-                            <th align="left"><strong>月服务配额</strong></th>
-                            <th align="left"><strong>超额费用</strong></th>
+                            <th align="left"><strong>内附免费单位数</strong></th>
+                            <th align="left"><strong>价格</strong></th>
                         </tr>
                         
-                        <!-- <tr>
-                            <td>Continuous Connectivity Check</td>
-                            <td>?</td>
-                            <td>￥20.35/1 Connection</td>
-                        </tr> -->
                         <tr>
-                            <td>引入的网络日志</td>
-                            <td>5 GB</td>
+                            <td>收集的网络日志<sup> 1</sup></td>
+                            <td>每月 5GB</td>
                             <td>￥5.09/GB</td>
                         </tr>
                         <tr>
-                            <td>网络诊断工具</td>
-                            <td>1,000 次检查</td>
+                            <td>网络诊断工具<sup> 2</sup></td>
+                            <td>1,000 次检查/月</td>
                             <td>￥10.00/1,000 次检查</td>
+                        </tr>
+                        <tr>
+                            <td>连接监控</td>
+                            <td>——</td>
+                            <td>每月每个连接 ￥30.52</td>
                         </tr>
                     </table>
             </div>
-			
-            <div class="pricing-page-section">
-                <p>网络日志存储在存储帐户内，并且具有可设置为 1 至 365 天的保留策略。如果未设置保留策略，日志将一直保留。将分别对存储、Log Analytics 和事件中心收取相应的费用。</p>
-                <p>对网络观察程序诊断工具和拓扑功能的收费基于 Azure 门户、PowerShell、CLI 或 Rest 发起的网络诊断检查次数。</p>
+            <div class="tags-date">
+                <div class="ms-date"><sup>1</sup> 网络日志存储在存储帐户内，并且具有可设置为 1 至 365 天的保留策略。如果未设置保留策略，日志将一直保留。将分别对存储和事件中心收取相应的费用。</div><br />
+                <div class="ms-date"><sup>2</sup>对网络观察程序诊断工具和拓扑功能的收费基于 Azure 门户、PowerShell、CLI 或 Rest 发起的网络诊断检查次数。</div>
             </div>
-
+			
             <!-- END: TAB-CONTROL -->
 			<div class="pricing-page-section">
                 <h2>上市地区</h2>

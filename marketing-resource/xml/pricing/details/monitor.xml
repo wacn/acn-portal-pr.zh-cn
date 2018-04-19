@@ -36,7 +36,9 @@
                     <!-- BEGIN: Table1-Content-->
 					
 					<h2>定价详细信息</h2>
-					<p>2018 年 6 月 1 日之前的指标查询免费。指标查询的费用将按照下面的定价计划于 2018 年 6 月 1 日开始生效。</p>
+                    <h3>度量值</h3>
+                    <p>指标表示一系列时间序列。按监测到的时间序列数和进行的 API 调用次数计费。</p>
+					<p>2018 年 8 月 1 日之前的指标查询免费。指标查询的费用将按照下面的定价计划于 2018 年 8 月 1 日开始生效。</p>
 				    <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div>
                     </div>
@@ -44,16 +46,29 @@
                         <thead>
                             <tr>
                             <th align="left"><strong>功能</strong></th>
-                            <th align="left"><strong>月服务配额</strong></th>
-                            <th align="left"><strong>超额费用</strong></th>
+                            <th align="left"><strong>内附免费单位数</strong></th>
+                            <th align="left"><strong>价格</strong></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="left_align">指标查询</td>
                                 <td class="left_align">1,000,000 个标准 API 调用</td>
-                                <td class="left_align">¥3.0528/1,000 个标准 API 调用</td>
+                                <td class="left_align">¥0.101/1,000 个标准 API 调用</td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <h3>通知</h3>
+                    <p>根据你选择发送的通知类型和数量来计费。</p>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>功能</strong></th>
+                            <th align="left"><strong>内附免费单位数</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td class="left_align">电子邮件</td>                                
                                 <td class="left_align">1,000</td>
@@ -61,12 +76,12 @@
                             </tr>
                             <!-- <tr>
                                 <td class="left_align">推送通知（面向 Azure 应用）</td>
-								<td class="left_align">1,000</td>
+                                <td class="left_align">1,000</td>
                                 <td class="left_align">¥20.3/100,000</td>
                             </tr> -->
-							<tr>
+                            <tr>
                                 <td class="left_align">Webhook</td>
-								<td class="left_align">100,000</td>
+                                <td class="left_align">100,000</td>
                                 <td class="left_align">¥6.1/1,000,000</td>
                             </tr>
                             <!-- <tr>
@@ -76,16 +91,14 @@
                             </tr>
                             <tr>
                                 <td class="left_align">短信（国家代码 +1）</td>
-								<td class="left_align">¥0.065635/条</td>
+                                <td class="left_align">¥0.065635/条</td>
                                 <td class="left_align"></td>
                             </tr> -->
                         </tbody>
                     </table>
 					<p>根据标准 API 调用数对指标查询进行收费。标准 API 调用返回 1,440 个数据点（1,440 也是每天每个指标可存储的数据点的总数）。如果 API 调用返回超过 1,440 个数据点，会将其算作多个标准 API 调用。如果 API 调用返回少于 1,440 个数据点，会将其算作不到一个 API 调用。标准 API 调用数会每天进行计算，计算方法是将每天使用的数据点总数除以 1,440。</p>
                     <ul>
-                        <li>提供 90 天内的活动日志，无需任何费用。若要保留 90 天以上的活动日志数据，可将活动日志数据路由到存储帐户或事件中心。会分别对存储和事件中心收取相应的费用。API 调用请求活动日志数据不会产生任何费用。</li>
-                        <li>提供 30 天内的指标，无需任何费用。若要保留 30 天以上的指标数据，可将指标数据路由到存储帐户或事件中心。会分别对存储和事件中心收取相应的费用。此外，会针对路由数据所需的相应 API 调用对指标查询进行收费。</li>
-                        <li>每个订阅均具有 100 个指标警报、100 个活动日志警报和 10 个操作组的限制。若要增加限额，请联系 Azure 支持。</li>
+                        <li>提供 90 天内的指标，无需任何费用。若要保留 90 天以上的指标数据，可将指标数据路由到存储帐户或事件中心。会分别对存储和事件中心收取相应的费用。此外，会针对路由数据所需的相应 API 调用对指标查询进行收费。</li>
                         <li>可将诊断日志路由至存储帐户或事件中心。将分别对存储和事件中心收取相应的费用。</li>
                     </ul>
                     <!-- END: Table1-Content-->
