@@ -104,12 +104,68 @@
                 </ul> -->
                 <h1>产品更新</h1>
                 <a href="#" id="new_control_bexpend" class="folded-link"><em>全部展开</em></a>
+                <h3>2018年5月</h3>
+                <ul>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-may_sql-database-hybrid-benefit"><span>5/4</span>Azure SQL 数据库发布新的购买模型（预览） <i class="icon icon-update"></i></a>
+							<section>
+								<p>我们很高兴地宣布 Azure SQL 数据库的弹性池和单个数据库发布新的购买模型 —— 基于 vCore 的购买模型（预览）。 新的模型与现有的基于 DTU 的模型不同， 旨在为您提供灵活性、控制性、透明性以及堪比本地工作负载的更简单方法。它允许您根据工作负载需求自主缩放计算、存储和 IO。 使用针对 SQL Server 的 Azure 混合优势，vCore 模型还可以节省多达 30％ 的费用。</p>
+								<p>有关定价的详细信息，请访问<a href="/pricing/details/sql-database/" id="service-fabric_year_2018-may-4_pricing-sql-database">SQL 数据库价格详情</a>页面；要了解更多关于 Azure 混合优势的信息，请访问<a href="/pricing/hybrid-benefit/" id="service-fabric_year_2018-may-4_hybrid-benefit">Azure 混合权益</a>页面；要了解有关该服务以及如何部署该功能的更多信息，请访问<a href="/home/features/sql-database" id="service-fabric_year_2018-may-4_sql-database">SQL 数据库服务功能</a>页面和<a href="//docs.azure.cn/zh-cn/sql-database/sql-database-service-tiers#vcore-based-purchasing-model-preview" id="service-fabric_year_2018-may-4_documentation-sql-database">SQL 数据库文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-may_sql-database"><span>5/3</span>Azure SQL 数据库的长期保留存储预览版发布 <i class="icon icon-update"></i></a>
+							<section>
+								<p>使用长期备份保留（Long Term Retention）功能，可将 SQL 数据库备份存储在 Azure 恢复服务保管库中长达 10 年。 每个保管库最多可存储 1000个数据库。然后可选择保管库中的任何备份，并将其还原为新数据库。通过长期备份保留，可将 SQL 数据库服务器与 Azure 恢复服务保管库相关联。</p>
+								<ul>
+									<li>必须在创建 SQL Server 的 Azure 订阅中，在相同地理区域和资源组内创建保管库。</li>
+									<li>为任何数据库配置保留策略。 使用该策略时，会将每周完整数据库备份复制到恢复服务保管库，并在指定的保留期（至多 10 年）内保留此数据。</li>
+									<li>可从任意这些备份中将数据库还原到订阅内任意服务器中的新数据库。 Azure 存储从现有备份创建副本，且副本不会对现有数据库的性能造成影响。</li>
+								</ul>
+								<p>有关定价的详细信息，请访问<a href="/pricing/details/sql-database/" id="service-fabric_year_2018-may_pricing-sql-database">SQL 数据库价格详情</a>页面。要了解有关该服务以及如何部署该功能的更多信息，请访问<a href="/home/features/sql-database" id="service-fabric_year_2018-may_sql-database">SQL 数据库服务功能</a>页面和<a href="//docs.azure.cn/sql-database/sql-database-long-term-retention/" id="service-fabric_year_2018-may_documentation-sql-database">SQL 数据库文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+					
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-may_service-bus"><span>5/2</span>Azure 服务总线按小时计费 <i class="icon icon-update"></i></a>
+							<section>
+								<p>Azure 服务总线(Azure Service Bus)可以将您客户的现有本地系统连接到云解决方案，将消息分发到多个独立后端系统，并简化与可靠云消息的企业集成。</p>
+								<p>自 2018 年 5 月 2 日起，服务总线标准基本单位按小时计费，取代当前的按日和按小时计费，以便与其他 Azure 服务更加一致。客户仅需为使用服务总线的小时数付费，而非为整天或整月付费。所有服务总线客户都将迁移到新的资源 GUID。此更改对定价没有影响。</p>
+								<p>要了解此服务及定价的更多信息，请访问<a href="/home/features/service-bus/" id="service-fabric_year_2018-may_service-bus">服务总线服务功能</a>页面和<a href="/pricing/details/service-bus/" id="service-fabric_year_2018-may_pricing-service-bus">服务总线价格详情</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-may_api-management"><span>5/2</span>Azure API 管理正式发布</a>
+							<section>
+								<p>我们高兴地宣布，Azure API 管理（API Management）现已在中国正式发布。Azure API 管理是用于将 API 发布给外部和内部客户的成套全生命周期解决方案。客户使用 API 管理可以为在任何位置托管的现有后端服务快速创建一致的现代化 API 网关，帮助客户防止滥用和过度使用，并深入了解 API 的使用情况和运行状况。</p>
+								<p>使用 Azure API 管理的主要场景包括：</p>
+								<ul>
+									<li>通过 API 的内外部使用，帮助企业实现数字化转型、提高效率和敏捷性；</li>
+									<li>将企业核心服务或数据开放给业务合作伙伴及公众，扩大市场份额；</li>
+									<li>安全地将关键系统的功能开放给移动和 web 应用，支持新的用户体验，吸引更多客户。</li>
+								</ul>
+								<p>API 不再是一项技术资产，而是新商业模式、数字战略和生态系统的驱动者。要了解此服务及定价的更多信息，请访问<a href="/home/features/api-management" id="service-fabric_year_2018-may_api-management">API 管理服务功能</a>页面和<a href="/pricing/details/api-management/" id="service-fabric_year_2018-may_pricing-api-management">API 管理价格详情</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                </ul>
                 <h3>2018年4月</h3>
                 <ul>
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2018-april_iot-hub"><span>4/27</span>Azure IoT 中心的标准版降价通知 <i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2018-april_iot-hub"><span>4/27</span>Azure IoT 中心的标准版降价通知</a>
 							<section>
 
 								<p>Azure IoT 中心（Azure IoT Hub）有四个版本：免费版、S1 版、S2 版和 S3 版。</p>
@@ -124,7 +180,7 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2018-april_monitor"><span>4/4</span>Azure 监控器正式发布 <i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2018-april_monitor"><span>4/4</span>Azure 监控器正式发布</a>
 							<section>
 								<p>我们非常高兴地宣布， Azure 监控器现已在中国正式发布。</p>
 								<p>借助Azure 监控器，您可以使用门户内的监控指标和日志，通过 API 近乎实时地了解资源的状态和性能。您可以利用Azure 监控器配置警报规则，从而获取通知或对影响资源的问题采取自动化操作。除了通过 API 和数据导出选项启用多种产品集成之外，它还可以在门户内实现分析、故障排除和统一的仪表板体验。通过Azure 监控器，您可以：</p>
@@ -141,7 +197,7 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2018-April_azure-stack"><span>4/3</span>Azure Stack 正式商用 <i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2018-April_azure-stack"><span>4/3</span>Azure Stack 正式商用</a>
 							<section>
 								<p>Azure Stack 是微软智能云 Azure 在本地数据中心的延伸，能够将 Azure 云计算的灵活性和快节奏的技术创新带到客户本地环境，在满足混合云部署的多样化需求的同时，推进企业业务的数字化转型。在中国，Azure Stack 将助力客户打造基于由世纪互联运营的 Microsoft Azure 的混合云解决方案。即日起，中国用户可通过集成系统合作伙伴联想、华为、Dell EMC 购买和部署配备 Azure Stack 混合云解决方案的硬件集成系统。更多详情请访问<a href="/overview/azure-stack/" id="service-fabric_year_2018-April_azure-stack-overview">Azure Stack</a>页面和<a href="//docs.azure.cn/zh-cn/azure-stack/" id="service-fabric_year_2018-April_azure-stack-docunment">Azure Stack 技术文档</a>页面。</p>
 							</section>

@@ -9,7 +9,7 @@
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//resource.cdn.azure.cn/marketing-resource/css/images/api_management@2x.png" />
-                        <h2>API 管理<span style="color: #4d4d4d;font-family: '微软雅黑',regular;font-size: 20px;top: -6px;position: relative;display: inline;">（预览）</span><span>API Management</span></h2>
+                        <h2>API 管理<span>API Management</span></h2>
                         <h4>在几分钟内发布、管理、保证安全并分析你的 API</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_api_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
                         <a href="/pricing/pia/" id="home_api_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
@@ -47,10 +47,10 @@
                     </tr>
                     <tr>
                         <td>价格</td>
-                        <td>￥ 0.2511/ 小时 </br>（约￥ 186.8184 /月）</td>
-                        <td>￥ 0.7693/ 小时 </br>（约￥ 572.3592 /月）</td>
-                        <td>￥ 3.5897/ 小时 </br>（约￥ 2,670.7368 /月）</td>
-                        <td>￥ 14.6115/ 小时 </br>（约￥ 10,870.9560 /月）</td>
+                        <td>￥ 0.5022/ 小时 </br>（约￥ 373.6368 /月）</td>
+                        <td>￥ 1.5386/ 小时 </br>（约￥ 1,144.7184 /月）</td>
+                        <td>￥ 7.1794/ 小时 </br>（约￥ 5,341.4736 /月）</td>
+                        <td>￥ 29.2229/ 小时 </br>（约￥ 21,741.8376 /月）</td>
                     </tr>
                     <!-- <tr>
                         <td>原价格</td>
@@ -86,12 +86,13 @@
                         <td>4</td>
                         <td>每个区域 10 个（调用支持添加更多）</td>
                     </tr>
-                   <!--  <tr>
+                   <tr>
                         <td>SLA</td>
                         <td>否</td>
                         <td>99.9%</td>
-                        <td>99.95%</td>
-                    </tr> -->
+                        <td>99.9%</td>
+                        <td>99.95% <sup>1</sup></td>
+                    </tr>
                     <tr>
                         <td>Azure Active Directory 集成</td>
                         <td>是</td>
@@ -114,7 +115,7 @@
                         <td>是</td>
                     </tr>
                     <tr>
-                        <td>预计最大吞吐量 <sup>1</sup>（每单位）</td>
+                        <td>预计最大吞吐量 <sup>2</sup>（每单位）</td>
                         <td>500 个请求/秒</td>
                         <td>1,000 个请求/秒</td>
                         <td>2,500 个请求/秒</td>
@@ -127,7 +128,8 @@
                         <td>收取标准请见<a href="/pricing/details/data-transfer/"> 数据传输价格详情 </a>页面</td>
                     </tr> -->
                 </table>
-                <p><sup>1 </sup>实际吞吐量受许多因素影响，包括并发客户端连接的数量和速率、配置策略的种类和数量、有效负载大小以及后端 API 性能。通过对 1000 个并发持久客户端安全 HTTP 连接、最小有效负载大小、未配置策略以及低延迟后端 API 进行测试获得表中的数字。</p>                   
+                <p><sup>1 </sup>要求在两个或更多区域至少部署一个单位。</p> 
+                <p><sup>2 </sup>实际吞吐量受许多因素影响，包括并发客户端连接的数量和速率、配置策略的种类和数量、有效负载大小以及后端 API 性能。通过对 1000 个并发持久客户端安全 HTTP 连接、最小有效负载大小、未配置策略以及低延迟后端 API 进行测试获得表中的数字。</p>                   
             </div>
 
 
@@ -186,7 +188,7 @@
             <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="cognitive-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
-                 <p>API 管理功能预览期间，不提供服务级别协议。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/legal/sla/" id="pricing_api-management_sla">服务级别协议</a>页。</p>
+                 <p>我们保证至少在 99.9% 的时间内，标准层中运行的 API 管理服务实例将响应请求以执行操作。我们保证至少在 99.95% 的时间内，高级层中运行的跨两个或更多区域部署的 API 管理服务实例将响应请求以执行操作。未向开发人员层 API 管理服务提供服务级别协议。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/api-management/" id="pricing_api-management_sla">服务级别协议</a>页。</p>
             </div>
                 <!--BEGIN: Support and service code chunk-->
                 <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
