@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18564" parentID="18554" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="10" createDate="2013-06-04T09:19:27" updateDate="2014-08-18T11:12:24" nodeName="Twilio Voice and SMS Service" urlName="twilio-voice-and-sms-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18554,18564" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/java" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何通过 Java 使用 Twilio 实现语音和短信功能</h1>
+<p>本指南演示如何使用 Windows Azure 上的 Twilio API 服务执行常见编程任务。介绍的方案包括发起电话呼叫和发送短信服务 (SMS) 消息。有关 Twilio 以及在应用程序中使用语音和 SMS 的详细信息，请参阅<a href="#NextSteps">后续步骤</a>部分。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#WhatIs">什么是 Twilio？</a></li>
+<li><a href="#Pricing">Twilio 定价</a></li>
+<li><a href="#Concepts">概念</a></li>
+<li><a href="#CreateAccount">创建 Twilio 帐户</a></li>
+<li><a href="#VerifyPhoneNumbers">验证电话号码</a></li>
+<li><a href="#create_app">创建 Java 应用程序</a></li>
+<li><a href="#configure_app">将应用程序配置为使用 Twilio 库</a></li>
+<li><a href="#howto_make_call">如何：发起传出呼叫</a></li>
+<li><a href="#howto_send_sms">如何：发送 SMS 消息</a></li>
+<li><a href="#howto_provide_twiml_responses">如何：从您自己的网站提供 TwiML 响应</a></li>
+<li><a href="#AdditionalServices">如何：使用其他 Twilio 服务</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<h2><a id="WhatIs"></a>什么是 Twilio？</h2>
+<p>Twilio 是一个电话 Web 服务 API，让您可以使用现有 Web 语言和技能构建语音和 SMS 应用程序。Twilio 是第三方服务（不是 Windows Azure 功能和 Microsoft 产品）。</p>
+<p>利用 <strong>Twilio 语音</strong>，您的应用程序可以发起和接收电话呼叫。利用 <strong>Twilio SMS</strong>，您的应用程序可以发起和接收 SMS 消息。利用 <strong>Twilio 客户端</strong>，您的应用程序可以使用现有 Internet 连接（包括移动连接）启用语音通信。</p>
+<h2><a id="Pricing"></a>Twilio 定价和特别优惠</h2>
+<p><a href="http://www.twilio.com/pricing">Twilio 定价</a>中提供了有关 Twilio 定价的信息。Windows Azure 客户可获得以下<a href="http://ahoy.twilio.com/azure">特别优惠</a>：免费赠送 1000 条信息或 1000 分钟接入通话时间。若要注册此优惠或获得更多信息，请访问 <a href="http://ahoy.twilio.com/azure">http://ahoy.twilio.com/azure</a>。</p>
+<h2><a id="Concepts"></a>概念</h2>
+<p>Twilio API 是为应用程序提供语音和 SMS 功能的 RESTful API。提供了多种语言版本的客户端库；若要查看列表，请参阅 <a href="https://www.twilio.com/docs/libraries">Twilio API 库</a>。</p>
+<p>Twilio API 的关键方面是 Twilio 谓词和 Twilio 标记语言 (TwiML)。</p>
+<h3 id="Verbs">Twilio 谓词</h3>
+<p>API 可利用 Twilio 谓词；例如，<strong>&lt;Say&gt;</strong> 谓词指示 Twilio 以有声方式在呼叫中传送消息。</p>
+<p>下面是 Twilio 谓词的列表。</p>
+<ul>
+<li><strong>&lt;Dial&gt;</strong>：将呼叫者连接到其他电话。</li>
+<li><strong>&lt;Gather&gt;</strong>：收集在电话键盘上输入的数字。</li>
+<li><strong>&lt;Hangup&gt;</strong>：结束呼叫。</li>
+<li><strong>&lt;Play&gt;</strong>：播放音频文件。</li>
+<li><strong>&lt;Pause&gt;</strong>：静默地等待指定秒数。</li>
+<li><strong>&lt;Record&gt;</strong>：录制呼叫者的声音并返回包含该录音的文件的 URL。</li>
+<li><strong>&lt;Redirect&gt;</strong>：将对呼叫或 SMS 的控制转交给不同 URL 上的 TwiML。</li>
+<li><strong>&lt;Reject&gt;</strong>：拒绝呼叫您的 Twilio 号码的传入呼叫而不会对您计费</li>
+<li><strong>&lt;Say&gt;</strong>：将文本转换为在呼叫中生成的语音。</li>
+<li><strong>&lt;Sms&gt;</strong>：发送 SMS 消息。</li>
+</ul>
+<h3><a id="TwiML"></a>TwiML</h3>
+<p>TwiML 是一组基于 XML 的指令，这些指令以用于指示 Twilio 如何处理呼叫或 SMS 的 Twilio 谓词为基础。</p>
+<p>例如，以下 TwiML 会将文字 <strong>Hello World</strong> 转换为语音。</p>
+<pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;Response&gt;
+   &lt;Say&gt;Hello World&lt;/Say&gt;
+&lt;/Response&gt;</pre>
+<p>当应用程序调用 Twilio API 时，API 参数的之一便是返回 TwiML 响应的 URL。出于开发目的，您可以使用 Twilio 提供的 URL 来提供您的应用程序使用的 TwiML 响应。您还可以承载自己的 URL 来生成 TwiML 响应，另一个选择是使用 <strong>TwiMLResponse</strong> 对象。</p>
+<p>有关 Twilio 谓词、这些谓词的属性以及 TwiML 的详细信息，请参阅 <a href="http://www.twilio.com/docs/api/twiml">TwiML</a>。有关 Twilio API 的其他信息，请参阅 <a href="http://www.twilio.com/api">Twilio API</a>。</p>
+<h2><a id="CreateAccount"></a>创建 Twilio 帐户</h2>
+<p>准备好获得 Twilio 帐户时，请在<a href="https://www.twilio.com/try-twilio">试用 Twilio</a> 中注册。您可以先使用免费帐户，以后再升级帐户。</p>
+<p>注册 Twilio 帐户时，您将收到帐户 ID 和身份验证令牌。发起 Twilio API 呼叫时需要这两项信息。为了防止对您的帐户进行未经授权的访问，请保护好身份验证令牌。您的帐户 ID 和身份验证令牌可分别在 <a href="https://www.twilio.com/user/account">Twilio 帐户页</a>上标记为 <strong>ACCOUNT SID</strong> 和 <strong>AUTH TOKEN</strong> 的字段中查看。</p>
+<h2><a id="VerifyPhoneNumbers"></a>验证电话号码</h2>
+<p>需要向 Twilio 为您的帐户验证各个电话号码。例如，如果要发起呼出电话呼叫，则必须向 Twilio 验证电话号码是否为拨出呼叫 ID。同样，如果要让某个电话号码接收 SMS 消息，则必须向 Twilio 验证接收电话号码。有关如何验证电话号码的信息，请参阅<a href="https://www.twilio.com/user/account/phone-numbers/verified#">管理号码</a>。下面一些代码依赖于需要向 Twilio 验证的电话号码。</p>
+<p>作为对应用程序使用现有号码的替代方法，您可以购买 Twilio 电话号码。有关购买 Twilio 电话号码的信息，请参阅 <a href="https://www.twilio.com/help/faq/phone-numbers">Twilio 电话号码帮助</a>。</p>
+<h2 id="create_app">创建 Java 应用程序</h2>
+<ol>
+<li>获取 Twilio JAR 并将其添加到 Java 生成路径和 WAR 部署程序集。在 <a href="https://github.com/twilio/twilio-java">https://github.com/twilio/twilio-java</a> 上，您可以下载 GitHub 源并创建自己的 JAR，或者下载预建的 JAR（带有或不带依赖项）。</li>
+<li>确保 JDK 的 <strong>cacerts</strong> 密钥库包含带有 MD5 指纹 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4（序列号为 35:DE:F4:CF，SHA1 指纹为 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A）的 Equifax 安全证书颁发机构证书。这是 <a href="https://api.twilio.com">https://api.twilio.com</a> 服务的证书颁发机构 (CA) 证书，在使用 Twilio API 时调用。有关确保 JDK 的 <strong>cacerts</strong> 密钥库的信息，请参阅<a href="/zh-cn/develop/java/common-tasks/add-a-certificate-to-ca-store">将证书添加到 Java CA 证书存储</a>。</li>
+</ol>
+<p><a href="/zh-cn/develop/java/how-to-guides/twilio-phone-call">如何在 Windows Azure 上的 Java 应用程序中使用 Twilio 发起呼叫</a>中提供了使用 Twilio client library for Java 的详细说明。</p>
+<h2><a id="configure_app"></a>将应用程序配置为使用 Twilio 库</h2>
+<p>在代码中，您可以在要在应用程序中使用的 Twilio 程序包或类的源文件的顶部添加 <strong>import</strong> 语句。</p>
+<p>对于 Java 源文件：</p>
+<pre class="prettyprint">import com.twilio.*;
+import com.twilio.sdk.*;
+import com.twilio.sdk.resource.factory.*;
+import com.twilio.sdk.resource.instance.*;</pre>
+<p>对于 Java Server Page (JSP) 源文件：</p>
+<pre class="prettyprint">import="com.twilio.*"
+import="com.twilio.sdk.*"
+import="com.twilio.sdk.resource.factory.*"
+import="com.twilio.sdk.resource.instance.*"</pre>
+<p>根据要使用的 Twilio 程序包或类，您的 <strong>import</strong> 语句可能有差别。</p>
+<h2><a id="howto_make_call"></a>如何：发起传出呼叫</h2>
+<p>以下代码演示了如何使用 <strong>CallFactory</strong> 类发起传出呼叫。此代码还使用 Twilio 提供的网站返回 Twilio 标记语言 (TwiML) 响应。用您的值替换“From”（呼叫者）和“To”（被叫者）电话号码，并确保您在运行代码前验证了您的 Twilio 帐户的“From”（呼叫者）电话号码。</p>
+<pre class="prettyprint">// Use your account SID and authentication token instead
+// of the placeholders shown here.
+String accountSID = "your_twilio_account";
+String authToken = "your_twilio_authentication_token";
+
+// Create an instance of the Twilio client.
+TwilioRestClient client;
+client = new TwilioRestClient(accountSID, authToken);
+
+// Retrieve the account, used later to create an instance of the CallFactory.
+Account account = client.getAccount();
+
+// Use the Twilio-provided site for the TwiML response.
+String Url="http://twimlets.com/message";
+Url = Url + "?Message%5B0%5D=Hello%20World";
+
+// Place the call From, To and URL values into a hash map. 
+HashMap&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();
+params.put("From", "NNNNNNNNNN"); // Use your own value for the second parameter.
+params.put("To", "NNNNNNNNNN");   // Use your own value for the second parameter.
+params.put("Url", Url);
+
+// Create an instance of the CallFactory class.
+CallFactory callFactory = account.getCallFactory();
+
+// Make the call.
+Call call = callFactory.create(params);</pre>
+<p>有关传入到 <strong>CallFactory.create</strong> 方法中的参数的详细信息，请参阅 <a href="http://www.twilio.com/docs/api/rest/making-calls">http://www.twilio.com/docs/api/rest/making-calls</a>。</p>
+<p>如前所述，此代码使用 Twilio 提供的网站返回 TwiML 响应。您可以改用自己的网站来提供 TwiML 响应；有关详细信息，请参阅<a href="#howto_provide_twiml_responses">如何在 Windows Azure 上的 Java 应用程序中提供 TwiML 响应</a>。</p>
+<h2><a id="howto_send_sms"></a>如何：发送 SMS 消息</h2>
+<p>以下代码演示了如何使用 <strong>SmsFactory</strong> 类发送 SMS 消息。“From”（呼出者）号码 <strong>4155992671</strong> 由 Twilio 提供，供试用帐户发送 SMS 消息。在运行代码前，必须为您的 Twilio 帐户验证“To”（被叫者）号码。</p>
+<pre class="prettyprint">// Use your account SID and authentication token instead
+// of the placeholders shown here.
+String accountSID = "your_twilio_account";
+String authToken = "your_twilio_authentication_token";
+
+// Create an instance of the Twilio client.
+TwilioRestClient client;
+client = new TwilioRestClient(accountSID, authToken);
+
+// Retrieve the account, used later to create an instance of the SmsFactory.
+Account account = client.getAccount();
+
+// Send an SMS message.
+// Place the call From, To and Body values into a hash map. 
+HashMap&lt;String, String&gt; smsParams = new HashMap&lt;String, String&gt;();
+smsParams.put("From", "4155992671"); // The second parameter is a phone number provided
+                                     // by Twilio for trial accounts.
+smsParams.put("To", "NNNNNNNNNN");   // Use your own value for the second parameter.
+smsParams.put("Body", "This is my SMS message.");
+
+// Create an instance of the SmsFactory class.
+SmsFactory smsFactory = account.getSmsFactory();
+
+// Send the message.
+Sms sms = smsFactory.create(smsParams);</pre>
+<p>有关传入 <strong>SmsFactory.create</strong> 方法的参数的详细信息，请参阅 <a href="http://www.twilio.com/docs/api/rest/sending-sms">http://www.twilio.com/docs/api/rest/sending-sms</a>。</p>
+<h2><a id="howto_provide_twiml_responses"></a>如何：从您自己的网站提供 TwiML 响应</h2>
+<p>当您的应用程序启动对 Twilio API 的调用时（例如通过 <strong>CallFactory.create</strong> 方法），Twilio 会将您的请求发送到应该返回 TwiML 响应的 URL。上面的示例使用 Twilio 提供的 URL <a href="http://twimlets.com/message">http://twimlets.com/message</a>。（虽然 TwiML 专供 Web 服务使用，但您可以在浏览器中查看 TwiML。例如，单击 <a href="http://twimlets.com/message">http://twimlets.com/message</a> 可查看空的 <strong>&lt;Response&gt;</strong> 元素；此外，单击 <a href="http://twimlets.com/message?Message%5B0%5D=Hello%20World">http://twimlets.com/message?Message%5B0%5D=Hello%20World</a> 可查看包含 <strong>&lt;Say&gt;</strong> 元素的 <strong>&lt;Response&gt;</strong> 元素。）</p>
+<p>您可以创建自己的返回 HTTP 响应的 URL 网站，而不用依赖 Twilio 提供的 URL。您可以用任何语言创建返回 HTTP 响应的网站；本主题假定您将在 JSP 页面中承载 URL。</p>
+<p>以下 JSP 页面将生成在呼叫中念出 <strong>Hello World</strong> 的 TwiML 响应。</p>
+<pre class="prettyprint">&lt;%@ page contentType="text/xml" %&gt;
+&lt;Response&gt; 
+    &lt;Say&gt;Hello World&lt;/Say&gt;
+&lt;/Response&gt;</pre>
+<p>以下 JSP 页面将生成一个 TwiML 响应，念出一些文字，中间停顿几次，然后念出有关 Twilio API 版本和 Windows Azure 角色名称的信息。</p>
+<pre class="prettyprint">&lt;%@ page contentType="text/xml" %&gt;
+&lt;Response&gt; 
+    &lt;Say&gt;Hello from Windows Azure&lt;/Say&gt;
+    &lt;Pause&gt;&lt;/Pause&gt;
+    &lt;Say&gt;The Twilio API version is &lt;%= request.getParameter("ApiVersion") %&gt;.&lt;/Say&gt;
+    &lt;Say&gt;The Windows Azure role name is &lt;%= System.getenv("RoleName") %&gt;.&lt;/Say&gt;
+    &lt;Pause&gt;&lt;/Pause&gt;
+    &lt;Say&gt;Good bye.&lt;/Say&gt;
+&lt;/Response&gt;</pre>
+<p><strong>ApiVersion</strong> 参数以 Twilio 语音请求（非 SMS 请求）的形式提供。若要查看 Twilio 语音和 SMS 请求的可用请求参数，请分别参阅 <a href="https://www.twilio.com/docs/api/twiml/twilio_request">https://www.twilio.com/docs/api/twiml/twilio_request</a> 和 <a href="https://www.twilio.com/docs/api/twiml/sms/twilio_request">https://www.twilio.com/docs/api/twiml/sms/twilio_request</a>。<strong>RoleName</strong> 环境变量作为 Windows Azure 部署的一部分提供。（如果要添加自定义环境变量以便能够从 <strong>System.getenv</strong> 中选取它们，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh690945.aspx">各种角色配置设置</a>网页上的环境变量部分。）</p>
+<p>将 JSP 页面设置为提供 TwiML 响应后，请使用 JSP 页面的 URL 作为传入到 <strong>CallFactory.create</strong> 方法中的 URL。例如，如果将名为 MyTwiML 的 Web 应用程序部署到 Windows Azure 托管服务，则 JSP 页面的名称将为 mytwiml.jsp，并且可将 URL 传递到 <strong>CallFactory.create</strong>，如下所示：</p>
+<pre class="prettyprint">// Place the call From, To and URL values into a hash map. 
+HashMap&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();
+params.put("From", "NNNNNNNNNN");
+params.put("To", "NNNNNNNNNN");
+params.put("Url", "http://&lt;your_hosted_service&gt;.chinacloudapp.cn/MyTwiML/mytwiml.jsp");
+
+CallFactory callFactory = account.getCallFactory();
+Call call = callFactory.create(params);</pre>
+<p>使用 TwiML 进行响应的另一个选项是通过 <strong>TwiMLResponse</strong> 类，可在 <strong>com.twilio.sdk.verbs</strong> 程序包中找到它。</p>
+<p>有关将 Windows Azure 中的 Twilio 与 Java 一起使用的其他信息，请参阅<a href="/zh-cn/develop/java/how-to-guides/twilio-phone-call">如何在 Windows Azure 上的 Java 应用程序中使用 Twilio 发起呼叫</a>。</p>
+<h2><a id="AdditionalServices"></a>如何：使用其他 Twilio 服务</h2>
+<p>除了此处所示的示例，Twilio 还提供了基于 Web 的 API，您可借助它们利用您的 Windows Azure 应用程序中的其他 Twilio 功能。有关完整详细信息，请参阅 <a href="http://www.twilio.com/api">Twilio API 文档</a>。</p>
+<h2><a id="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解有关 Twilio 服务基本知识，单击下面的链接可以了解更多信息：</p>
+<ul>
+<li><a href="http://www.twilio.com/docs/security">Twilio 安全准则</a></li>
+<li><a href="http://www.twilio.com/docs/howto">Twilio 操作方法和示例代码</a></li>
+<li><a href="http://www.twilio.com/docs/quickstart">Twilio 快速入门教程</a></li>
+<li><a href="https://github.com/twilio">GitHub 上的 Twilio</a></li>
+<li><a href="http://www.twilio.com/help/contact">与 Twilio 技术支持人员交流</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用 Twilio 实现语音和 SMS (Java) - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-java-how-to-twilio-sms-service</linkid><metaKeywords>Twilio, Twilio API, 电话呼叫, SMS 消息, TwiML 响应, Azure Twilio Java</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 Twilio API 服务发起电话呼叫和发送 SMS 消息。用 Java 编写的代码示例。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Twilio 语音/SMS 服务</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18527" parentID="18442" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="5" createDate="2013-05-10T10:53:25" updateDate="2014-08-18T11:29:24" nodeName="what is a storage account" urlName="what-is-a-storage-account" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,18442,18527" isDoc=""><bodyText><![CDATA[<div>
+<h1>什么是存储帐户？</h1>
+<p>存储帐户能够为您的应用程序提供访问权，使其能够访问位于相应地理区域的 Windows Azure Blob、表和队列服务。您需要存储帐户才能使用 Windows Azure 存储。</p>
+<p>存储帐户表示用于访问存储服务的最高级别的命名空间。存储帐户可以容纳高达 100 TB 的 Blob、队列和表数据。您可以为 Windows Azure 订阅创建多达 5 个存储帐户。 <!--有关存储帐户的详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/fundamentals/cloud-storage/">了解云存储</a>。--></p>
+<p>存储费用基于添加、更新、读取和删除存储数据所需的存储使用率和存储事务的数目。将根据计费期间 Blob、表和队列存储服务的平均使用量来计算存储使用率。 <!-- 若要了解有关存储定价的详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/pricing/details/#storage">定价详细信息</a>。--></p>
+<h2>概念</h2>
+<ul>
+<li>
+<p><strong>地域冗余存储 (GRS)</strong>：地域冗余存储通过将您的数据无缝复制到同一区域内的辅助位置来提供最高级别的持久存储。这样就能够在主要位置发生严重故障时进行故障转移。辅助位置距离主要位置数百英里。可通过名为“地域复制”的功能实现 GRS，存储帐户的该功能默认情况下处于打开状态，但是，如果您不希望使用它（例如，公司政策禁止使用），则可以将其关闭。有关详细信息，请参阅 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx">Windows Azure 存储的地域复制简介</a>。</p>
+</li>
+<li>
+<p><strong>本地冗余存储 (LRS)</strong>：本地冗余存储在单个位置提供高度持久且高度可用的存储服务。使用本地冗余存储时，将在同一数据中心复制帐户数据三次。Windows Azure 中的全部存储均为本地冗余。为增加持久性，您可以打开地域复制。 <!--本地冗余存储将以优惠价提供。有关定价信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/pricing/details/#storage">定价详细信息</a>。--></p>
+</li>
+<li>
+<p><strong>地缘组</strong>：“地缘组”是您的云服务部署和存储帐户在 Windows Azure 中的地理分组。通过定位同一数据中心或靠近目标用户受众的计算机工作负载，地缘组可提高服务性能。此外，不会对出口带宽收费。</p>
+</li>
+<li>
+<p><strong>存储帐户终结点</strong>：存储帐户的“终结点”表示用于访问 Blob、表或队列的最高级别的命名空间。存储帐户的默认终结点具有以下几种格式：</p>
+<ul>
+<li>
+<p>Blob 服务：http://<em>mystorageaccount</em>.blob.core.chinacloudapi.cn</p>
+</li>
+<li>
+<p>表服务：http://<em>mystorageaccount</em>.table.core.chinacloudapi.cn</p>
+</li>
+<li>
+<p>队列服务：http://<em>mystorageaccount</em>.queue.core.chinacloudapi.cn</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>存储帐户 URL</strong>：用于访问存储帐户中某个对象的 URL 是通过将存储帐户中对象的位置附加到终结点而构建的。例如，Blob 地址可能具有以下格式：http://<em>mystorageaccount</em>.blob.core.chinacloudapi.cn/<em>mycontainer</em>/<em>myblob</em>。</p>
+</li>
+<li>
+<p><strong>存储访问密钥</strong>：当您创建存储帐户时，Windows Azure 将生成两个 512 位存储访问密钥，用于在用户访问该存储帐户时对其进行身份验证。通过提供两个存储访问密钥，Windows Azure 使您能够在不中断存储服务的情况下重新生成用于访问该服务的密钥。</p>
+</li>
+<li>
+<p><strong>最少监视与详细监视度量值</strong>：您可以在监视设置中为存储帐户配置最少监视或详细监视度量值。“最少监视度量值”收集经过汇总的有关 Blob、表和队列服务的入口/出口、可用性、延迟及成功百分比等数据的度量值。“详细监视度量值”针对相同度量值收集除服务级别汇总之外的操作级别详细信息。通过详细监视度量值可对应用程序运行期间出现的问题进行进一步分析。有关可用度量值的完整列表，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh343264.aspx">存储分析度量值表架构</a>。有关存储监视的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh343258.aspx">关于存储分析度量值</a>。</p>
+</li>
+<li>
+<p><strong>日志记录</strong>：日志记录是存储帐户的一项可配置功能，用于记录读、写以及删除 Blob、表和队列的请求。您可以在 Windows Azure 管理门户中配置日志记录，但无法在管理门户中查看日志。这些日志存储在存储帐户的 $logs 容器中，并可对其进行访问。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh343268.aspx">存储分析概述</a>。</p>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle> Windows Azure 服务管理：什么是存储帐户</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-what-is-a-storage-account</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[介绍 Windows Azure 中的存储帐户。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>什么是存储帐户</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

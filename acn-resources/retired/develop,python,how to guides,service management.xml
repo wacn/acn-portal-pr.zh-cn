@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19138" parentID="19130" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="8" createDate="2013-07-11T11:45:25" updateDate="2014-08-18T11:21:55" nodeName="Service Management" urlName="service-management" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19130,19138" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何从 Python 使用服务管理</h1>
+<p>本指南将演示如何以编程方式从 Python 执行常见服务管理任务。<a href="/zh-cn/develop/python/common-tasks/install-python/">Windows Azure SDK for Python</a> 中的 <strong>ServiceManagementService</strong> 类支持以编程方式访问<a href="https://manage.windowsazure.cn/">管理门户</a>中提供的众多与服务管理相关的功能（例如<strong>创建、更新和删除云服务、部署、数据管理服务、虚拟机以及地缘组</strong>）。此功能可用于构建需要以编程方式访问服务管理的应用程序。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#WhatIs">什么是服务管理</a></li>
+<li><a href="#Concepts">概念</a></li>
+<li><a href="#Connect">如何：连接到服务管理</a></li>
+<li><a href="#ListAvailableLocations">如何：列出可用位置</a></li>
+<li><a href="#CreateCloudService">如何：创建云服务</a></li>
+<li><a href="#DeleteCloudService">如何：删除云服务</a></li>
+<li><a href="#CreateDeployment">如何：创建部署</a></li>
+<li><a href="#UpdateDeployment">如何：更新部署</a></li>
+<li><a href="#MoveDeployments">如何：在过渡环境和生产环境之间移动部署</a></li>
+<li><a href="#DeleteDeployment">如何：删除部署</a></li>
+<li><a href="#CreateStorageService">如何：创建存储服务</a></li>
+<li><a href="#DeleteStorageService">如何：删除存储服务</a></li>
+<li><a href="#CreateAffinityGroup">如何：创建地缘组</a></li>
+<li><a href="#DeleteAffinityGroup">如何：删除地缘组</a></li>
+<li><a href="#ListOperatingSystems">如何：列出可用操作系统</a></li>
+<li><a href="#CreateVMImage">如何：创建操作系统映像</a></li>
+<li><a href="#DeleteVMImage">如何：删除操作系统映像</a></li>
+<li><a href="#CreateVM">如何：创建虚拟机</a></li>
+<li><a href="#DeleteVM">如何：删除虚拟机</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<h2><a name="WhatIs"></a>什么是服务管理</h2>
+<p>利用服务管理 API，可以编程方式访问通过<a href="https://manage.windowsazure.cn/">管理门户</a>提供的众多服务管理功能。Windows Azure SDK for Python 允许您管理云服务、存储帐户和地缘组。</p>
+<p>若要使用服务管理 API，您将需要<a href="http://www.windowsazure.cn/zh-cn/pricing/free-trial/">创建 Windows Azure 帐户</a>。</p>
+<h2><a name="Concepts"></a>概念</h2>
+<p>Windows Azure SDK for Python 可包装 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460799.aspx">Windows Azure 服务管理 API</a>，后者是一种 REST API。所有 API 操作都是通过 SSL 执行的，并且使用 X.509 v3 证书互相进行身份验证。可以从在 Windows Azure 中运行的服务访问管理服务，或直接通过 Internet 从可发送 HTTPS 请求和接收 HTTPS 响应的任意应用程序访问管理服务。</p>
+<h2><a name="Connect"></a>如何：连接到服务管理</h2>
+<p>若要连接到服务管理终结点，您需要 Windows Azure 订阅 ID 和有效管理证书的路径。您可以通过<a href="https://manage.windowsazure.cn/">管理门户</a>获取订阅 ID，并且可以采用多种方式创建管理证书。在本指南中将使用 <a href="http://www.openssl.org/">OpenSSL</a>，您可以<a href="http://www.openssl.org/related/binaries.html">为 Windows 下载</a>并在控制台中运行它。</p>
+<p>您实际上需要创建两个证书，一个用于服务器（<code>.cer</code> 文件），一个用于客户端（<code>.pem</code> 文件）。若要创建 <code>.pem</code> 文件，请执行以下代码：</p>
+<pre class="prettyprint">`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`</pre>
+<p>若要创建 <code>.cer</code> 证书，请执行以下代码：</p>
+<pre class="prettyprint">`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`</pre>
+<p>有关 Windows Azure 证书的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg981929.aspx">在 Windows Azure 中管理证书</a>。有关 OpenSSL 参数的完整说明，请参阅 <a href="http://www.openssl.org/docs/apps/openssl.html">http://www.openssl.org/docs/apps/openssl.html</a> 上的文档。</p>
+<p>在创建这些文件之后，您将需要通过<a href="https://manage.windowsazure.cn/">管理门户</a>将 <code>.cer</code> 文件上载到 Windows Azure，并且您将需要记下 <code>.pem</code> 文件的保存位置。</p>
+<p>在您获取订阅 ID，创建证书并将 <code>.cer</code> 文件上载到 Windows Azure 之后，您可以通过将订阅 ID 和 <code>.pem</code> 文件的路径传递给 <strong>ServiceManagementService</strong> 来连接到 Windows Azure 管理终结点：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+subscription_id = '&lt;your_subscription_id&gt;'
+certificate_path = '&lt;path_to_.pem_certificate&gt;'
+
+sms = ServiceManagementService(subscription_id, certificate_path)</pre>
+<p>在上面的示例中，<code>sms</code> 是一个 <strong>ServiceManagementService</strong> 对象。<strong>ServiceManagementService</strong> 类是用于管理 Windows Azure 服务的主类。</p>
+<h2><a name="ListAvailableLocations"></a>如何：列出可用位置</h2>
+<p>若要列出可用于承载服务的位置，请使用 <strong>list_locations</strong> 方法：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+result = sms.list_locations()
+for location in result:
+    print(location.name)</pre>
+<p>在创建云服务、存储服务或地缘组时，您将需要提供有效位置。<strong>list_locations</strong> 方法将始终返回当前可用位置的最新列表。截止到本文撰写时为止，可用位置为：</p>
+<ul>
+<li>中国北部</li>
+<li>中国东部</li>
+</ul>
+<h2><a name="CreateCloudService"></a>如何：创建云服务</h2>
+<p>当您在 Windows Azure 中创建应用程序并运行它时，相关代码和配置统称为 Windows Azure <a href="http://www.windowsazure.cn/zh-cn/manage/services/cloud-services/what-is-a-cloud-service/">云服务</a>（在早期版本的 Windows Azure 中称为“托管服务”）。<strong>create_hosted_service</strong> 方法允许您通过提供托管服务名称（它在 Windows Azure 中必须是唯一的）、标签（自动编码为 base64）、说明和位置来创建新的托管服务。您可以为服务指定地缘组而非位置。</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'myhostedservice'
+label = 'myhostedservice'
+desc = 'my hosted service'
+location = 'West US'
+
+# You can either set the location or an affinity_group
+sms.create_hosted_service(name, label, desc, location)</pre>
+<p>您可以使用 <strong>list_hosted_services</strong> 方法列出您的订阅的所有托管服务：</p>
+<pre class="prettyprint">result = sms.list_hosted_services()
+
+for hosted_service in result:
+    print('Service name: ' + hosted_service.service_name)
+    print('Management URL: ' + hosted_service.url)
+    print('Affinity group: ' + hosted_service.hosted_service_properties.affinity_group)
+    print('Location: ' + hosted_service.hosted_service_properties.location)
+    print('')</pre>
+<p>如果您希望获得有关特定托管服务的信息，可以通过将托管服务名称传递给 <strong>get_hosted_service_properties</strong> 方法来实现此目的：</p>
+<pre class="prettyprint">hosted_service = sms.get_hosted_service_properties('myhostedservice')
+
+print('Service name: ' + hosted_service.service_name)
+print('Management URL: ' + hosted_service.url)
+print('Affinity group: ' + hosted_service.hosted_service_properties.affinity_group)
+print('Location: ' + hosted_service.hosted_service_properties.location)</pre>
+<p>在创建云服务后，您可以使用 <strong>create_deployment</strong> 方法将代码部署到服务。</p>
+<h2><a name="DeleteCloudService"></a>如何：删除云服务</h2>
+<p>您可以通过将服务名称传递给 <strong>delete_hosted_service</strong> 方法来删除云服务：</p>
+<pre class="prettyprint">sms.delete_hosted_service('myhostedservice')</pre>
+<p>请注意，必须先删除服务的所有部署，然后才能删除服务。（有关详细信息，请参阅<a href="#DeleteDeployment">如何：删除部署</a>。）</p>
+<h2><a name="CreateDeployment"></a>如何：创建部署</h2>
+<p><strong>create_deployment</strong> 方法上载新的<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj155995.aspx">服务包</a>并在过渡环境或生产环境中创建新部署。此方法的参数如下：</p>
+<ul>
+<li><strong>name</strong>：托管服务的名称。</li>
+<li><strong>deployment_name</strong>：部署的名称。</li>
+<li><strong>slot</strong>：指示 <code>staging</code> 或 <code>production</code> 槽的字符串。</li>
+<li><strong>package_url</strong>：部署包（.cspgk 文件）的 URL。包文件必须存储在与要将该包上载到的托管服务相同的订阅下的 Windows Azure Blob 存储帐户中。您可以使用 <a href="http://www.windowsazure.cn/zh-cn/develop/php/how-to-guides/powershell-cmdlets/">Windows Azure PowerShell cmdlet</a> 或使用 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg432988.aspx">cspack 命令行工具</a>创建部署包。</li>
+<li><strong>configuration</strong>：编码为 base64 的服务配置文件（.cscfg 文件）。</li>
+<li><strong>label</strong>：托管服务名称的标签（自动编码为 base64）。</li>
+</ul>
+<p>下面的示例为称为 <code>myhostedservice</code> 的托管服务创建新部署 <code>v1</code>：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+import base64
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'myhostedservice'
+deployment_name = 'v1'
+slot = 'production'
+package_url = 'URL_for_.cspkg_file'
+configuration = base64.b64encode(open('path_to_cscfg', 'rb'))
+label = 'myhostedservice'
+
+result = sms.create_deployment(name, slot, deployment_name, package_url, label, configuration)
+
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)</pre>
+<p>请注意，在上面的示例中，可以通过将 <strong>create_deployment</strong> 返回的结果传递给 <strong>get_operation_status</strong> 方法来检索 <strong>create_deployment</strong> 操作的状态。</p>
+<p>您可以使用 <strong>get_deployment_by_slot</strong> 或 <strong>get_deployment_by_name</strong> 方法访问部署属性。下面的示例通过指定部署槽来检索部署。此示例还循环访问部署的所有实例：</p>
+<pre class="prettyprint">result = sms.get_deployment_by_slot('myhostedservice', 'production')
+
+print('Name: ' + result.name)
+print('Slot: ' + result.deployment_slot)
+print('Private ID: ' + result.private_id)
+print('Status: ' + result.status)
+print('Instances:')
+for instance in result.role_instance_list:
+    print('Instance name: ' + instance.instance_name)
+    print('Instance status: ' + instance.instance_status)
+    print('Instance size: ' + instance.instance_size)</pre>
+<h2><a name="UpdateDeployment"></a>如何：更新部署</h2>
+<p>可以通过使用 <strong>change_deployment_configuration</strong> 方法或 <strong>update_deployment_status</strong> 方法来更新部署。</p>
+<p><strong>change_deployment_configuration</strong> 方法允许您上载新服务配置 (<code>.cscfg</code>) 文件，以便更改多项服务设置（包括部署中的实例数）中的任何设置。有关详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758710.aspx">Windows Azure 服务配置架构 (.cscfg)</a>。下面的示例演示如何上载新的服务配置文件：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+import base64
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'myhostedservice'
+deployment_name = 'myhostedservice'
+configuration = base64.b64encode(open('path_to_cscfg', 'rb'))
+
+result = sms.change_deployment_configuration(name, deployment_name, configuration)
+
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)</pre>
+<p>请注意，在上面的示例中，可以通过将 <strong>change_deployment_configuration</strong> 返回的结果传递给 <strong>get_operation_status</strong> 方法来检索 <strong>change_deployment_configuration</strong> 操作的状态。</p>
+<p><strong>update_deployment_status</strong> 方法允许您将部署状态设置为 RUNNING 或 SUSPENDED。下面的示例演示如何将名为 <code>myhostedservice</code> 的托管服务的 <code>v1</code> 部署的状态设置为 RUNNING：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'myhostedservice'
+deployment_name = 'v1'
+
+result = update_deployment_status(name, deployment_name, 'Running')</pre>
+<h2><a name="MoveDeployments"></a>如何：在过渡环境和生产环境之间移动部署</h2>
+<p>Windows Azure 提供两种部署环境：过渡环境和生产环境。通常，在将服务部署到生产环境之前，会将服务部署到过渡环境以进行测试。在需要将过渡环境中的服务提升到生产环境时，您可以执行此操作而无需重新部署该服务。这可通过交换部署来完成。（有关交换部署的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433027.aspx">部署 Windows Azure 服务</a>。）</p>
+<p>下面的示例演示如何使用 <strong>swap_deployment</strong> 方法来交换两个部署（部署名称分别为 <code>v1</code> 和 <code>v2</code>）。在此示例中，在调用 <strong>swap_deployment</strong> 之前，部署 <code>v1</code> 在生产槽中，部署 <code>v2</code> 在过渡槽中。在调用 <strong>swap_deployment</strong> 之后，<code>v2</code> 在生产槽中，<code>v1</code> 在过渡槽中。</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+result = sms.swap_deployment('myhostedservice', 'v1', 'v2')</pre>
+<h2><a name="DeleteDeployment"></a>如何：删除部署</h2>
+<p>若要删除部署，请使用 <strong>delete_deployment</strong> 方法。下面的示例演示如何删除名为 <code>v1</code> 的部署。</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+sms.delete_deployment('myhostedservice', 'v1')</pre>
+<h2><a name="CreateStorageService"></a>如何：创建存储服务</h2>
+<p>利用<a href="/zh-cn/manage/services/storage/what-is-a-storage-account/">存储服务</a>，可以访问 Windows Azure <a href="/zh-cn/develop/python/how-to-guides/blob-service/">Blob</a>、<a href="/zh-cn/develop/python/how-to-guides/table-service/">表</a>和<a href="/zh-cn/develop/python/how-to-guides/queue-service/">队列</a>。若要创建存储服务，您需要服务名称（3 至 24 个小写字符且在 Windows Azure 中是唯一的）、说明、标签（最多 100 个字符，自动编码为 base64）以及位置或地缘组。下面的示例演示如何通过指定位置来创建存储服务。如果您要使用地缘组，则必须首先创建地缘组（请参阅<a href="#CreateAffinityGroup">如何：创建地缘组</a>）并使用 <strong>affinity_group</strong> 参数设置它。</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'mystorageaccount'
+label = 'mystorageaccount'
+location = 'West US'
+desc = 'My storage account description.'
+
+result = sms.create_storage_account(name, desc, label, location=location)
+
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)</pre>
+<p>请注意，在上面的示例中，可以通过将 <strong>create_storage_account</strong> 返回的结果传递给 <strong>get_operation_status</strong> 方法来检索 <strong>create_storage_account</strong> 操作的状态。</p>
+<p>您可以使用 <strong>list_storage_accounts</strong> 方法列出存储帐户及其属性：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+result = sms.list_storage_accounts()
+for account in result:
+    print('Service name: ' + account.service_name)
+    print('Affinity group: ' + account.storage_service_properties.affinity_group)
+    print('Location: ' + account.storage_service_properties.location)
+    print('')</pre>
+<h2><a name="DeleteStorageService"></a>如何：删除存储服务</h2>
+<p>您可以通过将存储服务名称传递给 <strong>delete_storage_account</strong> 方法来删除存储服务。删除存储服务会删除该服务中存储的所有数据（Blob、表和队列）。</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+sms.delete_storage_account('mystorageaccount')</pre>
+<h2><a name="CreateAffinityGroup"></a>如何：创建地缘组</h2>
+<p>地缘组是 Azure 服务的逻辑分组，它告知 Windows Azure 定位服务以优化性能。例如，您可以在“美国西部”位置创建一个地缘组，然后在该地缘组中创建<a href="#CreateCloudService">云服务</a>。如果您然后在同一地缘组中创建存储服务，则 Windows Azure 知道将该服务放在“美国西部”位置，并在数据中心中使用同一地缘组中的云服务进行优化以实现最佳性能。</p>
+<p>若要创建地缘组，您需要名称、标签（自动编码为 base64）和位置。您可以选择提供说明：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'myAffinityGroup'
+label = 'myAffinityGroup'
+location = 'West US'
+desc = 'my affinity group'
+
+sms.create_affinity_group(name, label, location, desc)</pre>
+<p>在创建地缘组后，您可以在<a href="#CreateStorageService">创建存储服务</a>时指定该组（而非位置）。</p>
+<p>您可以通过调用 <strong>list_affinity_groups</strong> 方法来列出地缘组并检查其属性：</p>
+<pre class="prettyprint">result = sms.list_affinity_groups()
+
+for group in result:
+    print('Name: ' + group.name)
+    print('Description: ' + group.description)
+    print('Location: ' + group.location)
+    print('')</pre>
+<h2><a name="DeleteAffinityGroup"></a>如何：删除地缘组</h2>
+<p>您可以通过将组名传递给 <strong>delete_affinity_group</strong> 方法来删除地缘组。请注意，地缘组必须与任何服务解除关联（或者必须删除使用地缘组的服务），然后才能删除该地缘组。</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+sms.delete_affinity_group('myAffinityGroup')</pre>
+<h2><a name="ListOperatingSystems"></a>如何：列出可用操作系统</h2>
+<p>若要列出可用于承载服务的操作系统，请使用 <strong>list_operating_systems</strong> 方法：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+result = sms.list_operating_systems()
+
+for os in result:
+    print('OS: ' + os.label)
+    print('Family: ' + os.family_label)
+    print('Active: ' + str(os.is_active))</pre>
+<p>或者，您可以使用 <strong>list_operating_system_families</strong> 方法，它按系列分组操作系统：</p>
+<pre class="prettyprint">result = sms.list_operating_system_families()
+
+for family in result:
+    print('Family: ' + family.label)
+    for os in family.operating_systems:
+        if os.is_active:
+            print('OS: ' + os.label)
+            print('Version: ' + os.version)
+    print('')</pre>
+<h2><a name="CreateVMImage"></a>如何：创建操作系统映像</h2>
+<p>若要将操作系统映像添加到映像存储库中，请使用 <strong>add_os_image</strong> 方法：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'mycentos'
+label = 'mycentos'
+os = 'Linux' # Linux or Windows
+media_link = 'url_to_storage_blob_for_source_image_vhd'
+
+result = sms.add_os_image(label, media_link, name, os)
+
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)</pre>
+<p>若要列出可用的操作系统映像，请使用 <strong>list_os_images</strong> 方法。这包括所有平台映像和用户映像：</p>
+<pre class="prettyprint">result = sms.list_os_images()
+
+for image in result:
+    print('Name: ' + image.name)
+    print('Label: ' + image.label)
+    print('OS: ' + image.os)
+    print('Category: ' + image.category)
+    print('Description: ' + image.description)
+    print('Location: ' + image.location)
+    print('Affinity group: ' + image.affinity_group)
+    print('Media link: ' + image.media_link)
+    print('')</pre>
+<h2><a name="DeleteVMImage"></a>如何：删除操作系统映像</h2>
+<p>若要删除用户映像，请使用 <strong>delete_os_image</strong> 方法：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+result = sms.delete_os_image('mycentos')
+
+operation_result = sms.get_operation_status(result.request_id)
+print('Operation status: ' + operation_result.status)</pre>
+<h2><a name="CreateVM"></a>如何：创建虚拟机</h2>
+<p>若要创建虚拟机，您首先需要创建<a href="#CreateCloudService">云服务</a>。然后使用 <strong>create_virtual_machine_deployment</strong> 方法来创建虚拟机部署：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+name = 'myvm'
+location = 'West US'
+
+# You can either set the location or an affinity_group
+sms.create_hosted_service(service_name=name,
+    label=name,
+    location=location)
+
+# Name of an os image as returned by list_os_images
+image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+
+# Destination storage account container/blob where the VM disk
+# will be created
+media_link = 'url_to_target_storage_blob_for_vm_hd'
+
+# Linux VM configuration, you can use WindowsConfigurationSet
+# for a Windows VM instead
+linux_config = LinuxConfigurationSet('myhostname', 'myuser', 'mypassword', True)
+
+os_hd = OSVirtualHardDisk(image_name, media_link)
+
+sms.create_virtual_machine_deployment(service_name=name,
+    deployment_name=name,
+    deployment_slot='production',
+    label=name,
+    role_name=name,
+    system_config=linux_config,
+    os_virtual_hard_disk=os_hd,
+    role_size='Small')</pre>
+<h2><a name="DeleteVM"></a>如何：删除虚拟机</h2>
+<p>若要删除虚拟机，请首先使用 <strong>delete_deployment</strong> 方法来删除部署：</p>
+<pre class="prettyprint">from azure import *
+from azure.servicemanagement import *
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+sms.delete_deployment(service_name='myvm',
+    deployment_name='myvm')</pre>
+<p>然后可以使用 <strong>delete_hosted_service</strong> 方法来删除云服务：</p>
+<pre class="prettyprint">sms.delete_hosted_service(service_name='myvm')</pre>
+<h2><a name="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解有关服务管理的基础知识，单击下面的链接可执行更复杂的任务。</p>
+<ul>
+<li>查看 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj155995.aspx">云服务</a></li>
+<li>查看 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156003.aspx">虚拟机</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>service management</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>service management</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>service management</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

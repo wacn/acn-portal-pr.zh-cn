@@ -1,0 +1,327 @@
+<!-- start events panel-->
+<div class="sidebar-win events hide">
+  <div class="control">
+    <a class="close" href="#"></a>
+  </div>
+  <ul class="events-list" id="sidebar_sign">
+    <li>
+      <div class="title">
+        <div class="container">
+          <span class="sub">云端 Web 开发训练营</span>
+          <br/>
+          <span class="main">ASP.NET 5 跨平台开发</span>
+        </div>
+      </div>
+      <div class="detail">
+        <p class="type">
+          <span class="time">11月23日</span>
+          <span class="tag">免费</span>
+          <span class="tag">培训</span>
+        </p>
+        <p class="info">
+          <span style="margin-left:-5px">【北京站】云端 Web 开发训练营 ——ASP.NET 5 跨平台开发</span>
+        </p>
+        <a class="signup" href="https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032687511&Culture=zh-CN&community=0" target="signup" id="sidebarSignuoOne">立即报名</a>
+      </div>
+    </li>
+    <li>
+      <div class="title">
+        <div class="container">
+          <span class="sub">云端 Web 开发训练营</span>
+          <br/>
+          <span class="main">ASP.NET 5 跨平台开发</span>
+        </div>
+      </div>
+      <div class="detail">
+        <p class="type">
+          <span class="time">11月25日</span>
+          <span class="tag">免费</span>
+          <span class="tag">培训</span>
+        </p>
+        <p class="info">
+          <span style="margin-left:-5px">【广州站】云端 Web 开发训练营 ——ASP.NET 5 跨平台开发</span>
+        </p>
+        <a class="signup" href="https://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032687513&Culture=zh-CN&community=0" target="signup" id="sidebarSignuotwo">立即报名</a>
+      </div>
+    </li>
+
+  </ul>
+</div>
+<!-- end events panel-->
+<!-- start what's new panel -->
+<div class="sidebar-win news hide">
+  <div class="control">
+    <a href="#" class="close"></a>
+  </div>
+  <div class="container" id="sider_contain">
+     <p>
+      流分析<a  href="/home/features/stream-analytics/" id="sidebarNews3" target="icp" style="margin-left:5px;margin-right:5px;"> Stream Analytics </a>功能正式版上线
+    </p>
+    <p>
+      《 创建云端的<a  href="/starter-guide/" id="sidebarNews1" target="icp" style="margin-left:5px;margin-right:5px;"> MySQL 数据库服务器</a> 》 入门指南正式上线
+    </p>
+    <p>
+     <a  href="/home/features/expressroute/" id="sidebarNews2" target="icp" style="margin-left:5px;margin-right:5px;">ExpressRoute </a>功能正式版上线
+    </p>
+   
+    <a class="all" href="/what-is-new" target="sidebarNewsAll" id="sidebarNewsAll">查看所有公告</a>
+  </div>
+</div>
+
+<style>
+  ul.azsidebar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  right: 0;
+  top:50%;
+  z-index: 999;
+  }
+  ul.azsidebar li {
+  position: relative;
+  }
+  ul.azsidebar li a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 45px;
+  }
+  ul.azsidebar li .tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  color: white;
+  background-color: #ee5a30;
+  text-align: center;
+  line-height: 13px;
+  }
+  ul.azsidebar li .tri-angle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 11px;
+  margin-top: -6px;
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/triangle_5x11.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  }
+  ul.azsidebar li .tri-angle-blue {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 11px;
+  margin-top: -6px;
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/triangle_5x11.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/blue_triangle_5x11.png);
+  }
+  ul.azsidebar .news {
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/whats_new_40x45.png);
+  background-size: contain;
+  background-color: #00ce7d;
+  }
+  ul.azsidebar .news:hover {
+  opacity: 0.8;
+  }
+  ul.azsidebar .event {
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/event_40x45.png);
+  background-size: contain;
+  background-color: #3b3b3b;
+  }
+  ul.azsidebar .event:hover {
+  opacity: 0.8;
+  }
+  ul.azsidebar .bing {
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/support_40x45.png);
+  background-size: contain;
+  background-color: #33a4fb;
+  }
+  ul.azsidebar .bing:hover {
+  opacity: 0.8;
+  }
+  ul.azsidebar .calculator {
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/calculator_40x45.png);
+  background-size: contain;
+  background-color: #3b3b3b;
+  }
+  ul.azsidebar .calculator:hover {
+  opacity: 0.8;
+  }
+  .sidebar-win {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  z-index: 999;
+  box-shadow: 1px 1px 3px 1px gray;
+  }
+  .sidebar-win .control {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  }
+  .sidebar-win .close {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  background: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/sidebar-close.png);
+  background-size: contain;
+  }
+  .sidebar-win .max {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  }
+  .sidebar-win.news {
+  width: 550px;
+  height: 160px;
+  background: #3b3b3b;
+  opacity: 0.95;
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  padding: 15px;
+  box-sizing: border-box;
+  }
+  .sidebar-win.news p {
+  font-size: 14px;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 10px;
+  }
+  .sidebar-win.news p a {
+  display: inline-block;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  background: #33a4fb;
+  padding: 0 3px;
+  text-decoration: none;
+  }
+  .sidebar-win.news p a:hover {
+  opacity: 0.8;
+  }
+  .sidebar-win.news .all {
+  width: 108px;
+  height: 28px;
+  color: white;
+  font-size: 14px;
+  background-color: #ff3d00;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 28px;
+  }
+  .sidebar-win.news .all:hover {
+  background-color: #fa6434;
+  }
+  .sidebar-win.events {
+  width: 450px;
+  height: 64px;
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  box-sizing: border-box;
+  }
+  .sidebar-win.events .events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  }
+  .sidebar-win.events .events-list .title {
+  display: inline-block;
+  width: 160px;
+  height: 106px;
+  padding: 4px;
+  box-sizing: border-box;
+  background: #2190f8;
+  position: relative;
+  left: 5px;
+  height:120px;
+  }
+  .sidebar-win.events .events-list .title .container {
+  background: #10487c;
+  height: 100%;
+  border-radius: 3px;
+  padding: 8px 4px;
+  box-sizing: border-box;
+  color: #f8f8f8;
+  text-align: center;
+  padding-top: 24px;
+  }
+  .sidebar-win.events .events-list .title .sub {
+  font-size: 12px;
+  }
+  .sidebar-win.events .events-list .title .main {
+  font-size: 18px;
+  }
+  .sidebar-win.events .events-list .detail {
+  display: inline-block;
+  width: 285px;
+  min-height: 45px;
+  vertical-align: top;
+  background: #3b3b3b;
+  border: 1px solid #4b4b4b;
+  padding: 10px 0;
+  box-sizing: border-box;
+  height:120px;
+  }
+  .sidebar-win.events .events-list .detail p {
+  margin: 0;
+  }
+  .sidebar-win.events .events-list .detail .type {
+  font-size: 12px;
+  color: white;
+  padding: 6px 0 0 10px;
+  }
+  .sidebar-win.events .events-list .detail .info {
+  font-size: 12px;
+  color: white;
+  margin: 0 10px;
+  }
+  .sidebar-win.events .events-list .detail .signup {
+  display: block;
+  width: 77px;
+  height: 22px;
+  color: white;
+  font-size: 14px;
+  background-color: #ff3d00;
+  text-decoration: none;
+  text-align: center;
+  line-height: 22px;
+  margin: 5px 0 0 10px;
+  }
+  .sidebar-win.events .events-list .detail .tag {
+  font-size: 12px;
+  color: #ffea34;
+  }
+  .sidebar-win.bing {
+  top: 40%;
+  right: 40px;
+  position: fixed;
+  }
+</style>
+<script type="text/javascript">
+  // 原来的那种写法会覆盖掉window的onload属性。
+  (function($){
+  var newsNum=$("#sider_contain>p").length;
+  <!--$(".azsidebar>li").eq(1).find("span.tag").text("4");-->
+  $("a#sidebarBtnNews").next().text(newsNum);
+  var signNum=$("#sidebar_sign>li").length;
+  <!--$(".azsidebar>li").eq(2).find("span").text(signNum);-->
+  $("a#sidebarBtnEvent").next().text(signNum);
+  <!--$("a#sidebarBtnEvent").next().css("display","none");-->
+  })(jQuery);
+</script>

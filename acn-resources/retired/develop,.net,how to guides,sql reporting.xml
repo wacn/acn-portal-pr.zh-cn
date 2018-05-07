@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18824" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="16" createDate="2013-07-11T10:41:56" updateDate="2014-08-18T11:09:31" nodeName="SQL Reporting" urlName="sql-reporting" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18824" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>面向应用程序开发人员的 Windows Azure SQL Reporting</h1>
+<p>本主题提供有关将报表服务器项目部署到 Windows Azure SQL Reporting 报表服务器的信息、适用于将 Windows Azure SQL Reporting 托管的报表集成到其应用程序的应用程序开发人员的入门信息以及针对 SQL Reporting 报表服务器的开发管理工具。</p>
+<p>若要开始使用 Windows Azure SQL Reporting，您必须具有 Windows Azure 订阅。可使用现有订阅、新订阅或免费试用订阅。有关详细信息，请参阅 <a href="http://www.windowsazure.cn/zh-cn/">http://www.windowsazure.cn/zh-cn/</a>。</p>
+<p>本指南假定您拥有使用 SQL Server Reporting Services 开发自定义应用程序的经历。有关详细信息，请参阅<a href="http://technet.microsoft.com/zh-cn/library/bb522713.aspx">开发人员指南 (Reporting Services)</a>。本指南还假定您对 ReportViewer 控件的用法有所了解。有关 ReportViewer 控件的概述，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/ms251671.aspx">ReportViewer 控件 (Visual Studio)</a>。</p>
+<h2>目标</h2>
+<p>在本教程中，您将了解如何：</p>
+<ul>
+<li>将报表服务器项目部署到 SQL Reporting 报表服务器。</li>
+<li>在 ReportViewer 控件中呈现报表。</li>
+<li>使用 SOAP 管理终结点以编程方式访问 SQL Reporting</li>
+</ul>
+<h2>教程章节</h2>
+<ol>
+<li><a href="#Deploy_ReportServer_Project">部署报表项目</a></li>
+<li><a href="#Access_Reports_In_ReportViewer">在 ReportViewer 控件中访问 SQL Reporting 报表</a></li>
+<li><a href="#Programmatically_Access">使用 SOAP 管理终结点以编程方式访问报表</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ol>
+<h2 id="Deploy_ReportServer_Project">部署报表项目</h2>
+<p>从 SQL Server 的 Business Intelligence Development Studio (BIDS) 中，可将报表服务器项目中的所有报表和共享数据源都部署到 Windows Azure SQL Reporting 报表服务器。可部署整个项目，也可部署个别报表或数据源。在部署报表或数据源之前，需要在 Business Intelligence Development Studio 中设置报表服务器项目的项目属性。</p>
+<p><strong>设置部署属性</strong></p>
+<ol>
+<li>
+<p>打开一个现有的报表服务器项目。在“解决方案资源管理器”<strong></strong>中，右键单击该报表服务器项目，然后单击“属性”<strong></strong>。(<em>如果“解决方案资源管理器”窗口不可见，请在“视图”菜单中，单击“解决方案资源管理器”。</em>)</p>
+<p><em>有关创建报表服务器项目的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/ms167559(v=sql.105).aspx">创建报表服务器项目</a>。有关其他教程，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/bb522859(v=sql.105)">教程 (SSRS)</a>。</em></p>
+</li>
+<li>
+<p>在“配置”列表中，选择要使用的部署配置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/reportproject_propertiesdialog.png" alt="ReportServerProperties"/></p>
+</li>
+<li>
+<p>在“OverwriteDataSources”<strong></strong>和“OverwriteDatasets”<strong></strong>中，选择“True”以在每次部署数据源和数据集时都在服务器上覆盖二者，或选择“False”以保留服务器上的现有版本。</p>
+</li>
+<li>
+<p>在“TargetServerVersion”<strong></strong>列表中，确认将值设置为“SQL Server 2008 R2”。</p>
+</li>
+<li>
+<p>在“TargetDataSourceFolder”<strong></strong>和“TargetReportFolder”<strong></strong>中，键入报表服务器上要从中部署报表项的文件夹的名称。</p>
+<p>如果将“TargetDataSourceFolder”<strong></strong>的值留空，则数据源将发布到在“TargetReportFolder”<strong></strong>中指定的位置。如果“TargetReportFolder”<strong></strong>为空，则报表和数据源将部署到服务器的根文件夹。</p>
+<p>无法直接在 SQL Reporting 报表服务器上管理数据集和报表部件，因此不需要提供“TargetDatasets”<strong></strong>和“TargetReportPartFolder”<strong></strong>的值。</p>
+</li>
+<li>在“TargetServerURL”<strong></strong>框中，键入目标 SQL Reporting 报表服务器的 URL。该 URL 的语法为 <code>https://&lt;ServerName&gt;.reporting.chinacloudapi.cn/ReportServer</code>。</li>
+</ol>
+<p><strong>部署项目中的所有报表</strong></p>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击报表项目，然后单击“部署”<strong></strong>。系统将提示您输入凭据以登录 SQL Reporting。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/reportproject_logindialog.png" alt="LoginDialog"/></p>
+<p><em>部署报表服务器项目时，也会部署报表项目中的共享数据源。</em></p>
+<p><strong>部署单个报表</strong></p>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击该报表，然后单击“部署”<strong></strong>。可在输出窗口中查看发布过程的状态。</p>
+<p><em>发布单个报表时，还必须部署该报表使用的共享数据源。</em></p>
+<p><strong>部署单个数据源</strong></p>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击该数据源，然后单击“部署”<strong></strong>。可在输出窗口中查看发布过程的状态。</p>
+<h2 id="Access_Reports_In_ReportViewer">在 ReportViewer 控件中访问 SQL Reporting 报表</h2>
+<p>与部署到内部部署 SQL Server Reporting Services (SSRS) 报表服务器的报表类似，可使用 Visual Studio ReportViewer 控件在 ASP.NET 应用程序中显示部署到 Windows Azure SQL Reporting 报表服务器的报表。</p>
+<p>Visual Studio 2010 Standard Edition 或更高版本附带 ReportViewer 控件。如果使用的是 Web Developer Express 版，则必须安装 <a href="http://go.microsoft.com/fwlink/?LinkId=208805">Microsoft Report Viewer 2010 Redistributable Package</a> 才能使用 ReportViewer 运行时功能。</p>
+<p>若要将 ReportViewer 集成到 Windows Azure 应用程序中，需要注意以下几点：</p>
+<ul>
+<li>在部署包中加入所需的程序集。</li>
+<li>适当地配置身份验证和授权。</li>
+</ul>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg430128.aspx">如何：在 Windows Azure 承载的网站中使用 ReportViewer</a>。</p>
+<p>有关在使用多个 Web 角色实例的 Windows Azure 网站中使用 ReportViewer 的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh825825(v=vs.103).aspx">在 Windows Azure 中使用 ReportViewer ASP.NET 控件</a>。</p>
+<p><strong>创建含 ReportViewer 控件的 Windows Azure 项目</strong></p>
+<ol>
+<li>
+<p>使用管理员权限启动 Microsoft Visual Studio 2010 或 Microsoft Visual Web Developer Express 2010。</p>
+<p>为此，在“开始”<strong></strong>|“所有程序”<strong></strong>|“Microsoft Visual Studio 2010”<strong></strong>中，右键单击“Microsoft Visual Studio 2010”<strong></strong>（或“Microsoft Visual Web Developer 2010 Express”），然后选择“以管理员身份运行”。如果出现“用户帐户控制”对话框，则单击“继续”<strong></strong>。</p>
+<p><em>Windows Azure 计算模拟器要求用管理员权限启动 Visual Studio。有关 Windows Azure 计算模拟器和其他 SDK 工具的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg432968.aspx">Windows Azure SDK 工具概述</a>。</em></p>
+<p>在 Visual Studio 中的<strong>搣文件攠</strong>菜单中，单击<strong>搣新建攠</strong>，然后单击<strong>搣项目攠</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/vs_newproject.png" alt="VSNewProject"/></p>
+</li>
+<li>
+<p>从“已安装的模板”的“Visual C#”下，单击“Cloud”<strong></strong>（云），然后单击“Windows Azure 项目”<strong></strong>。命名该应用程序，然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/vs_newprojectdialog.png" alt="NewProjectDialog"/></p>
+</li>
+<li>
+<p>在“新 Windows Azure 项目”<strong></strong>对话框中的“.NET Framework 4 角色”<strong></strong>面板内，展开所选语言（Visual C# 或 Visual Basic）的选项卡，从可用角色的列表中选择“ASP.NET Web 角色”，然后单击箭头 (&gt;) 以将此角色的一个实例添加到解决方案。关闭对话框之前，在右面板中选择这个新角色，单击铅笔图标并重命名该角色。单击“确定”<strong></strong>以创建云服务解决方案。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/vs_newazureprojectdialog.png" alt="NewAzureProjectDialog"/></p>
+</li>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，检查所创建的解决方案的结构。如果“解决方案资源管理器”<strong></strong>尚不可见，则在“视图”<strong></strong>菜单上单击“解决方案资源管理器”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/solutionexplorer.png" alt="SolutionExplorer"/></p>
+</li>
+<li>
+<p>在 Default.aspx 的设计器模式上，将 ReportViewer 控件从“工具箱”<strong></strong>的“报表”组中拖至 Web 窗体。若要打开“工具箱”<strong></strong>，请在“视图”<strong></strong>菜单上单击“工具箱”<strong></strong>。可停靠“工具箱”<strong></strong>，也可使其保持打开或将其设置为“自动隐藏”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/toolbox.png" alt="工具箱"/></p>
+</li>
+<li>
+<p>将 ReportViewer 控件的“ProcessingMode”<a href="http://msdn.microsoft.com/zh-cn/library/microsoft.reporting.webforms.reportviewer.processingmode.aspx"></a>设为“Remote”<strong></strong>。Windows Azure 中不支持在“Local”<strong></strong>处理模式下配置的 ReportViewer。设置 ReportViewer 控件的其他属性以决定查看区域的可见性和可用性。使用参考文档了解每个属性。有关详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/microsoft.reporting.webforms.reportviewer_properties.aspx">ReportViewer 属性</a>。</p>
+<p><em>若要在 Web 窗体中使用 <strong>ReportViewer</strong> 控件，还必须向页面添加一个 <a href="http://msdn.microsoft.com/zh-cn/library/system.web.ui.scriptmanager.aspx">ScriptManager</a> 控件。从“工具箱”<strong></strong>窗口的“AJAX 扩展”<strong></strong>组中，将一个 <strong>ScriptManager</strong> 控件拖至 <strong>ReportViewer</strong> 控件上方的设计图面。</em></p>
+</li>
+<li>
+<p>ReportViewer 控件管理身份验证 cookie，使您的任务变得更简便。若要在 ReportViewer 控件中显示部署到 SQL Reporting 报表服务器的报表，请如同对任何服务器报表一样，提供报表服务器 URL 和报表路径。然后，实现 IReportServerCredentials 接口并将其用在 ServerReport.ReportServerCredentials 中。</p>
+<p>下例演示如何实现 IReportServerCredentials：</p>
+<pre class="prettyprint">/// &lt;summary&gt; /// Implementation of IReportServerCredentials to supply forms credentials to SQL Reporting using GetFormsCredentials()  /// &lt;/summary&gt; using Microsoft.Reporting.WebForms; using System.Security.Principal; using System.Configuration; using System.Net; public class ReportServerCredentials : IReportServerCredentials {     public ReportServerCredentials()     {     }        public WindowsIdentity ImpersonationUser     {         get         {             return null;         }     }        public ICredentials NetworkCredentials     {         get         {             return null;         }     }        public bool GetFormsCredentials(out Cookie authCookie, out string user, out string password, out string authority)     {         authCookie = null;         user = ConfigurationManager.AppSettings["USERNAME"];         password = ConfigurationManager.AppSettings["PASSWORD"];         authority = ConfigurationManager.AppSettings["SERVER_NAME"];         return true;     } }</pre>
+<p>在 Web.config 或 App.config 文件中 <code>&lt;configuration&gt;</code> 下的 <code>&lt;appSettings&gt;</code> 元素中，指定应用程序设置。下例演示 <code>&lt;appSettings&gt;</code> 元素可能类似的形式。（请考虑按 SQL Reporting 报表服务器指定该值。）</p>
+<pre class="prettyprint">&lt;appSettings&gt;   &lt;add key="SERVER_NAME" value="&lt;INSTANCE_NAME&gt;.report.int.mscds.com" /&gt;   &lt;add key="USERNAME" value="&lt;USERNAME&gt;"/&gt;   &lt;add key="PASSWORD" value="&lt;PASSWORD&gt;"/&gt;   &lt;add key="REPORT_PATH" value="&lt;REPORT_PATH&gt;"/&gt; &lt;/appSettings&gt;</pre>
+</li>
+<li>
+<p>下例演示如何使用 IReportServerCredentials 访问 SQL Reporting 报表：</p>
+<pre class="prettyprint">using System; using System.Configuration; public partial class Default : System.Web.UI.Page {     protected void Page_Init(object sender, EventArgs e)     {          ReportViewer1.ServerReport.ReportServerUrl = new Uri(String.Format("https://{0}/reportserver", ConfigurationManager.AppSettings["SERVER_NAME"]));          ReportViewer1.ServerReport.ReportPath = ConfigurationManager.AppSettings["REPORT_PATH"];          ReportViewer1.ServerReport.ReportServerCredentials = new ReportServerCredentials();     } }</pre>
+</li>
+</ol>
+<h2 id="Programmatically_Access">使用 SOAP 管理终结点以编程方式访问报表</h2>
+<p>SQL Reporting SOAP API 提供多个 Web 服务终结点用于开发自定义报表解决方案。通过 <a href="http://technet.microsoft.com/zh-cn/library/reportservice2005.aspx">ReportService2005</a> 和 <a href="http://technet.microsoft.com/zh-cn/library/reportservice2010.aspx">ReportService2010</a> 终结点公开管理功能。有关 SQL Reporting 中不支持的 SOAP API 的列表，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg430132#UnsupportedAPIs">Windows Azure SQL Reporting 的指导原则和限制</a>。</p>
+<p>在访问 SOAP 管理终结点时，使用终结点的 LogonUser() 方法向终结点进行身份验证。然后，需要保存由 HTTP 响应返回的身份验证 cookie，并将其加入到每个后续操作请求中。为此，最简单的方法是创建一个新 CookieContainer 实例，然后将其赋给代理类的 CookieContainer 属性，再调用 LogonUser()。</p>
+<p><strong>生成代理类</strong></p>
+<ol>
+<li>在浏览器中，转到终结点的路径。例如：<code>https://&lt;INSTANCE_NAME&gt;.report.int.mscds.com/ReportServer/reportservice2010.asmx</code></li>
+<li>如果提示输入凭据，则键入 SQL Reporting 用户名和密码，然后单击“登录”。随后浏览器中将显示一个 WSDL 文件。</li>
+<li>
+<p>打开“Visual Studio 命令提示”，然后运行 wsdl.exe 命令以生成代理类。例如：wsdl /language:CS /n:"ReportServices2010"&lt;WSDL_FILE_PATH&gt;</p>
+<p>还可通过将参数指定为 <code>/o[ut]:filename 或 directoryname</code>，指定要保存所生成的代理代码的文件（或目录）。此外，将在调用 wsdl.exe 的默认目录下创建代理文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/vs_cmdprompt.png" alt="CmdPrompt"/></p>
+<p>若要打开“Visual Studio 命令提示(2010)”<strong></strong>窗口，请单击“开始”<strong></strong>，依次指向“所有程序”<strong></strong>、“Microsoft Visual Studio 2010”<strong></strong>、“Visual Studio 工具”<strong></strong>，然后右键单击“Visual Studio 命令提示(2010)”<strong></strong>，再选择“以管理员身份运行”。如果出现“用户帐户控制”对话框，则单击“继续”<strong></strong>。</p>
+<p>有关 WSDL.exe 工具的详细信息和语法，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/7h3ystb6.aspx">Web 服务描述语言工具 (Wsdl.exe)</a>。</p>
+</li>
+<li>
+<p>在 Visual Studio 中，将所生成的 .cs 文件添加到您的项目。</p>
+</li>
+</ol>
+<p><strong>向管理终结点进行身份验证和授权</strong></p>
+<p>以下代码演示如何向 ReportingServices2010 管理终结点进行身份验证和授权以及执行 ReportingService2010.ListChildren() 操作。注意，先将 CookieContainer 属性设置为 CookieContainer 类的一个新实例，然后再运行 LogonUser() 方法。这样可确保保存由 LogonUser() 的 Web 响应返回的身份验证 cookie 并在以后的 Web 服务调用中使用它。</p>
+<pre class="prettyprint">ReportingService2010 rs = new ReportingService2010(); rs.Url = String.Format("https://{0}:443/ReportServer/   ReportService2010.asmx", ConfigurationManager.AppSettings["SERVER_NAME"]); rs.CookieContainer = new CookieContainer(); rs.LogonUser(ConfigurationManager.AppSettings["USERNAME"], ConfigurationManager.AppSettings["PASSWORD"], ConfigurationManager.AppSettings["SERVER_NAME"]); CatalogItem[] items = rs.ListChildren("/", true);</pre>
+<p>然后，在 Web.config 或 App.config 文件的 <code>&lt;appSettings&gt;</code> 元素中，指定应用程序设置。下例演示 <code>&lt;appSettings&gt;</code> 元素可能类似的形式。（请考虑按 SQL Reporting 报表服务器指定该值。）</p>
+<pre class="prettyprint">&lt;appSettings&gt;       &lt;add key="SERVER_NAME" value="&lt;INSTANCE_NAME&gt;.report.int.mscds.com" /&gt;       &lt;add key="USERNAME" value="&lt;USERNAME&gt;"/&gt;       &lt;add key="PASSWORD" value="&lt;PASSWORD&gt;"/&gt;     &lt;/appSettings&gt;</pre>
+<h2 id="NextSteps">后续步骤</h2>
+<p>现在，您已熟悉 SQL Reporting、如何将 SQL Reporting 托管的报表集成到应用程序中以及针对 SQL Reporting 报表服务器的开发管理工具。现在，可继续详细了解在 SQL Reporting 中提供的 SOAP API。请参考以下主题：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg552871">应用程序开发人员入门指南 (Windows Azure SQL Reporting)</a></li>
+<li><a href="http://technet.microsoft.com/zh-cn/library/ms155131.aspx">在 Windows 应用程序中使用 SOAP API</a></li>
+<li><a href="http://technet.microsoft.com/zh-cn/library/ms155376.aspx">在 Web 应用程序中使用 SOAP API</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何使用 SQL Reporting (.NET) - Windows Azure 功能指南</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中以编程方式使用 SQL Reporting。]]></metaDescription><linkid>develop-dotnet-sql-reporting</linkid><urlDisplayName>SQL Reporting</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

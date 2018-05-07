@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19150" parentID="19145" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="5" createDate="2013-07-11T11:46:52" updateDate="2014-08-18T11:22:11" nodeName="Django with Visual Studio" urlName="django-with-visual-studio" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19145,19150" isDoc=""><bodyText><![CDATA[<div>
+<h1>使用 Visual Studio 构建 Python Django Web 应用程序</h1>
+<p><strong>  </strong></p>
+<p>使用现成的工具可以让 Windows Azure 开发变得很轻松。本教程假定您之前未使用过 Windows Azure。完成本指南之后，您将能够在云中启动和运行 Django 应用程序。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何创建基本 Django 应用程序</li>
+<li>如何使用 Django 测试服务器在本地运行并调试您的 Django 应用程序</li>
+<li>如何在计算仿真程序中本地运行您的 Django 应用程序</li>
+<li>如何将应用程序发布和重新发布到 Windows Azure。</li>
+</ul>
+<p>通过按照本教程中的说明进行操作，您将构建一个简单的 Hello World Web 应用程序。该应用程序将托管在一个 Web 角色实例中，此实例在 Windows Azure 中运行时将托管在专用虚拟机 (VM) 中。</p>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-firstappincloud.png"/></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-note" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a id="setup"></a>设置开发环境</h2>
+<p>在您可以开始开发 Windows Azure 应用程序之前，您需要获取一些工具并设置开发环境。有关获取并安装 Windows Azure SDK for Python 的详细信息，请参阅<a href="/zh-cn/develop/python/common-tasks/install-python">如何安装 Python</a>。</p>
+<p><strong>注意：</strong>本教程需要 Python 2.7 和 Django 1.4。这些版本包括在最新 Windows Azure SDK for Python 中。</p>
+<p><strong>注意：</strong> 部署到计算仿真程序和/或 Windows Azure 需要完整版本的 Visual Studio（不支持集成外壳）。</p>
+<h2>创建新的 Django 应用程序</h2>
+<p>若要创建新的 Django 应用程序，请首先启动 Visual Studio，然后使用“文件”-&gt;“新建项目”来创建新项目。找到“Python”选项卡（位于顶级或“其他语言”区域中），然后选择“Django 应用程序”模板：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-newproject.png" alt="新 Python 项目模板"/></p>
+<p>单击“确定”，您将创建您的第一个 Django 应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-firstproject.png" alt="显示您的第一个 Django 项目的已打开的 Visual Studio"/></p>
+<p>接下来，您将要开始开发第一个 Django 应用程序。您可以右键单击模块节点并选择“添加新的 Django 应用程序...”来在您的项目中设置新应用程序：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-addnewapp.png" alt="添加新应用程序菜单项"/></p>
+<p>之后，您可以为您的应用程序输入新名称：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-addnewappprompt.png" alt="添加新应用程序名称提示"/></p>
+<p>在为应用程序输入名称并单击“确定”后，将向您的项目中添加一个新应用程序：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-myfirstapp.png" alt="添加了新应用程序的解决方案资源管理器"/></p>
+<p>现在更新 <strong>settings.py</strong>，以便注册您的应用程序。这会导致 Django 自动发现添加到您的应用程序 Templates 目录中的模板文件。将应用程序名称添加到 INSTALLED_APPS 部分：</p>
+<pre class="prettyprint">'DjangoApplication.MyFirstApp',</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-installapp.png" alt="将应用程序添加到 INSTALLED_APPS 中的 settings.py"/></p>
+<p>接下来，让我们向应用程序的 <strong>views.py</strong> 中添加一些代码，以便可以返回一个简单的模板文件：</p>
+<pre class="prettyprint">from django.http import HttpResponse
+from django.template.loader import render_to_string
+def home(request):
+    return HttpResponse(render_to_string(
+                                        'index.html',
+                                        {'content': 'Hello World'}
+                                        ))</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-firstview.png" alt="将应用程序添加到 INSTALLED_APPS 中的 settings.py"/></p>
+<p>然后，让我们添加将在您访问此视图时呈现的简单模板文件。为此，我们可以右键单击 Templates 文件夹并选择“添加新项”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-addfirsttemplate.png" alt="向 Templates 文件夹中添加新项"/></p>
+<p>您现在可以从模板列表中选择“Django HTML 模板”并输入 <strong>index.html</strong> 作为文件名：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-newdjangotemplate.png" alt="向 Templates 文件夹中添加新项"/></p>
+<p>之后，该模板将添加到项目中并打开。在这里，您可以看到为模板标记突出显示的一些语法的起始内容：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-templateadded.png" alt="添加到解决方案资源管理器的模板"/></p>
+<p>此时，您可以开始更新模板以更改呈现的 HTML，并且在执行该操作时，您将获得较好的智能感知体验：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-templateintellisense.png" alt="Django 筛选器的模板智能感知功能"/></p>
+<p>您可以保留或取消大写格式，因为它基本上不会改变本教程的结果。最后，您只需在 <strong>urls.py</strong> 中使用 url 模式注册您的视图。将以下代码添加到 <strong>urlpatterns</strong> 中：</p>
+<pre class="prettyprint">url(r'^$', 'DjangoApplication.MyFirstApp.views.home', name='home'),</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-registerurl.png" alt="注册 URL"/></p>
+<h2>在测试服务器中本地运行您的应用程序</h2>
+<p>此时，您已创建您的第一个 Django 应用程序。现在，您只需<strong>按 F5</strong> 即可在本地运行它。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-djangohelloworldtestserver.png" alt="浏览器和测试服务器中的 Django Hello World"/></p>
+<p>这会启动运行 Django 的 <strong>manage.py</strong> 的 Python 解释程序以运行测试服务器。在测试服务器成功启动后，它还会启动 Web 浏览器以查看网站。因为您是使用 F5 启动应用程序的，而这会在调试器中启动该应用程序，所以我们还可以在任何 Python 代码（例如视图代码）或模板文件本身中设置断点：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-templatebreakpoint.png" alt="停在模板断点处的调试器"/></p>
+<p>您现在可以<strong>单击停止按钮</strong>并转为在 Windows Azure 计算仿真程序中运行。</p>
+<h2>在仿真程序中本地运行应用程序</h2>
+<p>若要在计算仿真程序内运行，您只需将 Windows Azure 部署项目添加到您的 Django 项目解决方案中。</p>
+<p><strong>注意：</strong> 部署到计算仿真程序和/或 Windows Azure 需要完整版本的 Visual Studio（不支持集成外壳）。</p>
+<p>这可通过右键单击解决方案资源管理器中的 Django 项目节点并选择“添加 Windows Azure 云服务项目”来实现：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-adddeploymentproject.png" alt="添加部署项目"/></p>
+<p>在执行此命令后，您将在解决方案资源管理器中看到新添加的项目：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-afterdeployprojadded.png" alt="添加部署项目之后"/></p>
+<p>此新项目现在还在解决方案中标记为启动项目。此时，您将需要<strong>以管理员身份重新启动 Visual Studio</strong> 以使应用程序能够在计算仿真程序中运行，执行该操作后，我们只需<strong>按 F5</strong>，应用程序即可运行并部署在计算仿真程序中：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-computeemulator.png" alt="添加部署项目之后"/></p>
+<p>现在，您会发现我们获得了相同的网页，但其 URL 略微不同。您还会发现没有 python.exe 正在运行 Django 测试服务器。相反，我们通过 IIS，使用 FastCGI 网关（在从 Visual Studio 运行时会自动包括并设置该网关）运行 Django。</p>
+<p>在计算仿真程序中运行时，您可以快速循环访问您的应用程序 - 只需切换回 Visual Studio，更新您的文件并刷新 Web 浏览器。您将立即看到结果！</p>
+<h2>将应用程序部署到 Windows Azure</h2>
+<p>现在，您已准备好将项目部署到 Windows Azure。为此，您只需在解决方案资源管理器中右键单击 Windows Azure 部署项目并选择“发布”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-publish1.png" alt="打包应用程序菜单"/></p>
+<p>在选择“发布”后，将提示您登录 Windows Azure。您可以在此处导入您的现有凭据或设置新凭据：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-publish2.png" alt="打包订阅"/></p>
+<p>在选择凭据后，您将看到“Windows Azure 发布设置”屏幕。您可以选择各种有关您的部署将如何进行的选项，也可以仅按“发布”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-publish3.png" alt="打包设置"/></p>
+<p>您现在将需要等待来设置和部署应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-publish4.png" alt="打包部署"/></p>
+<p>在完成所有设置后，您可以单击 DNS 名称下面的链接来查看运行在云中的网站：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/ptvs-dj-firstappincloud.png" alt="在云中的您的 Django 应用程序"/></p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>django with visual studio</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>django with visual studio</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>django with visual studio</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

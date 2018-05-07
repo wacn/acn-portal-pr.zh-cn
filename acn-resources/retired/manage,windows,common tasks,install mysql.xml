@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19299" parentID="18528" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="7" createDate="2013-07-11T12:50:25" updateDate="2014-08-18T11:30:01" nodeName="Install MySQL" urlName="install-mysql" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,17363,18528,19299" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中，在运行 Windows Server 2008 R2 的虚拟机上安装 MySQL</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p><a href="http://www.mysql.com">MySQL</a> 是一个受欢迎的开放源代码 SQL Database。通过使用 <a href="http://manage.windowsazure.cn">Windows Azure管理门户</a>，您可以从映像库中创建运行 Windows Server 2008 R2 的虚拟机。然后，您可以在虚拟机上安装和配置 MySQL 数据库。</p>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>
+<p>如何使用管理门户创建一个运行 Windows Server 2008 R2 的虚拟机。</p>
+</li>
+<li>
+<p>如何在虚拟机上安装和运行 MySQL Community Server。</p>
+</li>
+</ul>
+<h2> </h2>
+<h2>创建运行 Windows Server 2008 R2 的虚拟机</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="create-and-configure-windows-server-2008-vm-in-portal" macroAlias="AzureChunkDisplayer" />
+<h2>附加数据磁盘</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="attach-data-disk-windows-server-2008-vm-in-portal" macroAlias="AzureChunkDisplayer" />
+<h2>在虚拟机上安装和运行 MySQL Community Server</h2>
+<p>按照下列步骤操作可安装、配置和运行 MySQL Community Server：</p>
+<ol>
+<li>
+<p>在使用远程桌面连接到虚拟机后，请从“开始”菜单中打开“Internet Explorer”。</p>
+</li>
+<li>
+<p>选择右上角的“工具”按钮。在“Internet 选项”中，选择“安全”选项卡，然后选择“可信站点”图标，最后单击“站点”按钮。将 <em>http://*.mysql.com</em> 添加到可信站点列表中。</p>
+</li>
+<li>
+<p>转到<a href="http://www.mysql.com/downloads/mysql/">下载 MySQL Community Server（可能为英文页面）</a>。</p>
+</li>
+<li>
+<p>在“平台”下拉菜单中选择“Microsoft Windows”，然后单击“选择”。</p>
+</li>
+<li>
+<p>查找最新版本的“Windows (x86，64 位)，MSI Installer”，然后单击“下载”。</p>
+</li>
+<li>
+<p>选择“不，谢谢，仅开始我的下载!”（或者，注册一个帐户）。如果出现提示，请选择一个镜像站点以下载 MySQL 安装程序并将该安装程序保存到桌面上。</p>
+</li>
+<li>
+<p>双击桌面上的安装程序文件以开始安装。</p>
+</li>
+<li>
+<p>单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlinstall1.png" alt="MySQL 设置"/></p>
+</li>
+<li>
+<p>接受许可协议，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlinstall2.png" alt="MySQL 设置"/></p>
+</li>
+<li>
+<p>单击“典型”以安装常用功能。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlinstall3.png" alt="MySQL 设置"/></p>
+</li>
+<li>
+<p>单击“安装”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlinstall4.png" alt="MySQL 设置"/></p>
+</li>
+<li>
+<p>启动 MySQL 配置向导，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig1.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>选择“详细配置”，然后单击“下一步”</p>
+。
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig2.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>如果您打算在服务器上将 MySQL 与其他应用程序一起运行，请选择“服务器计算机”或选择最适合您需求的选项。单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig3.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>选择“多功能数据库”或最适合您需求的选项。单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig4.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>选择在上述步骤中附加的数据驱动器。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig5.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>选择“决策支持(DSS)/OLAP”或最适合您需求的选项。单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig6.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>选择“启用 TCP/IP 网络”和“为该端口添加防火墙例外”（这将在 Windows 防火墙中创建名为“MySQL 服务器”的入站规则）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig7.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>如果您需要用许多不同的语言存储文本，请选择“对多语言的最佳支持”或最适合您需求的选项。单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig8.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>选择“作为 Windows 服务安装”和“自动启动 MySQL 服务器”。另请选择“包括 Windows 路径中的 Bin 目录”。单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig9.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>输入根密码。不要选中“启用来自远程计算机的根访问”或“创建匿名帐户”。单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig10.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>单击“执行”并等待配置完成。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig11.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>单击“完成”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/mysqlconfig12.png" alt="配置 MySQL"/></p>
+</li>
+<li>
+<p>单击“开始”，然后选择“MySQL 5.x 命令行客户端”以启动该命令行客户端。</p>
+</li>
+<li>
+<p>在提示符处输入您在上一步中设置的根密码，这将显示一条提示，告知您可从何处发出 SQL 语句以便与数据库进行交互。</p>
+</li>
+<li>
+<p>若要创建新的 MySQL 用户，请在 <strong>mysql&gt;</strong> 提示符处运行以下命令：</p>
+<pre class="prettyprint">mysql&gt; CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';</pre>
+<p>请注意，行尾的分号 (;) 对于结束命令很重要。</p>
+</li>
+<li>
+<p>若要创建数据库并向其授予 <code>mysqluser</code> 用户权限，请发出以下命令：</p>
+<pre class="prettyprint">mysql&gt; CREATE DATABASE testdatabase; mysql&gt; GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';</pre>
+<p>请注意，数据库用户名和密码仅由连接到数据库的脚本使用。数据库用户帐户名不一定表示计算机上的实际用户帐户。</p>
+</li>
+<li>
+<p>若要从其他计算机登录，请执行以下命令：</p>
+<pre class="prettyprint">mysql&gt; GRANT ALL ON testdatabase.* TO 'mysqluser'@'&lt;ip-address&gt;' IDENTIFIED BY 'password';</pre>
+<p>其中，<code>ip-address</code> 是您将从其中连接到 MySQL 的计算机的 IP 地址。</p>
+</li>
+<li>
+<p>若要退出 MySQL 命令行客户端，请发出以下命令：</p>
+<pre class="prettyprint">quit</pre>
+</li>
+<li>
+<p>在安装 MySQL 后，您必须配置一个终结点，这样才能远程访问 MySQL。登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。在 Windows Azure 门户中，依次单击“虚拟机”、新虚拟机的名称、“终结点”和“添加终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/winvmaddendpointmysql0.png" alt="终结点"/></p>
+</li>
+<li>
+<p>选择“添加终结点”，然后单击箭头以继续。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/winvmaddendpointmysql1.png" alt="终结点"/></p>
+</li>
+<li>
+<p>添加名为“MySQL”的终结点、协议 <strong>TCP</strong> 以及设置为“3306”的“公用”和“专用”端口。单击复选标记。这将允许对 MySQL 进行远程访问。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/winvmaddendpointmysql.png" alt="终结点"/></p>
+</li>
+<li>
+<p>可以远程连接到在 Windows Azure 中的虚拟机上运行的 MySQL。从运行 MySQL 的本地计算机中，运行以下命令以作为上述步骤中创建的 <strong>mysqluser</strong> 用户登录：</p>
+<pre class="prettyprint">mysql -u mysqluser -p -h &lt;yourservicename&gt;.chinacloudapp.cn</pre>
+<p>例如，通过使用本教程中创建的虚拟机，该命令应为：</p>
+<pre class="prettyprint">mysql -u mysqluser -p -h testwinvm.chinacloudapp.cn</pre>
+</li>
+</ol>
+<h2>摘要</h2>
+<p>在本教程中，您已了解如何创建 Windows 2008 R2 虚拟机以及如何以远程方式连接到该虚拟机。您还了解了如何在虚拟机上安装和配置 MySQL 以及创建数据库和新的 MySQL 用户。有关 MySQL 的详细信息，请参阅 <a href="http://dev.mysql.com/doc/">MySQL 文档</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在 Windows Azure 中创建运行 MySQL 的虚拟机</pageTitle><metaKeywords>Azure 虚拟机, Azure Windows Server, 安装 MySQL 的 Azure, 配置 MySQL 的 Azure, Azure 数据库</metaKeywords><metaDescription><![CDATA[创建运行 Windows Server 2008 R2 的 Windows Azure 虚拟机，然后在该虚拟机上安装和配置 MySQL 数据库。]]></metaDescription><linkid>manage-windows-common-tasks-install-mysql</linkid><urlDisplayName>安装 MySQL</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

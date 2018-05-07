@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19284" parentID="19282" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="2" createDate="2013-07-11T12:16:37" updateDate="2014-08-18T11:29:27" nodeName="How to Configure Websites" urlName="how-to-configure-websites" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19282,19284" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何配置网站</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>在 Windows Azure管理门户中，您可以更改网站的配置选项，并且可以将网站链接到其他 Windows Azure 资源。例如，您可以将网站链接到 SQL Database 来提供其他功能。还可以将网站配置为使用新的或现有的 MySQL 数据库。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#howtochangeconfig">如何：更改网站的配置选项</a></li>
+<li><a href="#howtoconfigSQL">如何：将网站配置为使用 SQL Database</a></li>
+<li><a href="#howtoconfigMySQL">如何：将网站配置为使用 MySQL 数据库</a></li>
+</ul>
+<h2><a name="howtochangeconfig"></a>如何：更改网站的配置选项</h2>
+<p>执行下列步骤可更改网站的配置选项。</p>
+<ol>
+<li>在管理门户中，打开网站的管理页。</li>
+<li>单击“配置”选项卡以打开“配置”管理页。</li>
+<li>根据需要为网站设置下列配置选项：
+<ul>
+<li style="margin-left: 40px;"><strong>框架</strong> – 设置 Web 应用程序所需版本的 .NET Framework 或 PHP。</li>
+<li style="margin-left: 40px;"><strong>主机名</strong> – 在此处输入网站的其他主机名。其他主机名只能更改完全限定的“点分隔”域名中第一个点之前的部分。例如，如果原始网站名称为 MySite.azure-test.chinacloudapi.cn，则其他主机名必须使用命名法 newhostname.azure-test.chinacloudapi.cn，并保留第一个句点及其右侧的所有内容。<br /><strong>注意</strong><br />用于添加其他网站主机名的功能仅在使用“专属”网站模式配置网站时可用，如“缩放”管理页中所述。</li>
+<li style="margin-left: 40px;"><strong>诊断</strong>– 设置用于收集网站的诊断信息的选项，其中包括：
+<ul>
+<li style="margin-left: 60px;"><strong>Web 服务器日志记录</strong> – 指定是否为网站启用 Web 服务器日志记录。如果启用 Web 服务器日志记录，则使用 W3C 扩展日志文件格式将 Web 服务器日志保存到“仪表板”管理页上的“诊断日志”下方列出的 FTP 站点。在连接到指定的 FTP 站点后，请导航到 /wwwroot/LogFiles/http/RawLogs/ 以检索 Web 服务器日志。</li>
+<li style="margin-left: 60px;"><strong>详细的错误消息</strong> – 指定是否记录网站的详细的错误消息。如果启用此选项，则将详细的错误消息作为 .htm 文件保存到“仪表板”管理页上的“诊断日志”下方列出的 FTP 站点。在连接到指定的 FTP 站点后，请导航到 /LogFiles/DetailedErrors/ 以检索包含详细的错误消息的 .htm 文件。</li>
+<li style="margin-left: 60px;"><strong>未能请求跟踪</strong> – 指定是否启用失败的请求跟踪。如果启用此选项，则将失败的请求跟踪输出写入到 XML 文件，然后将这些文件保存到“仪表板”管理页上的“诊断日志”下方列出的 FTP 站点。在连接到指定的 FTP 站点后，请导航到 /LogFiles/W3SVC#########（其中 ######### 表示网站的唯一标识符）以检索包含失败的请求跟踪输出的 XML 文件。<br /><strong>重要说明</strong><br />/LogFiles/W3SVC#########/ 文件夹包含一个 XSL 文件和一个或多个 XML 文件。请确保将 XSL 文件下载到 XML 文件所在的目录中，因为 XSL 文件提供了在 Internet Explorer 中查看 XML 文件时格式化和筛选这些文件的内容的功能。</li>
+</ul>
+</li>
+<li><strong>应用设置</strong> – 指定 Web 应用程序在启动时将加载的名称/值对。对于 .NET 网站，这些设置将在运行时注入到 .NET 配置 AppSettings 中，并且将重写现有设置。对于 PHP 和 Node 网站，这些设置将在运行时作为环境变量提供。</li>
+<li><strong>连接字符串</strong> – 查看链接的资源的连接字符串。对于 .NET 网站，这些连接字符串将在运行时注入到 .NET 配置 connectionStrings 设置中，并且将重写其中的键等于链接的数据库名称的所有现有条目。对于 PHP 和 Node 网站，这些设置将在运行时作为环境变量提供，并且用连接类型作为前缀。下面列出了环境变量前缀： <br />
+<ul>
+<li>SqlServer：SQLCONNSTR_</li>
+<li>MySql：MYSQLCONNSTR_</li>
+<li>Sql Azure：SQLAZURECONNSTR_</li>
+<li>自定义：CUSTOMCONNSTR_</li>
+</ul>
+例如，如果将 MySql 连接字符串命名为 connectionstring1，则将通过环境变量 <code>MYSQLCONNSTR_connectionString1</code> 访问该字符串。<strong>注意</strong><br />在将数据库资源链接到网站时将创建连接字符串，并且连接字符串仅在配置管理页上查看时是可读的。</li>
+<li><strong>默认文档</strong> – 在您网站的默认文档未包含在列表中时将该文档添加到该列表中。网站的默认文档是指当用户导航到网站且未在该网站上指定特定的页面时显示的网页。假定网站为 http://contoso.com，如果默认文档设置为 default.htm，则当用户的浏览器指向 http://www.contoso.com 时，用户将路由到 http://www.contoso.com/default.htm。如果网站包含列表中的多个文件，则请确保通过更改列表中的文件顺序来使网站的默认文档位于列表的顶部。</li>
+</ul>
+</li>
+<li>单击“配置”管理页底部的“保存”以保存配置更改。</li>
+</ol>
+<h2><a name="howtoconfigSQL"></a>如何：将网站配置为使用 SQL Database</h2>
+<p>按照下列步骤操作可将网站链接到 SQL Database：</p>
+<ol>
+<li>
+<p>在<a href="http://manage.windowsazure.cn">管理门户</a>中，选择“网站”以显示由当前登录帐户创建的网站的列表。</p>
+</li>
+<li>
+<p>从网站的列表中选择一个网站以打开该网站的“管理”页。</p>
+</li>
+<li>
+<p>单击“链接的资源”选项卡，“链接的资源”页上将显示一条消息，该消息指示“您没有链接的资源”。</p>
+</li>
+<li>
+<p>单击“链接资源”以打开“链接资源”向导。</p>
+</li>
+<li>
+<p>单击“创建新资源”以显示可链接到网站的资源类型的列表。</p>
+</li>
+<li>
+<p>单击“SQL Database”以显示“链接数据库”向导。</p>
+</li>
+<li>
+<p>填写“链接数据库”向导的第 3 页和第 4 页上的必填字段，然后单击第 4 页上的“完成”复选标记。</p>
+</li>
+</ol>
+<p>Windows Azure 将创建带指定参数的 SQL Database，并将该数据库链接到网站。</p>
+<h2><a name="howtoconfigMySQL"></a>如何：将网站配置为使用 MySQL 数据库</h2>
+<p>若要将网站配置为使用 MySQL 数据库，您必须使用“与数据库一起创建”选项创建网站，然后指定“使用现有 MySQL 数据库”或“创建新的 MySQL 数据库”。</p>
+<p>您无法将 MySQL 数据库作为链接的资源添加到网站。它们不会作为一类云资源显示在管理门户中。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何配置网站 - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-how-to-configure-websites</linkid><metaKeywords>Azure 网站, 配置 Azure 网站, Azure SQL Database, Azure MySQL</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中配置网站，其中包括如何将网站配置为使用 SQL Database 或 MySQL 数据库。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何配置</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

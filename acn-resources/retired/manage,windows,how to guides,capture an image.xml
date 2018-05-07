@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19304" parentID="19301" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="3" createDate="2013-07-11T12:51:39" updateDate="2014-08-18T11:30:26" nodeName="Capture an Image" urlName="capture-an-image" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,17363,19301,19304" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何捕获运行 Windows Server 2008 R2 的虚拟机的映像</h1>
+<!--?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" ?-->
+<p>您可以使用映像库中的映像轻松创建虚拟机，也可以捕获和使用自己的映像来创建自定义虚拟机。映像是用作创建虚拟机的模板的虚拟硬盘 (VHD) 文件。映像是一个模板，因为它不具有类似于配置的虚拟机这样的特定设置，例如计算机名称和用户帐户设置。如果您想要创建以相同方式设置的多台虚拟机，则可以捕获已配置虚拟机的映像并使用该映像作为模板。</p>
+<ol>
+<li>
+<p>使用<a href="../log-on-a-windows-VM/">如何登录到运行 Windows Server 2008 R2 的虚拟机</a>中列出的步骤可连接到虚拟机。</p>
+</li>
+<li>
+<p>以管理员身份打开“命令提示符”窗口。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sysprepcommand.png" alt="运行 Sysprep.exe"/></p>
+</li>
+<li>
+<p>将目录更改为 <code>%windir%\system32\sysprep</code>，然后运行 sysprep.exe。</p>
+<p>将显示“系统准备工具”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sysprepgeneral.png" alt="输入 Sysprep.exe 选项"/></p>
+</li>
+<li>
+<p>在“系统清理操作”中，选择“进入系统全新体验(OOBE)”并确保选中“一般化”。有关使用 Sysprep 的更多信息，请参见<a href="http://technet.microsoft.com/zh-cn/library/bb457073.aspx">如何使用 Sysprep：简介</a>。</p>
+</li>
+<li>
+<p>在“关机选项”中，选择“关机”。</p>
+</li>
+<li>
+<p>单击“确定”。</p>
+</li>
+<li>
+<p>sysprep 命令将关闭虚拟机，这会在<a href="http://manage.windowsazure.cn">管理门户</a>中将虚拟机的状态更改为“已停止”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sysprepstopped.png" alt="虚拟机已停止"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择要从中捕获映像的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“捕获”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/capturevm.png" alt="捕获虚拟机的映像"/></p>
+<p>将出现“捕获虚拟机”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/capture.png" alt="输入映像的名称"/></p>
+</li>
+<li>
+<p>在“映像名称”中，输入新映像的名称。</p>
+</li>
+<li>
+<p>必须通过运行 sysprep 命令对所有 Windows Server 映像进行一般化。单击“我已在虚拟机上运行 Sysprep”以指示操作系统准备就绪，可随时将其用作映像。</p>
+</li>
+<li>
+<p>单击复选标记以捕获映像。当您捕获某台虚拟机的映像后，将删除该虚拟机。</p>
+<p>新映像现在显示在“映像”下。捕获映像后，将删除虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/capturesuccess.png" alt="成功捕获映像"/></p>
+<p>当您使用“从库中”方法创建虚拟机时，可以使用通过单击“虚拟机操作系统选择”页面上“我的映像”捕获的映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/myimageswindows.png" alt="使用捕获的映像"/></p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>capture an image</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>capture an image</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>capture an image</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

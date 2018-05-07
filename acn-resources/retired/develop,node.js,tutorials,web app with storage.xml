@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19019" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="8" createDate="2013-07-11T11:17:22" updateDate="2014-08-18T11:17:35" nodeName="Web App with Storage" urlName="web-app-with-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19019" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>使用存储构建 Node.js Web 应用程序</h1>
+<p>在本教程中，您将通过将用于 Node.js 的 Windows Azure 客户端库与数据管理服务结合使用，来扩展在<a href="/zh-cn/develop/nodejs/tutorials/web-app-with-express/">使用 Express 构建 Node.js Web 应用程序</a>教程中创建的应用程序。您将扩展您的应用程序以创建可部署到 Windows Azure 的基于 Web 的任务列表应用程序。用户可以通过任务列表来检索任务、添加新任务以及将任务标记为已完成。</p>
+<p>任务项将存储在 Windows Azure 存储中。Windows Azure 存储提供了具有容错能力且可用性非常好的非结构化数据存储。Windows Azure 存储包含一些可用来存储和访问数据的数据结构，您可以通过 Windows Azure SDK for Node.js 中包含的 API 或通过 REST API 利用存储服务。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a>。</p>
+<p>本教程假定您已完成 <a href="/zh-cn/develop/nodejs/tutorials/getting-started/">Node.js Web 应用程序</a>和<a href="/zh-cn/develop/nodejs/tutorials/web-app-with-express/">使用 Express 构建 Node.js</a> 教程。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何使用 Jade 模板引擎</li>
+<li>如何使用 Windows Azure 数据服务管理</li>
+</ul>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/getting-started-1.png" alt="Internet Explorer 中已完成的网页"/></p>
+<h2>在 Web.Config 中设置存储凭据</h2>
+<p>若要访问 Windows Azure 存储，您需要传入存储凭据。为此，您将使用 web.config 应用程序设置。这些设置将作为环境变量传递给 Node，然后再由 Windows Azure SDK 进行读取。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>仅在将应用程序部署到 Windows Azure 时才使用存储凭据。当应用程序在仿真程序中运行时将使用存储仿真程序。</p>
+</div>
+<p>执行下列步骤可检索存储帐户凭据并将这些凭据添加到 web.config 设置中：</p>
+<ol>
+<li>
+<p>如果尚未打开 Windows Azure PowerShell，请通过在“开始”菜单中展开“所有程序”、“Windows Azure”打开该应用程序，然后右键单击“Windows Azure PowerShell”，选择“以管理员身份运行”。</p>
+</li>
+<li>
+<p>将目录更改为包含您的应用程序的文件夹。例如，C:\node\tasklist\WebRole1.</p>
+</li>
+<li>
+<p>从 Windows Azure Powershell 窗口中，输入以下 cmdlet 以检索存储帐户信息：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Get-AzureStorageAccounts</pre>
+<p>这样可以检索与托管服务关联的存储帐户和帐户密钥的列表。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>由于在您部署服务时 Windows Azure SDK 会创建一个存储帐户，因此存储帐户应当在之前指南中部署应用程序时就已存在。</p>
+</div>
+</li>
+<li>
+<p>打开包含在将应用程序部署到 Windows Azure 时使用的环境设置的 web.cloud.config 文件：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; notepad web.cloud.config</pre>
+</li>
+<li>
+<p>在 <strong>configuration</strong> 元素下面插入下列块，使用您要用于部署的存储帐户的帐户名和主密钥替换 {STORAGE ACCOUNT} 和 {STORAGE ACCESS KEY}：</p>
+<pre class="prettyprint">&lt;appSettings&gt;
+  &lt;add key="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}"/&gt;
+  &lt;add key="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}"/&gt;
+&lt;/appSettings&gt;</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node37.png" alt="web.cloud.config 文件内容"/></p>
+</li>
+<li>
+<p>保存该文件并关闭记事本。</p>
+</li>
+</ol>
+<h2>安装模块</h2>
+<p>若要使用 Windows Azure 数据管理服务，必须为 Node 安装 Azure 模块。还必须安装 node-uuid 模块，因为此模块将用于生成全局唯一标识符 (UUID)。若要安装这些模块，请输入下列命令：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; npm install node-uuid azure</pre>
+<p>完成该命令后，这些模块将添加到 <strong>node_modules</strong> 文件夹中。执行下列步骤可在应用程序中使用这些模块：</p>
+<ol>
+<li>
+<p>打开 server.js 文件：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; notepad server.js</pre>
+</li>
+<li>
+<p>在以 express.createServer() 结尾的行后面添加下面的代码以包括 node-uuid、home 和 azure 模块。home 模块尚不存在，但您稍后将会创建它。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node38.png" alt="突出显示“var app = modules.exports = express.createServer();”行的 server.js 代码"/></p>
+<pre class="prettyprint">var uuid = require('node-uuid');
+var Home = require('./home');
+var azure = require('azure');</pre>
+</li>
+<li>
+<p>添加用于创建存储表客户端的代码，以传入存储帐户和访问密钥信息。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>在仿真程序中运行时，即使存储帐户信息是通过 web.config 提供的，SDK 也会自动使用仿真程序。</p>
+</div>
+<pre class="prettyprint">var client = azure.createTableService();</pre>
+</li>
+<li>
+<p>接下来，在 Windows Azure 存储中创建一个名为“tasks”的表。下面的逻辑将创建一个新表（如果不存在）并使用一些默认数据填充该表。</p>
+<pre class="prettyprint">//table creation
+client.createTableIfNotExists('tasks', function(error){
+    if(error){
+        throw error;
+    }
+
+
+var item = {
+    name: 'Add readonly task list',
+    category: 'Site work',
+    date: '12/01/2011',
+    RowKey: uuid(),
+    PartitionKey: 'partition1',
+    completed: false
+};
+
+
+client.insertEntity('tasks', item, function(){});
+
+
+});</pre>
+</li>
+<li>
+<p>将路由部分的现有代码替换为下面的代码，以创建一个主控制器实例并将 <strong>/</strong> 或 <strong>/home</strong> 的所有请求路由至该实例。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node39.png" alt="选中 //routes app.get('/', routes.index); app.get('/home',function(req,res){ res.render('home', { title:'Home'});}); 行的 server.js 文件。"/></p>
+<pre class="prettyprint">var home = new Home(client);
+app.get('/', home.showItems.bind(home));
+app.get('/home', home.showItems.bind(home));</pre>
+<p>请注意，您现在要将命令委派给 Home 对象，而不是以内联方式处理请求。若要确保这些引用在主控制器内在本地进行正确解析，将需要 <strong>bind</strong> 命令。</p>
+</li>
+</ol>
+<h2>创建主控制器</h2>
+<p>您现在必须创建一个主控制器才能处理针对任务列表站点的所有请求。执行下列步骤可创建控制器：</p>
+<ol>
+<li>
+<p>在记事本中新建一个 home.js 文件。该文件将包含处理任务列表逻辑的控制器代码。</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; notepad home.js</pre>
+</li>
+<li>
+<p>将该内容替换为以下代码并保存该文件。下面的代码使用 javascript 模块模式。它将导出一个 Home 函数。Home 原型包含用于处理实际请求的函数。</p>
+<pre class="prettyprint">var azure=require('azure');
+module.exports = Home;
+
+
+function Home (client) {
+    this.client = client;
+};
+
+
+Home.prototype = {
+    showItems: function (req, res) {
+        var self = this;
+        this.getItems(false, function (resp, tasklist) {
+            if (!tasklist) {
+                tasklist = [];
+            }           
+            self.showResults(res, tasklist);
+        });
+    },
+
+
+getItems: function (allItems, callback) {
+    var query = azure.TableQuery
+        .select()
+        .from('tasks');
+
+
+    if (!allItems) {
+        query = query.where('completed eq ?', 'false');
+    }
+    this.client.queryEntities(query, callback);
+ },
+
+
+ showResults: function (res, tasklist) {
+    res.render('home', { 
+        title: 'Todo list', 
+        layout: false, 
+        tasklist: tasklist });
+ },
+
+
+};</pre>
+<p>您的主控制器现在包含以下三个函数：</p>
+<ul>
+<li><em>showItems</em> 处理请求。</li>
+<li><em>getItems</em> 使用表客户端从 tasks 表中检索打开的任务项。请注意，查询可以应用其他筛选器。例如，上面的查询筛选器只显示 completed 等于 false 的任务。</li>
+<li><em>showResults</em> 调用 Express 呈现函数来呈现使用主视图（将在下一节中创建）的页面。</li>
+</ul>
+</li>
+</ol>
+<h3>修改主视图</h3>
+<p>Jade 模板引擎使用的标记语法不及 HTML 的详细，它是用于 Express 的默认引擎。执行下列步骤可新建一个支持显示任务列表项的视图：</p>
+<ol>
+<li>
+<p>从 Windows PowerShell 命令窗口中，使用下列命令编辑 home.jade 文件：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1\views&gt; notepad home.jade</pre>
+</li>
+<li>
+<p>将 home.jade 文件的内容替换为以下代码并保存该文件。下面的表单包含用于读取和更新任务项的功能。（请注意，当前主控制器仅支持读取；您将在稍后对此做出更改。）该表单包含任务列表中每一项的详细信息。</p>
+<pre class="prettyprint">html
+head
+    title Index
+body
+    h1 My ToDo List
+
+
+form
+    table(border="1")
+        tr
+            td Name
+            td Category
+            td Date
+            td Complete
+
+
+            each item in tasklist
+                tr
+                    td #{item.name}
+                    td #{item.category} 
+                    td #{item.date} 
+                    td 
+                        input(type="checkbox", name="completed", value="#{item.RowKey}")</pre>
+</li>
+</ol>
+<h2>在计算仿真程序中运行应用程序</h2>
+<ol>
+<li>
+<p>在 Windows PowerShell 窗口中，输入以下 cmdlet 以在计算仿真程序中启动您的服务并显示调用您的服务的网页。</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Start-AzureEmulator -launch</pre>
+<p>您的浏览器将显示以下页面，其中显示了从 Windows Azure 存储中检索到的任务项：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node40.png" alt="Internet Explorer 中显示表中有一项内容的“My Tasklist”页。"/></p>
+</li>
+</ol>
+<h2>添加新任务功能</h2>
+<p>在本节中，您将更新应用程序以支持添加新任务项。</p>
+<h3>向 Server.js 添加新路由</h3>
+<p>在 server.js 文件中，在 <strong>/home</strong> 的最后一个路由项后面添加以下行，然后保存该文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node41.png" alt="突出显示 app.get('/home', home.showItems.bind(home)); 行的 server.js 文件。"/></p>
+<pre class="prettyprint">app.post('/home/newitem', home.newItem.bind(home));</pre>
+<p>路由部分现在应如下所示：</p>
+<pre class="prettyprint">// Routes
+
+   var home = new Home(client);
+   app.get('/', home.showItems.bind(home));
+   app.get('/home', home.showItems.bind(home));
+   app.post('/home/newitem', home.newItem.bind(home));</pre>
+<h3>添加 Node-UUID 模块</h3>
+<p>若要使用 node-uuid 模块创建唯一标识符，请在 home.js 文件顶部导入该模块的第一行后面添加以下行。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node42.png" alt="突出显示 module.exports = Home 行的 home.js 文件。"/></p>
+<pre class="prettyprint">var uuid = require('node-uuid');</pre>
+<h3>向主控制器添加新建项功能</h3>
+<p>若要实现新建项功能，请创建 <strong>newItem</strong> 函数。在 home.js 文件中，在最后一个函数后面粘贴以下代码，然后保存该文件。</p>
+<p>突出显示 <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node43.png" alt="showresults:function"/></p>
+<pre class="prettyprint">newItem: function (req, res) {
+       var self = this;
+       var createItem = function (resp, tasklist) {
+           if (!tasklist) {
+               tasklist = [];
+           }
+
+           var count = tasklist.length;
+
+           var item = req.body.item;
+           item.RowKey = uuid();
+           item.PartitionKey = 'partition1';
+           item.completed = false;
+
+           self.client.insertEntity('tasks', item, function (error) {
+               if(error){  
+                   throw error;
+               }
+               self.showItems(req, res);
+           });
+       };
+
+       this.getItems(true, createItem);
+   },</pre>
+<p><strong>newItem</strong> 函数将执行以下任务：</p>
+<ul>
+<li>从正文中提取已发布项。</li>
+<li>为新项设置 <strong>RowKey</strong> 和 <strong>PartitionKey</strong> 值。将该项插入 Windows Azure 表时需要使用这些值。将为 <strong>RowKey</strong> 值生成 UUID。</li>
+<li>通过调用 <strong>insertEntity</strong> 函数将该项插入 tasks 表。</li>
+<li>通过调用 <strong>getItems</strong> 函数来呈现页面。</li>
+</ul>
+<h3>向主视图添加新建项表单</h3>
+<p>现在，通过添加新表单以允许用户添加项，从而更新视图。在 home.jade 文件的末尾粘贴以下代码，然后保存。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>在 Jade 中，空格是有意义的，因此不要删除下面的任何一个空格。</p>
+</div>
+<pre class="prettyprint">hr
+    form(action="/home/newitem", method="post")
+        table(border="1")    
+            tr
+                td Item Name: 
+                td 
+                    input(name="item[name]", type="textbox")
+            tr
+                td Item Category: 
+                td 
+                    input(name="item[category]", type="textbox")
+            tr
+                td Item Date: 
+                td 
+                    input(name="item[date]", type="textbox")
+        input(type="submit", value="Add item")</pre>
+<h3>在仿真程序中运行应用程序</h3>
+<ol>
+<li>
+<p>因为 Windows Azure 仿真程序已在运行，因此您可浏览更新后的应用程序：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; start http://localhost:81/home</pre>
+<p>浏览器将打开并显示以下页面：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node44.png" alt="标题为 My Task List 的网页，其中所含的表包含任务和用于添加新任务的字段。"/></p>
+</li>
+<li>
+<p>为“项目名称”输入：“New task functionality”、为“项目类别”输入：“Site work”，为“项目日期”<strong>Item Date</strong>输入："12/02/2011". 然后单击“添加项目”。</p>
+<p>该项将添加到 Windows Azure 存储中的任务表，并显示为以下屏幕快照中所示的内容。</p>
+</li>
+</ol>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node45.png" alt="将任务添加到该列表后，标题为 My Task List 的网页，其中所含表包含相关任务。"/></p>
+<h2>将应用程序重新发布到 Windows Azure</h2>
+<p>现在应用程序已完成，您将通过更新现有托管服务的部署来将其发布到 Windows Azure。</p>
+<ol>
+<li>
+<p>在 Windows PowerShell 窗口中，调用以下 cmdlet 以将托管服务重新部署到 Windows Azure。您的存储设置和位置在前面已经保存，因此无需重新输入。</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Publish-AzureServiceProject -name myuniquename -location datacentername -launch</pre>
+<p>部署完成后，您将看到如下响应：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node35.png" alt="部署期间显示的状态消息。"/></p>
+<p>与先前一样，由于您指定了 <strong>-launch</strong> 选项，因此在发布完成后，浏览器将打开并显示正在 Windows Azure 中运行的应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node47.png" alt="浏览器窗口中显示 My Task List 页面。URL 指示该页面现在托管在 Windows Azure 上。"/></p>
+</li>
+</ol>
+<h2>停止并删除应用程序</h2>
+<p>在部署应用程序后，您可能希望禁用它，以避免在免费试用期内产生费用或生成和部署其他应用程序。</p>
+<p>Windows Azure 将按使用的服务器小时数对 Web 角色实例计费。您的应用程序部署之后就会开始使用服务器时间，即使相关实例并未运行且处于停止状态也是如此。</p>
+<p>以下步骤演示了如何停止和删除应用程序。</p>
+<ol>
+<li>
+<p>在 Windows PowerShell 窗口中，使用以下 cmdlet 以停止上一节中创建的服务部署：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Stop-AzureService</pre>
+<p>停止服务可能需要花费几分钟时间。在服务停止时，您会收到一条指示服务已停止的消息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node48.png" alt="指示服务已停止的状态消息。"/></p>
+</li>
+<li>
+<p>若要删除服务，请调用以下 cmdlet：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Remove-AzureService contosotasklist</pre>
+<p>在出现提示时，输入 <strong>Y</strong> 即可删除该服务。</p>
+<p>删除服务可能需要花费几分钟时间。删除服务后，您将收到一条指示服务已被删除的消息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node49.png" alt="指示服务已被删除的状态消息。"/></p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>使用表存储构建 Web 应用程序 (Node.js) - Windows Azure 教程</pageTitle><metaKeywords>Azure Node.js Hello World 教程, Azure Node.js Hello World, Azure Node.js 入门教程, Azure Node.js 教程, Azure Node.js Express 教程</metaKeywords><metaDescription><![CDATA[本教程以“使用 Express 构建 Web 应用程序”教程为基础，演示如何添加 Windows Azure 存储服务和 Windows Azure 模块。]]></metaDescription><linkid>dev-nodejs-basic-web-app-with-storage</linkid><urlDisplayName>使用存储构建 Web 应用程序</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

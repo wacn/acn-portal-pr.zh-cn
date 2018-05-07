@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19082" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="6" createDate="2013-07-11T11:29:13" updateDate="2014-08-18T11:20:09" nodeName="SQL Database" urlName="sql-database" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19082" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>如何通过 PHP 访问 Windows Azure SQL Database</h1>
+<p>本指南将介绍通过 PHP 使用 Windows Azure SQL Database 的基础知识。通过 PHP 编写示例。所涉及的任务包括<strong>创建 SQL Database</strong> 和<strong>连接 SQL Database</strong>。本指南介绍从<a href="https://manage.windowsazure.cn">管理门户</a>创建 SQL Database 的步骤。有关从生产门户执行这些任务的信息，请参阅 <a href="http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx">PHP 和 SQL Database 入门</a>。有关详细信息，请参阅<a href="#NextSteps">后续步骤</a>一节。</p>
+<h2>什么是 Windows Azure SQL Database</h2>
+<p>Windows Azure SQL Database 基于 SQL Server 技术为 Windows Azure 提供关系数据库管理系统。使用 SQL Database 实例，您可以轻松地配置关系数据库解决方案并将其部署到云中，并且利用能够为企业级可用性、可缩放性和安全性提供内置数据保护和自愈优势的分布式数据中心。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#Concepts">概念</a></li>
+<li><a href="#Setup">如何：设置环境</a></li>
+<li><a href="#CreateServer">如何：创建 SQL Database </a></li>
+<li><a href="#ConnectionInfo">如何：获取 SQL Database 连接信息</a></li>
+<li><a href="#Connect">如何：连接到 SQL Database 实例</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<h2><a id="Concepts"></a>概念</h2>
+<p>由于 Windows Azure SQL Database 是基于 SQL Server 技术构建的，因此通过 PHP 访问 SQL Database 与通过 PHP 访问 SQL Server 非常相似。您可以本地部署应用程序（使用 SQL Server），然后通过仅更改连接字符串连接到 SQL Database。但是，SQL Database 和 SQL Server 之间有一些可能影响您的应用程序的差别。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff394102.aspx">指导原则和限制 (SQL Database)</a>。</p>
+<p>通过 PHP 访问 SQL Database 的推荐方法是使用 <a href="http://www.microsoft.com/download/en/details.aspx?id=20098">Microsoft Drivers for PHP for SQL Server</a>。（本文中的示例将使用这些驱动程序。）Microsoft Drivers for PHP for SQL Server 只在 Windows 上运行。</p>
+<h2><a id="Setup"></a>如何：设置环境</h2>
+<p>设置部署环境的推荐方法是使用 <a href="http://go.microsoft.com/fwlink/?LinkId=253447">Microsoft Web 平台安装程序</a>。Web 平台安装程序将允许您选择 Web 开发平台的元素，并自动安装和配置这些元素。通过下载 Web 平台安装程序和选择安装 WebMatrix，PHP for WebMatrix 和 SQL Server Express，将为您设置完整的开发环境。</p>
+<p>此外，还可以手动设置您的环境：</p>
+<ul>
+<li>安装 PHP 并配置 IIS：<a href="http://php.net/manual/en/install.windows.iis7.php">http://php.net/manual/en/install.windows.iis7.php</a>。</li>
+<li>下载并安装 SQL Server Express：<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=29062">http://www.microsoft.com/zh-cn/download/details.aspx?id=29062</a></li>
+<li>下载并安装 Microsoft Drivers for PHP for SQL Server：<a href="http://php.net/manual/en/sqlsrv.requirements.php">http://php.net/manual/en/sqlsrv.requirements.php</a>。</li>
+</ul>
+<h2><a id="CreateServer"></a>如何：创建 SQL Database</h2>
+<p>按照以下步骤创建 Windows Azure SQL Database：</p>
+<ol>
+<li>登录到<a href="https://manage.windowsazure.cn">管理门户</a>。</li>
+<li>
+<p>单击该门户左下角的“+ 新建”图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/plus-new.png" alt="创建新的 Windows Azure 网站"/></p>
+</li>
+<li>
+<p>依次单击“数据服务”、“SQL DATABASE”和“自定义创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/create_custom_sql_db-2.png" alt="自定义创建新的 SQL Database"/></p>
+</li>
+<li>
+<p>输入数据库的“名称”的值，选择“版本”（Web 或企业版），再依次选择数据库的“最大大小”，“排序规则”和“新建 SQL Database 服务器”。单击对话框底部的箭头。（请注意，如果您之前已经创建了 SQL Database，则可以从“选择服务器”下拉菜单中选择一个现有服务器。）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/new-sql-db.png" alt="填写 SQL Database 设置"/></p>
+</li>
+<li>
+<p>输入管理员名称和密码（并确认密码），选择您将在其中创建新的 SQL Database 的区域，并选中“允许 Windows Azure 服务访问服务器”<code></code>框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/db-server-settings.png" alt="新建 SQL Database 服务器"/></p>
+</li>
+</ol>
+<p>要查看服务器和数据库信息，请在管理门户中单击“SQL Database”。随后可以单击“数据库”或“服务器”来查看相关信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/sql-dbs-portal.png" alt="查看服务器和数据库信息"/></p>
+<h2><a id="#ConnectionInfo"></a>如何：获取 SQL Database 连接信息</h2>
+<p>要获取 SQL Database 连接信息，请在门户中单击“SQL Database”，然后单击该数据库的名称。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/go-to-db-info.png" alt="查看数据库信息"/></p>
+<p>然后，单击“查看 ADO.NET、ODBC、PHP 和 JDBC 的 SQL Database 连接字符串”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/show-connection-string-2.png" alt="显示连接字符串"/></p>
+<p>在生成的窗口的 PHP 部分，记下 <strong>SERVER</strong>、<strong>DATABASE</strong> 和 <strong>USERNAME</strong> 的值。您的密码将是您创建 SQL Database 时所用的密码。</p>
+<h2><a id="Connect"></a>如何：连接到 SQL Database 实例</h2>
+<p>下面的示例演示如何使用 <strong>SQLSRV</strong> 和 <strong>PDO_SQLSRV</strong> 扩展来连接到名为 <code>testdb</code> 的 SQL Database。您将需要上一节中获取的信息。将 <code>SERVER_ID</code> 替换为您的 10 位数服务器 ID（上一节中获取的 SERVER 值的前 10 个字符），并将正确的值（您的用户名称和密码）分配给 <code>$user</code> 变量和 <code>$pwd</code> 变量。</p>
+<h5>SQLSRV</h5>
+<pre class="prettyprint">$server = "tcp:&lt;value of SERVER from section above&gt;";
+$user = "&lt;value of USERNAME from section above&gt;"@SERVER_ID;
+$pwd = "password";
+$db = "testdb";
+
+$conn = sqlsrv_connect($server, array("UID"=&gt;$user, "PWD"=&gt;$pwd, "Database"=&gt;$db));
+
+if($conn === false){
+    die(print_r(sqlsrv_errors()));
+}</pre>
+<h5>PDO_SQLSRV</h5>
+<pre class="prettyprint">$server = "tcp:&lt;value of SERVER from section above&gt;";
+$user = "&lt;value of USERNAME from section above&gt;"@SERVER_ID;
+$pwd = "password";
+$db = "testdb";
+
+try{
+    $conn = new PDO( "sqlsrv:Server= $server ; Database = $db ", $user, $pwd);
+    $conn-&gt;setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+}
+catch(Exception $e){
+    die(print_r($e));
+}</pre>
+<h2><a id="NextSteps"></a>后续步骤</h2>
+<p>如前所述，使用 SQL Database 与使用 SQL Server 非常相似。建立与 SQL Database 的连接之后（如上所述），您可以使用 <strong>SQLSRV</strong> 或 <strong>PDO_SQLSRV</strong> API 来插入、检索、更新和删除数据。有关 <strong>SQLSRV</strong> 和 <strong>PDO_SQLSRV</strong> API 的信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/dd638075(SQL.10).aspx">Microsoft Drivers for PHP for SQL Server</a> 文档。但是，SQL Database 和 SQL Server 之间存在一些可能影响您的应用程序的差异。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff394102.aspx">指导原则和限制 (SQL Database)</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>sql database</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>sql database</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>sql database</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

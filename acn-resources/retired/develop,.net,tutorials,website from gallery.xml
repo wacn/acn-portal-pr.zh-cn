@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18874" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="22" createDate="2013-07-11T10:55:09" updateDate="2014-08-18T11:10:40" nodeName="website from gallery" urlName="website-from-gallery" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18874" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>在 Windows Azure 中从库中创建 Orchard CMS 网站</h1>
+<p>库中提供了众多由 Microsoft、第三方公司和开源软件计划开发的流行 Web 应用程序。从库中创建 Web 应用程序不要求安装任何软件，只需通过浏览器连接到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>即可。</p>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>
+<p>如何从库中创建新网站</p>
+</li>
+<li>
+<p>如何从管理门户启动和管理网站</p>
+</li>
+</ul>
+<p>您将构建一个使用默认模板的 Orchard CMS 网站。<a href="http://www.orchardproject.net/">Orchard</a> 是一个基于 .NET 的免费、开源 CMS 应用程序，它允许您创建自定义的内容驱动型网站。Orchard CMS 包括一个扩展性框架，通过该框架您可以<a href="http://gallery.orchardproject.net/">下载附加模块和主题</a>来自定义您的网站。下图显示您将要创建的 Orchard CMS 网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-08.png" alt="Orchard 博客"/></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-websites-note" macroAlias="AzureChunkDisplayer" ?-->
+<h2><span class="short-header">从库中创建网站</span>从库中创建 Orchard 网站</h2>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>单击仪表板左下角的“新建”图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-01.png" alt="新建"/></p>
+</li>
+<li>
+<p>单击“网站”图标，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-02.png" alt="从库中创建"/></p>
+</li>
+<li>
+<p>在列表中找到 Orchard CMS 图标并单击，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-03.png" alt="列表中的 Orchard"/></p>
+</li>
+<li>
+<p>在“配置应用”页面上，为所有字段输入或选择值：</p>
+<ul>
+<li>输入选择的 URL 名称。</li>
+<li>选择最靠近您的用户的区域。（这将确保获得最佳性能。）</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-04.png" alt="配置应用"/></p>
+</li>
+<li>
+<p>然后，单击“完成”复选框。</p>
+</li>
+</ol>
+<p>单击“完成”后，Windows Azure 将启动构建和部署操作。在构建和部署网站的同时，“网站”页面底部会显示这些操作的状态。所有操作执行完毕并且网站成功部署后，将显示一条最终状态消息。</p>
+<h2><span class="short-header">启动和管理网站</span>启动和管理您的 Orchard 网站</h2>
+<ol>
+<li>
+<p>在“网站”页面上单击新网站的名称，打开该网站的仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-05.png" alt="启动仪表板"/></p>
+</li>
+<li>
+<p>在仪表板上的“速览”下方，向下滚动并单击“网站 URL”下的链接以打开网站的欢迎页面。</p>
+</li>
+<li>
+<p>输入 Orchard 所需的适当配置信息，然后单击“完成设置”完成配置并打开网站主页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-07.png" alt="登录到 Orchard"/></p>
+<p>您将拥有一个新的 Orchard 网站，它看起来类似如下屏幕快照。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/orchardgallery-08.png" alt="您的 Orchard 网站"/></p>
+</li>
+<li>
+<p>按照 <a href="http://docs.orchardproject.net/">Orchard 文档</a>中的详细介绍了解更多关于 Orchard 的信息并配置您的新网站。</p>
+</li>
+</ol>
+<h2><span class="short-header">后续步骤</span>后续步骤</h2>
+<ul>
+<li><a href="/zh-cn/develop/net/tutorials/website-with-webmatrix">使用 Microsoft WebMatrix 开发和部署网站</a> -- 了解如何在 WebMatrix 中编辑 Windows Azure 网站。</li>
+<li><a href="/zh-cn/develop/net/tutorials/web-site-with-sql-database/">将 ASP.NET Web 应用程序部署到 Windows Azure 网站和 SQL Database</a>-- 了解如何从 Visual Studio 创建新网站。</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>website from gallery</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>website from gallery</linkid><urlDisplayName>website from gallery</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18583" parentID="18582" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-06-04T10:07:27" updateDate="2014-08-18T11:13:02" nodeName="Tomcat on a Virtual Machine" urlName="tomcat-on-a-virtual-machine" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18582,18583" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在虚拟机上运行 Java 应用程序服务器</h1>
+<p>通过 Windows Azure，您可使用虚拟机提供服务器功能。例如，在 Windows Azure 上运行的虚拟机可配置为承载 Java 应用程序服务器，如 Apache Tomcat。完成本指南之后，您将会了解如何创建在 Windows Azure 上运行的虚拟机并将其配置为运行 Java 应用程序服务器。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何创建虚拟机。</li>
+<li>如何远程登录到虚拟机。</li>
+<li>如何在虚拟机上安装 JDK。</li>
+<li>如何在虚拟机上安装 Java 应用程序服务器。</li>
+<li>如何为虚拟机创建终结点。</li>
+<li>如何在防火墙中为应用程序服务器开放一个端口。</li>
+</ul>
+<p>在本教程中，将在虚拟机上安装 Apache Tomcat 应用程序服务器。安装完成后将生成一个 Tomcat 安装，如下所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/wa_virtualmachinerunningapachetomcat.png" alt="运行 Apache Tomcat 的虚拟机"/></p>
+<h2>创建虚拟机</h2>
+<ol>
+<li>登录到 <a href="https://manage.windowsazure.cn">Windows Azure管理门户</a>。</li>
+<li>单击“新建”。</li>
+<li>单击“虚拟机”。</li>
+<li>单击“快速创建”。</li>
+<li>在“创建虚拟机”屏幕中，为“DNS 名称”输入一个值。</li>
+<li>从“映像”下拉列表中，选择一个映像，如“Windows Server 2008 R2 SP1”。</li>
+<li>在“新密码”字段中输入密码，然后在“确认”字段中重新输入一次。这是 Administrator 帐户密码。记住此密码，您在远程登录虚拟机时将用到它。</li>
+<li>
+<p>从“位置”下拉列表中，选择虚拟机的数据中心位置；例如，“China North”。您的屏幕将与下图中所示类似。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/createvm.png" alt="创建虚拟机"/></p>
+</li>
+<li>
+<p>单击“创建虚拟机”。将创建虚拟机。您可以在管理门户的“虚拟机”部分对状态进行监视。</p>
+</li>
+</ol>
+<h2>远程登录到虚拟机</h2>
+<ol>
+<li>登录到<a href="https://manage.windowsazure.cn">管理门户</a>。</li>
+<li>单击“虚拟机”，然后选择您之前创建的虚拟机。</li>
+<li>
+<p>在命令栏中，单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/connectvmwindows.png" alt="连接到虚拟机"/></p>
+</li>
+<li>
+<p>单击“打开”以使用为虚拟机自动创建的远程桌面协议文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/connectvmrdp.png" alt="打开 RDP 文件"/></p>
+</li>
+<li>
+<p>单击“连接”以继续连接过程。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/connectvmpublisher.png" alt="接受未知发布服务器"/></p>
+</li>
+<li>
+<p>键入创建虚拟机时指定为 Administrator 帐户的密码的密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/connectvmcreds.png" alt="输入凭据"/></p>
+</li>
+<li>
+<p>单击“是”以验证虚拟机的标识。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/connectvmverify.png" alt="验证虚拟机的标识"/></p>
+</li>
+</ol>
+<h2>在虚拟机上安装 JDK</h2>
+<p>您可将 Java 开发人员工具包 (JDK) 安装到虚拟机，也可以通过安装程序安装 JDK。</p>
+<p>在本教程中，将从 Oracle 的网站安装 JDK。</p>
+<ol>
+<li>登录虚拟机。</li>
+<li>在浏览器中，打开 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>。</li>
+<li>单击要下载的 JDK 所对应的“下载”按钮。在本教程中，使用的是 Java SE 6 Update 32 JDK 所对应的“下载”按钮。</li>
+<li>接受许可协议。</li>
+<li>单击“Windows x64 (64 位)”对应的下载可执行文件。</li>
+<li>按照提示操作并根据需要进行响应，将 JDK 安装到虚拟机。</li>
+</ol>
+<h2>在虚拟机上安装 Java 应用程序服务器</h2>
+<p>您可将Java应用程序服务器拷贝到虚拟机，也可以通过安装程序安装Java应用程序服务器。</p>
+<p>在本教程中，将通过从 Apache 的网站中复制 zip 文件来安装 Java 应用程序服务器。</p>
+<ol>
+<li>登录虚拟机。</li>
+<li>在浏览器中，打开 <a href="http://tomcat.apache.org/download-70.cgi">http://tomcat.apache.org/download-70.cgi</a>。</li>
+<li>双击“64 位 Windows zip”。（本教程使用的是 Tomcat Apache 7.0.27 的 zip。）</li>
+<li>系统提示时，请选择保存此 zip。</li>
+<li>保存此 zip 后，打开包含此 zip 的文件夹并双击此 zip。</li>
+<li>提取此 zip。在本教程中，使用的是路径 <strong>C:\program files\apache-tomcat-7.0.27-windows-x64</strong>。</li>
+</ol>
+<h2>在虚拟机内部运行 Java 应用程序服务器</h2>
+<p>下列步骤向您演示如何在虚拟机的浏览器中运行并测试 Java 应用程序服务器。外部计算机将不能使用此应用程序服务器，直到您创建一个终结点并开放一个端口（之后将介绍这些步骤）。</p>
+<ol>
+<li>登录虚拟机。</li>
+<li>将 JDK bin 文件夹添加到 <strong>Path</strong>环境变量：
+<ul>
+<li>单击 Windows 的“开始”。</li>
+<li>右键单击“计算机”。</li>
+<li>单击“属性”。</li>
+<li>单击“高级系统设置”。</li>
+<li>单击“高级”。</li>
+<li>单击“环境变量”。</li>
+<li>在“系统变量”部分，单击“Path”变量，然后单击“编辑”。</li>
+<li>向 <strong>Path</strong> 变量值添加一个尾随 <strong>;</strong>（如果没有），然后向 <strong>Path</strong> 变量值的末尾添加 <strong>c:\program files\java\jdk\bin</strong>（如果未使用 <strong>c:\program files\java\jdk</strong> 作为 JDK 的安装路径，则根据需要进行调整）。</li>
+<li>按打开的对话框上的“确定”以保存 <strong>Path</strong> 更改。</li>
+</ul>
+</li>
+<li>设置 <strong>JAVA_HOME</strong>环境变量：
+<ul>
+<li>单击 Windows 的“开始”。</li>
+<li>右键单击“计算机”。</li>
+<li>单击“属性”。</li>
+<li>单击“高级系统设置”。</li>
+<li>单击“高级”。</li>
+<li>单击“环境变量”。</li>
+<li>在“系统变量”部分，单击“新建”。</li>
+<li>创建一个名为 <strong>JRE_HOME</strong> 的变量并将其值设置为 <strong>c:\program files\java\jdk\jre</strong>（如果未使用 <strong>c:\program files\java\jdk</strong> 作为 JDK 的安装路径，则根据需要进行调整）。</li>
+<li>按打开的对话框上的“确定”以保存 <strong>JRE_HOME</strong> 环境变量。</li>
+</ul>
+</li>
+<li>启动 Tomcat：
+<ul>
+<li>打开命令提示符。</li>
+<li>将当前目录更改为 Apache Tomcat <strong>bin</strong>文件夹。例如：
+<p><strong>cd c:\program files\apache-tomcat-7.0.27-windows-x64\apache-tomcat-7.0.27\bin</strong></p>
+（如果对 Tomcat 使用的是其他安装路径，则根据需要进行调整。）</li>
+<li>运行 <strong>catalina.bat start</strong>。</li>
+</ul>
+</li>
+</ol>
+<p>如果您从虚拟机的浏览器打开 <a href="http://localhost:8080">http://localhost:8080</a>，则应立即看到 Tomcat 在运行。</p>
+<p>若要从外部计算机查看 Tomcat 的运行，则需要创建一个终结点并开放一个端口。</p>
+<h2>为虚拟机创建终结点</h2>
+<ol>
+<li>登录到<a href="https://manage.windowsazure.cn">管理门户</a>。</li>
+<li>单击“虚拟机”。</li>
+<li>单击正在运行 Java 应用程序服务器的虚拟机的名称。</li>
+<li>单击“终结点”。</li>
+<li>单击“添加终结点”。</li>
+<li>在“添加终结点”对话框中，确保选中“添加终结点”，然后单击“下一步”按钮。</li>
+<li>在“新建终结点详细信息”对话框中
+<ul>
+<li>为终结点指定名称；例如，<strong>HttpIn</strong>。</li>
+<li>指定 <strong>TCP</strong> 作为协议。</li>
+<li>指定 <strong>80</strong> 作为公用端口。</li>
+<li>指定 <strong>8080</strong>作为私有端口。
+<p>您的屏幕应与下图中所示类似：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/wa_newendpointdetails.png" alt="新建终结点"/></li>
+<li>单击<strong>对钩</strong>按钮以关闭对话框。将立即为您创建终结点。</li>
+</ul>
+</li>
+</ol>
+<h2>在防火墙上为虚拟机开放一个端口</h2>
+<ol>
+<li>登录虚拟机。</li>
+<li>单击 Windows 的“开始”。</li>
+<li>单击“控制面板”。</li>
+<li>依次单击“系统和安全性”、“Windows 防火墙”和“高级设置”。</li>
+<li>
+<p>单击“入站规则”，然后单击“新建规则”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newinboundrule.png" alt="新建入站规则"/></p>
+</li>
+<li>
+<p>对于新规则，请选择“端口”作为“规则类型”，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newruleport.png" alt="新建入站规则端口"/></p>
+</li>
+<li>
+<p>请选择“TCP”作为协议并指定“8080”作为端口，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newruleprotocol.png" alt="新建入站规则 "/></p>
+</li>
+<li>
+<p>选择“允许连接”，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newruleaction.png" alt="新建入站规则操作"/></p>
+</li>
+<li>
+<p>确保为配置文件选中“域”、“私有”和“公开”，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newruleprofile.png" alt="新建入站规则配置文件"/></p>
+</li>
+<li>
+<p>指定规则的名称，如 <strong>HttpIn</strong>（但是，规则名称无需与终结点名称匹配），然后单击“完成”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newrulename.png" alt="新建入站规则名称"/></p>
+</li>
+</ol>
+<p>此时，应可从外部浏览器使用 <strong>http://<em>your_DNS_name</em>.chinacloudapp.cn</strong> 格式的 URL 立即查看您的 Tomcat 网站，其中 <strong><em>your_DNS_name</em></strong> 是您创建虚拟机时指定的 DNS 名称。</p>
+<h2>应用程序生命周期注意事项</h2>
+<ul>
+<li>您可创建您自己的应用程序 Web 存档 (WAR) 并将其添加到 <strong>webapps</strong> 文件夹。例如，创建一个基本的 Java Service Page (JSP) 动态 Web 项目并将其导出为 WAR 文件，将此 WAR 复制到虚拟机上的 Apache Tomcat <strong>webapps</strong> 文件夹，然后在浏览器中运行它。</li>
+<li>本教程通过在命令提示符中调用 <strong>catalina.bat start</strong> 来运行 Tomcat。您可能希望改为将 Tomcat 作为一个服务运行，这样做的主要好处是能让 Tomcat 在重新启动虚拟机时自动启动。若要将 Tomcat 作为一个服务运行，可通过 Apache Tomcat <strong>bin</strong> 文件夹中的 <strong>service.bat</strong> 文件将它作为一个服务安装，然后可通过“服务”管理单元将设置为自动运行。您可通过单击 Windows 的“开始”、“管理工具”和“服务”来启动“服务”管理单元。如果您在 Apache Tomcat <strong>bin</strong> 文件夹中运行 <strong>service.bat install MyTomcat</strong>，则在“服务”管理单元中，您的服务名称将显示为 <strong>Apache Tomcat MyTomcat</strong>。默认情况下，此服务在安装后将会设置为手动启动。若要将此服务设置为自动启动，请在“服务”管理单元中双击此服务，并将“启动类型”设置为“自动”，如下图所示。
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/wa_tomcatserviceautomaticstart.png" alt="将服务设置为自动启动"/></p>
+第一次您将需要启动此服务，您可通过“服务”管理单元来执行此操作（或者，您也可以重新启动虚拟机）。如果 <strong>catalina.bat start</strong> 的实例在启动此服务前仍在运行，请关闭该正在运行的实例。</li>
+</ul>
+<h2>后续步骤</h2>
+<ul>
+<li>通过查看 <a href="/zh-cn/develop/java/">http://www.windowsazure.cn/zh-cn/develop/java/</a> 上提供的信息，了解要与 Java 应用程序一起包含的 Windows Azure 存储、Service Bus、SQL Database 等其他服务。</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>虚拟机上的 Tomcat - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-java-vm-application-server</linkid><metaKeywords>Azure vm, 创建 vm Tomcat, 配置 vm Tomcat</metaKeywords><metaDescription><![CDATA[了解如何创建 Windows 虚拟机并将其配置为运行 Apache Tomcat 应用程序服务器。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>虚拟机上的 Tomcat</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

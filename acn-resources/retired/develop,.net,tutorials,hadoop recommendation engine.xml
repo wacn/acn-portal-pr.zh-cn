@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18865" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="13" createDate="2013-07-11T10:53:01" updateDate="2014-08-18T11:10:16" nodeName="Hadoop Recommendation Engine" urlName="hadoop-recommendation-engine" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18865" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>使用 Apache Mahout 的简单推荐引擎</h1>
+<p>Apache Mahout™ 是一个机器学习库，专供规模可变的机器学习应用程序使用。推荐引擎是当今广泛使用的一些最为知名的机器学习应用程序。在本教程中，您将使用 <a href="http://labrosa.ee.columbia.edu/millionsong/tasteprofile">Million Song Dataset</a>，根据用户以前的听歌习惯向其推荐歌曲。</p>
+<p>您将学习：</p>
+<ul>
+<li>如何使用推荐引擎</li>
+</ul>
+<p>本教程由以下几部分组成：</p>
+<ol>
+<li><a href="#segment1">检查并格式化数据</a>。</li>
+<li><a href="#segment2">运行 Mahout 作业</a>。</li>
+</ol>
+<p> </p>
+<h3>设置和配置</h3>
+<p>您必须拥有可访问基于 Apache™ Hadoop™ 的 Windows Azure 服务的帐户，并且必须已创建一个群集供本教程使用。若要获取帐户并创建 Hadoop 群集，请按“Hadoop on Windows Azure 简介”<em></em>主题的“Microsoft Hadoop on Windows Azure 入门”<em></em>一节中概述的说明进行操作。</p>
+<p> </p>
+<h3>检查并格式化数据</h3>
+<p>Apache Mahout 自身即可实现基于项的协作筛选。基于项的协作筛选是进行推荐数据挖掘的常用方式。</p>
+<p>此示例涉及与项（歌曲）进行交互的用户。这些用户指示对某些项的偏好程度，以听某一首歌的次数表示。可在 <a href="http://labrosa.ee.columbia.edu/millionsong/tasteprofile">Echo Nest Taste Profile Subset</a> 网页上查看此数据集的示例：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/the-echo-nest-taste-profile-subset.png" alt="The Echo Nest Taste Profile Subset"/> <em>Million Song Dataset 中的示例数据</em></p>
+<p>若要将此数据集与 Mahout 配合使用，需要做以下两件事：</p>
+<ol>
+<li>将歌曲和用户的 ID 均转换为整数值。</li>
+<li>将新值连同其排名一起保存到一个用逗号分隔的文件中。</li>
+</ol>
+<p>首先启动 Visual Studio 2010。在 Visual Studio 中，选择“文件”-&gt;“新建项目”<strong></strong>。在“已安装的模板”<strong></strong>窗格的“Visual C#”<strong></strong>节点中，选择“Windows”<strong></strong>类别，然后从列表中选择“控制台应用程序”<strong></strong>。将项目命名为“ConvertToMahoutInput”<em></em>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/creating-a-console-application.png" alt="创建控制台应用程序"/></p>
+<p><em>创建控制台应用程序</em></p>
+<p>创建该应用程序后，打开“Program.cs”<strong></strong>文件，然后将以下静态成员添加到 <strong>Program</strong> 类中：</p>
+<pre class="prettyprint">const char tab = '\u0009'; static Dictionary&lt;string, int&gt; usersMapping = new Dictionary&lt;string, int&gt;(); static Dictionary&lt;string, int&gt; songMapping = new Dictionary&lt;string, int&gt;();</pre>
+<p>接下来，将以下代码填入 <strong>Main</strong> 方法：</p>
+<pre class="prettyprint">var inputStream = File.Open(args[0], FileMode.Open); var reader = new StreamReader(inputStream);  var outStream = File.Open("mInput.txt", FileMode.OpenOrCreate); var writer = new StreamWriter(outStream);  var i = 1;  var line = reader.ReadLine(); while (!string.IsNullOrWhiteSpace(line)) {     i++;     if (i &gt; 5000)     break;     var outLine = line.Split(tab);      int user = GetUser(outLine[0]);     int song = GetSong(outLine[1]);      writer.Write(user);     writer.Write(',');     writer.Write(song);     writer.Write(',');     writer.WriteLine(outLine[2]);      line = reader.ReadLine(); }  Console.WriteLine("saved {0} lines to {1}", i, args[1]);  reader.Close(); writer.Close();  SaveMapping(usersMapping, "usersMap.csv"); SaveMapping(songMapping, "songMapping.csv");  Console.WriteLine("Mapping saved"); Console.ReadKey();</pre>
+<p>现在，创建 <strong>GetUser</strong> 和 <strong>GetSong</strong> 函数，二者可将 ID 转换为整数：</p>
+<pre class="prettyprint">static int GetUser(string user) {     if (!usersMapping.ContainsKey(user))         usersMapping.Add(user, usersMapping.Count + 1);      return usersMapping[user]; }  static int GetSong(string song) {     if (!songMapping.ContainsKey(song))         songMapping.Add(song, songMapping.Count + 1);      return songMapping[song]; }</pre>
+<p>最后，创建实现 SaveMapping 方法的实用程序，该方法将两个映射字典保存到 .csv 文件。</p>
+<pre class="prettyprint">static void SaveMapping(Dictionary&lt;string, int&gt; mapping, string fileName) {     var stream = File.Open(fileName, FileMode.Create);     var writer = new StreamWriter(stream);      foreach (var key in mapping.Keys)     {         writer.Write(key);         writer.Write(',');         writer.WriteLine(mapping[key]);     }      writer.Close(); }</pre>
+<p>从<a href="http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip">此链接</a>下载示例数据。下载后，即打开 <strong>train_triplets.txt.zip</strong> 并提取 <strong>train_triplets.txt</strong>。</p>
+<p>运行该实用程序时，加入一个以 <strong>train_triplets.txt</strong> 为位置的命令行参数。为此，请在“解决方案资源管理器”<strong></strong>中右键单击“ConvertToMahoutInput”<strong></strong>项目节点，然后选择“属性”<strong></strong>。在项目属性页上，将 <strong>train_triplets.txt</strong> 的路径添加到“命令行参数”<strong></strong>文本框中：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/setting-command-line-arguments.png" alt="设置命令行参数"/></p>
+<p><em>设置命令行参数</em></p>
+<p>按 <strong>F5</strong> 以运行该程序。完成后，从曾保存该项目的位置打开 <strong>bin\Debug</strong> 文件夹，然后查看实用程序的输出。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/program-output.png" alt="程序输出"/></p>
+<p><em>ConvertToMahoutInput 实用程序的输出</em></p>
+<p> </p>
+<h3>运行 Mahout 作业</h3>
+<p>打开 <a href="https://www.hadooponazure.com">https://www.hadooponazure.com</a> 上的 Hadoop 群集门户，然后单击“远程桌面”<strong></strong>图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/the-manage-cluster-icon.png" alt="“管理群集”图标"/></p>
+<p><em>“远程桌面”图标</em></p>
+<p>压缩 <strong>mInput.txt</strong> 文件，然后将其从 <strong>bin\Debug</strong> 文件夹复制到远程群集上的 <strong>c:\</strong>。复制该文件后，即将其解压缩。</p>
+<p>创建一个文件，其中包含将为其生成推荐的用户的 ID。为此，只需在 <strong>c:\</strong> 中创建一个名为 <strong>users.txt</strong> 的文本文件，其中包含一个用户的 ID。</p>
+<blockquote>
+<p><strong>注意：</strong> 可通过将多个用户的 ID 各自放在单独的一行中，为这些用户生成推荐。</p>
+</blockquote>
+<p>接下来，将 <strong>mInput.txt</strong> 和 <strong>users.txt</strong> 上载到 HDFS。为此，请打开“Hadoop 命令外壳”<strong></strong>，然后运行以下命令：</p>
+<pre class="prettyprint">hadoop fs -copyFromLocal c:\mInput.txt input\mInput.txt  hadoop fs -copyFromLocal c:\users.txt input\users.txt</pre>
+<p>现在，我们可以使用以下命令运行 Mahout 作业：</p>
+<pre class="prettyprint">hadoop jar c:\Apps\dist\mahout\mahout-core-0.5-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob --input=input/mInput.txt --output=output --usersFile=input/users.txt</pre>
+<p>Mahout 作业应运行几分钟，然后将创建输出文件。运行以下命令以创建输出文件的本地副本：</p>
+<pre class="prettyprint">hadoop fs -copyToLocal output/part-r-00000 c:\output.txt</pre>
+<p>从 <strong>c:\</strong> 根文件夹中打开 <strong>output.txt</strong> 文件，然后检查其内容。该文件的结构如下：</p>
+<pre class="prettyprint">user    [song:rating,song:rating, ...]</pre>
+<p> </p>
+<h2>摘要</h2>
+<p>推荐引擎可提供对于许多新式社交网站、在线购物、流媒体和其他 Internet 站点很重要的功能。Mahout 提供一个现成可用的推荐引擎，它易于使用、包含许多有用的功能并且可在 Hadoop 上改变规模。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Hadoop 推荐引擎 (.NET) - Windows Azure 教程</pageTitle><metaKeywords>Azure Apache Mahout, Azure 推荐示例, Azure 推荐教程, Azure 推荐引擎</metaKeywords><metaDescription><![CDATA[本教程向您传授如何将 Apache Mahout 推荐引擎与 Windows Azure 配合使用，以根据听歌习惯推荐歌曲。]]></metaDescription><linkid>develop-dotnet-hadoop-recommendation-engine</linkid><urlDisplayName>Hadoop 推荐引擎</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

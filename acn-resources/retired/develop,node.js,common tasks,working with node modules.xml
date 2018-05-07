@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18990" parentID="18978" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="12" createDate="2013-07-11T11:13:51" updateDate="2014-08-18T11:16:32" nodeName="Working with Node Modules" urlName="working-with-node-modules" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,18978,18990" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/node" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>将 Node.js 模块与 Windows Azure 应用程序一起使用</h1>
+<p>本文档提供有关将 Node.js 模块与托管在 Windows Azure 中的应用程序一起使用的指南。其中提供有关确保您的应用程序使用特定版本的模块，以及对 Windows Azure 使用本机模块的指南。</p>
+<p>如果您已了解如何使用 Node.js 模块、<strong>package.json</strong> 和 <strong>npm-shrinkwrap.json</strong> 文件，可参考本文中所讨论内容的以下快速摘要：</p>
+<ul>
+<li>Windows Azure 网站了解 <strong>package.json</strong> 和 <strong>npm-shrinkwrap.json</strong> 文件，可基于这些文件中的条目安装模块。</li>
+<li>Windows Azure 云服务希望所有模块都安装在开发环境中，并将 <strong>node_modules</strong> 目录包含为部署包的一部分。</li>
+</ul>
+<div class="dev-callout"><strong>注意</strong>
+<p>本文不讨论 Windows Azure 虚拟机，因为 VM 中的开发体验将取决于由虚拟机托管的操作系统。</p>
+</div>
+<div class="dev-callout"><strong>注意</strong>
+<p>可以为使用 package.jsonor npm-shrinkwrap.jsonfiles 在 Windows Azure 上安装模块提供相应支持，但这需要自定义云服务项目使用的默认脚本。有关如何实现此目的的示例，请参阅 <a href="http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure">运行 npm 安装以避免部署 Node 模块的 Windows Azure 启动任务</a></p>
+</div>
+<h2>Node.js 模块</h2>
+<p>模块是可加载的 JavaScript 包，可为您的应用程序提供特定功能。通常使用 <strong>npm</strong> 命令行工具安装模块，但一些模块（如 http 模块）是作为核心 Node.js 包的一部分提供的。</p>
+<p>在安装模块后，这些模块存储在您的应用程序目录结构的根目录下的 <strong>node_modules</strong> 目录中。<strong>node_modules</strong> 目录中的每个模块都保留自己的 <strong>node_modules</strong> 目录，其中包含它依赖的所有模块，依赖项链上的每个模块均是如此。这使得所安装的每个模块都对它所依赖的模块具有自己的版本要求，但这样会生成很大的目录结构。</p>
+<p>与使用 <strong>package.json</strong> 或 <strong>npm-shrinkwrap.json</strong> 文件相比，在您的应用程序中部署 <strong>node_modules</strong> 目录会增加部署的大小；但是，它确实可以保证在生产中使用的模块版本与在开发中使用的模块版本是相同的。</p>
+<h3>本机模块</h3>
+<p>虽然多数模块都只是纯文本 JavaScript 文件，但一些模块是特定于平台的二进制映像。这些模块通常是在安装时使用 Python 和 node-gyp 编译的。Windows Azure 网站的一个特定限制是，尽管它本来了解如何安装在 <strong>package.json</strong> 或 <strong>npm-shrinkwrap.json</strong> 文件中指定的模块，但它不提供 Python 或 node-gyp，也无法生成本机模块。</p>
+<p>由于 Windows Azure 云服务依赖作为应用程序一部分部署的 <strong>node_modules</strong> 文件夹，因此只要作为已安装模块一部分包含的任何本机模块是在 Windows 开发系统中安装和编译的，那么该模块都应在云服务中运行。</p>
+<p>Windows Azure 网站不支持本机模块。一些模块（如 JSDOM 和 MongoDB）具有可选的本机依赖项，可用于托管在 Windows Azure 网站中的应用程序。</p>
+<h3>使用 package.json 文件</h3>
+<p>可使用 <strong>package.json</strong> 文件来指定您的应用程序所需的顶级依赖项，以便托管平台能够安装这些依赖项，而不是要求您在部署中包含 <strong>node_packages</strong> 文件夹。部署应用程序后，可使用 <strong>npm install</strong> 命令解析 <strong>package.json</strong> 文件并安装列出的所有依赖项。</p>
+<p>在开发期间，您可以在安装模块时使用 <strong>--save</strong>、<strong>--save-dev</strong> 或 <strong>--save-optional</strong> 参数，以便自动将模块条目添加到 <strong>package.json</strong> 文件中。有关详细信息，请参阅 <a href="https://npmjs.org/doc/install.html">https://npmjs.org/doc/install.html</a>。</p>
+<p><strong>package.json</strong> 文件的一个潜在问题是它仅指定顶级依赖项的版本。安装的每个模块可以或无法指定它所依赖的模块的版本，所以您或许会以与在开发中使用的依赖项链不同的其他依赖项链结束。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>部署到 Windows Azure 网站时，如果 yourpackage.jsonfile 引用本机模块，那么在使用 Git 发布应用程序时您会看到如下错误：</p>
+<pre class="prettyprint">npm ERR! module-name@0.6.0 install: `node-gyp configure build`
+npm ERR! `cmd "/c" "node-gyp configure build"` failed with 1</pre>
+</div>
+<h3>使用 npm-shrinkwrap.json 文件</h3>
+<p><strong>npm-shrinkwrap.json</strong> 文件用于尝试消除 <strong>package.json</strong> 文件的模块版本控制限制。虽然 <strong>package.json</strong> 文件仅包含顶级模块的版本，但 <strong>npm-shrinkwrap.json</strong> 文件包含所有模块依赖项链的版本要求。</p>
+<p>您的应用程序准备好生产后，便可锁定版本要求，并使用 <strong>npm shrinkwrap</strong> 命令创建 <strong>npm-shrinkwrap.json</strong> 文件。这将使用当前安装在 <strong>node_modules</strong> 文件夹中的版本，并将这些信息记录到 <strong>npm-shrinkwrap.json</strong> 文件。将应用程序部署到托管环境后，可使用 <strong>npm install</strong> 命令来解析 <strong>npm-shrinkwrap.json</strong> 文件并安装列出的所有依赖项。有关详细信息，请参阅 <a href="https://npmjs.org/doc/shrinkwrap.html">https://npmjs.org/doc/shrinkwrap.html</a>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>部署到 Windows Azure 网站时，如果 yournpm-shrinkwrap.jsonfile 引用本机模块，那么在使用 Git 发布应用程序时您会看到如下错误：</p>
+<pre class="prettyprint">npm ERR! module-name@0.6.0 install: `node-gyp configure build`
+npm ERR! `cmd "/c" "node-gyp configure build"` failed with 1</pre>
+</div>
+<h2>后续步骤</h2>
+<p>现在您已了解如何将 Node.js 模块与 Windows Azure 一起使用，接下来可了解如何<a href="/zh-cn/develop/nodejs/common-tasks/specifying-a-node-version/">指定 Node.js 版本</a>、<a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">构建和部署 Node.js 网站</a>以及<a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">如何使用适用于 Mac 和 Linux 的 Windows Azure 命令行工具</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>使用 Node.js 模块</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-nodejs-common-tasks-working-with-node-modules</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>使用 Node.js 模块</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18566" parentID="18554" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="12" createDate="2013-06-04T09:19:27" updateDate="2014-08-18T11:12:28" nodeName="View SAML Returned by ACS" urlName="view-saml-returned-by-acs" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18554,18566" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>如何查看 Windows Azure Access Control 服务返回的 SAML</h1>
+<p>本指南将演示如何查看 Winodws Azure Access Control 服务 (ACS) 返回到您的应用程序的基础安全声明标记语言 (SAML)。本指南基于<a href="/zh-cn/develop/java/how-to-guides/access-control">如何使用 Eclipse 向 Windows Azure Access Control 服务对 Web 用户进行身份验证</a>主题，并提供了用于显示 SAML 信息的代码。完整的应用程序与下图中所示类似。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/saml_output.png" alt="示例 SAML 输出"/></p>
+<p>有关 ACS 的详细信息，请参阅<a href="#next_steps">后续步骤</a>部分。</p>
+<div class="dev-callout">注意
+<p>Windows Azure 访问服务控制筛选器（由 Microsoft Open Technologies 提供）是一个社区技术预览版。作为预发行软件，Microsoft Open Technologies, Inc. 和 Microsoft 不会为它提供正式支持。</p>
+</div>
+<h2>目录</h2>
+<ul>
+<li><a href="#pre">先决条件</a></li>
+<li><a href="#modify_jsp">修改 JSP 文件以显示 SAML</a></li>
+<li><a href="#add_library">将 JspWriter 库添加到生成路径和部署程序集</a></li>
+<li><a href="#run_application">运行应用程序</a></li>
+<li><a href="#next_steps">后续步骤</a></li>
+</ul>
+<h2><a name="pre"></a>先决条件</h2>
+<p>若要完成本指南中的任务，请完成<a href="/zh-cn/develop/java/how-to-guides/access-control">如何使用 Eclipse 向 Windows Azure Access Control 服务对 Web 用户进行身份验证</a>主题中的示例，并将其用作本指南的起点。</p>
+<h2><a name="modify_jsp"></a>修改 JSP 文件以显示 SAML</h2>
+<p>修改 <strong>index.jsp</strong> 以使用以下代码。</p>
+<pre class="prettyprint">&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+    &lt;%@ page import="javax.xml.parsers.*"
+             import="javax.xml.transform.*"
+             import="org.w3c.dom.*"
+             import="java.io.*"
+             import="javax.xml.transform.stream.*"
+             import="javax.xml.transform.dom.*"
+             import="javax.xml.xpath.*"
+             import="javax.servlet.jsp.JspWriter" %&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+&lt;title&gt;Sample ACS Filter&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h3&gt;SAML information from sample ACS program&lt;/h3&gt;
+    &lt;%!
+    void displaySAMLInfo(Node node, String parent, JspWriter out)
+    {
+
+        try
+        {
+            String nodeName;
+            int nChild, i;
+
+            nodeName = node.getNodeName();
+            out.println("&lt;br&gt;");
+            out.println("&lt;u&gt;Examining &lt;b&gt;" + parent + nodeName + "&lt;/b&gt;&lt;/u&gt;&lt;br&gt;");
+
+               // Attributes.
+               NamedNodeMap attribsMap = node.getAttributes();
+               if (null != attribsMap)
+               {
+                     for (i=0; i &lt; attribsMap.getLength(); i++)
+                     {
+                            Node attrib = attribsMap.item(i);
+                            out.println("Attribute: &lt;b&gt;" + attrib.getNodeName() + "&lt;/b&gt;: " + attrib.getNodeValue()  + "&lt;br&gt;");
+                     }
+               }
+
+               // Child nodes.
+               NodeList list = node.getChildNodes();
+               if (null != list)
+               {
+                      nChild = list.getLength();
+                      if (nChild &gt; 0)
+                      {                    
+
+                             // If it is a text node, just print the text.
+                             if (list.item(0).getNodeName() == "#text")
+                             {
+                                 out.println("Text value: &lt;b&gt;" + list.item(0).getTextContent() + "&lt;/b&gt;&lt;br&gt;");
+                             }
+                             else
+                             {
+                                 // Print out the child node names.
+                                 out.print("Contains " + nChild + " child node(s): ");   
+                                 for (i=0; i &lt; nChild; i++)
+                                 {
+                                    Node temp = list.item(i);
+
+                                    out.print("&lt;b&gt;" + temp.getNodeName() + "&lt;/b&gt;");
+                                    if (i &lt; nChild - 1)
+                                    {
+                                        // Separate the names.
+                                        out.print(", ");
+                                    }
+                                    else
+                                    {
+                                        // Finish the sentence.
+                                        out.print(".");
+                                    }
+
+                                 }
+                                 out.println("&lt;br&gt;");
+
+                                 // Process the child nodes.
+                                 for (i=0; i &lt; nChild; i++)
+                                 {
+                                    Node temp = list.item(i);
+                                    displaySAMLInfo(temp, parent + nodeName + "\\", out);
+                                 }
+                           }
+                      }
+                  }
+              }
+            catch (Exception e)
+            {
+                System.out.println("Exception encountered.");
+                e.printStackTrace();            
+            }
+        }
+    %&gt;
+
+    &lt;%
+    try 
+    {
+        String data  = (String) request.getAttribute("ACSSAML");
+
+        DocumentBuilder docBuilder;
+        Document doc = null;
+        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        docBuilderFactory.setIgnoringElementContentWhitespace(true);
+        docBuilder = docBuilderFactory.newDocumentBuilder();
+        byte[] xmlDATA = data.getBytes();
+
+        ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+        doc = docBuilder.parse(in);
+        doc.getDocumentElement().normalize();
+
+        // Iterate the child nodes of the doc.
+        NodeList list = doc.getChildNodes();
+
+        for (int i=0; i &lt; list.getLength(); i++)
+        {
+            displaySAMLInfo(list.item(i), "", out);
+        }
+    }
+    catch (Exception e) 
+    {
+        out.println("Exception encountered.");
+        e.printStackTrace();
+    }
+
+    %&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<h2><a name="add_library"></a>将 JspWriter 库添加到生成路径和部署程序集</h2>
+<p>将包含 <strong>javax.servlet.jsp.JspWriter</strong> 类的库添加到生成路径和部署程序集。如果使用了 Tomcat，则该库为位于 Apache <strong>lib</strong> 文件夹中的 <strong>jsp-api.jar</strong>。</p>
+<ol>
+<li>在 Eclipse 的项目资源管理器中，右键单击“MyACSHelloWorld”，依次单击“Java 生成路径”、“配置生成路径”、“库”选项卡和“添加外部 JAR”。</li>
+<li>在“JAR 选择”对话框中，导航到必要的 JAR，选择该 JAR，然后单击“打开”。</li>
+<li>在“MyACSHelloWorld 的属性”对话框打开期间，单击“部署程序集”。</li>
+<li>在“Web 部署程序集”对话框中，单击“添加”。</li>
+<li>在“新建程序集指令”对话框中，单击“Java 生成路径项”，然后单击“下一步”。</li>
+<li>选择合适的库，然后单击“完成”。</li>
+<li>单击“确定”关闭“MyACSHelloWorld 的属性”对话框。</li>
+</ol>
+<h2><a name="run_application"></a>运行应用程序</h2>
+<ol>
+<li>按照<a href="/zh-cn/develop/java/how-to-guides/access-control">如何使用 Eclipse 向 Windows Azure Access Control 服务对 Web 用户进行身份验证</a>主题中所述的步骤，在计算仿真程序中运行您的应用程序或部署到 Windows Azure。</li>
+<li>启动浏览器并打开 Web 应用程序。登录到您的应用程序后，您将看到 SAML 信息，包括标识提供程序提供的安全声明。</li>
+</ol>
+<h2><a name="next_steps"></a>后续步骤</h2>
+<p>若要进一步了解 ACS 的功能并尝试将其用于更复杂的方案，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkID=212360">Access Control 服务 2.0</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>查看 Access Control 服务返回的 SAML (Java)</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-java-how-to-guides-view-saml-returned-by-acs</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何通过 Windows Azure 上承载的 Java 应用程序查看 Access Control 服务返回的 SAML。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>查看 ACS SAML</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

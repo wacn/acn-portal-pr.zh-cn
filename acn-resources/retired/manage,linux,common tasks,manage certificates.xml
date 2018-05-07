@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19202" parentID="19201" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:59:49" updateDate="2014-08-18T11:25:24" nodeName="Manage Certificates" urlName="manage-certificates" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19201,19202" isDoc=""><bodyText><![CDATA[<div style="margin-top: 55px;">
+<h1>在 Windows Azure 中为 Linux 创建管理证书</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>只要您需要使用服务管理 API 与 Windows Azure 映像平台进行交互，就需要管理证书。</p>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg551721.aspx">http://msdn.microsoft.com/zh-cn/library/windowsazure/gg551721.aspx</a> 中包含有关如何创建和管理这些证书的文档，或者您也可以使用 OpenSSL 创建管理证书。有关更多信息，请参见 <a href="http://openssl.org/">OpenSSL</a>。但是，此文档主要关注如何使用可能并非所有 Linux 用户均可访问的 Silverlight 门户。它介绍如何能够获取对这些证书的访问权，将这些证书与我们的各种工具、不同合作伙伴进行整合以及独立使用这些证书，直到此功能添加到 Windows Azure管理门户中。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#createcert">如何：创建并上载管理证书</a></li>
+<li><a href="#silverlight">如何：使用 Windows Azure 管理门户创建管理证书</a></li>
+</ul>
+<h2 id="createcert">如何：创建并上载管理证书</h2>
+<p>我们为您提供一种针对 Windows Azure 创建管理证书的简便方式，即访问：<a href="https://windows.azure.com/download/publishprofile.aspx">https://windows.azure.com/download/publishprofile.aspx</a></p>
+<p>此网站将要求您使用您的门户凭据进行登录，然后将为您生成管理证书，此证书与将要求您下载的 publishsettings 文件中您的 subscriptionID 打包在一起。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxcredentials.png" alt="linuxcredentials"/></p>
+<p>请确保将此文件保存到安全位置，因为您将无法恢复它并将需要生成新的管理证书。（可在系统中使用的证书总数是有限制的。请参阅此网站上的相应部分以确认此限制。）稍后可以通过多种方式使用此证书：</p>
+<h3>在 Visual Studio 中</h3>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/vspublish.png" alt="VSpublish"/></p>
+<h3>在 Linux Windows Azure 命令行中</h3>
+<p>可通过运行 Windows Azure 帐户导入命令导入并使用证书：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/cmdlinepublish.png" alt="cmdlinepublish"/></p>
+<p>对于任何其他合作伙伴或者需要该工具的软件，您将需要从文件本身提取管理证书并对其进行 Base 64 解码。ScaleXtreme 和 SUSE Studio 等一些合作伙伴可直接在其当前窗体中使用此文件。</p>
+<p>为了提取管理证书，您需要遵循此过程。</p>
+<p>您需要从此文件中提取 ManagementCertificate 之后引号之间的 base 64 编码内容。</p>
+<pre class="prettyprint">?xml version="1.0" encoding="utf-8"?&gt; &lt;PublishData&gt;   &lt;PublishProfile     PublishMethod="AzureServiceManagementAPI"     Url="https://management.core.chinacloudapi.cn/"     ManagementCertificate="xxxxx”&gt;     &lt;Subscription       Id="8a4a0a51-728e-482e-8daa-c477f03c541d"       Name="hjereztest" /&gt;   &lt;/PublishProfile&gt; &lt;/PublishData&gt;</pre>
+<p>您需要将此内容复制到文件，然后在 Linux 中使用可供使用的 base 64 解码器对其进行解码：</p>
+<pre class="prettyprint">Base64 –d [encodedfile] &gt; [decodedfile].pfx</pre>
+<p>这将为您提供一个可使用 openssl 转换为其他格式或者根据需要提取私钥的 pfx 文件：</p>
+<pre class="prettyprint">openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem</pre>
+<p>在 Windows 中，可运行命令使用 powershell 或免费的 windows base 64 解码器（例如 <a>http://www.fourmilab.ch/webtools/base64/base64.zip</a>）解码和提取 PFX 文件</p>
+<pre class="prettyprint">base64 -d key.txt -&gt;key.pfx</pre>
+<h4>证书生成限制</h4>
+<p>只能使用此工具在平台中最多创建 10 个证书。遗憾的是，您无法在生成密钥后恢复这些密钥，因为我们不会在系统中的任何位置保存这些私钥。如果您达到系统中证书的限额，则需要通过 Windows Azure 论坛与支持人员联系，以便清除您的证书或使用可呈现旧版 Silverlight 门户的浏览器执行这些任务。</p>
+<h4>私钥泄露</h4>
+<p>如果在任何时候您的私钥泄露，您将需要使用支持 Silverlight 的浏览器访问旧版门户并删除文件中相应的管理证书，或者通过论坛与支持人员联系。<br /> 生成一个新证书并不够，因为全部 10 个证书都有效并且已泄露的旧密钥仍将能够访问网站。</p>
+<h3>预览后时间表</h3>
+<p>在预览后的某个时候，您将能够使用新门户获取对所有管理证书功能的访问权。</p>
+<h2 id="servicemanagement">如何：使用 Windows Azure 管理门户创建管理证书</h2>
+<p>可以在 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg551721.aspx">http://msdn.microsoft.com/zh-cn/library/windowsazure/gg551721.aspx</a> 中详细了解如何创建证书，或者也可以使用 OpenSSL 创建管理证书。有关更多信息，请参见 <a href="http://openssl.org">OpenSSL</a>。在创建证书后，您必须将其添加到 Windows Azure 中您的订阅。</p>
+<ol>
+<li>登录到 Windows Azure 管理门户。</li>
+<li>
+<p>在管理门户的左上角，单击“预览”，然后单击“以前的管理门户”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/preview.png" alt="预览"/></p>
+</li>
+<li>
+<p>在导航窗格中，单击“托管服务、存储帐户和 CDN”。</p>
+</li>
+<li>在导航窗格的顶部，单击“管理证书”。</li>
+<li>在功能区上的“证书”组中，单击“添加证书”。</li>
+<li>在“选择订阅”中，选择要向其中添加管理证书的 Windows Azure 订阅。</li>
+<li>在“证书文件”中，浏览到证书文件，然后单击“确定”</li>
+。</ol>
+<h3>获取证书指纹和订阅 ID</h3>
+<p>您需要已添加的管理证书的指纹，并且需要订阅 ID 才能将 VHD 文件上载到 Windows Azure。</p>
+<ol>
+<li>仍在以前的管理门户中，单击“托管服务、存储帐户和 CDN”，然后单击“管理证书”。</li>
+<li>在中间窗格中，单击您的证书，然后通过将指纹复制并粘贴到稍后可以对其进行检索的位置，从“属性”窗格记录指纹。</li>
+</ol>
+<p>您还需要您的订阅的 ID 以上载 VHD 文件。</p>
+<ol>
+<li>在以前的管理门户中，单击“托管服务、存储帐户和 CDN”，然后单击“托管服务”。</li>
+<li>在中间窗格中，选择您的订阅，然后通过将订阅 ID 复制并粘贴到稍后可以对其进行检索的位置，从“属性”窗格记录订阅 ID。</li>
+</ol>
+<h3>如果您生成了您自己的密钥，请向工具提供此信息</h3>
+<h4>对于 CSUpload</h4>
+<ol>
+<li>以管理员的身份打开“Windows Azure SDK 命令提示符”窗口。</li>
+<li>
+<p>使用以下命令并将 <strong>Subscriptionid</strong> 和 <strong>CertThumbprint</strong> 替换为您先前获取的值，以便设置连接字符串：</p>
+<pre class="prettyprint">csupload Set-Connection "SubscriptionID=&lt;Subscriptionid&gt;;CertificateThumbprint=&lt;Thumbprint&gt;;ServiceManagementEndpoint=https://management.core.chinacloudapi.cn"</pre>
+</li>
+</ol>
+<h4>对于 Linux Azure 命令行工具</h4>
+<p>您将需要通过命令对您使用 openssl 创建的 PFX 文件进行 base 64 编码：</p>
+<pre class="prettyprint">Base64 [file] &gt; [econded file]</pre>
+<p>然后，您将需要将您的订阅 ID 和 base64 编码的 pfx 合并到具有以下结构的单个文件中：</p>
+<pre class="prettyprint">?xml version="1.0" encoding="utf-8"?&gt;     &lt;PublishData&gt;       &lt;PublishProfile         PublishMethod="AzureServiceManagementAPI"         Url="https://management.core.chinacloudapi.cn/"         ManagementCertificate="xxxxx”&gt;         &lt;Subscription           Id="8a4a0a51-728e-482e-8daa-c477f03c541d"           Name="hjereztest" /&gt;       &lt;/PublishProfile&gt;     &lt;/PublishData&gt;</pre>
+<p>其中 xxxxx 是[已编码文件]的内容，您将使用这些内容通过以下命令向 Linux Windows Azure 命令行工具提供详细信息：Azure account import (File)</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>在 Windows Azure 中为 Linux 虚拟机管理证书</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-common-tasks-manage-certs</linkid><metaKeywords>Azure 管理证书, 上载管理证书, Azure 服务管理 API</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中为 Linux 创建和上载管理证书。如果您使用服务管理 API，则证书是必需的。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>管理证书</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

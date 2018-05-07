@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18430" parentID="17371" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-05-03T15:57:22" updateDate="2014-08-18T11:07:56" nodeName="architecture" urlName="architecture" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18430" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/dotnet" modaltrigger="" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1 id="menu-dotnet-architecture">体系结构</h1>
+<p class="subheading">了解如何在 Windows Azure 中设计应用程序和实现一些常见设计模式。</p>
+<h2><a id="overviews"></a>应用程序体系结构概述</h2>
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<h3><a href="http://go.microsoft.com/fwlink/p/?LinkId=272588">防故障：弹性云体系结构指南</a></h3>
+<p>本文重点介绍在设计可缩放的可靠系统时需注意的体系结构方面的事项。文章提供了有关以下方面的详细指导信息：</p>
+<ul>
+<li>分散应用程序工作负载</li>
+<li>建立生命周期模型</li>
+<li>建立可用性模型和计划</li>
+<li>确定故障点和故障模式</li>
+<li>确定复原模式和复原注意事项</li>
+<li>设计操作</li>
+</ul>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://download.microsoft.com/download/0/A/1/0A1CB0AC-8BF0-456D-8838-BC7C3AB3881B/Windows Azure Scalability.pdf" class="label">查看海报</a> <a style="background-image: url('/media/devcenter/dotnet/scaling-poster-180x120.png') !important;" href="http://download.microsoft.com/download/0/A/1/0A1CB0AC-8BF0-456D-8838-BC7C3AB3881B/Windows Azure Scalability.pdf" target="_blank" class="dev-onpage-video"><span class="icon">查看海报</span></a></div>
+</div>
+<h2><a id="designpatterns"></a>设计模式：数据</h2>
+<h3>命令查询责任分离 (CQRS)</h3>
+<p>命令查询责任分离 (CQRS) 模式是将数据库读操作和写操作分离为单独服务的更高级别的模式。在该模式中，操作应当是命令或查询。查询可返回数据，但不会改变对象的状态；命令可改变对象的状态，但不会返回任何数据。这样做的好处是您能够更好地了解系统中的哪项操作将更改状态，以及哪项操作不会更改状态。</p>
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/jj554200">CQRS 旅程（模式和实践） </a></li>
+</ul>
+<h2>设计模式：容错</h2>
+<h3>暂时性错误处理</h3>
+<p>暂时性故障是指因某些临时情况（如网络连接问题或服务不可用）而引发的错误。通常，如果您稍后重试导致暂时性错误的操作，您将发现该错误已不存在。暂时性故障处理应用程序块可封装在您使用 SQL Database、Service Bus 或 Windows Azure 存储时可能出现的暂时性故障的相关信息。</p>
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh680934(PandP.50).aspx">暂时性故障处理应用程序块（模式和实践）</a></li>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-windows-azure-sql-database.aspx">SQL Database 中暂时性故障的重试逻辑</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh851746.aspx">处理 Service Bus 中转消息传递中的暂时性通信错误</a></li>
+</ul>
+<h3>管理数据库限制</h3>
+<p>SQL Database 在共享资源方面可提供大规模、多租户数据库服务。为了向所有客户提供良好的体验，SQL Database 有时会限制工作或关闭连接以防止计算机过载。有几种方法可用来确保此类限制不会对您的应用程序产生负面影响</p>
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/1541.windows-azure-sql-database-connection-management-en-us.aspx">Windows Azure SQL Database 连接管理</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj717232.aspx">在 Windows Azure 云服务上设计大规模服务的最佳实践：共享资源和限制</a></li>
+</ul>
+<h2>设计模式：消息传递</h2>
+<h3>队列：保证消息传递和分发工作</h3>
+<p>可以使用 Windows Azure 中的队列来支持组件之间的异步通信。应用程序中的组件可将消息发布到队列。其他组件可获取该消息并对其进行处理。队列可使组件之间始终保持连续性，并有助于确定负荷量，实现负载平衡和缩放。</p>
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh767287.aspx">Windows Azure 队列和 Windows Azure Service Bus 队列 - 比较与对照</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh697709.aspx">在 Windows Azure 上最大限度地提高基于队列的消息传递解决方案的可伸缩性和成本效益的最佳实践</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh545245.aspx">利用 Windows Azure Service Bus 中转消息传递 API 的最佳做法</a></li>
+</ul>
+<h3>发布/订阅模式</h3>
+<p>发布/订阅是一种消息传递模式，在此模式中所有订阅的组件在消息到达时均会收到一条通知。Windows Azure 主题和订阅可提供发布/订阅消息传递模式。将消息发送到某主题的方式与将它们发送到队列的方式相同。但是，不会直接从该主题中接收消息；而是从订阅中接收消息。</p>
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh545245.aspx">利用 Windows Azure Service Bus 中转消息传递 API 的最佳做法</a></li>
+</ul>
+<h2>设计模式：缩放</h2>
+<h3>自动缩放</h3>
+<p>Windows Azure 云服务应用程序的好处之一在于您可以根据应用程序使用情况的变化来轻松缩放各个组件。用于 Windows Azure 的 Microsoft Enterprise Library 5.0 集成包中的“自动缩放应用程序块”功能提供使您能够自动缩放云服务的工具。您可以使用性能计数器来了解应用程序的性能，然后编写将自动缩放您的应用程序以根据指定目标和阈值进行调整的规则。</p>
+<p><strong>相关文章：</strong></p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh680892(v=PandP.50).aspx">自动缩放应用程序块（模式和实践）</a></li>
+</ul></p>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure 资源：体系结构和模式</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 应用程序中实现一些常见应用程序模式和设计模式。]]></metaDescription><linkid>develop-net-architecture sublanding</linkid><urlDisplayName>体系结构</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav sublanding</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

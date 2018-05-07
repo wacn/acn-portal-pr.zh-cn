@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18555" parentID="18554" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-06-04T09:19:25" updateDate="2014-08-18T11:12:03" nodeName="Blob Storage" urlName="blob-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18554,18555" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/java" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>如何通过 Java 使用 Blob 存储</h1>
+<p>本指南将演示如何使用 Windows Azure Blob 存储服务执行常见任务。这些示例用 Java 编写并使用 <a href="/zh-cn/develop/java/java-home/download-for-windows/">Windows Azure SDK for Java</a>。介绍的方案包括<strong>上载</strong>、<strong>列出</strong>、<strong>下载</strong>以及<strong>删除</strong> Blob。有关 Blob 的详细信息，请参阅<a href="#NextSteps">后续步骤</a>部分。</p>
+<h2><a name="Contents"></a>目录</h2>
+<ul>
+<li><a href="#what-is">什么是 Blob 存储</a></li>
+<li><a href="#Concepts">概念</a></li>
+<li><a href="#CreateAccount">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#CreateApplication">创建 Java 应用程序</a></li>
+<li><a href="#ConfigureStorage">配置您的应用程序以访问 Blob 存储</a></li>
+<li><a href="#ConnectionString">设置 Windows Azure 存储连接字符串</a></li>
+<li><a href="#CreateContainer">如何：创建容器</a></li>
+<li><a href="#UploadBlob">如何：将 Blob 上载到容器中</a></li>
+<li><a href="#ListBlobs">如何：列出容器中的 Blob</a></li>
+<li><a href="#DownloadBlob">如何：下载 Blob</a></li>
+<li><a href="#DeleteBlob">如何：删除 Blob</a></li>
+<li><a href="#DeleteContainer">如何：删除 Blob 容器</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="howto-blob-storage" macroAlias="AzureChunkDisplayer" />
+<h2 id="CreateAccount">创建 Windows Azure 存储帐户</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" />
+<h2><a name="CreateApplication"></a>创建 Java 应用程序</h2>
+<p>在本指南中，您将使用存储功能，这些功能可在 Java 应用程序中本地运行，或在 Windows Azure 的 Web 角色或辅助角色中运行的代码中运行。假定您已下载并安装 Java 开发工具包 (JDK)，并已按照<a href="/zh-cn/develop/java/java-home/download-for-windows/">下载 Windows Azure SDK for Java</a> 中的说明进行操作来安装 Windows Azure Libraries for Java 和 Windows Azure SDK，还在 Windows Azure 订阅中创建了 Windows Azure 存储帐户。</p>
+<p>您可以使用任何开发工具（包括“记事本”）创建应用程序。您只要能够编译 Java 项目和引用 Windows Azure Libraries for Java 即可。</p>
+<h2><a name="ConfigureStorage"></a>配置您的应用程序以访问 Blob 存储</h2>
+<p>将下列导入语句添加到要在其中使用 Windows Azure 存储 API 以访问 Blob 的 Java 文件的顶部：</p>
+<pre class="prettyprint">// Include the following imports to use blob APIs
+import com.microsoft.windowsazure.services.core.storage.*;
+import com.microsoft.windowsazure.services.blob.client.*;</pre>
+<h2><a name="ConnectionString"></a>设置 Windows Azure 存储连接字符串</h2>
+<p>Windows Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 <em>AccountName</em> 和 <em>AccountKey</em> 值使用管理门户中列出的存储帐户的名称和存储帐户的主访问密钥。此示例演示如何声明用于保存连接字符串的静态字段：</p>
+<pre class="prettyprint">// Define the connection-string with your values
+public static final String storageConnectionString = 
+    "DefaultEndpointsProtocol=http;" + 
+    "AccountName=your_storage_account;" + 
+    "AccountKey=your_storage_account_key";</pre>
+<p>在 Windows Azure 的角色中运行的应用程序中，此字符串可存储在服务配置文件 ServiceConfiguration.cscfg 中，并可通过调用 <strong>RoleEnvironment.getConfigurationSettings</strong> 方法进行访问。下面是从服务配置文件中名为 <em>StorageConnectionString</em> 的 <strong>Setting</strong> 元素中获取连接字符串的示例：</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+String storageConnectionString = 
+    RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");</pre>
+<h2><a name="CreateContainer"></a>如何：创建容器</h2>
+<p>利用 CloudBlobClient 对象，可以获得容器和 Blob 的引用对象。以下代码将创建 <strong>CloudBlobClient</strong> 对象。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the blob client
+CloudBlobClient blobClient = storageAccount.createCloudBlobClient();</pre>
+<p>所有 Blob 都驻留在一个容器中。使用 <strong>CloudBlobClient</strong> 对象获取对要使用的容器的引用。可使用 <strong>createIfNotExist</strong> 方法创建容器（如果不存在），否则将返回现有容器。默认情况下，新容器是专用容器，因此您必须指定存储访问密钥（已在上面完成此操作）才能从该容器下载 Blob。</p>
+<pre class="prettyprint">// Get a reference to a container
+// The container name must be lower case
+CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+
+// Create the container if it does not exist
+container.createIfNotExist();</pre>
+<p>若要将文件设为公开的，您可以设置容器的权限。</p>
+<pre class="prettyprint">// Create a permissions object
+BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
+
+// Include public access in the permissions object
+containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
+
+// Set the permissions on the container
+container.uploadPermissions(containerPermissions);</pre>
+<p>Internet 上的所有人都能查看公共容器中的 Blob，但公共访问仅限于读取。</p>
+<h2><a name="UploadBlob"></a>如何：将 Blob 上载到容器中</h2>
+<p>若要将文件上载到 Blob，请获取容器引用，并使用它获取 Blob 引用。获取 Blob 引用后，可以通过对该 Blob 引用调用 upload 来上载任何数据流。此操作将创建 Blob（如果该 Blob 不存在），或者覆盖它（如果该 Blob 存在）。此代码示例演示了这一点，并假定已创建容器。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the blob client
+CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+
+// Retrieve reference to a previously created container
+CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+
+// Create or overwrite the "myimage.jpg" blob with contents from a local file
+CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
+File source = new File("c:\\myimages\\myimage.jpg");
+blob.upload(new FileInputStream(source), source.length());</pre>
+<h2><a name="ListBlobs"></a>如何：列出容器中的 Blob</h2>
+<p>若要列出容器中的 Blob，请先获取容器引用，就像上载 Blob 时执行的操作一样。可将容器的 <strong>listBlobs</strong> 方法用于 for 循环。以下代码将容器中每个 Blob 的 URI 输出到控制台。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the blob client
+CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+
+// Retrieve reference to a previously created container
+CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+
+// Loop over blobs within the container and output the URI to each of them
+for (ListBlobItem blobItem : container.listBlobs()) {
+    System.out.println(blobItem.getUri());
+}</pre>
+<p>还可将 Blob 服务视为容器中的目录。这是为了让您能够以更类似于文件夹的结构来组织 Blob。</p>
+<p>例如，您可以创建一个名为“photos”的容器，可在其中上载名为“rootphoto1”、“2010/photo1”、“2010/photo2”和“2011/photo1”的 Blob。这将在“photos”容器中创建虚拟目录“2010”和“2011”。当您对“photos”容器调用 <strong>listBlobs</strong> 时，返回的集合将包含表示最高层中所含目录和 Blob 的 <strong>CloudBlobDirectory</strong> 和 <strong>CloudBlob</strong> 对象。在本示例中，将返回目录“2010”和“2011”以及照片“rootphoto1”。可使用 <strong>instanceof</strong> 运算符区分这些对象。</p>
+<p>也可以将参数传入 <strong>listBlobs</strong> 方法，并将 <strong>useFlatBlobListing</strong> 参数设置为 true。这将导致返回每个 Blob，而无论目录如何。有关详细信息，请参阅 Javadocs 文档中的 CloudBlobContainer.listBlobs。</p>
+<h2><a name="DownloadBlob"></a>如何：下载 Blob</h2>
+<p>若要下载 Blob，请执行之前用于上载 Blob 的相同步骤以获取 Blob 引用。在上载示例中，您对 Blob 对象调用了 upload。在下面的示例中，调用 download 以将 Blob 内容传输到可用于将 Blob 保存到本地文件的流对象（如 <strong>FileOutputStream</strong>）。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the blob client
+CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+
+// Retrieve reference to a previously created container
+CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+
+// For each item in the container
+for (ListBlobItem blobItem : container.listBlobs()) {
+    // If the item is a blob, not a virtual directory
+    if (blobItem instanceof CloudBlob) {
+        // Download the item and save it to a file with the same name
+        CloudBlob blob = (CloudBlob) blobItem;
+        blob.download(new FileOutputStream(blob.getName()));
+    }
+}</pre>
+<h2><a name="DeleteBlob"></a>如何：删除 Blob</h2>
+<p>若要删除 Blob，请获取 Blob 引用，然后调用 <strong>delete</strong>。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the blob client
+CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+
+// Retrieve reference to a previously created container
+CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+
+// Retrieve reference to a blob named "myimage.jpg"
+CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
+
+// Delete the blob
+blob.delete();</pre>
+<h2><a name="DeleteContainer"></a>如何：删除 Blob 容器</h2>
+<p>最后，若要删除 Blob 容器，请获取 Blob 容器引用，然后调用 delete。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the blob client
+CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+
+// Retrieve reference to a previously created container
+CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+
+// Delete the blob container
+container.delete();</pre>
+<h2><a name="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解有关 Blob 存储的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>请参阅 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>请访问 Windows Azure 存储团队博客：<a href="http://blogs.msdn.com/b/windowsazurestorage/">http://blogs.msdn.com/b/windowsazurestorage/</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用 Blob 存储 (Java) - Windows Azure 功能指南</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-net-how-to-use-blog-storage-service-java</linkid><metaKeywords>开始使用 Azure Blob, Azure 非结构化数据, Azure 非结构化存储, Azure Blob, Azure Blob 存储, Azure Blob Java</metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Azure Blob 服务上载、下载、列出和删除 Blob 内容。用 Java 编写的示例。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Blob 服务</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

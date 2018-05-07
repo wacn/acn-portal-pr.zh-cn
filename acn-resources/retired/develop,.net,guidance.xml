@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18516" parentID="17371" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="8" createDate="2013-05-10T10:44:57" updateDate="2014-08-18T11:08:56" nodeName="guidance" urlName="guidance" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18516" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/dotnet" modaltrigger="" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1 id="menu-dotnet-guidance">指南</h1>
+<p class="subheading">设计、部署、故障排除、安全性和性能方面的最佳实践。</p>
+<h2>体系结构</h2>
+<h3><a href="/zh-cn/develop/net/architecture/">Windows Azure 体系结构指南</a></h3>
+<p>访问体系结构页可查看演示如何在 Windows Azure 应用程序中实现常见设计模式的文章、参考体系结构和示例。</p>
+<h2>业务连续性</h2>
+<p class="subheading">了解实现数据完整性和高可用性的最佳实践</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh873027">Windows Azure 的业务连续性</a></h3>
+<p>本文档说明您应该如何考虑和规划可用性问题。它探讨如何针对可能由以下原因引发的可用性问题进行规划，即，单独服务器、设备或网络故障；数据损坏、不需要的数据修改和删除操作；以及设施的大范围丢失。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh852669.aspx">业务连续性：备份、还原和高可用性 (Windows Azure SQL Database)</a></h3>
+<p>本文介绍 Windows Azure SQL Database 提供的备份和还原选项以及其他业务连续性功能，其中还包括有关支持 SQL Database 应用程序高可用性的内置容错的信息。</p>
+<h2>容量规划和扩展</h2>
+<p class="subheading">通过提前规划和利用扩展来优化您的资源使用率</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508997">为 Windows Azure 表存储设计可扩展分区策略</a></h3>
+<p>要利用表提供的内容，应使用最佳 PartitionKey 值对数据进行分区。本文探讨允许您对 Windows Azure 表存储数据进行有效分区的策略。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508980">动态扩展 Windows Azure 应用程序</a></h3>
+<p>如果您了解 Windows Azure 管理 API，则可构建您自己的扩展引擎。本文旨在帮助您实现此目的。本文说明必要的概念和设计注意事项，尤其会探讨您可能将面临的最大问题：如何管理已部署应用程序的实例计数。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh694235">针对 Service Bus 队列和主题的容量规划</a></h3>
+<p>该主题介绍 Windows Azure 队列和 Service Bus 队列之间在队列大小限制方面的差异，以及如何估算适当的 Service Bus 队列或主题容量。它还介绍了对不同大小的消息执行测试运行，以了解可在 Service Bus 队列或主题中放置多少个此类大小的消息。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508977">模拟 Windows Azure 应用程序中的负载</a></h3>
+<p>本文讨论对 Windows Azure 中托管的 Web 应用程序执行的负载模拟过程。在本文中，将使用一个简单的负载测试方案。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh824677">选择 Web 角色实例大小时的注意事项：应该选择多小的实例？</a></h3>
+<p>本文通过比较不同实例大小负载下 Web 应用程序的性能，以及计算针对不同实例大小进行扩展时所产生的成本，提供了有关确定 Windows Azure 云服务 Web 角色大小的相关指导。</p>
+<h2>混合应用程序</h2>
+<p class="subheading">开发同时包括基于云的元素和本地元素的应用程序</p>
+<h3 class="tutorial"><span>教程：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh859742">使用 Service Bus EAI 和 EDI 实验与本地 SAP 服务器进行集成</a></h3>
+<p>Windows Azure Service Bus EAI 和 EDI 实验可提供一组丰富的集成功能，从而使组织可以创建混合解决方案以便在 Azure 上托管其面向客户或合作伙伴的应用程序，同时使用 LOB 应用程序在本地存储与客户或合作伙伴相关的数据。本文介绍如何使用 Service Bus EAI 和 EDI 实验设置类似的混合方案。</p>
+<h2>迁移</h2>
+<p class="subheading">将现有应用程序和数据迁移到 Windows Azure</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh694043">将数据迁移到 Windows Azure SQL Database：工具和技术</a></h3>
+<p>本文提供有关将数据架构和数据迁移到 SQL Database 的指导。它主要针对从 SQL Server 到 SQL Database 的一次性迁移。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/jj901708.aspx">使用 SSIS 移动 Windows Azure 数据和混合数据</a></h3>
+<p>了解如何使用 SQL Server Integration Services (SSIS) 将数据移入和移出 Windows Azure SQL Database。列出了有关将 SSIS 用于云中的源和目标，以及有关 Windows Azure 和混合数据移动的项目规划的最佳实践。代码示例采用 C# 编写。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/jj873729.aspx">SSIS 操作和调整指南 </a></h3>
+<p>了解在使用 SQL Server Integration Services (SSIS) 将数据移入和移出 Windows Azure SQL Database 时有关项目设计和体系结构的最佳实践。本文还提供有关性能调整的最佳实践。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156154">将以数据为中心的应用程序迁移到 Windows Azure</a></h3>
+<p>该系列文章提供有关如何将以数据为中心的应用程序迁移到 Windows Azure 云服务和虚拟机的详细指导。该系列包括以下各部分：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156161">迁移生命周期概述</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156157">制定迁移计划</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156155">实施迁移计划</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156159">使用 Windows Azure 虚拟机进行迁移</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156147">使用 Windows Azure 云服务进行迁移</a></li>
+</ul>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh674491">在 Windows Azure 角色中使用 Visual Studio 负载测试</a></h3>
+<p>负载测试是在模拟使用场景中衡量应用程序性能的一个过程。使用 Windows Azure，您可以创建可代替多台计算机的辅助角色。该系列主题介绍用于设置 Windows Azure 以在两个辅助角色中运行负载测试控制器和代理的基本方法。</p>
+<h2>性能</h2>
+<p class="subheading">衡量和优化应用程序的性能</p>
+<h3 class="guidance"><span>指南：</span><a href="http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-performance-and-elasticity-guide.aspx#SQL_Azure_Performance_Guidelines">SQL Database 性能准则</a></h3>
+<p>本文介绍可帮助确保 SQL Database 应用程序获得最佳性能的实践，其中包括实施正确重试逻辑和高效日志记录的相关技术。本文为 <a href="http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx">SQL Database 性能和弹性指南</a>的一部分。</p>
+<h2>规划</h2>
+<p class="subheading">了解设计 Windows Azure 应用程序的相关模式和指导</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj218759">Windows Azure 网站、云服务和虚拟机：何时使用何种产品？</a></h3>
+<p>该指南提供有关何时使用网站、云服务和虚拟机作为您的应用程序组件的详细信息。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh545245">利用 Windows Azure Service Bus 中转消息传递 API 的最佳实践</a></h3>
+<p>本文为开发人员提供一些实践指导，以帮助他们在 Windows Azure Service Bus 中使用 .NET 托管中转消息传递 API。本文中提供的建议直接来自最近的客户项目。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh767287">Windows Azure 队列和 Windows Azure Service Bus 队列 - 比较与对照</a></h3>
+<p>本文分析 Windows Azure 目前提供的以下两种队列类型之间的差异和相似性：Windows Azure 队列和 Windows Azure Service Bus 队列。通过使用该信息，您可以比较和对照这两种技术，并可以明智地决定哪种解决方案最符合您的需要。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj553018">Windows Azure 表存储和 Windows Azure SQL Database - 比较与对照</a></h3>
+<p>该主题比较 Windows Azure 支持的两种结构化存储类型：Windows Azure 表存储和 Windows Azure SQL Database。本文的目标是提供各自技术的比较，以便您可以了解它们之间的相似性和差异。该分析可帮助您正确选择最符合您的具体需要的技术。</p>
+<h2>安全性</h2>
+<p class="subheading">构建基于云的安全应用程序</p>
+<h3><span>白皮书：</span><a href="http://cdn.globalfoundationservices.com/documents/SecurityBestPracticesWindowsAzureApps.pdf" target="_blank">开发 Windows Azure 应用程序的最佳安全实践</a></h3>
+<p>本白皮书由 Microsoft Security Engineering Center (MSEC) 和 Microsoft Online Services Security and Compliance (OSSC) 团队撰写，其中着重介绍设计更安全的 Windows Azure 应用程序时所面临的安全问题和建议的解决方法。这两个团队与 Windows Azure 团队进行了合作，以便能够采用相同的安全原则和流程，而这些安全原则和流程是 Microsoft 凭借其在管理传统开发和操作环境中的安全风险方面的多年经验制定的。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://go.microsoft.com/?linkid=9741707&amp;clcid=0x409">Windows Azure 安全说明</a></h3>
+<p>本文档由“模式和实践”团队撰写，其中提供了保护常见 Windows Azure 应用方案的解决方案。</p>
+<h3><span>白皮书：</span><a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;clcid=0x409&amp;id=18990">SQL Database 安全准则</a></h3>
+<p>本白皮书中提供的安全准则概述适用于连接到 SQL Database（以前称为 SQL Azure），以及在 SQL Database 上构建安全应用程序的客户。</p>
+<h3><span>书籍：</span><a href="http://msdn.microsoft.com/zh-cn/library/ff423674.aspx" target="_blank">基于声明的标识和访问控制指南</a></h3>
+<p>本书由 Microsoft“模式和实践”团队撰写，其中所提供的信息可帮助您评估在规划新应用程序或更改现有应用程序时将基于声明的标识作为一种选择的可能性。</p>
+<h2>故障排除和诊断</h2>
+<p class="subheading">构建可以轻松调试的强大应用程序，并利用 Windows Azure 功能和工具在发生问题时更为轻松地解决这些问题</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433048">使用 Windows Azure 诊断收集日志记录数据</a></h3>
+<p>该系列主题提供有关如何使用 Windows Azure 诊断收集日志数据的详细信息。可以将诊断数据用于调试和故障排除、度量性能、监视资源使用状况、进行流量分析和容量规划以及进行审核。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh343268">存储分析概述</a></h3>
+<p>Windows Azure 存储分析执行日志记录并提供有关存储帐户的度量值数据。您可以使用该数据跟踪请求、分析使用趋势以及诊断您的存储帐户存在的问题。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh694035">Windows Azure 中的诊断和调试</a></h3>
+<p>该主题中提供的信息介绍了如何收集和分析 Windows Azure 主机实例和 Windows Azure 应用程序的诊断和调试信息。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508988">本地诊断模型</a></h3>
+<p>本文讨论 Windows Azure 中提供的诊断选项，并提供您可以在检测应用程序时采用的策略和最佳实践。</p>
+<h3 class="guidance"><span>指南：</span><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh771389">有关开发 Windows Azure 应用程序的最佳故障排除实践</a></h3>
+<p>本文主要介绍在为 Microsoft 的 Windows Azure 平台设计和开发更多受支持应用程序时所面临的各种故障排除挑战和建议的解决方法。它提供 Windows Azure 诊断资源概述，其中包括云服务诊断 API、Microsoft 提供的其他工具以及第三方工具。本问还讨论受支持设计、开发和部署的一般最佳实践。</p></p>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure 开发：体系结构和指南</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[了解可以帮助您设计、开发和优化 Windows Azure 应用程序的最佳实践、文章、模式和示例。]]></metaDescription><linkid>develop-net-guidance</linkid><urlDisplayName>.NET 指南</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav sublanding</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

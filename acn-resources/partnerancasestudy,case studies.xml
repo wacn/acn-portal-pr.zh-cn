@@ -1,0 +1,1730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="18486" parentID="19421" level="3" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="3" createDate="2013-05-05T20:52:21" updateDate="2014-08-18T11:32:51" nodeName="Case Studies" urlName="case-studies" writerName="uRest" creatorName="xunfan" path="-1,11978,19421,18486" isDoc="">
+    <bodyText>
+      <![CDATA[
+<style>
+    .case-header {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: none;
+        position: relative;
+        z-index: 0;
+        height: 312px;
+        background-image: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/case1.png);
+        background-color: #6F2B7A;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .case-container {
+        width: 100%;
+    }
+
+    .case-list {
+        width: 1310px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        list-style: none;
+    }
+
+    .filter {
+        width: 1310px;
+        padding-left: 15px;
+    }
+
+    .view-collection {
+        width: 1310px;
+        padding-left: 15px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 1410px) {
+        .case-list {
+            width: 880px;
+            margin: 0 auto;
+        }
+
+        .filter {
+            width: 880px;
+        }
+
+        .view-collection {
+            width: 880px;
+        }
+    }
+
+    .case-list .single-case {
+        display: inline-block;
+        width: 420px;
+        height: 320px;
+        background: #FDFDFD;
+        border: 1px solid #CDCDCD;
+        padding: 20px 18px;
+        box-sizing: border-box;
+        margin: 8px;
+        overflow: hidden;
+        vertical-align: top;
+        float: left;
+    }
+
+        .case-list .single-case img {
+            width: 184px;
+            height: 64px;
+            margin: 0px 18px 20px 0px;
+            float: left;
+        }
+
+        .case-list .single-case .info {
+            display: inline-block;
+            float: left;
+            font-size: 13px;
+            color: #000000;
+            line-height: 22px;
+        }
+
+            .case-list .single-case .info a {
+                text-decoration: none;
+                color: #00A0FF;
+                font-size: 13px;
+            }
+
+        .case-list .single-case label {
+            font-size: 13px;
+            line-height: 125%;
+            color: #555555;
+            display: inline;
+        }
+
+        .case-list .single-case .disp {
+            margin-top: 84px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+        .case-list .single-case .services {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+            .case-list .single-case .services .services-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: inline;
+            }
+
+            .case-list .single-case .services li {
+                display: inline;
+            }
+
+                .case-list .single-case .services li a {
+                    text-decoration: none;
+                    color: #00A0FF;
+                    font-size: 13px;
+                }
+
+        .case-list .single-case .detail {
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 22px;
+            color: #555555;
+        }
+
+    .case-list .arrow-right {
+        display: inline-block;
+        background: url("//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/icon_link-arrow.png");
+        width: 4px;
+        height: 8px;
+        margin-left: 5px;
+    }
+
+    .noselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .filter {
+        margin: 35px auto;
+    }
+
+        .filter label {
+            font-size: 14px;
+            color: #555555;
+            vertical-align: middle;
+            line-height: 24px;
+            display: inline;
+        }
+
+        .filter .drop-list {
+            display: inline-block;
+            font-size: 14px;
+            height: 24px;
+            vertical-align: middle;
+            line-height: 24px;
+            width: 184px;
+            border: 1px solid #919191;
+            box-sizing: border-box;
+            margin-right: 30px;
+            margin-left: 8px;
+            position: relative;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+            .filter .drop-list ul {
+                font-size: 14px;
+                list-style: none;
+                position: relative;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border: 1px solid #919191;
+                width: 184px;
+                left: -1px;
+                top: -2px;
+                background: white;
+            }
+
+            .filter .drop-list li {
+                padding-left: 10px;
+            }
+
+            .filter .drop-list input {
+                line-height: 14px;
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                vertical-align: middle;
+                margin-right: 5px;
+                box-sizing: content-box;
+            }
+
+        .filter .value {
+            padding-left: 10px;
+        }
+
+        .filter .arrow-down {
+            display: inline-block;
+            position: absolute;
+            background: url("//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/icon_dropdown-arrow.png");
+            width: 8px;
+            height: 4px;
+            right: 5px;
+            top: 9px;
+        }
+
+    .hide {
+        display: none !important;
+    }
+
+    @keyframes mhide {
+        from {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+
+        to {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+    }
+
+    @-webkit-keyframes mhide {
+        from {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+
+        to {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+    }
+
+    @-moz-keyframes mhide {
+        from {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+
+        to {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+    }
+
+    @-o-keyframes mhide {
+        from {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+
+        to {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+    }
+
+    @keyframes mshow {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+
+        to {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+    }
+
+    @-webkit-keyframes mshow {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+
+        to {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+    }
+
+    @-moz-keyframes mshow {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+
+        to {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+    }
+
+    @-o-keyframes mshow {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px 18px;
+            border: 0px solid #CDCDCD;
+        }
+
+        to {
+            height: 350px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding: 20px 18px;
+            border: 1px solid #CDCDCD;
+        }
+    }
+
+    .mhide-anima {
+        animation: mhide 0.5s 1;
+        -webkit-animation: mhide 0.5s 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    .mshow-anima {
+        animation: mshow 0.5s 1;
+        -webkit-animation: mshow 0.5s 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    .service-list {
+        margin-left: 100px;
+    }
+    li {
+      max-height: 308px;
+    
+    }
+</style>
+<header class="case-header">
+    <a id="parter_casestudy_ile" target="_blank" href="http://www.ilexnet.com/" style="display:block;width:50px;height:50px;position:relative;top:125px;left:50%;background:rgba(0,0,0,0);margin-left: -448px;"></a>
+    <a id="parter_casestudy_adma" target="_blank" href="http://www.admaster.com.cn/" style="display:block;width:50px;height:50px;position:relative;top:-8px;left:50%;background:rgba(0,0,0,0);margin-left: -343px;"></a>
+    <a id="parter_casestudy_van" target="_blank" href="http://www.vancl.com/" style="display:block;width:110px;height:100px;position:relative;top:68px;left:50%;background:rgba(0,0,0,0);margin-left: -338px;"></a>
+    <a id="parter_casestudy_al" target="_blank" href="http://www.algoblu.com/" style="display:block;width:80px;height:90px;position:relative;top:-140px;left:50%;background:rgba(0,0,0,0);margin-left: -240px;"></a>
+    <a id="parter_casestudy_cog" target="_blank" href="http://www.cogobuy.com/" style="display:block;width:50px;height:50px;position:relative;top:-270px;left:50%;background:rgba(0,0,0,0);margin-left: -118px;"></a>
+    <a id="parter_casestudy_h3" target="_blank" href="http://www.h3c.com.cn/" style="display:block;width:80px;height:90px;position:relative;top:-200px;left:50%;background:rgba(0,0,0,0);margin-left: -55px;"></a>
+
+</header>
+<section class="case-container">
+    <script type="text/template" id="industrylist">
+        <ul class="hide">
+            <li>选择全部</li>
+            <li><input type="checkbox">物联网</li>
+            <li><input type="checkbox">电商</li>
+            <li><input type="checkbox">信息通信</li>
+            <li><input type="checkbox">数字营销</li>
+            <li><input type="checkbox">社交</li>
+            <li><input type="checkbox">多媒体</li>
+            <li><input type="checkbox">媒体</li>
+            <li><input type="checkbox">教育</li>
+            <li><input type="checkbox">云计算解决方案</li>
+            <li><input type="checkbox">移动互联网</li>
+            <li><input type="checkbox">游戏</li>
+            <li><input type="checkbox">车联网</li>
+            <li><input type="checkbox">IT 服务</li>
+            <li><input type="checkbox">金融服务</li>
+            <li><input type="checkbox">独立软件提供商</li>
+            <li><input type="checkbox">互联网服务</li>
+            <li><input type="checkbox">网络游戏</li>
+            <li><input type="checkbox">移动营销 SaaS 服务</li>
+            <li><input type="checkbox">小微企业</li>
+            <li><input type="checkbox">医疗机构 </li>
+            <li><input type="checkbox">消费品</li>
+        </ul>
+    </script>
+    <script type="text/template" id="servicelist">
+        <ul class="hide">
+            <li>选择全部</li>
+            <li><input type="checkbox">虚拟机</li>
+            <li><input type="checkbox">虚拟网络</li>
+            <li><input type="checkbox">存储</li>
+            <li><input type="checkbox">SQL 数据库</li>
+            <li><input type="checkbox">Web 应用</li>
+            <li><input type="checkbox">云服务</li>
+            <li><input type="checkbox">CDN</li>
+            <li><input type="checkbox">分布式缓存</li>
+            <li><input type="checkbox">负载平衡</li>
+            <li><input type="checkbox">服务总线</li>
+            <li><input type="checkbox">媒体服务</li>
+            <li><input type="checkbox">StorSimple</li>
+            <li><input type="checkbox">云端游戏开发</li>
+            <li><input type="checkbox">流量管理器</li>
+            <li><input type="checkbox">备份</li>
+            <li><input type="checkbox">事件中心</li>
+            <li><input type="checkbox">通知中心</li>
+            <li><input type="checkbox">HDInsight</li>
+            <li><input type="checkbox">Redis 缓存</li>
+            <li><input type="checkbox">MySQL Database on Azure</li>
+            <li><input type="checkbox">开源软件</li>
+            
+            <!--<li><input type="checkbox">云端移动开发</li>-->
+        </ul>
+    </script>
+    <script type="text/template" id="needslist">
+        <ul class="hide">
+            <li>选择全部</li>
+            <li><input type="checkbox">基础结构服务</li>
+            <li><input type="checkbox">Web应用搭建</li>
+            <li><input type="checkbox">存储、备份和恢复</li>
+            <li><input type="checkbox">数据管理服务</li>
+            <li><input type="checkbox">开发和测试</li>
+            <li><input type="checkbox">移动开发</li>
+            <li><input type="checkbox">支持开源技术</li>
+            <li><input type="checkbox">全球部署</li>
+            <li><input type="checkbox">无缝衔接混合云</li>
+        </ul>
+    </script>
+    <script type="text/template" id="strategylist">
+        <ul class="hide">
+            <li>选择全部</li>
+            <li><input type="checkbox">优化运维</li>
+            <li><input type="checkbox">变革产品</li>
+            <li><input type="checkbox">提高员工生产力</li>
+            <li><input type="checkbox">吸引客户</li>
+        </ul>
+    </script>
+    <div class="filter">
+        <a id="caseStudies_anchor_filter" class="anchor"></a>
+        <label>查看方式</label>
+        <div class="drop-list filtertype">
+            <span class="value" data-value="industry">按行业</span><span class="arrow-down"></span>
+            <ul class="hide">
+                <li data-value="industry">按行业</li>
+                <li data-value="needs">按业务需求</li>
+                <li data-value="service">按使用服务</li>
+                <li data-value="strategy">按企业战略</li>
+            </ul>
+        </div>
+        <label class="service-list">具体类别</label>
+        <div class="drop-list filterdetail">
+            <span class="value" data-type="0">全部</span><span class="arrow-down"></span>
+            <ul class="hide">
+                <li>选择全部</li>
+                <li><input type="checkbox">物联网</li>
+                <li><input type="checkbox">电商</li>
+                <li><input type="checkbox">信息通信</li>
+                <li><input type="checkbox">数字营销</li>
+                <li><input type="checkbox">社交</li>
+                <li><input type="checkbox">多媒体</li>
+                <li><input type="checkbox">教育</li>
+                <li><input type="checkbox">云计算解决方案</li>
+                <li><input type="checkbox">移动互联网</li>
+                <li><input type="checkbox">游戏</li>
+                <li><input type="checkbox">车联网</li>
+                <li><input type="checkbox">物流管理</li>
+                <li><input type="checkbox">独立软件提供商</li>
+                <li><input type="checkbox">互联网服务</li>
+                <li><input type="checkbox">网络游戏</li>
+            </ul>
+        </div>
+    </div>
+    <ul class="case-list">
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_yuntu" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/casestudy/case-studies_yuntu.png" />
+            <div class="info">
+                <a id="parter_casestudy_yuntu" href="http://www.fotoable.com/" rel="nofollow" target="case">www.fotoable.com/</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">媒体</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> >200人</span>
+            </div>
+            <p class="disp">
+                Microsoft Azure 让云图微动只需一次开发就可以将业务部署到全球，降低业务的开发成本和运营成本，同时还能够利用 Azure 的网络优势为中国本土市场和增长迅速的海外市场用户提供高效、低延迟的社交分享体验。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+					<li><a id="chanjet-mysql" href="/home/features/mysql/" target="_blank">MySQL Database on Azure</a>、</li> 
+                    <li><a id="chanjet-media-services" href="/home/features/media-services/" target="_blank">媒体服务</a>、</li>
+                    <li><a id="chanjet-web-site" href="/home/features/web-site/" target="_blank">Web 应用</a>、</li>
+					<li><a id="chanjet-mysql" href="/home/features/mysql/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="chanjet-storage" href="/home/features/storage/" target="_blank">存储</a></li>
+
+
+                </ul>
+            </div>
+            
+            <input type="hidden" value="优化运维" />
+            <a id="casestudy_ruxin" href="/partnerancasestudy/case-studies/yuntu/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+
+        <li class="single-case">
+            <a id="caseStudies_anchor_ruxin" class="anchor"></a>
+            <img class="logo" src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/casestudy-nuskin-160519.jpg" />
+            <div class="info">
+                <a id="parter_casestudy_ruxin" href="http://china.nuskin.com/" rel="nofollow" target="case">china.nuskin.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">消费品</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> >10000人</span>
+            </div>
+            <p class="disp">
+                Microsoft Azure 丰富的 PaaS 服务让如新集团能够利用公有云的优势提升业务平台的稳定性并降低运维的难度，为其提供了良好的性能表现与可扩展性，使如新无需再反复规划数据库服务器的配置，即可在云上满足未来不断增长的业务需求。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="chanjet-mysql" href="/home/features/mysql/" target="_blank">SQL 数据库</a>、</li>
+                    <li><a id="chanjet-storage" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="chanjet-media-services" href="/home/features/media-services/" target="_blank">媒体服务</a>、</li>
+                    <li><a id="chanjet-web-site" href="/home/features/web-site/" target="_blank">Web 应用</a></li>
+                </ul>
+            </div>
+            
+            <input type="hidden" value="消费品,优化运维" />
+            <a id="casestudy_ruxin" href="/partnerancasestudy/case-studies/ruxin/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_ruier" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/re_logo.jpg" />
+            <div class="info">
+                <a id="parter_casestudy_ruier" href="http://arrail-dental.com/" rel="nofollow" target="case">www.arrail-dental.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">医疗机构 </span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <500人</span>
+            </div>
+            <p class="disp">通过 Microsoft Azure 的存储、云服务、开源软件等服务，微软技术人员为瑞尔集团打造了一整套核心解决方案，提供超大规模的运算、存储能力，帮助瑞尔集团实现业务系统的平滑迁移，满足了无限量的扩张需求。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="chanjet-storage" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="chanjet-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                    <li><a id="chanjet-solutions-OSS" href="https://www.azure.cn/solutions/OSS/" target="_blank">开源软件</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储,开源软件,云服务,优化运维" />
+            <a id="casestudy_ruier" href="/partnerancasestudy/case-studies/ruier/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        
+        
+        
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_guangmingwang" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/guangmingwang_logo.gif" />
+            <div class="info">
+                <a id="parter_casestudy_guangmingwang" href="http://www.gmw.cn" rel="nofollow" target="case">www.gmw.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">媒体</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <1000人</span>
+            </div>
+            <p class="disp">Microsoft Azure 为光明网提供了一种更加灵活与快捷的资源配置方式，利用已有的经验和熟悉的工具对 Azure 进行管理，并通过自动缩放在短时间内完成服务的上线，在业务高峰来临之前做足的准备，轻松应对千万级访问量。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="chanjet-virtual-machines" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="chanjet-mysql" href="/home/features/mysql/" target="_blank">MySQL Database on Azure</a>、</li>
+                    <li><a id="chanjet-redis-cache" href="/home/features/redis-cache/" target="_blank">Redis 缓存</a>、</li>
+                    <li><a id="chanjet-media-services" href="/home/features/media-services/" target="_blank">媒体服务</a>、</li>
+                    <li><a id="chanjet-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储,变革产品" />
+            <a id="casestudy_guangmingwang" href="/partnerancasestudy/case-studies/guangmingwang/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        
+        <li class="single-case">
+          <a id="caseStudies_anchor_cjt" class="anchor"></a>
+          <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/cjtlogo.png" />
+          <div class="info">
+              <a id="parter_casestudy_cjt" href="http://www.chanjet.com/ rel="nofollow" target="case">www.chanjet.com</a><br />
+              <label>所属行业&nbsp;:&nbsp;</label><span class="industry">小微企业 </span><br />
+              <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <1000人</span>
+          </div>
+          <p class="disp">通过使用 Microsoft Azure 公有云提供的全面的服务，满足畅捷通对基础架构、数据库、存储和网络的多种需求，可以将更多的精力投入到T+等产品与服务的创新研发上，为市场提供更具竞争力的云+端 ERP 解决方案。
+          </p>
+          <div class="services">
+              <label>所用服务&nbsp;:&nbsp;</label>
+              <ul class="services-list">
+                  <li><a id="chanjet-event-hubs" href="/home/features/event-hubs/" target="_blank">SQL 数据库</a>、</li>
+                  <li><a id="chanjet-storage" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                  <li><a id="chanjet-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a></li>
+              </ul>
+            </div>  
+          <input type="hidden" value="存储,变革产品" />
+          <a id="casestudy_cjt" href="/partnerancasestudy/case-studies/cjt/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+       </li>
+        
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_yingqukj" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/inWatc-logo.jpg" />
+            <div class="info">
+                <a id="parter_casestudy_cjt" href="http://www.inwatch.cc/" rel="nofollow" target="case">www.inwatch.cc</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务 </span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <200人</span>
+            </div>
+            <p class="disp">通过使用 Microsoft Azure，映趣科技解决智能手表安全问题，全方位保护个人隐私，丰富的基础服务方案，让企业专注核心业务，助力业务全球化。Microsoft Azure 将和映趣科技一起，让更多的人更加方便、快捷、安心地享受可穿戴设备带来的便利。
+            </p>
+            <div class="services">
+              <label>所用服务&nbsp;:&nbsp;</label>
+              <ul class="services-list">
+                  <li><a id="inwatch-virtual-machines" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                  <li><a id="inwatch-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                  <li><a id="inwatch-back-up" href="/home/features/back-up/" target="_blank">备份</a></li>
+                  
+              </ul>
+            </div> 
+            <input type="hidden" value="存储,变革产品" />
+            <a id="casestudy_cjt" href="/partnerancasestudy/case-studies/yingqukj/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_zhibiaokj" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/zblogo.jpg" />
+            <div class="info">
+                <!-- <a id="parter_casestudy_cjt" href="http://23a1096411.atobo.com.cn/" rel="nofollow" target="case">23a1096411.atobo.com.cn</a><br />  -->
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry"> 生产/制造业  </span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <500人</span>
+            </div>
+            <p class="disp">智标科技凭借自身丰富的制鞋经验，携手由世纪互联运营的 Microsoft Azure 的云服务，建立起云端标准化数据库，为鞋类的柔性订制打下了坚实的基础，也为中国鞋业的传统突围与智能创新提供了契机。而这最终成就了领跑行业的智标科技。</p>
+           
+           <div class="services">
+              <label>所用服务&nbsp;:&nbsp;</label>
+              <ul class="services-list">
+                  <li><a id="zhibiaokj-event-hubs" href="/home/features/event-hubs/" target="_blank">事件中心</a>、</li>
+                  <li><a id="zhibiaokj-notification-hubs" href="/home/features/notification-hubs/" target="_blank">通知中心</a>、</li>
+                  <li><a id="zhibiaokj-storage" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                  <li><a id="zhibiaokj-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a></li>
+              </ul>
+            </div>    
+            <input type="hidden" value="存储,变革产品" />
+            <a id="casestudy_cjt" href="/partnerancasestudy/case-studies/zhibiaokj/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+          </li>
+        
+        
+         <li class="single-case">
+              <a id="caseStudies_anchor_fengxiangbiao" class="anchor"></a>
+              <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/fxblogo.png" />
+              <div class="info">
+                  <a id="parter_casestudy_fengxiangbiao" href="http://www.vanelife.com/" rel="nofollow" target="case">www.vanelife.com</a><br />
+                  <label>所属行业&nbsp;:&nbsp;</label><span class="industry"> 物联网   </span><br />
+                  <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <500人</span>
+              </div>
+              <p class="disp">借助 Microsoft Azure 在云端架起坚实可靠的物联网后台，风向标智能云平台的建设进程大大加快。强有力的 IT 后台支撑，让风向标得以将更多精力投入到智慧家庭业务的构建，以及为企业、消费者提供更加有针对性的智慧生活服务中。</p>
+
+              <div class="services">
+                  <label>所用服务&nbsp;:&nbsp;</label>
+                  <ul class="services-list">
+                      <li><a id="fengxiangbiao-event-hubs" href="/home/features/sql-database/" target="_blank">SQL 数据库</a>、</li>
+                      <li><a id="fengxiangbiao-notification-hubs" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                      <li><a id="fengxiangbiao-storage" href="/home/features/hdinsight/" target="_blank">HDInsight</a>、</li>
+                      <li><a id="fengxiangbiao-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                      <li><a id="fengxiangbiao-cloud-mysql" href="/home/features/mysql/" target="_blank">MySQL Database on Azure</a>、</li>
+                      <li><a id="fengxiangbiao-cloud-redis-cache" href="/home/features/redis-cache/" target="_blank">Redis 缓存</a>、</li>
+                      <li><a id="fengxiangbiao-cloud-cdn" href="/home/features/cdn/" target="_blank">CDN</a></li>
+                  </ul>
+              </div>
+              <input type="hidden" value="存储,变革产品" />
+              <a id="casestudy_cjt" href="/partnerancasestudy/case-studies/fengxiangbiao/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+          </li>
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_jinyinmao" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/jymlogo_03.png" />
+            <div class="info">
+                <a id="parter_casestudy_jinyinmao" href="http://www.jinyinmao.com.cn/" rel="nofollow" target="case">www.jinyinmao.com.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry"> 互联网   </span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <200人</span>
+            </div>
+            <p class="disp">Microsoft Azure 不仅为金银猫平台提供全面技术支持，更为投资者账户提供了永久绑定的唯一真实身份，有效的入侵防范及容灾备份确保了平台交易数据及投资者账户信息的安全，同时为金银猫平台系统稳定、高效地运行提供强有力的技术支援和保障。</p>
+
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="jinyinmao-notification-hubs" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="jinyinmao-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                    <li><a id="jinyinmao-cloud-mysql" href="/home/features/mysql/" target="_blank">MySQL Database on Azure</a>、</li>
+                    <li><a id="jinyinmao-cloud-cdn" href="/home/features/multi-factor-authentication/" target="_blank">多重身份验证</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储,提高员工生产力" />
+            <a id="casestudy_cjt" href="/partnerancasestudy/case-studies/jinyinmao/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        
+        <li class="single-case">
+            <a id="caseStudies_anchor_hshospital" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/huashanlogo.png" />
+            <div class="info">
+                <a id="parter_casestudy_hshospital" href="http://www.huashan.org.cn/" rel="nofollow" target="case">www.huashan.org.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry"> 医疗机构  </span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <3000人</span>
+            </div>
+            <p class="disp">Azure 为传统的 IT 技术服务瘦身，使技术人员更多的精力去关注资源分配问题，为其他部门提供更好的基础服务，其强大的数据吞吐能力和计算速度，大大提高临床科研的效率，为个性化给药从实验室走向临床打下了基础。</p>
+
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="hshospital-cloud-mysql" href="/solutions/StorSimple/" target="_blank">StorSimple</a>、</li>
+                    <li><a id="hshospital-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                    <li><a id="hshospital-cloud-cdn" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="hshospital-notification-hubs" href="/home/features/virtual-machines/" target="_blank">虚拟机</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储,提高员工生产力" />
+            <a id="casestudy_cjt" href="/partnerancasestudy/case-studies/hshospital/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        
+       <li class="single-case">
+          <a id="caseStudies_anchor_jmz" class="anchor"></a>
+          <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/jmz_logo.jpg" />
+          <div class="info">
+              <a id="parter_casestudy_jmz" href="http://www.his999.com" rel="nofollow" target="case">www.his999.com</a><br />
+              <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+              <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> >100人</span>
+          </div>
+          <p class="disp">九明珠在 Azure 公有云平台上开发了新一代的“云杏”产品，并通过软件即服务（SaaS）的形式交付给小微医疗机构使用，免除医疗机构客户在 IT 基础设施建设、软硬件部署及后期运维方面的问题，让医疗机构可以根据需要订阅使用，实现即付即用。</p>
+          <input type="hidden" value="存储,变革产品" />
+          <a id="casestudy_jmz" href="/partnerancasestudy/case-studies/jmz/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+       </li>
+      
+      <li class="single-case">
+        <a id="caseStudies_anchor_yingao" class="anchor"></a>
+        <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/YingAo_Logo.jpg" />
+        <div class="info">
+            <a id="parter_casestudy_yingao" href="http://www.winourway.com/" rel="nofollow" target="case">www.winourway.com</a><br />
+            <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+            <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <100人</span>
+        </div>
+        <p class="disp">通过与微软建立合作伙伴关系，在 Azure 公有云进行部署，基于 B/S 架构，并使用 Visual Studio 进行开发，并与流行的社交互动方式进行整合，为商户、顾客、业主提供数字化的体验，帮助地产企业实现从传统管理到“互联网+”的转变。</p>
+        
+        <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                  <ul class="services-list">
+                    <li><a id="yingao-virtual" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="yingao-mysql database" href="/home/features/mysql/" target="_blank">MySQL Database on Azure</a>、</li>
+                    <li><a id="yingao-service" href="/support/legal/sla/" target="_blank">服务级别协议</a></li>
+                </ul>
+            </div>
+        
+        <input type="hidden" value="存储,MySQL Database on Azure,变革产品" />
+        <a id="casestudy_social" href="/partnerancasestudy/case-studies/yingao" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+      </li>
+      
+      
+       <li class="single-case">
+            <a id="caseStudies_anchor_social" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/Social_logo184x64.png" />
+            <div class="info">
+                <a id="parter_casestudy_social" href="http://www.social-touch.com/" rel="nofollow" target="case">www.social-touch.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">移动营销 SaaS 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> <1000 人</span>
+            </div>
+            <p class="disp">时趣互动(北京)科技有限公司利用 Azure 所提供的公有云服务满足我们对高效数据采集、传输与处理的需求，并为客户提供更有竞争力的大数据驱动的移动营销解决方案。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                  <ul class="services-list">
+                      <li><a id="zhibiaokj-event-hubs" href="/home/features/event-hubs/" target="_blank">事件中心</a>、</li>
+                      <li><a id="zhibiaokj-notification-hubs" href="/home/features/notification-hubs/" target="_blank">通知中心</a>、</li>
+                      <li><a id="zhibiaokj-storage" href="/home/features/storage/" target="_blank">存储</a></li>
+                      <li><a id="zhibiaokj-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a></li>
+                  </ul>
+            </div>
+            <input type="hidden" value="存储,变革产品" />
+            <a id="casestudy_social" href="/partnerancasestudy/case-studies/social" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+         <li class="single-case">
+            <a id="caseStudies_anchor_bstar" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/Logo_bster14.png" />
+            <div class="info">
+                <a id="parter_casestudy_bstar" href="http://www.bstar.com.cn/cn/" rel="nofollow" target="case">www.bstar.com.cn/cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> >200人</span>
+            </div>
+            <p class="disp">Azure 公有云服务使北京蓝色星际软件技术发展有限公司以更灵活快速的方式将 SaaS 服务提供给更多用户，使用低成本云存储空间取代本地存储设备，能帮用户大幅降低总体拥有成本。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                  <ul class="services-list">
+                   <!--<li><a id="digitalchina-saas" href="/home/features/virtual-machines/" target="_blank">SaaS </a>、</li>-->
+                    <li><a id="bstar-storage" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="bstar-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                    <li><a id="bstar-virtual-machines" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="bstar-event-hubs" href="/home/features/event-hubs/" target="_blank">事件中心</a>、</li>
+                    <li><a id="bstar-mobile-services" href="/home/features/mobile-services/" target="_blank">移动服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储、备份和恢复,移动开发,变革产品" />
+            <a id="casestudy_bstar" href="/partnerancasestudy/case-studies/bstar/" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_digitalchina" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/logo_shenzhou.14.png" />
+            <div class="info">
+                <a id="parter_casestudy_digitalchina" href="http://www.digitalchina.com/" rel="nofollow" target="case">www.digitalchina.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> >1000人</span>
+            </div>
+            <p class="disp">Azure 公有云服务使北京神州数码有限公司可以根据用户需求更快速的交付新的特性，同时也能够帮助中国的中小型制造企业节约 IT 成本投入，使我们都能够更加专注于主营业务。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                  <ul class="services-list">
+                   <!--<li><a id="digitalchina-saas" href="/home/features/virtual-machines/" target="_blank">SaaS </a>、</li>-->
+                    <li><a id="digitalchina-storage" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="digitalchina-cloud-services" href="/home/features/cloud-services/" target="_blank">云服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储、备份和恢复,变革产品" />
+            <a id="casestudy_digitalchina" href="/partnerancasestudy/case-studies/digitalchina" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_helishi" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/helishi_case1229.jpg" />
+            <div class="info">
+                <a id="parter_casestudy_hollysys" href="http://www.hollysys.com.cn/" rel="nofollow" target="case">www.hollysys.com.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">物联网</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"> >4000 人</span>
+            </div>
+            <p class="disp">和利时工业云服务平台通过融入微软智能云 Azure 和物联网解决方案，实现高性能、低成本的工业自动控制革新，彻底改变效率低下的传统运维模式，减少计划外停机、提高运维效率。</p>
+            <div class="services">
+              <label>所用服务&nbsp;:&nbsp;</label>
+                  <ul class="services-list">
+                    <li><a id="shengteer_Mobile" href="https://www.azure.cn/solutions/iot/" target="_blank">物联网解决方案</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="工业自动化,优化运维" />
+            <a id="casestudy_helishi" href="/partnerancasestudy/case-studies/hollysys" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_shengteer" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/shengteer_logo-01.png" />
+            <div class="info">
+                <a id="parter_casestudy_shengteer" href="http://www.centaur.cn/" rel="nofollow" target="case">www.centaur.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"><500 人</span>
+            </div>
+            <p class="disp">北京圣特尔科技发展有限公司利用 Azure 的公有云服务在性能、业务等方面都取得了显著的收益，创建了可靠合规的平台，优化企业成本支出，为客户提供可靠的业务支持，让业务稳定运行。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="shengteer_stor" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="shengteer_clo" href="/home/features/sql-database/" target="_blank">SQL 数据库</a>、</li>
+                    <li><a id="shengteer_Mobile" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="shengteer_Mobile" href="/home/features/traffic-manager/" target="_blank">流量管理器</a>、</li>
+                    <li><a id="shengteer_Mobile" href="/home/features/cloud-services/" target="_blank">云服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="可靠合规的云平台,优化成本支出,业务可靠稳定运行,吸引客户" />
+            <a id="casestudy_shengteer" href="/partnerancasestudy/case-studies/shengteer" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_beyondsoft" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/ipinyou.png" />
+            <div class="info">
+                <a id="parter_casestudy_beyondsoft" href="http://www.ipinyou.com.cn/" rel="nofollow" target="case">www.ipinyou.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">互联网服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"><150 人</span>
+            </div>
+            <p class="disp">北京品友互动信息技术有限公司利用 Azure 所提供的优质网络和高性能计算资源，配合品友精密的算法进行有效的优化，实现了超越传统购买3倍的高转化率，帮助客户降低高达2/3的投放成本。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="beyondsoft_stor" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="beyondsoft_clo" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                    <li><a id="beyondsoft_Mobile" href="/home/features/hdinsight/" target="_blank">HDInsight</a>、</li>
+                    <li><a id="beyondsoft_Mobile" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="beyondsoft_Mobile" href="/home/features/cdn/" target="_blank">CDN</a>、</li>
+                    <li><a id="beyondsoft_Mobile" href="/solutions/advertising/" target="_blank">广告数字营销</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="开发和测试,移动开发,吸引客户" />
+            <a id="casestudy_beyondsoft" href="/partnerancasestudy/case-studies/ipinyou" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_beyondsoft" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/BeyondSoft%20Case%20logo184x64.png" />
+            <div class="info">
+                <a id="parter_casestudy_beyondsoft" href="http://www.beyondsoft.com/cn/" rel="nofollow" target="case">www.beyondsoft.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">>10000 人</span>
+            </div>
+            <p class="disp">博彦科技股份有限公司利用 Azure 的云服务和云端移动开发服务实现了软、硬件的结合，体现了敏捷和弹性的特点，而且能够将成本大幅降低80%，从而将开发层次上升到一个崭新的台阶。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="beyondsoft_stor" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="beyondsoft_clo" href="/home/features/cloud-services/" target="_blank">云服务</a>、</li>
+                    <li><a id="beyondsoft_Mobile" href="/solutions/mobile/" target="_blank">云端移动开发</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="开发和测试,移动开发,提高员工生产力" />
+            <a id="casestudy_beyondsoft" href="/partnerancasestudy/case-studies/beyondsoft" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_youyidao" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/youyidao.png" />
+            <div class="info">
+                <a id="parter_casestudy_youyidao" href="http://www.91yyd.com/" rel="nofollow" target="case">www.91yyd.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">网络游戏</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"><100 人</span>
+            </div>
+            <p class="disp">游艺道网络科技有限公司利用 Azure 虚拟机服务实现灵活的资源缩放，满足不同游戏，不同数量用户的访问需求，充分利用云存储所提供的高 IOPS 等优势提升游戏性能。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="youyidao_stor" href="/home/features/virtual-machines/" target="_blank">虚拟机</a>、</li>
+                    <li><a id="youyidao_clo" href="/home/features/storage/" target="_blank">存储</a>、</li>
+                    <li><a id="youyidao_SQL" href="/home/features/mysql/" target="_blank">MySQL Database on Azure</a>、</li>
+                    <li><a id="youyidao_Game" href="/solutions/game/" target="_blank">云端游戏开发</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,存储、备份和恢复,开发和测试,数据管理服务,MySQL Database on Azure,提高员工生产力" />
+            <a id="casestudy_youyidao" href="/partnerancasestudy/case-studies/youyidao" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_jingdian" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/changchunjingdian.png" />
+            <div class="info">
+                <a id="parter_casestudy_avepoint" href="http://www.avepoint.com.cn/" rel="nofollow" target="case">www.avepoint.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">>1000 人</span>
+            </div>
+            <p class="disp">径点科技有限公司利用 Azure 开发和测试的解决方案，解决了项目定制开发和测试环境的繁琐问题，缩短流程项目周期，加速方案交付，提高了企业和客户的效率和价值，降低了总体拥有成本。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="avepoint_stor" href="/solutions/dev-test/">开发和测试</a>、</li>
+                    <li><a id="avepoint_clo" href="/home/features/cloud-services/">云服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="开发和测试,数据管理服务,吸引客户" />
+            <a id="casestudy_avepoint" href="/partnerancasestudy/case-studies/avepoint" class="detail" target="_blank">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+        <li class="single-case">
+            <a id="caseStudies_anchor_caifu" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/cfwin.png" />
+            <div class="info">
+                <a id="parter_casestudy_cfwin" href="http://www.cfwin.com/" rel="nofollow" target="case">www.cfwin.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">金融服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">100-500 人</span>
+            </div>
+            <p class="disp">财富共赢互联网金融有限公司利用 Azure 云服务完善了业务平台，解决了员工数量，流动性及业务效率对业务的影响问题，实现了实时业务监控，增强了管理层决策的速度和有效性。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="cfwin_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="cfwin_sql" href="/home/features/sql-database/">SQL 数据库</a>、</li>
+                    <li><a id="cfwin_clo" href="/home/features/cloud-services/">云服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="Web应用搭建,移动开发,数据管理服务,吸引客户" />
+            <a id="casestudy_cfwin" href="/partnerancasestudy/case-studies/cfwin" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+        <li class="single-case">
+            <a id="caseStudies_anchor_yihai" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/yihaiweixun.png" />
+            <div class="info">
+                <a id="parter_casestudy_iccl" href="http://www.iccl.net.cn/home.htm" rel="nofollow" target="case">www.iccl.net.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">300-500 人</span>
+            </div>
+            <p class="disp">上海怡海纬讯网络科技有限公司利用 Azure 解决了合作伙伴增长，系统运行负载加大的问题。突破了本地数据中心部署服务器不能满足发展速度的瓶颈，使性价比大幅提高，主营业务更好发展。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="iccl_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="iccl_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="iccl_backup" href="/home/features/back-up/">备份</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,存储、备份和恢复,数据管理服务,优化运维" />
+            <a id="casestudy_iccl" href="/partnerancasestudy/case-studies/chinahr" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+        <li class="single-case">
+            <a id="caseStudies_anchor_changwuxian" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/changwuxian.png" />
+            <div class="info">
+                <a id="parter_casestudy_unitedcloud" href="http://www.changwuxian.cn/" rel="nofollow" target="case">www.changwuxian.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"><1000 人</span>
+            </div>
+            <p class="disp">畅无线利用 Azure 解决了用户增长导致的后台服务运营的挑战，使系统自行伸缩调节，充分利用后台服务资源，可靠的异地冗余和灾备方案保障数据可用性，以低成本使业务迅速推广和发展。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="unitedcloud_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="unitedcloud_stor" href="/home/features/storage/">存储</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,存储，备份和恢复,吸引客户" />
+            <a id="casestudy_unitedcloud" href="/partnerancasestudy/case-studies/unitedcloud" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+        <li class="single-case">
+            <a id="caseStudies_anchor_huaxia" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/huaxiaweixun.png" />
+            <div class="info">
+                <a id="parter_casestudy_xvizion" href="http://www.xvizion.com.cn/" rel="nofollow" target="case">www.xvizion.com.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">IT 服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale"><100 人</span>
+            </div>
+            <p class="disp">北京华夏纬讯科技有限公司利用 Azure 解决了传统的 IT 架构模式高昂成本投入和日常运维的困难。降低了人力成本，提高了响应速度改善了访问体验，利用公有云上近乎无限的资源提供服务。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="xvizion_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="xvizion_stor" href="/home/features/storage/">存储</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,存储，备份和恢复,移动开发,优化运维" />
+            <a id="casestudy_xvizion" href="/partnerancasestudy/case-studies/xvizion" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_wote" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/walltech.png" />
+            <div class="info">
+                <a id="parter_casestudy_walltech" href="http://www.walltechsystem.cn/" target="case" rel="nofollow">www.walltechsystem.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">物流管理</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">20-50人</span>
+            </div>
+            <p class="disp">沃特利用 Azure 解决了专业人员匮乏，上下业务无法整合，用户群增大网络访问延迟等问题，只需专注核心业务，无需担心运维，提升了灵活性降低了成本，并通过可靠的服务提升了企业形象。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="walltech_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="walltech_stor" href="/home/features/storage/">存储</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,支持开源技术,吸引客户" />
+            <a id="casestudy_walltech" href="/partnerancasestudy/case-studies/walltech/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_fanke" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/vancl.png" />
+            <div class="info">
+                <a id="parter_casestudy_vancel" href="http://www.vancl.com/" target="case" rel="nofollow">www.vancl.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">电商</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&gt;10000 人</span>
+            </div>
+            <p class="disp">Storsimple 为凡客诚品形成了完整的数据备份解决方案，简化了架构提高了易用性。去重和压缩节省了70%以上的云存储成本，在数据安全与服务的恢复方面提供了极佳的创新思路和优秀的技术水平。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="vancel_stor" href="/solutions/storsimple/">StorSimple</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储、备份和恢复,优化运维" />
+            <a id="casestudy_vancel" href="/partnerancasestudy/case-studies/vancl/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_huasan" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/h3c.png" />
+            <div class="info">
+                <a id="parter_casestudy_h3c" href="http://www.h3c.com.cn" rel="nofollow" target="case">www.h3c.com.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">信息通信</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">5000 人</span>
+            </div>
+            <p class="disp">
+                杭州华三通信技术有限公司利用 Azure 实现与自有数据中心互联互通，使丰富的计算资源和大量关键的业务系统和核心数据实现平滑迁移，提高了工作效率，并为客户提供良好的售后服务体验。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="h3c_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="h3c_blance" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a>、</li>
+                    <li><a id="h3c_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                    <li><a id="h3c_cach" href="/home/features/cdn/">CDN</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,无缝衔接混合云,提高员工生产力" />
+            <a id="casestudy_h3c" href="/partnerancasestudy/case-studies/H3C/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_hongtai" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/5algobu.png" />
+            <div class="info">
+                <a id="parter_casestudy_algoblu" href="http://www.algoblu.com/" rel="nofollow" target="case">www.algoblu.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">信息通信</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">50-100 人</span>
+            </div>
+            <p class="disp">
+                北京肇煜宏泰信息技术有限公司利用 Azure 实现了网络流量的灵活控制，为核心网络及应用的创新提供了良好的平台，实现了多数据中心全球互联，强稳定和高扩展让业务和资源分配更优。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="algoblu_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="algoblu_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="algoblu_net" href="/home/features/networking/">虚拟网络</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,支持开源技术,全球部署,优化运维" />
+            <a id="casestudy_algoblu" href="/partnerancasestudy/case-studies/Algoblu/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_aile" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/4alie.png" />
+            <div class="info">
+                <a id="parter_casestudy_ile" href="http://www.ilexnet.com/" rel="nofollow" target="case">www.ilexnet.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">电商</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">10-20 人</span>
+            </div>
+            <p class="disp">苏州艾乐信息科技有限公司利用 Azure 解决了客户数量和需求弹性大，访问速度慢的问题。降低了硬件设备和网络投入的成本，充分利用后台服务资源，提高了用户访问的速度改善了用户体验。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="ile_web" href="/home/features/web-site/">Web 应用</a>、</li>
+                    <li><a id="ile_vm" href="/home/features/virtual-machines/">虚拟机</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="支持开源技术,存储、备份和恢复,变革产品" />
+            <a id="casestudy_ile" href="/partnerancasestudy/case-studies/Aile/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_ketong" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/7ketong.png" />
+            <div class="info">
+                <a id="partner_casestudy_cogobuy" href="http://www.cogobuy.com/" rel="nofollow" target="case">www.cogobuy.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">电商</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">400-500 人</span>
+            </div>
+            <p class="disp">科通芯城利用 Azure 解决了传统 IT 构建成本高，运维繁琐的问题。扩展性的 IT 基础架构平台，支撑企业快速发展，降低了人力成本，提高了响应速度，实现了快速迁移、快速上线的用户需求。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="cogobuy_vm" href="/pricing/details/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="cogobuy_web" href="/home/features/web-site/">Web 应用</a>、</li>
+                    <li><a id="cogobuy_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                    <li><a id="cogobuy_oss" href="/home/features/sql-database/">SQL 数据库</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="Web应用搭建,无缝衔接混合云,支持开源技术,数据管理服务,存储、备份和恢复,吸引客户" />
+            <a id="casestudy_cogobuy" href="/partnerancasestudy/case-studies/Cogobuy/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_jingshuo" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/1admaster.png" />
+            <div class="info">
+                <a id="partner_casestudy_adm" href="http://www.admaster.com.cn/" rel="nofollow" target="case">www.admaster.com.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">数字营销</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">10-20 人</span>
+            </div>
+            <p class="disp">AdMaster 精硕科技利用 Azure 解决了开发测试环境与实际环境存在差异的问题，缩短了产品的交付周期，敏捷响应客户的需求，消除了 IT 基础架构与运维方面的成本，同时获得了更多的灵活性。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="adm_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="adm_oss" href="/home/features/storage/">存储</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,存储、备份和恢复,支持开源技术,变革产品" />
+            <a id="casestudy_admaster" href="/partnerancasestudy/case-studies/Admaster/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_windowsAzure" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/15jingwei.png" />
+            <div class="info">
+                <a id="partner_casestudy_jingwei" href="http://www.jingwei.com/" rel="nofollow" target="case">www.jingwei.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">社交</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">500-2000 人</span>
+            </div>
+            <p class="disp">Azure 为数据提供规模弹性、高可用的云存储、备份和恢复解决方案，大幅增强了用户现有云应用程序所需的存储，确保了存储的高可靠性，无需搭建存储系统，节省更多时间专注于业务本身。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="jingwei_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="jingwei_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                    <li><a id="jingwei_cach" href="/home/features/cdn/">CDN</a>、</li>
+                    <li><a id="jingwei_Blob" href="/home/features/storage/">存储</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,存储、备份和恢复,优化运维" />
+            <a id="casestudy_jingwei" href="/partnerancasestudy/case-studies/renren/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_PPTV" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/13-pptv.png" />
+            <div class="info">
+                <a id="partner_casestudy_pptv" href="http://www.pptv.com" rel="nofollow" target="case">www.pptv.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">多媒体</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">5000 人</span>
+            </div>
+            <p class="disp">
+                PPTV 亚洲电视网的整个开发过程全部在 Azure 云端完成。降低昂贵的初期投入资本、无需过多的技术开发集成，快速实现内容定制、定价以及广告运作和收费视频节目的推送，增强了观看体验。
+            </p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="pptv_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="pptv_Blob" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="pptv_sql" href="/home/features/sql-database/">SQL 数据库</a>、</li>
+                    <li><a id="pptv_cach" href="/home/features/cdn/">CDN</a>、</li>
+                    <li><a id="pptv_blance" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="全球部署,支持开源技术,开发和测试,吸引客户" />
+            <a id="casestudy_pptv" href="/partnerancasestudy/case-studies/pptv/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_sichuan" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/6sichuan.png" />
+            <div class="info">
+                <a id="parter_casestudy_scedu" href="http://www.scedu.com.cn" rel="nofollow" target="case">www.scedu.com.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">教育</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">200 人</span>
+            </div>
+            <p class="disp">四川省教育资源公共服务平台通过使用 Azure 获得了高可靠性的海量存储空间，短时间内实现高并发、大容量，自动伸缩等特性。按用量付费，无需维护和处理异常情况，降低整体投入成本。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="scedu_linux" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="scedu_storage" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="scedu_huncun" href="">分布式缓存</a>、</li>
+                    <li><a id="scedu_junheng" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="数据管理服务,存储、备份和恢复,提高员工生产力" />
+            <a id="casestudy_scedu" href="/partnerancasestudy/case-studies/dianjiaoguan/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_yunjiao" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/shanghaiyunjiao-logo.jpg" />
+            <div class="info">
+                <a id="parter_casestudy_yungoal" href="http://www.yungoal.com" rel="nofollow" target="case">www.yungoal.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">云计算解决方案</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">30-50 人</span>
+            </div>
+            <p class="disp">上海云角信息技术有限公司利用 Azure 解决了访问量大，数据存储安全性以及系统弹性要求高的问题。保障了大赛顺利进行，同时无需添加设备和维护人员，减小了成本投入，增强了用户体验。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="yungoal_vm" href="/home/features/virtual-machines/">虚拟机</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,支持开源技术,吸引客户" />
+            <a id="casestudy_yungoal" href="/partnerancasestudy/case-studies/yunjiao/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_tianzhi" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/9tianzhi.png" />
+            <div class="info">
+                <a id="parter_casestudy_aidu" href="http://www.aidu365.com/" rel="nofollow" target="case">www.aidu365.com </a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">移动互联网</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">100-150 人</span>
+            </div>
+            <p class="disp">北京天智通达信息技术有限公司利用 Azure 实现对用户请求的快速响应，降低了 IDC 托管的成本和风险，拥有了更卓越的移动开发和运维体验，为最终用户提供更灵活快捷的移动应用服务。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="aidu_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="aidu_stor" href="/home/features/storage/">存储</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="移动开发,支持开源技术,存储、备份和恢复,吸引客户" />
+            <a id="casestudy_aidu" href="/partnerancasestudy/case-studies/VcRead/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_langang" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/10langang.png" />
+            <div class="info">
+                <a id="parter_casestudy_linekong" href="http://www.linekong.com/" rel="nofollow" target="case">www.linekong.com </a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">游戏</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">400 人</span>
+            </div>
+            <p class="disp">Azure 以世界一流水准的技术平台，以及专业、可靠、稳定的服务，为蓝港互动成功解决了用户数量大，人员波动大的问题，实现灵活扩容，按需付费降低运维成本，为游戏用户提供最佳体验。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="linekong_vm" href="/home/features/virtual-machines/">虚拟机</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,支持开源技术,变革产品" />
+            <a id="casestudy_linekong" href="/partnerancasestudy/case-studies/langang/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_wensi" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/11wensi.png" />
+            <div class="info">
+                <a id="parter_casestudy_pactera" href="http://www.pactera.com/" rel="nofollow" target="case">www.pactera.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">云计算解决方案</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">23000-25000 人</span>
+            </div>
+            <p class="disp">文思海辉技术有限公司通过将开发测试环境迁移到 Azure 云端，消除了因业务拓展对项目交付时间的影响，明显降低了硬件成本及维护费用，为开发测试中测试环境和软件部署带来极大的便利。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="pactera_vm" href="/home/features/virtual-machines/">虚拟机</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="无缝衔接混合云,支持开源技术,开发和测试,提高员工生产力" />
+            <a id="casestudy_pactera" href="/partnerancasestudy/case-studies/PacteraWithVMDepot/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_guanzhi" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/14qores.png" />
+            <div class="info">
+                <a id="partner_casestudy_qs" href="http://www.qorosauto.com" rel="nofollow" target="case">www.qorosauto.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">车联网</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&gt;1000 人</span>
+            </div>
+            <p class="disp">观致汽车将开发、测试工作迁移到 Azure，使其提供了创新、可靠的车联网服务，也为终端发展、未来业务部署做好准备，并大幅降低系统成本、提升系统性能、确保系统高可用性和灵活扩展。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="qs_mysql" href="/home/features/mysql/">MySQL Database on Azure</a>、</li>
+                    <li><a id="qs_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="qs_vm" href="/home/features/sql-database/">SQL 数据库</a>、</li>
+                    <li><a id="qs_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="qs_mess" href="/home/features/messaging/">服务总线</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="云端开发测试,全球部署,MySQL Database on Azure,变革产品" />
+            <a id="casestudy_qorosqloud" href="/partnerancasestudy/case-studies/qorosqloud/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_xuanran" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/16DDD.png" />
+            <div class="info">
+                <a id="partner_casestudy_xunran" href="http://www.csrender.com" rel="nofollow" target="case">www.csrender.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">多媒体</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&lt;1000 人</span>
+            </div>
+            <p class="disp">北京渲染平台通过将自身的渲染系统部署至 Azure 虚拟机中，明显降低了硬件投入和管理成本，扩大了服务的覆盖范围，确保了系统的高可用性和灵活扩展，从而能够为更多的客户提供服务。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="xunran_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="xunran_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="xunran_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                    <li><a id="xunran_web" href="/home/features/web-site/">Web 应用</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="存储、备份和恢复,Web应用搭建,变革产品" />
+            <a id="casestudy_xunran" href="/partnerancasestudy/case-studies/xuanran/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_jindie" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/17jindie.png" />
+            <div class="info">
+                <a id="partner_casestudy_kingdee" href="http://www.kingdee.com" rel="nofollow" target="case">www.kingdee.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">独立软件提供商</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&gt;2000 人</span>
+            </div>
+            <p class="disp">金蝶公司通过将产品部署至 Azure 平台，向客户提供了更安全优质的企业管理服务。加快了客户部署的速度，降低了门槛，适应了跨地域管理的需求，同时增强了安全性，提供了更可靠的服务。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="kingdee_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="kingdee_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="kingdee_sql" href="/home/features/sql-database/">SQL 数据库</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="数据管理服务,变革产品" />
+            <a id="casestudy_kingdee" href="/partnerancasestudy/case-studies/kingdee/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_yunceSaaS" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/18tetin.png" />
+            <div class="info">
+                <a id="partner_casestudy_qtestin" href="http://crash.testin.cn" rel="nofollow" target="case">crash.testin.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">专业服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&lt;500 人</span>
+            </div>
+            <p class="disp">云测通过 Azure 成功打造一个世界级 SaaS 平台，使业务拓展至全球市场，复制和自动负载均衡机制帮助云测轻松应对业务量变化，拥有可靠的后台保证，同时降低了初期的投入成本。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="qtestin_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="qtestin_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="qtestin_zvm" href="/home/features/virtual-machines/">自制虚拟机映像</a>、</li>
+                    <li><a id="qtestin_balance" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="全球部署,支持开源技术,变革产品" />
+            <a id="casestudy_qtestin" href="/partnerancasestudy/case-studies/qtestin/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_chongdong" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/19chongdong.png" />
+            <div class="info">
+                <a id="partner_casestudy_uzoo" href="http://www.uzoo.cn" rel="nofollow" target="case">www.uzoo.cn</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">移动互联网</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&lt;500 人</span>
+            </div>
+            <p class="disp">虫洞借助 Azure 将异步搜索模块部署在虚拟机上，实现一名 IT 人员管理千万级用户的业务，信息抓取速度提升一倍，轻松应对业务激增情况，同时提升了服务的可用性，提供了更好的服务体验。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="uzoo_blob" href="/home/features/storage/">Blob存储</a>、</li>
+                    <li><a id="uzoo_blan" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a>、</li>
+                    <li><a id="uzoo_zvm" href="/home/features/virtual-machines/">自制虚拟机映像</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,吸引客户" />
+            <a id="casestudy_uzoo" href="/partnerancasestudy/case-studies/chongdong/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_banbao" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/20banbao.png" />
+            <div class="info">
+                <a id="partner_casestudy_banbao" rel="nofollow" href="http://www.51banbao.com/static/webpages/index.html#dt=2&class=frontPage" target="case">www.51banbao.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">移动互联网</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">&lt;500 人</span>
+            </div>
+            <p class="disp">板报将服务迁至 Azure 最终实现磁盘性能提升三倍，运维成本降低40%的突破，大大缩短了用户等待时间，提升了用户体验，同时还免去了重新开发的成本，将有限的人力和资源用于开发新技术。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="banbao_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="banbao_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="banbap_blance" href="/documentation/articles/load-balance-virtual-machines">负载平衡</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="移动开发,支持开源系统,存储、备份和恢复,吸引客户" />
+            <a id="casestudy_banbao" href="/partnerancasestudy/case-studies/banbao/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+        <li class="single-case">
+            <a id="caseStudies_anchor_webluker" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/21bluker.png" />
+            <div class="info">
+                <a id="partner_casestudy_webluker" rel="nofollow" href="http://webluker.com/" target="case">webluker.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">互联网服务</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">500-2000 人</span>
+            </div>
+            <p class="disp">蓝汛通过 Azure 灵活的扩展能力和按用量计费的方式满足了对成本和增长的需求，获得了更灵活的资源分配能力和海量弹性计算资源，大大降低了部署和运营的成本，缩减了新应用上线的时间。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="Webluker_vm" href="/home/features/virtual-machines/">虚拟机</a>、</li>
+                    <li><a id="Webluker_net" href="/home/features/networking/">虚拟网络</a>、</li>
+                    <li><a id="Webluker_cdn" href="/home/features/cdn/">CDN</a>、</li>
+                    <li><a id="Webluker_ms" href="/home/features/media-services/">媒体服务</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="基础结构服务,优化运维" />
+            <a id="casestudy_webluker" href="/partnerancasestudy/case-studies/chinacache/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+        <li class="single-case">
+            <a id="caseStudies_anchor_haihui" class="anchor"></a>
+            <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/11wensi.png" />
+            <div class="info">
+                <a id="parter_casestudy_pac" href="http://www.pactera.com/" rel="nofollow" target="case">www.pactera.com</a><br />
+                <label>所属行业&nbsp;:&nbsp;</label><span class="industry">云计算解决方案</span><br />
+                <label>机构规模&nbsp;:&nbsp;</label><span class="scale">23000-25000 人</span>
+            </div>
+            <p class="disp">文思海辉众包云平台利用 Azure 解决了自建机房的稳定性和性能对业务限制的问题，降低了开发和维护成本，提高了开发效率、可用性、扩展性和灵活性，为客户提供了更加优质的服务。</p>
+            <div class="services">
+                <label>所用服务&nbsp;:&nbsp;</label>
+                <ul class="services-list">
+                    <li><a id="pac_oss" href="/home/features/cloud-services/">云服务</a>、</li>
+                    <li><a id="pac_ws" href="/home/features/web-site/">Web 应用</a>、</li>
+                    <li><a id="pac_stor" href="/home/features/storage/">存储</a>、</li>
+                    <li><a id="pac_sql" href="/home/features/sql-database/">SQL 数据库</a></li>
+                </ul>
+            </div>
+            <input type="hidden" value="支持开源技术,数据管理服务,存储、备份和恢复,优化运维" />
+            <a id="casestudy_pac" href="/partnerancasestudy/case-studies/wensihaihui/" class="detail">查看完整案例分析<span class="arrow-right"></span></a>
+        </li>
+
+    </ul>
+</section>
+<div class="view-collection" style="margin-bottom: 70px;clear:both;padding-top:20px;">
+    <h2 style="font-size: 16px;font-weight: 400;line-height: 21px;color: #666;margin-top: 15px;">
+        <a id="caseStudies_anchor_convenientScan" class="anchor"></a>
+        <span style="font-size:20px;color: #505050;padding-right:15px;">方便随时查阅?</span>
+        <a id="casestydy_sduty" href="https://azureinfo.microsoft.com/GC-Azure-CNTNT-FY15-08Dec-CaseStudy-Registration-Page.html" style="font-size:16px;Background-color: rgb(153,204,0); padding: 4px 8px;color:#ffffff;" target="_blank">下载案例精选集<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/icon-white-download.png" style="margin-left: 10px;margin-bottom: 5px;" /></a>
+    </h2>
+</div>
+<script type="text/javascript">
+    $(document).on("ready", function () {
+
+        // binding click event handler to droplist
+        $(document).on('click', function (evt) {
+            if ($(evt.target).find('input').length == 1 || evt.target.type == 'checkbox') return;
+            if ($(evt.target).hasClass("drop-list")) {
+                $(evt.target).find("ul").toggleClass("hide");
+            } else if ($(evt.target).hasClass("value")) {
+                $(evt.target).parent().find("ul").toggleClass("hide");
+            } else {
+                $(".drop-list ul").addClass("hide");
+            }
+        })
+
+        // binding click event handler to list item
+        $(document).on('click', ".drop-list li", function (evt) {
+            // check if checkbox in it
+            if ($(this).find('input[type="checkbox"]').length == 1) {
+                // set checkbox value
+                var checkbox = $(this).find('input[type="checkbox"]')[0];
+                if (evt.target.nodeName != "INPUT") {
+                    checkbox.checked = !checkbox.checked;
+                }
+
+
+                // get all checked checkbox
+                var curValue = $(this).parents(".drop-list").find(".value");
+                var value = [];
+                $(this).parent().find('input:checked').each(function () {
+                    value.push($(this).parent().text());
+                })
+                if (value.length == 0) {
+                    value = "选择全部";
+                    curValue.data('value', value);
+                    curValue.text(value);
+                } else {
+                    curValue.data('value', value);
+                    var valueStr = value.join(",");
+                    if (valueStr.length > 10) {
+                        valueStr = valueStr.substring(0, 12) + "..."
+                    }
+                    curValue.text(valueStr);
+                }
+
+            } else if ($(this).text() == "选择全部") {
+                var curValue = $(this).parents(".drop-list").find(".value");
+                curValue.data('value', "选择全部");
+                curValue.text("选择全部");
+            } else {
+                var curValue = $(this).parents(".drop-list").find(".value");
+                curValue.data('value', $(this).data('value'));
+                curValue.text($(this).text());
+                // update filter list
+                $(".filterdetail ul").remove();
+                var type = $(".filtertype .value").data('value');
+                $(".filterdetail").append($("#" + type + "list").html());
+                $(".filterdetail").data('name', type);
+                $(".filterdetail .value").text("选择全部");
+                $(".filterdetail .value").data("value", "选择全部");
+
+            }
+            // start filter
+            filter();
+        })
+
+        function filter() {
+            // hide all results
+            //$(".single-case").addClass("hide");
+            // find targets
+            var industry = $(".filterdetail .value").data('value') || "选择全部";
+            var services = $(".filterdetail .value").data('value') || "选择全部";
+            var needs = $(".filterdetail .value").data('value') || "选择全部";
+            var strategy = $(".filterdetail .value").data('value') || "选择全部";
+            var type = $(".filtertype .value").data('value');
+
+            $(".single-case").each(function () {
+                var mindustry = $(this).find(".industry").text();
+                var servicesList = $(this).find(".services-list a");
+                var mservices = [];
+                
+                for (var i = 0; i < servicesList.length; i++) {
+                    mservices.push($(servicesList[i]).text());
+                }
+                
+                var needsList = $(this).find("input").val();
+                var mneeds = needsList.split(",");
+                
+                var strategyList = $(this).find("input").val();
+                var mstrategy = strategyList.split(",");
+
+                // check css animation support
+                if (checkAnimaSupport()) {
+                    // check if this case satisfy filter conditions
+                    if (isValid(type, industry, mindustry, services, mservices, needs, mneeds,strategy,mstrategy)) {
+                        if ($(this).hasClass("mhide-anima")) {
+                            $(this).removeClass("mhide-anima");
+                            $(this).addClass("mshow-anima");
+                        }
+                    } else {
+                        if (!$(this).hasClass("mhide-anima")) {
+                            $(this).removeClass("mshow-anima");
+                            $(this).addClass("mhide-anima");
+                        }
+                    }
+                } else {
+                    if (isValid(type, industry, mindustry, services, mservices, needs, mneeds,strategy,mstrategy)) {
+                        if ($(this).hasClass("hide")) {
+                            $(this).removeClass("hide");
+                        }
+                    } else {
+                        if (!$(this).hasClass("hide")) {
+                            $(this).addClass("hide");
+                        }
+                    }
+                }
+            })
+        }
+
+        function isValid(type, industry, mindustry, services, mservices, needs, mneeds,strategy,mstrategy) {
+            var allowed = false;
+            // check services
+            if (type == "service") {
+                if (services == "选择全部") return true;
+                for (var i = 0, length = services.length; i < length; i++) {
+                    if (mservices.indexOf(services[i]) != -1) {
+                        allowed = true;
+                        break;
+                    }
+                }
+            } else if (type == "needs") {
+                if (needs == "选择全部") return true;
+                for (var i = 0, length = needs.length; i < length; i++) {
+                    if (mneeds.indexOf(needs[i]) != -1) {
+                        allowed = true;
+                        break;
+                    }
+                }
+            } else if (type == "strategy") {
+                if (strategy == "选择全部") return true;
+                for (var i = 0, length = strategy.length; i < length; i++) {
+                    if (mstrategy.indexOf(strategy[i]) != -1) {
+                        allowed = true;
+                        break;
+                    }
+                }
+            } else if (type == "industry") {
+                if (industry == "选择全部") return true;
+                if (industry.indexOf(mindustry) != -1) return true;
+            } 
+            return allowed;
+        }
+    })
+
+    function checkAnimaSupport() {
+        // this code is from MDN, check css animation support
+        var animation = false,
+            animationstring = 'animation',
+            keyframeprefix = '',
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
+            pfx = ''
+        elem = $('body')[0];
+
+        if (elem.style.animationName !== undefined) { animation = true; }
+
+        if (animation === false) {
+            for (var i = 0; i < domPrefixes.length; i++) {
+                if (elem.style[domPrefixes[i] + 'AnimationName'] !== undefined) {
+                    pfx = domPrefixes[i];
+                    animationstring = pfx + 'Animation';
+                    keyframeprefix = '-' + pfx.toLowerCase() + '-';
+                    animation = true;
+                    break;
+                }
+            }
+        }
+        return animation;
+    }
+</script>
+      ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>Azure 案例研究</pageTitle>
+    <metaKeywords>Azure，,案例，行业，业务需，使用服务，案例精选</metaKeywords>
+    <metaDescription><![CDATA[Azure 案例库，采用按行业，按业务需求，按使用服务筛选方式，将所有客户案例进行分类，与您一同分享云服务带来的成功与优势，给您参考和对比，帮您发现并找到适合自己的服务和解决方案。]]></metaDescription>
+    <linkid>case-studies</linkid>
+    <urlDisplayName>案例研究</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+  </umbTextpage>
+</localize>

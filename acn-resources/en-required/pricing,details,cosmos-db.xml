@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-08T09:41:59" urlName="cosmos-db" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="cosmos-db" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/media,images,production,cosmos-db-background.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/media,images,production,cosmos-db.png" />
+                        <h2>Azure Cosmos DB<span>Azure Cosmos DB</span></h2>
+                        <h4>分布的多模型数据库服务。</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_cosmos-db_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_cosmos-db_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure Cosmos DB 是个分布式多模式数据库。Azure Cosmos DB 从一开始就将<a id="pricing-cosmos-db_docs-distribute-data-globally" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/distribute-data-globally/">分布</a>和横向缩放作为其核心。通过透明地缩放和复制数据（无论用户位于何处），在任意数量的 Azure 区域提供统包分布。灵活缩放多个数据中心范围内的吞吐量和存储，只为需要的吞吐量和存储付费。Azure Cosmos DB 保证各区域任意位置在第 99 个百分位为个位数毫秒的延迟，提供<a id="pricing-cosmos-db_docs-documentdb-consistency-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-consistency-levels/">多种定义明确的一致性模型</a>以微调性能，并保证多宿主功能的高可用性 - 所有功能均由业界领先的综合性<a id="pricing-cosmos-db_sla-cosmos-db" style="color: #00a8d9;" href="/support/sla/cosmos-db/">服务级别协议</a>(SLA) 提供支持。</p>
+                <p>Azure Cosmos DB 的的确确<a id="pricing-cosmos-db_download" style="color: #00a8d9;" href="http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf">与架构无关</a>；它可以自动索引所有数据，无需处理架构和索引管理。它也是多模型、本地支持文档、键值、图和列-系列的数据模型。借助 Azure Cosmos DB，可以使用选择的 API 访问数据，因为<a id="pricing-cosmos-db_docs-documentdb-sql-query" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-sql-query/">DocumentDB SQL</a>（文档）和 MongoDB（文档）都可在本地获得支持。</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+                    <h2>定价详细信息</h2>
+                    <h3>预配的吞吐量</h3>
+					<p>无论规模如何，你都可存储数据和预配吞吐容量。根据存储的数据量（以 GB 计）和保留吞吐量（以 100 个 RU/每秒的单位计），按每小时对每个集合计费。</p>
+					<p>无限制容器每秒至少为 1000 个 RU；数据增长时，其每个分区每秒至少为 100 个 RU。</p>
+                   
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>单位</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>SSD 存储空间（每 GB）</td>
+                            <td>¥ 2.576 /GB/月</td>
+                        </tr>
+                        <tr>
+                            <td>每秒保留的 RU 数（每 100 个 RU）</td>
+                            <td>¥ 0.082 /小时 （约 ¥ 61.01 /月）</td>
+                        </tr>
+                    </table>
+										
+					<!-- <h3>附加预配：每分钟请求单位<sup style="color: #a5ce00; font-weight: bold"> 预览</sup></h3>
+					<p>现在，您可以选择每分钟预配请求单位，补充预配吞吐量。每分钟预配请求单位，允许用户每分钟发出批量请求 (UTC)。对于每 100 个每秒预配的吞吐量单位，其限制在每分钟 1,000 个请求单位以内。以下价格为预览版价格，享受正式版价格的 50% 折扣。</p>
+                   
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>单位</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>每分钟保留请求单位（每 1,000 个 RU）</td>
+                            <td>¥ 0.0277 /小时（约 ¥ 20.6088 /月）</td>
+                        </tr>
+                    </table> -->
+					
+                    <!-- END: Table1-Content-->
+                    <!-- BEGIN: Table2-Content-->
+                    <h3>缩放容器</h3>
+                    <p>对于高吞吐量和高存储空间工作负荷，可通过在创建集合时定义分区键来创建<a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-partition-data/">无限存储容器</a>。随着存储数据的数量增多和保留吞吐量增加，分区容器和将无缝扩展。</p>  
+                    
+                    <h3>多区域规模，兼备异地复制</h3>
+                    <p>Azure Cosmos DB 容器可<a id="pricing-cosmos-db_docs-distribute-data-globally-2" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/distribute-data-globally/">分布</a>，这意味着所有数据均可自动复制到所指定的区域。应用继续使用一个逻辑终结点，而采用可实现<a id="pricing-cosmos-db_docs-documentdb-consistency-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-consistency-levels/">数据一致性</a>和<a id="pricing-cosmos-db_sla-cosmos-db-2" style="color: #00a8d9;" href="/support/sla/cosmos-db/">99.99 可用性</a>的直观编程模型从最近区域提取数据自动提供给用户。按每个区域中占用的存储空间和所保留的吞吐量，以及为每个 Azure Cosmos DB 容器保留的吞吐量 x 与 Azure Cosmos DB 数据库帐户关联的区域数量，对分布的容器进行计费。标准<a id="pricing-cosmos-db_pricing-data-transfer" style="color: #00a8d9;" href="/pricing/details/data-transfer/">数据传输费率</a>适用于区域之间的复制数据传输。例如，假设用户有一个跨越三个 Azure 区域的数据库帐户，以及两个分别预配了 1M RU 和 2M RU 的容器。第一个容器的总预配 RU 将是 3M RU（1M RU x 3 个区域），第二个容器的总预配 RU 将是 6M RU（2M RU x 3 个区域）。</p>
+                    
+                    <h3>高吞吐量和低延迟查询</h3>
+                    <p>借助 Azure Cosmos DB，在写入持续的数据量时，将通过为固态硬盘 (SSD) 和低延迟访问而设计的写入优化、免闩锁数据库引擎，同步对这些数据进行索引以提供一致的 SQL 查询。当数据分布时，读取和写入请求总是源自本地区域。通过<a id="pricing-cosmos-db_docs-documentdb-indexing-policies" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-indexing-policies/">自定义自动索引行为</a>，可进一步优化性能。</p>
+                    
+                    <h3>具有预定义性能和大小的集合</h3>
+                    <p>2017 年 8 月 1 日前，S1、S2 或 S3 大小的集合可以继续将这些功能用于预定义的 10GB 存储和吞吐量，这些量可以随实例大小变化： S1（250 RU 数/秒 按 ¥0.15/小时计费）、S2（1000 RU 数/秒按 ¥0.30/小时计费） 或 S3（2500 RU 数/秒 按 ¥0.60/小时计费） 吞吐量的集合。若想要重新配置这些集合的吞吐量，请查看<a id="pricing-cosmos-db_docs-documentdb-performance-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">使用 Azure 门户更改性能级别</a>。若想要使用无限存储容器，需要对先前创建的 S1、S2 或 S3 集合进行转换，以使用上面所述的无限吞吐量和存储空间规模，如<a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Azure Cosmos DB 中的分区和缩放</a>所述。</p>
+                    <!-- END: Table2-Content-->
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question1">请求单位是什么？</a>
+                                <section>
+                                     <p>请求单位 (RU) 是 Azure Cosmos DB 中吞吐量的衡量单位。1 个 RU 对应于获取 1KB 文档的吞吐量。在 DocumentDB 中进行的每个操作（包括读、写、SQL 查询和执行存储的程序）都将具有一个确定的请求单位值，该值基于完成该操作所需的吞吐量。你无需考虑 CPU、IO 和内存，以及它们会怎样影响你的应用程序吞吐量，而是可以根据一个请求单位度量值进行考虑。</p>
+									 <p>通过预配 RU 的每秒或一分钟的存储桶所使用的请求单位是相同的。</p>
+                                     <p>有关请求单位的详细信息和确定集合需求的帮助，请查看<a id="pricing-cosmos-db_docs-documentdb-request-units" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-request-units/">Azure Cosmos DB 中的请求单位</a>。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question2">请求单位使用情况如何显示在我的帐单上？</a>
+                                <section>
+                                    <p>在此期间，根据你的 Azure Cosmos DB 帐户下预配的总体容量 (RU/sec)，采用波动平稳的可预测小时费率进行计费。</p>
+									<p>如果分别使用 500 RU/秒和 700 RU/秒两个分区创建帐户，则总预配容量将达到 1,200 RU/秒。因此，计费金额为 12 x ¥ 0.082 = ¥ 0.984 /小时。</p>
+									<p>如果需要更改吞吐量，每个分区的容量增加了 500 RU/秒，同时还使用 20,000 RU/秒创建了新的无限存储容器，则预配的总体容量为 22,200 RU/秒（1,000 RU/秒 + 1,200 RU/秒 + 20,000RU/秒）。这时，帐单将变为：¥ 0.082 x 222 = ¥ 18.204/小时。</p>
+									<p>在一个月的 720 小时中，如果有 500 小时预配为 1,200 RU/秒，有 220 小时预配为 22,200 RU/秒，则每月帐单将显示：500 x ¥ 0.984/小时 + 220 x ¥ 18.204/小时 = ¥ 4,496.88/小时</p>
+                                </section>
+
+                            </div>
+                        </li>
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question9">每分钟请求单位的工作原理</a>
+                                <section>
+                                    <p>除了常规的预览吞吐量，现在可以预配附加的每分钟请求单位。你可以在 UTC 分钟窗口中使用这些附加吞吐量单位。对于容器中预配的每个 100 RU/秒，如果启用每分钟请求单位，则每分钟能够额外使用 1,000 个请求单位。</p>
+									<p>例如，如果预配了 400 个 RU/秒，则可以使用附加的 4,000 个每秒请求单位。假如在中午 12 点整时，应用程序需要超过 400 个 RU/秒。从下午 12:00:01 到12:01:00，应用程序将能够使用 4,000 个额外的请求单位，同时可以继续使用预配的 400 RU/秒 吞吐量。从下午 12:00:01 开始，如果在下午 12:01:00 之前使用了全部的 4,000 个请求单元，直到下一个 UTC 分钟（从下午 12:01:01 开始），才能使用其他请求单位。如果在给定的分钟时段中不使用全部的 4,000 个请求单元，剩余的请求单位不会累计到下一个分钟时段。</p>
+									<p>有关详细信息，请查看<a id="pricing-cosmos-db_docs-request-units-per-minute" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/request-units-per-minute/">Azure Cosmos DB 中的每分钟请求单位数</a>。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question3">如果为容器指定自己的性能，会如何对存储计费？</a>
+                                <section>
+                                    <p>存储容量按一个月内每小时的最大数据存储量（以 GB 为单位）计费。例如，如果你在前半个月使用了 100 GB 的存储空间，而在后半个月使用了 50 GB 的存储空间，则该月将按 75 GB 的等效存储空间进行计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question4">如果容器存在时间不足一个小时如何计费？</a>
+                                <section>
+                                    <p>将按容器存在的每小时的统一费率对你收费，无论使用量是多少，也无论集合存在时间是否不足一个小时。例如，如果你创建一个容器，然后在 5 分钟后删除它，那么你的帐单将反映 1 个单位小时的收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question5">在我升级容器后，收费率何时更改？</a>
+                                <section>
+                                    <p>如果你为容器定义自己的性能，并在上午 9:30 从 400 个 RU 升级到 1,000 个 RU，然后在上午 10:45 降级回 400 个 RU，那么将按两小时的 1,000 个 RU 对你收费。</p>
+									<p>如果你选择预定义的集合性能级别，并在上午 9:30 从 S1 集合升级到 S3 集合，然后在上午 10:45 降级回 S1，那么将按两小时的 S3 对你收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question6">如何增加或减少每个集合的吞吐量？</a>
+                                <section>
+                                    <p>你可以使用<a id="cosmos-db_azure-menhu" style="color: #00a8d9;" href="/portal/">Azure 门户</a>中一个受支持的 SDK 或 REST API 来增加或减少 Azure Cosmos DB 帐户内每个容器的请求单位数。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <!--
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question7">我是否可以用一个数据库帐户购买具有预定义性能和用户定义的性能的多个集合？</a>
+                                <section>
+                                    <p>是的，你可以拥有多个集合。但是，对于新应用程序，建议使用用户定义的性能来创建集合，因为它们可支持较大的存储大小和预配的吞吐量，以及灵活而精细的计费模型。</p>
+                                </section>
+                            </div>
+                        </li>
+						-->
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question8">如何从 S1/S2/S3 集合移动到单个分区？</a>
+                                <section>
+                                     <p>若要将 S1、S2 或 S3 性能级别的集合移动到具有相同存储大小的单个分区，请查看<a id="pricing-cosmos-db_docs-documentdb-performance-levels-2" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">使用 Azure 门户更改性能级别</a>。</p>
+                                     <p>若要将现有的单个集合移动到无限存储容器中，请查看<a id="pricing-cosmos-db_docs-documentdb-partition-data-2" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Azure Cosmos DB 中的分区和缩放</a>。</p>
+                                </section>
+                            </div>
+                        </li>
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question10">利用 10 GB 容器取代 S1/S2/S3 集合时，可以享有哪些优势？</a>
+                                <section>
+                                     <p>在某个入口点，单个分区的吞吐量将超过 S1 (400 RU/秒对比 250 RU/秒)，并且价格更低。也可以增加到 10,000 RU/秒，对比 S3 的 2,500 RU/秒。新预配模型的好处是可以按 100 RU/秒的增量增加，因此当你仅需要 1,200 RU/秒 时，不必付款购买 S3 的 2,500 RU/秒。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>上市地区</h2>
+                <p>Azure Cosmos DB 服务在以下区域中提供：</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>地域</strong></th>
+                        <th align="left"><strong>区域</strong></th>
+                    </tr>
+                    <tr>
+                        <td>中国大陆</td>
+                        <td>中国东部数据中心 , 中国北部数据中心</td>
+                    </tr>
+                </table>
+                <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="cosmos-db-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+                <p>在中国由世纪互联运营的<a href="/home/features/cosmos-db/">Azure Cosmos DB</a>是<a href="//docs.azure.cn/zh-cn/cosmos-db/distribute-data-globally/">分布式</a>多模型数据库服务。它在中国不同 Azure 数据中心提供统包数据分发，无论您的用户位于何处，其均可以透明方式调整及复制您的数据。该服务提供全面的 99.99% 服务级别协议，包括对配置有五种一致性水平中任意一种的单个 Azure 区域的 Cosmos DB 数据库帐户，或是配置有四种松散一致性水平中任意一种的跨多个 Azure 区域的数据库帐户的吞吐量、一致性、可用性和延迟保证。此外，除一致性水平选择之外，Cosmos DB 还提供跨两个或多个 Azure 区域数据库帐户的读取可用性为 99.999% 的服务级别协议。</p>
+				<p>若要了解有关我们的服务级别协议的详细信息，请访问<a id="cosmos-db-pricing_sla" href="/support/sla/cosmos-db/" target="_blank">服务级别协议</a>页。</p>
+                </div>
+               <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />  -->
+                <!--END: Support and service code chunk-->
+            </div>
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
+            <!--END: Support and service code chunk-->                                                                                
+    ]]>
+    </bodyText>
+    <pageTitle>Azure Cosmos DB NoSQL数据库服务定价 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>Azure Cosmos DB</linkid>
+    <metaKeywords>Azure, 微软云,Azure Cosmos DB,价格详情,定价,计费</metaKeywords>
+    <metaDescription><![CDATA[了解Azure Cosmos DB 的价格详情。Azure Cosmos DB 根据存储的数据量（以 GB 计）和保留吞吐量（以 100 个 RU/每秒的单位计），按小时对每个集合计费；还对跨区域数据传输如何进行收费进行了详细说明。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户。]]></metaDescription>
+    <urlDisplayName>Azure Cosmos DB</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

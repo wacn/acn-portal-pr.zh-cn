@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+	  
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                   
+                    <h2>业务背景</h2>
+                    <p>深圳法大大网络科技有限公司（以下简称“法大大”）是国内领先的第三方电子合同平台提供商，主要为金融、保险、第三方支付、旅游、房地产、医疗、物流、供应链、B2B、B2C 线上交易平台、人力资源管理等行业以及政府机构提供电子合同、电子文件签署及存证服务，同时整合提供司法鉴定、网络仲裁和律师服务。目前法大大已通过 ISO27001 安全认证并获得众安保险承保，因其便捷、安全、合规的特性，法大大的产品和服务已被微软（中国）等众多知名平台采用。截止到 2017 年 6 月，法大大的用户量已经超过 2000 万，日处理合同超过 100 万。</p>
+					
+					<p>与传统的纸质合同相比，电子合同最大的优势是覆盖范围广、签署方便，无论合同签署双方身处何地，都可以快速签署同一份合同，特别是对于那些需要同时签署大量合同的企业，电子合同带来的便利更为显著。然而在中国，由于电子合同起步较晚，人们对签合同的传统认知也需要一个循序渐进的转变过程。作为第三方电子合同平台提供商，法大大期望以电子合同为切入口，构建全流程的法律服务生态，通过更多的案例和判例为用户树立使用电子合同的信心。</p>
+					
+					<p>在公司成立之初，法大大就决定采用公有云作为其 IT 基础架构，希望利用成熟的公有云平台，降低 IT 采购成本和 IT 基础设施的运维成本。随着相关法律法规的不断健全，人们对电子合同认可度迅速提升，越来越多的大中型企业也开始选择法大大的电子合同平台，这些企业主要来自金融、保险、第三方支付、旅游、房地产、医疗、物流、供应链、人力资源管理等多个行业，它们对电子合同平台的安全性、可靠性提出了更高的要求。为了满足客户需求，提升 SaaS 电子合同平台在云上的弹性伸缩、异地容灾能力、降低海量合同数据的存储成本并保证合同的机密性、可用性和完整性，法大大从 2015 年开始考虑 Azure 云平台，经过深入的测试、评估，最终选择依托 Azure 建立为大中型企业服务的电子合同平台，以期充分利用 Azure 上丰富的 PaaS 层功能，为电子合同平台增添更多的功能，提升整个平台的伸缩性、安全性和可靠性。</p>
+                </div>
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    
+                    <p>法大大选择 Azure 是出于技术和业务两方面的原因。</p>
+                    					
+                    <p>在技术上，随着电子合同应用的日益广泛，企业客户对电子合同平台的安全性要求也水涨船高。电子合同包含企业和个人的重要信息，法大大作为电子合同签署的第三方角色，保障双方签署合同的有效性和签署过程的合规性。因此，如何通过技术手段，在电子合同的签署、传输、保存的整个过程中确保数据存储安全、信息不泄漏就变得至关重要。“我们所在的行业对云服务商的资质考核比较严苛，至少要拥有 ISO/IEC 20000、ISO27001 信息安全管理体系认证、公安信息系统安全等级保护测评以及可信云服务认证，而 Azure 不仅通过了国内首批‘可信云服务认证’，同时也获得了公安部发布的多层保护架构 ( MLPS ) 认证。” 法大大联合创始人兼 COO 林开辉说。</p>
+                    
+					<p>为了确保客户信息的安全，法大大需要建立多层次的安全防护体系。对手机号、身份证号、银行卡号等敏感数据，法大大将它们存储在本地的服务器上，再通过 Azure VPN、SSL 实现本地存储的敏感数据与云端数据对接。Azure VPN 连接使用行业标准协议 Internet 协议安全性 ( IPsec ) 和 Internet 密钥交换 ( IKE )，确保数据安全、可靠地传输。在数据云存储方面，法大大电子合同平台存储的数据主要包括合同文件、合同图片以及样式、脚本等静态文档，为此法大大使用了 Azure Blob 存储并采用了 GRS（异地冗余存储）选项，确保在任何时候都能保证云中数据的安全、可靠。因为 Azure Blob 的 GRS 选项自动维护云存储数据的六个副本：云存储的任何数据都将在主区域内复制三次，同时也在离主区域数百英里的辅助区域中复制三次，当主区域发生故障时，Azure 存储空间将自动转移到辅助区域，确保云存储数据的持久保存，为客户提供最高级别的数据持久性。此外，法大大还通过为电子合同数据和合同签署有效性投保的方式为客户提供更全面的保障。</p>
+                    
+					<p>在业务层面，Azure 丰富的 PaaS 层功能使法大大能够为大中型客户提供更好的电子合同签署体验和服务。例如，通过使用 Office 365 插件，法大大可以为企业客户提供对应 API 接口，客户通过调用 API，即可将电子合同签署功能直接嵌入到办公自动化系统中，在使用时无需离开 Word 文档，就可以完成合同的签署。此外，Azure 提供的认知服务、Media Services 等功能也为法大大进一步通过多种手段提升电子合同签署过程的安全性、合规性奠定了基础。</p>
+                    
+					
+                </div>
+                <div class="section-component">
+                    <h2>客户收益</h2>                    
+                    <p>目前，法大大为大中型企业客户服务的电子合同平台完全部署在 Azure 云平台上，所使用的 Azure 云服务包括虚拟机、Blob 存储、负载均衡器、Redis 缓存、MySQL、VPN 网关等。其中，虚拟机用于提供计算服务、Blob 存储用于存放非结构化的海量合同数据，并利用其 GRS（异地冗余存储）功能，自动实现文件的异地灾备；负载均衡器用于提供四层/七层的流量分发；Redis 用于缓存与消息队列；MySQL 用于核心数据库的建立，并利用其提供的跨数据中心复制服务，大幅度简化数据库的灾备工作； VPN 网关用于实现本地存储的敏感数据与云端数据的对接。整个系统使用了 80 多台 Azure 虚拟机，分布在北京和上海两个 Azure 数据中心。整个系统从上线以来一直平稳运行，为法大大业务的快速发展奠定了基础。</p>	
+              
+                    <p>使用 Azure 云平台给法大大带来的好处主要体现在三个方面：缩短了产品的交付时间，降低了 IT 成本；在提升系统安全性的同时降低了开发成本；扩展了客户群体，促进了业务发展。</p>
+					
+                    <p>首先，Azure 为法大大提供了综合的 IaaS 与 PaaS 云服务支持，利用 Azure 云平台所具有的弹性和自动扩展特性，法大大能够根据客户需求与业务规模的变化，在云上快速地构建可伸缩的 SaaS 电子合同平台所需要的 IT 基础架构，实现产品的快速交付。在业务量突然增长时，系统可以迅速扩容，而在业务平淡期又可以释放多余的资源，避免了资源的浪费，降低了硬件成本。同时 Azure 提供的自动化管理功能也大幅度降低了运维成本，与传统的 IDC 部署方式相比，运维与支持人员的工作量降低了 50% 以上，产品的实施上线周期也从原来的 2 个月缩短到 2 周。</p>
+					
+                    <p>其次是开发成本的大幅度下降。Azure 提供了三线骨干网络接入模式，这使法大大无须自行建设网络架构即可为遍及全国的客户提供及时的响应。Azure Blob 存储的 GRS（异地冗余存储）选项，使法大大无须自己搭建异地灾备系统，即可轻松构建具有高可靠性的存储基础设施，确保电子合同数据的安全、可靠、合规。</p>
+					
+					<p>此外，作为微软重要的 ISV 合作伙伴，使用 Azure 还为法大大获得了更多的销售线索。很多大中型企业本身采用了 Azure 云平台，因此在其选择 SaaS 电子合同平台时也会要求使用 Azure，以满足企业对安全性、可靠性的要求。同时法大大嵌入在电子合同平台中的 Office 365 插件也使企业客户可以方便地将电子合同签署功能平滑地集成到其办公系统中。</p>
+					
+					<p>在未来，随着业务的快速发展，法大大也计划使用更多的 Azure 服务，包括使用 Azure CDN 实现网站加速、使用 Azure Media Services 为电子合同平台增加短视频录制与点播回放，使用 Azure 认知服务实现人脸比对、智能客服机器人等。</p> 
+
+					
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">                          
+    						<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_mysql.png"><a target="_blank" href="/home/features/mysql/" id="case-study_fadada_mysql">MySQL Database on Azure</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_redis.png"><a target="_blank" href="/home/features/redis-cache/" id="case-study_fadada_redis-cache">Redis 缓存</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_load-balancer-blue.png"><a target="_blank" href="/home/features/load-balancer/" id="case-study_fadada_load-balancer">负载均衡</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_fadada_vm">虚拟机</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_fadada_storage">存储</a></li>
+
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>法大大– Azure云计算</pageTitle>
+    <metaKeywords>法大大Azure合作案例</metaKeywords>
+    <metaDescription><![CDATA[Azure Blob 存储的 GRS 功能和 MySQL 提供的跨数据中心复制功能，使法大大轻松实现文件和数据的异地灾备。Azure 提供了丰富的 IaaS 和 PaaS 层功能，使我们能快速搭建业务运行环境，大幅度缩短产品交付周期，并根据业务规模灵活调配资源，降低 IT 成本和运维成本。同时 Azure 拥有国内外广受认可的 ISO / IEC 27001 信息安全管理体系认证与可信云认证，充分满足电子合同行业对合规性与数据安全的特殊要求。]]></metaDescription>
+    <linkid>case-studies-fadada</linkid> 
+    <urlDisplayName>法大大</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_fadada" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">法大大</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="https://www.fadada.com/" id="case-study-fadadawebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/fadada-logo-80.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <!--<a href="http://www.fadada.com.cn/" id="case-study-fadadawebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/logo-80.png" class="casestudy-logo" data-rjs="2"/></a>-->
+                            <h1>法大大</h1>                       
+							<p>Azure Blob 存储的 GRS 功能和 MySQL 提供的跨数据中心复制功能，使法大大轻松实现文件和数据的异地灾备。</p>
+                        </div>
+                        <p class="casestudy-info">Azure 提供了丰富的 IaaS 和 PaaS 层功能，使我们能快速搭建业务运行环境，大幅度缩短产品交付周期，并根据业务规模灵活调配资源，降低 IT 成本和运维成本。同时 Azure 拥有国内外广受认可的 ISO / IEC 27001 信息安全管理体系认证与可信云认证，充分满足电子合同行业对合规性与数据安全的特殊要求。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">法大大联合创始人兼 COO  林开辉</span>     
+
+						 <a href="#" class="video-play-button" id="case-study-video-player"></a>					 
+                    </div>
+                    
+					
+                    
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_fadada.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                    			
+					
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

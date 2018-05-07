@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19285" parentID="19282" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="3" createDate="2013-07-11T12:16:37" updateDate="2014-08-18T11:29:30" nodeName="How to Manage Websites" urlName="how-to-manage-websites" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19282,19285" isDoc=""><bodyText><![CDATA[<div>
+<h1><a name="howtomanage"></a>如何管理网站</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>您使用一组管理页面来管理您的网站。</p>
+<p><strong>Windows Azure 门户网站管理页</strong> – 每个网站管理页如下所述。</p>
+<h2>快速启动</h2>
+<p>“快速启动”<strong></strong>管理页包括以下部分：</p>
+<ul>
+<li><strong>获取工具</strong> – 提供指向<a href="http://go.microsoft.com/fwlink/?LinkID=226244">安装 WebMatrix</a> 和 <a href="http://go.microsoft.com/fwlink/?LinkId=246928">Windows Azure SDK</a> 的链接。</li>
+<li><strong>从本地环境发布</strong> – 提供用于下载网站的发布配置文件和重置网站的部署凭据的链接。</li>
+<li><strong>从源代码管理发布</strong> – 包括用于设置 TFS 发布和 GIT 发布的链接。</li>
+</ul>
+<h2>仪表板</h2>
+<p>“仪表板”<strong></strong>管理页包括以下内容：</p>
+<ul>
+<li>一个将网站使用率作为特定度量值进行汇总的图表。</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>CPU 时间</strong> – 对网站的 CPU 使用率的度量。</li>
+<li><strong>请求数</strong> – 对客户端向网站发出的所有请求的计数。</li>
+<li><strong>输出数据量</strong> – 对网站已发送到客户端的数据的度量。</li>
+<li><strong>输入数据量</strong> – 对网站从客户端处接收的数据的度量。</li>
+<li><strong>HTTP 客户端错误</strong> – 已发送的 Http“4xx 客户端错误”消息的数目。</li>
+<li><strong>HTTP 服务器错误</strong> – 已发送的 Http“5xx 服务器错误”消息的数目。</li>
+</ul>
+<p><strong>注意</strong> <br /> 若要查看包含其他性能度量值的图表，请配置在“监视”<strong></strong>管理页上显示的图表，如<a href="/zh-cn/manage/services/web-sites/how-to-monitor-websites/">如何监视网站</a>中所述。</p>
+</blockquote>
+<ul>
+<li>一个包含与此网站关联的所有链接资源的列表，如果未关联资源，则为指向“链接的资源”<strong></strong>管理页的超链接。</li>
+<li>一个包括下列摘要信息和链接的“速览”<strong></strong>部分：</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>下载发布配置文件</strong> – 指向发布配置文件的链接，该文件包含使用任何支持的发布方法发布到网站所需的凭据和 URL。</li>
+<li><strong>重置部署凭据</strong> – 显示一个对话框，可从其中提供在通过 GIT 或 FTP 进行发布时将使用的唯一凭据。如果您希望使用 GIT 或 FTP 部署，则必须重置部署凭据，因为不支持使用 Live ID 凭据对 FTP 主机或 GIT 存储库进行身份验证。重置部署凭据后，您可以将这些凭据用于针对订阅中的任何网站进行的 GIT 或 FTP 发布。</li>
+<li><strong>设置 TFS 发布</strong> – 显示一个对话框，您可从中设置来自 Team Foundation Service 的发布。可使用此链接创建连续部署方案。</li>
+<li><strong>设置 Git 发布</strong> – 为网站创建 GIT 存储库以便能使用 GIT 发布到网站。可使用此链接创建来自 GitHub 或 CodePlex 的连续部署方案。</li>
+<li><strong>状态</strong> – 指示网站是否正在运行。</li>
+<li><strong>站点 URL</strong> – 指定 Internet 上的可公开访问的网站地址。</li>
+<li><strong>位置</strong> – 指定承载网站的数据中心的物理区域。</li>
+<li><strong>计算模式</strong> – 指定网站是正在“专属”模式还是“共享”模式中运行。有关网站模式的详细信息，请参阅<a href="../how-to-scale-websites/">如何缩放网站</a>。</li>
+<li><strong>订阅 ID</strong> – 指定与网站关联的订阅的实际唯一订阅 ID。</li>
+<li><strong>FTP 主机名</strong> – 指定通过 FTP 发布到网站时要使用的 URL。</li>
+<li><strong>部署用户</strong> – 指示通过 FTP 或 GIT 将网站部署到 Windows Azure 时所使用的帐户。</li>
+<li><strong>诊断日志</strong> – 指定网站的诊断日志的位置（如果已在“配置”<strong></strong>管理页上启用诊断日志记录）。</li>
+<li><strong>Git 克隆 URL</strong> – 网站的 GIT 存储库的 URL。有关创建远程 GIT 存储库的副本的信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=246651">用于获取和创建项目的 Git 引用（可能为英文页面）</a>的“Git 克隆”<strong></strong>部分。<br /><strong>注意</strong><br />在您单击指向用于“设置 Git 发布”<strong></strong>的链接并创建 Git 存储库之前，“Git 克隆 URL”<strong></strong>将不可用。</li>
+</ul>
+</blockquote>
+<h2>部署</h2>
+<p>“部署”<strong></strong>管理页提供了有关使用 GIT 或 TFS 对网站进行的所有部署的摘要。如果未对网站进行 GIT 或 TFS 部署但已为网站配置 GIT 发布，则“部署”<strong></strong>管理页将提供描述如何使用 GIT 将您的 Web 应用程序部署到网站的信息。</p>
+<h2>监视</h2>
+<p>“监视”<strong></strong>管理页提供了一个显示网站的使用率信息的图表。默认情况下，此图表显示的度量值与“仪表板”<strong></strong>页上的图表显示的度量值相同，如上面的“仪表板”一节中所述。还可以将该图表配置为显示度量值“HTTP 成功”、“HTTP 重定向”、“HTTP 401 错误”、“HTTP 403 错误”、“HTTP 404 错误”和“HTTP 406 错误”。有关这些度量值的详细信息，请参阅<a href="../how-to-monitor-websites/">如何监视网站</a>。</p>
+<h2>配置</h2>
+<p>“配置”<strong></strong>管理页用于设置应用程序特定的设置，其中包括：</p>
+<ul>
+<li><strong>框架</strong> – 设置 Web 应用程序所需版本的 .NET Framework 或 PHP。</li>
+<li><strong>诊断</strong> – 在此节中设置用于收集网站的诊断信息的日志记录选项。</li>
+<li><strong>应用设置</strong> – 指定 Web 应用程序在启动时将加载的名称/值对。对于 .NET 网站，这些设置将在运行时注入到网站的 .NET 配置 AppSettings 中，并且将重写现有设置。对于 PHP 和 Node 网站，这些设置将在运行时作为环境变量提供。</li>
+<li><strong>连接字符串</strong> – 查看链接的资源的连接字符串。对于 .NET 网站，这些连接字符串将在运行时注入到网站的 .NET 配置 connectionStrings 设置中，并且将重写其中的键等于链接的数据库名称的所有现有条目。对于 PHP 和 Node 网站，这些设置将在运行时作为环境变量提供。</li>
+<li><strong>默认文档</strong> – 在您网站的默认文档未包含在列表中时将该文档添加到该列表中。如果网站包含列表中的多个文件，请确保通过更改列表中的文件顺序使网站的默认文档显示在列表的顶部。</li>
+</ul>
+<p>有关如何配置网站的详细信息，请参阅<a href="../how-to-configure-websites/">如何配置网站</a>。</p>
+<h2>缩放</h2>
+<p>“缩放”<strong></strong>管理页用于指定网站模式（“免费”<strong></strong>、“共享”<strong></strong>或“专属”<strong></strong>）、网站的大小（“小”<strong></strong>、“中”<strong></strong>或“大”<strong></strong>，如果该网站配置为“专属”<strong></strong>）以及“专属实例数”<strong></strong>的值（从 1 到 3）。配置为“专属”<strong></strong>的网站将提供比配置为“免费”<strong></strong>或“共享”<strong></strong>的网站更一致的性能。使用大型“专属实例大小”<strong></strong>配置的网站在负载下的运行性能更佳。增大“专属实例数”<strong></strong>的值将提供容错能力，并通过向外扩展改进性能。有关配置网站的缩放选项的详细信息，请参阅<a href="../how-to-scale-websites/">如何缩放网站</a>。</p>
+<h2>链接的资源</h2>
+<p>“链接的资源”<strong></strong>管理页提供了网站正在使用的所有 Windows Azure 资源的摘要。在撰写本文时，可链接到网站的 Windows Azure 资源的唯一类型是 SQL Database。</p>
+<h2>“管理页”图标</h2>
+<p>图表将显示在每个网站的管理页的底部，其中一些图标显示在多个页面上，而一些管理图标仅显示在特定的页面上。下列图标显示在“仪表板”<strong></strong>管理页的底部：</p>
+<ul>
+<li><strong>浏览</strong> - 打开网站的默认页面。</li>
+<li><strong>停止</strong> - 停止网站。</li>
+<li><strong>管理域</strong> - 将域映射到该网站。对“免费”<strong></strong>缩放模式中的站点不可用。</li>
+<li><strong>删除</strong> - 删除网站。</li>
+<li><strong>WebMatrix</strong> - 在 WebMatrix 中打开受支持的网站，并允许您对网站进行更改，然后在 Windows Azure 上将所做的更改发布回网站。</li>
+</ul>
+<p>下列图标不会显示在“仪表板”<strong></strong>管理页的底部，而是显示在其他管理页的底部以用于完成特定的任务：</p>
+<ul>
+<li><strong>添加度量值</strong> - 该图标位于“监视”<strong></strong>管理页的底部，它允许您将度量值添加到“监视”管理页上显示的图表中。</li>
+<li><strong>链接</strong> - 该图标位于“链接的资源”<strong></strong>管理页的底部，它允许您将网站链接到其他 Windows Azure 资源，例如，如果网站需要访问关系数据库，则可通过单击“链接”图标将网站链接到 SQL Database 资源。</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何管理网站 - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><linkid>manage-scenarios-how-to-manage-websites</linkid><metaKeywords>Azure 门户网站管理</metaKeywords><metaDescription><![CDATA[Windows Azure 中的“门户”网站管理页的引用。为每个网站管理页提供详细信息。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何管理</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

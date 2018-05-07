@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19029" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="18" createDate="2013-07-11T11:17:23" updateDate="2014-08-18T11:17:30" nodeName="Linux Virtual Machine" urlName="linux-virtual-machine" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19029" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>创建运行 Linux 的虚拟机</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>当您使用 Windows Azure 管理门户中的映像库时，创建运行 Linux 操作系统的虚拟机将很容易。本指南假定您之前未使用过 Windows Azure。您可以在云中创建运行 Linux 操作系统的虚拟机，并且可以访问和自定义该虚拟机。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li><a href="#virtualmachine">Windows Azure 中虚拟机的含义</a></li>
+<li><a href="#custommachine">如何创建运行 Linux 操作系统的自定义虚拟机</a></li>
+<li><a href="#logon">虚拟机创建后如何进行登录</a></li>
+<li><a href="#attachdisk">如何将数据磁盘附加到新的虚拟机</a></li>
+<li><a href="#endpoints">如何设置与虚拟机的通信</a></li>
+</ul>
+<h2><a id="virtualmachine"></a>Windows Azure 中虚拟机的含义</h2>
+<p>Windows Azure 中的虚拟机是云平台中您可以控制和管理的服务器。在 Windows Azure 中创建虚拟机后，您可以随时根据需要删除和重新创建该虚拟机，并且可以像访问您办公室中的服务器一样访问该虚拟机。可使用虚拟硬盘 (VHD) 文件创建虚拟机。可对虚拟机使用以下类型的 VHD：</p>
+<ul>
+<li><strong>映像</strong> - 作为用于新建虚拟机的模板的 VHD。映像是一个模板，因为它不具有类似于正在运行的虚拟机这样的特定设置，例如计算机名称和用户帐户设置。如果您使用映像来创建虚拟机，则会为该新虚拟机自动创建一个操作系统磁盘。</li>
+<li><strong>磁盘</strong> - 可作为操作系统的运行版本来启动和安装的 VHD。磁盘是映像的可运行版本。附加到虚拟化硬件和作为服务一部分运行的任何 VHD 均为磁盘。设置映像后，它会成为磁盘，并且在您使用映像创建虚拟机时始终会创建一个磁盘。</li>
+</ul>
+<p>使用映像创建虚拟机时可采用以下方法：</p>
+<ul>
+<li>使用 Windows Azure 管理门户映像库中提供的映像创建虚拟机。</li>
+<li>创建包含映像的 VHD 文件并将其上载到 Windows Azure，然后使用该映像创建虚拟机。有关创建和上载自定义映像的详细信息，请参阅<a href="/zh-cn/manage/linux/common-tasks/upload-a-vhd">创建和上载包含 Linux 操作系统的虚拟硬盘</a></li>
+</ul>
+<h2><a id="custommachine"></a>如何使用管理门户创建运行 Linux 操作系统的自定义虚拟机</h2>
+<p>您可以在管理门户中使用“从库中”方法来创建自定义虚拟机。当您创建此计算机时，可以根据需要定义其大小、连接的资源、DNS 名称以及网络连接性。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。在命令栏上，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/createnew.png" alt="选择“从库中”创建虚拟机"/></p>
+</li>
+<li>
+<p>这将打开“虚拟机操作系统选择”对话框。您现在可从映像库中选择一个映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/imageselectionlinux.png" alt="选择操作系统映像。"/></p>
+</li>
+<li>
+<p>单击“平台映像”，选择“OpenLogic CentOS 6.2”映像，然后单击箭头以继续。</p>
+<p>将显示“虚拟机配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/imagedefinelinux.png" alt="指定虚拟机的详细信息"/></p>
+</li>
+<li>
+<p>在“虚拟机名称”中，键入您要用于该虚拟机的名称。名称长度不能超过 15 个字符。对于此虚拟机，键入 <strong>MyTestVM1</strong>。</p>
+</li>
+<li>
+<p>在“新用户名”中，键入您要用于管理该虚拟机的帐户的名称。不能使用“root”作为用户名。对于此虚拟机，键入 <strong>NewUser1</strong>。</p>
+</li>
+<li>
+<p>在“新密码”中，键入用于该虚拟机上用户帐户的密码。对于此虚拟机，键入 <strong>MyPassword1</strong>。在“确认密码”中，重新键入您之前输入的密码。</p>
+</li>
+<li>
+<p>在“大小”中，选择要用于该虚拟机的大小。所选大小取决于您的应用程序所需的内核数。对于此虚拟机，接受“特小”默认值。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>将显示“虚拟机模式”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/imagestandalonelinux.png" alt="定义独立虚拟机"/></p>
+</li>
+<li>
+<p>您可以将云服务下的多台虚拟机连接在一起，从而提供强大的应用程序，但在本教程中，您只创建单个虚拟机。为此，请选择“独立虚拟机”。</p>
+</li>
+<li>
+<p>您创建的虚拟机将包含在某个云服务中。在“DNS 名称”中，键入为虚拟机创建的云服务的名称。输入的名称可包含 3-24 个小写字母和数字。此值将成为用于联系计算机所属云服务的 URI 的一部分。对于此虚拟机，键入 <strong>MyService1</strong>。</p>
+</li>
+<li>
+<p>您可以选择存储 VHD 文件的存储帐户。在本教程中，接受默认设置“使用自动生成的存储帐户”。</p>
+</li>
+<li>
+<p>在“区域/地缘组/虚拟网络”中，选择“美国西部”作为虚拟机的位置。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>将显示“虚拟机选项”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/imageoptionslinux.png" alt="指定计算机的连接选项"/></p>
+</li>
+<li>
+<p>仅在您将此虚拟机连接到其他虚拟机或将其添加到虚拟网络时，才会使用此页上的选项。对于此虚拟机，您将不会创建可用性集或连接到虚拟网络。单击复选标记以创建虚拟机。</p>
+<p>将创建虚拟机并配置操作系统设置。在创建虚拟机后，您将看到该新虚拟机在 Windows Azure 管理门户中列为“正在运行”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/vmsuccesslinux.png" alt="成功创建虚拟机"/></p>
+</li>
+</ol>
+<h2><a id="logon"></a>虚拟机创建后如何进行登录</h2>
+<p>若要管理虚拟机的设置以及在其上运行的应用程序，可以使用安全外壳 (SSH) 客户端。为此，您必须在计算机上安装要用于访问虚拟机的 SSH 客户端。您可以选择很多 SSH 客户端程序。以下是可能的选项：</p>
+<ul>
+<li>如果您要使用运行 Windows 操作系统的计算机，则可能希望使用 PuTTY 等 SSH 客户端。有关详细信息，请参阅 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 下载</a>。</li>
+<li>如果您要使用运行 Linux 操作系统的计算机，则可能希望使用 OpenSSH 等 SSH 客户端。有关详细信息，请参阅 <a href="http://www.openssh.org/">OpenSSH</a>。</li>
+</ul>
+<p>此教程将向您演示如何使用 PuTTY 程序访问虚拟机。</p>
+<ol>
+<li>
+<p>从管理门户中找到“主机名”和“端口信息”。您可以从虚拟机的仪表板中找到所需信息。单击虚拟机名称并查看仪表板“速览”部分的“SSH 详细信息”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/sshdetails.png" alt="查找 SSH 详细信息"/></p>
+</li>
+<li>
+<p>打开 PuTTY 程序。</p>
+</li>
+<li>
+<p>输入您从仪表板中收集到的“主机名”和“端口信息”，然后单击“打开”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/putty.png" alt="输入主机名和端口信息"/></p>
+</li>
+<li>
+<p>使用您在创建虚拟机时指定的 NewUser1 帐户登录到虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/sshlogin.png" alt="登录到新虚拟机"/></p>
+<p>您现在可以像使用任何其他服务器一样使用该虚拟机。</p>
+</li>
+</ol>
+<h2><a id="attachdisk"></a>如何将数据磁盘附加到新的虚拟机</h2>
+<p>应用程序可能需要存储数据。若要执行此操作，您可以将数据磁盘附加到之前创建的虚拟机。执行此操作的最简单方法是将空数据磁盘附加到计算机。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择您之前创建的 <strong>MyTestVM1</strong> 虚拟机。</p>
+</li>
+<li>
+<p>在命令栏上，单击“附加”，然后单击“附加空磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/attachdiskwindows.png" alt="附加空磁盘"/></p>
+<p>将显示“附加空磁盘”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/attachnewdisklinux.png" alt="定义磁盘详细信息"/></p>
+</li>
+<li>
+<p>已为您定义好了“虚拟机名称”、“存储位置”和“文件名”。您只需要输入所需的磁盘大小。在“大小”字段中键入 <strong>5</strong>。</p>
+<p><strong>注意：</strong>所有磁盘都是从 Windows Azure 存储中的 VHD 文件创建的。您可以为添加到存储的 VHD 文件提供名称，但会自动生成磁盘名称。</p>
+</li>
+<li>
+<p>单击复选标记以将数据磁盘附加到虚拟机。</p>
+</li>
+<li>
+<p>通过查看仪表板，您可以验证数据磁盘是否已成功附加到虚拟机。单击虚拟机的名称将显示仪表板。</p>
+<p>现在虚拟机的磁盘数是 2 个，您附加的磁盘列在“磁盘”表中。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/attachemptysuccess.png" alt="附加磁盘成功"/></p>
+</li>
+</ol>
+<p>您刚刚添加到虚拟机中的数据磁盘在您添加它后处于脱机和未初始化状态。您必须先登录到虚拟机并初始化磁盘，然后才能使用该磁盘存储数据。</p>
+<ol>
+<li>
+<p>使用“登录到虚拟机”中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令，然后输入 <strong>MyPassword1</strong> 作为帐户密码：</p>
+<p><code>sudo grep SCSI /var/log/messages</code></p>
+<p>您可以在所示消息中找到最后添加的数据磁盘的标识符。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/diskmessages.png" alt="标识磁盘"/></p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令以新建设备，然后输入 <strong>MyPassword1</strong> 作为帐户密码：</p>
+<p><code>sudo fdisk /dev/sdc</code></p>
+</li>
+<li>
+<p>键入<strong> n</strong> 新建一个分区。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/diskpartition.png" alt="新建设备"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 将该分区设置为主分区，键入<strong> 1</strong> 将其设置为第一分区，然后键入 Enter 以接受默认分区值。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/diskcylinder.png" alt="创建分区"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 以查看有关分区磁盘的详细信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/diskinfo.png" alt="列出磁盘信息"/></p>
+</li>
+<li>
+<p>键入<strong> w</strong> 以写入磁盘的设置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/diskwrite.png" alt="写入磁盘更改"/></p>
+</li>
+<li>
+<p>您必须在新分区上创建文件系统。键入下面的命令以创建文件系统，然后输入 MyPassword1 作为帐户密码：</p>
+<p><code>sudo mkfs -t ext4 /dev/sdc1</code></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/diskfilesystem.png" alt="创建文件系统"/></p>
+</li>
+<li>
+<p>键入下面的命令以生成驱动器安装目录，然后输入 <strong>MyPassword1</strong> 作为帐户密码：</p>
+<p><code>sudo mkdir /mnt/datadrive</code></p>
+</li>
+<li>
+<p>键入下面的命令以安装驱动器：</p>
+<p><code>sudo mount /dev/sdc1 /mnt/datadrive</code></p>
+<p>数据磁盘现在可以作为 <strong>/mnt/datadrive</strong> 使用。</p>
+</li>
+</ol>
+<h2><a id="endpoints"></a>如何设置与虚拟机的通信</h2>
+<p>在 Windows Azure 中创建的所有虚拟机可以自动与位于同一云服务或虚拟网络中的其他虚拟机进行通信。但是，您需要向虚拟机中添加终结点才能使 Internet 上的其他资源或其他虚拟网络与该虚拟机进行通信。您可以将特定端口和协议与终结点相关联。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择您之前创建的 <strong>MyTestVM1</strong> 虚拟机。</p>
+</li>
+<li>
+<p>单击“终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/endpointswindows.png" alt="终结点"/></p>
+</li>
+<li>
+<p>在本教程中，您将添加一个终结点以便使用 TCP 协议与虚拟机进行通信。单击“添加终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/addendpointstart.png" alt="添加终结点"/></p>
+<p>将显示“添加终结点”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/addendpointwindows.png" alt="添加单个终结点"/></p>
+</li>
+<li>
+<p>接受“添加终结点”的默认选项，然后单击箭头以继续。</p>
+<p>将显示“新建终结点详细信息”页面。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/endpointtcpwindows.png" alt="定义终结点"/></p>
+</li>
+<li>
+<p>在“名称”中，键入 <strong>MyTCPEndpoint1</strong>。</p>
+</li>
+<li>
+<p>在“公用端口”和“专用端口”中，键入 <strong>80</strong>。这些端口号可以是不同的。公用端口是来自 Windows Azure 外部的通信的入口点，并供 Windows Azure 负载平衡器使用。您可以使用虚拟机上的专用端口和防火墙规则，从而以适合您的应用程序的方式重定向流量。映像库中提供的 Linux 映像可能禁用了本地防火墙。如果防火墙被禁用，则必须打开外部终结点以允许与虚拟机进行通信。</p>
+</li>
+<li>
+<p>单击复选标记以创建终结点。</p>
+<p>“终结点”页中现在将列出该终结点。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/endpointwindowsnew.png" alt="已成功创建终结点"/></p>
+</li>
+</ol>
+<h2>后续步骤</h2>
+<p>若要了解有关 Windows Azure 上 Linux 的详细信息，请参阅以下文章：</p>
+<ul>
+<li>
+<p><a href="/zh-cn/manage/linux/tutorials/intro-to-linux/">Windows Azure 上的 Linux 简介</a></p>
+</li>
+<li>
+<p><a href="/zh-cn/manage/linux/how-to-guides/">操作方法指南</a></p>
+</li>
+<li>
+<p><a href="/zh-cn/manage/linux/common-tasks/">常见任务</a></p>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure Node.js 开发人员中心 - 教程 - Linux 虚拟机</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-nodejs-tutorials-linux-virtual-machine</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Linux 虚拟机</urlDisplayName><disqusComments>1</disqusComments><metaCanonical>http://www.windowsazure.cn/zh-cn/manage/linux/tutorials/virtual-machine-from-gallery/</metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

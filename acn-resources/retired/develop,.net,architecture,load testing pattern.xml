@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18785" parentID="18430" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="1" createDate="2013-07-11T10:21:03" updateDate="2014-08-18T11:07:51" nodeName="Load Testing Pattern" urlName="load-testing-pattern" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18430,18785" isDoc=""><bodyText><![CDATA[<div>
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/zh-cn/develop/net/compute/">计算</a></li>
+<li class="menu-nodejs-data"><a href="/zh-cn/develop/net/data/">数据服务</a></li>
+<li class="menu-nodejs-appservices"><a href="/zh-cn/develop/net/app-services/">应用服务</a></li>
+<li><a href="/zh-cn/develop/net/reference/">参考</a></li>
+<li><a href="/zh-cn/develop/net/guidance/">指南</a></li>
+<li><a href="/zh-cn/develop/net/architecture/">体系结构</a></li>
+<li><a href="/zh-cn/develop/net/samples/">示例</a></li>
+<li><a href="/zh-cn/develop/net/end-to-end-Apps/">基于场景的教程</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/zh-cn/support/forums/">论坛</a></li>
+</ul>
+</div>
+<div class="floating-nav"><br />
+<ul>
+<li> </li>
+<li>本节内容（跳转到）：</li>
+<li> </li>
+<li><a href="/zh-cn/develop/net/architecture/#overviews">应用程序体系结构概述</a></li>
+<li> </li>
+<li><a href="/zh-cn/develop/net/architecture/multi-tenant-web-application-pattern/">应用程序模式：多租户应用程序</a></li>
+<li> </li>
+<li><strong>应用程序模式：负载测试</strong></li>
+<li> </li>
+<li><a href="/zh-cn/develop/net/architecture/#designpatterns">设计模式</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h1>Windows Azure 中的负载测试</h1>
+<p>负载测试的主要目标是模拟众多用户同时访问某个 Web 应用程序的行为。负载测试可模拟多个用户同时打开应用程序连接，以及针对某个应用程序或直接针对数据存储库（例如 SQL Azure）发出多个请求。您可以采用常量负载模式或通过不断增加负载来运行负载测试，以便确定响应时间变得不可接受或者应用程序开始生成错误的时间点。例如，负载测试的目的之一是帮助确定是否存在应用程序完全不可用的时间点。因为您的目标是发现实际容量而不是确认特定的负载级别，所以您需要超出采用正常边界值时的预期峰值。例如，在正常使用期间，您可能会有 1000 位并发用户；但是，您希望确定您能否处理预期增长到 2000 位用户的情况。您可以创建一个测试来逐步提升到 3000 位并发用户或更多用户这一峰值。完成该测试后，您将知道是否需要通过进行调整或改进来可靠地处理潜在高峰负载和安全边界。因负载测试而最终确定的问题包括现有系统的负载平衡问题和处理能力。</p>
+<p>通过负载测试，您可以：</p>
+<ul>
+<li><strong>量化风险</strong>：通过负载测试，您可以确定系统性能能否达到既定性能预期以及符合服务级别协议，例如给定负载级别下的响应时间要求。这是一种传统的质量保证 (QA) 类型测试。负载测试不会直接降低风险，但它通过识别和量化风险及潜在瓶颈，使您能够有机会调整和修正问题，从而降低风险。</li>
+<li><strong>确定最小配置</strong>：您可以执行容量规划，并通过负载测试确定系统达到性能预期所需的最小配置，从而尽可能减少外部计算实例和存储。这是一种业务技术优化 (BTO) 类型测试。</li>
+</ul>
+<p>Windows Azure 可为您的应用程序提供处理灵活工作负载的能力。要确保实现此目的，您必须知道您的应用程序是否设计为可高效扩展。借助允许您扩展云应用程序的相同灵活性，您能够利用 Windows Azure 通过以下方式执行负载测试：</p>
+<ul>
+<li>运行作为 Windows Azure 角色实例或虚拟机的测试代理，以便快速创建更多测试代理，进而根据需要生成尽可能多的负载。</li>
+<li>允许您仅在需要时部署远程测试机组及其关联代理。您仅需要在实际部署远程测试机组和使用系统时，为相关资源付费。</li>
+</ul>
+<p>您可以使用自定义代码或各种第三方工具构建远程测试机组。结合使用 <a href="http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details">Windows Azure 和 Visual Studio Ultimate</a>，您可以快速且自动构建大型、分布式远程测试机组。虚拟化计算资源不需要专门用于负载测试的硬件。可以使用不同的方法和拓扑在 Windows Azure 中配置负载测试远程测试机组。</p>
+<p>可使用测试控制器和一组测试代理（属于负载模拟体系结构的一部分）模拟负载测试</p>
+<p>基本方法是创建一个“控制器”以及一个或多个“代理”。您可以创建一个控制器，但可根据需要创建多个代理。您可以根据需要生成的负载量通过添加其他代理来横向扩展负载。每个代理都会生成该负载的一部分。控制器代理和记录测试结果。在运行模拟实际负载的负载时推荐采用的方法通常需要至少两台计算机：第一台运行控制器，第二台运行一个或多个代理。您还需要一个结果存储库，该库可以托管在与控制器相同的计算机上或者其他计算机上。通常建议为存储库使用其他计算机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/architecture_load_testing_rig.png" alt="generic_rig"/></p>
+<p>采用托管在 Windows Azure 中的负载测试工具的优势是多方面的：</p>
+<ul>
+<li><strong>进入成本</strong>：在初次投资之后，执行负载测试的成本将大大降低。在部署之后，远程测试机组的成本取决于 Windows Azure 现用现付定价模式。</li>
+<li>维护成本：您可以在 Windows Azure 中创建一个易于维护的测试工具。</li>
+<li><strong>灵活性</strong>：可以轻松修改负载测试以符合不同的应用场景和条件。例如，您可以配置具有更多数量的测试代理的 Azure 托管的远程测试机组。</li>
+<li><strong>可重复性</strong>：在初次投资之后，您可以使用相同的项目（VS 云项目或 VM 映像）在 Windows Azure 中部署新的远程测试机组，运行负载测试指定时间以及取消部署该测试。</li>
+</ul>
+<p>使用 Windows Azure，您可以将控制器和代理进程托管在不同的辅助角色实例中。</p>
+<p>主要组件有：</p>
+<ul>
+<li><strong>代理</strong>：使用辅助角色，您可以利用 Windows Azure 计算实例的灵活特性更轻松地横向扩展代理并生成所需负载。</li>
+<li><strong>控制器</strong>：控制器必须与远程测试机组中的不同代理进行通信。它可启动和停止不同代理中的测试，跟踪代理状态以及收集测试结果。它还可从要测试的代理和系统中收集性能数据。您可以使用辅助角色或通过 Windows Azure Connect 与辅助角色进行通信的本地计算机。有关确定最佳配置的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh966776.aspx">在混合环境中运行负载测试</a>。</li>
+<li><strong>Windows Azure Connect</strong>：Windows Azure Connect 终结点软件在所有 Azure 实例以及在“控制器”计算机上必须处于活动状态。这将允许它们之间建立 IP 连接，只要防火墙配置正确，则允许“控制器”向代理发送工作负载。同时，借助 LAN，“控制器”将在施加了负载的系统上使用传统的 WMI 机制收集性能数据。</li>
+</ul>
+<p>下图演示将 Windows Azure 功能应用于远程测试机组如何简化您的实施。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/architecture_load_testing_implementation.png" alt="implemented_rig"/></p>
+<p>有关此体系结构的参考实现，请参阅 Paolo Salvatori 和 Sidney Higa 撰写的<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh674491.aspx">在 Windows Azure 角色中使用 Visual Studio 负载测试</a>，其中包含：</p>
+<ul>
+<li>Windows Azure 中的 Visual Studio 负载测试概述<br />介绍使用 Visual Studio 负载测试的优势并概述所需步骤。</li>
+<li>Windows Azure 负载测试先决条件和设置<br />列出解决方案的要求。</li>
+<li>为负载测试配置 Windows Azure<br />详细说明在发布之前如何设置负载测试应用程序。</li>
+<li>将负载测试发布到 Windows Azure<br />介绍将负载测试发布到 Azure 的步骤。</li>
+<li>在混合环境中运行负载测试<br />在混合环境中，负载测试的各个组件（测试控制器、代理、结果存储库和测试系统）驻留在不同的环境中（例如在本地环境和 Windows Azure 环境）。本文档介绍如何继续配置此类方案。</li>
+<li>Windows Azure 上负载测试中的性能计数器<br />从运行在独立托管服务中的应用程序中收集性能计数器</li>
+</ul>
+<!--links--><!--images--></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>负载测试应用程序模式 - Windows Azure 体系结构模式</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[查找介绍如何在 Windows Azure 中实现负载测试系统的体系结构概述和设计模式。]]></metaDescription><linkid>develop-net-architecture-load-testing</linkid><urlDisplayName>负载测试模式</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav sublanding</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

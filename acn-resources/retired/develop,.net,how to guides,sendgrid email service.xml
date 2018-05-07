@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18832" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="24" createDate="2013-07-11T10:43:55" updateDate="2014-08-18T11:09:16" nodeName="SendGrid Email Service" urlName="sendgrid-email-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18832" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在 Windows Azure 上使用 SendGrid 发送电子邮件</h1>
+<p>本指南演示如何在 Windows Azure 上使用 SendGrid 电子邮件服务执行常见的编程任务。相关示例用 C# 编写且使用 .NET API。涵盖的方案包括<strong>构造电子邮件</strong>、<strong>发送电子邮件</strong>、<strong>添加附件</strong>和<strong>使用筛选器</strong>。有关 SendGrid 和发送电子邮件的详细信息，请参阅<a href="#nextsteps">后续步骤</a>一节。</p>
+<p> </p>
+<h2>目录</h2>
+<p><a href="#whatis">什么是 SendGrid 电子邮件服务？</a> <br /> <a href="#createaccount">创建 SendGrid 帐户</a> <br /> <a href="#reference">参考 SendGrid .NET 类库</a> <br /> <a href="#createemail">如何：创建电子邮件</a> <br /> <a href="#sendemail">如何：发送电子邮件</a> <br /> <a href="#addattachment">如何：添加附件</a> <br /> <a href="#usefilters">如何：使用筛选器实现页脚、跟踪和分析</a> <br /> <a href="#useservices">如何：使用其他 SendGrid 服务</a> <br /> <a href="#nextsteps">后续步骤</a></p>
+<h2><a name="whatis"></a> <span class="short-header">SendGrid 电子邮件服务是什么？</span>SendGrid 电子邮件服务是什么？</h2>
+<p>SendGrid 是一种基于云的电子邮件服务，它传送电子邮件的可靠性很高，可改变规模，可进行实时分析，并提供多种可简化自定义集成的灵活 API。常见 SendGrid 使用方案包括：</p>
+<ul>
+<li>自动向客户发送收据。</li>
+<li>管理用于每月向客户发送电子传单和特惠产品/服务的通讯组列表。</li>
+<li>收集阻止的电子邮件和客户响应能力等实时指标。</li>
+<li>生成各种可帮助识别趋势的报表。</li>
+<li>转发客户查询。</li>
+</ul>
+<p>有关详细信息，请参阅 <a href="http://sendgrid.com/">http://sendgrid.com</a>。</p>
+<h2><a name="createaccount"></a> <span class="short-header">创建 SendGrid 帐户</span>创建 SendGrid 帐户</h2>
+<?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="sendgrid-sign-up" macroAlias="AzureChunkDisplayer" />
+<h2><a name="reference"></a> <span class="short-header">参考 SendGrid .NET 类库</span>参考 SendGrid .NET 类库</h2>
+<p>SendGrid NuGet 程序包是获得 SendGrid API 和配置应用程序及所有依赖项的最简单方式。NuGet 是 Microsoft Visual Studio 2012 附带的一个 Visual Studio 扩展，通过它可轻松安装和更新库和工具。</p>
+<div class="dev-callout">注意
+<p>如果运行的 Visual Studio 版本低于 Visual Studio 2012，若要安装 NuGet，请访问 <a href="http://www.nuget.org">http://www.nuget.org</a>，然后单击“Install NuGet”（安装 NuGet）按钮。</p>
+</div>
+<p>若要在您的应用程序中安装 SendGrid NuGet 程序包，请执行以下操作：</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击“引用”<strong></strong>，然后单击“管理 NuGet 程序包”<strong></strong>。</p>
+</li>
+<li>
+<p>在“管理 NuGet 程序包”<strong></strong>对话框的左侧窗格中，单击“联机”<strong></strong>。</p>
+</li>
+<li>
+<p>搜索 <strong>SendGrid</strong>，然后在结果列表中选择 <strong>SendGrid</strong> 项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sendgrid01.png" alt="SendGrid NuGet 程序包"/></p>
+</li>
+<li>
+<p>单击“安装”<strong></strong>以完成安装，然后关闭此对话框。</p>
+</li>
+</ol>
+<p>SendGrid 的 .NET 类库称为 <strong>SendGridMail</strong>。它包含以下命名空间：</p>
+<ul>
+<li><strong>SendGridMail</strong>，它创建和使用电子邮件项。</li>
+<li><strong>SendGridMail.Transport</strong>，它使用 <strong>SMTP</strong> 协议或使用 HTTP 1.1 协议配合 <strong>Web/REST</strong> 发送电子邮件。</li>
+</ul>
+<p>将以下代码命名空间声明添加到任何要在其中以编程方式访问 SendGrid 电子邮件服务的 C# 文件的顶部。<strong>System.Net</strong> 和 <strong>System.Net.Mail</strong> 是所包括的 .NET Framework 命名空间，因为二者含有常与 SendGrid API 配合使用的类型。</p>
+<pre class="prettyprint">using System.Net; using System.Net.Mail; using SendGridMail; using SendGridMail.Transport;</pre>
+<h2><a name="createemail"></a> <span class="short-header">如何：创建电子邮件</span>如何：创建电子邮件</h2>
+<p>使用静态 <strong>SendGrid.GenerateInstance</strong> 方法创建一封类型为 <strong>SendGrid</strong> 的电子邮件。创建该邮件后，即可使用 <strong>SendGrid</strong> 属性和方法设置多个值，其中包括电子邮件发件人、电子邮件收件人以及电子邮件的主题和正文。</p>
+<p>下例演示如何创建填写完整的电子邮件对象：</p>
+<pre class="prettyprint">// Setup the email properties. var from = new MailAddress("john@contoso.com"); var to   = new MailAddress[] { new MailAddress("jeff@contoso.com") }; var cc   = new MailAddress[] { new MailAddress("anna@contoso.com") }; var bcc  = new MailAddress[] { new MailAddress("peter@contoso.com") }; var subject = "Testing the SendGrid Library"; var html    = "&lt;p&gt;Hello World!&lt;/p&gt;"; var text = "Hello World plain text!"; var transport = SendGridMail.TransportType.SMTP;  // Create an email, passing in the the eight properties as arguments. SendGrid myMessage = SendGrid.GenerateInstance(from, to, cc, bcc, subject, html, text, transport);</pre>
+<p>下例演示如何创建空电子邮件对象：</p>
+<pre class="prettyprint">// Create the email object first, then add the properties. SendGrid myMessage = SendGrid.GenerateInstance();  // Add the message properties. MailAddress sender = new MailAddress(@"John Smith &lt;john@contoso.com&gt;"); myMessage.From = sender;  // Add multiple addresses to the To field. List&lt;String&gt; recipients = new List&lt;String&gt; {     @"Jeff Smith &lt;jeff@contoso.com&gt;",     @"Anna Lidman &lt;anna@contoso.com&gt;",     @"Peter Saddow &lt;peter@contoso.com&gt;" };  foreach (string recipient in recipients) {     myMessage.AddTo(recipient); }  // Add a message body in HTML format. myMessage.Html = "&lt;p&gt;Hello World!&lt;/p&gt;";  // Add the subject. myMessage.Subject = "Testing the SendGrid Library";</pre>
+<p>有关 <strong>SendGrid</strong> 类型支持的所有属性和方法的详细信息，请参阅 GitHub 上的 <a href="https://github.com/sendgrid/sendgrid-csharp">sendgrid-csharp</a>。</p>
+<h2><a name="sendemail"></a> <span class="short-header">如何：发送电子邮件</span>如何：发送电子邮件</h2>
+<p>创建电子邮件后，可使用 SendGrid 提供的 SMTP 或 Web API 发送这封电子邮件。有关每个 API 优缺点的详细信息，请参阅 SendGrid 文档中的 <a href="http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/">SMTP 与 Web API</a>。</p>
+<p>用任意一种协议发送电子邮件都要求提供 SendGrid 帐户凭据（用户名和密码）。以下代码演示如何将凭据包装在 <strong>NetworkCredential</strong> 对象中：</p>
+<pre class="prettyprint">// Create network credentials to access your SendGrid account. var username = "your_sendgrid_username"; var pswd = "your_sendgrid_password";  var credentials = new NetworkCredential(username, pswd);</pre>
+<p>若要发送电子邮件，请使用 <strong>SMTP</strong> 类（它使用 SMTP 协议）或 <strong>REST</strong> 传输类（它调用 SendGrid Web API）上的 <strong>Deliver</strong> 方法。下面的示例演示如何同时使用 SMTP 和 Web API 发送邮件。</p>
+<h3>SMTP</h3>
+<pre class="prettyprint">// Create the email object first, then add the properties. SendGrid myMessage = SendGrid.GenerateInstance(); myMessage.AddTo("anna@contoso.com"); myMessage.From = new MailAddress("john@contoso.com", "John Smith"); myMessage.Subject = "Testing the SendGrid Library"; myMessage.Text = "Hello World!";  // Create credentials, specifying your user name and password. var credentials = new NetworkCredential("username", "password");  // Create an SMTP transport for sending email. var transportSMTP = SMTP.GenerateInstance(credentials);  // Send the email. transportSMTP.Deliver(myMessage);</pre>
+<h3>Web API</h3>
+<pre class="prettyprint">// Create the email object first, then add the properties. SendGrid myMessage = SendGrid.GenerateInstance(); myMessage.AddTo("anna@contoso.com"); myMessage.From = new MailAddress("john@contoso.com", "John Smith"); myMessage.Subject = "Testing the SendGrid Library"; myMessage.Text = "Hello World!";  // Create credentials, specifying your user name and password. var credentials = new NetworkCredential("username", "password");  // Create an REST transport for sending email. var transportREST = REST.GetInstance(credentials);  // Send the email. transportREST.Deliver(myMessage);</pre>
+<h2><a name="addattachment"></a> <span class="short-header">如何：添加附件</span>如何：添加附件</h2>
+<p>可通过调用 <strong>AddAttachment</strong> 方法并指定要附加的文件的名称和路径，向邮件添加附件。可通过为每个要附加的文件调用此方法一次，加入多个附件。下例演示向邮件添加附件：</p>
+<pre class="prettyprint">SendGrid myMessage = SendGrid.GenerateInstance(); myMessage.AddTo("anna@contoso.com"); myMessage.From = new MailAddress("john@contoso.com", "John Smith"); myMessage.Subject = "Testing the SendGrid Library"; myMessage.Text = "Hello World!";  myMessage.AddAttachment(@"C:\file1.txt");</pre>
+<h2><a name="usefilters"></a> <span class="short-header">如何：使用筛选器实现页脚、跟踪和分析</span>如何：使用筛选器实现页脚、跟踪和分析</h2>
+<p>SendGrid 可通过使用筛选器来提供其他电子邮件功能。这些筛选器是可添加到电子邮件的设置，用于启用特定功能，如单击跟踪、Google 分析、订阅跟踪等。有关筛选器的完整列表，请参阅<a href="http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/">筛选器设置</a>。</p>
+<p>可使用作为 <strong>SendGrid</strong> 类的一部分实现的方法，将筛选器应用于 <strong>SendGrid</strong> 电子邮件。必须先通过调用 <strong>InitalizeFilters</strong> 方法，将可用筛选器的列表初始化，然后才能对电子邮件启用筛选器。</p>
+<p>下例演示脚注和单击跟踪筛选器：</p>
+<h3>脚注</h3>
+<pre class="prettyprint">// Create the email object first, then add the properties. SendGrid myMessage = SendGrid.GenerateInstance(); myMessage.AddTo("anna@contoso.com"); myMessage.From = new MailAddress("john@contoso.com", "John Smith"); myMessage.Subject = "Testing the SendGrid Library"; myMessage.Text = "Hello World!";  myMessage.InitializeFilters(); // Add a footer to the message. myMessage.EnableFooter("PLAIN TEXT FOOTER", "&lt;p&gt;&lt;em&gt;HTML FOOTER&lt;/em&gt;&lt;/p&gt;");</pre>
+<h3>单击跟踪</h3>
+<pre class="prettyprint">// Create the email object first, then add the properties. SendGrid myMessage = SendGrid.GenerateInstance(); myMessage.AddTo("anna@contoso.com"); myMessage.From = new MailAddress("john@contoso.com", "John Smith"); myMessage.Subject = "Testing the SendGrid Library"; myMessage.Html = "&lt;p&gt;&lt;a href=\"http://www.windowsazure.cn\"&gt;Hello World Link!&lt;/a&gt;&lt;/p&gt;"; myMessage.Text = "Hello World!";  myMessage.InitializeFilters(); // true indicates that links in plain text portions of the email  // should also be overwritten for link tracking purposes.  myMessage.EnableClickTracking(true);</pre>
+<h2><a name="useservices"></a> <span class="short-header">如何：使用其他 SendGrid 服务</span>如何：使用其他 SendGrid 服务</h2>
+<p>SendGrid 提供若干基于 Web 的 API，可通过这些 API 从 Windows Azure 应用程序中使用其他 SendGrid 功能。有关完整详细信息，请参阅 <a href="http://docs.sendgrid.com/documentation/api/">SendGrid API 文档</a>。</p>
+<h2><a name="nextsteps"></a> <span class="short-header">后续步骤</span>后续步骤</h2>
+<p>既然您已了解 SendGrid 电子邮件服务的基础知识，那么请访问以下这些链接以了解更多信息。</p>
+<ul>
+<li>SendGrid C# 库存储库：<a href="https://github.com/sendgrid/sendgrid-csharp">sendgrid-csharp</a></li>
+<li>SendGrid API 文档：<a href="http://docs.sendgrid.com/documentation/api/">http://docs.sendgrid.com/documentation/api/</a></li>
+<li>面向 Windows Azure 客户的 SendGrid 特惠产品/服务：<a href="http://sendgrid.com/azure.html">http://sendgrid.com/azure.html</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何使用 SendGrid 电子邮件服务 (.NET) - Windows Azure</pageTitle><metaKeywords>Azure SendGrid, Azure 电子邮件服务, Azure SendGrid .NET, Azure 电子邮件 .NET, Azure SendGrid C#, Azure 电子邮件 C#</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 上使用 SendGrid 电子邮件服务发送电子邮件。用 C# 编写且使用 .NET API 的代码示例。]]></metaDescription><linkid>dev-net-how-to-sendgrid-email-service</linkid><urlDisplayName>SendGrid 电子邮件服务</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

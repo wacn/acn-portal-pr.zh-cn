@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19152" parentID="19145" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="7" createDate="2013-07-11T11:46:52" updateDate="2014-08-18T11:22:17" nodeName="Web App with Blob Storage" urlName="web-app-with-blob-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19145,19152" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/python" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>使用表存储创建 Python Web 应用程序</h1>
+<p>在本教程中，您将了解如何创建结合使用表存储和 Python 的 Windows Azure 客户端库的应用程序。如果这是您的第一个 Python Azure 应用程序，则您可能希望首先查看 <a href="/zh-cn/develop/python/tutorials/web-app-with-django">Django Hello World Web 应用程序</a>。</p>
+<p>对于本指南，您将创建可部署到 Windows Azure 的基于 Web 的任务列表应用程序。用户可以通过任务列表来检索任务、添加新任务以及将任务标记为已完成。我们将使用 Django 作为 Web 框架。</p>
+<p>任务项将存储在 Windows Azure 存储中。Windows Azure 存储提供了具有容错能力且可用性非常好的非结构化数据存储。Windows Azure 存储包含一些可用来存储和访问数据的数据结构，您可以通过 Windows Azure SDK for Python 中包含的 API 或通过 REST API 利用存储服务。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a>。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何使用 Windows Azure 表存储服务</li>
+</ul>
+<p>完成的应用程序的屏幕快照将类似于下图（添加的任务项将不同）：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/web-app-with-storage-finaloutput-mac.png"/></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-note" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a id="setup"></a>设置开发环境</h2>
+<p><strong>注意：</strong>如果您需要安装 Python 或客户端库，请参阅 <a href="/zh-cn/develop/python/common-tasks/install-python">Python 安装指南</a>。</p>
+<p><em>有关 Windows 的说明</em>：如果您使用的是 Windows WebPI 安装程序，表明您已安装 Django 和客户端库。</p>
+<h2>在 Windows Azure 中创建存储帐户</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" ?-->
+<h2>创建 Django 项目</h2>
+<p>下面是创建应用程序的步骤：</p>
+<ul>
+<li>创建名为“TableserviceSample”的默认 Django 项目</li>
+<li>
+<p>从命令行中，通过 cd 进入要在其中存储您的代码的目录，然后运行以下命令：</p>
+<pre class="prettyprint">django-admin.py startproject TableserviceSample</pre>
+</li>
+<li>
+<p>将新的 Python 文件 <strong>views.py</strong> 添加到项目中</p>
+</li>
+<li>
+<p>将以下代码添加到 <strong>views.py</strong> 中以导入所需的 Django 支持：</p>
+<pre class="prettyprint">from django.http import HttpResponse
+from django.template.loader import render_to_string
+from django.template import Context</pre>
+</li>
+<li>
+<p>在 <strong>TableserviceSample/TableserviceSample</strong> 文件夹下创建名为 <strong>templates</strong> 的新文件夹。</p>
+</li>
+<li>
+<p>编辑应用程序设置，以便可以找到您的模板。打开 <strong>settings.py</strong> 并将以下条目添加到 INSTALLED_APPS 中：</p>
+<pre class="prettyprint">'TableserviceSample',</pre>
+</li>
+<li>
+<p>将新的 Django 模板文件 <strong>mytasks.html</strong> 添加到 <strong>templates</strong> 文件夹中并将以下代码添加到文件中：</p>
+</li>
+</ul>
+<pre class="prettyprint">&lt;html&gt;
+    &lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;h2&gt;My Tasks&lt;/h2&gt; &lt;br&gt;
+    &lt;table border="1"&gt; 
+    &lt;tr&gt;
+    &lt;td&gt;Name&lt;/td&gt;&lt;td&gt;Category&lt;/td&gt;&lt;td&gt;Date&lt;/td&gt;&lt;td&gt;Complete&lt;/td&gt;&lt;td&gt;Action&lt;/td&gt;&lt;/tr&gt;
+    {% for entity in entities %}
+    &lt;form action="update_task" method="GET"&gt;
+    &lt;tr&gt;&lt;td&gt;{{entity.name}} &lt;input type="hidden" name='name' value="{{entity.name}}"&gt;&lt;/td&gt;
+    &lt;td&gt;{{entity.category}} &lt;input type="hidden" name='category' value="{{entity.category}}"&gt;&lt;/td&gt;
+    &lt;td&gt;{{entity.date}} &lt;input type="hidden" name='date' value="{{entity.date}}"&gt;&lt;/td&gt;
+    &lt;td&gt;{{entity.complete}} &lt;input type="hidden" name='complete' value="{{entity.complete}}"&gt;&lt;/td&gt;
+
+    &lt;td&gt;&lt;input type="submit" value="Complete"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/form&gt;
+    {% endfor %}
+    &lt;/table&gt;
+    &lt;br&gt;
+    &lt;hr&gt;
+    &lt;table border="1"&gt;
+    &lt;form action="add_task" method="GET"&gt;
+    &lt;tr&gt;&lt;td&gt;Name:&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="name"&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Category:&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="category"&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Item Date:&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="date"&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;&lt;input type="submit" value="add task"&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;/form&gt;
+    &lt;/table&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+<h2>导入 windowsazure 存储模块</h2>
+<p>将以下代码添加到 <strong>views.py</strong> 顶部的 Django 导入之后</p>
+<pre class="prettyprint">from azure.storage import TableService</pre>
+<h2>获取存储帐户名称和帐户密钥</h2>
+<p>将以下代码添加到 <strong>views.py</strong> 中的 windowsazure 导入之后，并将“youraccount”和“yourkey”替换为您的真实帐户名称和密钥。您可以从 azure 管理门户获取帐户名称和密钥。</p>
+<pre class="prettyprint">account_name = 'youraccount'
+account_key = 'yourkey'</pre>
+<h2>创建 TableService</h2>
+<p>将以下代码添加到“account_name …”之后</p>
+<pre class="prettyprint">table_service = TableService(account_name=account_name, account_key=account_key)
+table_service.create_table('mytasks')</pre>
+<h2>列表任务</h2>
+<p>将函数 list_tasks 添加到 <strong>views.py</strong> 中：</p>
+<pre class="prettyprint">def list_tasks(request): 
+    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+    html = render_to_string('mytasks.html', Context({'entities':entities}))
+    return HttpResponse(html)</pre>
+<h2>添加任务</h2>
+<p>将函数 add_task 添加到 <strong>views.py</strong> 中：</p>
+<pre class="prettyprint">def add_task(request):
+    name = request.GET['name']
+    category = request.GET['category']
+    date = request.GET['date']
+    table_service.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
+    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')
+    html = render_to_string('mytasks.html', Context({'entities':entities}))
+    return HttpResponse(html)</pre>
+<h2>更新任务状态</h2>
+<p>将函数 update_task 添加到 <strong>views.py</strong> 中：</p>
+<pre class="prettyprint">def update_task(request):
+    name = request.GET['name']
+    category = request.GET['category']
+    date = request.GET['date']
+    partition_key = name + category
+    row_key = date
+    table_service.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
+    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+    html = render_to_string('mytasks.html', Context({'entities':entities}))
+    return HttpResponse(html)</pre>
+<h2>映射 url</h2>
+<p>现在，您需要在 Django 应用程序中映射 URL。打开 <strong>urls.py</strong> 并将以下映射添加到 urlpatterns 中：</p>
+<pre class="prettyprint">url(r'^$', 'TableserviceSample.views.list_tasks'),
+url(r'^list_tasks$', 'TableserviceSample.views.list_tasks'),
+url(r'^add_task$', 'TableserviceSample.views.add_task'),
+url(r'^update_task$', 'TableserviceSample.views.update_task'),</pre>
+<h2>运行应用程序</h2>
+<ul>
+<li>
+<p>切换到“TableserviceSample”目录（如果您尚未这么做）并运行命令：</p>
+<p>python manage.py runserver</p>
+</li>
+<li>
+<p>使您的浏览器指向：http://127.0.0.1:8000/。将 8000 替换为真实端口号</p>
+</li>
+</ul>
+<p>您现在可以单击“Add Task”（添加任务）来创建一个任务，然后单击“Complete”（完成）按钮来更新任务并将其状态设置为“Yes”。</p>
+<h2>在计算仿真程序中运行应用程序，发布和停止/删除您的应用程序</h2>
+<p>现在，您已在内置的 Django 服务器上成功运行了您的应用程序，您可以通过将它部署到 Windows Azure 仿真程序（仅限 Windows），然后发布到 Windows Azure 来进一步对它进行测试。有关如何执行此操作的一般说明，请参阅<strong>“Django Hello World Web 应用程序”</strong>一文，其中详细讨论了这些步骤。</p>
+<h2><a id="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解有关 Windows Azure 表存储服务的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>查看 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>访问 Windows Azure 存储团队博客：<a href="http://blogs.msdn.com/b/windowsazurestorage/">http://blogs.msdn.com/b/windowsazurestorage/</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>web app with blob storage</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>web app with blob storage</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>web app with blob storage</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

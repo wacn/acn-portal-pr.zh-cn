@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18829" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="21" createDate="2013-07-11T10:43:15" updateDate="2014-08-18T11:09:21" nodeName="service bus notification hubs" urlName="service-bus-notification-hubs" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18829" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>Windows Azure Service Bus 通知中心</h1>
+<p>利用 Windows Azure Service Bus 中的推送通知支持，您可以访问易于使用且向外扩展的多平台推送基础结构，这大大简化了为移动平台的使用者应用程序和企业应用程序实现推送通知的过程。</p>
+<h2>什么是推送通知？</h2>
+<p>智能手机和平板电脑能够在事件发生时“通知”用户。在 Windows 应用商店应用程序中，通知会生成 <em>toast</em>：将显示一个无模式窗口，并伴有声音，以通知新推送。在 Apple iOS 设备上，推送同样会中断用户，显示一个可查看或关闭通知的对话框。单击“查看”会打开收到消息的应用程序。</p>
+<p>推送通知可帮助移动设备显示最新信息，同时保持高能效。推送通知是使用者应用程序的重要组件，它们可用于增加应用程序的关注度和使用率。通知对企业也很有用，最新信息会增加员工对业务活动的响应能力。</p>
+<p>下面是移动应用场景的一些具体示例：</p>
+<ol>
+<li>使用当前财务信息更新 Windows 8 或 Windows Phone 上的磁贴。</li>
+<li>在基于工作流的企业应用程序中，使用 toast 通知用户已向其分配某个工作项。</li>
+<li>在 CRM 应用程序（例如 Microsoft Dynamics CRM）中，显示指明当前潜在销售顾客数的标记。</li>
+</ol>
+<h2>推送通知的工作原理</h2>
+<p>推送通知通过称为<em>平台通知系统</em> (PNS) 的特定于平台的基础结构进行传送。PNS 提供的功能有限（即，不支持广播和个性化设置），并且没有常见界面。例如，若要将通知发送给 Windows 应用商店应用程序，开发人员必须与 WNS（Windows 通知服务）联系，若要将通知发送给 iOS 设备，该开发人员必须与 APNS（Apple 推送通知服务）联系并第二次发送该消息。</p>
+<p>但概括地说，所有平台通知系统都遵循相同的模式：</p>
+<ol>
+<li>客户端应用程序与 PNS 联系以检索其<em>句柄</em>。句柄类型取决于系统。对于 WNS，它是 URI 或“通知通道”。对于 APNS，它是令牌。</li>
+<li>客户端应用程序将此句柄存储在应用程序<em>后端</em> 中以供日后使用。对于 WNS，后端通常是云服务。对于 Apple，该系统称为<em>提供程序</em>。</li>
+<li>为发送推送通知，应用程序后端使用句柄与 PNS 联系以定位到特定客户端应用程序实例。</li>
+<li>PNS 将通知转发到句柄所指定的设备。</li>
+</ol>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sbpushnotifications1.gif"/></p>
+<h2><span class="short-header">推送通知问题 </span></h2>
+<p>虽然这些系统非常强大，但它们仍为应用程序开发人员留下很多实现常见推送通知方案的工作，例如将通知广播或推送给用户。</p>
+<p>推送通知是云服务中最受期待的移动应用程序功能之一。原因是使它们运行所需的基础结构相当复杂，并且该基础结构通常与应用程序的主业务逻辑无关。构建按需推送基础结构面临以下一些问题：</p>
+<ul>
+<li>
+<p><strong>平台依赖性。</strong>若要将通知发送到位于不同平台的设备，必须在后端中为多个界面编码。不但具体细节不同，而且通知的显示（磁贴、toast 或标记）也依赖平台，这导致后端代码很复杂且难以维护。</p>
+</li>
+<li>
+<p><strong>扩展。</strong> 扩展此基础结构涉及两方面：</p>
+<ol>
+<li>根据 PNS 规定，每次启动应用程序时都必须刷新设备令牌。这会产生大量流量（和随之发生的数据库访问）以保持设备令牌最新。当设备数量增长（可能达到数百万台）时，创建并维护此基础结构的成本不可忽视。</li>
+<li>大多数 PNS 不支持广播到多台设备。因此，广播到数百万台设备将调用 PNS 数百万次。能够扩展这些请求很重要，因为应用程序开发人员通常要缩短总延迟（即，接收消息的最后一台设备不应在发送通知 30 分钟后收到通知，因为在许多情况下，这将违背使用推送通知的目的）。</li>
+</ol></li>
+<li><strong>路由。</strong>PNS 提供了一种将消息发送到设备的方法。但在大多数应用程序中，通知将定向到用户和/或相关组（即，分配到某个客户帐户的所有员工）。因此，应用程序后端必须维护将相关组与设备令牌相关联的注册表才能将通知路由到正确的设备。此开销增加了应用程序的上市总时间和维护成本。</li>
+</ul>
+<h2><span class="short-header">为什么使用 Service Bus 推送通知中心？ </span></h2>
+<p>Service Bus 解决了一个很大的复杂性问题：您不必处理推送通知问题，可改用 <strong>Service Bus 通知中心</strong>。（2013 年 1 月，此功能仅在 Windows Azure Service Bus 中作为预览功能提供，并预计将于 2013 年的年中转为公开发布 (GA)。）</p>
+<p>通知中心提供了随时可用的推送通知基础结构，该基础结构支持：</p>
+<ul>
+<li><strong>多个平台。</strong>通知中心提供了用于将通知发送到所有受支持平台的常见界面。应用程序后端可以采用特定于平台的格式或独立于平台的格式发送通知。从 2013 年 1 月起，通知中心能够将通知推送到 Windows 应用商店应用程序和 iOS 应用程序。将很快增加对 Android 和 Windows Phone 的支持。</li>
+<li><strong>发布/订阅路由。</strong>每台设备在将其句柄发送到通知中心时，都可以指定一个或多个<em>标记</em>。（有关标记的更多详细信息，请参见下文。）无需预设置或处理标记。标记提供了一种用于将通知发送给用户/相关组的简单方法。由于标记可以包含任何特定于应用程序的标识符（例如用户 ID 或组 ID），因此，使用它们将使应用程序后端不必再存储和管理设备句柄。</li>
+<li><strong>扩展。</strong> 通知中心可扩展到数百万台设备，并且无需重新架构或分片。</li>
+</ul>
+<p>通知中心使用完整的多平台、向外扩展的推送通知基础结构，并显著减少了在应用程序后端运行的特定于推送的代码。通知中心可实现推送基础结构的所有功能。设备只负责注册其 PNS 句柄，而后端负责将独立于平台的消息发送给用户或相关组。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sbpushnotifications2.gif"/></p>
+<p><strong>注意</strong> 从 2013 年 1 月起，通知中心能够将通知从 .NET 后端推送到 Windows 应用商店应用程序和 iOS 应用程序。将很快增加对 Android 和 Windows Phone 的支持以及其他后端技术（包括 Windows Azure 移动服务）。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>service bus notification hubs</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>service bus notification hubs</linkid><urlDisplayName>service bus notification hubs</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18602" parentID="18596" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="6" createDate="2013-06-04T10:13:44" updateDate="2014-08-18T11:11:27" nodeName="Add a certificate to CA store" urlName="add-a-certificate-to-ca-store" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18596,18602" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>将证书添加到 Java CA 证书存储</h1>
+<p>下列步骤演示如何将证书颁发机构 (CA) 证书添加到 Java CA 证书 (cacerts) 存储。使用的示例适用于 Twilio 服务所需的 CA 证书。本主题中稍后提供的信息将介绍如何安装 Windows Azure Service Bus 的 CA 证书。</p>
+<p>在压缩 JDK 并将其添加到 Windows Azure 项目的 <strong>approot</strong> 文件夹之前，您可使用 keytool 添加 CA 证书，也可以运行使用 keytool 添加证书的 Windows Azure 启动任务。此示例假定您在压缩 JDK 之前将添加 CA 证书。此示例中还将使用特定 CA 证书，但获取其他 CA 证书并将其导入 cacerts 存储的步骤将类似。</p>
+<h2>将证书添加到 cacerts 存储</h2>
+<ol>
+<li>
+<p>在设置为 JDK 的 <strong>jdk\jre\lib\security</strong> 文件夹的命令提示符处，运行以下命令可查看将安装的证书：</p>
+<p><code>keytool -list -keystore cacerts</code></p>
+<p>系统将向提示您输入存储密码。默认密码为 <strong>changeit</strong>。（若要更改此密码，请参阅 <a href="http://docs.oracle.com/javase/1.4.2/docs/tooldocs/solaris/keytool.html">http://docs.oracle.com/javase/1.4.2/docs/tooldocs/solaris/keytool.html</a> 上的 keytool 文档。）此示例假定 MD5 指纹为 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 的证书未列出，并且您想要导入该证书（这是 Twilio API 服务所需的特定证书）。</p>
+</li>
+<li>获取 <a href="http://www.geotrust.com/resources/root-certificates/">GeoTrust 根证书</a>上列出的证书列表中的证书。右键单击序列号为 35:DE:F4:CF 的证书的链接，并将该证书保存到 <strong>jdk\jre\lib\security</strong> 文件夹。在此示例中，该证书已保存到名为 <strong>Equifax_Secure_Certificate_Authority.cer</strong> 的文件。</li>
+<li>
+<p>通过以下命令导入证书：</p>
+<p><code>keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer</code></p>
+<p>当系统提示信任此证书时，如果证书的 MD5 指纹为 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4，请通过键入 <strong>y</strong> 进行响应。</p>
+</li>
+<li>
+<p>运行以下命令可确保已成功导入 CA 证书：</p>
+<p><code>keytool -list -keystore cacerts</code></p>
+</li>
+<li>
+<p>压缩 JDK 并将其添加到 Windows Azure 项目的 <strong>approot</strong> 文件夹。</p>
+</li>
+</ol>
+<p>若要添加 Windows Azure Service Bus 的 CA 证书，则它为 GTE CyberTrust 全局根证书（序列号为 01:a5，SHA1 指纹为 97:81:79:50:D8:1C:96:70:CC:34:D8:09:CF:79:44:31:36:7E:F4:74）。可从 <a href="https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp">https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp</a> 下载该证书，将该证书保存到扩展名为 <strong>.cer</strong> 的本地文件，然后使用 <strong>keytool</strong> 将其导入，如上所示。此证书可能已安装到您的 cacerts 存储中，因此请务必先运行 <strong>keytool -list</strong> 命令来查看它是否已存在。</p>
+<p>有关 keytool 的信息，请参阅 <a href="http://docs.oracle.com/javase/1.4.2/docs/tooldocs/solaris/keytool.html">http://docs.oracle.com/javase/1.4.2/docs/tooldocs/solaris/keytool.html</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>将证书添加到 Java CA 存储 - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-java-how-to-add-a-certificate</linkid><metaKeywords>Azure Twilio Java, Twilio Java 证书, Azure Service Bus 证书</metaKeywords><metaDescription><![CDATA[了解如何将证书颁发机构 (CA) 证书添加到 Twilio 服务或 Windows Azure Service Bus 的 Java CA 证书 (cacerts) 存储。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>将证书添加到 CA 存储</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

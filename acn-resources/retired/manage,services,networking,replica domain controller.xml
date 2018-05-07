@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19267" parentID="19263" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="4" createDate="2013-07-11T12:12:09" updateDate="2014-08-18T11:28:40" nodeName="Replica domain controller" urlName="replica-domain-controller" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19263,19267" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 虚拟网络中安装副本 Active Directory 域控制器</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>本教程将指导您完成从 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">Windows Azure 虚拟网络</a>上的虚拟机 (VM) 中的 Corp Active Directory 林安装附加域控制器的步骤。在本教程中，虚拟机的虚拟网络将连接到您公司的网络。有关在 Windows Azure 虚拟网络上安装 Active Directory 域服务 (AD DS) 的概念性指南，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156090.aspx">在 Windows Azure 虚拟机中部署 Windows Server Active Directory 的准则（可能为英文页面）</a>。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#Prerequisites">先决条件</a></li>
+<li><a href="#verifystaticip">步骤 1:验证 YourPrimaryDC 的静态 IP 地址</a></li>
+<li><a href="#installforest">步骤 2:安装 Corp 林</a></li>
+<li><a href="#subnets">步骤 3:创建子网和站点</a></li>
+<li><a href="#cloudsite">步骤 4:在 CloudSite 中安装附加域控制器</a></li>
+<li><a href="#validate">步骤 5:验证安装</a></li>
+<li><a href="#provisionvm">步骤 6:设置在启动时加入域的虚拟机</a></li>
+<li><a href="#backup">步骤 7:备份域控制器</a></li>
+<li><a href="#test">步骤 8:测试身份验证和授权</a></li>
+</ul>
+<h2><a id="Prerequisites"></a>先决条件</h2>
+<ul>
+<li>在 Windows Azure 虚拟网络和 Corp 网络之间<a href="/zh-cn/manage/services/networking/cross-premises-connectivity/">创建虚拟网络进行跨界连接</a>。</li>
+<li>在虚拟网络中创建云服务。</li>
+<li>在云服务中部署作为虚拟网络的一部分的两台虚拟机（指定要放置虚拟机的子网）。有关详细信息，请参阅<a href="/zh-cn/manage/services/networking/add-a-vm-to-a-virtual-network/">将虚拟机添加到虚拟网络</a>。一台虚拟机的大小必须为“大”或更大才能向其附加两个数据磁盘。需要数据磁盘才能存储以下内容：
+<ul>
+<li>Active Directory 数据库和日志。</li>
+<li>系统状态备份。</li>
+</ul>
+</li>
+<li>包含两台虚拟机的 Corp 网络（YourPrimaryDC 和 FileServer）。</li>
+<li>部署的域名系统 (DNS) 基础结构（如果您需要让外部用户解析 Active Directory 中的帐户名称）。在此情况下，您应在域控制器上安装 DNS 服务器前创建 DNS 区域委派，或允许 Active Directory 域服务安装向导创建该委派。有关创建 DNS 区域委派的详细信息，请参阅<a href="http://technet.microsoft.com/zh-cn/library/cc753500.aspx">创建区域委派</a>。</li>
+<li>在安装到 Windows Azure 虚拟机上的 DC 中，配置 DNS 客户端解析器设置，如下所示：
+<ul>
+<li>首选 DNS 服务器：本地 DNS 服务器</li>
+<li>备用 DNS 服务器：环回地址或（如果可能）在同一虚拟网络的 DC 上运行的其他 DNS 服务器。</li>
+</ul>
+</li>
+</ul>
+<div class="dev-callout">注意
+<p>您需要提供自己的 DNS 基础结构来支持 Windows Azure 虚拟网络上的 AD DS。此版本的 Windows Azure 提供的 DNS 基础结构不支持 AD DS 需要的某些功能，如动态 SRV 资源记录注册。</p>
+</div>
+<div class="dev-callout">注意
+<p>如果您已完成<a href="/zh-cn/manage/services/networking/active-directory-forest/">在 Windows Azure 中安装新的 Active Directory 林</a>中的步骤，则在开始本教程前，您可能需要从 Windows Azure 虚拟网络上的域控制器中删除 AD DS。有关如何删除 AD DS 的详细信息，请参阅<a href="http://technet.microsoft.com/zh-cn/library/cc771844(v=WS.10).aspx">从域中删除域控制器</a>。</p>
+</div>
+<h2><a id="verifystaticip"></a>步骤 1:验证 YourPrimaryDC 的静态 IP 地址</h2>
+<ol>
+<li>
+<p>登录到 Corp 网络上的 YourPrimaryDC。</p>
+</li>
+<li>
+<p>在服务器管理器中，单击“查看网络连接”。</p>
+</li>
+<li>
+<p>右键单击局域网连接，然后单击“属性”。</p>
+</li>
+<li>
+<p>单击“Internet 协议版本 4 (TCP/IPv4)”并单击“属性”。</p>
+</li>
+<li>
+<p>验证是否已为服务器分配静态 IP 地址。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/verifystaticip.png" alt="VerifystaticIPaddressyourPrimaryDC1"/></p>
+</li>
+</ol>
+<h2><a id="installforest"></a>步骤 2:安装 Corp 林</h2>
+<ol>
+<li>
+<p>在虚拟机的 RDP 会话中，单击“开始”，键入“dcpromo”，然后按 Enter。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest1.png" alt="InstallCorpForest1"/></p>
+</li>
+<li>
+<p>在“欢迎使用”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest2.png" alt="InstallCorpForest2"/></p>
+</li>
+<li>
+<p>在“操作系统兼容性”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest3.png" alt="InstallCorpForest3"/></p>
+</li>
+<li>
+<p>在“选择部署配置”页上，单击“在新林中新建域”，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest4.png" alt="InstallCorpForest4"/></p>
+</li>
+<li>
+<p>在“命名林根域”页上，键入“corp.contoso.com”作为林根域的完全限定域名 (FQDN)，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest5.png" alt="InstallCorpForest5"/></p>
+</li>
+<li>
+<p>在“设置林功能级别”页上，单击“Windows Server 2008 R2”，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest6.png" alt="InstallCorpForest6"/></p>
+</li>
+<li>
+<p>在“其他域控制器选项”页上，单击“DNS 服务器”，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest7.png" alt="InstallCorpForest7"/></p>
+</li>
+<li>
+<p>如果出现以下 DNS 委派警告，请单击“是”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest8.png" alt="InstallCorpForest8"/></p>
+</li>
+<li>
+<p>在“Active Directory 数据库、日志文件和 SYSVOL 的位置”页上，键入或选择文件的位置，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest9.png" alt="InstallCorpForest9"/></p>
+</li>
+<li>
+<p>在“目录服务还原管理员”页上，键入并确认 DSRM 密码，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest10.png" alt="InstallCorpForest10"/></p>
+</li>
+<li>
+<p>在“摘要”页上，确认您的选择，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest11.png" alt="InstallCorpForest11"/></p>
+</li>
+<li>
+<p>在 Active Directory 安装向导完成后，单击“完成”，然后单击“立即重新启动”以完成安装。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/installcorpforest12.png" alt="InstallCorpForest12"/></p>
+</li>
+</ol>
+<h2><a id="subnets"></a>步骤 3:创建子网和站点</h2>
+<ol>
+<li>在 YourPrimaryDC 上，依次单击“开始”、“管理工具”和“Active Directory 站点和服务”。</li>
+<li>
+<p>单击“站点”，右键单击“子网”，然后单击“新建子网”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites1.png" alt="CreateSubnetsandSites1"/></p>
+</li>
+<li>
+<p>在“前缀::”中，键入“10.1.0.0/24”，选择“Default-First-Site-Name”站点对象，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites2.png" alt="CreateSubnetsandSites2"/></p>
+</li>
+<li>
+<p>右键单击“站点”，然后单击“新建站点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites3.png" alt="CreateSubnetsandSites3"/></p>
+</li>
+<li>
+<p>在“名称”中，键入“CloudSite”，选择“DEFAULTIPSITELINK”，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites4.png" alt="CreateSubnetsandSites4"/></p>
+</li>
+<li>
+<p>单击“确定”以确认已创建站点。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites5.png" alt="CreateSubnetsandSites5"/></p>
+</li>
+<li>
+<p>右键单击“子网”，然后单击“新建子网”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites6.png" alt="CreateSubnetsandSites6"/></p>
+</li>
+<li>
+<p>在“前缀::”中，键入“10.4.2.0/24”，选择“CloudSite”站点对象，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/createsubnetsandsites7.png" alt="CreateSubnetsandSites7"/></p>
+</li>
+</ol>
+<h2><a id="cloudsite"></a>步骤 4:在 CloudSite 中安装附加域控制器</h2>
+<ol>
+<li>
+<p>登录到 YourVMachine，单击“开始”，键入“dcpromo”，然后按 Enter。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc1.png" alt="AddDC1"/></p>
+</li>
+<li>
+<p>在“欢迎使用”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc2.png" alt="AddDC2"/></p>
+</li>
+<li>
+<p>在“操作系统兼容性”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc3.png" alt="AddDC3"/></p>
+</li>
+<li>
+<p>在“选择部署配置”页上，依次单击“现有林”、“将域控制器添加到现有域”和“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc4.png" alt="AddDC4"/></p>
+</li>
+<li>
+<p>在“网络凭据”页上，确保您正在 <strong>corp.contoso.com</strong> 域中安装域控制器，并键入 Domain Admins 组的成员的凭据（或使用 corp\administrator 凭据）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc5.png" alt="AddDC5"/></p>
+</li>
+<li>
+<p>在“选择域”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc6.png" alt="AddDC6"/></p>
+</li>
+<li>
+<p>在“选择站点”页上，确保已选定 CloudSite，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc7.png" alt="AddDC7"/></p>
+</li>
+<li>
+<p>在“其他域控制器选项”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc8.png" alt="AddDC8"/></p>
+</li>
+<li>
+<p>在静态 IP 分配警告中，单击“是，该计算机将使用 DHCP 服务器自动分配的 IP 地址(不推荐)”。</p>
+<p><strong>重要说明</strong></p>
+<p>尽管 Windows Azure 虚拟网络上的 IP 地址是动态的，但该地址的租赁在 VM 的持续时间内保持有效。因此，您无需在安装到虚拟网络上的域控制器上设置静态 IP 地址。在虚拟机中设置静态 IP 地址将导致通信失败。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc9.png" alt="AddDC9"/></p>
+</li>
+<li>
+<p>当系统给出了 DNS 委派警告提示时，请单击“是”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc10.png" alt="AddDC10"/></p>
+</li>
+<li>
+<p>在“Active Directory 数据库、日志文件和 SYSVOL 的位置”页上，单击“浏览”，然后在数据磁盘上为 Active Directory 文件键入或选择一个位置，再单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc11.png" alt="AddDC11"/></p>
+</li>
+<li>
+<p>在“目录服务还原管理员”页上，键入并确认 DSRM 密码，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc12.png" alt="AddDC12"/></p>
+</li>
+<li>
+<p>在“摘要”页上，单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc13.png" alt="AddDC13"/></p>
+</li>
+<li>
+<p>在 Active Directory 安装向导完成后，单击“完成”，然后单击“立即重新启动”以完成安装。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/adddc14.png" alt="AddDC14"/></p>
+</li>
+</ol>
+<h2><a id="validate"></a>步骤 5:验证安装</h2>
+<ol>
+<li>
+<p>重新连接到虚拟机。</p>
+</li>
+<li>
+<p>单击“开始”，右键单击“命令提示符”，然后单击“以管理员身份运行”。</p>
+</li>
+<li>
+<p>键入以下命令并按 Enter：“Dcdiag /c /v”</p>
+</li>
+<li>
+<p>验证测试是否已成功运行。</p>
+</li>
+</ol>
+<p>配置 DC 后，运行以下 Windows PowerShell cmdlet 来设置其他虚拟机并使其在设置后自动加入域。设置虚拟机时必须配置虚拟机的 DNS 客户端解析器设置。将您的域、虚拟机名称等项替换为正确的名称。</p>
+<p>有关使用 Windows PowerShell 的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055.aspx">Windows Azure PowerShell 入门（可能为英文页面）</a>和 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj152841">Windows Azure 管理 Cmdlet（可能为英文页面）</a>。</p>
+<h2><a id="provisionvm"></a>步骤 6:设置在启动时加入域的虚拟机</h2>
+<ol>
+<li>
+<p>若要创建其他在首次启动时加入域的虚拟机，请打开 Windows Azure PowerShell ISE，粘贴以下脚本，将占位符替换为您自己的值并运行该脚本。</p>
+<p>若要确定域控制器的内部 IP 地址，请单击运行该控制器的虚拟网络的名称。</p>
+<p>在以下示例中，域控制器的内部 IP 地址为 10.4.3.1。Add-AzureProvisioningConfig 还采用 -MachineObjectOU 参数，如果指定该参数（需要 Active Directory 中的完全可分辨名称），则可以在该容器中的所有虚拟机上设置组策略设置。</p>
+<p>设置虚拟机后，通过使用用户主体名称 (UPN) 格式指定域帐户（如 administrator@corp.contoso.com）进行登录。</p>
+<pre class="prettyprint">#Deploy a new VM and join it to the domain #------------------------------------------- #Specify my DC's DNS IP (10.4.3.1) $myDNS = New-AzureDNS -Name 'ContosoDC13' -IPAddress '10.4.3.1'   # OS Image to Use $image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-08022012-en-us-30GB.vhd' $service = 'myazuresvcindomainM1' $AG = 'YourAffinityGroup' $vnet = 'YourVirtualNetwork' $pwd = 'p@$$w0rd' $size = 'Small'   #VM Configuration $vmname = 'MyTestVM1' $MyVM1 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |     Add-AzureProvisioningConfig -WindowsDomain -Password $pwd -Domain 'corp' -DomainPassword 'p@$$w0rd' -DomainUserName 'Administrator' -JoinDomain 'corp.contoso.com'|     Set-AzureSubnet -SubnetNames 'BackEnd'   New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet</pre>
+</li>
+</ol>
+<h2><a id="backup"></a>步骤 7:备份域控制器</h2>
+<ol>
+<li>
+<p>连接到 YourVMachine。</p>
+</li>
+<li>
+<p>依次单击“开始”、“服务器管理器”和“添加功能”，然后选择“Windows Server Backup 功能”。按照说明进行操作来安装 Windows Server Backup。</p>
+</li>
+<li>
+<p>依次单击“开始”、“Windows Server Backup”和“一次性备份”。</p>
+</li>
+<li>
+<p>单击“其他选项”，然后单击“下一步”。</p>
+</li>
+<li>
+<p>单击“完全服务器”，然后单击“下一步”。</p>
+</li>
+<li>
+<p>单击“本地驱动器”，然后单击“下一步”。</p>
+</li>
+<li>
+<p>选择不承载操作系统文件或 Active Directory 数据库的目标驱动器，然后单击“下一步”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/backupdc.png" alt="BackupDC"/></p>
+</li>
+<li>
+<p>确认所选的备份设置，然后单击“备份”。</p>
+</li>
+</ol>
+<h2><a id="test"></a>步骤 8:测试身份验证和授权</h2>
+<ol>
+<li>
+<p>若要测试身份验证和授权，请在 Active Directory 中创建域用户帐户。登录到每个站点中的客户端虚拟机，然后在该虚拟机上创建共享文件夹</p>
+</li>
+<li>
+<p>使用其他帐户、组和权限测试对共享文件夹的访问。</p>
+</li>
+</ol>
+<h2>另请参阅</h2>
+<ul>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">Windows Azure 虚拟网络</a></p>
+</li>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055.aspx">Windows Azure PowerShell</a></p>
+</li>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj152841">Windows Azure 管理 Cmdlet</a></p>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在 Windows Azure 中安装副本域控制器</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-networking-replica-domain-controller</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[本教程教您如何从 Windows Azure 虚拟机上的 Corp Active Directory 林安装域控制器。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>副本域控制器</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

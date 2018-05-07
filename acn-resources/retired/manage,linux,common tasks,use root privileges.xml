@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19207" parentID="19201" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="6" createDate="2013-07-11T11:59:50" updateDate="2014-08-18T11:25:33" nodeName="Use root privileges" urlName="use-root-privileges" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19201,19207" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中使用 Linux 虚拟机的根权限</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" macroAlias="AzureChunkDisplayer" chunkname="disclaimer" />
+<p>可通过下列方法之一获取 Linux 虚拟机的根权限，具体取决于您设置虚拟机的方式。</p>
+<ol>
+<li><strong>上载 SSH 密钥</strong> - 在设置虚拟机时，已上载证书（<code>.CER</code> 文件）以及用户名和密码。</li>
+<li><strong>仅用户名和密码</strong> - 在设置虚拟机时，您仅提供了用户名和密码；<strong>无</strong> SSH 密钥。</li>
+</ol>
+<h2>已上载 SSH 密钥</h2>
+<p>在使用 SSH 密钥登录到虚拟机后，可使用 <code>sudo</code> 运行命令，例如：</p>
+<pre class="prettyprint">sudo chmod +x myscript.py</pre>
+<p>在出现此情况时，系统会提示您输入密码。输入您在设置虚拟机时提供的密码。</p>
+<p><strong>注意：</strong>即使使用了 SSH 密钥，也需要此密码。这可能会导致出现与某些脚本和工具相关的问题，因此请确保这些脚本和工具可支持质询的 <code>sudo</code> 命令。</p>
+<h2>用户名和密码</h2>
+<p>在使用用户名和密码登录到虚拟机后，可使用 <code>sudo</code> 运行命令，例如：</p>
+<pre class="prettyprint">sudo chmod +x myscript.py</pre>
+<p>在出现此情况时，系统会提示您输入密码。输入您在设置虚拟机时提供的密码。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在 Windows Azure 中使用 Linux 虚拟机的根权限</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-common-tasks-user-root-privileges</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 Linux 虚拟机的根权限。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>使用根权限</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

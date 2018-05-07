@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19189" parentID="19185" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="4" createDate="2013-07-11T11:59:47" updateDate="2014-08-18T11:26:03" nodeName="Log-on a Linux VM" urlName="log-on-a-linux-vm" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19185,19189" isDoc=""><bodyText><![CDATA[<div style="margin-top: 55px;">
+<h1>如何登录到运行 Linux 的虚拟机</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>对于运行 Linux 操作系统的虚拟机，您可以使用安全外壳 (SSH) 客户端进行登录。</p>
+<p>您必须在计算机上安装要用于登录到虚拟机的 SSH 客户端。您可以选择很多 SSH 客户端程序。以下是可能的选项：</p>
+<ul>
+<li>如果您要使用运行 Windows 操作系统的计算机，则可能希望使用 PuTTY 等 SSH 客户端。有关更多信息，请参见 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 下载页</a>。</li>
+<li>如果您要使用运行 Linux 操作系统的计算机，则可能希望使用 OpenSSH 等 SSH 客户端。有关更多信息，请参见 <a href="http://www.openssh.org/">OpenSSH</a>。</li>
+</ul>
+<p>此过程将向您演示如何使用 PuTTY 程序访问虚拟机。</p>
+<ol>
+<li>
+<p>从<a href="http://manage.windowsazure.cn">管理门户</a>中找到“主机名”和“端口信息”。您可以从虚拟机的仪表板中找到所需信息。单击虚拟机名称并查看仪表板“速览”部分的“SSH 详细信息”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/sshdetails.png" alt="获取 SSH 详细信息"/></p>
+</li>
+<li>
+<p>打开 PuTTY 程序。</p>
+</li>
+<li>
+<p>输入您从仪表板中收集到的主机名和端口信息，然后单击“打开”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/putty.png" alt="打开 PuTTY"/></p>
+</li>
+<li>
+<p>使用您在创建虚拟机时指定的帐户登录到虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/sshlogin.png" alt="登录到虚拟机"/></p>
+<p>您现在可以像使用任何其他服务器一样使用该虚拟机。</p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>在 Windows Azure 中登录到运行 Linux 的虚拟机</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-howto-logon-linux-vm</linkid><metaKeywords>Azure Linux vm, Linux SSH</metaKeywords><metaDescription><![CDATA[了解如何使用安全外壳 (SSH) 客户端登录到运行 Linux 的 Windows Azure 虚拟机。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>登录到虚拟机</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

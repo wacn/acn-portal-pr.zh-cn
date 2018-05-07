@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19077" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:29:12" updateDate="2014-08-18T11:19:55" nodeName="Blob Service" urlName="blob-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19077" isDoc=""><bodyText><![CDATA[<div>
+<div>
+<h1>如何通过 PHP 使用 Blob 服务</h1>
+<p>本指南将演示如何使用 Windows Azure Blob 服务执行常见任务。这些示例通过 PHP 编写并使用 <a href="http://go.microsoft.com/fwlink/?LinkID=252473">Windows Azure SDK for PHP</a>。所涉及的任务包括<strong>上载</strong>、<strong>列出</strong>、<strong>下载</strong>以及<strong>删除</strong> Blob。有关 Blob 的详细信息，请参阅<a href="#NextSteps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是 Blob 存储</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#CreateAccount">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#CreateApplication">创建 PHP 应用程序</a></li>
+<li><a href="#ConfigureStorage">配置您的应用程序以访问 Blob 服务</a></li>
+<li><a href="#ConnectionString">设置 Windows Azure 存储连接</a></li>
+<li><a href="#CreateContainer">如何：创建容器</a></li>
+<li><a href="#UploadBlob">如何：将 Blob 上载到容器中</a></li>
+<li><a href="#ListBlobs">如何：列出容器中的 Blob</a></li>
+<li><a href="#DownloadBlob">如何：下载 Blob</a></li>
+<li><a href="#DeleteBlob">如何：删除 Blob</a></li>
+<li><a href="#DeleteContainer">如何：删除 Blob 容器</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="howto-blob-storage" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="CreateAccount">创建 Windows Azure 存储帐户</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="CreateApplication">创建 PHP 应用程序</h2>
+<p>创建访问 Windows Azure Blob 服务的 PHP 应用程序的唯一要求是从代码中引用 Windows Azure SDK for PHP 中的类。您可以使用任何开发工具来创建应用程序，包括记事本。</p>
+<p>在本指南中，您将使用服务功能，这些功能可在 PHP 应用程序中本地调用，或在 Windows Azure 的 Web 角色、辅助角色或网站中运行的代码中调用。</p>
+<h2 id="GetClientLibrary">获取 Windows Azure 客户端库</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="get-client-libraries" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="ConfigureStorage">配置您的应用程序以访问 Blob 服务</h2>
+<p>若要使用 Windows Azure Blob 服务 API，您需要：</p>
+<ol>
+<li>使用 <a href="http://php.net/require_once">require_once</a> 语句引用 autoloader 文件，并</li>
+<li>引用可使用的所有类。</li>
+</ol>
+<p>下面的示例演示如何包含 autoloader 文件并引用 <strong>ServicesBuilder</strong> 类。</p>
+<div class="dev-callout">注意
+<p>本示例（以及本文中的其他示例）假定您已通过 Composer 安装用于 Windows Azure 的 PHP 客户端库。如果您已手动安装这些库或将其作为 PEAR 包安装，则需要引用 <code>WindowsAzure.php</code> autoloader 文件。</p>
+</div>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+use WindowsAzure\Common\ServicesBuilder;</pre>
+<p>在下面的示例中，将始终显示 <code>require_once</code> 语句，但仅引用执行该示例所需的类。</p>
+<h2 id="ConnectionString">设置 Windows Azure 存储连接</h2>
+<p>若要实例化 Windows Azure Blob 服务客户端，您必须先拥有有效的连接字符串。Blob 服务连接字符串的格式为：</p>
+<p>对于访问实时服务：</p>
+<pre class="prettyprint">DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]</pre>
+<p>对于访问仿真程序存储：</p>
+<pre class="prettyprint">UseDevelopmentStorage=true</pre>
+<p>若要创建任何 Windows Azure 服务客户端，您将需要使用 <strong>ServicesBuilder</strong> 类。您可以：</p>
+<ul>
+<li>将连接字符串直接传递给此类或</li>
+<li>使用 <strong>CloudConfigurationManager (CCM)</strong>检查此连接字符串的多个外部源：
+<ul>
+<li>默认情况下，它附带了对一个外部源的支持 - 环境变量</li>
+<li>可通过扩展 <strong>ConnectionStringSource</strong> 类来添加新源</li>
+</ul>
+</li>
+</ul>
+<p>在此处列出的示例中，将直接传递连接字符串。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);</pre>
+<h2 id="CreateContainer">如何：创建容器</h2>
+<p>利用 <strong>BlobRestProxy</strong> 对象，可以使用 <strong>createContainer</strong> 方法创建 Blob 容器。创建容器时，可以在该容器上设置选项，但此操作不是必需的。（下面的示例演示了如何设置容器 ACL 和容器元数据。）</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Blob\Models\CreateContainerOptions;
+use WindowsAzure\Blob\Models\PublicAccessType;
+use WindowsAzure\Common\ServiceException;
+
+// Create blob REST proxy.
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);
+
+
+// OPTIONAL: Set public access policy and metadata.
+// Create container options object.
+$createContainerOptions = new CreateContainerOptions(); 
+
+// Set public access policy. Possible values are 
+// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
+// CONTAINER_AND_BLOBS:     
+// Specifies full public read access for container and blob data.
+// proxys can enumerate blobs within the container via anonymous 
+// request, but cannot enumerate containers within the storage account.
+//
+// BLOBS_ONLY:
+// Specifies public read access for blobs. Blob data within this 
+// container can be read via anonymous request, but container data is not 
+// available. proxys cannot enumerate blobs within the container via 
+// anonymous request.
+// If this value is not specified in the request, container data is 
+// private to the account owner.
+$createContainerOptions-&gt;setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+
+// Set container metadata
+$createContainerOptions-&gt;addMetaData("key1", "value1");
+$createContainerOptions-&gt;addMetaData("key2", "value2");
+
+try {
+    // Create container.
+    $blobRestProxy-&gt;createContainer("mycontainer", $createContainerOptions);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>通过调用 <strong>setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)</strong>，使容器和 Blob 数据可通过匿名请求访问。通过调用 <strong>setPublicAccess(PublicAccessType::BLOBS_ONLY)</strong>，仅使 Blob 数据可通过匿名请求访问。有关容器 ACL 的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179391.aspx">设置容器 ACL (REST API)</a>。</p>
+<p>有关 Blob 服务错误代码的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx">Blob 服务错误代码</a>。</p>
+<h2 id="UploadBlob">如何：将 Blob 上载到容器中</h2>
+<p>若要将文件作为 Blob 上载，请使用 <strong>BlobRestProxy-&gt;createBlockBlob</strong> 方法。此操作将创建 Blob（如果该 Blob 不存在），或者覆盖它（如果该 Blob 存在）。下面的代码示例假定已创建容器，并使用 <a href="http://www.php.net/fopen">fopen</a> 将文件作为流打开。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create blob REST proxy.
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);
+
+
+$content = fopen("c:\myfile.txt", "r");
+$blob_name = "myblob";
+
+try {
+    //Upload blob
+    $blobRestProxy-&gt;createBlockBlob("mycontainer", $blob_name, $content);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>请注意，上面的示例将 Blob 作为流上载。但是，也可使用 <a href="http://php.net/file_get_contents">file_get_contents</a> 函数将 Blob 作为字符串上载。为此，请将上面的示例中的 <code>$content = fopen("c:\myfile.txt", "r");</code> 更改为 <code>$content = file_get_contents("c:\myfile.txt");</code>。</p>
+<h2 id="ListBlobs">如何：列出容器中的 Blob</h2>
+<p>若要列出容器中的 Blob，请将 <strong>BlobRestProxy-&gt;listBlobs</strong> 方法用于 <strong>foreach</strong> 循环来循环访问结果。以下代码将容器中的每个 Blob 的名称及其 URI 输出到浏览器。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create blob REST proxy.
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);
+
+
+try {
+    // List blobs.
+    $blob_list = $blobRestProxy-&gt;listBlobs("mycontainer");
+    $blobs = $blob_list-&gt;getBlobs();
+
+    foreach($blobs as $blob)
+    {
+        echo $blob-&gt;getName().": ".$blob-&gt;getUrl()."&lt;br /&gt;";
+    }
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="DownloadBlob">如何：下载 Blob</h2>
+<p>若要下载 Blob，请调用 <strong>BlobRestProxy-&gt;getBlob</strong> 方法，然后对生成的 <strong>GetBlobResult</strong> 对象调用 <strong>getContentStream</strong> 方法。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create blob REST proxy.
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);
+
+
+try {
+    // Get blob.
+    $blob = $blobRestProxy-&gt;getBlob("mycontainer", "myblob");
+    fpassthru($blob-&gt;getContentStream());
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>请注意，上面的示例将 Blob 作为流资源获取（默认行为）。但是，您可以使用 <a href="http://www.php.net/stream_get_contents">stream_get_contents</a> 函数将返回的流转换为字符串。</p>
+<h2 id="DeleteBlob">如何：删除 Blob</h2>
+<p>若要删除 Blob，请将容器名称和 Blob 名称传递到 <strong>BlobRestProxy-&gt;deleteBlob</strong>。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create blob REST proxy.
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);
+
+
+try {
+    // Delete container.
+    $blobRestProxy-&gt;deleteBlob("mycontainer", "myblob");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="DeleteContainer">如何：删除 Blob 容器</h2>
+<p>最后，若要删除 Blob 容器，请将容器名称传递到 <strong>BlobRestProxy-&gt;deleteContainer</strong>。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create blob REST proxy.
+$blobRestProxy = ServicesBuilder::getInstance()-&gt;createBlobService($connectionString);
+
+
+try {
+    // Delete container.
+    $blobRestProxy-&gt;deleteContainer("mycontainer");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179439.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="NextSteps">后续步骤</h2>
+<p>现在，您已了解 Windows Azure Blob 服务的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>请参阅 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>请访问 Windows Azure 存储团队博客：<a href="http://blogs.msdn.com/b/windowsazurestorage/">http://blogs.msdn.com/b/windowsazurestorage/</a></li>
+</ul>
+</div>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>blob service</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>blob service</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>blob service</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

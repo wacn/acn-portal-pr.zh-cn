@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18863" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="11" createDate="2013-07-11T10:52:33" updateDate="2014-08-18T11:10:17" nodeName="hybrid solution" urlName="hybrid-solution" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18863" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>使用 Service Bus 中继创建 .NET 本地/云混合应用程序</h1>
+<h2><span class="short-header">简介</span>简介</h2>
+<p>使用 Visual Studio 2012 和免费的 Windows Azure SDK for .NET，可以轻松开发针对 Windows Azure 的混合云应用程序。本指南假定您之前未使用过 Windows Azure。在不到 30 分钟的时间内，您就能让使用多个 Windows Azure 资源的应用程序在云中正常运行。</p>
+<p>您将了解：</p>
+<ul>
+<li>如何创建或修改现有 Web 服务以供 Web 解决方案使用。</li>
+<li>如何使用 Windows Azure Service Bus 中继功能在 Windows Azure 应用程序和托管于其他某处的 Web 服务之间共享数据。</li>
+</ul>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-note" macroAlias="AzureChunkDisplayer" ?-->
+<h3>Service Bus 中继功能将为混合解决方案带来哪些帮助</h3>
+<p>业务解决方案通常由为处理独特的新业务需求而编写的自定义代码和已有的解决方案和系统所提供的现有功能的组合组成。</p>
+<p>解决方案架构师正开始使用云以便更轻松地处理缩放需求和降低运营成本。在此过程中，他们发现希望用作其解决方案的构建基块的现有服务资产位于企业防火墙内，无法通过云解决方案轻松访问。许多内部服务都会以某种方式构建或承载，以便无法在企业网络边缘轻松公开这些服务。</p>
+<p>“Service Bus 中继”是专为一些用例设计的，其中，将使用现有的 Windows Communication Foundation (WCF) Web 服务并使位于企业外围外部的解决方案能够安全访问这些服务，而无需对企业网络基础结构进行彻底的更改。虽然此类 Service Bus 中继服务仍位于其现有环境中，但它们会将侦听传入会话和请求这一任务委托给云托管的 Service Bus。Service Bus 还会通过使用 Windows Azure Active Directory Access Control 服务来保护这些服务免遭未经授权的访问。</p>
+<h3>解决方案应用场景</h3>
+<p>在本教程中，您将创建一个 ASP.NET MVC 3 网站，用于查看产品库存页上的产品列表。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hybrid.png"/></p>
+<p>本教程假定您在现有的本地系统中具有产品信息，并使用 Service Bus 中继来访问该系统。这是由在简单的控制台应用程序中运行的 Web 服务模拟的，并由一系列内存中产品提供支持。您将能够在您自己的计算机上运行此控制台应用程序并将 Web 角色部署到 Windows Azure 中。通过此操作，您将看到在 Windows Azure 数据中心运行的 Web 角色确实调入了您的计算机，即使您的计算机几乎肯定至少驻留在一个防火墙和一个网络地址转换 (NAT) 层后面时也是如此。</p>
+<p>以下是已完成 Web 应用程序的起始页的屏幕快照。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/app2.png"/></p>
+<h2>设置开发环境</h2>
+<p>您需要先获得相应工具并设置开发环境，然后才能开始开发 Windows Azure 应用程序。</p>
+<ol>
+<li>
+<p>若要安装 Windows Azure SDK for .NET，请单击以下按钮：</p>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=271920">获取工具和 SDK</a></p>
+</li>
+<li>
+<p>单击“安装 SDK”。</p>
+</li>
+<li>
+<p>选择您使用的 Visual Studio 版本相应的链接。本教程中的步骤使用 Visual Studio 2012：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-41.png"/></p>
+</li>
+<li>
+<p>当提示您运行或保存 <strong>WindowsAzureSDKForNet.exe</strong> 时，请单击“运行”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-3.png"/></p>
+</li>
+<li>
+<p>在 Web 平台安装程序中，单击“安装”，然后继续安装：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-4-webpi.png"/></p>
+</li>
+<li>
+<p>安装完成后，您便已做好开发准备工作。SDK 包含了一些工具，可利用这些工具在 Visual Studio 中轻松开发 Windows Azure 应用程序。如果您尚未安装 Visual Studio，则 SDK 也会安装免费的 Visual Web Developer Express。</p>
+</li>
+</ol>
+<h2>创建服务命名空间</h2>
+<p>若要开始在 Windows Azure 中使用 Service Bus 功能，必须先创建一个服务命名空间。服务命名空间提供了用于对应用程序中的 Service Bus 资源进行寻址的范围容器。</p>
+<p>创建服务命名空间：</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在该管理门户的左侧导航窗格中，单击“Service Bus”。</p>
+</li>
+<li>
+<p>在管理门户的下方窗格中，单击“创建”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-03.png"/></p>
+</li>
+<li>
+<p>在“添加新命名空间”对话框中，输入命名空间名称。系统会立即检查该名称是否可用。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-04.png"/></p>
+</li>
+<li>
+<p>在确保命名空间名称可用后，选择应承载您的命名空间的国家或地区（确保使用在其中部署计算资源的同一国家/地区）。</p>
+<p>重要说明：选取要部署应用程序的<strong>相同区域</strong>。这将为您提供最佳性能。</p>
+</li>
+<li>
+<p>单击复选标记。系统现已创建您的服务命名空间并已将其启用。您可能需要等待几分钟，因为系统将为您的帐户设置资源。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-multi-tier-27.png"/></p>
+</li>
+</ol>
+<p>您创建的命名空间随后将显示在管理门户中，然后要花费一段时间来激活。请等到状态变为“活动”后再继续。</p>
+<h2>获取命名空间的默认管理凭据</h2>
+<p>若要在新命名空间上执行管理操作（如创建队列），则需要获取该命名空间的管理凭据。</p>
+<ol>
+<li>
+<p>在主窗口中，单击您的服务命名空间的名称。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-09.png"/></p>
+</li>
+<li>
+<p>单击“访问密钥”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-06.png"/></p>
+</li>
+<li>
+<p>在“连接到您的命名空间”窗格中，找到“默认颁发者”和“默认密钥”条目。</p>
+</li>
+<li>
+<p>记下该密钥或将其复制到剪贴板。</p>
+</li>
+</ol>
+<h2>创建本地服务器</h2>
+<p>首先，您将构建 (mock) 内部部署产品目录系统。这将非常简单；您可以将此系统视为代表包含我们将尝试集成的完整服务图面的内部部署产品目录系统。</p>
+<p>此项目将作为 Visual Studio 控制台应用程序启动。该项目使用 Service Bus NuGet 包来包含 Service Bus 库和配置设置。利用 NuGet Visual Studio 扩展，可以轻松地在 Visual Studio 和 Visual Web Developer 中安装和更新库和工具。Service Bus NuGet 包是获取 Service Bus API 和使用所有 Service Bus 依赖项配置应用程序的最简单的方法。有关使用 NuGet 和 Service Bus 包的详细信息，请参见<a href="http://go.microsoft.com/fwlink/?LinkId=234589">使用 NuGet Service Bus 包</a>。</p>
+<h3>创建项目</h3>
+<ol>
+<li>使用管理员权限启动 Microsoft Visual Studio 2012 或 Microsoft Visual Web Developer Express。若要使用管理员权限启动 Visual Studio，请右键单击“Microsoft Visual Studio 2012”（或“Microsoft Visual Web Developer Express”），然后单击“以管理员身份运行”。</li>
+<li>
+<p>在 Visual Studio 中的“文件”菜单中，单击“新建”，然后单击“项目”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-1.png"/></p>
+</li>
+<li>
+<p>从“已安装的模板”的“Visual C#”下单击“控制台应用程序”。在“名称”框中，键入名称“ProductsServer”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-con-1.jpg"/></p>
+</li>
+<li>
+<p>单击“确定”创建“ProductsServer”项目。</p>
+</li>
+<li>在“解决方案资源管理器”中，右键单击“ProductsServer”，然后单击“属性”。</li>
+<li>
+<p>单击左侧的“应用程序”选项卡，然后确保“.NET Framework 4”出现在“目标框架:”下拉列表中。如果未显示，请从下拉列表中选择它，然后在提示您重新加载项目时单击“是”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-con-3.png"/></p>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“引用”，然后单击“管理 NuGet 包”。</p>
+</li>
+<li>
+<p>搜索“WindowsAzure”，然后选择“Windows Azure Service Bus”项。单击“安装”以完成安装，然后关闭此对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-multi-tier-13.png"/></p>
+<p>请注意，现已引用所需的客户端程序集。</p>
+</li>
+<li>
+<p>为产品协定添加新类。在“解决方案资源管理器”中，右键单击“ProductsServer”，单击“添加”，然后单击“类”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-con-4.png"/></p>
+</li>
+<li>
+<p>在“名称”框中，键入名称 <strong>ProductsContract.cs</strong>。然后单击“添加”。</p>
+</li>
+<li>
+<p>在<strong>ProductsContract.cs</strong>中，将命名空间定义替换为以下代码（定义了服务的协定）：</p>
+<pre class="prettyprint">namespace ProductsServer
+{
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.ServiceModel;
+
+
+// Define the data contract for the service
+[DataContract]
+// Declare the serializable properties
+public class ProductData
+{
+    [DataMember]
+    public string Id { get; set; }
+    [DataMember]
+    public string Name { get; set; }
+    [DataMember]
+    public string Quantity { get; set; }
+}
+
+
+// Define the service contract.
+[ServiceContract]
+interface IProducts
+{
+    [OperationContract]
+    IList&lt;ProductData&gt; GetProducts();
+
+
+}
+
+
+interface IProductsChannel : IProducts, IClientChannel
+{
+}
+
+
+}</pre>
+</li>
+<li>
+<p>在 Program.cs 中，将命名空间定义替换为以下代码，这将添加配置文件服务及其宿主：</p>
+<pre class="prettyprint">namespace ProductsServer
+{
+    using System;
+    using System.Linq;
+    using System.Collections.Generic;
+    using System.ServiceModel;
+
+
+// Implement the IProducts interface
+class ProductsService : IProducts
+{
+
+
+    // Populate array of products for display on Web site
+    ProductData[] products = 
+        new []
+            {
+                new ProductData{ Id = "1", Name = "Rock", 
+                                 Quantity = "1"},
+                new ProductData{ Id = "2", Name = "Paper", 
+                                 Quantity = "3"},
+                new ProductData{ Id = "3", Name = "Scissors", 
+                                 Quantity = "5"},
+                new ProductData{ Id = "4", Name = "Well", 
+                                 Quantity = "2500"},
+            };
+
+
+    // Display a message in the service console application 
+    // when the list of products is retrieved
+    public IList&lt;ProductData&gt; GetProducts()
+    {
+        Console.WriteLine("GetProducts called.");
+        return products;
+    }
+
+
+}
+
+
+class Program
+{
+    // Define the Main() function in the service application
+    static void Main(string[] args)
+    {
+        var sh = new ServiceHost(typeof(ProductsService));
+        sh.Open();
+
+
+        Console.WriteLine("Press ENTER to close");
+        Console.ReadLine();
+
+
+        sh.Close();
+    }
+}
+
+
+}</pre>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，双击 <strong>app.config</strong> 文件以在 <strong>Visual Studio </strong> 编辑器中将其打开。将 <strong>&lt;system.ServiceModel&gt;</strong> 的内容替换为以下 XML 代码。确保将 <em>yourServiceNamespace</em> 替换为您的服务命名空间的名称，并将 <em>yourIssuerSecret</em> 替换为之前从 Windows Azure 管理门户中检索到的密钥：</p>
+<pre class="prettyprint">&lt;system.serviceModel&gt;
+  &lt;extensions&gt;
+     &lt;behaviorExtensions&gt;
+        &lt;add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;
+      &lt;/behaviorExtensions&gt;
+      &lt;bindingExtensions&gt;
+         &lt;add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;
+      &lt;/bindingExtensions&gt;
+  &lt;/extensions&gt;
+  &lt;services&gt;
+     &lt;service name="ProductsServer.ProductsService"&gt;
+       &lt;endpoint address="sb://yourServiceNamespace.servicebus.chinacloudapi.cn/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts"
+behaviorConfiguration="products"/&gt;
+     &lt;/service&gt;
+  &lt;/services&gt;
+  &lt;behaviors&gt;
+     &lt;endpointBehaviors&gt;
+       &lt;behavior name="products"&gt;
+         &lt;transportClientEndpointBehavior&gt;
+            &lt;tokenProvider&gt;
+               &lt;sharedSecret issuerName="owner" issuerSecret="yourIssuerSecret" /&gt;
+            &lt;/tokenProvider&gt;
+         &lt;/transportClientEndpointBehavior&gt;
+       &lt;/behavior&gt;
+     &lt;/endpointBehaviors&gt;
+  &lt;/behaviors&gt;
+&lt;/system.serviceModel&gt;</pre>
+</li>
+<li>
+<p>按 <strong>F6</strong> 生成该应用程序以验证您目前工作的准确性。</p>
+</li>
+</ol>
+<h2>创建 ASP.NET MVC 3 应用程序</h2>
+<p>在本节中，您将生成将显示从您的产品服务中检索到的数据的简单 MVC 4 应用程序。</p>
+<h3>创建项目</h3>
+<ol>
+<li>使用管理员权限启动 Microsoft Visual Studio 2012 或 Microsoft Visual Web Developer Express。若要使用管理员权限启动 Visual Studio，请右键单击“Microsoft Visual Studio 2012”（或“Microsoft Visual Web Developer Express”），然后单击“以管理员身份运行”。Windows Azure 计算仿真程序（本指南后面会讨论）要求使用管理员权限启动 Visual Studio。</li>
+<li>在 Visual Studio 中的“文件”菜单中，单击“新建”，然后单击“项目”。</li>
+<li>
+<p>从“已安装的模板”的“Visual C#”下，单击“ASP.NET MVC 4 Web 应用程序”。将项目命名为“ProductsPortal”。然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-2.jpg"/></p>
+</li>
+<li>
+<p>从“选择模板”列表中，单击“Internet 应用程序”，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-4.png"/></p>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“模型”，单击“添加”，然后单击“类”。在“名称”框中，键入名称“Product.cs”。然后单击“添加”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-7.jpg"/></p>
+</li>
+</ol>
+<h3>修改 Web 应用程序</h3>
+<ol>
+<li>
+<p>在 Visual Studio 内，在 Product.cs 文件中将现有命名空间定义替换为以下代码：</p>
+<pre class="prettyprint">// Declare properties for the products inventory
+namespace ProductsWeb.Models
+{
+    public class Product
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Quantity { get; set; }
+    }
+}</pre>
+</li>
+<li>
+<p>在 Visual Studio 内，在 HomeController.cs 文件中将现有命名空间定义替换为以下代码：</p>
+<pre class="prettyprint">namespace ProductsWeb.Controllers
+{
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Models;
+
+
+public class HomeController : Controller
+{
+    // Return a view of the products inventory
+    public ActionResult Index(string Identifier, string ProductName)
+    {
+        var products = new List&lt;Product&gt; 
+            {new Product {Id = Identifier, Name = ProductName}};
+        return View();
+    }
+
+
+}
+
+
+}</pre>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，展开 Views\Shared：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-10.jpg"/></p>
+</li>
+<li>
+<p>接下来，双击 _Layout.cshtml 以在 Visual Studio 编辑器中将其打开。</p>
+</li>
+<li>
+<p>在 body 标记内，找到 <code>title</code> 标记包含的页面标题。将该标题文本从“My MVC Application”更改为“LITWARE's Products”。另外，将 <strong>your logo here</strong> 更改为 <strong>LITWARE's Products</strong>。</p>
+</li>
+<li>
+<p>删除“Home”、“About”和“Contact”链接。删除突出显示的代码：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-multi-tier-40.png"/></p>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，展开 Views\Home：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-11.png"/></p>
+</li>
+<li>
+<p>双击 Index.cshtml 在 Visual Studio 编辑器中将其打开。将文件的全部内容替换为以下代码：</p>
+<pre class="prettyprint">@model IEnumerable&lt;ProductsPortal.Models.Product&gt;
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+&lt;h2&gt;Prod Inventory&lt;/h2&gt;
+
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.Name)
+        &lt;/th&gt;
+        &lt;th&gt;
+            @Html.DisplayNameFor(model =&gt; model.Quantity)
+        &lt;/th&gt;
+    &lt;/tr&gt;
+
+
+@foreach (var item in Model) {
+    &lt;tr&gt;
+        &lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Name)
+        &lt;/td&gt;
+        &lt;td&gt;
+            @Html.DisplayFor(modelItem =&gt; item.Quantity)
+        &lt;/td&gt;
+    &lt;/tr&gt;   
+}
+
+
+&lt;/table&gt;</pre>
+</li>
+<li>
+<p>若要验证您目前工作的准确性，可以按 <strong>F6</strong> 或 <strong>Ctrl+Shift+B</strong> 来生成项目。</p>
+</li>
+</ol>
+<h3>本地运行应用程序</h3>
+<p>运行应用程序以验证其是否正常运行。</p>
+<ol>
+<li>确保<strong>“ProductsPortal”</strong>是活动项目。在“解决方案资源管理器”中右键单击项目名称，然后选择“设置为启动项目”</li>
+<li>在 <strong>Visual Studio</strong> 中，按 <strong>F5</strong>。</li>
+<li>
+<p>您的应用程序应在浏览器中显示为正在运行：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/app1.png"/></p>
+<h2>准备好应用程序以部署到 Windows Azure</h2>
+<p>现在，您将准备应用程序以在 Windows Azure 托管服务中运行。您的应用程序已准备好包含 Windows Azure 部署项目。部署项目包含在云中正常运行应用程序所需的配置信息。</p>
+<ol>
+<li>
+<p>若要使应用程序可部署到云中，请在“解决方案资源管理器”中右键单击“ProductsPortal”项目，然后单击“添加 Windows Azure 部署项目”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-21.png"/></p>
+</li>
+<li>
+<p>若要测试应用程序，请按 <strong>F5</strong>。</p>
+</li>
+<li>
+<p>这将启动 Windows Azure 计算仿真程序。此计算模拟器使用本地计算机来模拟正在 Windows Azure 中运行的应用程序。可以通过查看系统任务栏来确认此仿真程序已启动：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-22.png"/></p>
+</li>
+<li>
+<p>浏览器仍将显示您的应用程序正在本地运行，并且其外观和功能与您之前将其作为常规 ASP.NET MVC 3 应用程序运行时的外观和功能相同。</p>
+</li>
+</ol>
+<h2>将这些片段组合在一起</h2>
+<p>下一步是将本地产品服务器与 ASP.NET MVC3 应用程序挂钩。</p>
+<ol>
+<li>
+<p>如果尚未打开在“创建 ASP.NET MVC 3 应用程序”部分中创建的“ProductsPortal”项目，请在 Visual Studio 中重新打开该项目。</p>
+</li>
+<li>
+<p>与“创建本地服务器”部分中的步骤类似，将 NuGet 包添加到项目“引用”中。在“解决方案资源管理器”中，右键单击“引用”，然后单击“管理 NuGet 包”。</p>
+</li>
+<li>
+<p>搜索“WindowsAzure.ServiceBus”，然后选择“Windows Azure Service Bus”项。然后，完成安装过程并关闭此对话框。</p>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“ProductsPortal”项目，然后单击“添加”，再单击“现有项”。</p>
+</li>
+<li>
+<p>从“ProductsServer”控制台项目导航到 <strong>ProductsContract.cs</strong> 文件。单击以突出显示 ProductsContract.cs。单击“添加”旁边的向下箭头，然后单击“添加为链接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-12.jpg"/></p>
+</li>
+<li>
+<p>现在，在 Visual Studio 编辑器中打开 <strong>HomeController.cs</strong> 文件，并将命名空间定义替换为以下代码。确保将 <em>yourServiceNamespace</em> 替换为您的服务命名空间的名称，并将 <em>yourIssuerSecret</em> 替换为您的密钥。这将允许客户端调用本地服务，并返回调用的结果。</p>
+<pre class="prettyprint">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+
+namespace ProductsWeb.Controllers
+{
+    using System.Linq;
+    using System.ServiceModel;
+    using System.Web.Mvc;
+    using Microsoft.ServiceBus;
+    using Models;
+    using ProductsServer;
+
+
+public class HomeController : Controller
+{
+    // Declare the channel factory
+    static ChannelFactory&lt;IProductsChannel&gt; channelFactory;
+
+
+static HomeController()
+{
+    // Create shared secret token credentials for authentication 
+    channelFactory = new ChannelFactory&lt;IProductsChannel&gt;(new NetTcpRelayBinding(), 
+        "sb://yourServiceNamespace.servicebus.chinacloudapi.cn/products");
+    channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior { 
+        TokenProvider = TokenProvider.CreateSharedSecretTokenProvider(
+            "owner", "yourIssuerSecret") });
+}
+
+
+public ActionResult Index()
+{
+    using (IProductsChannel channel = channelFactory.CreateChannel())
+    {
+        // Return a view of the products inventory
+        return this.View(from prod in channel.GetProducts()
+                         select
+                             new Product { Id = prod.Id, Name = prod.Name, 
+                                 Quantity = prod.Quantity });
+    }
+}
+
+
+}
+
+
+}</pre>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“ProductsPortal”解决方案，单击“添加”，然后单击“现有项目”。</p>
+</li>
+<li>
+<p>导航到 <strong>ProductsServer</strong> 项目，然后双击 <strong>ProductsServer.csproj</strong> 解决方案文件以添加它。</p>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“ProductsPortal”解决方案并单击“属性”。</p>
+</li>
+<li>
+<p>在左侧，单击“启动项目”。在右侧单击<strong>“多个启动项目”</strong>。确保按该顺序显示<strong>“ProductsServer”</strong>、<strong>“ProductsPortal.Azure”</strong>和<strong>“ProductsPortal”</strong>，且将<strong>“启动”</strong>设置为<strong>“ProductsServer”</strong>和<strong>“ProductsPortal.Azure”</strong>的操作，将<strong>“无”</strong>设置为<strong>“ProductsPortal”</strong>的操作。例如：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-13.png"/></p>
+</li>
+<li>
+<p>仍在“属性”对话框中，单击左侧的“ProjectDependencies”。</p>
+</li>
+<li>
+<p>在“项目依赖项”下拉列表中，单击“ProductsServer”。确保取消选中“ProductsPortal”并选中“ProductsPortal.Azure”。然后单击“确定”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-web-14.jpg"/></p>
+</li>
+</ol>
+<h2>运行应用程序</h2>
+<ol>
+<li>
+<p>从 Visual Studio 的“文件”菜单中，单击“全部保存”。</p>
+</li>
+<li>
+<p>按 <strong>F5</strong> 生成并运行应用程序。应先启动内部部署服务器（<strong>“ProductsServer”</strong>控制台应用程序），再在浏览器窗口中启动<strong>“ProductsWeb”</strong>应用程序，如下面的屏幕快照中所示。这次，您将看到产品库存列出了从产品服务内部部署系统中检索到的数据。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/app2.png"/></p>
+</li>
+</ol>
+<h2>将您的应用程序部署到 Windows Azure</h2>
+<ol>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“ProductsPortal”项目，然后单击“发布到 Windows Azure”。</p>
+</li>
+<li>
+<p>首次发布到 Windows Azure 时，您首先必须通过 Visual Studio 中提供的链接下载凭据。</p>
+<p>单击“登录以下载凭据”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-33.png"/></p>
+</li>
+<li>
+<p>使用您的 Live ID 登录：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-34.png"/></p>
+</li>
+<li>
+<p>将发布配置文件保存到硬盘中可检索该文件的位置：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-25.png"/></p>
+</li>
+<li>
+<p>在发布对话框中，单击“导入”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-36.png"/></p>
+</li>
+<li>
+<p>浏览并选择刚下载的文件，然后单击“下一步”。</p>
+</li>
+<li>
+<p>选取要发布到的 Windows Azure 订阅：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-37.png"/></p>
+</li>
+<li>
+<p>7.如果您的订阅尚未包含任何托管服务，则系统将要求您创建一个托管服务。托管服务在 Windows Azure 订阅中充当应用程序的容器。输入标识应用程序的名称，然后选择应为其优化应用程序的区域。（用户从此区域访问应用程序所花的加载时间会更少。）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-38.png"/></p>
+</li>
+<li>
+<p>选择要将应用程序发布到的托管服务。为其余设置保留以下所示的默认值。单击“下一步”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-39.png"/></p>
+</li>
+<li>
+<p>在最后一页上，单击“发布”以开始部署过程：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-40.png"/></p>
+<p>此过程花费的时间约为 5 到 7 分钟。由于这是您首次发布，因此 Windows Azure 会依次执行以下操作以便公开应用程序： 设置一台虚拟机 (VM)，执行安全强化，在 VM 上创建一个 Web 角色以承载应用程序，将代码部署到该 Web 角色以及配置负载平衡器和网络。</p>
+</li>
+<li>
+<p>当发布正在进行时，您可以在“Windows Azure 活动日志”窗口中监视活动，该窗口通常位于 Visual Studio 或 Visual Web Developer 的底部：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-41.png"/></p>
+</li>
+<li>
+<p>部署完成后，您可以通过单击监视窗口中的“网站 URL”链接来查看网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/app3.png"/></p>
+<p>您的网站依赖于本地服务器，因此您必须本地运行 <strong>ProductsServer</strong> 应用程序，网站才能正常运行。在云网站上执行请求时，您将看到请求传入内部部署控制台应用程序，如下面的屏幕快照中显示的“GetProducts called”输出所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hy-service1.png"/></p>
+</li>
+</ol>
+<h2>停止和删除应用程序</h2>
+<p>在部署应用程序后，您可能希望禁用它，以便能在 750 小时/月（31 天/月）的免费服务器时间内生成和部署其他应用程序。</p>
+<p>Windows Azure 将按使用的服务器小时数对 Web 角色实例计费。您的应用程序部署之后就会开始使用服务器时间，即使相关实例并未运行且处于停止状态也是如此。免费帐户包含 750 小时/月（31 天/月）的专用虚拟机服务器时间（用于承载这些 Web 角色实例）。</p>
+<p>以下步骤演示了如何停止和删除应用程序。</p>
+<ol>
+<li>
+<p>登录 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>，然后依次单击“托管服务”、“存储帐户和 CDN”及“托管服务”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-39.png"/></p>
+</li>
+<li>
+<p>单击“停止”以暂时挂起应用程序。只需单击“启动”即可重新启动应用程序。单击“删除”以从 Windows Azure 中完全删除应用程序，且无法还原它。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-hybrid-40.png"/></p>
+</li>
+</ol></li>
+</ol></div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>hybrid solution</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>hybrid solution</linkid><urlDisplayName>hybrid solution</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

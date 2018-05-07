@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18868" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="16" createDate="2013-07-11T10:53:43" updateDate="2014-08-18T11:10:10" nodeName="Hadoop and Data" urlName="hadoop-and-data" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18868" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>Hadoop on Windows Azure - 使用数据</h1>
+<p>本教程涉及多种存储和导入数据的方法，将在用基于 Apache™ Hadoop™ 的 Windows Azure 服务运行的 Hadoop 作业中使用这些数据。Apache Hadoop 是一个软件框架，它支持数据密集型分布式应用程序。虽然 Hadoop 旨在用自身的分布式文件系统 (HDFS) 存储此类应用程序的数据，但基于云的按需处理也可使用 Windows Azure 存储等其他形式的云存储。在此类方案中收集和导入数据是本教程的主题。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>在 MapReduce 作业中使用 Windows Azure 存储</li>
+<li>使用 FTPS 将数据文件导入到 HDFS</li>
+<li>用 Sqoop 导入 SQL Server 数据</li>
+</ul>
+<p>本教程由以下几部分组成：</p>
+<ol>
+<li><a href="#segment1">在 MapReduce 中使用 Windows Azure 存储</a>。</li>
+<li><a href="#segment2">使用 FTPS 将数据文件上载到 HDFS</a>。</li>
+<li><a href="#segment3">用 Sqoop 导入 SQL Server 数据</a>。</li>
+</ol>
+<p> </p>
+<h3>在 MapReduce 中使用 Windows Azure 存储</h3>
+<p>虽然 HDFS 自然而然是 Hadoop 作业的存储解决方案，但所需的数据也可存放在 Windows Azure 存储等规模可变的大型云存储系统中。因此，要求 Hadoop 在 Windows Azure 上运行时可直接从此类云存储读取数据就显得合情合理。</p>
+<p>在本教程中，您将使用标准的流式处理 MapReduce Hadoop 作业分析位于 Windows Azure 存储中的 IIS 日志。该方案演示一个 Windows Azure Web 角色，后者使用 Windows Azure 诊断基础结构生成 IIS 日志。一个简单的 Hadoop 作业直接从存储中读取日志，然后查找 5 个最常用的 URI（网页）。</p>
+<h3>生成 IIS 日志</h3>
+<p>若要生成 IIS 日志并将其放入存储，需要创建一个简单的 ASP.NET Web 角色，启用 Windows Azure 诊断，然后配置 DiagnosticInfrastructureLogs。运行该 Web 角色，然后浏览到网站中的其他页。1 分钟后，IIS 日志将保留到 Windows Azure 存储中。</p>
+<blockquote>
+<p><strong>注意：</strong>可在<a href="http://www.windowsazure.cn/zh-cn/develop/net/common-tasks/diagnostics/">此处</a>找到有关 Windows Azure 诊断的详细信息。</p>
+</blockquote>
+<p>通过右键单击“Visual Studio 2010”并选择“以管理员身份运行”，启动该应用程序。在 Visual Studio 中，选择“文件”-&gt;“新建项目”，然后从“已安装的模板”中的“Visual C#”节点内，选择“Cloud”（云）类别。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/windows-azure-project-template.png" alt="windows-azure-project-template"/></p>
+<p><em>Windows Azure 项目模板</em></p>
+<p>选择“Windows Azure 项目”模板。此模板启动一个向导，从中可选择用于项目中的角色类型。</p>
+<p>将新项目命名为 <strong>WebRoleWithIISLogs</strong>，然后单击“确定”。从“新 Windows Azure 项目”窗口中，选择“ASP.NET Web 角色”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/selectiing-a-webrole.png" alt="选择 Web 角色"/></p>
+<p><em>选择“ASP.NET Web 角色”模板</em></p>
+<p>Visual Studio 创建一个解决方案，其中含有两个项目。第一个项目名为 <strong>WebRole1</strong>，它是一个标准的 ASP.NET Web 应用程序项目，其中另行添加了少量资源。第二个项目是一个新的 Windows Azure 项目，它引用您的 ASP.NET 项目。它还包含若干配置文件，用于定义您的 Windows Azure 解决方案的模型。</p>
+<p>在“解决方案资源管理器”中，打开“WebRole1”项目中的“WebRole.cs”文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/selecting-webrolecs.png" alt="选择 WebRole.cs"/></p>
+<p><em>WebRoleWithIISLogs 解决方案</em></p>
+<p>将以下代码添加到 <strong>OnStart</strong> 方法：</p>
+<pre class="prettyprint">public override bool OnStart()     {         // Configure IIS Logging        DiagnosticMonitorConfiguration diagMonitorConfig = DiagnosticMonitor.GetDefaultInitialConfiguration();         diagMonitorConfig.DiagnosticInfrastructureLogs.ScheduledTransferLogLevelFilter = LogLevel.Information;        diagMonitorConfig.DiagnosticInfrastructureLogs.ScheduledTransferLogLevelFilter = LogLevel.Information;        diagMonitorConfig.DiagnosticInfrastructureLogs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1);         DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", diagMonitorConfig);        return base.OnStart();     }</pre>
+<p>在 <strong>WebRoleWithIISLogs</strong> 项目中，双击 <strong>WebRole1</strong> 节点，在“设置”选项卡下，将您的存储帐户的详细信息添加到一个诊断连接字符串中。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/adding-a-diagnostics-connection-string.png" alt="添加一个诊断连接字符串"/></p>
+<p>按 <strong>F5</strong> 以运行应用程序。打开该应用程序后，使用它浏览到网站中的其他页。</p>
+<h4>编写 MapReduce 流作业</h4>
+<p>Hadoop Streaming 是一个实用程序，它使您可通过创建任意语言的可执行文件或脚本，创建和运行 MapReduce 作业。映射器和化简器均从 STDIN 读取输入，然后将输出写入 STDOUT。有关 Hadoop Streaming 的详细信息，请参阅 <a href="http://hadoop.apache.org/common/docs/current/streaming.html">Hadoop Streaming 文档</a>。</p>
+<p>以管理员身份打开 Microsoft Visual Studio 2010。</p>
+<p>单击“新建项目...”，然后选择“控制台应用程序”。将其命名为“Map”，然后单击“确定”。</p>
+<p>将以下代码添加到 <strong>main.cs</strong>：</p>
+<pre class="prettyprint">static void Main(string[] args)     {         if (args.Length &gt; 0)         {              Console.SetIn(new StreamReader(args[0]));         }          var counters = new Dictionary&lt;string, int&gt;();          string line;         while ((line = Console.ReadLine()) != null)         {             var words = line.Split(' ');             foreach (var uri in words)             {                 if ((uri.StartsWith(@"http://")) || (uri.EndsWith(".aspx")) || (uri.EndsWith(".html")))                 {                     if (!counters.ContainsKey(uri))                         counters.Add(uri, 1);                     else                         counters[uri]++;                      Console.WriteLine(string.Format("{0}\t{1}", uri, counters[uri]));                 }             }         }     }</pre>
+<p>在“解决方案资源管理器”中右键单击该解决方案，然后选择“添加”和“新建项目”。选择“控制台应用程序”，将其命名为“Reduce”，然后单击“确定”。</p>
+<p>向此新项目的 <strong>main.cs</strong> 添加以下代码：</p>
+<pre class="prettyprint">private static void Main(string[] args)     {         if (args.Length &gt; 0)         {             Console.SetIn(new StreamReader(args[0]));         }          // counter for each uri         var UriCounters = new Dictionary&lt;string, int&gt;();         // list of the uri ordered by the counter value         var topUriList = new SortedList&lt;int, string&gt;();          string line;         while ((line = Console.ReadLine()) != null)         {             // parse the uri and the number of request             var values = line.Split('\t');             string uri = values[0];             int numOfRequests = int.Parse(values[1]);              // save the max number of requests for each uri in UriCounters             if (!UriCounters.ContainsKey(uri))                 UriCounters.Add(uri, numOfRequests);             else if (UriCounters[uri] &lt; numOfRequests)                 UriCounters[uri] = numOfRequests;         }          //Create the ordered list         foreach (var keyValue in UriCounters)             if (!topUriList.ContainsKey(keyValue.Value))                 topUriList.Add(keyValue.Value, keyValue.Key);             else                 topUriList[keyValue.Value] = string.Format("{0} , {1}", topUriList[keyValue.Value], keyValue.Key);          // make the list descending         var lst = topUriList.Reverse().ToArray();          // print the results         for (int i = 0; (i &lt; 5) &amp;&amp; (i &lt; lst.Count()); i++)             Console.WriteLine(string.Format("{0} {1}", lst[i].Key, lst[i].Value));          }</pre>
+<p>按 <strong>F6</strong> 以生成这两个项目。</p>
+<h4>在群集中设置 ASV</h4>
+<p>提供群集的存储详细信息可直接从 MapReduce 作业中访问存储内容。前缀 <strong>asv://</strong> 用于创建 Windows Azure 存储中特定位置的 URI（如 <strong>asv://container/blobname</strong>）。</p>
+<p>打开 <a href="https://www.hadooponazure.com">https://www.hadooponazure.com</a> 上的 Hadoop 群集门户。</p>
+<p>单击“管理群集”图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/the-manage-cluster-icon.png" alt="“管理群集”图标"/></p>
+<p>单击“设置 ASV”。</p>
+<p>输入存储帐户的详细信息。</p>
+<p>为了简化本教程，请在存储帐户中创建两个新容器并将其称为 <strong>fivetopuri</strong> 和 <strong>fivetopuriresults</strong>。</p>
+<blockquote>
+<p><strong>注意：</strong>如果安装 Azure Storage Explorer 或 CloudBerry Explorer for Azure Blob Storage 等 Blob 存储浏览应用程序，则在 Blob 中上载、下载和浏览文件即变成一项轻松的任务。以下步骤用于 <a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a> 应用程序；可对 CloudBerry Explorer 使用相同的方法，但步骤可能有所不同。</p>
+</blockquote>
+<p>依次单击“开始”|“所有程序”|“Neudesic”|“Azure Storage Explorer”以打开 Azure Storage Explorer。在存储帐户工具栏中，单击“添加帐户”按钮。随后将显示“添加存储帐户”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/add-storage-account.png" alt="添加存储帐户"/></p>
+<p><em>“添加存储帐户”对话框</em></p>
+<p>输入帐户的存储帐户名称和存储访问密钥（主访问密钥）。单击“添加存储帐户”按钮以添加该存储帐户，如果出现信息消息，则批准此类消息。</p>
+<p>通过单击“容器”工具栏中的“新建”按钮，创建新的 Blob 容器。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/container-toolbar.png" alt="容器工具栏"/><em>“容器”工具栏</em></p>
+<p>从容器 <strong>iis-logfiles</strong> 下载在前一任务中创建的 IIS 日志，将该文件命名为 <strong>iislog.txt</strong>，然后将其上载到容器 <strong>fivetopuri</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/download-and-upload-blobs.png" alt="下载和上载 Blob"/></p>
+<p><em>下载和上载 Blob</em></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/set-up-asv.png" alt="设置 ASV"/></p>
+<h4>将 MapReduce 可执行文件复制到 HDFS</h4>
+<p>打开 <a href="https://www.hadooponazure.com">https://www.hadooponazure.com</a> 上的 Hadoop 群集门户。</p>
+<p>打开 FLARGENESH 的 JavaScript 交互式控制台。</p>
+<p>上载文件 <strong>map.exe</strong>，具体方法是输入以下命令：</p>
+<pre class="prettyprint">JavaScript fs.put()</pre>
+<p>然后浏览到位于 FLARGENESH 中的 map.exe 可执行文件。将其上载到 <strong>/example/apps/map.exe</strong>。</p>
+<p>对 <strong>reduce.exe</strong> 重复上一步骤，将其上载到 <strong>/example/apps/reduce.exe</strong>。</p>
+<h4>创建和执行新 Hadoop 作业</h4>
+<p>打开 <a href="https://www.hadooponazure.com">https://www.hadooponazure.com</a> 上的 Hadoop 群集门户。</p>
+<p>单击“创建作业”图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/the-create-job-icon.png" alt="“创建作业”图标"/></p>
+<p>输入以下详细信息：</p>
+<p>名称:<strong>IIS Logs</strong></p>
+<p>Jar 文件：浏览到 FLARGENESH 中提供的 <strong>hadoop-streaming.jar</strong>。</p>
+<p><strong>参数 0</strong>：<em>-files "hdfs:///example/apps/map.exe,hdfs:///example/apps/reduce.exe"</em></p>
+<p><strong>参数 1</strong>：<em>-input "asv://fivetopuri/iislog.txt" -output "asv://fivetopuriresults/results.txt"</em></p>
+<p><strong>参数 2</strong>：<em>-mapper "map.exe" -reducer "reduce.exe"</em></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/filled-out-form.png" alt="填好的表单"/></p>
+<p>单击“执行作业”。</p>
+<p>该作业完成后，打开容器 <strong>fivetopuriresults</strong> 中的 Blob <strong>results.txt/part-00000</strong> 并查看结果。例如：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/results.png" alt="结果"/></p>
+<p> </p>
+<h3>使用 FTPS 将数据文件上载到 HDFS</h3>
+<p>MapReduce 作业使用位于 HDFS 中的输入数据。有多种方式可将数据上载到分布式文件系统，其中一种方法为使用 FTPS 协议。</p>
+<p>可在 <a href="http://social.technet.microsoft.com/wiki/contents/articles/6985.how-to-upload-data-and-use-the-wordcount-sample-with-hadoop-services-for-windows-azure-video.aspx">http://social.technet.microsoft.com/wiki/contents/articles/6985.how-to-upload-data-and-use-the-wordcount-sample-with-hadoop-services-for-windows-azure-video.aspx</a> 找到有关 FTPS 上载的详细信息。</p>
+<p>若要将数据文件上载到 HDFS，需要下载 FTPS 代理。本教程将使用 curl.exe（可在 <a href="http://curl.haxx.se/latest.cgi?curl=win64-ssl-sspi">http://curl.haxx.se/latest.cgi?curl=win64-ssl-sspi</a> 找到它）。</p>
+<p>若要上载文件，请编写并执行一个 PowerShell 脚本。在群集门户中提供的每个示例中均可找到该脚本模板。</p>
+<p>在运行该脚本之前，需要打开 FTPS 端口。为此，请单击 <a href="https://www.hadooponazure.com">https://www.hadooponazure.com</a> 上的“打开端口”图标，然后将 FTPS 端口切换到打开。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/configure-ports.png" alt="配置端口"/></p>
+<p>现在运行该脚本。在 PowerShell 中输入以下代码：</p>
+<pre class="prettyprint">PowerShell $serverName = "XXSERVERNAMEXX.chinacloudapp.cn"; $userName = "XXUSERNAMEXX";  $password = "XXPASSWORDXX";  $fileToUpload = "iislog.txt"; $destination = "/example/data/iislog.txt";  $Md5Hasher = [System.Security.Cryptography.MD5]::Create(); $hashBytes = $Md5Hasher.ComputeHash($([Char[]]$password))  foreach ($byte in $hashBytes) { $passwordHash += “{0:x2}” -f $byte }  $curlCmd = "PATH_TO_CURL\curl-7.23.1-win64-ssl-sspi\curl -k --ftp-create-dirs -T $fileToUpload -u $userName"  $curlCmd += ":$passwordHash ftps://$serverName" + ":2226$destination"  invoke-expression $curlCmd</pre>
+<blockquote>
+<p><strong>注意：</strong>将 XXSERVERNAMEXX 替换为群集名称（可在群集主页的顶部找到该名称）。对于 XXUSERNAMEXX 和 XXPASSWORDXX，输入在创建群集时提供的用户名和密码。二者应为用于激活群集的远程桌面控制台的相同用户名和密码。</p>
+<p><strong>注意：</strong>将 PATH<em>TO</em>CURL 替换为 curl 客户端的路径，并确保将 $fileToUpload 设置为要上载的数据文件的正确路径。</p>
+</blockquote>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/uploading-the-file.png" alt="上载文件"/></p>
+<p>若要确认上载了文件，请打开 JavaScript 交互式控制台，然后执行以下命令：</p>
+<pre class="prettyprint">JavaScript #ls /example/data/</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/verification.png" alt="验证"/></p>
+<p> </p>
+<h3>用 Sqoop 导入 SQL Server 数据</h3>
+<p>虽然自然而然地选用 Hadoop 处理日志和文件等非结构化和半结构化的数据，但可能还需要处理存储在关系数据库中的结构化数据。Sqoop (SQL-to-Hadoop) 是一个工具，通过它可将结构化数据导入 Hadoop 以及在 MapReduce 和 HIVE 作业中使用这些数据。</p>
+<p>下载 <a href="http://msftdbprodsamples.codeplex.com/releases/view/37304">Adventure Works for SQL Database</a> 数据库。按“ReadMe.htm”文件中的安装说明设置 AdventureWorks2012 的 SQL Database 版本。打开 SQL Server Management Studio，然后连接到 SQL Database 服务器。打开“AdventureWorks2012”数据库，然后单击“新建查询”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/creating-a-new-query-in-sql-server-managment.png" alt="在 SQL Server Management Studio 中新建查询"/></p>
+<p>由于 Sqoop 当前向表名称添加方括号，因此请添加一个同义词以支持 SQL Server 表的两部分命名方式，然后运行以下查询：</p>
+<pre class="prettyprint">CREATE SYNONYM [Sales.SalesOrderDetail] FOR Sales.SalesOrderDetail</pre>
+<p>运行以下查询，然后检查其结果。</p>
+<pre class="prettyprint">select top 200 * from [Sales.SalesOrderDetail]</pre>
+<p>在 Hadoop 命令提示符下，将目录更改为“c:\Apps\dist\sqoop\bin”，然后运行以下命令：</p>
+<pre class="prettyprint">sqoop import --connect   "jdbc:sqlserver://[serverName].devdatabase.chinacloudapi.cn;username=[userName]@[serverName];password=[password];database=AdventureWorks2012" --table Sales.SalesOrderDetail --target-dir /data/lineitemData -m 1</pre>
+<p>转到 Hadoop on Windows Azure 门户，然后打开交互式控制台。运行 #lsr 命令以列出 HDFS 上的文件和目录。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/result-of-lsr.png" alt="#lsr 的结果"/></p>
+<p>运行 #tail 命令以查看 <strong>part-m-0000</strong> 文件中的所选结果。</p>
+<pre class="prettyprint">#tail /user/RAdmin/data/SalesOrderDetail/part-m-00000</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tail.png" alt="#tail"/></p>
+<h2>摘要</h2>
+<p>在本教程中，您已了解各种数据源可怎样用于 Hadoop on Windows Azure 中的 MapReduce 作业。Hadoop 作业的数据可在云存储上，也可在 HDFS 上。您还已了解可怎样使用 Sqoop 将关系数据导入 HDFS，然后在 Hadoop 作业中使用这些数据。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Hadoop 和数据 (.NET) - Windows Azure 教程</pageTitle><metaKeywords>Azure Hadoop, Azure Apache, 存储数据 Hadoop, 导入数据 Hadoop, Azure Hadoop 作业</metaKeywords><metaDescription><![CDATA[本教程向您传授多种存储和导入数据的方法，将在用基于 Apache Hadoop 的 Windows Azure 服务运行的 Hadoop 作业中使用这些数据。]]></metaDescription><linkid>develop-dotnet-hadoop-and-data</linkid><urlDisplayName>Hadoop 和数据</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

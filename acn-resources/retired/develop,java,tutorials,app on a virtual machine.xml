@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18584" parentID="18582" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="2" createDate="2013-06-04T10:07:27" updateDate="2014-08-18T11:12:54" nodeName="App on a Virtual Machine" urlName="app-on-a-virtual-machine" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18582,18584" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在虚拟机上通过 Java 运行需要进行大量计算的任务</h1>
+<p>凭借 Windows Azure，您可以使用虚拟机来处理需要进行大量计算的任务；例如，虚拟机可以处理任务并将结果传送给客户端计算机或移动应用程序。完成本指南后，您将了解如何创建运行可由其他 Java 应用程序监视的、需要进行大量计算的 Java 应用程序的虚拟机。</p>
+<p>本教程假定您知道如何创建 Java 控制台应用程序、将库导入 Java 应用程序以及生成 Java 存档 (JAR)。而不了解 Windows Azure。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何创建虚拟机。</li>
+<li>如何远程登录到虚拟机。</li>
+<li>如何在虚拟机上安装 JRE 或 JDK。</li>
+<li>如何创建 Service Bus 命名空间。</li>
+<li>如何创建 Java 应用程序来执行需要进行大量计算的任务。</li>
+<li>如何创建 Java 应用程序来监视需要进行大量计算的任务的进度。</li>
+<li>如何运行 Java 应用程序。</li>
+<li>如何停止 Java 应用程序。</li>
+</ul>
+<p>本教程会将旅行商问题用于需要进行大量计算的任务。以下是运行需要进行大量计算的任务的 Java 应用程序的示例：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/wa_javatspsolver.png" alt="旅行商问题解算器"/></p>
+<p>以下是监视需要进行大量计算的任务的 Java 应用程序的示例：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/wa_javatspclient.png" alt="旅行商问题客户端"/></p>
+<h2>创建虚拟机</h2>
+<ol>
+<li>登录到 <a href="https://manage.windowsazure.cn">Windows Azure管理门户</a>。</li>
+<li>单击“新建”。</li>
+<li>单击“虚拟机”。</li>
+<li>单击“快速创建”。</li>
+<li>在“创建虚拟机”屏幕中，为“DNS 名称”输入一个值。</li>
+<li>从“映像”下拉列表中，选择一个映像，如“Windows Server 2008 R2 SP1”。</li>
+<li>在“新密码”字段中输入密码，然后在“确认”字段中重新输入一次。记住此密码，您在远程登录虚拟机时将用到它。</li>
+<li>从“位置”下拉列表中，选择虚拟机的数据中心位置；例如，“China North”。</li>
+<li>单击“创建虚拟机”。将创建虚拟机。您可以在管理门户的“虚拟机”部分对状态进行监视。</li>
+</ol>
+<h2>远程登录到虚拟机</h2>
+<ol>
+<li>登录<a href="https://manage.windowsazure.cn">管理门户</a>。</li>
+<li>单击“虚拟机”。</li>
+<li>单击您要登录的虚拟机名称。</li>
+<li>单击“连接”。</li>
+<li>根据需要响应提示以连接到虚拟机。提示需要密码时，请使用您创建虚拟机时提供的密码。</li>
+</ol>
+<h2>在虚拟机上安装 JRE 或 JDK</h2>
+<p>若要在虚拟机上运行 Java 应用程序，您需要安装 Java Runtime Environment (JRE)。在本教程中，我们会将 Java 开发人员工具包 (JDK) 安装到您的虚拟机上并使用 JDK 的 JRE。不过，如果您愿意，也可以只安装 JRE。</p>
+<p>在本教程中，将从 Oracle 的网站安装 JDK。</p>
+<ol>
+<li>登录虚拟机。</li>
+<li>在浏览器中，打开 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>。</li>
+<li>单击要下载的 JDK 所对应的“下载”按钮。在本教程中，使用的是 Java SE 6 Update 32 JDK 所对应的“下载”按钮。</li>
+<li>接受许可协议。</li>
+<li>单击“Windows x64 (64 位)”对应的下载可执行文件。</li>
+<li>按照提示操作并根据需要进行响应，将 JDK 安装到虚拟机。</li>
+</ol>
+<p>请注意，Service Bus 功能需要将 GTE CyberTrust 全局根证书作为您的 JRE 的 <strong>cacerts</strong> 存储的一部分安装。此证书将自动包含在本教程使用的 JRE 中。如果您的 JRE <strong>cacerts</strong> 存储中没有此证书，则可从 <a href="https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp">https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp</a> 下载此证书，将它另存为 <strong>.cer</strong> 文件并通过 <strong>keytool</strong> 将其添加到 <strong>cacerts</strong> 存储。有关将证书添加到 <strong>cacerts</strong> 存储的更加详细的说明，请参阅<a href="/zh-cn/develop/java/common-tasks/add-a-certificate-to-ca-store">将证书添加到 Java CA 证书存储</a>。</p>
+<h2>如何创建 Service Bus 命名空间</h2>
+<p>若要开始在 Windows Azure 中使用 Service Bus 队列，必须先创建一个服务命名空间。服务命名空间提供了用于对应用程序中的 Service Bus 资源进行寻址的范围容器。</p>
+<p>创建服务命名空间：</p>
+<ol>
+<li>登录到<a href="https://manage.windowsazure.cn">管理门户</a></li>
+<li>在管理门户的左下方导航窗格中，单击“Service Bus”。</li>
+<li>在管理门户左上方的窗格中，单击“创建新命名空间”按钮。<br /><br /></li>
+<li>在“添加新命名空间”对话框中，输入一个命名空间，系统将检查以确保该命名空间是唯一的。</li>
+<li>
+<p>确保该命名空间名称可用之后，选择应该承载您的命名空间的<span>区域</span>，然后单击“创建命名空间”按钮。</p>
+<p>您创建的命名空间随后将显示在管理门户中，然后要花费一段时间来激活。请等到状态变为“活动”，然后再继续下一步。</p>
+</li>
+</ol>
+<h2>获得命名空间的默认管理凭据</h2>
+<p>若要在新命名空间上执行管理操作（如创建队列），则需要获取该命名空间的管理凭据。</p>
+<ol>
+<li>在左侧导航窗格中，单击“Service Bus”节点以显示可用命名空间的列表：<br /><br /></li>
+<li>从显示的列表中选择刚刚创建的命名空间：<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/svcbusqueues_05_namespacelist.jpg" alt="“命名空间列表”屏幕快照"/></li>
+<li>单击“<span>连接信息</span>”列出新命名空间的属性：<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/svcbusqueues_06_propertiespane.jpg" alt="“属性窗格”屏幕快照"/></li>
+<li>将隐藏<strong>默认密钥</strong>。单击“查看”按钮以显示安全凭据：<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/svcbusqueues_07_defaultkey.jpg" alt="“默认密钥”屏幕快照"/></li>
+<li>记下<strong>默认颁发者</strong>和<strong>默认密钥</strong>，因为您将在下面使用此信息来对命名空间执行操作。</li>
+</ol>
+<h2>如何创建 Java 应用程序来执行需要进行大量计算的任务</h2>
+<ol>
+<li>在您的开发计算机（不必是您创建的虚拟机）上，下载 <a href="/zh-cn/develop/java/java-home/download-for-windows/">Windows Azure SDK for Java</a>。</li>
+<li>使用本节末尾的示例代码创建 Java 控制台应用程序。在本教程中，我们将使用 <strong>TSPSolver.java</strong> 作为 Java 文件名。将 <strong>your_service_bus_namespace</strong>、<strong>your_service_bus_owner</strong> 和 <strong>your_service_bus_key</strong> 占位符修改为分别使用您的 Service Bus 的“命名空间”、“默认颁发者”和“默认密钥”值。</li>
+<li>编码后，将应用程序导出至可运行的 Java 存档 (JAR)，并将所需的库打包到生成的 JAR 中。在本教程中，我们将使用 <strong>TSPSolver.jar</strong> 作为生成的 JAR 名称。</li>
+</ol>
+<p> </p>
+<pre class="prettyprint">// TSPSolver.java
+
+import com.microsoft.windowsazure.services.core.Configuration;
+import com.microsoft.windowsazure.services.core.ServiceException;
+import com.microsoft.windowsazure.services.serviceBus.*;
+import com.microsoft.windowsazure.services.serviceBus.models.*;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class TSPSolver {
+
+    //  Value specifying how often to provide an update to the console.
+    private static long loopCheck = 100000000;  
+
+    private static long nTimes = 0, nLoops=0;
+
+    private static double[][] distances;
+    private static String[] cityNames;
+    private static int[] bestOrder;
+    private static double minDistance;
+    private static ServiceBusContract service;
+
+    private static void buildDistances(String fileLocation, int numCities) throws Exception{
+        try{
+            BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
+            double[][] cityLocs = new double[numCities][2];
+            for (int i = 0; i&lt;numCities; i++){
+                String[] line = file.readLine().split(", ");
+                cityNames[i] = line[0];
+                cityLocs[i][0] = Double.parseDouble(line[1]);
+                cityLocs[i][1] = Double.parseDouble(line[2]);               
+            }
+            for (int i = 0; i&lt;numCities; i++){
+                for (int j = i; j&lt;numCities; j++){
+                    distances[i][j] = Math.hypot(Math.abs(cityLocs[i][0] - cityLocs[j][0]), Math.abs(cityLocs[i][1] - cityLocs[j][1]));
+                    distances[j][i] = distances[i][j];
+                }
+            }
+        } catch (Exception e){
+            throw e;
+        }
+    }
+
+    private static void permutation(List&lt;Integer&gt; startCities, double distSoFar, List&lt;Integer&gt; restCities) throws Exception {
+
+        try
+        {
+            nTimes++;
+            if (nTimes == loopCheck)
+            {
+                nLoops++;
+                nTimes = 0;
+                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                Date date = new Date();
+                System.out.print("Current time is " + dateFormat.format(date) + ". ");
+                System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
+            }
+
+            if ((restCities.size() == 1) &amp;&amp; ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] &lt; minDistance))){
+                startCities.add(restCities.get(0));
+                newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
+                startCities.remove(startCities.size()-1);
+            }
+            else{
+                for (int i=0; i&lt;restCities.size(); i++){
+                    startCities.add(restCities.get(0));
+                    restCities.remove(0);
+                    permutation(startCities, distSoFar + distances[startCities.get(startCities.size()-1)][startCities.get(startCities.size()-2)],restCities);
+                    restCities.add(startCities.get(startCities.size()-1));
+                    startCities.remove(startCities.size()-1);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    private static void newBestDistance(List&lt;Integer&gt; cities, double distance) throws ServiceException, Exception {
+        try 
+        {
+            minDistance = distance;
+            String cityList = "Shortest distance is "+minDistance+", with route: ";
+            for (int i = 0; i&lt;bestOrder.length; i++){
+                bestOrder[i] = cities.get(i);
+                cityList += cityNames[bestOrder[i]];
+                if (i != bestOrder.length -1)
+                    cityList += ", ";
+            }
+            System.out.println(cityList);
+            service.sendQueueMessage("TSPQueue", new BrokeredMessage(cityList));
+        } 
+        catch (ServiceException se) 
+        {
+            throw se;
+        }
+        catch (Exception e) 
+        {
+            throw e;
+        }
+    }
+
+    public static void main(String args[]){
+
+        try {
+
+            Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
+                    "your_service_bus_namespace", "your_service_bus_owner",
+                    "your_service_bus_key",
+                    ".servicebus.chinacloudapi.cn",
+                    "-sb.accesscontrol.chinacloudapi.cn/WRAPv0.9");
+
+            service = ServiceBusService.create(config);
+
+            int numCities = 10;  // Use as the default, if no value is specified at command line. 
+            if (args.length != 0) 
+            {
+                if (args[0].toLowerCase().compareTo("createqueue")==0)
+                {
+                    // No processing to occur other than creating the queue.
+                    QueueInfo queueInfo = new QueueInfo("TSPQueue");
+
+                    service.createQueue(queueInfo);
+
+                    System.out.println("Queue named TSPQueue was created.");
+
+                    System.exit(0);
+                }
+
+                if (args[0].toLowerCase().compareTo("deletequeue")==0)
+                {
+                    // No processing to occur other than deleting the queue.
+                    service.deleteQueue("TSPQueue");
+
+                    System.out.println("Queue named TSPQueue was deleted.");
+
+                    System.exit(0);
+                }
+
+                // Neither creating or deleting a queue.
+                // Assume the value passed in is the number of cities to solve.
+                numCities = Integer.valueOf(args[0]);  
+            }
+
+            System.out.println("Running for " + numCities + " cities.");
+
+            List&lt;Integer&gt; startCities = new ArrayList&lt;Integer&gt;();
+            List&lt;Integer&gt; restCities = new ArrayList&lt;Integer&gt;();
+            startCities.add(0);
+            for(int i = 1; i&lt;numCities; i++)
+                restCities.add(i);
+            distances = new double[numCities][numCities];
+            cityNames = new String[numCities];
+            buildDistances("c:\\TSP\\cities.txt", numCities);
+            minDistance = -1;
+            bestOrder = new int[numCities];
+            permutation(startCities, 0, restCities);
+            System.out.println("Final solution found!");
+            service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
+        } 
+        catch (ServiceException se) 
+        {
+            System.out.println(se.getMessage());
+            se.printStackTrace();
+            System.exit(-1);
+        }        
+        catch (Exception e) 
+        {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            System.exit(-1);
+        }
+    }
+
+}</pre>
+<h2>如何创建 Java 应用程序来监视需要进行大量计算的任务的进度</h2>
+<ol>
+<li>在开发计算机上，使用本节末尾的示例代码创建 Java 控制台应用程序。在本教程中，我们将使用 <strong>TSPClient.java</strong> 作为 Java 文件名。如上所述，将 <strong>your_service_bus_namespace</strong>、<strong>your_service_bus_owner</strong> 和 <strong>your_service_bus_key</strong> 占位符修改为分别使用您的 Service Bus 的“命名空间”、“默认颁发者”和“默认密钥”值。</li>
+<li>将应用程序导出至可运行的 JAR，并将所需的库打包到生成的 JAR 中。在本教程中，我们将使用 <strong>TSPClient.jar</strong> 作为生成的 JAR 名称。</li>
+</ol>
+<p> </p>
+<pre class="prettyprint">// TSPClient.java
+
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import com.microsoft.windowsazure.services.serviceBus.*;
+import com.microsoft.windowsazure.services.serviceBus.models.*;
+import com.microsoft.windowsazure.services.core.*;
+
+public class TSPClient 
+{
+
+    public static void main(String[] args) 
+    {
+            try
+            {
+
+                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                Date date = new Date();
+                System.out.println("Starting at " + dateFormat.format(date) + ".");
+
+                String namespace = "your_service_bus_namespace";
+                String issuer = "your_service_bus_owner";
+                String key = "your_service_bus_key";
+
+                Configuration config;
+                config = ServiceBusConfiguration.configureWithWrapAuthentication(
+                        namespace, issuer, key,
+                        ".servicebus.chinacloudapi.cn",
+                        "-sb.accesscontrol.chinacloudapi.cn/WRAPv0.9");
+
+                ServiceBusContract service = ServiceBusService.create(config);
+
+                BrokeredMessage message;
+
+                int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
+                if (args.length != 0) 
+                {
+                    waitMinutes = Integer.valueOf(args[0]);  
+                }
+
+                String waitString;
+
+                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
+
+                // This queue must have previously been created.
+                service.getQueue("TSPQueue");
+
+                int numRead;
+
+                String s = null;
+
+                while (true)
+                {
+
+                    ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
+                    message = resultQM.getValue();
+
+                    if (null != message &amp;&amp; null != message.getMessageId())
+                    {                        
+
+                        // Display the queue message.
+                        byte[] b = new byte[200];
+
+                        System.out.print("From queue: ");
+
+                        s = null;
+                        numRead = message.getBody().read(b);
+                        while (-1 != numRead)
+                        {
+                            s = new String(b);
+                            s = s.trim();
+                            System.out.print(s);
+                            numRead = message.getBody().read(b);
+                        }
+                        System.out.println();
+                        if (s.compareTo("Complete") == 0)
+                        {
+                            // No more processing to occur.
+                            date = new Date();
+                            System.out.println("Finished at " + dateFormat.format(date) + ".");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        // The queue is empty.
+                        System.out.println("Queue is empty. Sleeping for another " + waitString);
+                        Thread.sleep(60000 * waitMinutes);
+                    }
+                } 
+
+        }
+        catch (ServiceException se)
+        {
+            System.out.println(se.getMessage());
+            se.printStackTrace();
+            System.exit(-1);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
+    }
+
+}</pre>
+<h2>如何运行 Java 应用程序</h2>
+<p>运行需要进行大量计算的应用程序，首先创建队列，然后解决旅行商问题，这样会将当前最佳路线添加到 Service Bus 队列。需要进行大量计算的应用程序正在运行时（或运行后），运行客户端可显示来自 Service Bus 队列的结果。</p>
+<h3>如何运行需要进行大量计算的应用程序</h3>
+<ol>
+<li>登录虚拟机。</li>
+<li>创建一个您要在其中运行应用程序的文件夹。例如，<strong>c:\TSP</strong>。</li>
+<li>将 <strong>TSPSolver.jar</strong> 复制到 <strong>c:\TSP</strong>，</li>
+<li>
+<p>创建一个具有以下内容的名为 <strong>c:\TSP\cities.txt</strong> 的文件：</p>
+<pre class="prettyprint">City_1, 1002.81, -1841.35
+City_2, -953.55, -229.6
+City_3, -1363.11, -1027.72
+City_4, -1884.47, -1616.16
+City_5, 1603.08, -1030.03
+City_6, -1555.58, 218.58
+City_7, 578.8, -12.87
+City_8, 1350.76, 77.79
+City_9, 293.36, -1820.01
+City_10, 1883.14, 1637.28
+City_11, -1271.41, -1670.5
+City_12, 1475.99, 225.35
+City_13, 1250.78, 379.98
+City_14, 1305.77, 569.75
+City_15, 230.77, 231.58
+City_16, -822.63, -544.68
+City_17, -817.54, -81.92
+City_18, 303.99, -1823.43
+City_19, 239.95, 1007.91
+City_20, -1302.92, 150.39
+City_21, -116.11, 1933.01
+City_22, 382.64, 835.09
+City_23, -580.28, 1040.04
+City_24, 205.55, -264.23
+City_25, -238.81, -576.48
+City_26, -1722.9, -909.65
+City_27, 445.22, 1427.28
+City_28, 513.17, 1828.72
+City_29, 1750.68, -1668.1
+City_30, 1705.09, -309.35
+City_31, -167.34, 1003.76
+City_32, -1162.85, -1674.33
+City_33, 1490.32, 821.04
+City_34, 1208.32, 1523.3
+City_35, 18.04, 1857.11
+City_36, 1852.46, 1647.75
+City_37, -167.44, -336.39
+City_38, 115.4, 0.2
+City_39, -66.96, 917.73
+City_40, 915.96, 474.1
+City_41, 140.03, 725.22
+City_42, -1582.68, 1608.88
+City_43, -567.51, 1253.83
+City_44, 1956.36, 830.92
+City_45, -233.38, 909.93
+City_46, -1750.45, 1940.76
+City_47, 405.81, 421.84
+City_48, 363.68, 768.21
+City_49, -120.3, -463.13
+City_50, 588.51, 679.33</pre>
+</li>
+<li>
+<p>在命令提示符处，将目录更改为 c:\TSP。</p>
+</li>
+<li>确保 JRE 的 bin 文件夹位于 PATH 环境变量中。</li>
+<li>
+<p>在运行 TSP 解算器排列之前您需要先创建 Service Bus 队列。运行以下命令以创建 Service Bus 队列：</p>
+<pre class="prettyprint">java -jar TSPSolver.jar createqueue</pre>
+</li>
+<li>
+<p>在创建该队列后，您可以运行 TSP 解算器排列。例如，运行以下命令可对 8 个城市运行解算器。</p>
+<pre class="prettyprint">java -jar TSPSolver.jar 8</pre>
+<p>如果您没有指定数字，则它将对 10 个城市运行。在解算器找到当前最短的路线后，它会将这些路线添加到该队列中。</p>
+<div class="dev-callout">注意
+<p>您指定的数字越大，解算器运行的时间将越长。例如，对 14 个城市运行可能需要几分钟时间，而对 15 个城市运行可能需要几小时时间。增加到 16 个或更多个城市可能需要数天的运行时间（最终数周、数月和数年时间）。这是因为，随着城市数量的增加，解算器评估的排列数会迅速增加。</p>
+</div>
+</li>
+</ol>
+<h3>如何运行监视客户端应用程序</h3>
+<ol>
+<li>登录到您要在其中运行客户端应用程序的计算机。虽然不需要是运行 <strong>TSPSolver</strong> 应用程序的同一计算机，但也可以是同一计算机。</li>
+<li>创建一个您要在其中运行应用程序的文件夹。例如，<strong>c:\TSP</strong>。</li>
+<li>将 <strong>TSPClient.jar</strong> 复制到 <strong>c:\TSP</strong>，</li>
+<li>确保 JRE 的 bin 文件夹位于 PATH 环境变量中。</li>
+<li>在命令提示符处，将目录更改为 c:\TSP。</li>
+<li>
+<p>运行以下命令：</p>
+<pre class="prettyprint">java -jar TSPClient.jar</pre>
+<p>或者，也可以通过传入命令行参数来指定检查队列之间休眠的分钟数。用于检查队列的默认休眠期为 3 分钟，将在没有命令行参数传入 <strong>TSPClient</strong> 时使用该默认值。如果您要使用不同的休眠时间间隔值（如一分钟），请运行：</p>
+<pre class="prettyprint">java -jar TSPClient.jar 1</pre>
+<p>客户端会一直运行，直到它看到“完成”的队列消息为止。请注意，如果您多次运行解算器而没有运行客户端，则您可能需要多次运行客户端才能完全清空队列。或者，您可以删除该队列，然后重新创建一个。若要删除队列，请运行以下 <strong>TSPSolver</strong>（不是 <strong>TSPClient</strong>）命令：</p>
+<pre class="prettyprint">java -jar TSPSolver.jar deletequeue</pre>
+<p>解算器会一直运行，直到检测完所有路线为止。</p>
+</li>
+</ol>
+<h2>如何停止 Java 应用程序</h2>
+<p>对于解算器和客户端应用程序，如果您希望在正常完成之前结束，则可以按 <strong>Ctrl+C</strong> 退出。</p></p>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>VM 上需要进行大量计算的 Java 应用程序 - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-java-compute-load</linkid><metaKeywords>Azure 虚拟机 Java, Azure Java 应用程序, Azure Java 应用程序</metaKeywords><metaDescription><![CDATA[了解如何创建运行可由其他 Java 应用程序监视的、需要进行大量计算的 Java 应用程序的 Windows Azure 虚拟机。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>虚拟机上的 TSP</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

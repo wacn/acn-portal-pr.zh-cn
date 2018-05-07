@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18797" parentID="18795" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="2" createDate="2013-07-11T10:33:33" updateDate="2014-08-18T11:08:22" nodeName="Publishing with TFS" urlName="publishing-with-tfs" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18795,18797" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>使用 Team Foundation Service 实现 Windows Azure 持续交付</h1>
+<p>Microsoft Team Foundation Service 是 Microsoft 提供的常用 Team Foundation Server (TFS) 软件的云托管服务版本，该软件提供了可高度自定义的源代码和生成管理、敏捷开发和团队过程工作流、问题和工作项跟踪等功能。您可以将 Team Foundation Service 团队项目配置为自动生成并部署到 Windows Azure 网站或云服务。有关如何使用本地 Team Foundation Server 设置持续生成和部署系统的信息，请参阅<a href="/zh-cn/develop/net/common-tasks/continuous-delivery/">在 Windows Azure 中持续交付云应用程序</a>。</p>
+<p>本教程假定您已安装 Visual Studio 2012 和 Windows Azure SDK。如果您尚未安装 Visual Studio 2012，请从<a href="http://www.microsoft.com/visualstudio/chs/downloads">此处</a>进行下载。您可以使用 Visual Studio 2010，但必须已安装 SP1 且必须安装<a href="http://www.microsoft.com/zh-cn/download/details.aspx?Id=29082">兼容性 GDR</a>。从<a href="/zh-cn/develop/net">此处</a>安装 Windows Azure SDK。</p>
+<p>若要使用 Team Foundation Service 将云服务设置为自动生成并部署到 Windows Azure，请执行下列步骤：</p>
+<ul>
+<li>
+<p><a href="#step1">步骤 1:注册 TFS。</a></p>
+</li>
+<li>
+<p><a href="#step2">步骤 2:将项目签入到 TFS。</a></p>
+</li>
+<li>
+<p><a href="#step3">步骤 3:将项目连接到 Windows Azure。</a></p>
+</li>
+<li>
+<p><a href="#step4">步骤 4:做出更改并触发重新生成和重新部署。</a></p>
+</li>
+<li>
+<p><a href="#step5">步骤 5:重新部署以前的生成（可选）</a></p>
+</li>
+<li>
+<p><a href="#step6">步骤 6:更改生产部署（仅限云服务）</a></p>
+</li>
+</ul>
+<h2><a name="step1"></a>步骤 1：注册 TFS</h2>
+<ol>
+<li>
+<p>通过导航到 <a href="http://tfs.visualstudio.com">http://tfs.visualstudio.com</a> 来创建 TFS 帐户。单击“免费注册”链接。您将需要使用 Microsoft 帐户进行登录。登录后，创建一个 TFS 帐户 URL。您的帐户将采用以下格式：https://&lt;accountname&gt;.visualstudio.com。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs0.png"/></p>
+</li>
+<li>
+<p>选择“新建团队项目”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs1.png"/></p>
+</li>
+<li>
+<p>提供项目的名称和说明，然后单击“创建项目”按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs2.png"/></p>
+</li>
+<li>
+<p>完成项目创建后，单击“导航到项目”按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs3.png"/></p>
+</li>
+</ol>
+<h2><a name="step2"></a>步骤 2：将项目签入到 TFS</h2>
+<ol>
+<li>
+<p>单击“在 Visual Studio 中打开新实例”链接以自动启动连接到团队项目的 Visual Studio。如果显示了任何安全对话框，请选择“允许”。此步骤需要 Visual Studio 2012。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs4.png"/></p>
+</li>
+<li>
+<p>在 Visual Studio 中，打开要部署的解决方案或创建一个新的解决方案。您可以通过执行本演练中的步骤来部署网站或云服务（Windows Azure 应用程序）。若要创建新的解决方案，您可以创建新的 Windows Azure 云服务项目或新的 ASP.NET MVC4 项目。确保该项目面向 .NET Framework 4，然后添加 ASP.NET MVC 4 Web 角色和辅助角色。系统提示时，请选择“Internet 应用程序”。若要创建网站，请选择“ASP.NET MVC4 应用程序”项目模板。</p>
+</li>
+<li>
+<p>打开解决方案的快捷菜单，然后选择“将解决方案添加到源代码管理”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs5.png"/></p>
+</li>
+<li>
+<p>接受或更改默认值，然后选择“确定”按钮。一旦完成此过程，源代码管理图标就会显示在解决方案资源管理器中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs6.png"/></p>
+</li>
+<li>
+<p>打开解决方案的快捷菜单，然后选择“签入”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs7.png"/></p>
+</li>
+<li>
+<p>在团队资源管理器的“挂起的更改”区域中，为签入键入注释并选择“签入”按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs8.png"/><br />记下在签入时用于包含或排除特定更改的选项。如果已排除所需的更改，请选择“全部包含”链接。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs9.png"/></p>
+</li>
+</ol>
+<h2><a name="step3"></a>步骤 3：将项目连接到 Windows Azure</h2>
+<ol>
+<li>
+<p>此时您已拥有一个包含某些源代码的 TFS 团队项目，可以将该团队项目连接到 Windows Azure。在 <a href="http://manage.windowsazure.cn">Windows Azure 门户</a>中，选择云服务或网站，或通过选择左下角的 + 图标并依次选择“云服务”或“网站”和“快速创建”来创建新的云服务或网站。选择“设置 TFS 发布”链接。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs10.png"/></p>
+</li>
+<li>
+<p>在向导中，在文本框中键入 TFS 帐户的名称，然后单击“立即授权”链接。系统可能会要求您登录。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs11.png"/></p>
+</li>
+<li>
+<p>在 OAuth 弹出对话框中，选择“接受”以授予 Windows Azure 在 TFS 中配置团队项目的权限。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs12.png"/></p>
+</li>
+<li>
+<p>授权成功后，将显示一个包含一系列 TFS 团队项目的下拉列表。选择在之前的步骤中创建的团队项目的名称，然后选择向导的复选标记按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs13.png"/></p>
+</li>
+<li>
+<p>链接您的项目后，您将看到一些有关将更改签入到 TFS 团队项目中的说明。下次签入时，TFS 将生成项目并将其部署到 Windows Azure。通过单击“通过 Visual Studio 2012 签入”链接并单击<strong>启动 Visual Studio 2012</strong> 链接可立即尝试此操作。（或命令栏中的等效 <strong>Visual Studio</strong> 按钮）。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs14.png"/></p>
+</li>
+</ol>
+<h2><a name="step4"></a>步骤 4：触发重新生成和重新部署项目</h2>
+<ol>
+<li>
+<p>在 Visual Studio 的团队资源管理器中，单击“源代码管理资源管理器”链接。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs15.png"/></p>
+</li>
+<li>
+<p>导航到解决方案文件并将其打开。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs16.png"/></p>
+</li>
+<li>
+<p>在解决方案资源管理器中，打开文件并进行更改。例如，更改 MVC4 Web 角色中的 Views\Shared 文件夹下的文件 _Layout.cshtml。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs17.png"/></p>
+</li>
+<li>
+<p>编辑网站的徽标，并按 Ctrl+S 来保存文件。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs18.png"/></p>
+</li>
+<li>
+<p>在团队资源管理器中，选择“挂起的更改”链接。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs19.png"/></p>
+</li>
+<li>
+<p>键入注释并选择“签入”按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs20.png"/></p>
+</li>
+<li>
+<p>选择“主页”按钮可返回团队资源管理器主页。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs21.png"/></p>
+</li>
+<li>
+<p>选择“生成”链接可查看正在进行的生成。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs22.png"/><br />团队资源管理器将指示已为您的签入触发生成。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs23.png"/></p>
+</li>
+<li>
+<p>双击正在进行的生成的名称可在生成进行中查看详细日志。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs24.png"/></p>
+</li>
+<li>
+<p>虽然生成正在进行中，但可查看使用向导将 TFS 链接到 Windows Azure 时创建的生成定义。打开生成定义的快捷菜单，然后选择“编辑生成定义”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs25.png"/><br />在“触发器”选项卡中，您将看到生成定义已设置为默认情况下在每次签入时生成。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs26.png"/><br />在“进程”选项卡中，您会看到部署环境已设置为云服务或网站的名称。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs27.png"/><br />指定属性的值（如果这些值与默认值不同）。下表显示了属性的默认值：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>属性</td>
+<td>默认值</td>
+</tr>
+<tr>
+<td>允许升级</td>
+<td>是</td>
+</tr>
+<tr>
+<td>云服务环境</td>
+<td>过渡</td>
+</tr>
+<tr>
+<td>云服务名称</td>
+<td>连接到的服务的名称</td>
+</tr>
+<tr>
+<td>部署标签</td>
+<td>与服务名称相同</td>
+</tr>
+<tr>
+<td>服务配置</td>
+<td>ServiceConfiguration.Cloud.cscfg</td>
+</tr>
+<tr>
+<td>存储帐户名称</td>
+<td>空白，这意味着将尝试查找存储帐户。</td>
+</tr>
+<tr>
+<td>发布配置文件</td>
+<td>.azurePubxml 文件。如果已签入此文件，则可以在此处将其选定。</td>
+</tr>
+</tbody>
+</table>
+<p><br />如果存储帐户属性保留为空，则 Windows Azure 将搜索该属性。如果存在与云服务同名的存储帐户，则将使用该帐户。否则，Windows Azure 将使用其他存储帐户；或者如果没有存储帐户，则 Windows Azure 将创建一个存储帐户。</p>
+</li>
+<li>
+<p>此时，您的生成应已成功完成。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs28.png"/></p>
+</li>
+<li>
+<p>如果双击生成名称，则 Visual Studio 将显示“生成摘要”，其中包括来自关联的单元测试项目的任何测试结果。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs29.png"/></p>
+</li>
+<li>
+<p>在 <a href="http://manage.windowsazure.cn">Windows Azure 门户</a>中，可以在选定过渡环境后在“部署”选项卡上查看关联的部署。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs30.png"/></p>
+</li>
+<li>
+<p>选择“仪表板”页的显示云服务的过渡环境的“速览”部分中的 URL。对于网站，只需单击命令栏上的“浏览”按钮。默认情况下，来自云服务的持续集成的部署将发布到过渡环境。可以通过将“备用云服务环境”属性设置为“生产”来改变此情况。网站没有过渡环境或生产环境。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs31.png"/><br /> 新的浏览器选项卡将打开以显示正在运行的网站。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs32.png"/></p>
+</li>
+<li>
+<p>如果对项目进行其他更改，则将触发更多生成，并且将累积多个部署。标记为“活动”的最新项目。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs33.png"/></p>
+</li>
+</ol>
+<h2><a name="step5"></a>步骤 5：重新部署以前的生成</h2>
+<p>此步骤是可选的。选择以前的部署并单击“重新部署”按钮可使网站退回以前的签入。请注意，这将在 TFS 中触发新的生成，并在部署历史记录中创建新的条目。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs34.png"/></p>
+<h2><a name="step6"></a>步骤 6：更改生产部署</h2>
+<p>此步骤仅适用于云服务而非网站。就绪后，可以通过选择“交换”按钮来将过渡环境提升为生产环境。新部署的过渡环境将提升为生产环境，而之前的生产环境（如果有）将变成过渡环境。虽然生产环境和过渡环境的活动部署可能会不同，但最新生成的部署历史记录都是相同的，不管是哪一种环境。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/tfs35.png"/></p>
+<p>有关更多信息，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkId=253861">Team Foundation Service</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>publishing with tfs</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>publishing with tfs</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>publishing with tfs</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

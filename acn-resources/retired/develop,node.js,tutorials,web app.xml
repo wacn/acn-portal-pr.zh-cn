@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19020" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="9" createDate="2013-07-11T11:17:22" updateDate="2014-08-18T11:17:37" nodeName="Web App" urlName="web-app" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19020" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/node" chunkname="article-left-menu" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1 id="node.jswebapplication">Node.js Web 应用程序</h1>
+<p>使用现成的工具可以让 Windows Azure 开发变得很轻松。本教程假定您之前未使用过 Windows Azure。在不到 20 分钟的时间内，您就能让使用多个 Windows Azure 资源的应用程序在云中正常运行。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何使用 Windows PowerShell 工具创建新的 Windows Azure Node.js 应用程序。</li>
+<li>如何使用 Windows Azure 计算仿真程序在本地运行 Node 应用程序</li>
+<li>如何将应用程序发布和重新发布到 Windows Azure。</li>
+</ul>
+<p>通过按照本教程中的说明进行操作，您将构建简单的 Hello World Web 应用程序。该应用程序将承载于一个 Web 角色实例中，此实例在 Windows Azure 中运行时将承载于专用虚拟机 (VM) 中。</p>
+<h2 id="settingupthedevelopmentenvironment">设置开发环境</h2>
+<p>在您可以开始开发 Windows Azure 应用程序之前，您需要获取一些工具并设置开发环境。</p>
+<ol>
+<li>
+<p>若要安装 Windows Azure SDK for Node.js，请单击以下按钮：</p>
+<p><a href="http://go.microsoft.com/?linkid=9790229"><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-2.png" alt="图像"/></a></p>
+</li>
+<li>
+<p>选择“立即安装”<strong></strong>，并在系统提示您运行还是保存 azurenodepowershell.exe 时，单击“运行”：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-3.png" alt="图像"/></li>
+<li>
+<p>在安装程序窗口中，单击“安装”<strong></strong>，然后继续安装：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-4.png" alt="图像"/></li>
+</ol>
+<p>安装完成后，您便做好了开发准备工作。将安装以下组件：</p>
+<ul>
+<li>Node.js</li>
+<li>IISNode</li>
+<li>NPM for Windows</li>
+<li>Windows Azure Emulators（2011 年 11 月版）</li>
+<li>Windows Azure Authoring Components（2011 年 11 月版）</li>
+<li>Windows Azure PowerShell for Node.js</li>
+</ul>
+<h2 id="creatinganewnodeapplication">创建新的 Node 应用程序</h2>
+<p>Windows Azure SDK for Node.js 包含一个针对 Windows Azure 和 Node 开发配置的 Windows PowerShell 环境，还包含一些可用于创建和发布 Node 应用程序的工具。</p>
+<ol>
+<li>
+<p>在“开始”<strong></strong>菜单上，单击“所有程序”、“Windows Azure SDK Node.js（2011 年 11 月版）”<strong></strong>，右键单击“Windows Azure PowerShell for Node.js”<strong></strong>，然后选择“以管理员身份运行”<strong></strong>。通过此方式打开 Windows PowerShell 环境可确保所有 Node 命令行工具都可用。使用提升的权限进行运行可避免在使用 Windows Azure 仿真程序时出现额外提示。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node7.png" alt="图像"/></li>
+<li>
+<p>在 C 盘新建一个 <strong>node</strong> 目录，然后更改到 c:\node 目录：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-6.png" alt="图像"/></li>
+<li>
+<p>输入以下 cmdlet 以创建新的解决方案：</p>
+<pre class="prettyprint">PS C:\node&gt; New-AzureService tasklist
+</pre>
+<p>您将看到以下响应：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node9.png" alt="图像"/>
+<p><strong>New-AzureService</strong> cmdlet 生成一个用于创建新的 Windows Azure Node 应用程序的基础结构。该结构包含向 Windows Azure 发布应用程序所需的配置文件。该 cmdlet 还会将工作目录更改为服务的目录。</p>
+<p>输入以下命令来查看已生成的文件的列表：</p>
+<pre class="prettyprint">PS C:\node\tasklist&gt; ls
+</pre>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-7.png" alt="图像"/>
+<ul>
+<li>ServiceConfiguration.Cloud.cscfg、ServiceConfiguration.Local.cscfg 和 ServiceDefinition.csdef 是发布应用程序所需的特定于 Windows Azure 的文件。有关这些文件的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg432976.aspx">创建 Windows Azure 托管服务概述</a>。</li>
+<li>deploymentSettings.json 存储供 Windows Azure PowerShell 部署 cmdlet 使用的本地设置。</li>
+</ul>
+</li>
+<li>
+<p>输入以下命令以使用 <strong>Add-AzureNodeWebRole cmdlet</strong> 添加新的 Web 角色：</p>
+<pre class="prettyprint">PS C:\node\tasklist&gt; Add-AzureNodeWebRole
+</pre>
+<p>您将看到以下响应：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node11.png" alt="图像"/>
+<p><strong>Add-AzureNodeWebRole </strong>cmdlet 为应用程序创建新目录，并生成发布应用程序时所需的其他文件。在 Windows Azure 中，角色<em></em>定义了可在 Windows Azure 执行环境中运行的组件。自定义<em> Web 角色</em> 以便进行 Web 应用程序编程。</p>
+<p>默认情况下，如果您未提供角色名称，则将为您创建一个角色名称，即 WebRole1。您可以提供一个名称作为要重写的 <strong>Add-AzureNodeWebRole</strong> 的第一个参数，即 <strong>Add-AzureNodeWebRole MyRole</strong></p>
+<p>输入下列命令以更改到新生成的目录，并查看其内容：</p>
+<pre class="prettyprint">PS C:\node\tasklist&gt; cd WebRole1
+PS C:\node\tasklist\WebRole1&gt; ls
+</pre>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-8.png" alt="图像"/>
+<ul>
+<li>server.js 包含应用程序的起始代码。</li>
+</ul>
+</li>
+<li>
+<p>在记事本中打开 server.js 文件。或者，可以在最喜爱的文本编辑器中打开 server.js 文件。</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; notepad server.js
+</pre>
+<p>此文件包含工具已生成的以下起始代码。此代码与 nodejs.org 网站上的“Hello World”示例中的代码几乎相同，只不过：</p>
+<ul>
+<li>端口已更改为允许 IIS 代表应用程序处理 HTTP 流量。当 Node.js 应用程序在内部运行或在 Windows Azure 中运行时，可通过 IIS Node.js 集成获得很多好处，包括进程管理、多核服务器的可缩放性、自动更新、用其他语言并行运行等。</li>
+<li>已删除控制台日志记录功能。</li>
+</ul>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node13.png" alt="图像"/></li>
+</ol>
+<h2 id="runningyourapplicationlocallyintheemulator">在仿真程序中本地运行应用程序</h2>
+<p>Windows Azure 计算仿真程序是 Windows Azure SDK 所安装的工具之一，您可以使用此工具本地测试应用程序。计算仿真程序可模拟应用程序在部署到云中时的运行环境，包括提供对 Windows Azure 表存储等服务的访问。这意味着，您不必实际部署应用程序即可测试应用程序。</p>
+<ol>
+<li>
+<p>关闭“记事本”并切换回 Windows PowerShell 窗口。输入以下 cmdlet 以在仿真程序中运行服务并启动浏览器窗口：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Start-AzureEmulator -launch
+</pre>
+<p><strong>–launch</strong> 参数指定工具应自动打开浏览器窗口，并当应用程序在仿真程序中运行时立即显示该应用程序。这将打开一个浏览器，其中显示“Hello World”，如以下屏幕快照所示。这表示服务正在计算仿真程序中运行且工作正常。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node14.png" alt="图像"/></li>
+<li>
+<p>若要停止计算仿真程序，您可以从 Windows 任务栏访问该程序（以及存储仿真程序，您将在本教程的后面部分中使用此程序），如以下屏幕快照所示：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-11.png" alt="图像"/></li>
+</ol>
+<h2 id="deployingtheapplicationtowindowsazure">将应用程序部署到 Windows Azure</h2>
+<p>若要将应用程序部署到 Windows Azure，您需要一个帐户。如果您还没有帐户，则可以创建一个免费试用帐户。使用帐户登录后，您可以下载 Windows Azure 发布配置文件。该发布配置文件将授权您的计算机使用 Windows PowerShell cmdlet 将部署包发布到 Windows Azure。</p>
+<h3 id="creatingawindowsazureaccount">创建 Windows Azure 帐户</h3>
+<ol>
+<li>
+<p>打开 Web 浏览器并浏览到 http://www.windowsazure.cn。</p>
+<p>若要开始使用免费帐户，请单击右上角的“免费试用”<strong></strong>并执行相应步骤。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/net/dev-net-getting-started-12.png" alt="图像"/></li>
+<li>
+<p>现已创建您的帐户。您已准备好将应用程序部署到 Windows Azure！</p>
+</li>
+</ol>
+<h3 id="downloadingthewindowsazurepublishingsettings">下载 Windows Azure 发布设置</h3>
+<ol>
+<li>
+<p>从 Windows PowerShell 窗口中，通过运行以下 cmdlet 来启动下载页：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Get-AzurePublishSettings
+</pre>
+<p>这将启动浏览器，以便您可以使用 Windows Live ID 凭据登录到 Windows Azure 管理门户。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-13.png" alt="图像"/></li>
+<li>
+<p>登录到管理门户。这会将您转到用于下载 Windows Azure 发布设置的页面。</p>
+</li>
+<li>
+<p>将配置文件保存到位于 <strong>c:\node\elvis.publishSettings</strong> 的文件：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/nodejs/dev-nodejs-getting-started-14.png" alt="图像"/></li>
+<li>
+<p>在 Windows PowerShell 窗口中，使用以下 cmdlet 配置 Windows PowerShell for Node.js cmdlet 以使用下载的 Windows Azure 发布配置文件：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Import-AzurePublishSettings c:\node\elvis.publishSettings
+</pre>
+<p>导入发布设置之后，请考虑删除下载的 .publishSettings，因为该文件包含可供他人用来访问您的帐户的信息。</p>
+</li>
+</ol>
+<h3 id="publishingtheapplication">发布应用程序</h3>
+<ol>
+<li>
+<p>使用 <strong>Publish-AzureService</strong> cmdlet 发布应用程序，如下所示。</p>
+<ul>
+<li><strong>name </strong>指定服务的名称。该名称在 Windows Azure 中的所有其他服务中必须是唯一的。如下所示，“TaskList”用公司名“Contoso”作为后缀，以确保服务名称的唯一性。</li>
+<li><strong>location </strong>指定应针对其优化应用程序的国家/地区。用户从此区域访问应用程序所花的加载时间会更少。可用地区的示例包括：“美国中北部”、“美国任意地区”、“亚洲任意地区”、“欧洲任意地区”、“北欧”、“美国中南部”和“东南亚”。</li>
+<li><strong>launch </strong>指定在发布完成后在托管服务位置打开浏览器。</li>
+</ul>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Publish-AzureService –name TaskListContoso –location "North Central US” -launch</pre>
+<p>确保使用<strong>唯一名称</strong>，否则发布过程将失败。发布成功之后，您将看到以下响应：</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node19.png" alt="图像"/>
+<p><strong>Publish-AzureService</strong> cmdlet 执行以下步骤：</p>
+<ol>
+<li>创建将部署到 Windows Azure 的程序包。该包将包含 node.js 应用程序文件夹中的所有文件。</li>
+<li>如果存储帐户不存在，将创建一个新的存储帐户。本教程的下一节中将使用 Windows Azure 存储帐户来存储和访问数据。</li>
+<li>如果托管服务尚不存在，则创建一个新的托管服务。托管服务<em></em>是一个容器，用于在将应用程序部署到 Windows Azure 后托管该应用程序。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg432976.aspx">创建 Windows Azure 托管服务概述</a>。</li>
+<li>将部署包发布到 Windows Azure。</li>
+</ol>
+<p>部署应用程序需要花费 5–7 分钟时间。由于这是您首次发布，因此 Windows Azure 会依次执行以下操作以便公开应用程序：设置一台虚拟机 (VM)，执行安全强化，在 VM 上创建一个 Web 角色以承载应用程序，将代码部署到该 Web 角色以及配置负载平衡器和网络。</p>
+<p>部署完成后，将出现以下响应。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node20.png" alt="图像"/>
+<p>此外，将打开浏览器以显示您服务的 URL，并将显示调用您的服务的网页。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node21.png" alt="图像"/>
+<p>您的应用程序现在正在 Windows Azure 上运行！托管服务包含您在前面创建的 Web 角色。您可以通过更改分配给 ServiceConfiguration.Cloud.cscfg 文件中的每个角色的实例数来轻松地对应用程序进行缩放。您可能希望在出于开发和测试目的进行部署时只使用一个实例，而在部署生产应用程序时使用多个实例。</p>
+</li>
+</ol>
+<h2 id="stoppinganddeletingyourapplication">停止并删除应用程序</h2>
+<p>在部署应用程序后，您可能希望禁用它，以避免在免费试用期内产生费用或生成和部署其他应用程序。</p>
+<p>Windows Azure 将按使用的服务器小时数对 Web 角色实例计费。您的应用程序部署之后就会开始使用服务器时间，即使相关实例并未运行且处于停止状态也是如此。</p>
+<p>以下步骤演示了如何停止和删除应用程序。</p>
+<ol>
+<li>
+<p>在 Windows PowerShell 窗口中，使用以下 cmdlet 以停止上一节中创建的服务部署：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Stop-AzureService</pre>
+<p>停止服务可能需要花费几分钟时间。在服务停止时，您会收到一条指示服务已停止的消息。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node48.png" alt="图像"/></li>
+<li>
+<p>若要删除服务，请调用以下 cmdlet：</p>
+<pre class="prettyprint">PS C:\node\tasklist\WebRole1&gt; Remove-AzureService</pre>
+</li>
+<li>
+<p>在出现提示时，输入 <strong>Y</strong> 即可删除该服务。</p>
+<p>删除服务可能需要花费几分钟时间。删除服务后，您将收到一条指示服务已被删除的消息。</p>
+<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/node/node49.png" alt="图像"/></li>
+</ol>
+<p><strong>注意</strong>：删除服务不会删除最初发布服务时所创建的存储帐户，并且您仍需为使用的存储付费。由于存储帐户可由多个部署使用，因此，在删除存储帐户之前，请先确保没有任何其他部署服务正在使用该存储帐户。有关删除存储帐户的详细信息，请参阅 TBD。</p></p>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Web 应用程序</pageTitle><metaKeywords>Azure Node.js Hello World 教程, Azure Node.js Hello World, Azure Node.js 入门教程, Azure Node.js 教程, Azure Node.js Express 教程</metaKeywords><metaDescription><![CDATA[本教程演练如何创建 node.js 应用程序，然后将其部署到 Windows Azure。]]></metaDescription><linkid>dev-nodejs-basic-web-app</linkid><urlDisplayName>Web 应用程序</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

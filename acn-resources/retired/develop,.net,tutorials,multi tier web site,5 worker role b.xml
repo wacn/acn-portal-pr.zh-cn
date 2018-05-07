@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18861" parentID="18853" level="6" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-07-11T10:51:56" updateDate="2014-08-18T11:10:30" nodeName="5 Worker Role B" urlName="5-worker-role-b" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18853,18861" isDoc=""><bodyText><![CDATA[<div>
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/zh-cn/develop/net/compute/">计算</a></li>
+<li class="menu-nodejs-data"><a href="/zh-cn/develop/net/data/">数据服务</a></li>
+<li class="menu-nodejs-appservices"><a href="/zh-cn/develop/net/app-services/">应用服务</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/zh-cn/support/forums/">论坛</a></li>
+</ul>
+<ul>
+<li>本系列中的内容</li>
+<li><a href="../1-overview/">1. 概述</a></li>
+<li><a href="../2-download-and-run/">2. 下载并运行</a></li>
+<li><a href="../3-web-role/">3. Web 角色</a></li>
+<li><a href="../4-worker-role-a/">4. 辅助角色 A</a></li>
+<li><strong>5. 辅助角色 B</strong></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>在此页上（跳转到）：</li>
+</ul>
+</div>
+</div>
+</div>
+<h1>为 Windows Azure Email Service 应用程序构建辅助角色 B（电子邮件发送程序）- 第 5 部分，共 5 部分。</h1>
+<p>这是五个系列教程中的第五个教程，此系列教程演示如何生成和部署 Windows Azure Email Service 示例应用程序。有关应用程序和本系列教程的信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。</p>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>如何向云服务项目添加辅助角色。</li>
+<li>如何轮询队列和处理队列中的工作项。</li>
+<li>如何使用 SendGrid 发送电子邮件。</li>
+<li>如何通过重写 <code>OnStop</code> 方法，处理计划内关闭。</li>
+<li>如何通过确保未发送重复电子邮件，处理计划外关闭。</li>
+</ul>
+<h2><a name="addworkerrole"></a> <span class="short-header">添加辅助角色 B</span>向解决方案添加辅助角色 B 项目</h2>
+<ol>
+<li>
+<p>在“解决方案资源管理器”中，右键单击云服务项目，然后选择“新的辅助角色项目”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-new-worker-role-project.png" alt="“新的辅助角色项目”菜单"/></p>
+</li>
+<li>
+<p>在“添加新角色项目”对话框中，选择“C#”，选择“辅助角色”，将项目命名为 WorkerRoleB，然后单击“添加”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-add-new-role-project-dialog.png" alt="“添加新角色项目”对话框"/></p>
+</li>
+</ol>
+<h2><a name="addreference"></a> <span class="short-header">添加引用</span>添加对 Web 项目的引用</h2>
+<p>您需要对 Web 项目的引用，因为要在此处定义实体类。将在辅助角色 B 中使用这些实体类以在应用程序使用的 Windows Azure 表中读写数据。</p>
+<ol>
+<li>
+<p>右键单击 WorkerRoleB 项目，然后选择“添加引用”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-b-add-reference-menu.png" alt="在 WorkerRoleB 项目中添加引用"/></p>
+</li>
+<li>
+<p>在“引用管理器”中，添加对 MvcWebRole 项目的引用（如果在 Windows Azure 网站中运行 Web UI，则添加对 Web 应用程序项目的引用）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-b-reference-manager.png" alt="添加对 MvcWebRole 的引用"/></p>
+</li>
+</ol>
+<h2><a name="sclpackage"></a> <span class="short-header">添加 SCL 2.0 程序包</span>向项目添加存储客户端库 2.0 NuGet 程序包</h2>
+<p>添加项目后，它未自动获取存储客户端库 NuGet 程序包的更新版本。而是获取了程序包的 1.7 旧版，因为项目模板中包括的是该版本。现在，解决方案有两个版本的 Windows Azure Storage NuGet 程序包：MvcWebRole 和 WorkerRoleA 项目中的 2.0 版以及 WorkerRoleB 项目中的 1.7 版。需要在 WorkerRoleB 项目中卸载 1.7 版并安装 2.0 版。</p>
+<ol>
+<li>
+<p>从“工具”菜单中，选择“库程序包管理器”，然后选择“管理解决方案的 NuGet 程序包”。</p>
+</li>
+<li>
+<p>在左侧窗格中选择“已安装的包”后，向下滚动，直至到达“Windows Azure Storage”程序包。</p>
+<p>您将看到列出了该程序包两次，一次是 1.7 版，一次是 2.0 版。</p>
+</li>
+<li>
+<p>选择 1.7 版的程序包，然后单击“管理”。</p>
+<p>其中清除了“MvcWebRole”和“WorkerRoleB”的复选框，而选中了“WorkerRoleB”的复选框。</p>
+</li>
+<li>
+<p>清除“WorkerRoleB”的复选框，然后单击“确定”。</p>
+</li>
+<li>
+<p>当询问您是否要卸载依赖程序包时，单击“否”。</p>
+<p>卸载完毕后，NuGet 对话框中即仅有 2.0 版的程序包。</p>
+</li>
+<li>
+<p>对于 2.0 版的程序包，单击“管理”。</p>
+<p>其中选中了“MvcWebRole”和“WorkerRoleA”的复选框，而清除了“WorkerRoleA”的复选框。</p>
+</li>
+<li>
+<p>选中“WorkerRoleA”的复选框，然后单击“确定”。</p>
+</li>
+</ol>
+<h2><a name="addref2"></a> <span class="short-header">添加 SCL 1.7 引用</span>添加对 SCL 1.7 程序集的引用</h2>
+<p>存储客户端库 (SCL) 的 2.0 版缺少进行诊断所需的一部分内容，因此必须添加对某个 1.7 程序集的引用，如同先前对另外两个项目所做的一样。</p>
+<ol>
+<li>
+<p>右键单击 WorkerRoleB 项目，然后选择“添加引用”。</p>
+</li>
+<li>
+<p>单击对话框底部的“浏览...”按钮。</p>
+</li>
+<li>
+<p>导航到以下文件夹：</p>
+<pre class="prettyprint">C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref</pre>
+</li>
+<li>
+<p>选择“Microsoft.WindowsAzure.StorageClient.dll”，然后单击“添加”。</p>
+</li>
+<li>
+<p>在“引用管理器”对话框中，单击“确定”。</p>
+</li>
+</ol>
+<h2><a name="addsendgrid"></a> <span class="short-header">添加 SendGrid 程序包</span>向项目添加 SendGrid NuGet 程序包</h2>
+<p>若要使用 SendGrid 发送电子邮件，需要安装 SendGrid NuGet 程序包。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”中，右键单击 WorkerRoleB 项目，然后选择“管理 NuGet 程序包”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-b-manage-nuget.png" alt="管理 NuGet 程序包"/></p>
+</li>
+<li>
+<p>在“管理 NuGet 程序包”对话框中，选择“联机”选项卡，在搜索框中输入“sendgrid”，然后按 Enter。</p>
+</li>
+<li>
+<p>单击 <strong>Sendgrid</strong> 程序包中的“安装”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-b-install-sendgrid.png" alt="安装 Sendgrid 程序包"/></p>
+</li>
+<li>
+<p>关闭对话框。</p>
+</li>
+</ol>
+<h2><a name="addsettings"></a> <span class="short-header">添加项目设置</span>添加项目设置</h2>
+<p>与辅助角色 A 一样，辅助角色 B 需要存储帐户凭据才能使用表、队列和 Blob。此外，为了发送电子邮件，辅助角色需要有凭据才能嵌入对 SendGrid 服务的调用。此外，为构造要加入到其发送的电子邮件中的取消订阅链接，辅助角色需要了解应用程序的 URL。这些值存储在项目设置中。</p>
+<p>对于存储帐户凭据，过程与您在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage">第三个教程</a>中看到的相同。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”中云项目中的“角色”下，右键单击 <strong>WorkerRoleB</strong>，然后选择“属性”。</p>
+</li>
+<li>
+<p>选择“设置”选项卡。</p>
+</li>
+<li>
+<p>确保在“服务配置”下拉列表中选择“所有配置”。</p>
+</li>
+<li>
+<p>选择“设置”选项卡，然后单击“添加设置”。</p>
+</li>
+<li>
+<p>在“名称”列中输入“StorageConnectionString”。</p>
+</li>
+<li>
+<p>在“类型”下拉列表中选择“连接字符串”。</p>
+</li>
+<li>
+<p>单击该行右端的省略号 (<strong>...</strong>) 按钮以打开“创建存储帐户连接字符串”对话框。</p>
+</li>
+<li>
+<p>在“创建存储连接字符串”对话框中，单击“您的订阅”单选按钮。</p>
+</li>
+<li>
+<p>选择与 Web 角色和辅助角色 A 相同的“订阅”和“帐户名称”。</p>
+</li>
+<li>
+<p>按相同过程配置 <strong>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</strong> 连接字符串的设置。</p>
+</li>
+</ol>
+<p>接下来，创建和配置三个仅供辅助角色 B 使用的新设置。</p>
+<ol>
+<li>
+<p>在“属性”窗口的“设置”选项卡中，单击“添加设置”，然后添加三个类型为“字符串”的新设置：</p>
+<ul>
+<li>
+<p><strong>名称</strong>：SendGridUserName，<strong>值</strong>：在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">第二个教程</a>中确立的 SendGrid 用户名。</p>
+</li>
+<li>
+<p><strong>名称</strong>：SendGridPassword，<strong>值</strong>：SendGrid 密码。</p>
+</li>
+<li>
+<p><strong>名称</strong>：AzureMailServiceURL，<strong>值</strong>：部署应用程序时它将具有的基 URL，例如：http://sampleurl.chinacloudapp.cn。</p>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-b-settings.png" alt="WorkerRoleB 项目中的新设置"/></p>
+</li>
+</ol>
+<h3>添加在辅助角色启动时运行的代码</h3>
+<ol>
+<li>
+<p>在 WorkerRoleB 项目中，删除 WorkerRole.cs。</p>
+</li>
+<li>
+<p>右键单击 WorkerRoleB 项目，然后选择“添加现有项”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-b-add-existing.png" alt="向辅助角色 B 添加现有项"/></p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 WorkerRoleB 项目中的 <strong>WorkerRoleB.cs</strong> 文件，然后单击“添加”</p>
+。</li>
+<li>
+<p>打开 WorkerRoleB.cs 并检查代码。</p>
+<p>正如您已在辅助角色 A 中看到的那样，<code>OnStart</code> 方法初始化使用 Windows Azure 存储实体所需的上下文类。该方法还确保存在将在 <code>Run</code> 方法中使用的所有表、队列和 Blob 容器。</p>
+<p>与辅助角色 A 相比，区别在于如果在要创建的资源中尚未存在 Blob 容器和订阅队列，则添加后二者。将使用 Blob 容器获取包含电子邮件正文的 HTML 文本和纯文本的文件。订阅队列用于发送订阅确认电子邮件。</p>
+<pre class="prettyprint">public override bool OnStart() {     ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount;   // Read storage account configuration settings ConfigureDiagnostics(); Trace.TraceInformation("Initializing storage account in worker role B"); var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));   // Initialize queue storage  Trace.TraceInformation("Creating queue client."); CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient(); this.sendEmailQueue = queueClient.GetQueueReference("azuremailqueue"); this.subscribeQueue = queueClient.GetQueueReference("azuremailsubscribequeue");   // Initialize blob storage CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient(); this.blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");   // Initialize table storage var tableClient = storageAccount.CreateCloudTableClient(); tableServiceContext = tableClient.GetDataServiceContext();   Trace.TraceInformation("WorkerB: Creating blob container, queue, tables, if they don't exist."); this.blobContainer.CreateIfNotExists(); this.sendEmailQueue.CreateIfNotExists(); this.subscribeQueue.CreateIfNotExists(); var messageTable = tableClient.GetTableReference("Message"); messageTable.CreateIfNotExists(); var mailingListTable = tableClient.GetTableReference("MailingList"); mailingListTable.CreateIfNotExists();   return base.OnStart();   }</pre>
+<p><code>Run</code> 方法处理两个队列中的工作项：用于将邮件发送到电子邮件列表（辅助角色 A 创建的工作项）的队列以及用于订阅确认电子邮件（MvcWebRole 项目中的订阅 API 方法创建的工作项）的队列。</p>
+<pre class="prettyprint">public override void Run() {     CloudQueueMessage msg = null;   Trace.TraceInformation("WorkerRoleB start of Run()"); while (true) {     try     {         bool messageFound = false;           // If OnStop has been called, return to do a graceful shutdown.         if (onStopCalled == true)         {             Trace.TraceInformation("onStopCalled WorkerRoleB");             returnedFromRunMethod = true;             return;         }         // Retrieve and process a new message from the send-email-to-list queue.         msg = sendEmailQueue.GetMessage();         if (msg != null)         {             ProcessQueueMessage(msg);             messageFound = true;         }           // Retrieve and process a new message from the subscribe queue.         msg = subscribeQueue.GetMessage();         if (msg != null)         {             ProcessSubscribeQueueMessage(msg);             messageFound = true;         }           if (messageFound == false)         {             System.Threading.Thread.Sleep(1000 * 60);         }     }     catch (Exception ex)     {         string err = ex.Message;         if (ex.InnerException != null)         {             err += " Inner Exception: " + ex.InnerException.Message;         }         if (msg != null)         {             err += " Last queue message retrieved: " + msg.AsString;         }         Trace.TraceError(err);         // Don't fill up Trace storage if we have a bug in either process loop.         System.Threading.Thread.Sleep(1000 * 60);     } }   }</pre>
+<p>这段代码在一个无限循环中运行，直到辅助角色关闭为止。如果在主队列中找到某个工作项，则这段代码处理该工作项，然后检查订阅队列。</p>
+<pre class="prettyprint">// Retrieve and process a new message from the send-email-to-list queue.             msg = this.sendEmailQueue.GetMessage();             if (msg != null)             {                 ProcessQueueMessage(msg);                 messageFound = true;             }           // Retrieve and process a new message from the subscribe queue.         msg = this.subscribeQueue.GetMessage();         if (msg != null)         {             ProcessSubscribeQueueMessage(msg);             messageFound = true;         }</pre>
+<p>如果任何一个队列中没有等待的项，则这段代码在睡眠 60 秒后继续进行该循环。</p>
+<pre class="prettyprint">if (messageFound == false)             {                 System.Threading.Thread.Sleep(1000 * 60);             }</pre>
+<p>睡眠时间的用途是尽可能降低 Windows Azure 存储事务成本，如<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/">上一个教程</a>所述。</p>
+<p>当 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee741827.aspx">GetMessage</a> 方法从队列中抽取某个队列项后，该队列项对访问该队列的所有其他辅助角色和 Web 角色不可见 30 秒。这样可确保仅有一个辅助角色实例将选取任何给定队列邮件进行处理。可通过将一个<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758454.aspx">可见性超时</a>参数传递给 <code>GetMessage</code> 方法，显式设置此“排他租用”时间（该队列项不可见的时间）。如果该辅助角色处理队列邮件可能耗时 30 秒以上，则应增加排他租用时间以防其他角色实例处理同一邮件。</p>
+<p>另一方面，您不希望将排他租用时间设置为一个过大的值。例如，如果将排他租用时间设置为 48 小时，而辅助角色使邮件取消排队后意外关闭，则另一个辅助角色将在 48 小时内无法处理该邮件。排他租用最长为 7 天。</p>
+<p>使用 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx">GetMessages</a> 方法（注意名称结尾的“s”）可在一个调用中从队列抽取最多 32 封邮件。每次访问队列都会产生少量事务成本，并且无论返回 32 封邮件还是不返回任何邮件，事务成本均相同。以下代码在一个调用中最多获取 32 封邮件，然后处理这些邮件。</p>
+<pre class="prettyprint">foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32)) {     ProcessQueueMessage(msg);     messageFound = true; }</pre>
+<p>在使用 <code>GetMessages</code> 删除多封邮件时，请确保可见性超时为应用程序留出足够长的时间以处理所有邮件。可见性超时到期后，其他角色实例即可访问邮件，而一旦访问，第一个实例在其处理完工作项时将无法删除邮件。</p>
+<p><code>Run</code> 方法在主队列中找到工作项时调用 <code>ProcessQueueMessage</code>：</p>
+<pre class="prettyprint">private void ProcessQueueMessage(CloudQueueMessage msg) {     // Log and delete if this is a "poison" queue message (repeatedly processed     // and always causes an error that prevents processing from completing).     // Production applications should move the "poison" message to a "dead message"     // queue for analysis rather than deleting the message.                if (msg.DequeueCount &gt; 5)     {         Trace.TraceError("Deleting poison message:    message {0} Role Instance {1}.",             msg.ToString(), GetRoleInstance());         sendEmailQueue.DeleteMessage(msg);         return;     }     // Parse message retrieved from queue.     // Example:  2012-01-01,0123456789email@domain.com,0     var messageParts = msg.AsString.Split(new char[] { ',' });     var partitionKey = messageParts[0];     var rowKey = messageParts[1];     var restartFlag = messageParts[2];     Trace.TraceInformation("ProcessQueueMessage start:  partitionKey {0} rowKey {1} Role Instance {2}.",         partitionKey, rowKey, GetRoleInstance());     // If this is a restart, verify that the email hasn't already been sent.     if (restartFlag == "1")     {         var retrieveOperationForRestart = TableOperation.Retrieve&lt;SendEmail&gt;(partitionKey, rowKey);         var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);         var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;         if (messagearchiveRow != null)         {             // SendEmail row is in archive, so email is already sent.              // If there's a SendEmail Row in message table, delete it,             // and delete the queue message.             Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);             var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });             try             {                 messageTable.Execute(deleteOperation);             }             catch             {             }             sendEmailQueue.DeleteMessage(msg);             return;         }     }                 // Get the row in the Message table that has data we need to send the email.     var retrieveOperation = TableOperation.Retrieve&lt;SendEmail&gt;(partitionKey, rowKey);     var retrievedResult = messageTable.Execute(retrieveOperation);     var emailRowInMessageTable = retrievedResult.Result as SendEmail;     if (emailRowInMessageTable == null)     {         Trace.TraceError("SendEmail row not found:  partitionKey {0} rowKey {1} Role Instance {2}.",             partitionKey, rowKey, GetRoleInstance());         return;     }     // Derive blob names from the MessageRef.     var htmlMessageBodyRef = emailRowInMessageTable.MessageRef + ".htm";     var textMessageBodyRef = emailRowInMessageTable.MessageRef + ".txt";     // If the email hasn't already been sent, send email and archive the table row.     if (emailRowInMessageTable.EmailSent != true)     {         SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);       var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };     emailRowInMessageTable.EmailSent = true;       var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);     messagearchiveTable.Execute(upsertOperation);     var deleteOperation = TableOperation.Delete(emailRowToDelete);     messageTable.Execute(deleteOperation); }   // Delete the queue message. sendEmailQueue.DeleteMessage(msg);   Trace.TraceInformation("ProcessQueueMessage complete:  partitionKey {0} rowKey {1} Role Instance {2}.",    partitionKey, rowKey, GetRoleInstance());   }</pre>
+<p>有害邮件是导致应用程序在处理此类邮件时引发异常的邮件。如果从队列中抽取某封邮件超过五次，则我们假定无法处理这封邮件，并因此从队列中将其删除，以免不断尝试处理它。生产应用程序应考虑将有害邮件移至“停顿邮件”队列供分析而非删除此类邮件。</p>
+<p>这段代码将队列邮件解析为检索 SendEmail 行所需的分区键和行键以及一个重新启动标志。</p>
+<pre class="prettyprint">var messageParts = msg.AsString.Split(new char[] { ',' });     var partitionKey = messageParts[0];     var rowKey = messageParts[1];     var restartFlag = messageParts[2];</pre>
+<p>如果在意外关闭后已重新开始处理此邮件，则这段代码检查 <code>messagearchive</code> 表以确定是否已发送此电子邮件。如果已发送，则这段代码删除 <code>SendEmail</code> 行（如果存在）并删除队列邮件。</p>
+<pre class="prettyprint">if (restartFlag == "1")     {         var retrieveOperationForRestart = TableOperation.Retrieve&lt;SendEmail&gt;(partitionKey, rowKey);         var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);         var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;         if (messagearchiveRow != null)         {             Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);             var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });             try             {                 messageTable.Execute(deleteOperation);             }             catch             {             }             sendEmailQueue.DeleteMessage(msg);             return;         }     }</pre>
+<p>接下来，我们从 <code>message</code> 表中获取 <code>SendEmail</code> 行。除了包含电子邮件的 HTML 文本和纯文本正文的 Blob，此行具有发送电子邮件所需的所有信息。</p>
+<pre class="prettyprint">var retrieveOperation = TableOperation.Retrieve&lt;SendEmail&gt;(partitionKey, rowKey);     var retrievedResult = messageTable.Execute(retrieveOperation);     var emailRowInMessageTable = retrievedResult.Result as SendEmail;     if (emailRowInMessageTable == null)     {         Trace.TraceError("SendEmail row not found:  partitionKey {0} rowKey {1} Role Instance {2}.",             partitionKey, rowKey, GetRoleInstance());         return;     }</pre>
+<p>然后，这段代码发送电子邮件，并将 <code>SendEmail</code> 行存档。</p>
+<pre class="prettyprint">if (emailRowInMessageTable.EmailSent != true)     {         SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);       var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };     emailRowInMessageTable.EmailSent = true;       var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);     messagearchiveTable.Execute(upsertOperation);     var deleteOperation = TableOperation.Delete(emailRowToDelete);     messageTable.Execute(deleteOperation); }</pre>
+<p>不能在事务中将行移至 messagearchive 表，因为这样将影响多个表。</p>
+<p>最后，如果所有其他操作均成功，则删除队列邮件。</p>
+<pre class="prettyprint">sendEmailQueue.DeleteMessage(msg);</pre>
+<p>使用 SendGrid 发送电子邮件的工作实际上是通过 <code>SendEmailToList</code> 方法完成的。如果要使用 SendGrid 以外的服务，则只需更改此方法中的代码。</p>
+<p><strong>注意：</strong>如果项目设置中的凭据无效，则调用 SendGrid 将失败，但应用程序不会获得任何故障指示。如果在生产应用程序中使用 SendGrid，请考虑单独为 Web API 设置凭据，以避免在管理员更改其 SendGrid 用户帐户密码时出现无提示的失败。有关详细信息，请参阅 <a href="http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials">SendGrid MultiAuth - 多个帐户凭据</a>。可在 <a href="https://sendgrid.com/credentials">https://sendgrid.com/credentials</a> 上设置凭据。</p>
+<pre class="prettyprint">private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,     string htmlMessageBodyRef, string textMessageBodyRef) {     var email = SendGrid.GenerateInstance();     email.From = new MailAddress(fromEmailAddress);     email.AddTo(emailAddress);     email.Html = GetBlobText(htmlMessageBodyRef);     email.Text = GetBlobText(textMessageBodyRef);     email.Subject = subjectLine;     var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"),         RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));     var transportREST = REST.GetInstance(credentials);     transportREST.Deliver(email); }   private string GetBlobText(string blogRef) {     var blob = blobContainer.GetBlockBlobReference(blogRef);     blob.FetchAttributes();     var blobSize = blob.Properties.Length;     using (var memoryStream = new MemoryStream((int)blobSize))     {         blob.DownloadToStream(memoryStream);         return System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());     } }</pre>
+<p>在 <code>GetBlobText</code> 方法中，代码获取 Blob 大小，然后出于性能原因，使用该值初始化 <code>MemoryStream</code> 对象。如果不提供大小，则 <code>MemoryStream</code> 只需分配 256 个字节，然后在下载超出该值时，它再分配 512 个字节等等，每次分配的数量加倍。对于大型 Blob，此过程与在开始下载时分配适当数量相比，效率较低。</p>
+<p><code>Run</code> 方法在订阅队列中找到工作项时调用 <code>ProcessSubscribeQueueMessage</code>：</p>
+<pre class="prettyprint">private void ProcessSubscribeQueueMessage(CloudQueueMessage msg) {     // Log and delete if this is a "poison" queue message (repeatedly processed     // and always causes an error that prevents processing from completing).     // Production applications should move the "poison" message to a "dead message"     // queue for analysis rather than deleting the message.       if (msg.DequeueCount &gt; 5)     {         Trace.TraceError("Deleting poison subscribe message:    message {0}.",             msg.AsString, GetRoleInstance());         subscribeQueue.DeleteMessage(msg);         return;     }     // Parse message retrieved from queue. Message consists of     // subscriber GUID and list name.     // Example:  57ab4c4b-d564-40e3-9a3f-81835b3e102e,contoso1     var messageParts = msg.AsString.Split(new char[] { ',' });     var subscriberGUID = messageParts[0];     var listName = messageParts[1];     Trace.TraceInformation("ProcessSubscribeQueueMessage start:    subscriber GUID {0} listName {1} Role Instance {2}.",         subscriberGUID, listName, GetRoleInstance());     // Get subscriber info.      string filter = TableQuery.CombineFilters(         TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),         TableOperators.And,         TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, subscriberGUID));     var query = new TableQuery&lt;Subscriber&gt;().Where(filter);     var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();     // Get mailing list info.     var retrieveOperation = TableOperation.Retrieve&lt;MailingList&gt;(subscriber.ListName, "mailinglist");     var retrievedResult = mailingListTable.Execute(retrieveOperation);     var mailingList = retrievedResult.Result as MailingList;   SendSubscribeEmail(subscriberGUID, subscriber, mailingList);   subscribeQueue.DeleteMessage(msg);   Trace.TraceInformation("ProcessSubscribeQueueMessage complete: subscriber GUID {0} Role Instance {1}.",     subscriberGUID, GetRoleInstance());   }</pre>
+<p>此方法执行以下任务：</p>
+<ul>
+<li>如果邮件是“有害”邮件，则记录并删除它。</li>
+<li>从队列邮件中获取订户 GUID。</li>
+<li>使用该 GUID 从 MailingList 表中获取订户信息。</li>
+<li>向新订户发送确认电子邮件。</li>
+<li>删除队列邮件。</li>
+</ul>
+<p>如同发送到列表的电子邮件一样，发送电子邮件实际使用的是一个单独的方法，这样，如果要改用其他电子邮件服务，则可轻松做到。</p>
+<pre class="prettyprint">private static void SendSubscribeEmail(string subscriberGUID, Subscriber subscriber, MailingList mailingList) {     var email = SendGrid.GenerateInstance();     email.From = new MailAddress(mailingList.FromEmailAddress);     email.AddTo(subscriber.EmailAddress);     string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") +         "/subscribe?id=" + subscriberGUID + "&amp;listName=" + subscriber.ListName;     email.Html = String.Format("&lt;p&gt;Click the link below to subscribe to {0}. " +         "If you don't confirm your subscription, you won't be subscribed to the list.&lt;/p&gt;" +         "&lt;a href=\"{1}\"&gt;Confirm Subscription&lt;/a&gt;", mailingList.Description, subscribeURL);     email.Text = String.Format("Copy and paste the following URL into your browser in order to subscribe to {0}. " +         "If you don't confirm your subscription, you won't be subscribed to the list.\n" +         "{1}", mailingList.Description, subscribeURL);     email.Subject = "Subscribe to " + mailingList.Description;     var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"), RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));     var transportREST = REST.GetInstance(credentials);     transportREST.Deliver(email); }</pre>
+</li>
+</ol>
+<h2><a name="testing"></a> <span class="short-header">测试</span>测试辅助角色 B</h2>
+<ol>
+<li>
+<p>按 F5 运行应用程序。</p>
+</li>
+<li>
+<p>转到 <strong>Messages</strong> 页查看所创建的邮件以测试辅助角色 A。一分钟左右之后，刷新该网页，然后将看到该行从列表中消失，因为已将其存档。</p>
+</li>
+<li>
+<p>检查应收到电子邮件的电子邮件收件箱。注意，通过 SendGrid 发送电子邮件或传递到您的电子邮件客户端时可能有延迟，因此可能必须等一下才能看到电子邮件。可能还需要检查垃圾邮件文件夹。</p>
+</li>
+</ol>
+<h2><a name="nextsteps"></a> <span class="short-header">后续步骤</span>后续步骤</h2>
+<p>现在您从头生成了 Windows Azure Email Service 应用程序，而现有内容与所下载的完整项目相同。若要部署到云、在云中进行测试和提升到生产环境，可使用在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">第二个教程</a>中看到的相同过程。如果决定生成备选体系结构，请参阅 <a href="/zh-cn/develop/net/tutorials/get-started">Windows Azure 网站入门教程</a>以了解如何将 MVC 项目部署到 Windows Azure 网站。</p>
+<p>若要了解有关 Windows Azure 存储的详细信息，请参阅以下资源：</p>
+<ul>
+<li><a href="http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx">Windows Azure 存储基础知识</a>（Bruno Terkaly 的博客）</li>
+</ul>
+<p>若要了解有关 Windows Azure 表服务的详细信息，请参阅以下资源：</p>
+<ul>
+<li><a href="http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx">Windows Azure 表存储基础知识</a>（Bruno Terkaly 的博客）</li>
+<li><a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx">如何最大程度地利用 Windows Azure 表</a>（Windows Azure 存储团队博客）</li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/net/how-to-guides/table-services/">如何在 .NET 中使用表存储服务</a></li>
+<li><a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx">Windows Azure 存储客户端库 2.0 表详解</a>（Windows Azure 存储团队博客）</li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508997.aspx">真实情况：为 Windows Azure 表存储设计规模可变的分区策略</a></li>
+</ul>
+<p>若要了解有关 Windows Azure 队列服务和 Windows Azure Service Bus 队列的详细信息，请参阅以下资源：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh767287.aspx">Windows Azure 队列和 Windows Azure Service Bus 队列 - 比较与对照</a></li>
+<li><a href="/zh-cn/develop/net/how-to-guides/queue-service/">如何在 .NET 中使用队列存储服务</a></li>
+</ul>
+<p>若要了解有关 Windows Azure Blob 服务的详细信息，请参阅以下资源：</p>
+<ul>
+<li><a href="/zh-cn/develop/net/how-to-guides/blob-storage-v17/">如何在 .NET 中使用 Windows Azure Blob 存储服务</a></li>
+</ul>
+<p>若要了解有关自动改变规模 Windows Azure 云服务角色的详细信息，请参阅以下资源：</p>
+<ul>
+<li><a href="/zh-cn/develop/net/how-to-guides/autoscaling/">如何使用自动改变规模应用程序块</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh680945(v=PandP.50).aspx">自动改变规模和 Windows Azure</a></li>
+<li><a href="http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04">用 Windows Azure 生成有弹性、可自动改变规模的解决方案</a>（MSDN Channel 9 视频）</li>
+</ul>
+<h2><a name="Acknowledgments"></a> <span class="short-header">致谢</span>致谢</h2>
+<p>这些教程和示例应用程序由 <a href="http://blogs.msdn.com/b/rickandy/">Rick Anderson</a> 和 Tom Dykstra 撰写。我们要感谢以下各位人士的大力协助：</p>
+<ul>
+<li>Barry Dorrans (Twitter <a href="https://twitter.com/blowdart">@blowdart</a>)</li>
+<li><a href="http://blog.syntaxc4.net/">Cory Fowler</a> (Twitter <a href="https://twitter.com/SyntaxC4">@SyntaxC4</a>)</li>
+<li><a href="http://blogs.msdn.com/b/windowsazurestorage/">Joe Giardino</a></li>
+<li>Don Glover</li>
+<li>Jai Haridas</li>
+<li><a href="http://blogs.msdn.com/b/scothu/">Scott Hunter</a> (Twitter:<a href="http://twitter.com/coolcsh">@coolcsh</a>)</li>
+<li><a href="http://blogs.msdn.com/b/brian_swan/">Brian Swan</a></li>
+<li><a href="http://blogs.msdn.com/b/daniwang/">Daniel Wang</a></li>
+<li>Developer Advisory Council 中提供反馈的成员：
+<ul>
+<li>Damir Arh</li>
+<li>Jean-Luc Boucho</li>
+<li>Carlos dos Santos</li>
+<li>Mike Douglas</li>
+<li>Robert Fite</li>
+<li>Gianni Rosa Gallina</li>
+<li>Fabien Lavocat</li>
+<li>Karl Ots</li>
+<li>Carlos-Alejandro Perez</li>
+<li>Sunao Tomita</li>
+<li>Perez Jones Tsisah</li>
+<li>Michiel van Otegem</li>
+</ul>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>多层网站教程 - 第 5 步：辅助角色 B</pageTitle><metaKeywords>Windows Azure 教程, 添加工作角色云服务, C# 辅助角色</metaKeywords><metaDescription><![CDATA[本系列中的第五个教程，向您传授如何配置计算机以进行 Windows Azure 开发和部署 Email Service 应用程序。]]></metaDescription><linkid>develop-net-tutorials-multi-tier-web-site-5-worker-role-b</linkid><urlDisplayName>步骤 5:辅助角色 B</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

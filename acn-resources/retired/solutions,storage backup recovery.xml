@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="19331" parentID="19326" level="3" writerID="106" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-08-27T11:20:32" updateDate="2014-09-02T10:11:51" nodeName="Storage Backup Recovery" urlName="storage-backup-recovery" writerName="content" creatorName="xunfan" path="-1,11978,19326,19331" isDoc="">
+    <bodyText>
+      <![CDATA[
+<script type="text/javascript">
+    $(document).ready(function () {
+        //滚动条处理
+        var previousScrollTop = 0;
+        $(window).on('scroll', onscroll);
+        $(window).on('resize', function (evt) {
+            var width = 0.16 * $('.content').width();
+            $('.left_content').css({
+                'width': width,
+            })
+        });
+        function onscroll(evt) {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var top = $(window).scrollTop();
+
+            if (Math.abs(top - previousScrollTop) < 20) return; // ie
+            var width = 0.16 * $('.content').width();
+            var leftHeigth = $('.left-content').height();
+            var headerHeight = $('.page-header').height() + 3;
+            var ftHeigth = $('footer').height();
+            //左侧导航
+            if ((scrollTop + leftHeigth + headerHeight + $("footer").height()) >= (scrollHeight)) {
+                // footer show up
+                $('.left-content').css({
+                    'position': 'absolute',
+                    'bottom': 0,
+                    'top': 'auto',
+                })
+            }
+            else if($(window).scrollTop() > 50){
+                    $('.left-content').css({
+                   'position': 'fixed',
+                    'top': '8px',
+                    'bottom': 'auto',
+                    'width': width,
+                    })
+            }
+           else if($(window).scrollTop() == 0){
+           $('.left-content').css({
+                   'position': 'fixed',
+                    'top': '108px',
+                    'bottom': 'auto',
+                    'width': width,
+                    })
+           
+           }
+            previousScrollTop = top;
+        }
+        //ul select
+        $(document).on("click", ".sou-tab li a", ulSelectClick);
+        function ulSelectClick(e) {
+            var el = $(this).attr('id');
+            if (el.indexOf("-") >= 0)
+                el = el.split("-")[1];
+            $(".newsection").each(function () {
+                if ($(this).attr('data-value') == el) {
+                    $(".sou-tab a.select").removeClass("select").addClass("unselect");
+                    $(".secshow").removeClass("secshow").addClass("hide");
+                    $("#tab-" + el).removeClass("unselect").addClass("select");
+                    $(this).removeClass("hide").addClass("secshow");
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 0);
+                }
+            });
+
+        }
+    });
+</script>
+<style>
+    /*共用*/
+    .zh-cn p {
+        line-height: normal;
+        margin: 5px 0px;
+    }
+
+    footer {
+        border-top: medium solid #ccc;
+    }
+
+    section {
+        height: 0px;
+        clear: both;
+        width: 100%;
+    }
+    /*整体背景*/
+    #serviceCenter {
+        width: 100%;
+        position: relative;
+        background-color: #f8f8f8;
+    }
+    /*白色背景*/
+    .white-background {
+        position: absolute;
+        background: white;
+        top: 0;
+        left: 16%;
+        right: calc(50% - 50vw + 9px);
+        bottom: 0;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .secshow {
+        display: block;
+    }
+
+    img {
+        background-repeat: no-repeat;
+        margin: 0px;
+        padding: 0px;
+    }
+    /*sou 导航*/
+    .sou-tab {
+        padding: 0px;
+        margin: 0px;
+        position: absolute;
+        bottom: 0;
+    }
+
+        .sou-tab li {
+            float: left;
+            list-style-type: none;
+            margin-right: 1px;
+        }
+
+        .sou-tab a.select {
+            background-color: #fff;
+            color: #636468;
+            cursor: default;
+        }
+
+        .sou-tab a {
+            float: left;
+            display: block;
+            min-width: 180px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            background-color: #dd5900;
+            color: #fff;
+            -webkit-transition: all .1s ease-in-out;
+            transition: all .1s ease-in-out;
+        }
+
+            .sou-tab a.unselect:hover {
+                background-color: #ff8c00;
+            }
+    /*newsection 内容*/
+    .newsection {
+        width: 100%;
+        max-width: 1250px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+        .newsection h2 {
+            font-size: 36px;
+            line-height: 42px;
+            margin-bottom: 20px;
+        }
+
+    .section-content {
+        overflow: hidden;
+        clear: both;
+    }
+
+    .border-style {
+        border-bottom: 1px solid #d4d4d4;
+        margin-left: -75px;
+        overflow: hidden;
+        margin-bottom: 60px;
+    }
+    /*左侧*/
+    .left-newsection {
+        float: left;
+        width: 65%;
+    }
+
+    .newsection .sec-distance {
+        margin-right: 5.6%;
+    }
+
+    .right-newsection {
+        float: right;
+    }
+    /*案例*/
+    .right-case-section {
+        float: left;
+        padding-left: 5.6%;
+        padding-top: 30px;
+        width: 28%;
+    }
+
+        .right-case-section a {
+            color: #666;
+            font-style: normal;
+        }
+
+            .right-case-section a:hover {
+                opacity: 0.7;
+            }
+    /*入门*/
+    .newsection-resources {
+        width: 100%;
+    }
+
+        .newsection-resources ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+            .newsection-resources ul li {
+                margin: 10px 0px;
+            }
+
+        .newsection-resources li a {
+            color: #666;
+        }
+
+            .newsection-resources li a:hover {
+                opacity: 0.7;
+            }
+
+        .newsection-resources .res-distance {
+            width: 30%;
+            margin-right: 3.5%;
+            float: left;
+        }
+    .res-distance li {
+        vertical-align:top;
+    }
+    /*content 内容*/
+    .content {
+        width: 100%;
+        min-width: 960px;
+        max-width: 1250px;
+        margin: 0 auto;
+        position: relative;
+    }
+    /*left-content 左侧导航*/
+    .left-content {
+        position: absolute;
+        width: 16%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #f8f8f8;
+        overflow: hidden;
+    }
+
+    .left-ul-content {
+        list-style: none;
+        padding: 0px;
+        border: none;
+        margin: 0;
+        margin-left: 20px;
+        width: 100%;
+    }
+
+        .left-ul-content > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 3px 0px 3px 16%;
+            margin-left: -16%;
+            text-transform: capitalize;
+            font-size: 14px;
+            line-height: 21px;
+            color: #555555;
+        }
+
+            .left-ul-content > li > a:hover {
+                background-color: #dbdbdb;
+            }
+
+    .nav-li-submenu {
+        font-size: 20px;
+        color: #5c5c5c;
+        margin-top: 25px;
+        margin-bottom: 3px;
+        height: 28px;
+        line-height: 28px;
+    }
+    /*背景 banner*/
+    .right-content-header {
+        position: absolute;
+        top: 0;
+        left: 16%;
+        min-width: 805px;
+        right: calc(50% - 50vw + 9px);
+        height: 293px;
+        background-repeat: no-repeat;
+        background-color: #0872B9;
+        background-image: none;
+        overflow: hidden;
+    }
+        /*banner-content部分*/
+        .right-content-header .right-content-dis {
+            padding-top: 45px;
+            margin-left: 5.6%;
+            max-width: 740px;
+        }
+
+    .rigth-content-title {
+        font-size: 32px;
+        color: #ffffff;
+        margin-bottom: 0px;
+    }
+
+    .banner-title {
+        color: #fff;
+        max-width: 450px;
+        line-height: 35px;
+    }
+
+        .banner-title h4 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 0px;
+        }
+
+        .banner-title p {
+            color: #fff;
+            font-size: 16px;
+        }
+
+    .btn-style {
+        margin-top: 30px;
+        display: block;
+        font-size: 14px;
+        width: 142px;
+        height: 38px;
+        background-color: #ff3d00;
+        text-align: center;
+        padding: 7px;
+        box-sizing: border-box;
+        margin-right: 25px;
+    }
+
+        .btn-style:hover {
+            background-color: #fa6434;
+        }
+    /*四块集合*/
+    .right-content-frame, .right-content-case, .right-content-apply, .right-content-help {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 50px;
+        clear: both;
+        width: 60.96%;
+    }
+
+    .right-content-advantage {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 40px;
+        clear: both;
+        width: 60.96%;
+    }
+
+    .right-content-tab {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 0px;
+        clear: both;
+    }
+
+    .right-content-title {
+        font-size: 24px;
+        color: #000000;
+        display: block;
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+    /*独到之处*/
+    .right-content-summarize {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 60px;
+        clear: both;
+        width: 84%;
+    }
+
+    .right-content-top {
+        clear: none;
+        max-width: 1050px;
+    }
+    /*独到之处*/
+    .right-content {
+        margin-left: 16%;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 293px;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+        width:84%;
+    }
+
+    .right-content-content {
+        margin-right: calc(59% - 50vw+9px);
+        height: 100%;
+        background-color: white;
+    }
+
+
+    .nav-select {
+        color: #5c5c5c;
+        background-color: #DBDBDB;
+    }
+
+
+
+    .right-content-center {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .right-content-tab {
+        padding-top: 0px;
+        margin: 0;
+        overflow: hidden;
+        list-style: none;
+        margin-bottom: -1px;
+    }
+
+        .right-content-tab li {
+            height: 105px;
+            float: left;
+            width: 14.96%;
+            margin-right: 0.4%;
+            position: relative;
+        }
+
+            .right-content-tab li a {
+                font-size: 18px;
+                display: table-cell;
+                width: inherit;
+                color: #555555;
+                vertical-align: middle;
+                text-align: center;
+                height: 105px;
+            }
+    /*section 内容区域*/
+    .right-section {
+        margin-left: 16%;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+        width: 84%;
+    }
+
+        .right-section .right-section-content {
+            float: left;
+            width: 100%;
+        }
+
+        .right-section .right-section-nav {
+            float: left;
+            margin-left: 10px;
+            display: none;
+        }
+    /*方案概述*/
+    .advantage-left p {
+        font-size: 13px;
+        padding-left: 15px;
+        color: #404040;
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+
+    section .section-title {
+        font-size: 18px;
+        color: #000;
+    }
+    /*架构部分*/
+    .right-content-frame {
+        color: #404040;
+        font-size: 14px;
+    }
+
+        .right-content-frame .adexchange {
+            height: 23px;
+            padding: 5px 3px;
+            background-color: #c9e5fb;
+            color: #404040;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+    .adexchange:hover {
+        background-color: #e1effa;
+    }
+
+    .right-content-frame .dsp {
+        background-color: #d2fef3;
+        height: 23px;
+        padding: 5px 0px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .dsp:hover {
+        background-color: #ebfbf7;
+    }
+
+    .right-content-frame .dmp {
+        background-color: #d8fbd9;
+        height: 23px;
+        padding: 5px 0px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .dmp:hover {
+        background-color: #f2fdf3;
+    }
+
+    .right-content-frame .last {
+        background-color: #e6ffd9;
+        height: 23px;
+        padding: 5px 0px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+    @media(min-width:1250px) {
+
+        /*banner-content部分*/
+        .right-content-header {
+            background-image: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-storage-backup-recovery.png);
+        }
+
+        .right-content-dis {
+            margin-left: 70px;
+        }
+        /*newsection*/
+        .left-newsection {
+            width: 540px;
+        }
+
+        .right-case-section {
+            width: 220px;
+            padding-left: 70px;
+        }
+        /*选择块*/
+        .right-content-frame, .right-content-case, .right-content-apply, .right-content-help {
+            padding-left: 75px;
+            width: 762px;
+        }
+
+        .right-content-advantage {
+            width: 762px;
+            padding-left: 75px;
+        }
+
+        .right-content-tab {
+            padding-left: 75px;
+        }
+            /*选择框*/
+            .right-content-tab li {
+                width: 187px;
+                margin-right: 5px;
+            }
+        /*导航*/
+        .right-section .right-section-nav {
+            display: block;
+        }
+
+        /*独到之处*/
+        .right-content-summarize {
+            padding-left: 70px;
+            width: 836px;
+        }
+
+        /*内容区域*/
+        .right-section .right-section-content {
+            width: 836px;
+        }
+        /*入门*/
+        .newsection-resources .res-distance {
+           margin-right:50px;
+        }
+    }
+
+    @media(max-width:960px) {
+        .content {
+            min-width: 960px;
+        }
+
+        .left-content {
+            min-width: 154px;
+        }
+
+        .right-content {
+            min-width: 805px;
+        }
+    }
+</style>
+
+<div class="main-content" id='serviceCenter'>
+    <div class="content">
+        <div class="white-background"></div>
+        <!--left 左侧导航-->
+        <div class="left-content">
+            <ul style="border:none;" class="left-ul-content">
+                <li class="nav-li-submenu li-general">
+                    解决方案
+                </li>
+                <li><a id="site_nav_solu_game" href="/solutions/game/">云端游戏开发</a></li>
+                <li><a id="site_nav_solu_moible" href="/solutions/mobile/">云端移动开发</a></li>
+                <li><a id="site_nav_solu_ad" href="/solutions/advertising/">广告数字营销</a></li>
+                <li><a id="site_nav_solu_line" href="/solutions/online/">在线数字营销</a></li>
+                <li class="nav-li-submenu" style="height:0px;">
+                </li>
+                <li><a id="site_nav_solu_base" href="/solutions/infrastructure/">基础结构服务</a></li>
+                <li><a id="site_nav_solu_data" href="/solutions/data-management/">数据管理</a></li>
+                <li><a id="site_nav_solu_Web" href="/solutions/web/">Web 应用程序</a></li>
+                <li><a id="site_nav_solu_develop" href="/solutions/dev-test/">开发与测试</a></li>
+                <li><a id="site_nav_solu_save" href="/solutions/storage-backup-recovery/" class="nav-select">存储、备份和修改</a></li>
+                <li><a id="site_nav_solu_soft" href="/solutions/OSS/">开源软件</a></li>
+                <li><a id="site_nav_solu_storsimple" style="margin-bottom:43px;" href="/solutions/storsimple/">Storsimple</a></li>
+
+            </ul>
+        </div>
+        <!--banner 背景-->
+        <div class="right-content-header">
+            <div class="right-content-dis">
+                <h1 class="rigth-content-title"><a id="storage-backup-recovery-title" class="anchor"></a>存储、备份和恢复</h1>
+                <div>
+                    <div class="banner-title">
+                        <h4><a id="storage-backup-recovery-ease" class="anchor"></a>安心使用</h4>
+                        <p>Azure 为无论大小的任何数据均提供规模可变、耐用的云存储、备份和恢复解决方案。它可用于已有的基础结构，从而具成本效益地增强业务连续性策略和提供包括视频、音频和图像等非结构化文本或二进制数据的云应用程序所需的存储。</p>
+                    </div>
+                    <ul class="sou-tab">
+                        <li><a id="tab-benefits" href="#benefits" class="select">好处</a></li>
+                        <li><a id="tab-scenarios" href="#scenarios" class="unselect">方案</a></li>
+                        <li><a id="tab-started" href="#started" class="unselect">入门</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--content-->
+        <div class="right-content">
+            <div class="right-content-content">
+                <div class="right-content-top">
+                    <div class="right-content-summarize">
+                        <!--好处-->
+                        <div class="newsection secshow" data-value="benefits">
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="storage-backup-recovery-persistent" class="anchor"></a>持久保存</h2>
+                                    <p>Azure 根据您的需要提供安全而可靠的存储。我们注重持久保存，地域复制为您的数据提供跨地区的冗余性，确保在本地发生灾难时可访问您的数据。</p>
+                                </div>
+                                <div class="right-newsection" style="margin-bottom:60px;">
+                                    <img src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/storage-01.png" alt="" />
+                                </div>
+                            </div>
+                            <div class="border-style"></div>
+                            <div class="section-content">
+                                <div style="float:left;margin-bottom:60px;">
+                                    <img src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/storage-02.png" alt="">
+                                </div>
+                                <div class="left-newsection" style="float:right">
+                                    <h2><a id="storage-backup-recovery-change" class="anchor"></a>规模可变</h2>
+                                    <p>Azure 存储可与您一起改变规模，因此无论大小，尽管存放数据。可选择保留数据的位置并纵向扩展或扩展到不同的数据中心</p>
+                                </div>
+                            </div>
+                            <div class="border-style"></div>
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="storage-backup-recovery-benefit" class="anchor"></a>具成本效益</h2>
+                                    <p>Azure 提供具成本效益的存储。只需为您使用的部分付费，成本低于企业内部的许多本地、SAN 或 NAS 存储解决方案。</p>
+                                </div>
+                                <div class="right-newsection">
+                                    <img src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/storage-03.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <!--方案-->
+                        <div class="newsection hide" data-value="scenarios">
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="storage-backup-recovery-SQL" class="anchor"></a>SQL Server 连续性策略</h2>
+                                    <p>发掘新的混合业务连续性策略，如在内部部署 SQL Server AlwaysOn 主数据库，在虚拟机中部署基于云的辅助数据库。如果内部部署发生故障，可使用基于云的辅助数据库快速恢复映像，有助于缩短停机时间和将数据丢失情况降低最低程度。</p>
+                                </div>
+                                <div class="right-case-section" style="margin-bottom:60px;">
+                                    <p style="color: #666; font-style: normal;">
+                                        “每个销售点工作站中的传统高可用性服务器不再是选择。利用 Azure IaaS SQL Server 和‘备份到 Azure’功能，现在可轻松实现此目标”<br />
+                                        <span>Solteq PLC 的首席技术架构师 Vesa Tikkanen</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--入门-->
+                        <div class="newsection hide" data-value="started">
+                            <div class="newsection-resources">
+                                <!--其他资源-->
+                                <h2><a id="storage-backup-recovery-scanMore" class="anchor"></a>浏览其他资源</h2>
+                                <div>
+                                    <div class="res-distance">
+                                        <h2><a id="storage-backup-recovery-storages" class="anchor"></a>存储</h2>
+                                        <ul>
+                                            <li><a id="sou_rec_stcap" target="_blank" href="/documentation/articles/storage-create-storage-account/">创建存储帐户</a></li>
+                                            <li><a id="sou_rec_stcap" target="_blank" href="http://msdn.microsoft.com/library/gg433040.aspx">Blob、队列和表</a></li>
+                                            <li><a id="sou_rec_stcap" target="_blank" href="/documentation/articles/storage-create-storage-account/">管理存储帐户</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="res-distance" style="width:40%;">
+                                        <h2>SQL Server</h2>
+                                        <ul>
+                                            <li><a id="sou_rec_stcap" target="_blank" href="http://msdn.microsoft.com/library/windowsazure/jj870962.aspx">虚拟机中 SQL Server 的高可用性和灾难恢复</a></li>
+                                            <li><a id="sou_rec_stcap" target="_blank" href="http://msdn.microsoft.com/library/jj720558.aspx">将 SQL Server 备份和还原到 Blob 存储入门</a></li>
+                                            <li><a id="sou_rec_stcap" target="_blank" href="http://msdn.microsoft.com/library/jj919148.aspx">SQL Server 备份和还原注意事项</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both;padding:60px 0px;"> <a id="sou_rec_rele" href="/manage/services/storage/" class="arrowlink medium grey" target="_blank">另请参阅</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function onload() {
+            var strUrl = window.location.href;
+            if (strUrl.indexOf("#") >= 0) {
+                var strhref = strUrl.split("#")[1];
+                $(".newsection").each(function () {
+                    var secID = $(this).attr('data-value');
+                    if (strhref == secID) {
+                        $("a.select").removeClass("select").addClass("unselect");
+                        $(".secshow").removeClass("secshow").addClass("hide");
+                        $("#tab-" + secID).removeClass("unselect").addClass("select");
+                        $(this).removeClass("hide").addClass("secshow");
+                    }
+                });
+            };
+        };
+        onload();
+    </script>
+</div>
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>存储、备份和恢复 | Azure</pageTitle>
+    <metaKeywords>Azure, 微软云, 解决方案, 架构, 方案, 产品应用, 存储, 备份, 恢复, 解决方案, 持久保存, 规模可变, 成本效益, 连续性策略</metaKeywords>
+    <metaDescription><![CDATA[Windows Azure 为无论大小的任何数据均提供规模可变、耐用的云存储、备份和恢复解决方案，它可用于已有的基础结构，从而具成本效益地增强业务连续性策略。持久保存，地域复制为您的数据提供跨地区的冗余性，确保在本地发生灾难时可访问您的数据。]]></metaDescription>
+    <linkid>solutions-storage-backup-recovery</linkid>
+    <urlDisplayName>存储、备份和恢复</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate>solution-template</pageTemplate>
+    <localize>1</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+  </umbTextpage>
+</localize>

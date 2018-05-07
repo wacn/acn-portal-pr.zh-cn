@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2014-11-07T08:57:21" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
+    <bodyText>
+      <![CDATA[
+        <div class="section-component">
+                        <!-- BEGIN: TAB-CONTROL -->
+                        <div class="tab-control-selector">
+                            <a href="#" id="new_control_bexpend" class="faq-floder"><em>全部展开</em></a>
+                            <div class="clearfix"></div>
+                            <div class="floder-layer">
+                                <div class="tab-control-container tab-active">   
+                                    <div class="pricing-page-section">                      
+                                        <div class="more-detail">
+											<ul>
+                                                <li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-1" href="#">根据计量 ID（资源 GUID）在新旧名称计量之间进行转换</a>
+                                                        <section>
+                                                            <p>以下步骤用于筛选我们提供给用户所使用的计量映射电子表格。</p>
+															<p>1. 请下载<a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/China_meter_standardization-17.2.xlsx">标准化计量列表</a>，并在本地保存文件（如 c:\AzureMeterMapping-en.xls）。</p>
+															<p>2. 用户可以<!--
+															从<a href="//account.windowsazure.cn/subscriptions/" id="meter-renaming_subcriptions-1">Azure 管理门户</a>
+															-->下载详细的使用情况总结，也可以从可用的 Azure API 中输出，创建工作簿，并在本地保存文件（例如 c:\AzureUsage.xls）。请参阅以下示例，描述了<!--
+															从<a href="//account.windowsazure.cn/subscriptions/" id="meter-renaming_subcriptions-2">Azure 管理门户</a>下载的 csv
+															-->文件的详细用法。</p>
+															<ul>
+															<li>
+															如果您是标准预付费客户，请从<a href="//account.windowsazure.cn/" id="meter-renaming-q1_windowsazure-direct-customer">Azure 账户管理界面</a>下载 “Version 2 – Preview”
+															</li>
+															<li>
+															如果您是企业客户，请从<a href="//ea.windowsazure.cn/" id="meter-renaming-q1_windowsazure-ea-customer">企业门户网站</a>下载使用情况总结
+															</li>
+															<!--<li>
+															如果您是内部客户，请从 AIRS 下载使用情况总结
+															</li>-->
+															</ul>
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-1.png"/>
+															
+															<p>3. 打开“AzureUsage.xls”文件，删除所有与每日使用情况不相关的数据（如语句或预配状态信息）。如果尚未将工作表命名为“Sheet 1”，请先将其重命名为“Sheet 1”。</p>
+															<p>4. 在运行 vlookup 解释计量命名更改之前，请先清理“AzureUsage.xls”中的数据。</p>
+															<p>1) 为了确保 vlookup 结果有效，请使用 Excel 的查找/替换功能，删除“AzureUsage.xls”中计量 ID（资源 GUID）的引号。然后，将“计量 ID（资源 GUID）”列向左移动，使之成为 A 列从而便于使用 vlookup，然后保存文件。用于比较的数据应与下列内容相似（请注意：下方表格中列标题显示的计量属性名称中的变体取决于用户具体的集体 Azure 订阅）。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-2.png"/>
+															
+															<p>5. 打开“AzureMeterMapping-en.xls”文件，将计量 ID（资源 GUID）上的标准 vlookup 生成到“AzureUsage.xls”文件中。</p>
+															<p>1) 在“AzureMeterMapping-en.xls”文件的 A 列右侧添加一个列。</p>
+															<p>2) 在 B2 单元格 中输入 vlookup 函数：=VLOOKUP(A2,'[AzureUsage.xls]Sheet 1'!$A:$A,1,FALSE)</p>
+															<p>3) 从 B 列筛选“N/A”值，清除所有不使用的计量。更新后的文件应与以下示例相似。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-cs1.png"/>
+															</br>
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-cs2.png"/>
+															<p>4) “AzureMeterMapping-en.xls”文件仅显示使用情况总结中所使用的计量。请查看 C-G 列，了解旧计量命名约定。请查看 H-L 列，了解新计量命名约定。</p>
+                                                        </section>
+                                                    </div>
+                                                </li> 
+												<li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-2" href="#">总结使用情况，在名称更改生效前，使用数据透视表查看显示在一个报表中的新旧名称</a>
+                                                        <section>
+                                                            <p>以下部分阐述如何将已使用的计量总结到一个同时显示新旧名称的报表。如果要查看使用新名称后的报表，请遵循此说明操作。</p>
+															<p>1. 请下载<a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/China_meter_standardization-17.2">标准化计量列表</a>，并在本地保存文件（如 c:\AzureMeterMapping-en.xls）。</p>
+															<p>2. 用户可以<!--从<a href="//account.windowsazure.cn/subscriptions" id="meter-renaming_subcriptions-3"> Azure 管理门户</a>-->下载详细的使用情况总结，也可以从可用的 Azure API 中输出，创建工作簿，并在本地保存文件（例如 c:\AzureUsage.xls）。请参阅以下示例，描述了<!--从<a href="//account.windowsazure.cn/subscriptions" id="meter-renaming_subcriptions-4"> Azure 管理门户</a>下载的 csv -->文件的详细用法。</p>
+															<ul>
+															<li>
+															如果您是标准预付费客户，请从<a href="//account.windowsazure.cn/" id="meter-renaming-q2_windowsazure-direct-customer">Azure 账户管理界面</a>下载 “Version 2 – Preview”
+															</li>
+															<li>
+															如果您是企业客户，请从<a href="//ea.windowsazure.cn/" id="meter-renaming-q2_windowsazure-ea-customer">企业门户网站</a>下载使用情况总结
+															</li>
+															<!--<li>
+															如果您是内部客户，请从 AIRS 下载使用情况总结
+															</li>-->
+															</ul>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-1.png"/>
+															
+															<p>3. 打开“AzureUsage.xls”文件，删除所有与每日使用情况不相关的数据（如语句或预配状态信息）。</p>
+															<p>4.	在运行 vlookup 解释计量命名更改之前，请先清理“AzureUsage.xls”中的数据。</p>
+															<p>1) 为确保 vlookup 结果有效，请使用 Excel 的查找/替换功能删除“AzureUsage.xls”文件中所有单元格的引号。然后，将“计量 ID（资源 GUID）”列向左移动，使之成为 A 列从而便于使用 vlookup，然后保存文件。用于比较的数据应与下列内容相似（请注意：下方表格中列标题显示的计量属性名称中的变体取决于用户具体的 Azure 订阅）。</p>
+														
+															<p>5. 打开一个新的 Excel 文件，将其命名为“Usage Summary – New Names.xls”。在本地保存文件。</p>
+															<p>6. 按以下示例中的顺序，从“AzureUsage.xls”文件复制数据并粘贴到“Usage Summary – New Names.xls”文件。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-2.png"/>
+															
+															<p>7. 在“Usage Summary – New Names.xls”文件的 O - S 列中生成 vlookup，拉入“AzureMeterMapping-en.xls”文件中的 G-K 列，标题也包括在内。请参阅下方的屏幕截图示例。
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-3.png"/>
+															
+															<p>8. 在“Usage Summary – New Names.xls”文件中创建透视</p>
+															<p>1) 若要创建上述数据透视表，请按照以下步骤操作：</p>
+															<p>i. 在“Usage Summary – New Names.xls”文件工作簿中添加一个新工作表，将其命名为“After-Before Summary”。</p>
+															<p>ii. 突出显示“Usage Summary – New Names.xls”文件中的所有单元格。</p>
+															<p>iii.	单击“插入”选项卡，然后单击“数据透视表”。在“After-Before Summary”工作表中创建数据透视表。</p>
+															<p>iv. 将下列“数据透视表”字段添加至“行”。</p>
+															<p>1.（不建议使用此编号）计量 ID（资源 GUID）</p>
+															<p>2. 计量类别（服务名称或名称）</p>
+															<p>3. 计量子类别（服务类型或类型）</p>
+															<p>4. 计量名称（资源名称、资源、服务资源）</p>
+															<p>5. 计量区域（区域）</p>
+															<p>6. 单位（计量单位）</p>
+															<p>7. 新约定 - 服务名称、名称或计量类别</p>
+															<p>8. 新约定 - 服务类型、类型或计量子类别</p>
+															<p>9. 新约定 - 资源名称、资源、服务资源或计量名称</p>
+															<p>10. 新约定 - 计量区域或区域</p>
+															<p>11. 新约定 - 单位或计量单位</p>
+															<p>v. 将“已使用数量”字段添加至“值”，作为已使用数量的总和。</p>
+															<p>vi. 选中“设计”选项卡，单击“报表布局 ”。单击下拉框中的“以表格形式显示”。</p>
+															<p>vii. 右键单击每个列标题，取消选中“小计 <标题名称>”（如小计“计量类别（服务名称或名称）”）。</p>
+															<p>9. 最终输出应类似于以下示例：</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-4.png" />		
+															
+                                                        </section>
+                                                    </div>
+                                                </li>
+												<li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-3" href="#">总结使用情况，在名称更改生效后，使用数据透视表查看显示在一个报表中的新旧名称</a>
+                                                        <section>
+                                                            <p>以下说明了如何将已使用的计量总结到一个同时显示新旧名称的报表。如果新名称实施后，还要暂时在报表中使用旧名称，应遵循该说明进行操作。</p>
+															<p>1. 请下载<a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/China_meter_standardization-17.2.xlsx">标准化计量列表</a>，并在本地保存文件（如 c:\AzureMeterMapping-en.xls）。</p>
+															<p>2. 用户可以从<a href="//account.windowsazure.cn/subscriptions" id="meter-renaming_subcriptions-5"> Azure 管理门户</a>下载详细的使用情况总结，也可以从可用的 Azure API 中输出，创建工作簿，并在本地保存文件（例如 c:\AzureUsage.xls）。请参阅以下示例，描述了<!--从<a href="//account.windowsazure.cn/subscriptions" id="meter-renaming_subcriptions-6"> Azure 管理门户</a>下载的 csv -->文件的详细用法。</p>
+															<ul>
+															<li>
+															如果您是标准预付费客户，请从<a href="//account.windowsazure.cn/" id="meter-renaming-q3_windowsazure-direct-customer">Azure 账户管理界面</a>下载 “Version 2 – Preview”
+															</li>
+															<li>
+															如果您是企业客户，请从<a href="//ea.windowsazure.cn/" id="meter-renaming-q3_windowsazure-ea-customer">企业门户网站</a>下载使用情况总结
+															</li>
+															<!--<li>
+															如果您是内部客户，请从 AIRS 下载使用情况总结
+															</li>-->
+															</ul>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-1.png"/>
+															
+															<p>3. 打开一个新的 Excel 文件，将其命名为“Usage Summary – Old Names.xls”。在本地保存文件。</p>
+															<p>4. 在运行 vlookup 解释计量命名更改之前，请先清理“AzureUsage.xls”中的数据。</p>
+															<p>a. 为了确保 vlookup 结果有效，请使用 Excel 的查找/替换功能删除“AzureUsage.xls”文件中所有单元格的引号。然后，将“计量 ID（资源 GUID）”列向左移动，使之成为 A 列从而便于使用 vlookup，然后保存文件。用于比较的数据应与下列内容相似（请注意：下方表格中列标题显示的计量属性名称中的变体取决于用户具体的Azure 订阅）。</p>
+															<p>5. 按以下示例中的顺序，从“AzureUsage.xls”文件复制数据并粘贴到“Usage Summary – Old Names.xls”文件。</p>
+
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-2.png"/>
+															
+															<p>6. 在“Usage Summary – Old Names.xls”文件的 O-S 列中生成 vlookup，拉入“AzureMeterMapping-en.xls”文件中的 B-F 列，标题也包括在内。请参阅下方的屏幕截图示例。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-5.png"/>
+															
+															<p>7. 在“Usage Summary – Old Names.xls”文件中创建透视。</p>
+															<p>a. 若要创建上述数据透视表，请按照以下步骤操作：</p>
+															<p>i. 在“Usage Summary – New Names.xls”文件工作簿中添加一个新工作表，将其命名为“After-Before Summary”。</p>
+															<p>ii. 突出显示“Usage Summary – New Names.xls”文件中的所有单元格。</p>
+															<p>iii.	单击“插入”选项卡，然后单击“数据透视表”。在“After-Before Summary”工作表中创建数据透视表。</p>
+															<p>iv. 将下列“数据透视表”字段添加至“行”。</p>
+															<p>i. 计量 ID（资源 GUID）</p>	
+															<p>ii. 计量类别（服务名称或名称）</p>
+															<p>iii. 计量子类别（服务类型或类型）</p>
+															<p>iv. 计量名称（资源名称、资源、服务资源）</p>
+															<p>v. 计量区域（区域）</p>
+															<p>vi. 单位（计量单位）</p>
+															<p>vii.	旧约定 - 服务名称、名称或计量类别</p>
+															<p>viii. 旧约定 - 服务类型、类型或计量子类别</p>
+															<p>ix. 旧约定 - 资源名称、资源、服务资源或计量名称</p>	
+															<p>x. 旧约定 - 计量区域或区域</p>
+															<p>xi. 旧约定 - 单位或计量单位</p>
+															<p>v. 将“已使用数量”字段添加至“值”，作为已使用数量的总和。</p>
+															<p>vi. 选中“设计”选项卡，单击“报表布局 ”。单击下拉框中的“以表格形式显示”。</p>
+															<p>vii. 右键单击每个列标题，取消选中“小计 <标题名称>”（如小计“计量类别（服务名称或名称）”）。</p>
+															<p>8. 最终输出应类似于以下示例：</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-6.png"/>
+															
+
+                                                        </section>
+                                                    </div>
+                                                </li>
+												<li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-4" href="#">将旧名称转换为不含计量 ID（资源 GUID）的新名称</a>
+                                                        <section>                                                       
+														
+															<p>以下步骤用于筛选我们仅基于计量名称属性，提供给用户使用的计量的映射电子表格。如果用户没有计量 ID（资源 GUID）使用情况文件，在名称更改生效前，请按以下步骤操作。</p>	
+															<p>1. 请下载<a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/China_meter_standardization-17.2.xlsx">标准化计量列表</a>，并在本地保存文件（如 c:\AzureMeterMapping-en.xls）。</p>
+															<p>2. 打开一个新的 Excel 文件，并为其命名（例如“Old Names.xls”）。在本地保存文件。添加下列标题，用户需要根据 Azure 订阅来自定义这些标题。请参阅以下示例。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-7.png"/>
+															
+															<p>3. 根据所创建的标题，将旧名称数据从你的文件添加到“Old Names.xls”文件。请参阅下方的示例屏幕截图。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-8.png"/>
+															
+															<p>4. 在“Old Names.xls”文件的 F 列中，连接每行中的数据。在F2单元格中输入下列公式：=CONCATENATE(A2," ",B2," ",C2," ",D2," ",E2)。请参阅下方的示例截图。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-9.png"/>
+															
+															<p>a. 将 F 列中的内容复制粘贴为纯文本，这样可以删除公式，同时保留单元格中的结果。然后将 F 列移动到 A 列。该文件应与如下所示的文件相似。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-10.png"/>
+															
+															<p>5. 在“AzureMeterMapping-en.xls”文件中，在 F 列和 G 列之间添加一个列。通过连接“AzureMeterMapping-en.xls”文件中的 B-F 列，重复步骤 3 和 3i。请参阅下方的示例截图。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-cs3.png"/>
+															
+															<p>6. 在“AzureMeterMapping-en.xls”文件中，在 G 列的右侧添加另一列。</p>
+															<p>7.	将“AzureMeterMapping-en.xls”文件的 G 列上的标准 vlookup 生成到“Old Names.xls”文件的 A 列中。</p>	
+															<p>a. 要生成标准 vlookup，请在H2 单元格中输入 vlookup 函数：=VLOOKUP(G2,'[Old Names.xls.xlsx]Sheet1'!$A:$A,1,FALSE)</p>
+															<p>b. 旧名称可能随着时间会更改，因此将不会显示匹配。从<a href="//account.windowsazure.cn/subscriptions" id="meter-renaming_subcriptions-7"> Azure 管理门户 </a>查看当前详细的使用情况总结，在未找到匹配的情况下查找计量的当前名称。</p>
+															<p>8. 筛选 H 列，删除显示“N/A”的结果。 筛选后，“AzureMeterMapping-en.xls”文件仅显示“Old Names.xls”文件中的计量。要查看与“Old Names.xls”文件中的计量对齐的新名称，请滚动到工作簿的右侧查看 I-M 列。请查看下方屏幕截图示例中的结果。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-cs4.png" />
+																												
+                                                        </section>
+                                                    </div>
+                                                </li>
+												<li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-5" href="#">将新名称转换为不含计量 ID（资源 GUID）的旧名称</a>
+                                                        <section>                                                       																		
+															<p>以下步骤用于筛选我们仅基于计量名称属性提供给用户使用的计量的映射电子表格。如果用户没有计量 ID（资源 GUID）的使用情况文件，在名称更改生效后，请按以下步骤操作。</p>
+															<p>1. 请下载<a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/China_meter_standardization-17.2.xlsx">标准化计量列表</a>，并在本地保存文件（如 c:\AzureMeterMapping-en.xls）。</p>
+															<p>2. 打开一个新的 Excel 文件，并为其命名（例如“New Names.xls”）。在本地保存文件。添加下列标题，用户需要根据 Azure 订阅来自定义这些标题。请参阅以下示例。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-7.png" />
+															
+															
+															<p>3. 根据所创建的标题，将新名称数据从文件添加至“New Names.xls”文件。请参阅下方的屏幕截图示例。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-11.png" />
+															
+															<p>4. 在“New Names.xls”文件的 F 列中，需要连接每行中的数据。在单元格 F2 中输入下列公式：=CONCATENATE(A2," ",B2," ",C2," ",D2," ",E2)。请参阅下方的截图示例。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-12.png" />
+															
+															<p>a. 将 F 列中的内容复制粘贴为纯文本，这样可以删除公式，同时保留单元格中的结果。然后，将 F 列移到 A 列。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-13.png" />
+															
+															<p>5. 在“AzureMeterMapping-en.xls”文件的 L 列中，通过连接“AzureMeterMapping-en.xls”文件中的 G-K 列重复步骤 4。请参阅下方的示例截图。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-cs5.png" />
+															
+															<p>6. 将“AzureMeterMapping-en.xls”文件的 G 列上的标准 vlookup 生成到“Old Names.xls”文件的 A 列中。</p>	
+															<p>a. 要生成标准 vlookup，请在单元格 H2 中输入 vlookup 函数：=VLOOKUP(G2,'[Old Names.xls.xlsx]Sheet1'!$A:$A,1,FALSE)</p>
+															<p>b. 旧名称可能随着时间更改，因此将不会显示匹配。从<a href="//account.windowsazure.cn/subscriptions" id="meter-renaming_subcriptions-8"> Azure 管理门户 </a>查看当前详细的使用情况总结，以便在未找到匹配的情况下查找计量的当前名称。</p>
+															<p>7. 筛选 M 列，删除显示“N/A”的结果。筛选后，“AzureMeterMapping-en.xls”文件仅显示“New Names.xls”文件中的计量。要查看与“New Names.xls”文件中的计量对齐的旧名称，请滚动到工作簿的左侧查看 B-F 列。请查看下方屏幕截图示例中的结果。</p>
+															
+															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-cs6.png" />
+															
+															
+															<p></p>
+															<p></p>	
+                                                        </section>
+                                                    </div>
+                                                </li>
+												
+												
+												<li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-7" href="#">联系支持人员</a>
+                                                        <section>														
+															<!-- <p>下载计量映射文件的语言版本</p> -->
+															<p>关于计量属性命名更改，如有其他问题请与<a href="/support/contact/" id="meter-renaming_contact"> Azure 支持部门</a>联系。</p>
+                                                        </section>
+                                                    </div>
+                                                </li>
+                                            </ul>   
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+                        </div>
+                            
+                    </div>
+                    <!-- END: TAB-CONTROL -->
+                </div>
+    ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>如何使用Azure 新的计量名称更新报表 | Azure</pageTitle>
+    <metaKeywords>Azure, 微软云, 服务内容, FAQ, 一般问题, 注册问题, 计费, 订阅, 维护</metaKeywords>
+    <metaDescription><![CDATA[Windows Azure 支持常见问题总结了在 Azure 使用过程中的一些常见问题，并对这些常见问题进行分类，包括一般问题，注册，计费与阅读，执行与维护四个方面，通过对问题的解答让您更进一步了解 Windows Azure。]]></metaDescription>
+    <linkid>support-faq</linkid>
+    <urlDisplayName>如何使用Azure 新的计量名称更新报表</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+	<banner><![CDATA[
+      <!-- BEGIN: Banner -->
+          <div class="common-banner" data-config="{'backgroundColor':'#002050'}" id="support-contact-banner">      
+            <div class="common-banner-image">
+              <div class="common-banner-title">
+                <h1>如何使用Azure 新的计量名称更新报表</h1>
+              </div>
+            </div>
+          </div>  
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText>
+      <![CDATA[<div class="_faq-banner">
+</div>]]>
+    </headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>
+
+							

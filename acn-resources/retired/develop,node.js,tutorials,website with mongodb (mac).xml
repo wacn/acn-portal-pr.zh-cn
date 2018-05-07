@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19015" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="4" createDate="2013-07-11T11:17:21" updateDate="2014-08-18T11:17:46" nodeName="Website with MongoDB (Mac)" urlName="website-with-mongodb-(mac)" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19015" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>使用 MongoDB 中的存储的 Node.js Web 应用程序（虚拟机）</h1>
+<p>本教程向您演示如何使用 <a href="http://www.mongodb.org">MongoDB</a> 在 Windows Azure 上托管的 <a href="http://nodejs.org">Node</a> 应用程序中存储和访问数据。<a href="http://www.mongodb.org">MongoDB</a> 是一个受欢迎的开源、高性能 NoSQL 数据库。本教程假定您之前使用过 Node、MongoDB 和 <a href="http://git-scm.com">Git</a>。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何设置运行 Linux 或 Windows 的虚拟机并安装 MongoDB</li>
+<li>如何使用 npm（Node 包管理器）安装 Node 模块</li>
+<li>如何从 Node 应用程序中访问 MongoDB</li>
+<li>如何使用适用于 Windows Azure 的跨平台工具创建 Windows Azure 网站</li>
+</ul>
+<p>通过按照本教程中的说明操作，您将构建一个简单的基于 Web 的任务管理应用程序，该应用程序可用于创建、检索和完成任务。这些任务存储在 MongoDB 中。</p>
+<p>本教程中的项目文件将存储在名为 <strong>tasklist</strong> 的目录中，已完成的应用程序将与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/todo_list_empty.png" alt="显示空白 tasklist 的网页"/></p>
+<div class="dev-callout"><strong>注意</strong>
+<p>本教程引用 <strong>tasklist</strong> 文件夹。将省略此文件夹的完整路径，因为路径语义在操作系统之间并不相同。您应在本地文件系统中易于访问的位置创建此文件夹（例如 <strong>~/node/tasklist</strong> 或 <strong>c:\node\tasklist</strong>）</p>
+</div>
+<div class="dev-callout"><strong>注意</strong>
+<p>下面提到的许多步骤都将使用命令行。对于这些步骤，请使用适用于您的操作系统的命令行，例如 <strong>Windows PowerShell</strong> (Windows) 或 <strong>Bash</strong> (Unix Shell)。在 OS X 系统上，可以通过 Terminal 应用程序访问命令行。</p>
+</div>
+<h2>必备组件</h2>
+<p>在按照本文中的说明操作之前，您应确保已安装下列项：</p>
+<ul>
+<li>
+<p><a href="http://nodejs.org">Node</a> 最新版本</p>
+</li>
+<li>
+<p><a href="http://git-scm.com">Git</a></p>
+</li>
+</ul>
+<h2>准备工作</h2>
+<p>在本节中，您将了解如何在 Windows Azure 中创建虚拟机和安装 MongoDB，设置您的开发环境，以及安装 MongoDB C# 驱动程序。</p>
+<h3>创建虚拟机和安装 MongoDB</h3>
+<p>本教程假定您已在 Windows Azure 中创建一个虚拟机。创建虚拟机后，您需要在该虚拟机上安装 MongoDB：</p>
+<ul>
+<li>若要创建 Linux 虚拟机并安装 MongoDB，请参阅<a href="/zh-cn/manage/linux/common-tasks/mongodb-on-a-linux-vm/">在 Linux 虚拟机上安装 MongoDB</a>。</li>
+</ul>
+<p>在 Windows Azure 中创建虚拟机并安装 MongoDB 后，请务必记住该虚拟机的 DNS 名称（例如“testlinuxvm.chinacloudapp.cn”）以及您在端点中指定的 MongoDB 的外部端口。本教程后面的步骤中将会用到此信息。</p>
+<h2>安装模块并生成基架</h2>
+<p>在本节中，您将创建新的 Node 应用程序并使用 npm 添加模块包。对于任务列表应用程序，您将使用 <a href="http://expressjs.com">Express</a> 和 <a href="http://mongoosejs.com">Mongoose</a> 模块。Express 模块为 Node 提供模型视图控制器框架，而 Mongoose 是用于与 MongoDB 通信的驱动程序。</p>
+<h3>安装 Express 并生成基架</h3>
+<ol>
+<li>
+<p>从命令行中，将目录更改为 <strong>tasklist</strong> 目录。如果 <strong>tasklist</strong> 目录不存在，请创建该目录。</p>
+</li>
+<li>
+<p>输入以下命令来安装 Express。</p>
+<p>sudo npm install express -g</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>在某些操作系统上使用“-g”参数时，您可能会收到一条错误 <strong>Error:EPERM, chmod '/usr/local/bin/express'</strong> 和一个尝试以管理员身份运行帐户的请求。如果发生这种情况，请使用 <strong>sudo</strong> 命令以更高的权限级别运行 npm。</p>
+</div>
+<p>此命令的输出看上去应如下所示：</p>
+<pre class="prettyprint">express@2.5.9 /usr/local/lib/node_modules/express
+â”œâ”€â”€ mime@1.2.4 
+â”œâ”€â”€ mkdirp@0.3.0 
+â”œâ”€â”€ qs@0.4.2 
+â””â”€â”€ connect@1.8.7</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>在安装 Express 模块时使用“-g”参数将全局安装该模块。这样我们就可以访问 <strong>express</strong> 命令以生成网站基架，而无需键入其他路径信息。</p>
+</div>
+</li>
+<li>
+<p>若要创建将用于此应用程序的基架，请使用 <strong>express</strong> 命令：</p>
+<p>express</p>
+<p>此命令的输出看上去应如下所示：</p>
+<pre class="prettyprint">create : .
+create : ./package.json
+create : ./app.js
+create : ./public
+create : ./public/javascripts
+create : ./public/images
+create : ./public/stylesheets
+create : ./public/stylesheets/style.css
+create : ./routes
+create : ./routes/index.js
+create : ./views
+create : ./views/layout.jade
+create : ./views/index.jade
+
+
+dont forget to install dependencies:
+$ cd . &amp;&amp; npm install</pre>
+<p>此命令完成后，您应当会在 <strong>tasklist</strong> 目录中拥有几个新目录和文件。</p>
+</li>
+</ol>
+<h3>安装其他模块</h3>
+<p><strong>package.json</strong> 文件是 <strong>express</strong> 命令创建的文件之一。此文件包含 Express 应用程序所需的其他模块的列表。稍后，在您将此应用程序部署到 Windows Azure 网站时，将使用此文件确定需要在 Windows Azure 上安装哪些模块以支持您的应用程序。</p>
+<ol>
+<li>
+<p>从命令行中，将目录更改为 <strong>tasklist</strong> 文件夹，然后输入以下命令安装 <strong>package.json</strong> 文件中描述的模块：</p>
+<pre class="prettyprint">npm install</pre>
+<p>此命令的输出看上去应如下所示：</p>
+<pre class="prettyprint">express@2.5.8 ./node_modules/express
+â”œâ”€â”€ mime@1.2.4
+â”œâ”€â”€ qs@0.4.2
+â”œâ”€â”€ mkdirp@0.3.0
+â””â”€â”€ connect@1.8.7
+jade@0.26.0 ./node_modules/jade
+â”œâ”€â”€ commander@0.5.2
+â””â”€â”€ mkdirp@0.3.0</pre>
+<p>这将安装 Express 需要的所有默认模块。</p>
+</li>
+<li>
+<p>接下来，输入以下命令在本地安装 Mongoose 模块并将它的一个条目保存到 <strong>package.json</strong> 文件：</p>
+<pre class="prettyprint">npm install mongoose --save</pre>
+<p>此命令的输出看上去应如下所示：</p>
+<pre class="prettyprint">mongoose@2.6.5 ./node_modules/mongoose
+â”œâ”€â”€ hooks@0.2.1
+â””â”€â”€ mongodb@1.0.2</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>您可以放心地忽略有关安装 C++ bson 分析器的任何消息。</p>
+</div>
+</li>
+</ol>
+<h2>在 Node 应用程序中使用 MongoDB</h2>
+<p>在本节中，您将通过添加一个包含您的任务模型的 <strong>task.js</strong> 文件来扩展 <strong>express</strong> 命令创建的基本应用程序。您还将修改现有 <strong>app.js</strong> 并创建新的 <strong>tasklist.js</strong> 控制器文件以使用该模型。</p>
+<h3>创建模型</h3>
+<ol>
+<li>
+<p>在 <strong>tasklist</strong> 目录中，创建一个名为 <strong>models</strong> 的新目录。</p>
+</li>
+<li>
+<p>在 <strong>models</strong> 目录中，创建一个名为 <strong>task.js</strong> 的新文件。此文件将包含您的应用程序创建的任务的模型。</p>
+</li>
+<li>
+<p>在 <strong>task.js</strong> 文件的开头，添加以下代码来引用所需的库：</p>
+<pre class="prettyprint">var mongoose = require('mongoose')
+  , Schema = mongoose.Schema;</pre>
+</li>
+<li>
+<p>接下来，您将添加代码以定义和导出模型。此模型将用于执行与 MongoDB 数据库的交互。</p>
+<pre class="prettyprint">var TaskSchema = new Schema({
+    itemName      : String
+  , itemCategory  : String
+  , itemCompleted : { type: Boolean, default: false }
+  , itemDate      : { type: Date, default: Date.now }
+});
+
+
+module.exports = mongoose.model('TaskModel', TaskSchema)</pre>
+</li>
+<li>
+<p>保存并关闭 <strong>task.js</strong> 文件。</p>
+</li>
+</ol>
+<h3>创建控制器</h3>
+<ol>
+<li>
+<p>在 <strong>tasklist/routes</strong> 目录中，创建名为 <strong>tasklist.js</strong> 的新文件并在文本编辑器中打开它。</p>
+</li>
+<li>
+<p>将以下代码添加到 <strong>tasklist.js</strong>。这将加载 mongoose 模块和 <strong>task.js</strong> 中定义的任务模型。TaskList 函数用于根据 <strong>connection</strong> 值创建与 MongoDB 服务器的连接：</p>
+<pre class="prettyprint">var mongoose = require('mongoose')
+  , task = require('../models/task.js');
+
+
+module.exports = TaskList;
+
+
+function TaskList(connection) {
+  mongoose.connect(connection);
+}</pre>
+</li>
+<li>
+<p>继续向 <strong>tasklist.js</strong> 文件添加用于 <strong>showTasks</strong>、<strong>addTask</strong> 和 <strong>completeTasks</strong> 的方法：</p>
+<pre class="prettyprint">TaskList.prototype = {
+  showTasks: function(req, res) {
+    task.find({itemCompleted: false}, function foundTasks(err, items) {
+      res.render('index',{title: 'My ToDo List ', tasks: items})
+    });
+  },
+
+
+  addTask: function(req,res) {
+    var item = req.body.item;
+    newTask = new task();
+    newTask.itemName = item.name;
+    newTask.itemCategory = item.category;
+    newTask.save(function savedTask(err){
+      if(err) {
+        throw err;
+      }
+    });
+    res.redirect('/');
+  },
+
+
+  completeTask: function(req,res) {
+    var completedTasks = req.body;
+    for(taskId in completedTasks) {
+      if(completedTasks[taskId]=='true') {
+        var conditions = { _id: taskId };
+        var updates = { itemCompleted: completedTasks[taskId] };
+        task.update(conditions, updates, function updatedTask(err) {
+          if(err) {
+            throw err;
+          }
+        });
+      }
+    }
+    res.redirect('/');
+  }
+}</pre>
+</li>
+<li>
+<p>保存 <strong>tasklist.js</strong> 文件。</p>
+</li>
+</ol>
+<h3>修改 app.js</h3>
+<ol>
+<li>
+<p>在 <strong>tasklist</strong> 目录中，用文本编辑器打开 <strong>app.js</strong> 文件。此文件之前是通过运行 <strong>express</strong> 命令创建的。</p>
+</li>
+<li>
+<p>将 <code>//Routes</code> 注释后面的内容替换为以下代码。这将使用 MongoDB 服务器的连接字符串初始化 <strong>TaskList</strong> 并添加 <strong>tasklist.js</strong> 中定义的函数作为路由：</p>
+<pre class="prettyprint">var TaskList = require('./routes/tasklist');
+var taskList = new TaskList('mongodb://mongodbserver/tasks');
+
+
+app.get('/', taskList.showTasks.bind(taskList));
+app.post('/addtask', taskList.addTask.bind(taskList));
+app.post('/completetask', taskList.completeTask.bind(taskList));
+
+
+app.listen(process.env.port || 3000);</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>您必须将上面的连接字符串替换为您之前创建的 MongoDB 服务器的连接字符串。例如，<strong>mongodb://mymongodb.chinacloudapp.cn/tasks</strong>。</p>
+</div>
+</li>
+<li>
+<p>保存 <strong>app.js</strong> 文件。</p>
+</li>
+</ol>
+<h3>修改索引视图</h3>
+<ol>
+<li>
+<p>将目录更改为 <strong>views</strong> 目录并在文本编辑器中打开 <strong>index.jade</strong> 文件。</p>
+</li>
+<li>
+<p>将 <strong>index.jade</strong> 文件的内容替换为以下代码。这将定义用于显示现有任务的视图，以及用于添加新任务和将现有任务标记为已完成的表单。</p>
+<pre class="prettyprint">h1= title
+form(action="/completetask", method="post")
+  table(border="1")
+    tr
+      td Name
+      td Category
+      td Date
+      td Complete
+    each task in tasks
+      tr
+        td #{task.itemName}
+        td #{task.itemCategory}
+        - var day   = task.itemDate.getDate();
+        - var month = task.itemDate.getMonth() + 1;
+        - var year  = task.itemDate.getFullYear();
+        td #{month + "/" + day + "/" + year}
+        td
+          input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+  input(type="submit", value="Update tasks")
+hr
+form(action="/addtask", method="post")
+  table(border="1") 
+    tr
+      td Item Name: 
+      td 
+        input(name="item[name]", type="textbox")
+    tr
+      td Item Category: 
+      td 
+        input(name="item[category]", type="textbox")
+  input(type="submit", value="Add item")</pre>
+</li>
+<li>
+<p>保存并关闭 <strong>index.jade</strong> 文件。</p>
+</li>
+</ol>
+<h2>在本地运行应用程序</h2>
+<p>若要在您的本地计算机中测试应用程序，请执行以下步骤：</p>
+<ol>
+<li>
+<p>从命令行中，将目录更改为 <strong>tasklist</strong> 目录。</p>
+</li>
+<li>
+<p>使用以下命令在本地启动应用程序：</p>
+<pre class="prettyprint">node app.js</pre>
+</li>
+<li>
+<p>打开 Web 浏览器并导航到 http://localhost:3000。这应该会显示类似于下图的网页：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/todo_list_empty.png" alt="显示空白 tasklist 的网页"/></p>
+</li>
+<li>
+<p>使用提供的 <strong>Item Name</strong>（项名称）和 <strong>Item Category</strong>（项类别）字段输入信息，然后单击 <strong>Add item</strong>（添加项）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/todo_add_item.png" alt="已填充值的添加项字段的图像"/></p>
+</li>
+<li>
+<p>页面应更新为在 ToDo List 表中显示该项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/todo_list_items.png" alt="任务列表中新项的图像"/></p>
+</li>
+<li>
+<p>若要完成任务，只需选中“Complete”（完成）列中的复选框，然后单击 <strong>Update tasks</strong>（更新任务）。虽然单击 <strong>Update tasks</strong>（更新任务）后没有任何视觉变化，但 MongoDB 中的文档条目现在已标记为已完成。</p>
+</li>
+<li>
+<p>若要结束 Node 进程，请转到命令行并按 <strong>Ctrl</strong> 和 <strong>C</strong> 键。</p>
+</li>
+</ol>
+<h2>将您的应用程序部署到 Windows Azure</h2>
+<p>本节中的步骤使用 Windows Azure 命令行工具创建新的 Windows Azure 网站，然后使用 Git 部署您的应用程序。若要执行这些步骤，您必须具有 Windows Azure 订阅。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>这些步骤还可以通过使用 Windows Azure 门户执行。有关使用 Windows Azure 门户部署 Node.js 应用程序的步骤，请参阅<a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">创建 Node.js 应用程序并将其部署到 Windows Azure 网站</a>。</p>
+</div>
+<div class="dev-callout"><strong>注意</strong>
+<p>如果这是您创建的第一个 Windows Azure 网站，则必须使用 Windows Azure 门户部署此应用程序。</p>
+</div>
+<h3>安装适用于 Mac 和 Linux 的 Windows Azure 命令行工具</h3>
+<p>若要安装命令行工具，请使用以下命令：</p>
+<pre class="prettyprint">sudo npm install azure-cli -g</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>如果您已从 <a href="/zh-cn/develop/nodejs/">Windows Azure 开发人员中心</a>安装 <strong>Windows Azure SDK for Node.js</strong>，则应该已安装命令行工具。有关详细信息，请参阅<a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">适用于 Mac 和 Linux 的 Windows Azure 命令行工具</a>。</p>
+</div>
+<div class="dev-callout"><strong>注意</strong>
+<p>虽然命令行工具主要针对 Mac 和 Linux 用户而创建，但它们基于 Node.js，应该可在能够运行 Node 的任何系统上使用。</p>
+</div>
+<h3>导入发布设置</h3>
+<p>在将命令行工具与 Windows Azure 一起使用之前，您必须首先下载包含有关您的订阅的信息的文件。执行以下步骤可下载和导入此文件。</p>
+<ol>
+<li>
+<p>从命令行中，输入以下命令以启动浏览器并导航到下载页面。如果出现提示，请使用与您的订阅关联的帐户登录。</p>
+<pre class="prettyprint">azure account download</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/azure-account-download-cli.png" alt="下载页面"/></p>
+<p>文件下载应该会自动开始；如果没有自动开始，您可以单击该页面开头的链接手动下载文件。</p>
+</li>
+<li>
+<p>文件下载完成后，请使用以下命令导入设置：</p>
+<pre class="prettyprint">azure account import &lt;path-to-file&gt;</pre>
+<p>指定您在上一步中下载的发布设置文件的路径和文件名。命令完成后，您应该会看到与下面类似的输出：</p>
+<pre class="prettyprint">info:   Executing command account import
+info:   Found subscription: subscriptionname
+info:   Setting default subscription to: subscriptionname
+warn:   The '/Users/user1/.azure/publishSettings.xml' file contains sensitive information.
+warn:   Remember to delete it now that it has been imported.
+info:   Account publish settings imported successfully
+info:   account iomport command OK</pre>
+</li>
+<li>
+<p>完成导入后，您应删除发布设置文件，因为不再需要该文件并且它包含有关您的 Windows Azure 订阅的敏感信息。</p>
+</li>
+</ol>
+<h3>创建 Windows Azure 网站</h3>
+<ol>
+<li>
+<p>从命令行中，将目录更改为 <strong>tasklist</strong> 目录。</p>
+</li>
+<li>
+<p>使用以下命令创建新的 Windows Azure 网站。将“myuniquesitename”替换为您的网站的唯一站点名称。此值用作生成的网站的 URL 的一部分。</p>
+<pre class="prettyprint">azure site create myuniquesitename --git</pre>
+<p>系统将提示您输入该站点将位于的数据中心。选择在地理上接近您的位置的数据中心。</p>
+<p><code>--git</code> 参数将在 <strong>tasklist</strong> 文件夹中创建一个 Git 存储库（如果不存在任何 Git 存储库）。它还将创建一个名为“azure”的 <a href="http://git-scm.com/docs/git-remote">Git remote</a>，以用于将应用程序发布到 Windows Azure。它将创建一个 <a href="https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml">iisnode.yml</a>，其中包含 Windows Azure 用于托管 Node 应用程序的设置。最后，它还将创建一个 .gitignore 文件，以防止将 node-modules 文件夹发布到 .git。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>如果此命令从已包含 Git 存储库的目录运行，它将不会重新初始化该目录。</p>
+</div>
+<div class="dev-callout"><strong>注意</strong>
+<p>如果省略“--git”参数，但该目录包含 Git 存储库，则仍将创建“azure”remote。</p>
+</div>
+<p>此命令完成后，您将看到与下面类似的输出。请注意，以 <strong>Created web site at</strong> 开头的行包含网站的 URL。</p>
+<pre class="prettyprint">info:   Executing command site create
+info:   Using location southcentraluswebspace
+info:   Executing `git init`
+info:   Creating default web.config file
+info:   Creating a new web site
+info:   Created web site at  mongodbtasklist.chinacloudsites.cn
+info:   Initializing repository
+info:   Repository initialized
+info:   Executing `git remote add azure http://username@mongodbtasklist.chinacloudsites.cn/mongodbtasklist.git`
+info:   site create command OK</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>如果这是您的订阅的第一个 Windows Azure 网站，系统会指示您使用门户创建该网站。有关详细信息，请参阅<a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">创建 Node.js 应用程序并将其部署到 Windows Azure 网站</a>。</p>
+</div>
+</li>
+</ol>
+<h3>发布应用程序</h3>
+<ol>
+<li>
+<p>在 Terminal 窗口中，将目录更改为 <strong>tasklist</strong> 目录（如果您尚未在此目录中）。</p>
+</li>
+<li>
+<p>使用以下命令将文件添加然后提交到本地 Git 存储库：</p>
+<pre class="prettyprint">git add .
+git commit -m "adding files"</pre>
+</li>
+<li>
+<p>在将最新 Git 存储库更改推送到 Windows Azure 网站时，您必须指定目标分支为 <strong>master</strong>，因为这将用于网站内容。</p>
+<pre class="prettyprint">git push azure master</pre>
+<p>您将看到与下面类似的输出。在进行部署时，Windows Azure 将下载所有 npm 模块。</p>
+<pre class="prettyprint">Counting objects: 17, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (17/17), 3.21 KiB, done.
+Total 17 (delta 0), reused 0 (delta 0)
+remote: New deployment received.
+remote: Updating branch 'master'.
+remote: Preparing deployment for commit id 'ef276f3042'.
+remote: Preparing files for deployment.
+remote: Running NPM.
+...
+remote: Deploying Web.config to enable Node.js activation.
+remote: Deployment successful.
+To https://username@mongodbtasklist.chinacloudsites.cn/MongoDBTasklist.git
+ * [new branch]      master -&gt; master</pre>
+</li>
+<li>
+<p>推送操作完成后，请通过使用 <code>azure site browse</code> 命令浏览到网站以查看您的应用程序。</p>
+</li>
+</ol>
+<h2>后续步骤</h2>
+<p>虽然本文中的步骤介绍使用 MongoDB 存储信息，但您也可以使用 Windows Azure 表服务。有关详细信息，请参阅<a href="/zh-cn/develop/nodejs/tutorials/web-site-with-storage/">使用 Windows Azure 表服务的 Node.js Web 应用程序</a>。</p>
+<h2>其他资源</h2>
+<p><a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">适用于 Mac 和 Linux 的 Windows Azure 命令行工具</a> <br /> <a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">创建 Node.js 应用程序并将其部署到 Windows Azure 网站</a> <br /> <a href="/zh-cn/develop/nodejs/common-tasks/publishing-with-git/">使用 Git 发布到 Windows Azure 网站</a></p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在虚拟机上使用 MongoDB 构建 Node.js 网站 - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-node-website-with-mongodb-mac</linkid><metaKeywords>Azure 教程 MongoDB, MongoDB 存储数据, 访问数据 MongoDB Node, Azure Node 应用程序</metaKeywords><metaDescription><![CDATA[本教程演示如何使用 MongoDB 在托管在 Windows Azure 上的 Node 应用程序中存储和访问数据。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>使用 MongoDB 创建网站</urlDisplayName><disqusComments>1</disqusComments><metaCanonical>http://www.windowsazure.cn/zh-cn/develop/nodejs/tutorials/website-with-mongodb-mongolab/</metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

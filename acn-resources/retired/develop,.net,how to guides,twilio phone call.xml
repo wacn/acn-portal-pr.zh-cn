@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18820" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="12" createDate="2013-07-11T10:41:04" updateDate="2014-08-18T11:09:37" nodeName="Twilio Phone Call" urlName="twilio-phone-call" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18820" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/dotnet" modaltrigger="" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在 Windows Azure 的 Web 角色中使用 Twilio 发起电话呼叫</h1>
+<p>本指南演示如何使用 Twilio 从 Windows Azure 中托管的网页发起呼叫。生成的应用程序将提示用户输入电话呼叫值，如以下屏幕快照中所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/WA_twilio_dotnet_basic_form.png" alt="使用 Twilio 和 ASP.NET 的 Windows Azure 呼叫窗体"/></p>
+<h2><span class="short-header">内容</span>目录</h2>
+<ul>
+<li><a href="#twilio-prereqs">先决条件</a></li>
+<li><a href="#howtocreateform">如何：创建用于发起呼叫的 Web 窗体</a></li>
+<li><a href="#howtocreatecode">如何：创建用于发起呼叫的代码</a></li>
+<li><a href="#nextsteps">后续步骤</a></li>
+<li><a href="#seealso">另请参阅</a></li>
+</ul>
+<h2><a name="twilio-prereqs"></a> <span class="short-header">先决条件</span>先决条件</h2>
+<p>您将需要执行以下操作才能使用本主题中的代码：</p>
+<ol>
+<li>获取 Twilio 帐户和身份验证令牌。若要开始使用 Twilio，请在 <a href="http://www.twilio.com/try-twilio">https://www.twilio.com/try-twilio</a> 上进行注册。可以在 <a href="http://www.twilio.com/pricing">http://www.twilio.com/pricing</a> 上计算价格。有关 Twilio 提供的 API 的信息，请参阅 <a href="http://www.twilio.com/voice/api">http://www.twilio.com/voice/api</a>。</li>
+<li>使用 Twilio 验证您的电话号码。有关如何验证电话号码的信息，请参阅 <a href="https://www.twilio.com/user/account/phone-numbers/verified#">https://www.twilio.com/user/account/phone-numbers/verified#</a>。作为使用现有号码的替代方法，您可以购买 Twilio 电话号码。<br />在本示例中，您将使用 Twilio 沙盒电话号码向经验证的电话号码发送消息。您只能使用沙盒电话号码向经验证的电话号码发送消息。</li>
+<li>向您的 Web 角色中添加 Twilio .NET 库。请参阅本主题后面的“向您的 Web 角色项目中添加 Twilio 库”。</li>
+</ol>
+<p>您应熟悉如何在 Windows Azure 中创建基本 Web 角色。</p>
+<h2><a name="howtocreateform"></a> <span class="short-header">创建用于发起呼叫的 Web 窗体</span>如何：创建用于发起呼叫的 Web 窗体</h2>
+<h3><a id="use_nuget"></a>向您的 Web 角色项目中添加 Twilio 库：</h3>
+<ol>
+<li>在 Visual Studio 中打开您的解决方案。</li>
+<li>右键单击“引用”。</li>
+<li>单击“管理 NuGet 程序包”。</li>
+<li>单击“联机”。</li>
+<li>在“联机搜索”框中，键入 <em>twilio</em>。</li>
+<li>单击 Twilio 程序包中的“安装”。</li>
+</ol>
+<p>以下代码演示了如何创建 Web 窗体来检索用于发起呼叫的用户数据。在此示例中，将创建名为“TwilioCloud”的 ASP.NET Web 角色。</p>
+<pre class="prettyprint">    <code>&lt;%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebRole1._Default" %&gt; &lt;asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent"&gt; &lt;/asp:Content&gt; &lt;asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent"&gt; &lt;div&gt; &lt;asp:BulletedList ID="varDisplay" runat="server" BulletStyle="NotSet"&gt; &lt;/asp:BulletedList&gt; &lt;/div&gt; &lt;div&gt; &lt;p&gt;Fill in all fields and click &lt;b&gt;Make this call&lt;/b&gt;.&lt;/p&gt; &lt;div&gt; To:&lt;br /&gt;&lt;asp:TextBox ID="toNumber" runat="server" /&gt;&lt;br /&gt;&lt;br /&gt; Message:&lt;br /&gt;&lt;asp:TextBox ID="message" runat="server" /&gt;&lt;br /&gt;&lt;br /&gt; &lt;asp:Button ID="callpage" runat="server" Text="Make this call" onclick="callpage_Click" /&gt; &lt;/div&gt; &lt;/div&gt; &lt;/asp:Content&gt; </code>   </pre>
+<h2><a id="howtocreatecode"></a> <span class="short-header">创建代码</span>如何：创建用于发起呼叫的代码</h2>
+<p>在用户完成窗体后将调用以下代码，以创建呼叫消息并生成呼叫。在此示例中，该代码在窗体上按钮的 Onclick 事件处理程序中运行。（使用 Twilio 帐户和身份验证令牌，而不是分配给下面的代码中的 <strong>accountSID</strong> 和 <strong>authToken</strong> 的占位符值）。</p>
+<pre class="prettyprint">    <code>using System; using System.Collections.Generic; using System.Linq; using System.Web; using System.Web.UI; using System.Web.UI.WebControls; using Twilio; namespace WebRole1 { public partial class _Default : System.Web.UI.Page { protected void Page_Load(object sender, EventArgs e) { } protected void callpage_Click(object sender, EventArgs e) { // Call porcessing happens here. // Use your account SID and authentication token instead of // the placeholders shown here. string accountSID = "ACNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"; string authToken = "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"; // Instantiate an instance of the Twilio client. TwilioRestClient client; client = new TwilioRestClient(accountSID, authToken); // Retrieve the account, used later to retrieve the Twilio.Account account = client.GetAccount(); string APIversuion = client.ApiVersion; string TwilioBaseURL = client.BaseUrl; this.varDisplay.Items.Clear(); if (this.toNumber.Text == "" || this.message.Text == "") { this.varDisplay.Items.Add( "You must enter a phone number and a message."); } else { // Retrieve the values entered by the user. string to = this.toNumber.Text; string myMessage = this.message.Text; // Create a URL using the Twilio message and the user-entered // text. You must replace spaces in the user's text with '%20' // to make the text suitable for a URL. String Url = "http://twimlets.com/message?Message%5B0%5D=" + myMessage.Replace(" ", "%20"); // Diplay the enpoint, API version, and the URL for the message. this.varDisplay.Items.Add("Using Tilio endpoint " + TwilioBaseURL); this.varDisplay.Items.Add("Twilioclient API Version is " + APIversuion); this.varDisplay.Items.Add("The URL is " + Url); // Instantiate the call options that are passed // to the outbound call. CallOptions options = new CallOptions(); // Set the call From, To, and URL values into a hash map. // This sample uses the sandbox number provided by Twilio // to make the call. options.From = "+14155992671"; options.To = to; options.Url = Url; // Place the call. var call = client.InitiateOutboundCall(options); this.varDisplay.Items.Add("Call status: " + call.Status); } } } } </code>   </pre>
+<p>将发起呼叫，并显示 Twilio 终结点、API 版本和呼叫状态。以下屏幕快照显示了示例运行的输出。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/WA_twilio_dotnet_basic_form_output.png" alt="使用 Twilio 和 ASP.NET 的 Windows Azure 呼叫响应"/></p>
+<p>有关 TwiML 的更多信息可在 <a href="http://www.twilio.com/docs/api/twiml">http://www.twilio.com/docs/api/twiml</a> 中找到。有关 &lt;Say&gt; 和其他 Twilio 谓词的更多信息可在 <a href="http://www.twilio.com/docs/api/twiml/say">http://www.twilio.com/docs/api/twiml/say</a> 中找到。</p>
+<h2><a id="nextsteps"></a> <span class="short-header">后续步骤</span>后续步骤</h2>
+<p>提供此代码是为了向您演示在 Windows Azure 上的 ASP.NET Web 角色中使用 Twilio 的基本功能。在生产中部署到 Windows Azure 之前，您可能希望添加更多错误处理或其他功能。例如：</p>
+<ul>
+<li>您可以使用 Windows Azure Blob 存储或 Windows Azure SQL Database 实例存储电话号码和呼叫文本，而不使用 Web 窗体。有关在 Windows Azure 中使用 Blob 的信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/how-to-guides/blob-storage/">如何在 .NET 中使用 Windows Azure Blob 存储服务（可能为英文页面）</a>。有关使用 SQL Database 的信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/how-to-guides/sql-database/">如何在 .NET 应用程序中使用 Windows Azure SQL Database（可能为英文页面）</a>。</li>
+<li>您可以使用 RoleEnvironment.getConfigurationSettings 从部署的配置设置中检索 Twilio 帐户 ID 和身份验证令牌，而不是在您的窗体中对这些值进行硬编码。有关 RoleEnvironment 类的信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx">Microsoft.WindowsAzure.ServiceRuntime 命名空间</a>。</li>
+<li>阅读 <a href="http://www.twilio.com/docs/security">https://www.twilio.com/docs/security</a> 上的 Twilio 安全准则。</li>
+<li>可在 <a href="http://www.twilio.com/docs">https://www.twilio.com/docs</a> 中详细了解 Twilio。</li>
+</ul>
+<h2><a id="seealso"></a> <span class="short-header">另请参阅</span>另请参阅</h2>
+<ul>
+<li><a href="/zh-cn/develop/net/how-to-guides/twilio/">如何使用 Twilio 在 Web 角色中实现语音和短信功能（可能为英文页面）</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何从 Twilio (.NET) 发起电话呼叫 - Windows Azure</pageTitle><metaKeywords>Windows Azure .NET Twilio, Windows Azure Twilio, Azure 电话呼叫, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure 语音呼叫, azure 语音呼叫, Windows Azure 短信, Azure 短信, ASP.NET twilio Azure</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 Twilio API 服务发起电话呼叫和发送 SMS 消息。代码示例用 .NET 编写。]]></metaDescription><linkid>develop-net-how-to-twilio-phone-call</linkid><urlDisplayName>Twilio 电话呼叫</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

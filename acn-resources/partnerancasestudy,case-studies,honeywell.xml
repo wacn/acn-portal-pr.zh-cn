@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    <p><b>* 此案例基于在全球其他地区由微软运营的 Microsoft Azure 云平台实施，仅供由世纪互联运营的 Microsoft Azure 客户参考。</b></p>
+				
+					<h2>业务背景</h2>
+					<p>霍尼韦尔建筑智能系统部是全球领先的能源效率和楼宇自动化提供商，在 70 个国家拥有 129,000 名员工的公司，它的温控器和家庭安全系统在超过 1 亿 5 千万家庭中使用。为世界各地成千上万的商业、市政和工业设施安装和管理综合楼宇控制系统，包括空气处理、照明、人身安全和安保系统，包括公寓、购物中心和机场。</p>
+					
+                    <p>为了优化效率和更好地监测设备的健康，霍尼韦尔建筑智能系统部通过现场传感器搜集和记录最新的信息，跟踪这些楼宇资产的长期状况和性能。他们需要一个将收集到的数据转化为有用和及时信息的系统，使其客户能够采取相应的措施。例如，能够提前预测某个空气处理设备的过滤器是否需要更换，而不是按照固定时间表更换，这不仅可为客户节省过滤器的成本，而且还能节省运输和安装成本。</p>
+					
+					<p>“当我们开始从异地处理数据时，我们曾尝试采用内部技术，却只能每 12 或 24 小时内进行一次分析，” Noble 说道。“这并不能满足我们某些客户的需求。”霍尼韦尔的客户需要知道建筑物实时的运行情况或故障。</p>
+					
+					<p>对于霍尼韦尔而言，建立一个安全、基于标准的企业级物联网软件平台变得十分重要。它可以将其庞大的设备系统连接到物联网（IoT）平台，使它们能够自主地将数据发送到云中的远程监视器，这是捕获和收集公司及其客户所需数据的关键步骤，因此，需要更快、更可靠、可扩展能力更强的方式来处理和分析这些数据。</p>
+                    
+				</div>	
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>霍尼韦尔决定利用 Azure 云平台来实现业务的转型，通过参加微软的快速开发计划（Rapid Development Program）———为期 3 天的技术方向预览，霍尼韦尔工程师不仅能够迅速配置数据处理环境，实时处理成千上万的事件，还能将这些数据流与配置的最佳运行条件模型进行比较，最大程度减少设备故障、性能不合格或缺乏维修的错误。</p>
+                    
+					<p>工程师们在现场对每个传感器进行了设置，每分钟发送描述设备、建筑和配置状态的信息流到物联网平台，使用 Azure Table Storage 存储遥测数据，Azure 服务总线 Topics 和 Azure 事件中心的强大消息和队列基础设施提供容错能力，然后 Azure 流分析识别特定建筑物特定设备的某些故障状态行为，并添加异常标记。当传入的数据流出现特定的错误或条件，流分析触发通知引擎通过定制指标面板向客户发出提醒。Azure 平台存储提醒和故障，以便客户进行进一步的分析，发现和预测趋势，并协助处理相关的安全或性能风险。</p>
+                </div>
+               
+                <div class="section-component">
+                    <h2>客户效益</h2>
+					
+					<h3>加快部署进度</h3>
+					
+					<p>通过使用 Azure，霍尼韦尔建筑智能系统部可在云中配置它的数据处理解决方案，无需部署硬件，几乎可立即在流分析中生成结果。“我们在数周内就取得了结果，这真是非常快，” Noble 说道。“建立新处理解决方案的成本是如此之低，我们可以轻松地使用我们的建筑数据检验解决方案，看看它是否给我们的客户带来了效益。”</p>
+					
+					<p>流分析采用的语言类似 SQL，霍尼韦尔工程师能以更低的成本建立和运行这一工具。搜集数据后，霍尼韦尔就可利用流分析编写非常小且易于理解的公式，检测建筑设备性能是否呈现负面或故障趋势。“我们可以在 10 分钟内将新的流任务投入运行，这比我们过去的速度提高了几个数量级，” Noble 说道。</p>
+					
+					<h3>实时数据分析，驱动业务转型</h3>
+					
+					<p>由于能够迅速处理和分析这些数据，霍尼韦尔得以识别新出现的趋势，根据客户需求作出更快、一致、准确的响应。从短期来看，客户可以更快速地响应设备故障或维护需求，从长远来看，为设备健康做出数据驱动的业务决策。</p>
+					
+					<p>通过来自这些传感器的数据流，霍尼韦尔可以提醒用户关键设备故障、节能机会和维修事件。“我们建立的系统能够在照明超出关闭时间表或二氧化碳水平超标时通知设施经理，” Shetty 说道。因为 Azure 平台的功能允许架构的垂直和水平扩展，分析工具可轻松应对霍尼韦尔增加现场传感器数量和分析量的决定。</p>
+					
+					<p>霍尼韦尔建筑智能系统部希望根据系统数据获得的深入信息，为客户采取应对措施。Noble 说。“在 Azure 环境中我们可以简便连接不同组件，缩短了我们的部署周期，尽管业务场景变得更加复杂，Azure 让我们更容易地集成更多的功能。”</p>
+					
+					<h3>减少能耗和支出，工作更高效</h3>
+					
+					<p>内建的提醒系统在需要维修或维护时通知相应的团队或部门，使霍尼韦尔能够创新、改进服务和产品，并增加新的服务。“通过收到早期维护反馈，例如某个空气处理设备的过滤器需要更换，我们的客户得以节省大量的能耗和支出，” Noble 说道。</p>
+					
+					<p>因为 Stream Analytics 使霍尼韦尔能够更有效地将资产监控数据转换为行动，节约能源，开展预防性维修，该公司可以帮助客户改进业务流程，创造实现更高效工作流程的机会。Noble 说，“新的分析工具使我们有机会来以共赢的方式服务我们的客户。”</p>
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_event-hubs.png"><a target="_blank" href="/home/features/event-hubs/" id="case-study_honeywell_event-hubs">事件中心</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_messaging.png"><a target="_blank" href="/home/features/service-bus/" id="case-study_honeywell_service-bus">服务总线</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_honeywell_storage">存储</a></li>							
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>霍尼韦尔-Azure云计算</pageTitle>
+    <metaKeywords>霍尼韦尔 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[Azure 事件中心等服务，让霍尼韦尔有效减少能耗和支出。在 Azure 环境中我们可以简便连接不同组件，缩短了我们的部署周期，尽管业务场景变得更加复杂，Azure 让我们更容易地集成更多的功能。我们需要运行相当复杂的查询……通过流分析，我们能够更快做到这一点，而且开销非常低。
+]]></metaDescription>
+    <linkid>case-studies-honeywell</linkid>
+    <urlDisplayName>霍尼韦尔案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_honeywell" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">霍尼韦尔</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.honeywell.com.cn/" id="case-study-honeywellwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/honeywell-logo-80.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>霍尼韦尔</h1>
+                            <p>Azure 事件中心等服务，让霍尼韦尔有效减少能耗和支出。</p>
+                        </div>
+                        <p class="casestudy-info" >在 Azure 环境中我们可以简便连接不同组件，缩短了我们的部署周期，尽管业务场景变得更加复杂，Azure 让我们更容易地集成更多的功能。我们需要运行相当复杂的查询……通过流分析，我们能够更快做到这一点，而且开销非常低。
+                        </p>
+                        <div class="casestudy-line"></div>
+                       <span class="tips">Ashley Noble 工程师</span>
+                        <!-- <a href="#" class="video-play-button" id="case-study-video-player"></a> -->
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_honeywell.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>  
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

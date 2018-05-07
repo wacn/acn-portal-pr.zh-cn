@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19183" parentID="19182" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="1" createDate="2013-07-11T11:59:46" updateDate="2014-08-18T11:26:30" nodeName="Intro to Linux" urlName="intro-to-linux" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19182,19183" isDoc=""><bodyText><![CDATA[<div style="margin-top: 40px;">
+<h1>Windows Azure 上的 Linux 简介</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>本主题概述了在 Windows Azure 云中使用 Linux 虚拟机的某些方面。在使用库中预先存在的映像时，部署 Linux 虚拟机是一个简单过程。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#authentication">身份验证：用户名、密码和 SSH 密钥。</a></li>
+<li><a href="#keygeneration">生成并使用 SSH 密钥以登录到 Linux 虚拟机。</a></li>
+<li><a href="#superuserprivileges">使用 sudo 获取超级用户特权</a></li>
+<li><a href="#firewallconfiguration">防火墙配置</a></li>
+<li><a href="#hostnamechanges">主机名更改</a></li>
+<li><a href="#virtualmachine">虚拟机映像捕获</a></li>
+<li><a href="#attachingdisks">附加磁盘</a></li>
+</ul>
+<h2 id="authentication">身份验证：用户名、密码和 SSH 密钥</h2>
+<p>在使用 Windows Azure管理门户创建 Linux 虚拟机时，系统会要求您提供用户名、密码和（可选）SSH 公钥。对用于在 Windows Azure 上部署 Linux 虚拟机的用户名的选择受到以下限制：不允许虚拟机中已存在的系统帐户的名称 - 例如根。如果您未提供 SSH 公钥，则您将能够使用指定的用户名和密码登录到虚拟机。如果您选择在管理门户中上载 SSH 公钥，则将禁用基于密码的身份验证，并且您需要使用相应的 SSH 私钥对虚拟机进行身份验证并进行登录。</p>
+<h2 id="keygeneration">SSH 密钥生成</h2>
+<p>当前版本的管理门户只接受封装在 X509 证书中的 SSH 公钥。请按照下列步骤操作以使用 Windows Azure 生成并使用 SSH 密钥。</p>
+<ol>
+<li>
+<p>使用 openssl 生成带 2048 位 RSA 密钥对的 X509 证书。</p>
+<pre class="prettyprint">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem</pre>
+<p>请回答 openssl 提示的几个问题（您可以将这些问题保留为空）。平台不使用这些字段中的内容。</p>
+</li>
+<li>
+<p>更改私钥的权限可对其进行保护。</p>
+<pre class="prettyprint">chmod 600 myPrivateKey.key</pre>
+</li>
+<li>
+<p>将 myCert.pem 转换为 myCert.cer（DER 编码的 X509 证书）</p>
+<pre class="prettyprint">openssl  x509 -outform der -in myCert.pem -out myCert.cer</pre>
+</li>
+<li>
+<p>创建 Linux 虚拟机时上载 myCert.cer。设置过程会自动将此证书中的公钥安装到虚拟机中指定用户的 authorized_keys 文件中。</p>
+</li>
+<li>
+<p>使用 SSH 连接到 Linux 虚拟机。</p>
+<pre class="prettyprint">ssh –i  myPrivateKey.key –p port  username@servicename.chinacloudapp.cn</pre>
+<p>当您首次登录时，系统将提示您接受主机公钥的指纹。</p>
+</li>
+<li>
+<p>您可以选择将 myPrivateKey.key 复制到 ~/.ssh/id_rsa，以便您的 openssh 客户端能够自动选取它而不使用“-i”选项。</p>
+</li>
+</ol>
+<h2 id="superuserprivileges">使用 Sudo 获取超级用户特权</h2>
+<p>在 Windows Azure 上部署虚拟机实例的过程中指定的用户帐户是特权帐户。此帐户由 Windows Azure Linux 代理配置为能够使用 sudo 工具提升根（超级用户帐户）的权限。在使用此用户帐户登录后，您将能够使用“sudo command”将命令作为根运行。可以选择使用 <strong>sudo -s</strong> 获取根外壳程序。</p>
+<h2 id="firewallconfiguration">防火墙配置</h2>
+<p>Windows Azure 提供了一个入站数据包筛选器，用于限制与管理门户中指定的端口的连接。默认情况下，唯一允许的端口为 SSH。通过在管理门户中添加规则，可以启用对 Linux 虚拟机上的其他端口的访问。</p>
+<p>库中的 Linux 映像不支持 Linux 虚拟机中的 iptables 防火墙。如果需要，可以配置 IPtables 防火墙以提供其他功能。</p>
+<h2 id="hostnamechanges">主机名更改</h2>
+<p>在初始部署 Linux 映像的实例时，您需要提供虚拟机的主机名。运行虚拟机后，此主机名将发布到平台 DNS 服务器，以便多个相互连接的虚拟机能够使用主机名执行 IP 地址查找。如果在部署虚拟机后需要更改主机名，请使用 <strong>hostname newname</strong> 命令。Windows Azure Linux 代理包括自动检测此名称更改的功能，并会相应地配置虚拟机以保留此更改以及将此更改发布到平台 DNS 服务器。有关其他详细信息和与此功能相关的配置选项，请参考 Windows Azure Linux 代理的自述文件。</p>
+<h2 id="virtualmachine">虚拟机映像捕获</h2>
+<p>利用 Windows Azure，可以将现有虚拟机的状态捕获到映像中，该映像随后可用于部署其他虚拟机实例。Windows Azure Linux 代理可用于回滚在设置过程中执行的某些自定义。可以按照下列步骤操作来将虚拟机作为映像捕获：</p>
+<ol>
+<li>
+<p>运行 <strong>waagent -deprovision</strong> 以撤消设置自定义项。或（可选）运行 <strong>waagent -deprovision+user</strong> 来删除设置期间指定的用户帐户和所有关联的数据。</p>
+</li>
+<li>
+<p>使用管理门户/工具关闭虚拟机。</p>
+</li>
+<li>
+<p>在管理门户中单击“捕获”或使用这些工具将虚拟机作为映像捕获。</p>
+</li>
+</ol>
+<h2 id="attachingdisks">附加磁盘</h2>
+<p>有关如何<a href="../virtual-machine-from-gallery/">创建 Linux 虚拟机</a>的分步教程中对此进行了说明。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>Windows Azure 上的 Linux 简介 - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-fundamentals-intro-to-linux</linkid><metaKeywords>Azure Linux vm, Linux vm</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 上使用 Linux 虚拟机。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Linux 简介</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

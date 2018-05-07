@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19148" parentID="19145" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="3" createDate="2013-07-11T11:46:51" updateDate="2014-08-18T11:22:10" nodeName="Django Hello World (Mac Linux)" urlName="django-hello-world-(mac-linux)" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19145,19148" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/python" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>Django Hello World Web 应用程序</h1>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-cn/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a> <a href="/zh-cn/develop/python/tutorials/django-hello-world-(mac-linux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+<p>本教程介绍如何在 Windows Azure 中使用 Linux 虚拟机托管基于 Django 的网站。本教程假定您之前未使用过 Windows Azure。完成本指南之后，您将能够在云中启动和运行基于 Django 的应用程序。</p>
+<p>您将了解如何执行以下操作：</p>
+<ul>
+<li>设置 Windows Azure 虚拟机以托管 Django。虽然本教程介绍如何在 <strong>Linux</strong> 下实现此目的，但也可以使用托管在 Windows Azure 中的 Windows Server 2008 R2 VM 实现相同目的。</li>
+<li>从 Linux 创建新的 Django 应用程序。</li>
+</ul>
+<p>通过按照本教程中的说明进行操作，您将构建一个简单的 Hello World Web 应用程序。该应用程序将托管在 Windows Azure 门户虚拟机中。</p>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mac-linux-django-helloworld-browser.png" alt="显示 Windows Azure 上的 hello world 页面的浏览器窗口"/></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-vms-note" macroAlias="AzureChunkDisplayer" ?-->
+<h2>创建并配置 Windows Azure 虚拟机以托管 Django</h2>
+<ol>
+<li>
+<p>按照<a href="/zh-cn/manage/linux/tutorials/virtual-machine-from-gallery/">此处</a>提供的说明可创建 <em>Ubuntu Server 12.04</em> 风格的 Windows Azure 门户虚拟机。</p>
+<p><strong>注意：</strong>您<em>只</em> 需创建虚拟机。停在标题为<em>创建虚拟机后如何登录该虚拟机</em> 的一节。</p>
+</li>
+<li>
+<p>指示 Windows Azure 将来自 Web 的端口 <strong>80</strong> 通信定向到虚拟机上的端口 <strong>80</strong>：</p>
+<ul>
+<li>导航到 Windows Azure 门户中您新创建的虚拟机，然后单击“终结点”选项卡。</li>
+<li>单击屏幕底部的“添加终结点”按钮。 <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mac-linux-django-helloworld-add-endpoint.png"/></li>
+<li>打开 <em>TCP</em> 协议的<em>公用端口 80</em> 作为<em>专用端口 80</em>。 <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mac-linux-django-helloworld-port80.png"/></li>
+</ul>
+</li>
+</ol>
+<h2><a id="setup"></a>设置开发环境</h2>
+<p><strong>注意：</strong>如果您需要安装 Python 或希望使用客户端库，请参阅 <a href="/zh-cn/develop/python/common-tasks/install-python">Python 安装指南</a>。</p>
+<p>Ubuntu Linux VM 已预安装了 Python 2.7，但它没有安装 Apache 或 Django。按照以下步骤可连接到您的 VM 并安装 Apache 和 Django。</p>
+<ol>
+<li>
+<p>启动新的 <strong>Terminal</strong> 窗口。</p>
+</li>
+<li>
+<p>输入以下命令来连接到 Windows Azure VM。</p>
+<pre class="prettyprint">$ ssh yourusername@yourVmUrl</pre>
+</li>
+<li>
+<p>输入以下命令来安装 Django：</p>
+<pre class="prettyprint">        $ sudo apt-get install python-setuptools
+        $ sudo easy_install django
+      </pre>
+</li>
+<li>
+<p>输入以下带 mod-wsgi 的命令来安装 Apache：</p>
+<pre class="prettyprint">$ sudo apt-get install apache2 libapache2-mod-wsgi</pre>
+</li>
+</ol>
+<h2>创建新的 Django 应用程序</h2>
+<ol>
+<li>
+<p>打开您在上一节中使用的 <strong>Terminal</strong> 窗口，通过 ssh 进入您的 VM。</p>
+</li>
+<li>
+<p>输入以下命令来创建新的 Django 项目：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mac-linux-django-helloworld-dir.png" alt="django-admin 命令的结果"/></p>
+<p><strong>django-admin.py</strong> 脚本生成基于 Django 的网站的基本结构：</p>
+<ul>
+<li><strong>manage.py</strong> 帮助您开始托管和停止托管您的基于 Django 的网站</li>
+<li><strong>helloworld\settings.py</strong> 包含您的应用程序的 Django 设置。</li>
+<li><strong>helloworld\urls.py</strong> 包含每个 url 及其视图之间的映射代码。</li>
+</ul>
+</li>
+<li>
+<p>在 <em>django\helloworld</em> 的 <em>helloworld</em> 子目录中创建一个名为 <strong>views.py</strong> 的新文件作为 <strong>urls.py</strong> 的同级。这会包含呈现“hello world”页面的视图。启动编辑器并输入以下代码：</p>
+<pre class="prettyprint">        from django.http import HttpResponse
+        def hello(request):
+        html = "&lt;html&gt;&lt;body&gt;Hello World!&lt;/body&gt;&lt;/html&gt;"
+        return HttpResponse(html)
+      </pre>
+</li>
+<li>
+<p>现在，将 <strong>urls.py</strong> 文件的内容替换为以下代码：</p>
+<pre class="prettyprint">        from django.conf.urls.defaults import patterns, include, url
+        from helloworld.views import hello
+        urlpatterns = patterns('',
+        (r'^$',hello),
+        )
+      </pre>
+</li>
+</ol>
+<h2>部署并运行您的 Django 网站</h2>
+<ol>
+<li>
+<p>编辑 apache 配置文件 <strong>/etc/apache2/httpd.conf</strong> 并添加以下代码，将 <em>username</em> 替换为您在创建 VM 时所指定的用户名：</p>
+<pre class="prettyprint">        WSGIScriptAlias / /home/*username*/django/helloworld/helloworld/wsgi.py
+        WSGIPythonPath /home/*username*/django/helloworld
+
+
+        &lt;Directory /home/*username*/django/helloworld/helloworld&gt;
+        &lt;Files wsgi.py&gt;
+        Order deny,allow
+        Allow from all
+        &lt;/Files&gt;
+        &lt;/Directory&gt;
+      </pre>
+</li>
+<li>
+<p>使用以下命令重新启动 apache：</p>
+<pre class="prettyprint">$ sudo apachectl restart</pre>
+</li>
+<li>
+<p>最后，在您的浏览器中加载网页：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mac-linux-django-helloworld-browser.png" alt="显示 Windows Azure 上的 hello world 页面的浏览器窗口"/></p>
+</li>
+</ol>
+<h2>关闭您的 Windows Azure 虚拟机</h2>
+<p>在您完成本教程后，关闭并/或删除您新创建的 Windows Azure 虚拟机，以便为其他教程释放资源并避免产生 Windows Azure 使用费。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>django hello world (mac linux)</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>django hello world (mac linux)</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>django hello world (mac linux)</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

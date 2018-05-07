@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19000" parentID="18995" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-07-11T11:15:30" updateDate="2014-08-18T11:17:08" nodeName="Service Bus Topics" urlName="service-bus-topics" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,18995,19000" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>如何使用 Service Bus 主题/订阅</h1>
+<p>本指南演示如何从 Node.js 应用程序使用 Service Bus 主题和订阅。涉及的应用场景包括<strong>创建主题和订阅、创建订阅筛选器、将消息发送到主题</strong>、<strong>从订阅接收消息</strong>以及<strong>删除主题和订阅</strong>。有关主题和订阅的详细信息，请参阅<a href="#nextsteps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-are-service-bus-topics">什么是 Service Bus 主题和订阅？</a></li>
+<li><a href="#create-a-service-namespace">创建服务命名空间</a></li>
+<li><a href="#obtain-default-credentials">获取命名空间的默认管理凭据</a></li>
+<li><a href="#Create_a_Nodejs_Application">创建 Node.js 应用程序</a></li>
+<li><a href="#Configure_Your_Application_to_Use_Service_Bus">配置应用程序以使用 Service Bus</a></li>
+<li><a href="#How_to_Create_a_Topic">如何：创建主题</a></li>
+<li><a href="#How_to_Create_Subscriptions">如何：创建订阅</a></li>
+<li><a href="#How_to_Send_Messages_to_a_Topic">如何：将消息发送到主题</a></li>
+<li><a href="#How_to_Receive_Messages_from_a_Subscription">如何：从订阅接收消息</a></li>
+<li><a href="#How_to_Handle_Application_Crashes_and_Unreadable_Messages">如何：处理应用程序崩溃和不可读消息</a></li>
+<li><a href="#How_to_Delete_Topics_and_Subscriptions">如何：删除主题和订阅</a></li>
+<li><a href="#Next_Steps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared (1)" chunkname="howto-service-bus-topics" macroAlias="AzureChunkDisplayer" />
+<h2>创建 Node.js 应用程序</h2>
+<p>创建空白 Node.js 应用程序。有关创建 Node.js 应用程序的说明，请参阅<a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">创建 Node.js 应用程序并将其部署到 Windows Azure 网站</a>、<a href="{localLink:2221}" title="Node.js Web 应用程序">Node.js 云服务</a>（使用 Windows PowerShell）或<a href="/zh-cn/develop/nodejs/tutorials/web-site-with-webmatrix/">使用 WebMatrix 构建网站</a>。</p>
+<h2>配置应用程序以使用 Service Bus</h2>
+<p>要使用 Windows Azure Service Bus，需要下载和使用 Node.js azure 程序包。其中包括一组便于与 Service Bus REST 服务进行通信的库。</p>
+<h3>使用 Node 包管理器 (NPM) 可获取该程序包</h3>
+<ol>
+<li>
+<p>使用 <strong>PowerShell</strong> (Windows)、<strong>Terminal</strong> (Mac) 或 <strong>Bash</strong> (Unix) 等命令行界面导航到您在其中创建了示例应用程序的文件夹。</p>
+</li>
+<li>
+<p>在命令窗口中键入 <strong>npm install azure</strong>，这应该产生以下输出：</p>
+<pre class="prettyprint">azure@0.6.0 ./node_modules/azure
+├── easy-table@0.0.1
+├── dateformat@1.0.2-1.2.3
+├── xmlbuilder@0.3.1
+├── eyes@0.1.7
+├── colors@0.6.0-1
+├── mime@1.2.5
+├── log@1.3.0
+├── commander@0.6.1
+├── node-uuid@1.2.0
+├── xml2js@0.1.14
+├── async@0.1.22
+├── tunnel@0.0.1
+├── underscore@1.3.3
+├── qs@0.5.0
+├── underscore.string@2.2.0rc
+├── sax@0.4.0
+├── streamline@0.2.4
+└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)</pre>
+</li>
+<li>
+<p>可以手动运行 <strong>ls</strong> 命令来验证是否创建了 <strong>node_modules</strong> 文件夹。在该文件夹中，找到 <strong>azure</strong> 程序包，其中包含访问 Service Bus 主题所需的库。</p>
+</li>
+</ol>
+<h3>导入模块</h3>
+<p>使用记事本或其他文本编辑器将以下内容添加到应用程序的 <strong>server.js</strong> 文件的顶部：</p>
+<pre class="prettyprint">var azure = require('azure');</pre>
+<h3>设置 Windows Azure Service Bus 连接</h3>
+<p>azure 模块将读取环境变量 AZURE_SERVICEBUS_NAMESPACE 和 AZURE_SERVICEBUS_ACCESS_KEY 以获取连接 Windows Azure Service Bus 所需的信息。如果未设置这些环境变量，则必须在调用 <strong>createServiceBusService</strong> 时指定帐户信息。</p>
+<p>有关在 Windows Azure 云服务的配置文件中设置环境变量的示例，请参阅<a href="/zh-cn/develop/nodejs/tutorials/web-app-with-storage/">使用存储构建 Node.js 云服务</a>。</p>
+<p>有关在管理门户中为 Windows Azure 网站设置环境变量的示例，请参阅<a href="/zh-cn/develop/nodejs/tutorials/web-site-with-storage/">使用存储构建 Node.js Web 应用程序</a></p>
+<h2>如何创建主题</h2>
+<p>可以通过 <strong>ServiceBusService</strong> 对象处理主题。以下代码将创建 <strong>ServiceBusService</strong> 对象。将它添加到靠近 <strong>server.js</strong> 文件顶部、用于导入 azure 模块的语句之后的位置：</p>
+<pre class="prettyprint">var serviceBusService = azure.createServiceBusService();</pre>
+<p>通过对 <strong>ServiceBusService</strong> 对象调用 <strong>createTopicIfNotExist</strong>，将返回指定的主题（如果存在），否则将使用指定名称创建新主题。以下代码使用 <strong>createTopicIfNotExists</strong> 创建或连接到名为“MyTopic”的主题：</p>
+<pre class="prettyprint">serviceBusService.createTopicIfNotExists('MyTopic',function(error){
+    if(!error){
+        // Topic was created or exists
+        console.log('topic created or exists.');
+    }
+});</pre>
+<p><strong>createServiceBusService</strong> 还支持其他选项，以允许您替代默认主题设置，如消息生存时间或最大主题大小。下面的示例演示如何将最大主题大小设置为 5 GB，将生存时间设置为 1 分钟：</p>
+<pre class="prettyprint">var topicOptions = {
+        MaxSizeInMegabytes: '5120',
+        DefaultMessageTimeToLive: 'PT1M'
+    };
+
+serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error){
+    if(!error){
+        // topic was created or exists
+    }
+});</pre>
+<h2>如何创建订阅</h2>
+<p>主题订阅也是使用 <strong>ServiceBusService</strong> 对象创建的。为订阅命名，并且订阅可以具有可选筛选器，以限制传送到订阅的虚拟队列的消息集。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>订阅是永久性的，并且除非删除它或删除与之相关的主题，否则订阅将一直存在。如果您的应用程序包含创建订阅的逻辑，则它应首先使用 <strong>getSubscription</strong> 方法检查该订阅是否已经存在。</p>
+</div>
+<h3>创建具有默认 (MatchAll) 筛选器的订阅</h3>
+<p><strong>MatchAll</strong> 筛选器是默认筛选器，在创建新订阅时，如果未指定任何筛选器，将使用它。当使用 <strong>MatchAll</strong> 筛选器时，会将发布到主题的所有消息都置于订阅的虚拟队列中。以下示例创建名为“AllMessages”的订阅，并使用默认的 <strong>MatchAll</strong> 筛选器。</p>
+<pre class="prettyprint">serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
+    if(!error){
+        // subscription created
+    }
+});</pre>
+<h3>创建具有筛选器的订阅</h3>
+<p>还可以设置筛选器，以确定发送到主题的哪些消息应该在特定主题订阅中显示。</p>
+<p>订阅支持的最灵活的筛选器类型是 <strong>SqlFilter</strong>，它实现了部分 SQL92 功能。SQL 筛选器对发布到主题的消息的属性起作用。有关可与 SQL 筛选器结合使用的表达式的更多详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx">SqlFilter.SqlExpression</a> 语法。</p>
+<p>可以使用 <strong>ServiceBusService</strong> 对象的 <strong>createRule</strong> 方法向订阅中添加筛选器。此方法允许您向现有订阅中添加新筛选器。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>由于默认筛选器会自动应用到所有新订阅，因此，您必须首先删除默认筛选器，否则 <strong>MatchAll</strong> 会替代您可能指定的任何其他筛选器。可以使用 <strong>ServiceBusService</strong> 对象的 <strong>deleteRule</strong> 方法删除默认规则。</p>
+</div>
+<p>下面的示例创建一个名为“HighMessages”的订阅，其 <strong>SqlFilter</strong> 只选择自定义 <strong>messagenumber</strong> 属性大于 3 的消息：</p>
+<pre class="prettyprint">serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
+    if(!error){
+        // subscription created
+        rule.create();
+    }
+});
+var rule={
+    deleteDefault: function(){
+        serviceBusClient.deleteRule('MyTopic',
+            'HighMessages', 
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            rule.handleError);
+    },
+    create: function(){
+        var ruleOptions = {
+            sqlExpressionFilter: 'messagenumber &gt; 3'
+        };
+        rule.deleteDefault();
+        serviceBusClient.createRule('MyTopic', 
+            'HighMessages', 
+            'HighMessageFilter', 
+            ruleOptions, 
+            rule.handleError);
+    },
+    handleError: function(error){
+        if(error){
+            console.log(error)
+        }
+    }
+}</pre>
+<p>类似地，下面的示例创建一个名为“LowMessages”的订阅，其 <strong>SqlFilter</strong> 只选择 <strong>messagenumber</strong> 属性小于或等于 3 的消息：</p>
+<pre class="prettyprint">serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
+    if(!error){
+        // subscription created
+        rule.create();
+    }
+});
+var rule={
+    deleteDefault: function(){
+        serviceBusClient.deleteRule('MyTopic',
+            'LowMessages', 
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            rule.handleError);
+    },
+    create: function(){
+        var ruleOptions = {
+            sqlExpressionFilter: 'messagenumber &lt;= 3'
+        };
+        rule.deleteDefault();
+        serviceBusClient.createRule('MyTopic', 
+            'LowMessages', 
+            'LowMessageFilter', 
+            ruleOptions, 
+            rule.handleError);
+    },
+    handleError: function(error){
+        if(error){
+            console.log(error)
+        }
+    }
+}</pre>
+<p>现在，在将消息发送到“MyTopic”时，始终会将它传送到订阅了“AllMessages”主题订阅的接收者，并选择性地传送到订阅了“HighMessages”和“LowMessages”主题订阅的接收者（具体取决于消息内容）</p>
+<h2>如何将消息发送到主题</h2>
+<p>若要将消息发送到 Service Bus 主题，您的应用程序必须使用 <strong>ServiceBusService</strong> 对象的 <strong>sendTopicMessage</strong> 方法。发送到 Service Bus 主题的消息是 <strong>BrokeredMessage</strong> 对象。<strong>BrokeredMessage</strong> 对象具有一组标准属性（如 <strong>Label</strong> 和 <strong>TimeToLive</strong>）、一个用来保存自定义应用程序特定属性的字典以及一段字符串数据正文。应用程序可以通过将字符串值传递给 <strong>sendTopicMessage</strong> 来设置消息正文，并且任何必需的标准属性将用默认值填充。</p>
+<p>下面的示例演示如何向“MyTopic”发送五条测试消息。请注意，每条消息的 <strong>messagenumber</strong> 属性值因循环迭代而异（这将确定哪些订阅接收它）：</p>
+<pre class="prettyprint">var message = {
+    body: '',
+    customProperties: {
+        messagenumber: 0
+    }
+}
+
+for (i = 0;i &lt; 5;i++) {
+    message.customProperties.messagenumber=i;
+    message.body='This is Message #'+i;
+    serviceBusClient.sendTopicMessage(topic, message, function(error) {
+      if (error) {
+        console.log(error);
+      }
+    });
+}</pre>
+<p>Service Bus 主题支持最大为 256 MB 的消息（标头最大为 64 MB，其中包括标准和自定义应用程序属性）。一个主题中包含的消息数量不受限制，但消息的总大小受限制。此主题大小是在创建时定义的，上限为 5 GB。</p>
+<h2>如何从订阅接收消息</h2>
+<p>对 <strong>ServiceBusService</strong> 对象使用 <strong>receiveSubscriptionMessage</strong> 方法可从订阅接收消息。默认情况下，在读取消息后将从订阅中删除它们；不过，通过将可选参数 <strong>isPeekLock</strong> 设置为 <strong>true</strong>，您可以读取（扫视）并锁定消息，以避免将其从订阅中删除。</p>
+<p>在接收过程中读取并删除消息的默认行为是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。因为 Service Bus 会将消息标记为已使用，所以在应用程序重新启动并开始再次使用消息时，它会遗漏在崩溃之前使用过的消息。</p>
+<p>如果将 <strong>isPeekLock</strong> 参数设置为<strong>true</strong>，则接收将变成一个两阶段操作，这样就可以支持无法容忍遗漏消息的应用程序。当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，然后将该消息返回到应用程序。应用程序处理完该消息（或将它可靠地存储起来留待将来处理）后，通过调用 <strong>deleteMessage</strong> 方法并提供要删除的消息作为参数来完成接收过程的第二阶段。<strong>deleteMessage</strong> 方法会将消息标记为已使用，并从订阅中删除它。</p>
+<p>下面的示例演示如何使用 <strong>receiveSubscriptionMessage</strong> 接收和处理消息。该示例先从“LowMessages”订阅接收并删除一条消息，然后将 <strong>isPeekLock</strong> 设置为 true 后再从“HighMessages”接收一条消息。最后使用 <strong>deleteMessage</strong> 删除该消息：</p>
+<pre class="prettyprint">serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
+    if(!error){
+        // Message received and deleted
+        console.log(receivedMessage);
+    }
+});
+serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeekLock: true }, function(error, lockedMessage){
+    if(!error){
+        // Message received and locked
+        console.log(lockedMessage);
+        serviceBusService.deleteMessage(lockedMessage, function (deleteError){
+            if(!deleteError){
+                // Message deleted
+                console.log('message has been deleted.');
+            }
+        }
+    }
+});</pre>
+<h2>如何处理应用程序崩溃和不可读消息</h2>
+<p>Service Bus 提供了相关功能来帮助您轻松地从应用程序错误或消息处理问题中恢复。如果接收方应用程序因某种原因无法处理消息，则它可以对 <strong>ServiceBusService</strong> 对象调用 <strong>unlockMessage</strong> 方法。这会导致 Service Bus 在订阅中将该消息解锁，使之再次可供同一使用方应用程序或其他使用方应用程序接收。</p>
+<p>还存在与订阅中的锁定消息关联的超时，如果应用程序未能在锁定超时过期前处理消息（例如，如果应用程序崩溃），Service Bus 将自动解锁该消息并使之重新可供接收。</p>
+<p>如果应用程序在处理消息之后，但在调用 <strong>deleteMessage</strong> 方法之前崩溃，则在应用程序重新启动时会将该消息重新传送给它。这通常称为“至少处理一次”，即，将对每条消息至少处理一次，但在某些情况下，可能会重新传送同一消息。如果某个场景不允许重复处理，则应用程序开发人员应在其应用程序中添加额外逻辑来处理重复消息传送。这通常可以通过使用消息的 <strong>MessageId</strong> 属性来实现，该属性在多次传送尝试中保持不变。</p>
+<h2>如何删除主题和订阅</h2>
+<p>主题和订阅具有持久性，必须通过 Windows Azure 管理门户或以编程方式显式删除。下面的示例演示如何删除名为“MyTopic”的主题：</p>
+<pre class="prettyprint">serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});</pre>
+<p>删除某个主题也会删除向该主题注册的所有订阅。也可以单独删除订阅。下面的代码演示如何从“MyTopic”主题中删除名为“HighMessages”的订阅：</p>
+<pre class="prettyprint">serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});</pre>
+<h2>后续步骤</h2>
+<p>现在，您已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。</p>
+<ul>
+<li>查看 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/hh367516.aspx">队列、主题和订阅</a>。</li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx">SqlFilter</a> 的 API 参考。</li>
+<li>访问 GitHub 上的 <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node</a> 存储库。</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用 Service Bus 主题 (Node.js) - Windows Azure</pageTitle><metaKeywords>Azure Service Bus 主题入门, Service Bus 主题入门, Azure 发布订阅消息传递, Azure 消息传递主题和订阅, Service Bus 主题 Node.js</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 Service Bus 主题和订阅。代码示例是针对 Node.js 应用程序编写的。]]></metaDescription><linkid>dev-nodejs-how-to-service-bus-topics</linkid><urlDisplayName>Service Bus 主题</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

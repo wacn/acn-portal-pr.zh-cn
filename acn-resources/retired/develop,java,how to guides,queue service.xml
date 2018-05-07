@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18557" parentID="18554" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="3" createDate="2013-06-04T09:19:25" updateDate="2014-08-18T11:12:05" nodeName="Queue Service" urlName="queue-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18554,18557" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/java" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>如何通过 Java 使用队列存储服务</h1>
+<p>本指南将演示如何使用 Windows Azure 队列存储服务执行常见方案。这些示例用 Java 编写并使用 <a href="/zh-cn/develop/java/java-home/download-for-windows/">Windows Azure SDK for Java</a>。介绍的方案包括插入、查看、获取和删除队列消息以及创建和删除队列。有关队列的详细信息，请参阅<a href="#NextSteps">后续步骤</a>部分。</p>
+<h2><a name="Contents"></a>目录</h2>
+<ul>
+<li><a href="#what-is">什么是队列存储</a></li>
+<li><a href="#Concepts">概念</a></li>
+<li><a href="#CreateAccount">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#CreateApplication">创建 Java 应用程序</a></li>
+<li><a href="#ConfigureStorage">配置您的应用程序以访问队列存储</a></li>
+<li><a href="#ConnectionString">设置 Windows Azure 存储连接字符串</a></li>
+<li><a href="#create-queue">如何：创建队列</a></li>
+<li><a href="#add-message">如何：向队列添加消息</a></li>
+<li><a href="#peek-message">如何：查看下一条消息</a></li>
+<li><a href="#dequeue-message">如何：取消对下一条消息的排队</a></li>
+<li><a href="#change-message">如何：更改已排队消息的内容</a></li>
+<li><a href="#additional-options">用于对消息取消排队的其他方法</a></li>
+<li><a href="#get-queue-length">如何：获取队列长度</a></li>
+<li><a href="#delete-queue">如何：删除队列</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="howto-queue-storage" macroAlias="AzureChunkDisplayer" />
+<h2 id="CreateAccount">创建 Windows Azure 存储帐户</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" />
+<h2><a name="CreateApplication"></a>创建 Java 应用程序</h2>
+<p>在本指南中，您将使用存储功能，这些功能可在 Java 应用程序中本地运行，或在 Windows Azure 的 Web 角色或辅助角色中运行的代码中运行。假定您已下载并安装 Java 开发工具包 (JDK)，并已按照<a href="/zh-cn/develop/java/java-home/download-for-windows/">下载 Windows Azure SDK for Java</a> 中的说明进行操作来安装 Windows Azure Libraries for Java 和 Windows Azure SDK，还在 Windows Azure 订阅中创建了 Windows Azure 存储帐户。您可以使用任何开发工具（包括“记事本”）创建应用程序。您只要能够编译 Java 项目和引用 Windows Azure Libraries for Java 即可。</p>
+<h2><a name="ConfigureStorage"></a>配置您的应用程序以访问队列存储</h2>
+<p>将下列导入语句添加到要在其中使用 Windows Azure 存储 API 以访问队列的 Java 文件的顶部：</p>
+<pre class="prettyprint">// Include the following imports to use queue APIs
+import com.microsoft.windowsazure.services.core.storage.*;
+import com.microsoft.windowsazure.services.queue.client.*;</pre>
+<h2><a name="ConnectionString"></a>设置 Windows Azure 存储连接字符串</h2>
+<p>Windows Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 <em>AccountName</em> 和 <em>AccountKey</em> 值使用管理门户中列出的存储帐户的名称和存储帐户的主访问密钥。此示例演示如何声明用于保存连接字符串的静态字段：</p>
+<pre class="prettyprint">// Define the connection-string with your values
+public static final String storageConnectionString = 
+    "DefaultEndpointsProtocol=http;" + 
+    "AccountName=your_storage_account;" + 
+    "AccountKey=your_storage_account_key";</pre>
+<p>在 Windows Azure 的角色中运行的应用程序中，此字符串可存储在服务配置文件 ServiceConfiguration.cscfg 中，并可通过调用 RoleEnvironment.getConfigurationSettings 方法进行访问。下面是从服务配置文件中名为 <em>StorageConnectionString</em> 的 <strong>Setting</strong> 元素中获取连接字符串的示例：</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+String storageConnectionString = 
+    RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");</pre>
+<h2><a name="create-queue"></a>如何：创建队列</h2>
+<p>利用 CloudQueueClient 对象，可以获得队列的引用对象。以下代码将创建 CloudQueueClient 对象。</p>
+<p>本指南中的所有代码都使用声明了上述两种方式之一的存储连接字符串。还可以通过其他方式创建 CloudStorageAccount 对象。有关详细信息，请参阅 Javadocs 文档中的 CloudStorageAccount。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();</pre>
+<p>使用 CloudQueueClient 对象获取对要使用的队列的引用。如果队列不存在，您可以创建它。</p>
+<pre class="prettyprint">// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Create the queue if it doesn't already exist
+queue.createIfNotExist();</pre>
+<h2><a name="add-message"></a>如何：向队列添加消息</h2>
+<p>若要将消息插入现有队列，请先创建一条新的 CloudQueueMessage。紧接着，调用 addMessage 方法。可从字符串（UTF-8 格式）或字节数组创建 CloudQueueMessage。以下代码将创建队列（如果队列不存在）并插入消息“Hello, World”。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Create the queue if it doesn't already exist
+queue.createIfNotExist();
+
+// Create a message and add it to the queue
+CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+queue.addMessage(message);</pre>
+<h2><a name="peek-message"></a>如何：查看下一条消息</h2>
+<p>通过调用 peekMessage，可以查看队列前面的消息，而不必从队列中将其删除。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Peek at the next message
+CloudQueueMessage peekedMessage = queue.peekMessage();</pre>
+<h2><a name="dequeue-message"></a>如何：取消对下一条消息的排队</h2>
+<p>您的代码通过两个步骤取消在队列中对消息的排队。在调用 retrieveMessage 时，您将获得队列中的下一条消息。从 retrieveMessage 返回的消息变得对从此队列读取消息的任何其他代码不可见。默认情况下，此消息将持续 30 秒不可见。若要完全从队列中删除消息，您还必须调用 deleteMessage。此删除消息的两步过程可确保当您的代码因硬件或软件故障而无法处理消息时，您的其他代码实例可以获取同一消息并重试。您的代码在处理消息后会立即调用 deleteMessage。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Retrieve the first visible message in the queue
+CloudQueueMessage retrievedMessage = queue.retrieveMessage();
+
+// Process the message in less than 30 seconds, and then delete the message.
+queue.deleteMessage(retrievedMessage);</pre>
+<h2><a name="change-message"></a>如何：更改已排队消息的内容</h2>
+<p>您可以更改队列中已就位消息的内容。如果消息表示工作任务，则可以使用此功能更新工作任务的状态。以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。这将保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。通常，您还可以保留重试计数，如果某条消息的重试次数超过 n 次，您将删除此消息。这可避免消息在每次处理时都触发应用程序错误。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Retrieve the first visible message in the queue
+CloudQueueMessage message = queue.retrieveMessage();
+
+// Modify the message content and set it to be visible in 60 seconds
+message.setMessageContent("Updated contents.");
+EnumSet&lt;MessageUpdateFields&gt; updateFields = 
+    EnumSet.of(MessageUpdateFields.CONTENT, MessageUpdateFields.VISIBILITY);
+queue.updateMessage(message, 60, updateFields, null, null);</pre>
+<h2><a name="additional-options"></a>用于对消息取消排队的其他方法</h2>
+<p>您可以通过两种方式自定义队列中的消息检索。首先，您可以获取一批消息（最多 32 个）。其次，您可以设置更长或更短的不可见超时，从而允许您的代码使用更多或更少的时间来彻底处理每条消息。</p>
+<p>以下代码示例使用 retrieveMessages 方法通过一次调用获取 20 条消息。然后，它使用 <strong>for</strong> 循环来处理每条消息。它还将每条消息的不可见超时设置为五分钟（300 秒）。请注意，这五分钟超时对于所有消息都是同时开始的，因此在调用 retrieveMessages 五分钟后，尚未删除的任何消息都将再次变得可见。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds
+for (CloudQueueMessage message : queue.retrieveMessages(20, 300, null, null)) {
+    // Do processing for all messages in less than 5 minutes, 
+    // deleting each message after processing.
+    queue.deleteMessage(message);
+}</pre>
+<h2><a name="get-queue-length"></a>如何：获取队列长度</h2>
+<p>您可以获得队列中消息的估计数。downloadAttributes 方法会询问队列服务一些当前值，包括队列中消息的计数。此计数仅为近似值，因为只能在队列服务响应您的请求后添加或删除消息。getApproximateMethodCount 方法返回通过调用 downloadAttributes 检索到的最后一个值，而不会调用队列服务。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Download the approximate message count from the server
+queue.downloadAttributes();
+
+// Retrieve the newly cached approximate message count
+long cachedMessageCount = queue.getApproximateMessageCount();</pre>
+<h2><a name="delete-queue"></a>如何：删除队列</h2>
+<p>若要删除队列及其包含的所有消息，请对队列对象调用 delete 方法。</p>
+<pre class="prettyprint">// Retrieve storage account from connection-string
+CloudStorageAccount storageAccount = 
+    CloudStorageAccount.parse(storageConnectionString);
+
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.getQueueReference("myqueue");
+
+// Delete the queue
+queue.delete();</pre>
+<h2><a name="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解有关队列存储的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>请参阅 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>请访问 Windows Azure 存储团队博客：<a href="http://blogs.msdn.com/b/windowsazurestorage/">http://blogs.msdn.com/b/windowsazurestorage/</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用队列服务 (Java) - Windows Azure 功能指南</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-net-how-to-use-queue-storage-service-java</linkid><metaKeywords>Windows Azure 队列服务, Azure Queue 存储服务, 队列查看, 队列插入消息, 队列获取消息, 队列删除消息, 创建队列, 删除队列, 队列服务 Java</metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Azure 队列服务创建和删除队列以及插入、获取和删除消息。用 Java 编写的示例。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>队列服务</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

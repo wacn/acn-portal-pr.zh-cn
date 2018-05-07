@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19295" parentID="18528" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="3" createDate="2013-07-11T12:49:28" updateDate="2014-08-18T11:30:08" nodeName="upload a vhd" urlName="upload-a-vhd" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,17363,18528,19295" isDoc=""><bodyText><![CDATA[<h1>创建并上载包含 Windows Server 操作系统的虚拟硬盘</h1>
+<p>在 Windows Azure 中创建的虚拟机运行您从支持的操作系统版本中选择的操作系统。您可以自定义虚拟机的操作系统设置以快速运行您的应用程序。您设置的配置存储在磁盘上。您可以使用虚拟硬盘 (VHD) 文件在 Windows Azure 中创建虚拟机。您可以选择使用映像库中的 VHD 文件创建虚拟机，也可以选择创建您自己的映像，然后以 VHD 文件的形式将其上载到 Windows Azure。</p>
+<p>必须提供下列资源才能完成此任务：</p>
+<ul>
+<li><strong>运行 Windows Server 操作系统的服务器。</strong> 完成此任务需使用属于 Windows Server 操作系统中 Hyper-V 角色的 Hyper-V 管理器。</li>
+<li><strong>Window Server 操作系统介质。</strong>在您开始此任务前，必须确保能够访问包含 Windows Server 操作系统的 .ISO 文件。以下是支持的 Windows Server 分发：
+<table border="1" style="width: 600px;">
+<tbody>
+<tr bgcolor="#e9e7e7"><th>操作系统</th><th>SKU</th><th>Service Pack</th><th>体系结构</th></tr>
+<tr>
+<td>Windows Server 2012 (en_us)</td>
+<td>所有版本</td>
+<td>不适用</td>
+<td>x64</td>
+</tr>
+<tr>
+<td>Windows Server 2008 R2 (en_us)</td>
+<td>所有版本</td>
+<td>SP1</td>
+<td>x64</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><strong>CSUpload 命令行工具。</strong>此工具是 Windows Azure SDK 的一部分。可使用此工具设置与 Windows Azure 的连接并上载 VHD 文件。必须使用 2012 年 6 月版或更高版本的 Windows Azure SDK 中提供的工具将 VHD 上载到 Windows Azure。若要下载该 SDK 和这些工具，请参阅 <a href="/zh-cn/downloads/">Windows Azure 下载</a>。</li>
+</ul>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#hyperv">步骤 1：在您的服务器上安装 Hyper-V 角色</a></li>
+<li><a href="#createimage">步骤 2：创建映像</a></li>
+<li><a href="#createstorage">步骤 3：在 Windows Azure 中创建存储帐户</a></li>
+<li><a href="#prepimage">步骤 4：准备要上载的映像</a></li>
+<li><a href="#upload">步骤 5：向 Windows Azure 上载映像</a></li>
+</ul>
+<h2><a id="hyperv"></a>步骤 1：在您的服务器上安装 Hyper-V 角色</h2>
+<p>可使用多个工具创建 VHD 文件。在此任务中，可使用 Hyper-V 管理器创建上载到 Windows Azure 的 VHD 文件。有关更多信息，请参见 <a href="http://technet.microsoft.com/zh-cn/library/cc753637(WS.10).aspx">Hyper-V</a>。</p>
+<ol>
+<li>
+<p>在您的运行 Windows Server 2008 的服务器上，单击“开始”，指向“管理工具”，然后单击“服务器管理器”。</p>
+</li>
+<li>
+<p>在“角色摘要”区域，单击“添加角色”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/role.png" alt="添加角色"/></p>
+</li>
+<li>
+<p>在“选择服务器角色”页上，单击“Hyper-V”。</p>
+</li>
+<li>
+<p>在“创建虚拟网络”页上，单击一个或多个网络适配器（如果您希望使其网络连接可用于虚拟机）。</p>
+</li>
+<li>
+<p>在“确认安装选择”页上，单击“安装”。</p>
+</li>
+<li>
+<p>必须重新启动计算机才能完成安装。单击“关闭”以完成向导，然后单击“是”以重新启动计算机。</p>
+</li>
+<li>
+<p>在重新启动计算机后，使用您用于安装角色的相同帐户进行登录。安装完成后，请单击“关闭”以完成向导。</p>
+<p>现在您可以看到服务器上已安装 Hyper-V 角色：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/rolehyperv.png" alt="已添加 Hyper-V 角色"/></p>
+</li>
+</ol>
+<h2><a id="createimage"></a>步骤 2：创建映像</h2>
+<p>映像是可用作创建新虚拟机的模板的虚拟硬盘 (VHD) 文件。映像是一个模板，因为它不具有类似于配置的虚拟机这样的特定设置，例如计算机名称和用户帐户设置。VHD 包含操作系统、所有操作系统自定义项和应用程序。您可以通过在 Hyper-V 中完成以下步骤来创建 VHD。</p>
+<ol>
+<li>
+<p>在您的服务器上，依次单击“开始”、“所有程序”、“管理工具”和“Hyper-V 管理器”。</p>
+</li>
+<li>
+<p>在 Hyper-V 管理器的“操作”窗格中，单击“新建”，然后单击“虚拟机”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/newmachine.png" alt="创建虚拟机"/></p>
+</li>
+<li>
+<p>在“新建虚拟机向导”中，为虚拟机提供名称和位置、希望该虚拟机使用的内存量和网络适配器。</p>
+<p>系统将要求您提供用于创建虚拟机的虚拟硬盘的信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/newvhd.png" alt="输入虚拟机详细信息"/></p>
+</li>
+<li>
+<p>在“连接虚拟硬盘”页上，选择“创建虚拟硬盘”。提供以下信息，然后单击“下一步”：</p>
+<ul>
+<li><strong>名称</strong> - .vhd 文件的名称。这是您上载到 Windows Azure 的文件。</li>
+<li><strong>位置</strong> - .vhd 文件所在的文件夹。应将 VHD 文件存储在安全位置。</li>
+<li><strong>大小</strong> - 虚拟硬盘的大小。适用于 Windows Azure 中操作系统磁盘的虚拟硬盘的最大大小为 127 GB。</li>
+</ul>
+</li>
+<li>
+<p>在“安装选项”页上，选择“从引导 CD/DVD-ROM 介质安装操作系统”，然后选择适合您的安装介质的方法。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/windowschoosemedia.png" alt="选择安装介质"/></p>
+</li>
+<li>
+<p>完成该向导以创建虚拟机。</p>
+</li>
+</ol>
+<p>默认情况下，创建完的虚拟机不会启动。您必须启动该虚拟机以完成操作系统的安装。</p>
+<ol>
+<li>
+<p>在 Hyper-V 管理器的中间窗格中，选择在上一个过程中创建的虚拟机。</p>
+</li>
+<li>
+<p>在“操作”窗格中，单击“启动”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/start.png" alt="启动虚拟机"/></p>
+</li>
+<li>
+<p>单击“连接”以打开该虚拟机的窗口。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/connect.png" alt="连接到虚拟机"/></p>
+</li>
+<li>
+<p>完成操作系统的安装。有关安装操作系统的更多信息，请参见<a href="http://technet.microsoft.com/zh-cn/library/dd283085%28WS.10%29.aspx">安装和部署 Windows Server</a>。</p>
+</li>
+</ol>
+<h2><a id="createstorage"></a>步骤 3：在 Windows Azure 中创建存储帐户</h2>
+<p>存储帐户表示用于访问存储服务的最高级别的命名空间，并且与您的 Windows Azure 订阅相关联。您需要在 Windows Azure 中具有存储帐户才能将 VHD 文件上载到可用于创建虚拟机的 Windows Azure。可使用 Windows Azure 管理门户创建存储帐户。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。</p>
+</li>
+<li>
+<p>在命令栏上，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/create.png" alt="创建存储帐户"/></p>
+</li>
+<li>
+<p>单击“存储帐户”，然后单击“快速创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/createnewstorage.png" alt="快速创建存储帐户"/></p>
+<p>将显示“新建存储帐户”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/storageinfo.png" alt="输入存储帐户详细信息"/></p>
+</li>
+<li>
+<p>输入要在存储帐户的 URL 中使用的子域名称。输入的名称可包含 3-24 个小写字母和数字。此值将成为用于对订阅的 Blob、队列或表资源进行寻址的 URL 中的主机名。</p>
+</li>
+<li>
+<p>选择将包含该存储帐户的区域或地缘组。通过指定地缘组，可将同一数据中心内的云服务与您的存储放置在一起。</p>
+</li>
+<li>
+<p>选择是否需要为该存储帐户启用地域复制。默认情况下启用地域复制。在进行地域复制期间，会将您的数据免费复制到辅助位置，以便在发生无法在主要位置进行处理的严重故障时将您的存储无缝地故障转移到辅助位置。将自动分配辅助位置，并且无法对其进行更改。如果法律要求或组织政策要求更加严格地控制基于云的存储的位置，则您可以关闭地域复制。但是，请注意，如果稍后您打开地域复制，则将现有数据复制到辅助位置时将向您收取一次性数据传输费用。不具有地域复制的存储服务将以优惠价提供。</p>
+</li>
+<li>
+<p>单击“创建存储帐户”。</p>
+<p>帐户现在列在“存储帐户”下。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/storagesuccess.png" alt="已成功创建存储帐户"/></p>
+</li>
+</ol>
+<h2><a id="prepimage"></a>步骤 4：准备要上载的映像</h2>
+<p>在将映像上载到 Windows Azure 之前，必须使用 Sysprep 命令将映像一般化。有关使用 Sysprep 的更多信息，请参见<a href="http://technet.microsoft.com/zh-cn/library/bb457073.aspx">如何使用 Sysprep：简介</a>。</p>
+<p>在您刚创建的虚拟机中，完成以下过程：</p>
+<ol>
+<li>
+<p>以管理员身份打开“命令提示符”窗口。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sysprepcommand.png" alt="打开“命令提示符”窗口"/></p>
+</li>
+<li>
+<p>将目录更改为 <strong>%windir%\system32\sysprep</strong>，然后运行 <code>sysprep.exe</code>。</p>
+<p>将显示“系统准备工具”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sysprepgeneral.png" alt="启动 Sysprep"/></p>
+</li>
+<li>
+<p>在“系统清理操作”中，选择“进入系统全新体验(OOBE)”并确保选中“一般化”。</p>
+</li>
+<li>
+<p>在“关机选项”中，选择“关机”。</p>
+</li>
+<li>
+<p>单击“确定”。</p>
+</li>
+</ol>
+<h2><a id="upload"></a>步骤 5：向 Windows Azure 上载映像</h2>
+<p>要将 VHD 文件中包含的映像上载到 Windows Azure，您必须：</p>
+<ol>
+<li>创建并安装管理证书</li>
+<li>获取证书指纹和订阅 ID</li>
+<li>设置连接</li>
+<li>上载 VHD 文件</li>
+</ol>
+<h3>创建并安装管理证书</h3>
+<p>可通过多种方法创建管理证书。有关创建证书的更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/gg432987.aspx">如何为角色创建证书</a>。在创建证书后，您必须将其添加到 Windows Azure 中您的订阅。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。</p>
+</li>
+<li>
+<p>在导航窗格中，单击“托管服务、存储帐户和 CDN”。</p>
+</li>
+<li>
+<p>在导航窗格的顶部，单击“管理证书”。</p>
+</li>
+<li>
+<p>在功能区上的“证书”组中，单击“添加证书”。</p>
+</li>
+<li>
+<p>在“选择订阅”中，选择要向其中添加管理证书的 Windows Azure 订阅。</p>
+</li>
+<li>
+<p>在“证书文件”中，浏览到证书文件，然后单击“确定”。</p>
+</li>
+</ol>
+<h3>获取证书指纹和订阅 ID</h3>
+<p>您需要已添加的管理证书的指纹，并且需要订阅 ID 才能将 VHD 文件上载到 Windows Azure。</p>
+<ol>
+<li>
+<p>仍在“以前的管理门户”中，单击“托管服务、存储帐户和 CDN”，然后单击“管理证书”。</p>
+</li>
+<li>
+<p>在中间窗格中，单击您的证书，然后通过将指纹复制并粘贴到稍后可以对其进行检索的位置，从“属性”窗格记录指纹。</p>
+</li>
+</ol>
+<p>您还需要您的订阅的 ID 以上载 VHD 文件。</p>
+<ol>
+<li>
+<p>在“以前的管理门户”中，单击“托管服务、存储帐户和 CDN”，然后单击“托管服务”。</p>
+</li>
+<li>
+<p>在中间窗格中，选择您的订阅，然后通过将订阅 ID 复制并粘贴到稍后可以对其进行检索的位置，从“属性”窗格记录订阅 ID。</p>
+</li>
+</ol>
+<h3>设置连接</h3>
+<p>您必须设置用于访问订阅的连接字符串。CSUpload 命令行工具用于设置使用的连接字符串。有关更多信息，请参见 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg466228.aspx">CSUpload 命令行工具</a>。</p>
+<ol>
+<li>
+<p>以管理员的身份打开“Windows Azure SDK 命令提示符”窗口。</p>
+</li>
+<li>
+<p>使用以下命令并将 <strong>Subscriptionid</strong> 和 <strong>CertThumbprint</strong> 替换为您先前获取的值，以便设置连接字符串：</p>
+<p><code>csupload Set-Connection "SubscriptionID=&lt;Subscriptionid&gt;;CertificateThumbprint=&lt;Thumbprint&gt;;ServiceManagementEndpoint=https://management.core.chinacloudapi.cn"</code></p>
+</li>
+</ol>
+<h3>上载 VHD 文件</h3>
+<p>在此任务中，您将上载 VHD 文件以用作创建虚拟机的映像。使用可用于在 Windows Azure 中将 VHD 文件上载到映像库的 CSUpload 命令行工具。</p>
+<ol>
+<li>
+<p>使用用于设置连接字符串的已打开的相同“命令提示符”窗口。</p>
+</li>
+<li>
+<p>使用以下命令并将 <strong>Subscriptionid</strong> 和 <strong>CertThumbprint</strong> 替换为您先前获取的值，以便上载 VHD 文件：</p>
+<p><code>csupload Add-PersistentVMImage -Destination "&lt;BlobStorageURL&gt;/&lt;YourImagesFolder&gt;/&lt;VHDName&gt;" -Label &lt;VHDName&gt; -LiteralPath &lt;PathToVHDFile&gt; -OS Windows</code></p>
+</li>
+</ol>
+<p>其中<strong> BlobStorageURL </strong>是您先前创建的存储帐户的 URL。您可以将 VHD 文件放在您的 Blog 存储中的任何位置。<strong>YourImagesFolder</strong> 是 Blob 存储中您要用于存储您的映像的容器。<strong>VHDName</strong> 是显示在管理门户中用于标识 VHD 的标签。<strong>PathToVHDFile</strong> 是 VHD 文件的完整路径和名称。</p>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>upload a vhd</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>upload a vhd</linkid><urlDisplayName>upload a vhd</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

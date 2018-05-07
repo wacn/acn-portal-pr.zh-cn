@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19218" parentID="19217" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="1" createDate="2013-07-11T11:59:52" updateDate="2014-08-18T11:26:20" nodeName="Endorsed distributions" urlName="endorsed-distributions" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19217,19218" isDoc=""><bodyText><![CDATA[<div style="margin-top: 40px;">
+<h1>Windows Azure 认可的分发中的 Linux</h1>
+<p>库中的分发映像由以下合作伙伴提供，我们正在与社区协作以便提供更多认可的分发。同时，您始终可通过按照本页中的指南进行操作来引入您自己的 Linux。</p>
+<h2>Canonical</h2>
+<p><a href="http://www.ubuntu.com/cloud/azure">http://www.ubuntu.com/cloud/azure</a></p>
+<p>Canonical 的工程和开放社区监管对 Ubuntu 在客户端、服务器和云计算（包括用户的个人云服务）方面获得成功起到了推动作用。Canonical 期望使用 Ubuntu 开发一个统一的免费平台（从手机到云），该平台带有一系列适用于手机、平板电脑、TV 和桌面的相关接口，从而使 Ubuntu 成为各种机构（从公有云提供商到消费类电子产品制造商）的首选以及各个技术专家的最爱。</p>
+<p>借助其遍布全球的开发人员和工程中心，Canonical 在与硬件制造商、内容提供商和软件开发人员合作以将 Ubuntu 解决方案推向市场（从 PC 到服务器和手持设备）方面拥有独特的优势。</p>
+<h2>OpenLogic</h2>
+<p><a href="http://www.openlogic.com/azure/index.php">http://www.openlogic.com/azure/index.php</a></p>
+<p>OpenLogic 是针对云和数据中心的企业开放源解决方案的行业领先的提供商。OpenLogic 帮助各个行业数以百计的领先企业安全获取、支持和控制开源软件。OpenLogic 为 OpenLogic 专家社区支持的 600 个开放源包提供商业级技术支持和保护（包括针对 CentOS 的企业级支持），同时作为在 Windows Azure 上提供 Centos 映像的产品发布合作伙伴。</p>
+<h2>SUSE</h2>
+<p><a href="http://www.suse.com/suse-linux-enterprise-server-on-azure">http://www.suse.com/suse-linux-enterprise-server-on-azure</a></p>
+<p>Windows Azure 上的 SUSE Linux Enterprise Server 是一个已验证的平台，该平台为云计算提供了高级可靠性和安全性。SUSE 的通用 Linux 平台可与 Windows Azure 云服务无缝集成以便交付易于管理的云环境。借助 1,800 多个独立软件供应商提供的适用于 SUSE Linux Enterprise Server 的 9,200 多个认证应用程序，SUSE 可确保满怀信心地在 Windows Azure 上部署数据中心内支持的运行负载。</p>
+<p>下表显示了已通过测试可在 Windows Azure 上运行的不同的分发版本、LIS 驱动程序和代理版本。该表还包括指向某些分发版本在 Windows Azure 中以最佳方式运行所需的内核兼容性修补程序的链接。</p>
+<p>请注意，不同的分发很快会将代理并入其正式的分发存档，但就目前而言，我们正在发布针对代理的所有 RPM 和 Deb 包以及针对同一 ISO 上的 CentOS 的驱动程序。</p>
+<table border="1" style="width: 600px;">
+<tbody>
+<tr bgcolor="#e9e7e7"><th>分发</th><th>版本</th><th>上次验证时间</th><th>驱动程序</th><th>内核兼容性修补程序</th><th>代理</th><th>基本映像</th></tr>
+<tr><th>Canonical UBUNTU</th>
+<td>Ubuntu 12.04.1 和 12.10</td>
+<td>2012 年 12 月 20 日</td>
+<td>在内核中</td>
+<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">必需（仅对于 12.04.x）</a></td>
+<td>Deb：在 walinuxagent 下的包存储库中<br />源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</a></td>
+<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254264">下载基础 VHD</a></td>
+</tr>
+<tr><th>CENTOS by Open Logic</th>
+<td>CentOS 6.3</td>
+<td>2012 年 12 月 20 日</td>
+<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">最新的 LIS 驱动程序</a></td>
+<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">必需（仅对于 6.2 和 6.3）</a></td>
+<td>RPM：在 walinuxagent 下的 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic 包存储库</a>中<br />源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</a></td>
+<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">下载 ISO</a></td>
+</tr>
+<tr><th>SUSE</th>
+<td>SLES 11SP2</td>
+<td>2012 年 12 月 20 日</td>
+<td>在内核中</td>
+<td><a href="http://go.microsoft.com/fwlink/?LinkID=275154&amp;clcid=0x409">所需的最新内核</a></td>
+<td>RPM：在 walinuxagent 下的包存储库中<br />源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</a></td>
+<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">创建基本映像</a></td>
+</tr>
+<tr><th>OPEN SUSE</th>
+<td>Open SUSE 12.1</td>
+<td>2012 年 6 月 7 日</td>
+<td>在内核中</td>
+<td><a href="http://go.microsoft.com/fwlink/?LinkID=275155&amp;clcid=0x409">所需的最新内核</a></td>
+<td>RPM：在 walinux 下的包存储库中<br />源：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</a></td>
+<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">创建基本映像</a></td>
+</tr>
+</tbody>
+</table>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>Windows Azure 中的 Linux 的认可分发</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-other-resources-endorsed-distributions</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解 Windows Azure 认可的分发中的 Linux，包括有关 Ubuntu、OpenLogic 和 SUSE 的指南。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>认可的分发</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

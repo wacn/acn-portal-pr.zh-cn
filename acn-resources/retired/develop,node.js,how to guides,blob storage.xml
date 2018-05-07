@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18996" parentID="18995" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:15:29" updateDate="2014-08-18T11:16:58" nodeName="Blob Storage" urlName="blob-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,18995,18996" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>如何从 Node.js 使用 Blob 服务</h1>
+<p>本指南将演示如何使用 Windows Azure Blob 服务执行常见任务。相关示例是使用 Node.js API 编写的。涉及的任务包括<strong>上载</strong>、<strong>列出</strong>、<strong>下载</strong>和<strong>删除</strong> Blob。有关 Blob 的详细信息，请参阅<a href="#next-steps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是 Blob 服务？</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#create-account">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#create-app">创建 Node.js 应用程序</a></li>
+<li><a href="#configure-access">配置应用程序以访问存储</a></li>
+<li><a href="#setup-connection-string">设置 Windows Azure 存储连接字符串</a></li>
+<li><a href="#create-container">如何：创建容器</a></li>
+<li><a href="#upload-blob">如何：将 Blob 上载到容器</a></li>
+<li><a href="#list-blob">如何：列出容器中的 Blob</a></li>
+<li><a href="#download-blobs">如何：下载 Blob</a></li>
+<li><a href="#delete-blobs">如何：删除 Blob</a></li>
+<li><a href="#next-steps">后续步骤</a></li>
+</ul>
+<h2><a name="what-is"></a>什么是 Blob 服务？</h2>
+<p>Windows Azure Blob 服务用于存储大量非结构化数据，用户可在世界任何地方通过 HTTP 或 HTTPS 访问这些数据。一个 Blob 的大小可以为数百 GB，一个存储帐户最多可以包含 100 TB 的 Blob。Blob 的常见用途包括：</p>
+<ul>
+<li>直接为浏览器提供图像或文档</li>
+<li>存储文件以供分布式访问</li>
+<li>流式传输视频和音频</li>
+<li>执行安全备份和灾难恢复</li>
+<li>存储数据以供本地或 Windows Azure 托管服务执行分析</li>
+</ul>
+<p>您可以使用 Blob 向外公布数据，或者私下公布数据以用作内部应用程序存储。</p>
+<h2><a name="concepts"></a>概念</h2>
+<p>Blob 服务包含以下组件：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blob1.jpg" alt="Blob1"/></p>
+<ul>
+<li>
+<p><strong>URL 格式：</strong> 使用以下 URL 格式可访问 Blob：<br /> http://storageaccount.blob.core.chinacloudapi.cn/container/blob</p>
+<p>以下 URL 通过图表的方式介绍了其中一种 Blob：<br /> http://sally.blob.core.chinacloudapi.cn/movies/MOV1.AVI</p>
+</li>
+<li>
+<p><strong>存储帐户：</strong> 对 Windows Azure 存储服务进行的所有访问都要通过存储帐户完成。存储帐户是访问 blob 的最高级别的命名空间。一个帐户可以包含无限个容器，只要这些容器的总大小不超过 100 TB 即可。</p>
+</li>
+<li>
+<p><strong>容器：</strong> 一个容器包含一组 Blob 集。所有 blob 必须位于相应的容器中。一个帐户可以包含无限个容器。一个容器可以存储无限个 Blob。</p>
+</li>
+<li>
+<p><strong>Blob：</strong> 任何类型和大小的文件。有两种类型的 Blob：块 Blob 和页 Blob。大部分文件都是块 blob。一个块 Blob 的大小可以达到 200 GB。本教程使用的是块 Blob。另一种 Blob 类型为页 Blob，其大小可以达 1 TB，在对文件中的一系列字节进行频繁修改时，这种 Blob 类型更加高效。</p>
+</li>
+</ul>
+<h2><a name="create-account"></a>创建 Windows Azure 存储帐户</h2>
+<p>若要执行存储操作，您需要一个 Windows Azure 存储帐户。可通过以下步骤创建存储帐户。（也可以<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh264518.aspx">使用 REST API</a> 创建存储帐户。）</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在导航窗格的底部，单击“+新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/plus-new.png" alt="+新建"/></p>
+</li>
+<li>
+<p>单击“存储帐户”，然后单击“快速创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/quick-storage.png" alt="“快速创建”对话框"/></p>
+</li>
+<li>
+<p>在 URL 中，键入要在存储帐户的 URI 中使用的子域名称。输入的名称可包含 3-24 个小写字母和数字。此值将成为用于对订阅的 Blob、队列或表资源进行寻址的 URI 中的主机名。</p>
+</li>
+<li>
+<p>选择要在其中查找存储的区域/地缘组。如果要使用 Windows Azure 应用程序中的存储，请选择要在其中部署该应用程序的区域。</p>
+</li>
+<li>
+<p>单击“创建存储帐户”。</p>
+</li>
+</ol>
+<h2><a name="create-app"></a>创建 Node.js 应用程序</h2>
+<p>创建空白 Node.js 应用程序。有关创建 Node.js 应用程序的说明，请参阅<a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">创建 Node.js 应用程序并将其部署到 Windows Azure 网站</a>、<a href="{localLink:2221}" title="Node.js Web 应用程序">Node.js 云服务</a>（使用 Windows PowerShell）或<a href="/zh-cn/develop/nodejs/tutorials/web-site-with-webmatrix/">使用 WebMatrix 构建网站</a>。</p>
+<h2><a name="configure-access"></a>配置应用程序以访问存储</h2>
+<p>要使用 Windows Azure 存储，您需要下载和使用 Node.js azure 包，其中包括一组便于与存储 REST 服务进行通信的库。</p>
+<h3>使用 Node 包管理器 (NPM) 可获取该程序包</h3>
+<ol>
+<li>
+<p>使用 <strong>PowerShell</strong> (Windows)、<strong>Terminal</strong> (Mac) 或 <strong>Bash</strong> (Unix) 等命令行界面导航到您在其中创建了示例应用程序的文件夹。</p>
+</li>
+<li>
+<p>在命令窗口中键入 <strong>npm install azure</strong>，这应该产生以下输出：</p>
+<pre class="prettyprint">azure@0.6.0 ./node_modules/azure
+â”œâ”€â”€ easy-table@0.0.1
+â”œâ”€â”€ dateformat@1.0.2-1.2.3
+â”œâ”€â”€ xmlbuilder@0.3.1
+â”œâ”€â”€ eyes@0.1.7
+â”œâ”€â”€ colors@0.6.0-1
+â”œâ”€â”€ mime@1.2.5
+â”œâ”€â”€ log@1.3.0
+â”œâ”€â”€ commander@0.6.1
+â”œâ”€â”€ node-uuid@1.2.0
+â”œâ”€â”€ xml2js@0.1.14
+â”œâ”€â”€ async@0.1.22
+â”œâ”€â”€ tunnel@0.0.1
+â”œâ”€â”€ underscore@1.3.3
+â”œâ”€â”€ qs@0.5.0
+â”œâ”€â”€ underscore.string@2.2.0rc
+â”œâ”€â”€ sax@0.4.0
+â”œâ”€â”€ streamline@0.2.4
+â””â”€â”€ winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)</pre>
+</li>
+<li>
+<p>可以手动运行 <strong>ls</strong> 命令来验证是否创建了 <strong>node_modules</strong> 文件夹。在该文件夹中，您将找到 <strong>azure</strong> 包，其中包含访问存储所需的库。</p>
+</li>
+</ol>
+<h3>导入包</h3>
+<p>使用记事本或其他文本编辑器将以下内容添加到想要使用存储的应用程序的 <strong>server.js</strong> 文件顶部：</p>
+<pre class="prettyprint">var azure = require('azure');</pre>
+<h2><a name="setup-connection-string"></a>设置 Windows Azure 存储连接</h2>
+<p>azure 模块将读取环境变量 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 以获取连接到您的 Windows Azure 存储帐户所需的信息。如果未设置这些环境变量，则在调用 <strong>createBlobService</strong> 时必须指定帐户信息。</p>
+<p>有关在 Windows Azure 云服务的配置文件中设置环境变量的示例，请参阅<a href="/zh-cn/develop/nodejs/tutorials/web-app-with-storage/">使用存储构建 Node.js 云服务</a>。</p>
+<p>有关在管理门户中为 Windows Azure 网站设置环境变量的示例，请参阅<a href="/zh-cn/develop/nodejs/tutorials/web-site-with-storage/">使用存储构建 Node.js Web 应用程序</a></p>
+<h2><a name="create-container"></a>如何：创建容器</h2>
+<p>通过 <strong>BlobService</strong> 对象，可以使用容器和 Blob。以下代码创建 <strong>BlobService</strong> 对象。将以下内容添加到 <strong>server.js</strong> 顶部附近：</p>
+<pre class="prettyprint">var blobService = azure.createBlobService();</pre>
+<p>所有 Blob 都驻留在一个容器中。对 <strong>BlobService</strong> 对象中 <strong>createContainerIfNotExists</strong> 的调用会返回指定容器（如果它存在），或创建具有指定名称的新容器（如果它尚不存在）。默认情况下，新容器是专用容器，需要使用访问密钥才能从该容器下载 Blob。</p>
+<pre class="prettyprint">blobService.createContainerIfNotExists(containerName, function(error){
+    if(!error){
+        // Container exists and is private
+    }
+});</pre>
+<p>如果您要让容器中的文件成为公共文件（这样用户便可访问这些文件，而不需要访问密钥），则可以将容器的访问级别设置为“Blob”或“容器”。将访问级别设置为“Blob”后，可匿名读取此容器中的 Blob 内容和元数据，但无法匿名读取容器元数据（如列出容器中的所有 Blob）。将访问级别设置为“容器”后，可匿名读取 Blob 内容和元数据，以及容器元数据。下面的示例演示如何将访问级别设置为“Blob”：</p>
+<pre class="prettyprint">blobService.createContainerIfNotExists(containerName
+    , {publicAccessLevel : 'blob'}
+    , function(error){
+        if(!error){
+            // Container exists and is public
+        }
+    });</pre>
+<p>或者，也可以通过使用 <strong>setContainerAcl</strong> 指定访问级别来修改容器的访问级别。下面的示例将访问级别更改为“容器”：</p>
+<pre class="prettyprint">blobService.setContainerAcl(containerName
+    , 'container'
+    , function(error){
+        if(!error){
+            // Container access level set to 'container'
+        }
+    });</pre>
+<h2><a name="upload-blob"></a>如何：将 Blob 上载到容器</h2>
+<p>若要将数据上载到 Blob，请使用 <strong>createBlockBlobFromFile</strong>、<strong>createBlockBlobFromStream</strong> 或 <strong>createBlockBlobFromText</strong> 方法。<strong>createBlockBlobFromFile</strong> 可上载文件的内容，而 <strong>createBlockBlobFromStream</strong> 可上载流的内容。<strong>createBlockBlobFromText</strong> 上载指定文本值。</p>
+<p>下面的示例将 <strong>test1.txt</strong> 文件的内容上载到“test1”Blob。</p>
+<pre class="prettyprint">blobService.createBlockBlobFromFile(containerName
+    , 'test1'
+    , 'test1.txt'
+    , function(error){
+        if(!error){
+            // File has been uploaded
+        }
+    });</pre>
+<h2><a name="list-blob"></a>如何：列出容器中的 Blob</h2>
+<p>若要列出容器中的 Blob，可使用带 <strong>for</strong> 循环的 <strong>listBlobs</strong> 方法来显示容器中每个 Blob 的名称。以下代码将容器中每个 Blob 的<strong>名称</strong>输出到控制台。</p>
+<pre class="prettyprint">blobService.listBlobs(containerName, function(error, blobs){
+    if(!error){
+        for(var index in blobs){
+            console.log(blobs[index].name);
+        }
+    }
+});</pre>
+<h2><a name="download-blobs"></a>如何：下载 Blob</h2>
+<p>若要从 Blob 下载数据，可使用 <strong>getBlobToFile</strong>、<strong>getBlobToStream</strong> 或 <strong>getBlobToText</strong>。以下示例演示如何使用 <strong>getBlobToStream</strong> 下载 <strong>test1</strong> Blob 的内容，并使用流将其存储到 <strong>output.txt</strong> 文件：</p>
+<pre class="prettyprint">var fs=require('fs');
+blobService.getBlobToStream(containerName
+    , 'test1'
+    , fs.createWriteStream('output.txt')
+    , function(error){
+        if(!error){
+            // Wrote blob to stream
+        }
+    });</pre>
+<h2><a name="delete-blobs"></a>如何：删除 Blob</h2>
+<p>最后，若要删除 Blob，请调用 <strong>deleteBlob</strong>。下面的示例删除名为“blob1”的 Blob。</p>
+<pre class="prettyprint">blobService.deleteBlob(containerName
+    , 'blob1'
+    , function(error){
+        if(!error){
+            // Blob has been deleted
+        }
+    });</pre>
+<h2><a name="next-steps"></a>后续步骤</h2>
+<p>现在，您已了解有关 Blob 存储的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>查看 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a>。</li>
+<li>访问 <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure 存储团队博客</a>。</li>
+<li>访问 GitHub 上的 <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node</a> 存储库。</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用 Blob 存储 (Node.js) - Windows Azure 功能指南</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-nodejs-how-to-blob-storage</linkid><metaKeywords>开始使用 Azure Blob, Azure 非结构化数据, Azure 非结构化存储, Azure Blob, Azure Blob 存储, Azure Blob Node.js</metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Azure Blob 服务上载、下载、列出和删除 Blob 内容。相关示例是使用 Node.js 编写的。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Blob 服务</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

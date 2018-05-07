@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+	  
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    <h2>业务背景</h2>
+                    <p>2006 年 11 月，见福第一家门店始于厦门的乌石浦，经过 10 年的努力，现在已发展到将近 1000 家门店，成为福建便利店行业的领先品牌。</p>
+					
+					<p>作为见福便利店的创建者，张利始终关注消费者的购物体验，只有站在消费者的角度，才能知道便利店自身的业务运营需要如何改进才能满足顾客的需求，提升顾客的满意度。在见福的管理者看来，未来的零售行业，必然需要依赖数据的驱动，要想更好的应对电商的挑战，实体门店更需要以用户的需求为中心，提供更加优质的体验。</p>
+                    <p>然而要深入的了解客户需求并非易事，见福旗下拥有 1000 余家门店，平均日均客流量超过 30 万人，一年超过上亿人次的客流，以现有的管理方式，无法对如此海量客户的喜好进行精细画像与分析，顾客缺乏唯一的标识，无法实现精准营销的目标。零售业界所普遍采用的办理会员卡、记录客户手机号码等方式在见福的管理者看来并不可取，过度收集顾客的详细信息不仅会导致顾客的排斥，同时也会带来收款效率的降低，此外，企业还需要在用户隐私保护等方面付出更多的成本。</p>
+                </div>
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>为了消除传统会员管理方式的不足，见福便利店探索了一种全新的方式——以生物特征作为会员唯一标识 ID，通过在收银台上方安装摄像头，借助人脸识别技术，对顾客进行标识，根据顾客的购买行为、喜好进行精细画像与分析，并依据顾客的个性化需求提供服务和精准营销支持。</p>
+                    <p>要实现这一步，企业同样需要解决顾客隐私的问题。见福便利店的技术团队用了近一年的时间对市场上主流的人脸识别技术和方案进行对比，最终选择了 Azure 智能云上的 Azure 认知服务。Azure 认知服务提供了人脸识别 Face API 的调用，整个过程只用于识别而不会存储顾客的个人信息，从而有效的保护的顾客的隐私。并且服务完全基于平台即服务（PaaS）进行交付，让供应商能够更加灵活快速的构建应用。</p>
+
+                    <p>见福智慧便利店解决方案，用到了 Azure 的 PaaS 层大量组件，包括：</p>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/fook-01.png" alt=""/>
+                </br>
+                    <p>在见福便利店的人工智能项目中，上海南洋万邦软件技术公司作为 Azure 合作伙伴，基于 Azure PaaS 层服务，为见福便利店打造了一套在完整的智慧解决方案：</p>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/fook-02.png" alt=""/>
+                </br>
+                    <p>该方案采用了 Azure IoT Hub，将客户端采集到的数据上传到 Azure 的存储区；借助 Stream Analytics 流分析上传的数据，并分配给不同的业务的模块；利用服务总线把分析结果通过 Event Hub 与具体的业务组件进行对接，通知人工智能、业务整合模块为业务组件提供服务。在数据存储方面，使用了 SQL 数据仓库将产生的数据进行建模，为 Power BI 的可视化分析提供基础支撑。在最终的数据展现上，利用 Power BI 为见福便利店开发交互式的商业分析图表，让便利店的运营团队可以获得所需的业务洞察力。</p>
+                </div>
+                <div class="section-component">
+                    <h2>企业收益</h2>
+                    <p>目前，基于 Azure 智能云的智慧便利店解决方案已经在见福旗下的 5 家门店（厦门 4 家、福州 1 家）得到部署和应用。通过一个月的运营，店面的熟客满意度和购买率得到了显著的提升，基于人工智能的解决方案正在帮助见福实现数字化转型，以更具信心的方式应对市场的发展和挑战。</p>	
+                    
+                    <h3>非侵入式会员管理保障客户体验与隐私</h3>
+                    <p>通过 Azure 认知服务的 Face API 对顾客进行个性化 ID 标注，整个过程只用于个体的识别，而不会存储顾客任何的身份信息（姓名、联系方式等），从而消除繁琐的顾客的会员信息登记过程，并保障客户的隐私，改善顾客的消费体验。</p>	 
+                    
+                    <h3>以具有成本效益的方式实现门店的数字化转型</h3>
+                    <p>见福便利店可以使用现有门店的安防摄像头用于信息的采集，所有后端服务均部署在 Azure 公有云上，因此本地无需其他IT基础架构，能够有效的简化门店人工智能的部署成本，让见福便利店能够借助先进的云服务以更具成本效益的方式获得人工智能的便利，实现传统零售的数字化转型。</p> 
+                    <h3>精准业务分析，优化门店运营</h3>
+                    <p>借助 Power BI 所提供的交互式报表，见福便利店的运营团队能够即时的将各门店的业务数据展现出来，更精准的识别出消费者更喜欢光顾哪些门店，以及哪种货架的摆放更受消费者的欢迎。并根据这些业务洞察力对业务进行优化，如调整商品供应、优化促销活动等，帮助门店改进运营服务。</p>                           		
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">                          
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_azure-iot-hub.png"><a target="_blank" href="/home/features/iot-hub/" id="case-study_gump-come_iot-hub">Azure IoT 中心</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_cognitive-services.png"><a target="_blank" href="/home/features/cognitive-services/" id="case-study_ieemoo_cognitive">认知服务</a></li>
+                            
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>见福便利店-Azure云计算</pageTitle>
+    <metaKeywords>见福便利店-Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[见福便利店利用 Azure 多个高级服务与物联网搭建新型智慧零售方案，实现门店精准营销与防偷盗。]]></metaDescription>
+    <linkid>case-studies-fook</linkid>
+    <urlDisplayName>见福便利店</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-fook-banner.png','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_fook" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">见福便利店</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.fook.cc/page_about_10.aspx" id="case-study-fook-website" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/fook-logo-80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                    
+                            <h1>见福便利店</h1>                       
+							<p>见福便利店利用 Azure 多个高级服务与物联网搭建新型智慧零售方案，实现门店精准营销与防偷盗。</p>
+                        </div>
+                        <p class="casestudy-info">我们需要新的动力来推进传统零售的增长。未来零售行业必然需要依赖数据与人工智能。我们用了近一年的时间对市场上的解决方案提供商进行了对比，尤其是在人工智能和人脸识别领域，最后选择了 Azure。不是因为价格，而是价值观的一致。在见福的数字化转型之路上，Azure 给我们提供了很多的支持。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">张利，见福便利店创始人</span>     
+
+						<!--<a href="#" class="video-play-button" id="case-study-video-player"></a>	-->					
+                    </div>
+                    
+					
+                    <!--
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_fook.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                    -->				
+					
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

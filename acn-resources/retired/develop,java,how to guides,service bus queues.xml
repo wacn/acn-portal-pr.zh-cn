@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18559" parentID="18554" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="5" createDate="2013-06-04T09:19:26" updateDate="2014-08-18T11:12:15" nodeName="Service Bus Queues" urlName="service-bus-queues" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18554,18559" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/java" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1><span>如何使用 Service Bus 队列</span></h1>
+<p>本指南演示如何使用 Service Bus 队列。这些示例用 Java 编写并使用 <a href="/zh-cn/develop/java/java-home/download-for-windows/">Windows Azure SDK for Java</a>。介绍的方案包括<strong>创建队列</strong>、<strong>发送和接收消息</strong>以及<strong>删除队列</strong>。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-are-service-bus-queues">什么是 Service Bus 队列？</a></li>
+<li><a href="#create-a-service-namespace">创建服务命名空间</a></li>
+<li><a href="#obtain-default-credentials">获得命名空间的默认管理凭据</a></li>
+<li><a href="#bkmk_ConfigApp">将应用程序配置为使用 Service Bus</a></li>
+<li><a href="#bkmk_HowToCreateQueue">如何：创建安全令牌提供程序</a></li>
+<li><a href="#bkmk_HowToCreateQueue">如何：创建队列</a></li>
+<li><a href="#bkmk_HowToSendMsgs">如何：向队列发送消息</a></li>
+<li><a href="#bkmk_HowToReceiveMsgs">如何：从队列接收消息</a></li>
+<li><a href="#bkmk_HowToHandleAppCrashes">如何：处理应用程序崩溃和不可读消息</a></li>
+<li><a href="#bkmk_NextSteps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="howto-service-bus-queues" macroAlias="AzureChunkDisplayer" />
+<h2><a name="bkmk_ConfigApp"></a>将应用程序配置为使用 Service Bus</h2>
+<p>将以下导入语句添加到 Java 文件顶部：</p>
+<pre class="prettyprint">// Include the following imports to use service bus APIs
+import com.microsoft.windowsazure.services.serviceBus.*;
+import com.microsoft.windowsazure.services.serviceBus.models.*; 
+import com.microsoft.windowsazure.services.core.*; 
+import javax.xml.datatype.*;</pre>
+<h2><a name="bkmk_HowToCreateQueue"></a>如何创建队列</h2>
+<p>Service Bus 队列的管理操作可通过 <strong>ServiceBusContract</strong> 类执行。<strong>ServiceBusContract</strong> 对象是使用封装了用于管理对象本身的令牌权限的适当配置构造的，而 <strong>ServiceBusContract</strong> 类是与 Azure 的单一通信点。</p>
+<p><strong>ServiceBusService</strong> 类提供了创建、枚举和删除队列的方法。下面的示例演示了如何使用 <strong>ServiceBusService</strong> 在“HowToSample”服务命名空间中创建名为“TestQueue”的队列：</p>
+<pre class="prettyprint">String issuer = "&lt;obtained from portal&gt;";
+String key = "&lt;obtained from portal&gt;";
+Configuration config = 
+    ServiceBusConfiguration.configureWithWrapAuthentication(
+        “HowToSample”, 
+        issuer, 
+        key);
+ServiceBusContract service = ServiceBusService.create(config);
+QueueInfo queueInfo = new QueueInfo("TestQueue");
+try
+{     
+    CreateQueueResult result = service.createQueue(queueInfo);
+}
+catch (ServiceException e)
+{
+    System.out.print("ServiceException encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}</pre>
+<p>QueueInfo 上有一些支持调整队列属性的方法（例如：将默认的“生存时间”值设置为应用于发送到队列的消息）。以下示例演示了如何创建最大大小为 5GB 且名为“TestQueue”的队列：</p>
+<pre class="prettyprint">long maxSizeInMegabytes = 5120;
+QueueInfo queueInfo = new QueueInfo("TestQueue");
+queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
+CreateQueueResult result = service.createQueue(queueInfo);</pre>
+<p><strong>注意：</strong>您可以对 <strong>ServiceBusContract</strong> 对象使用 <strong>listQueues</strong> 方法来检查具有指定名称的队列在某个服务命名空间中是否已存在。</p>
+<h2><a name="bkmk_HowToSendMsgs"></a>如何向队列发送消息</h2>
+<p>若要将消息发送到 Service Bus 队列，您的应用程序将获得 <strong>ServiceBusContract</strong> 对象。下面的代码演示了如何为我们之前在“HowToSample”服务命名空间中创建的“TestQueue”队列发送消息：</p>
+<pre class="prettyprint">String issuer = "&lt;obtained from portal&gt;";
+String key = "&lt;obtained from portal&gt;";
+Configuration config = 
+    ServiceBusConfiguration.configureWithWrapAuthentication(
+        “HowToSample”, 
+        issuer,
+        key);
+ServiceBusContract service = ServiceBusService.create(config);
+QueueInfo queueInfo = new QueueInfo("TestQueue");
+try
+{
+     CreateQueueResult result = service.createQueue(queueInfo);
+     BrokeredMessage message = new BrokeredMessage("sendMessageWorks");
+     service.sendQueueMessage("TestQueue", message);
+}
+catch (ServiceException e) {
+     System.out.print("ServiceException encountered: ");
+     System.out.println(e.getMessage());
+     System.exit(-1);
+}</pre>
+<p>发送到（和接收自）Service Bus 队列的消息是 <strong>BrokeredMessage</strong> 类的实例。<strong>BrokeredMessage</strong> 对象包含一组标准方法（如 <strong>getLabel</strong>、<strong>getTimeToLive</strong>、<strong>setLabel</strong> 和 <strong>setTimeToLive</strong>）、一个用来保存自定义应用程序特定属性的词典以及一组任意的应用程序数据。应用程序可通过将任何可序列化对象传入到 <strong>BrokeredMessage</strong> 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。或者，也可以提供 <strong>java.IO.InputStream</strong>。</p>
+<p>以下示例演示了如何将五条测试消息发送到我们在上面的代码段中获得的“TestQueue”<strong>MessageSender</strong>：</p>
+<pre class="prettyprint">for (int i=0; i&lt;5; i++)
+{
+     // Create message, passing a string message for the body
+     BrokeredMessage message = new BrokeredMessage("Test message " + i);
+     // Set some additional custom app-specific property
+     message.setProperty("TestProperty", "TestValue" + i); 
+     // Send message to the queue
+     service.sendQueueMessage("TestQueue", message);
+}</pre>
+<p>Service Bus 队列支持最大大小为 256 KB 的消息（包含标准和自定义应用程序属性的标头的最大大小可以为 64 KB）。队列中可以包含的消息的数量不受限制，但可以包含的消息的总大小有限制。此队列大小是在创建时定义的，上限为 5 GB。</p>
+<h2><a name="bkmk_HowToReceiveMsgs"></a>如何从队列接收消息</h2>
+<p>从队列接收消息的主要方法是使用 <strong>ServiceBusContract</strong> 对象。收到的消息可在两种不同模式下工作：<strong>ReceiveAndDelete</strong> 和 <strong>PeekLock</strong>。</p>
+<p>当使用 <strong>ReceiveAndDelete</strong> 模式时，接收是一个单次操作。即，当 Service Bus 收到对队列中的消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。<strong>ReceiveAndDelete</strong> 模式（默认模式）是最简单的模式，最适合应用程序可容忍出现故障时不处理消息的情景。若要理解这一点，请考虑使用者发出接收请求但在处理该请求前发生崩溃的情景。由于 Service Bus 已将消息标记为“已使用”，当应用程序重新启动并开始再次使用消息时，它将漏掉在崩溃前使用的消息。</p>
+<p>在 <strong>PeekLock</strong> 模式下，接收变成了一个两阶段操作，从而有可能支持无法容忍遗漏消息的应用程序。当 Service Bus 收到请求时，它将查找下一条要使用的消息，并锁定该消息以防止使用者收到，然后将该消息返回给应用程序。应用程序完成消息处理（或可靠地存储消息以供将来处理）后，它将通过对收到的消息调用 <strong>Delete</strong> 完成接收过程的第二个阶段。当 Service Bus 发现 <strong>Delete</strong> 调用时，它会将消息标记为“已使用”并将其从队列中删除。</p>
+<p>下面的示例演示了如何使用 <strong>PeekLock</strong> 模式（非默认模式）接收和处理消息。下面的示例将执行无限循环并在消息达到我们的“TestQueue”后进行处理：</p>
+<pre class="prettyprint">ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+while(true)
+{ 
+     ReceiveQueueMessageResult resultQM = 
+        service.receiveQueueMessage("TestQueue", opts);
+     BrokeredMessage message = resultQM.getValue(); 
+     if (message != null &amp;&amp; message.getMessageId() != null)
+     {
+        try 
+        {
+           System.out.println("Body: " + message.toString());
+           System.out.println("MessageID: " + message.getMessageId());
+           System.out.println("Custom Property: " + 
+                message.getProperty("TestProperty"));
+           // Remove message from queue
+           System.out.println("Deleting this message.");
+           service.deleteMessage(message);
+        }
+        catch (Exception ex)
+        {
+           // Indicate a problem, unlock message in queue
+           System.out.println("Inner exception encountered!");
+           service.unlockMessage(message);
+        }
+     }
+     else
+     {
+        System.out.println("Finishing up - no more messages.");
+        break; 
+        // Added to handle no more messages in the queue.
+        // Could instead wait for more messages to be added.
+     }
+}</pre>
+<h2><a name="bkmk_HowToHandleAppCrashes"></a>如何处理应用程序崩溃和不可读消息</h2>
+<p>Service Bus 提供了有用的功能来帮助您在应用程序出错或处理消息遇到困难时进行恢复。如果接收者应用程序因为某种原因而无法处理消息，则它可以对收到的消息调用 <strong>unlockMessage</strong> 方法（而不是 <strong>deleteMessage</strong> 方法）。这将导致 Service Bus 解锁队列中的消息并使它能够由同一使用方应用程序或其他使用方应用程序再次接收。</p>
+<p>还存在与队列中锁定的消息关联的超时，如果应用程序未能在锁定超时过期前处理消息（例如，如果应用程序崩溃），则 Service Bus 将自动解锁该消息并使它能够再次被接收。</p>
+<p>如果在处理消息之后但在发出 <strong>deleteMessage</strong> 请求之前应用程序发生崩溃，该消息将在应用程序重新启动时重新传送给它。这通常称为<strong>至少一次处理</strong>，即，每条消息将至少处理一次，但在某些情况下可能重新传递送同一条消息。如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加附加逻辑以处理重复消息传送。这可以通过使用消息的 <strong>getMessageId</strong> 方法实现，该方法将在多次传送尝试中保持不变。</p>
+<h2><a name="bkmk_NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解 Service Bus 队列的基本知识，请查看 MSDN 主题<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh367516.aspx">队列、主题和订阅</a>以获得更多信息。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用 Service Bus 队列 (Java) - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-java-how-to-service-bus-queues</linkid><metaKeywords>Azure Service Bus 队列, Azure 队列, Azure 消息传递, Azure 队列 Java</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 Service Bus 队列。用 Java 编写的代码示例。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Service Bus 队列</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

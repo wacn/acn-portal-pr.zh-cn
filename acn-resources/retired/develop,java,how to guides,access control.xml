@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18562" parentID="18554" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="8" createDate="2013-06-04T09:19:26" updateDate="2014-08-18T11:11:58" nodeName="Access Control" urlName="access-control" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18554,18562" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何使用 Eclipse 向 Windows Azure Access Control 服务对 Web 用户进行身份验证</h1>
+<p>本指南将说明如何在 Windows Azure Plugin for Eclipse with Java（由 Microsoft Open Technologies 提供）中使用 Windows Azure Access Control 服务 (ACS)。有关 ACS 的详细信息，请参阅<a href="#next_steps">后续步骤</a>部分。</p>
+<div class="dev-callout">注意
+<p>Windows Azure 访问服务控制筛选器（由 Microsoft Open Technologies 提供）是一个社区技术预览版。作为预发行软件，Microsoft Open Technologies, Inc. 和 Microsoft 不会为它提供正式支持。</p>
+</div>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是 ACS？</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#pre">先决条件</a></li>
+<li><a href="#create-namespace">创建 ACS 命名空间</a></li>
+<li><a href="#add-IP">添加标识提供者</a></li>
+<li><a href="#add-RP">添加信赖方应用程序</a></li>
+<li><a href="#create-rules">创建规则</a></li>
+<li><a href="#upload-certificate">将证书上载到 ACS 命名空间</a></li>
+<li><a href="#review-app-int">查看“应用程序集成”页</a></li>
+<li><a href="#create-java-app">创建 Java Web 应用程序</a></li>
+<li><a href="#add_acs_filter_library">将 ACS 筛选器库添加到您的应用程序</a></li>
+<li><a href="#deploy_compute_emulator">部署到计算仿真程序</a></li>
+<li><a href="#deploy_azure">部署到 Windows Azure</a></li>
+<li><a href="#next_steps">后续步骤</a></li>
+</ul>
+<h2><a name="what-is"></a>什么是 ACS？</h2>
+<p>大多数开发人员都不是标识专家，他们通常都不想花时间开发针对其应用程序和服务的身份验证和授权机制。ACS 是一项 Windows Azure 服务，可用于轻松对需要访问您的 Web 应用程序和服务的用户进行身份验证，而不必将复杂的身份验证逻辑注入代码中。</p>
+<p>ACS 具有以下可用功能：</p>
+<ul>
+<li>与 Windows Identity Foundation (WIF) 集成。</li>
+<li>支持常用 Web 标识提供者 (IP)（包括 Windows Live ID、Google、Yahoo! 和 Facebook）。</li>
+<li>支持 Active Directory 联合身份验证服务 (AD FS) 2.0。</li>
+<li>一项基于开放数据协议 (OData) 的管理服务，该服务提供对 ACS 设置的编程访问。</li>
+<li>一个允许对 ACS 设置进行管理访问的管理门户。</li>
+</ul>
+<p>有关 ACS 的详细信息，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkID=212360">Access Control 服务 2.0</a>。</p>
+<h2><a name="concepts"></a>概念</h2>
+<p>Windows Azure ACS 在基于声明的标识的主体的基础上构建，它是一种创建针对本地运行或在云中运行的应用程序的身份验证机制的一致性方法。通常，应用程序和服务可使用基于声明的标识来获取所需的有关其组织内、其他组织内以及 Internet 上的用户的标识信息。</p>
+<p>若要完成本指南中的任务，您应了解以下概念：</p>
+<p><strong>客户端</strong> - 在本操作方法指南的上下文中，这是一个尝试获取对您的 Web 应用程序的访问权的浏览器。</p>
+<p><strong>信赖方 (RP) 应用程序</strong> - RP 应用程序是一个将身份验证外包给外部权威机构的网站或服务。用标识行话来说，RP 信任该权威机构。本指南说明如何将您的应用程序配置为信任 ACS。</p>
+<p><strong>令牌</strong> - 令牌是一个安全数据集合，它通常会在对用户进行身份验证成功后颁发。它包含一组<em>声明</em>（经过身份验证的用户的属性）。声明可表示用户名、用户所属角色的标识符、用户年龄等。令牌通常已进行数字签名，这意味着始终能够找到令牌的颁发者，并且其内容无法篡改。用户可通过提供由 RP 应用程序信任的权威机构颁发的有效令牌来获取对 RP 应用程序的访问权限。</p>
+<p><strong>标识提供者 (IP)</strong> - IP 是指验证用户标识和颁发安全令牌的权威机构。实际上，令牌颁发工作是通过一项称作“安全令牌服务 (STS)”的特殊服务完成的。IP 的典型示例包括 Windows Live ID、Facebook、业务用户存储库（如 Active Directory）等。在将 ACS 配置为信任某个 IP 后，系统将接受并验证由该 IP 颁发的令牌。ACS 可一次性信任多个 IP，这意味着，如果您的应用程序信任 ACS，则您可立即将您的应用程序提供给 ACS 代表您信任的全部 IP 中的所有经过身份验证的用户。</p>
+<p><strong>联合提供者 (FP)</strong> - IP 了解用户的直接信息，使用用户凭据对用户进行身份验证并发布其了解的用户相关信息。联合提供者 (FP) 是一种不同类型的权威机构：它不会直接对用户进行身份验证，而是充当一个 RP 与一个或多个 IP 之间的中介和代理身份验证。IP 和 FP 都颁发安全令牌，因此它们都将使用安全令牌服务 (STS)。ACS 是一个 FP。</p>
+<p><strong>ACS 规则引擎</strong> - 将以简单声明转换规则的形式整理用于将来自受信任 IP 的传入令牌转换为将由 RP 使用的令牌的逻辑。ACS 包含一个规则引擎，该引擎负责应用您为 RP 指定的任何转换逻辑。</p>
+<p><strong>ACS 命名空间</strong> - 命名空间是 ACS 中的一个顶级分区，用于整理您的设置。命名空间包含一系列您信任的 IP、要为之服务的 RP 应用程序、希望规则引擎在处理传入令牌时使用的规则等。命名空间公开了各种终结点，可供应用程序和开发人员用来实现 ACS 的功能。</p>
+<p>下图演示 ACS 身份验证如何使用 Web 应用程序：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/acsflow.png" alt="ACS 流程图"/></p>
+<ol>
+<li>客户端（在此示例中为浏览器）从 RP 请求页面。</li>
+<li>由于尚未对请求进行身份验证，因此 RP 会将用户重定向到它信任的权威机构（即 ACS）。ACS 让用户选择已为此 RP 指定的 IP。用户选择适当的 IP。</li>
+<li>客户端浏览到该 IP 的身份验证页，并提示用户登录。</li>
+<li>在对客户端进行身份验证（例如，输入标识凭据）后，IP 将颁发一个安全令牌。</li>
+<li>颁发安全令牌后，IP 会将客户端重定向到 ACS，并且客户端会向 ACS 发送 IP 所颁发的安全令牌。</li>
+<li>ACS 验证 IP 所颁发的安全令牌，将此令牌中的标识声明输入 ACS 规则引擎，计算输出标识声明，并颁发包含这些输出声明的新安全令牌。</li>
+<li>ACS 将客户端重定向到 RP。客户端会向 RP 发送 ACS 所颁发的新安全令牌。RP 将验证 ACS 所颁发的安全令牌上的签名，验证此令牌中的声明，并返回最初请求的页面。</li>
+</ol>
+<h2><a name="pre"></a>先决条件</h2>
+<p>若要完成本指南中的任务，您将需要：</p>
+<ul>
+<li>Java 开发人员工具包 (JDK) 1.6 版或更高版本。</li>
+<li>Eclipse IDE for Java EE Developers Helios SR2 或更高版本。可从 <a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a> 下载。</li>
+<li>分发基于 Java 的 Web 服务器或应用程序服务器，例如 Apache Tomcat、GlassFish、JBoss 应用程序服务器或 Jetty。</li>
+<li>Windows Azure 订阅，可从 <a href="http://www.windowsazure.cn/zh-cn/pricing/free-trial/">http://www.windowsazure.cn/zh-cn/pricing/free-trial/</a> 获得。</li>
+<li>Windows Azure Plugin for Eclipse with Java（由 Microsoft Open Technologies 提供)。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh690946.aspx">安装 Windows Azure Plugin for Eclipse with Java（由 Microsoft Open Technologies 提供）</a>。</li>
+<li>要用于应用程序的 X.509 证书。您将需要此证书的公用证书 (.cer) 格式版和个人信息交换 (.PFX) 格式版。（本教程后面将介绍用于创建此证书的选项）。</li>
+<li>熟悉<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh690944.aspx">在 Eclipse 中创建 Windows Azure 的 Hello World 应用程序</a>中讨论的 Windows Azure 计算仿真程序和部署技术。</li>
+</ul>
+<h2><a name="create-namespace"></a>创建 ACS 命名空间</h2>
+<p>若要开始在 Windows Azure 中使用 Access Control 服务 (ACS)，必须创建一个 ACS 命名空间。该命名空间提供了一个唯一范围，用于从应用程序中对 ACS 资源进行寻址。</p>
+<ol>
+<li>
+<p>登录到 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在导航窗格的底部，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/plus-new.png" alt="+新建"/></p>
+</li>
+<li>
+<p>依次单击“应用服务”、“访问控制”和“快速创建”。</p>
+</li>
+<li>
+<p>在“命名空间”中，输入一个命名空间，然后确保它是唯一的，单击“检查可用性”。</p>
+</li>
+<li>
+<p>如果可以的话，请选择要使用 ACS 的区域（为了获得最佳性能，请使用将应用程序部署到的国家/地区），然后单击“创建”。</p>
+</li>
+</ol>
+<p>命名空间将显示在管理门户中，需要花费几分钟时间来将其激活。等到状态为“活动”后，再继续操作以将 IP 添加到您的命名空间。</p>
+<h2><a name="add-IP"></a>添加标识提供者</h2>
+<p>在此任务中，您将添加与 RP 应用程序一起使用的 IP 来进行身份验证。出于演示目的，此任务将说明如何将 Windows Live 作为 IP 添加，但您可使用 ACS 管理门户中列出的任何 IP。</p>
+<ol>
+<li>在 Windows Azure 管理门户的导航窗格中，单击“Active Directory”，选择要配置的 ACS 命名空间，然后单击“管理”。<br />这将显示 ACS 管理门户。</li>
+<li>在 ACS 管理门户的左侧导航窗格中，单击“标识提供者”。</li>
+<li>Windows Live ID 在默认情况下将启用且无法删除。在本教程中，仅使用 Windows Live ID。不过，您可通过单击“添加”按钮在此屏幕中添加其他 IP。</li>
+</ol>
+<p>Windows Live ID 现已作为您的 ACS 命名空间的 IP 启用。紧接着，您将 Java Web 应用程序（稍后将创建）指定为 RP。</p>
+<h2><a name="add-RP"></a>添加信赖方应用程序</h2>
+<p>在此任务中，您将 ACS 配置为将 Java Web 应用程序识别为有效的 RP 应用程序。</p>
+<ol>
+<li>在 ACS 管理门户上，单击“信赖方应用程序”。</li>
+<li>在“信赖方应用程序”页上，单击“添加”。</li>
+<li>
+<p>在“添加信赖方应用程序”页上，执行下列操作：</p>
+<ol>
+<li>在“名称”中，键入 RP 的名称。在本教程中，请键入 <strong>Azure Web App</strong>。</li>
+<li>在“模式”中，选择“手动输入设置”。</li>
+<li>在“领域”中，键入 ACS 所颁发的安全令牌将应用于的 URI。对于此任务，请键入 <strong>http://localhost:8080/</strong>。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/relyingpartyrealmemulator.png" alt="要在计算仿真程序中使用的信赖方领域"/></li>
+<li>在“返回 URL”中，键入 ACS 将安全令牌返回到的 URL。对于此任务，请键入 <strong>http://localhost:8080/MyACSHelloWorld/index.jsp</strong><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/relyingpartyreturnurlemulator.png" alt="要在计算仿真程序中使用的信赖方返回 URL"/></li>
+<li>接受其余字段中的默认值。</li>
+</ol></li>
+<li>
+<p>单击“保存”。</p>
+</li>
+</ol>
+<p>现在您已成功完成对 Java Web 应用程序的配置，该应用程序在 Windows Azure 计算仿真程序（位于 http://localhost:8080/）中运行时将作为 ACS 命名空间中的 RP。接下来，创建 ACS 用于处理 RP 的声明的规则。</p>
+<h2><a name="create-rules"></a>创建规则</h2>
+<p>在此任务中，您将定义用于决定将声明从 IP 传递到 RP 的方式的规则。在本指南中，我们只将 ACS 配置为直接复制输出令牌中的输入声明类型和值，而不筛选或修改它们。</p>
+<ol>
+<li>在 ACS 管理门户主页上，单击“规则组”。</li>
+<li>在“规则组”页上，单击“Azure Web App 的默认规则组”。</li>
+<li>在“编辑规则组”页上，单击“生成”。</li>
+<li>在“生成规则: Azure Web App 的默认规则组”页上，确保选择 Windows Live ID，然后单击“生成”。</li>
+<li>在“编辑规则组”页上，单击“保存”。</li>
+</ol>
+<h2><a name="upload-certificate"></a>将证书上载到 ACS 命名空间</h2>
+<p>在此任务中，上载将用于对 ACS 命名空间所创建的令牌请求进行签名的 .PFX 证书。</p>
+<ol>
+<li>在 ACS 管理门户主页上，单击“证书和密钥”。</li>
+<li>在“证书和密钥”页上，单击“令牌签名”上方的“添加”。</li>
+<li>在“添加令牌签名证书或密钥”页上：<ol>
+<li>在“用于”部分中，单击“信赖方应用程序”并选择“Azure Web App”（您之前已将其设置为信赖方应用程序的名称）。</li>
+<li>在“类型”部分中，选择“X.509 证书”。</li>
+<li>在“证书”部分中，单击“浏览”按钮并导航到要使用的 X.509 证书文件。这将为 .PFX 文件。选择此文件，单击“打开”，然后在“密码”文本框中输入证书密码。
+<div class="dev-callout"><strong>注意</strong>
+<p>出于测试目的，您可使用自签名证书。若要创建自签名证书，请使用“ACS 筛选器库”对话框（后面将介绍）中的“新建”按钮，或使用 Windows Azure Starter Kit for Java 的 [项目网站][] 中的 <strong>encutil.exe</strong> 实用程序（由 Microsoft Open Technologies 提供）。</p>
+</div>
+</li>
+<li>确保选中“设为主”。您的“添加令牌签名证书或密钥”页应与下图中所示类似。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/addtokensigningcertificate.png" alt="添加令牌签名证书"/></li>
+<li>单击“保存”保存设置并关闭“添加令牌签名证书或密钥”页。</li>
+</ol></li>
+</ol>
+<p>接下来，查看“应用程序集成”页中的信息并复制将 Java Web 应用程序配置为使用 ACS 所需的 URI。</p>
+<h2><a name="review-app-int"></a>查看“应用程序集成”页</h2>
+<p>您可在 ACS 管理门户的“应用程序集成”页上找到将 Java Web 应用程序（RP 应用程序）配置为使用的 ACS 所需的所有信息和代码。在配置 Java Web 应用程序以进行联合身份验证时需要此信息。</p>
+<ol>
+<li>在 ACS 管理门户上，单击“应用程序集成”。</li>
+<li>在“应用程序集成”页上，单击“登录页”。</li>
+<li>在“登录页集成”页上，单击“Azure Web App”。</li>
+</ol>
+<p>在“登录页集成: Azure Web App”页上，“选项 1: 链接到承载 ACS 的登录页”中列出的 URL 将用于 Java Web 应用程序。在将 Windows Azure Access Control 服务筛选器库添加到 Java 应用程序时需要此值。</p>
+<h2><a name="create-java-app"></a>创建 Java Web 应用程序</h2>
+<ol>
+<li>
+<p>在 Eclipse 中的菜单上，依次单击“文件”、“新建”和“动态 Web 项目”。（如果您在单击“文件”和“新建”后未看到“动态 Web 项目”作为可用项目列出，请执行下列操作：依次单击“文件”、“新建”和“项目”，展开“Web”，再单击“动态 Web 项目”，然后单击“下一步”。）在本教程中，将项目命名为 <strong>MyACSHelloWorld</strong>。（请务必使用此名称，因为本教程中的后续步骤会将您的 WAR 文件命名为 MyACSHelloWorld）。您的屏幕应与下图中所示类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/createacshelloworld.png" alt="为 ACS 示例创建 Hello World 项目"/></p>
+<p>单击“完成”。</p>
+</li>
+<li>在 Eclipse 的项目资源管理器视图中，展开 <strong>MyACSHelloWorld</strong>。右键单击“WebContent”，单击“新建”，然后单击“JSP 文件”。</li>
+<li>
+<p>在“新建 JSP 文件”对话框中，将文件命名为 <strong>index.jsp</strong>。将父文件夹保留为 MyACSHelloWorld/WebContent，如下所示：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/addjspfileacs.png" alt="为 ACS 示例添加 JSP 文件"/></p>
+<p>单击“下一步”。</p>
+</li>
+<li>
+<p>在“选择 JSP 模板”对话框中，选择“新建 JSP 文件(html)”，然后单击“完成”。</p>
+</li>
+<li>
+<p>在 Eclipse 中打开 index.jsp 文件后，添加文本以便在现有 <code>&lt;body&gt;</code> 元素中显示 <strong>Hello ACS World!</strong>。更新后的 <code>&lt;body&gt;</code> 内容应与下图中所示类似：</p>
+<pre class="prettyprint">&lt;body&gt;
+  &lt;b&gt;&lt;% out.println("Hello ACS World!"); %&gt;&lt;/b&gt;
+&lt;/body&gt;</pre>
+<p>保存 index.jsp。</p>
+</li>
+</ol>
+<h2><a name="add_acs_filter_library"></a>将 ACS 筛选器库添加到您的应用程序</h2>
+<ol>
+<li>在 Eclipse 的项目资源管理器中，右键单击“MyACSHelloWorld”，单击“生成路径”，然后单击“配置生成路径”。</li>
+<li>在“Java 生成路径”对话框中，单击“库”选项卡。</li>
+<li>单击“添加库”。</li>
+<li>单击“Windows Azure Access Control 服务筛选器(由 MS Open Tech 提供)”，然后单击“下一步”。将显示“Windows Azure Access Control 服务筛选器”对话框。（“位置”字段可能包含其他路径（取决于 Eclipse 的安装位置），并且版本号可能不同（取决于软件更新）。）<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/addacsfilterlibrary.png" alt="添加 ACS 筛选器库"/></li>
+<li>使用已打开管理门户的“登录页集成”页的浏览器，复制“选项 1: 链接到承载 ACS 的登录页”字段中列出的 URL，并将其粘贴到 Eclipse 对话框的“ACS 身份验证终结点”字段。</li>
+<li>使用已打开管理门户的“编辑信赖方应用程序”页的浏览器，复制“领域”字段中列出的 URL，并将其复制到 Eclipse 对话框的“信赖方领域”字段。</li>
+<li>在 Eclipse 对话框的“安全性”部分，如果需要使用现有证书，请单击“浏览”，导航到要使用的证书，选中它，然后单击“打开”。或者，如果需要创建新证书，请单击“新建”以显示“新建证书”对话框，然后为新证书指定密码、.cer 文件的名称和 .pfx 文件的名称。</li>
+<li>选中“在 WAR 文件中嵌入证书”。以此方式嵌入证书会将证书包含在部署中，而不需要您将证书作为组件手动添加。（相反，如果您必须从 WAR 文件外部存储证书，则可将证书作为角色组件添加并取消选中“在 WAR 文件中嵌入证书”。）</li>
+<li>[可选] 将“需要 HTTPS 连接”保持选中状态。如果您设置此选项，则将需要使用 HTTPS 协议访问您的应用程序。如果您不需要 HTTPS 连接，请取消选中此选项。</li>
+<li>
+<p>对于到计算仿真程序的部署，您的“Windows Azure ACS 筛选器”设置与下图中所示类似。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/addacsfilterlibraryemulator.png" alt="用于到计算仿真程序的部署的 Windows Azure ACS 筛选器设置"/></p>
+</li>
+<li>
+<p>单击“完成”。</p>
+</li>
+<li>当出现一个说明将创建 web.xml 文件的对话框时，请单击“是”。</li>
+<li>单击“确定”关闭“Java 生成路径”对话框。</li>
+</ol>
+<h2><a name="deploy_compute_emulator"></a>部署到计算仿真程序</h2>
+<ol>
+<li>在 Eclipse 的项目资源管理器中，右键单击“MyACSHelloWorld”，单击“Windows Azure”，然后单击“Windows Azure 的程序包”。</li>
+<li>对于“项目名称”，请键入 <strong>MyAzureACSProject</strong>，然后单击“下一步”。</li>
+<li>选择一个 JDK 和一个应用程序服务器。（<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh690944.aspx">在 Eclipse 中创建 Windows Azure 的 Hello World 应用程序</a>教程中将详细介绍这些步骤）。您的屏幕将与下图中所示类似：<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/newazuredeployment.png" alt="新建 Windows Azure 部署项目"/></li>
+<li>单击“完成”。</li>
+<li>单击“在 Windows Azure 仿真程序中运行”按钮。</li>
+<li>当您的 Java Web 应用程序在计算仿真程序中启动后，请关闭浏览器的所有实例（以便任何当前浏览器会话不会妨碍您的 ACS 登录测试）。</li>
+<li>通过在浏览器中打开 <a href="http://localhost:8080/MyACSHelloWorld/">http://localhost:8080/MyACSHelloWorld/</a>（如果选中“需要 HTTPS 连接”，则打开 <a href="https://localhost:8080/MyACSHelloWorld/">https://localhost:8080/MyACSHelloWorld/</a>）来运行您的应用程序。系统将提示您输入 Windows Live ID 登录名，随后您将被定向到为您的信赖方应用程序指定的返回 URL。</li>
+<li>查看完您的应用程序后，请单击“重置 Windows Azure 仿真程序”按钮。</li>
+</ol>
+<h2><a name="deploy_azure"></a>部署到 Windows Azure</h2>
+<p>若要部署到 Windows Azure，您将需要更改 ACS 命名空间的信赖方领域和返回 URL。</p>
+<ol>
+<li>在 Windows Azure 管理门户的“编辑信赖方应用程序”页中，将“领域”修改为您已部署站点的 URL。将“示例”替换为您为部署指定的 DNS 名称。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/relyingpartyrealmproduction.png" alt="要在生产中使用的信赖方领域"/></li>
+<li>将“返回 URL”修改为您应用程序的 URL。将“示例”替换为您为部署指定的 DNS 名称。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/relyingpartyreturnurlproduction.png" alt="要在生产中使用的信赖方返回 URL"/></li>
+<li>单击“保存”保存已更新的信赖方领域和返回 URL 更改。</li>
+<li>使“登录页集成”页在浏览器中保持打开状态，您很快将需要从中进行复制。</li>
+<li>在 Eclipse 的项目资源管理器中，右键单击“MyACSHelloWorld”，单击“生成路径”，然后单击“配置生成路径”。</li>
+<li>依次单击“库”选项卡、“Windows Azure Access Control 服务筛选器”和“编辑”。</li>
+<li>使用已打开管理门户的“登录页集成”页的浏览器，复制“选项 1: 链接到承载 ACS 的登录页”字段中列出的 URL，并将其粘贴到 Eclipse 对话框的“ACS 身份验证终结点”字段。</li>
+<li>使用已打开管理门户的“编辑信赖方应用程序”页的浏览器，复制“领域”字段中列出的 URL，并将其复制到 Eclipse 对话框的“信赖方领域”字段。</li>
+<li>在 Eclipse 对话框的“安全性”部分，如果需要使用现有证书，请单击“浏览”，导航到要使用的证书，选中它，然后单击“打开”。或者，如果需要创建新证书，请单击“新建”以显示“新建证书”对话框，然后为新证书指定密码、.cer 文件的名称和 .pfx 文件的名称。</li>
+<li>将“在 WAR 文件中嵌入证书”保持选中状态，假使您要在 WAR 文件中嵌入证书。</li>
+<li>[可选] 将“需要 HTTPS 连接”保持选中状态。如果您设置此选项，则将需要使用 HTTPS 协议访问您的应用程序。如果您不需要 HTTPS 连接，请取消选中此选项。</li>
+<li>对于到 Windows Azure 的部署，您的 Windows Azure ACS 筛选器设置将与下图中所示类似。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/addacsfilterlibraryproduction.png" alt="用于生产部署的 Windows Azure ACS 筛选器设置"/></li>
+<li>单击“完成”关闭“编辑库”对话框。</li>
+<li>单击“确定”关闭“MyACSHelloWorld 的属性”对话框。</li>
+<li>在 Eclipse 中，单击“发布到 Windows Azure 云”按钮。像在<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh690944.aspx">在 Eclipse 中创建 Windows Azure 的 Hello World 应用程序</a>主题的<strong>“将应用程序部署到 Windows Azure”</strong>部分中一样对提示进行响应。</li>
+</ol>
+<p>部署 Web 应用程序后，关闭任何打开的浏览器会话，运行您的 Web 应用程序，系统将提示您使用 Windows Live ID 凭据登录，然后将这些凭据发送到信赖方应用程序的返回 URL。</p>
+<p>使用完您的 ACS Hello World 应用程序后，请务必删除部署（可在<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh690944.aspx">在 Eclipse 中创建 Windows Azure 的 Hello World 应用程序</a>主题中了解如何删除部署）。</p>
+<h2><a name="next_steps"></a>后续步骤</h2>
+<p>有关 ACS 返回给您的应用程序的安全声明标记语言 (SAML) 的检查，请参阅<a href="/zh-cn/develop/java/how-to-guides/view-saml-returned-by-acs/">如何查看 Windows Azure Access Control 服务返回的 SAML</a>。若要进一步了解 ACS 的功能并尝试将其用于更复杂的方案，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkID=212360">Access Control 服务 2.0</a>。</p>
+<p>另外，此示例使用了“在 WAR 文件中嵌入证书”选项。此选项简化了证书的部署。相反，如果您要将签名证书与 WAR 文件分隔开，可使用以下方法：</p>
+<ol>
+<li>在“Windows Azure Access Control 服务筛选器”对话框的“安全性”部分，键入 <strong>${env.JAVA_HOME}/mycert.cer</strong> 并取消选中“在 WAR 文件中嵌入证书”。（如果您的证书文件名不同，请调整 mycert.cer。）单击“完成”关闭对话框。</li>
+<li>在部署中将证书作为组件复制：在 Eclipse 的项目资源管理器中，展开“MyAzureACSProject”，右键单击“WorkerRole1”，单击“属性”，展开“Windows Azure 角色”，然后单击“组件”。</li>
+<li>单击“添加”。</li>
+<li>在“添加组件”对话框中：<ol>
+<li>在“导入”部分中：<ol>
+<li>使用“文件”按钮导航到要使用的证书。</li>
+<li>对于“方法”，请选择“复制”。</li>
+</ol></li>
+<li>对于“名称”，单击文本框并接受默认名称。</li>
+<li>在“部署”部分中：<ol>
+<li>对于“方法”，请选择“复制”。</li>
+<li>对于“目标目录”，请键入 <strong>%JAVA_HOME%</strong>。</li>
+</ol></li>
+<li>您的“添加组件”对话框将与下图中所示类似。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/java/addcertificatecomponent.png" alt="添加证书组件"/></li>
+<li>单击“确定”。</li>
+</ol></li>
+</ol>
+<p>此时，您的证书将包含在部署中。请注意，无论您是在 WAR 文件中嵌入证书还是将其作为组件添加到部署中，都需要将证书上载到命名空间，如<a href="#upload-certificate">将证书上载到 ACS 命名空间</a>部分所述。</p></p>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用 Access Control (Java) - Windows Azure 功能指南</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-java-how-to-guides-access-control</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中通过 Java 部署和使用 Access Control。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>Access Control</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

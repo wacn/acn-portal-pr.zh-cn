@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19283" parentID="19282" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="1" createDate="2013-07-11T12:16:37" updateDate="2014-08-18T11:29:29" nodeName="How to Create Websites" urlName="how-to-create-websites" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19282,19283" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何创建和部署网站</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>就像可以快速从库中创建 Web 应用程序并部署该应用程序一样，也可使用由 Microsoft 或其他公司提供的传统开发人员工具部署在工作站上创建的网站。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#deployoptions">部署选项</a></li>
+<li><a href="#createawebsiteportal">如何：使用管理门户创建网站</a></li>
+<li><a href="#howtocreatefromgallery">如何：从库创建网站</a></li>
+<li><a href="#deleteawebsite">如何：删除网站</a></li>
+<li><a href="#nextsteps">后续步骤</a></li>
+</ul>
+<h2><a name="deployoptions"></a>部署选项</h2>
+<p>Windows Azure 支持使用 WebDeploy、FTP、GIT 或 TFS 从远程计算机部署网站。许多开发工具都提供了对使用其中的一种或多种方法的发布活动的综合支持，并且仅要求您为所选部署方法提供必需的凭据、网站 URL 和主机名或 URL。</p>
+<p>所有已启用的部署方法的凭据和部署 URL 都存储在网站的发布配置文件中，可从 Windows Azure管理门户中的“快速启动”<strong></strong>页或“仪表板”<strong></strong>页的“速览”<strong></strong>部分下载该文件。</p>
+<p>如果您更愿意使用单独的客户端应用程序部署网站，则可从 Internet 下载高质量的开放源代码 GIT 和 FTP 客户端以实现此目的。</p>
+<h2><a name="createawebsiteportal"></a>如何：使用管理门户创建网站</h2>
+<p>按照下列步骤操作可在 Windows Azure 中创建网站。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn/">Windows Azure管理门户</a>。</p>
+</li>
+<li>
+<p>单击该管理门户左下角的“新建”<strong></strong>图标。</p>
+</li>
+<li>
+<p>单击“网站”<strong></strong>图标，再单击“快速创建”<strong></strong>图标，输入 URL 的值，然后单击页面右下角的“创建网站”旁边的复选标记。</p>
+</li>
+<li>
+<p>创建网站后，您会看到文本“网站‘[SITENAME]’创建已完成”<strong></strong>。</p>
+</li>
+<li>
+<p>单击在网站列表中显示的网站的名称以打开该网站的“快速启动”<strong></strong>管理页面。</p>
+</li>
+<li>
+<p>若要使用这些方法将已完成的网站部署到 Windows Azure，则可使用“快速启动”<strong></strong>页面上为您提供的用于设置 TFS 或 GIT 发布的选项。默认情况下，将为网站设置 FTP 发布，并且 FTP 主机名将显示在“快速启动”<strong></strong>和“仪表板”<strong></strong>页面上的“FTP 主机名”<strong></strong>的下方。在使用 FTP 或 GIT 进行发布前，请选择“仪表板”<strong></strong>页面上的“重置部署凭据”<strong></strong>选项。然后在将内容部署到网站时，指定新的凭据（用户名或密码）以针对 FTP 主机或 Git 存储库进行身份验证。</p>
+</li>
+<li>
+<p>“配置”<strong></strong>管理页将在以下部分公开几个可配置的应用程序设置：</p>
+<ul>
+<li>
+<p><strong>框架</strong>：设置 Web 应用程序所需版本的 .NET Framework 或 PHP。</p>
+</li>
+<li>
+<p><strong>诊断</strong>：在此节中设置用于收集网站的诊断信息的日志记录选项。</p>
+</li>
+<li>
+<p><strong>应用设置</strong>：指定 Web 应用程序在启动时将加载的名称/值对。对于 .NET 网站，这些设置将在运行时注入到 .NET 配置 <strong>AppSettings</strong> 中，并且将重写现有设置。对于 PHP 和 Node 网站，这些设置将在运行时作为环境变量提供。</p>
+</li>
+<li>
+<p><strong>连接字符串</strong>：查看链接的资源的连接字符串。对于 .NET 网站，这些连接字符串将在运行时注入到 .NET 配置 <strong>connectionStrings</strong> 设置中，并且将重写其中的键等于链接的数据库名称的所有现有条目。对于 PHP 和 Node 网站，这些设置将在运行时作为环境变量提供。</p>
+</li>
+<li>
+<p><strong>默认文档</strong>：在 Web 应用程序的默认文档未包含在列表中时将该文档添加到该列表中。如果 Web 应用程序包含列表中的多个文件，则请确保网站的默认文档显示在此列表的顶部。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="howtocreatefromgallery"></a>如何：从库创建网站</h2>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="website-from-gallery" macroAlias="AzureChunkDisplayer" />
+<h2><a name="deleteawebsite"></a>如何：删除网站</h2>
+<p>在 Windows Azure 管理门户中使用“删除”<strong></strong>图标删除网站。在单击“网站”<strong></strong>以列出所有网站时，“删除”<strong></strong>图标位于 Windows Azure 门户中，并且将位于每个网站管理页面的底部。</p>
+<h2><a name="nextsteps"></a>后续步骤</h2>
+<p>有关网站的详细信息，请参阅：</p>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=251824">演练：在 Windows Azure 上对网站进行故障排除</a></p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何创建网站 - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><linkid>manage-services-how-to-create-websites</linkid><metaKeywords>Azure 创建网站, Azure 删除网站</metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Azure 管理门户创建网站。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何创建</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19271" parentID="19270" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="1" createDate="2013-07-11T12:12:32" updateDate="2014-08-18T11:28:47" nodeName="SQL Reporting" urlName="sql-reporting" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19270,19271" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure SQL Reporting 中创建和使用报表服务</h1>
+<p>在本教程中，您将了解如何在 Windows Azure SQL Reporting 中创建和管理报表服务。</p>
+<h2>什么是 SQL Reporting？</h2>
+<p>SQL Reporting 是一项依靠 Windows Azure 和 SQL Server Reporting Services 技术构建的基于云的报表服务。通过使用 SQL Reporting，您可以轻松地配置报表解决方案并将其部署到云中，并且利用能够为企业级可用性、可缩放性和安全性提供内置数据保护和自愈优势的分布式数据中心。</p>
+<p>若要开始使用 SQL Reporting，您必须具有 Windows Azure 订阅。您可以使用现有订阅、新订阅或免费试用订阅。有关详细信息，请参阅 <a href="http://www.windowsazure.cn/zh-cn/">Windows Azure 产品/服务</a>。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#CreateRSS">创建报表服务器</a></li>
+<li><a href="#CreateUser">创建用户和分配角色</a></li>
+<li><a href="#Upload">上载报表</a></li>
+<li><a href="#DownloadReport">下载报表</a></li>
+<li><a href="#RunReportRS">运行报表</a></li>
+<li><a href="#CreateDS">创建数据源</a></li>
+<li><a href="#CreateFolder">创建文件夹</a></li>
+<li><a href="#UpdatePerm">更新报表项的权限</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<h2><a id="CreateRSS"></a>创建报表服务</h2>
+<p>使用“快速创建”可在 SQL Reporting 中轻松创建新的报表服务。您将选择一个区域，并提供服务器管理员的用户名和密码。</p>
+<ol>
+<li>
+<p>在导航窗格中，单击“SQL Reporting”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/sqlreportnavpane.png" alt="SQLReportNavPane"/></p>
+</li>
+<li>
+<p>单击“新建”<strong></strong>，然后单击“快速创建”<strong></strong>。</p>
+</li>
+<li>
+<p>输入服务的描述性名称。服务名称仅在门户中使用。用于访问服务的实际 URL 将是 10 个字符的 GUID。</p>
+</li>
+<li>
+<p>从“区域”<strong></strong>列表中，选择一个区域。您在每个区域中只能为每个订阅创建一个报表服务。</p>
+</li>
+<li>
+<p>键入报表服务管理员的用户名，并在“密码”和“确认密码”中键入管理员密码。</p>
+<p>请确保将此信息保存在安全位置。您需要此信息才能访问报表服务器。</p>
+</li>
+<li>
+<p>单击“创建 SQL 报表服务”<strong></strong>。</p>
+</li>
+</ol>
+<p>使用当前订阅创建报表服务。报表服务名称是由字母和数字组成的 10 个字符的 GUID。</p>
+<h2><a id="CreateUser"></a>创建用户和分配角色</h2>
+<ol>
+<li>
+<p>单击刚创建的服务的名称。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/sqlreportlistview.png" alt="SQLReportListView"/></p>
+</li>
+<li>
+<p>单击页面顶部的“用户”<strong></strong>，然后单击页面底部的“创建”<strong></strong>。</p>
+</li>
+<li>
+<p>这将打开“创建新用户”<strong></strong>对话框。</p>
+</li>
+<li>
+<p>输入用户名和密码，选择项目角色，例如“浏览器”<strong></strong>。单击复选标记。</p>
+<p>用户名必须是唯一的。如果您提供重复名称，则将显示一条错误消息，并且您在将用户名更改为唯一用户名之前无法继续操作。</p>
+</li>
+</ol>
+<h2><a id="Upload"></a>上载报表</h2>
+<ol>
+<li>
+<p>单击页面顶部的“项”<strong></strong>以管理项目。</p>
+</li>
+<li>
+<p>单击“添加”<strong></strong>，然后单击“上载报表”<strong></strong>。</p>
+</li>
+<li>
+<p>这将打开“上载报表”<strong></strong>对话框。</p>
+</li>
+<li>
+<p>单击“报表定义文件”框右侧的省略号 (…) 按钮，并浏览到要上载的报表的位置。报表文件必须是 .rdl 文件类型。</p>
+</li>
+<li>
+<p>选择报表，然后单击“打开”<strong></strong>。</p>
+</li>
+<li>
+<p>您将返回“上载报表”<strong></strong>对话框。报表的名称将显示在“定义文件”和“名称”框中。</p>
+</li>
+<li>
+<p>（可选）可以通过在“名称”中键入其他名称来重命名报表。</p>
+<p>上载过程不会覆盖同名的现有报表；相反，上载将失败。如果您之前已将报表上载到报表服务器的根或相同文件夹中，则必须先删除服务器上的现有报表或在上载报表时使用其他名称。</p>
+<p>报表服务器可承载多个同名报表，前提是这些报表位于不同的文件夹中。</p>
+</li>
+<li>
+<p>（可选）可以在“说明”框中键入一个说明。</p>
+</li>
+<li>
+<p>单击复选标记以上载文件。</p>
+</li>
+</ol>
+<h2><a id="DownloadReport"></a>下载报表</h2>
+<ol>
+<li>
+<p>在“项目”页上，可以选择现有报表并下载该报表。</p>
+</li>
+<li>
+<p>依次单击“报表”列表中的报表、报表名称右侧的向下箭头和“下载”<strong></strong>。</p>
+</li>
+<li>
+<p>这将打开“下载报表”<strong></strong>对话框。</p>
+</li>
+<li>
+<p>单击“报表”框旁边的省略号 (…)，并浏览到要从中下载报表的位置。</p>
+</li>
+<li>
+<p>键入报表的名称，然后单击“保存”<strong></strong>。</p>
+</li>
+<li>
+<p>您将返回“下载报表”<strong></strong>，并且报表的名称将显示在“报表”中。</p>
+</li>
+<li>
+<p>无法更改报表名称。若要更改该名称，请更新报表的属性。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh403965.aspx">如何：更新报表服务器项的权限 (Windows Azure SQL Reporting)</a>。</p>
+</li>
+<li>
+<p>关闭该对话框。</p>
+</li>
+</ol>
+<h2><a id="RunReportRS"></a>运行报表：从门户</h2>
+<ol>
+<li>
+<p>在管理门户中，单击将要运行的报表上载或部署到的报表服务。</p>
+</li>
+<li>
+<p>在仪表板上，单击 Web 服务 URL 旁边的链接 [Link]。</p>
+</li>
+<li>
+<p>在“登录”页上，输入具有运行报表的权限的用户的凭据。</p>
+</li>
+<li>
+<p>报表将显示在新浏览器窗口中的“报表查看器”中。</p>
+</li>
+<li>
+<p>如果报表具有参数，请在“报表查看器”中选择参数值，然后单击“查看报表”。</p>
+</li>
+<li>
+<p>（可选）可以通过显示不同的报表页、在报表中搜索值并将报表导为其他格式来了解报表。</p>
+</li>
+</ol>
+<h2><a id="CreateDS"></a>创建数据源</h2>
+<ol>
+<li>
+<p>使用“项目”<strong></strong>页以创建共享数据源。</p>
+</li>
+<li>
+<p>如果您不希望新的数据源位于报表服务器的根文件夹中，请导航到要在其中创建数据源的文件夹。</p>
+</li>
+<li>
+<p>在功能区中，单击“添加”<strong></strong>，然后单击“创建数据源”<strong></strong>。这将打开“创建数据源”<strong></strong>对话框。您必须在用于报表服务的同一订阅下具有 SQL Database。为其创建共享数据源的数据库必须位于 SQL Database 实例中。</p>
+</li>
+<li>
+<p>在“名称”<strong></strong>框中键入名称。文件夹中的数据源的名称必须是唯一的。（可选）可以在“说明”<strong></strong>中键入一个说明。</p>
+</li>
+<li>
+<p>如果您希望能够在报表中使用数据源，请选择“启用”<strong></strong>。如果您希望在首次创建数据源时不启用该数据源，则可在准备好使用该数据源后再执行此操作。</p>
+</li>
+<li>
+<p>键入或粘贴连接字符串。连接字符串的形式为：</p>
+<pre class="prettyprint">Data Source= &lt;SQL Database service&gt;; Initial Catalog= &lt;SQL Database instance&gt;; Encrypt=True;</pre>
+</li>
+<li>
+<p>选择将数据源连接到 SQL Database 实例的方式。可以使用以下两类身份验证之一：</p>
+<ul>
+<li><strong>提示提供凭据</strong>，用于提示用户在运行报表时提供用户名和密码。（可选）可以更新默认提示文本：<strong>键入要使用的用户名和密码以便访问数据源:</strong>。</li>
+<li><strong>安全存储在报表服务器中的凭据</strong>，用于提供存储在报表服务器上的独立于报表的用户名和密码。</li>
+</ul>
+</li>
+<li>
+<p>关闭该对话框。</p>
+</li>
+</ol>
+<h2><a id="CreateFolder"></a>创建文件夹</h2>
+<ol>
+<li>
+<p>导航到要在其中创建新文件夹的文件夹。</p>
+</li>
+<li>
+<p>痕迹提供了从根文件夹到当前文件夹的路径的可视化表示形式。</p>
+</li>
+<li>
+<p>单击功能区上的“文件夹”<strong></strong>类别中的“创建”<strong></strong>。</p>
+</li>
+<li>
+<p>在“名称”<strong></strong>中，键入文件夹名称。</p>
+</li>
+<li>
+<p>（可选）可以在“说明”<strong></strong>中键入一个说明。</p>
+</li>
+<li>
+<p>说明包含在文件夹列表中的文件夹项中。</p>
+</li>
+<li>
+<p>单击“确定”<strong></strong>。</p>
+</li>
+<li>
+<p>默认情况下，文件夹将继承其父文件夹的角色分配。创建文件夹后，可以更新其角色分配。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh403965.aspx">如何：更新报表服务器项的权限 (Windows Azure SQL Reporting)</a>。</p>
+</li>
+</ol>
+<h2><a id="UpdatePerm"></a>更新报表项的权限</h2>
+<ol>
+<li>
+<p>若要更新报表项的权限，请依次单击包含报表项的行，文件夹右侧的向下箭头和“权限”。这将打开“管理权限”对话框。</p>
+<p>若要更新文件夹的权限，还可以单击门户功能区的“文件夹”类别中的“权限”。</p>
+<p>自动从包含项的文件夹继承该项的角色分配。</p>
+<p>默认情况下，根文件夹具有已授予报表服务器管理员的权限。在更新文件夹的权限时，也会更新其子文件夹的权限。</p>
+<p>由于根文件夹没有可供您选择的物理文件夹，因此您可以通过单击工具栏上的“文件夹”类别中的“权限”来仅设置服务器的根文件夹的权限。</p>
+</li>
+<li>
+<p>（可选）可以通过在搜索图标旁边的框键入来定位用户或通过选择位于该框右侧的角色列表中的角色来按角色进行筛选。</p>
+</li>
+<li>
+<p>单击要为其更新所选文件夹上的角色分配的用户。</p>
+<p>用户列表包括报表服务器管理员。该用户是灰显的，并且您无法更改其项角色。首次创建内容管理员和系统管理员角色时，将自动为其分配管理员。这些角色提供了最高权限，并且您无法通过为项角色分配较低权限来降低管理员的权限。</p>
+</li>
+<li>
+<p>选择并清除角色分配。</p>
+</li>
+<li>
+<p>关闭该对话框。</p>
+</li>
+</ol>
+<h2><a id="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解 SQL Reporting 管理的基本知识，请参阅 MSDN 上的 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg430130">Windows Azure SQL Reporting</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>SQL Reporting - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><linkid>manage-services-sql-reporting</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[本教程教您如何在 Windows Azure 中使用 SQL Reporting 管理门户。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>SQL Reporting</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

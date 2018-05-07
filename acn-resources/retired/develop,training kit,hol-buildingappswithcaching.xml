@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19161" parentID="19159" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="2" createDate="2013-07-11T11:51:07" updateDate="2014-08-18T11:22:41" nodeName="HOL-BuildingAppsWithCaching" urlName="hol-buildingappswithcaching" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,19159,19161" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/trainingkit" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>使用缓存服务构建 Windows Azure 云服务</h1>
+<h3><a href="http://www.contentinstaller.net/Install/Content/LAB_BuildingAppsWithCacheService">下载实验资产</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-BuildingAppsWithCaching/fork_select">在 Github 上执行自我复制</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-BuildingAppsWithCaching/issues">报告问题</a></h3>
+<a name="Overview"></a>
+<h2>概述</h2>
+<p>Windows Azure 缓存服务为您的云服务提供了具成本效益的分布式内存中缓存。在您的云服务角色中启用缓存服务后，您可以利用您的服务主机上的可用内存作为高性能缓存以缩短响应时间和提高系统吞吐量。因为缓存主机与您的云服务角色并置，所以您可以通过避免外部服务调用来获得最佳访问时间。在本实验中，您将了解在您的云服务角色中启用缓存服务是多么容易，并了解如何使用缓存服务为您的云服务提供高性能的内存中缓存。</p>
+<a name="Objectives"></a>
+<h3>目标</h3>
+<p>在本动手实验中，您将了解如何：</p>
+<ul>
+<li>轻松快速地启用缓存服务。</li>
+<li>对您的 Asp.Net 会话状态使用缓存服务。</li>
+<li>在缓存服务中缓存 Windows Azure SQL 数据库中的引用数据。</li>
+<li>为您的云服务创建可重用且可扩展的缓存层。</li>
+</ul>
+<p>在本实验中，您将了解如何在一个简单的 Asp.Net MVC4 应用程序中使用这些功能。</p>
+<a name="Prerequisites"></a>
+<h3>必备组件</h3>
+<p>完成本动手实验需要以下各项：</p>
+<ul>
+<li><a href="http://www.microsoft.com/visualstudio/11/en-us">Microsoft Visual Studio 2012</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/downloads/">Windows Azure Tools for Microsoft Visual Studio 1.7</a></li>
+</ul>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>本实验设计为使用 Windows 8 操作系统。本动手实验设计为使用最新版本的 Windows Azure Tools for Visual Studio 2012（1.7 版）。</p>
+</div>
+<a name="Setup"></a>
+<h3>设置</h3>
+<p>若要完成本动手实验中的练习，首先需要设置您的环境。</p>
+<ol>
+<li>打开 Windows 资源管理器窗口并浏览到本实验的 <strong>Source</strong> 文件夹。</li>
+<li>右键单击 <strong>Setup.cmd</strong> 并选择“以管理员身份运行”，启动将配置您的环境并安装本实验中的 Visual Studio 代码段的安装过程。</li>
+<li>如果显示“用户帐户控制”对话框，请确认操作以继续。</li>
+</ol>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 确保在运行安装过程之前，您已检查本实验的所有依赖项。</p>
+<p>本实验需要启动 Windows Azure SQL Database。为自动构建 Northwind2 数据库，<strong>Setup.cmd</strong> 文件将提示您提供 Windows Azure SQL Database 帐户信息。请记住为每个解决方案更新应用程序配置文件中的 NorthwingEntities 连接字符串以指向您的数据库。</p>
+<p>请记住为您的 Windows Azure SQL Database 帐户配置防火墙设置，以便指定可访问您的 Windows Azure SQL Database 服务器的 IP 地址的列表。默认情况下，防火墙将拒绝所有连接，因此<strong>请确保配置您的允许列表</strong>以便您可以连接到数据库。对防火墙设置所做的更改可能需要一些时间才能生效。有关如何准备 Windows Azure SQL Database 帐户的其他信息，请参见培训工具包中的“Windows Azure SQL Database 简介”实验中的练习 1。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/sql-azure-database-setup.png" alt="SQL Azure 数据库设置"/></p>
+<p><em>Windows Azure SQL Database 设置</em></p>
+</div>
+<a name="CodeSnippets"></a>
+<h3>使用代码段</h3>
+<p>在整个实验文档中，将指示您插入代码块。为方便起见，该代码的大部分以 Visual Studio 代码段形式提供，您可以从 Visual Studio 2012 中使用这些代码段，从而避免手动添加它们。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意</strong>：每个练习均附带位于该练习的 Begin 文件夹中的起步解决方案，它允许您彼此独立地完成每个练习。请注意，这些起步解决方案中缺少在练习期间所添加的代码段，并且在您完成练习之前，这些代码段不一定可用。在练习的源代码中，您还会找到一个 End 文件夹，其中所含 Visual Studio 解决方案的代码是完成相应练习中的步骤后生成的。如果您在演练本动手实验时需要其他帮助，则可以使用这些解决方案作为指南。</p>
+</div>
+<a name="Exercises"></a>
+<h2>练习</h2>
+<p>本动手实验包括以下练习：</p>
+<ol>
+<li><a href="#Exercise1">为会话状态启用缓存服务</a></li>
+<li><a href="#Exercise2">使用缓存服务缓存数据</a></li>
+<li><a href="#Exercise3">创建可重用且可扩展的缓存层</a></li>
+</ol>
+<p>完成本实验的估计时间：<strong>60 分钟</strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>首次启动 Visual Studio 时，必须选择一个预定义的设置集合。每个预定义的集合都设计为与特定的开发风格相匹配，并可确定窗口布局、编辑器行为、IntelliSense 代码段和对话框选项。本实验中的过程描述了使用“常规开发设置”<strong></strong>集合在 Visual Studio 中完成给定任务所需执行的操作。如果您为开发环境选择了其他设置集合，则需要考虑的这些过程可能会有所不同。</p>
+</div>
+<a name="Exercise1"></a>
+<h3>练习 1：为会话状态启用缓存服务</h3>
+<p>在此练习中，您将了解如何使用缓存服务的会话状态提供程序作为会话状态数据的进程外存储机制。出于此目的，您将使用 Azure Store - 一个使用 Asp.Net MVC4 实现的购物车应用程序示例。您将在计算模拟器中运行此应用程序，然后修改它以利用 Windows Azure 缓存服务作为 Asp.Net 会话状态的后端存储。您将从开始解决方案着手，并使用默认的 Asp.Net 进程内会话状态提供程序探究该示例。接下来，您将添加对缓存程序集的引用并配置会话状态提供程序，以将购物车的内容存储到缓存服务所提供的分布式缓存群集中。</p>
+<a name="Ex1Task1"></a>
+<p><strong>任务 1 – 在计算模拟器中运行 Azure Store 网站示例</strong></p>
+<p>在此任务中，您将使用默认的会话状态提供程序在计算模拟器中运行 Azure Store 应用程序；更改该提供程序以在稍后利用 Windows Azure 缓存服务。</p>
+<ol>
+<li>以管理员身份启动 <strong>Microsoft Visual Studio 2012</strong>。</li>
+<li>
+<p>打开位于 <strong>Source\Ex1-CacheSessionState\Begin</strong> 中的 <strong>Begin</strong> 解决方案。</p>
+<div class="dev-callout"><strong>重要说明</strong>
+<p><strong>重要说明：</strong>在实施该解决方案之前，请确保设置了启动项目。对于 MVC 项目，起始页必须留空。</p>
+<p>若要设置启动项目，请在“解决方案资源管理器”<strong></strong>中右键单击“CloudShop.Azure”<strong></strong>项目，然后选择“设为启动项目”<strong></strong>。</p>
+<p>若要设置起始页，请在“解决方案资源管理器”<strong></strong>中右键单击“CloudShop”<strong></strong>项目，然后选择“属性”<strong></strong>。在“属性”<strong></strong>窗口中，选择“Web”<strong></strong>选项卡，然后在“启动操作”<strong></strong>中选择“特定页”<strong></strong>。保留此字段的值为空。</p>
+</div>
+</li>
+<li>
+<p>在 <strong>Web.config</strong> 文件中，更新 <em>NorthwindEntities</em> 连接字符串以指向您的数据库。使用您在门户中注册的用于在设置过程中创建数据库的 Windows Azure SQL Database 服务器名称、管理员用户名和管理员密码来替换 connectionStrings 部分中的 <strong>[YOUR-SQL-DATABASE-SERVER-ADDRESS]</strong>、<strong>[SQL-DATABASE-USERNAME]</strong> 和 <strong>[SQL-DATABASE-PASSWORD]</strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 请确保您按照设置部分的说明在您自己的 Windows Azure SQL Database 帐户中创建 Northwind2 数据库的副本，并配置 Windows Azure SQL Database 防火墙设置。</p>
+</div>
+</li>
+<li>
+<p>按 <strong>Ctrl</strong> + <strong>F5</strong> 来在计算模拟器中构建并运行应用程序而不进行调试。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>请确保您运行应用程序时没有进行调试。使用调试模式，您将无法回收 Web 角色</p>
+</div>
+</li>
+<li>
+<p>浏览应用程序的主页“Products”<strong></strong>页，它显示从 Windows Azure SQL Database 中获取的产品列表。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/azure-store-products-page.png" alt="Azure Store“Products”页"/></p>
+<p><em>Azure Store“Products”页</em></p>
+</li>
+<li>
+<p>从列表中选择一个产品，然后单击“Add item to cart”<strong></strong>。可以重复此过程以将其他项存储在购物车中。</p>
+</li>
+<li>
+<p>单击“Checkout”<strong></strong>链接来查看购物车中的内容。验证所选项是否显示在列表中。这些项存储在当前会话中。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/checkout-page-showing-the-contents-of-the-sho.png" alt="显示购物车的内容的“Checkout”页"/></p>
+<p><em>显示购物车的内容的“Checkout”页</em></p>
+</li>
+<li>
+<p>导航回“Products”<strong></strong>页。</p>
+</li>
+<li>单击“Recycle”<strong></strong>链接。此链接强制回收 Web 角色。在您单击此链接后，“Products”页将变为空白。</li>
+<li>
+<p>在<strong>计算模拟器</strong>中，观察模拟器如何回收 Web 角色：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/suspending-the-service-role-instance.png" alt="挂起服务角色实例"/></p>
+<p><em>Web 角色已回收</em></p>
+</li>
+<li>
+<p>返回到浏览器，从地址栏中删除 <em>/Home/Recylce</em>，然后按 Enter 来重新加载网站。“Products”<strong></strong>页应在短暂延迟后恢复正常。</p>
+</li>
+<li>
+<p>导航到“Checkout”<strong></strong>页。注意订单现在显示为空。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>应用程序当前使用进程内会话状态，这会将会话状态保存在内存中。在您停止服务实例时，它会丢弃所有会话状态，包括购物车的内容。在下面的任务中，您将配置应用程序以使用 Windows Azure Caching 作为存储机制来存储会话状态，这允许应用程序在重新启动时和跨承载应用程序的多个角色实例保存会话状态。</p>
+</div>
+</li>
+<li>
+<p>关闭浏览器窗口以停止应用程序。</p>
+</li>
+</ol><a name="Ex1Task2"></a>
+<p><strong>任务 2 – 添加专用缓存角色</strong></p>
+<p>在此任务中，您将添加充当专用缓存主机的新辅助角色。云服务中的所有其他 Web 角色和辅助角色将能够访问此角色托管的缓存服务。您可以在云服务中设置多个此类专用辅助角色。另外，您还可以在任何现有角色中启用缓存服务，并分配特定百分比的虚拟机内存来用作缓存。</p>
+<ol>
+<li>在解决方案资源管理器中，展开“CloudShop.Azure”<strong></strong>节点，然后右键单击“角色”<strong></strong>。然后，选择“添加”<strong></strong>-&gt;“新辅助角色项目...*”<strong></strong>。</li>
+<li>
+<p>在“添加新角色项目”<strong></strong>对话框中，选择“缓存辅助角色”<strong></strong>模板。将角色命名为 <strong>CacheWorkerRole</strong>，然后单击“添加”。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>云服务中的所有缓存主机通过 Windows Azure Blog 存储共享其运行时状态。默认情况下，缓存辅助角色配置为使用开发存储。您可以在角色属性页上的“Caching”<strong></strong>选项卡中更改此设置。</p>
+</div>
+</li>
+</ol><a name="Ex1Task3"></a>
+<p><strong>任务 3 – 使用 Windows Azure 缓存服务配置会话状态</strong></p>
+<p>在此任务中，您将更改会话状态提供程序以利用 Windows Azure 缓存作为存储机制。这需要向 <strong>CloudShop</strong> 项目中添加相应程序集，然后更新 <strong>Web.config</strong> 文件中的相应配置。</p>
+<ol>
+<li>
+<p>在 Visual Studio 2012 中，从“工具”<strong></strong>-&gt;“库程序包管理器”<strong></strong>-&gt;“程序包管理器控制台”<strong></strong>菜单中打开“程序包管理器控制台”<strong></strong>。</p>
+</li>
+<li>
+<p>请确保在“默认项目”<strong></strong>下拉列表中选择了“CloudShop”<strong></strong>。发出以下命令来为缓存服务安装 NuGet 包：</p>
+<pre class="prettyprint">Install-package Microsoft.WindowsAzure.Caching</pre>
+</li>
+<li>
+<p>打开位于 <strong>CloudShop</strong> 项目的根文件夹中的 <strong>Web.config</strong> 文件。</p>
+</li>
+<li>
+<p>将 <strong>[cache cluster role name]</strong> 更改为 <strong>CacheWorkerRole</strong>。</p>
+<!--mark: 4-->
+<pre class="prettyprint">&lt;dataCacheClients&gt;  &lt;tracing sinkType="DiagnosticSink" traceLevel="Error" /&gt;   &lt;dataCacheClient name="default"&gt;    &lt;autoDiscover isEnabled="true" identifier="CacheWorkerRole" /&gt;   &lt;!--&lt;localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" /&gt;--&gt;   &lt;/dataCacheClient&gt; &lt;/dataCacheClients&gt;   ...</pre>
+</li>
+<li>
+<p>在 System.Web 标记下添加新的会话状态提供程序配置：</p>
+<pre class="prettyprint">&lt;system.Web&gt; ... &lt;sessionState mode="Custom" customProvider="NamedCacheBProvider"&gt;   &lt;providers&gt;     &lt;add cacheName="default" name="NamedCacheBProvider"           dataCacheClientName="default" applicationName="MyApp"           type="Microsoft.Web.DistributedCache.DistributedCacheSessionStateStoreProvider, Microsoft.Web.DistributedCache" /&gt;   &lt;/providers&gt; &lt;/sessionState&gt; ... &lt;/system.web&gt;</pre>
+</li>
+<li>按 <strong>Ctrl + S</strong> 保存您对 <strong>Web.config</strong> 文件所做的更改。</li>
+</ol>
+<p> </p>
+<p><strong>任务 4 – 验证</strong></p>
+<ol>
+<li>按 <strong>Ctrl + F5</strong> 构建并运行应用程序。等待浏览器启动并显示“Products”<strong></strong>页。</li>
+<li>从列表中选择一个产品，然后单击“Add item to cart”。重复此过程以将其他项存储在购物车中。</li>
+<li>单击“Checkout”<strong></strong>链接来查看购物车中的内容。验证所选项是否显示在列表中。</li>
+<li>导航回“Products”<strong></strong>页，单击“Recycle”链接。</li>
+<li>在“显示计算模拟器用户界面”<strong></strong>中观察回收的 Web 角色。</li>
+<li>返回到浏览器，从地址中删除 <em>/Home/Recycle</em>，然后按 Enter 来重新加载网站。</li>
+<li>
+<p>“Products”<strong></strong>页应正确加载。导航到“Checkout”<strong></strong>页。注意订单未变。这确认使用 Windows Azure Caching 提供程序时，会话状态将存储在角色实例之外，并可以在应用程序重新启动过程中保持不变。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 您应从验证中推断出对于托管在多个服务器或 Windows Azure 角色实例中的应用程序（其中负载平衡器分发对该应用程序的请求），客户端将继续访问其会话数据，而不管哪个实例响应请求。</p>
+</div>
+</li>
+<li>
+<p>关闭浏览器窗口以停止应用程序。</p>
+</li>
+</ol><a name="Exercise2"></a>
+<h3>练习 2：使用 Windows Azure Caching 缓存数据</h3>
+<p>此练习将演示如何使用 Windows Azure Caching 来缓存对 Windows Azure SQL Database 进行的查询的结果。您将继续使用以上一个练习中所用解决方案为基础的解决方案，唯一区别是主页，它已更新为显示检索目录中的产品列表所经过的时间，并且现在包含启用或禁用缓存的链接。在此练习中，您将通过缓存的简单实现来更新数据访问代码。它使用标准模式，其中代码首先检查缓存来检索查询结果，如果没有任何可用数据，则对数据库执行查询来缓存结果。</p>
+<a name="Ex2Task1"></a>
+<p><strong>任务 1 – 缓存从 SQL Reporting 中检索到的数据</strong></p>
+<p>若要使用 Windows Azure Caching，您首先需要创建 <strong>DataCacheFactory</strong> 对象。此对象确定缓存群集连接信息，可以编程方式或通过从配置文件中读取设置来进行设置。通常，您将创建工厂类的实例并将它用于应用程序的生存期。若要在缓存中存储数据，请从 <strong>DataCacheFactory</strong> 中请求 <strong>DataCache</strong> 实例，然后使用它来将项添加到缓存中或从缓存中检索项。在此任务中，您将使用 Windows Azure Caching 更新数据访问代码以缓存对 Windows Azure SQL Database 进行的查询的结果。</p>
+<ol>
+<li>以管理员身份启动 <strong>Microsoft Visual Studio 2012</strong>。</li>
+<li>
+<p>打开位于 <strong>Source\Ex2-CachingData\Begin</strong> 中的 <strong>Begin</strong> 解决方案。</p>
+<div class="dev-callout"><strong>重要说明</strong>
+<p><strong>重要说明：</strong>在实施该解决方案之前，请确保设置了启动项目。对于 MVC 项目，起始页必须留空。若要设置启动项目，请在“解决方案资源管理器”<strong></strong>中右键单击“CloudShop.Azure”<strong></strong>项目，然后选择“设为启动项目”<strong></strong>。若要设置起始页，请在“解决方案资源管理器”<strong></strong>中右键单击“CloudShop”<strong></strong>项目，然后选择“属性”<strong></strong>。在“属性”<strong></strong>窗口中，选择“Web”<strong></strong>选项卡，然后在“启动操作”<strong></strong>中选择“特定页”<strong></strong>。保留此字段的值为空。</p>
+</div>
+</li>
+<li>
+<p>在 <strong>Web.config</strong> 文件中，更新 <em>NorthwindEntities</em> 连接字符串以指向您的数据库。使用您在门户中注册的用于在设置过程中创建数据库的 Windows Azure SQL Database 服务器名称、管理员用户名和管理员密码来替换 <strong>[YOUR-SQL-DATABASE-SERVER-ADDRESS]</strong>、<strong>[SQL-DATABASE-USERNAME]</strong> 和 <strong>[SQL-DATABASE-PASSWORD]</strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 请确保您按照设置部分的说明在您自己的 Windows Azure SQL Database 帐户中创建 Northwind2 数据库的副本，并配置 Windows Azure SQL Database 防火墙设置。</p>
+</div>
+</li>
+<li>
+<p>打开 <strong>CloudShop</strong> 项目的 <strong>Services</strong> 文件夹中的 <strong>ProductsRepository.cs</strong> 文件。</p>
+</li>
+<li>
+<p>添加 <strong>Microsoft.ApplicationServer.Caching</strong> 的命名空间指令。</p>
+<!--mark: 5-->
+<pre class="prettyprint">using System; using System.Collections.Generic; using System.Linq; using CloudShop.Models; using Microsoft.ApplicationServer.Caching; ...</pre>
+</li>
+<li>
+<p>在 <strong>ProductsRepository</strong> 类中，添加以下突出显示的代码来定义构造函数并声明 <strong>DataCacheFactory</strong> 对象实例的静态成员变量，以及控制缓存使用的布尔实例变量。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-ProductsRepository constructor-CS</em>）<!--mark: 3-9--></p>
+<pre class="prettyprint">public class ProductsRepository : IProductRepository     {   private static DataCacheFactory cacheFactory = new DataCacheFactory();   private bool enableCache = false;    public ProductsRepository(bool enableCache)   {     this.enableCache = enableCache;   }    public List&lt;string&gt; GetProducts()   {     ...   } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>DataCacheFactory</strong> 成员声明为静态并在应用程序的整个生存期中使用。</p>
+</div>
+</li>
+<li>
+<p>找到 <strong>GetProducts</strong> 方法并将以下（突出显示的）代码插入到声明 <strong>products</strong> 本地变量的行的紧后面。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-GetProducts read cache-CS</em>）<!--mark: 8-30--></p>
+<pre class="prettyprint">public class ProductsRepository : IProductRepository {   ...   public List&lt;string&gt; GetProducts()   {     List&lt;string&gt; products = null;  DataCache dataCache = null; if (this.enableCache) {   try   {     dataCache = cacheFactory.GetDefaultCache();     products = dataCache.Get("products") as List&amp;lt;string&amp;gt;;     if (products != null)     {       products[0] = "(from cache)";       return products;     }   }   catch (DataCacheException ex)   {     if (ex.ErrorCode != DataCacheErrorCode.RetryLater)     {       throw;     }      // ignore temporary failures   } }  NorthwindEntities context = new NorthwindEntities();  try {   var query = from product in context.Products               select product.ProductName;   products = query.ToList(); } finally {   if (context != null)   {     context.Dispose();   } }  return products;     } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>插入的代码使用 <strong>DataCacheFactory</strong> 对象来返回默认缓存对象的实例，然后尝试使用值为“<em>products</em>”的键从此缓存中检索项。如果缓存包含具有所请求的键的对象，则它会设置第一个条目的文本以指示从缓存中检索列表，然后返回该列表。代码将 Windows Azure Caching 服务的临时失败视为缓存未命中，以便可以从其数据源中检索项。</p>
+</div>
+</li>
+<li>
+<p>接下来，将以下（突出显示的）代码块添加到 <strong>GetProducts</strong> 方法中，使其位于该方法末尾返回 <strong>products</strong> 列表的行的紧前面。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-GetProducts write cache-CS</em>）<!--mark: 30-35--></p>
+<pre class="prettyprint">public class ProductsRepository : IProductRepository {     ...     public List&lt;string&gt; GetProducts()     {         List&lt;string&gt; products = null;      DataCache dataCache = null;     if (this.enableCache)     {       ...     }      NorthwindEntities context = new NorthwindEntities();      try     {       var query = from product in context.Products                  select product.ProductName;       products = query.ToList();     }     finally     {       if (context != null)       {         context.Dispose();       }     }      products.Insert(0, "(from data source)");      if (this.enableCache &amp;amp;&amp;amp; dataCache != null)     {       dataCache.Add("products", products, TimeSpan.FromSeconds(30));     }      return products; }   }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 插入的代码将对数据源进行的查询的结果存储到缓存中，并将其有效期策略设置为在 30 秒后从缓存中清除该项。</p>
+</div>
+</li>
+</ol><a name="Ex2Task2"></a>
+<p><strong>任务 2 – 测量数据访问延迟</strong></p>
+<p>在此任务中，您将更新应用程序以允许从 UI 控制缓存的使用并显示检索目录数据所需的时间，从而允许您将从缓存中检索数据的延迟与访问数据源所需的时间进行比较。</p>
+<ol>
+<li>
+<p>打开 <strong>Controllers</strong> 文件夹中的 <strong>HomeController.cs</strong> 文件并在该文件顶部添加 <strong>System.Diagnostics</strong> using 指令。</p>
+<!-- mark:1 -->
+<pre class="prettyprint">using System.Diagnostics;</pre>
+</li>
+<li>
+<p>查找 <strong>Index</strong> 操作，找到实例化新的 <strong>ProductsRepository</strong> 并调用其 <strong>GetProducts</strong> 方法的行，然后使用突出显示的代码替换它们，如下所示。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-GetProducts latency-CS</em>）<!--mark:9-17; strike:6-8--></p>
+<pre class="prettyprint">public class HomeController : Controller {   ...                          public ActionResult Index()   {     Services.IProductRepository productRepository =         new Services.ProductsRepository();     var products = productRepository.GetProducts();     bool enableCache = (bool)this.Session["EnableCache"];  // retrieve product catalog from repository and measure the elapsed time Services.IProductRepository productRepository =     new Services.ProductsRepository(enableCache); Stopwatch stopWatch = new Stopwatch(); stopWatch.Start(); var products = productRepository.GetProducts(); stopWatch.Stop();  // add all products currently not in session var itemsInSession = this.Session["Cart"] as List&amp;lt;string&amp;gt; ?? new List&amp;lt;string&amp;gt;(); var filteredProducts = products.Where(item =&amp;gt; !itemsInSession.Contains(item));  IndexViewModel model = new IndexViewModel() {   Products = filteredProducts };  return View(model);     }   ... }</pre>
+</li>
+<li>
+<p>在同一方法中，找到创建新的 <strong>IndexViewModel</strong> 实例的代码，然后使用以下（突出显示的）代码块替换其初始化。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-IndexViewModel initialization-CS</em>）<!--mark: 22-25--></p>
+<pre class="prettyprint">public class HomeController : Controller {   ...                          public ActionResult Index()   {     bool enableCache = (bool)this.Session["EnableCache"];  // retrieve product catalog from repository and measure the elapsed time Services.IProductRepository productRepository =     new Services.ProductsRepository(enableCache); Stopwatch stopWatch = new Stopwatch(); stopWatch.Start(); var products = productRepository.GetProducts(); stopWatch.Stop();  // add all products currently not in session var itemsInSession = this.Session["Cart"] as List&amp;lt;string&amp;gt; ?? new List&amp;lt;string&amp;gt;(); var filteredProducts = products.Where(item =&amp;gt; !itemsInSession.Contains(item));  IndexViewModel model = new IndexViewModel() {   Products = filteredProducts,   ElapsedTime = stopWatch.ElapsedMilliseconds,   IsCacheEnabled = enableCache,   ObjectId = products.GetHashCode().ToString() };  return View(model);     }   ... }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>添加到视图模型中的元素提供从存储库加载产品目录所需的时间、指示是否已启用缓存的标志以及调用 <strong>GetProducts</strong> 所返回的目录对象的标识符。该视图显示对象 ID 以允许您确定调用存储库所返回的实例是否已发生更改。在此练习后面您启用本地缓存时，将使用此功能。</p>
+</div>
+</li>
+<li>
+<p>向 <strong>HomeController</strong> 中添加新的操作方法来从应用程序的 UI 启用或禁用缓存。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-EnableCache method-CS</em>）<!--mark: 4-8--></p>
+<pre class="prettyprint">public class HomeController : Controller {   ...   public ActionResult EnableCache(bool enabled)   {     this.Session["EnableCache"] = enabled;     return RedirectToAction("Index");   }  }</pre>
+</li>
+<li>
+<p>按 <strong>F5</strong> 在计算模拟器中构建并启动应用程序。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>理想情况下，您应在 Windows Azure 中测试代码。如果在计算模拟器中执行应用程序，那么请考虑访问 Windows Azure SQL Database 数据源和 Windows Azure Caching 都需要请求位于您自己的网络边界之外的资源。根据您所在的地理位置，这两个请求可能都存在相对较高的延迟，因此可能会掩盖缓存方案和非缓存方案之间的差异。在您将应用程序部署到 Windows Azure 后，它与 Windows Azure SQL Database 中的 Windows Azure Caching 服务共存于同一数据中心中。由于延迟缩短很多，结果应更显著。</p>
+</div>
+</li>
+<li>
+<p>在您启动应用程序时，缓存最初处于禁用状态。刷新页面，然后注意页面底部显示的经过的时间，它指示检索产品目录所需的时间。请注意，列表中的第一项指示应用程序从数据源中检索产品目录。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>您可能需要刷新页面多次才能获得稳定读数。为第一个请求显示的值可能较大，因为 ASP.NET 需要编译页面。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/running-the-application-without-the-cache.png" alt="在不使用缓存的情况下运行应用程序"/></p>
+<p><em>在不使用缓存的情况下运行应用程序</em></p>
+</li>
+<li>
+<p>观察产品目录上方显示的 <strong>Object ID</strong> 指示器，并注意在您每次刷新页面时它如何变化，这种变化指示存储库针对每个调用返回不同的对象。</p>
+</li>
+<li>
+<p>现在，单击“Enable Cache”<strong></strong>中的“Yes”<strong></strong>并等待页面刷新。请注意，列表中的第一项指示应用程序仍需要从数据源中检索产品目录，因为必须缓存信息。</p>
+</li>
+<li>
+<p>单击“Products”<strong></strong>，或在浏览器中刷新页面。这次，应用程序从 Windows Azure Caching 中检索产品数据，并且经过的时间应缩短。确认列表中的第一项指示信息源是缓存。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/running-the-application-with-the-cache-enable.png" alt="在启用缓存的情况下运行应用程序"/></p>
+<p><em>在启用缓存的情况下运行应用程序</em></p>
+</li>
+<li>
+<p>关闭浏览器。</p>
+</li>
+</ol>
+<p> </p>
+<p><strong>任务 3 – 启用本地缓存</strong></p>
+<p>在使用 Windows Azure Caching 时，您可以选择使用本地缓存，它允许在客户端的内存中缓存对象并将对象存储在缓存群集中。在此任务中，您将启用本地缓存，然后与远程案例比较访问时间。</p>
+<ol>
+<li>
+<p>打开 <strong>CloudShop</strong> 项目的 <strong>Services</strong> 文件夹中的 <strong>ProductsRepository.cs</strong> 文件。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 在编辑文件之前，确保您的解决方案没有运行。</p>
+</div>
+</li>
+<li>
+<p>在 <strong>ProductsRepository</strong> 类中，使用以下代码替换当前成员字段和构造函数，以添加管理 localCache 配置的逻辑。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-ProductsRepository with local cache-CS</em>）<!--mark: 2-34--></p>
+<pre class="prettyprint">...  private static DataCacheFactory cacheFactory; private static DataCacheFactoryConfiguration factoryConfig; private bool enableCache = false; private bool enableLocalCache = false;  public ProductsRepository(bool enableCache, bool enableLocalCache) {     this.enableCache = enableCache;     this.enableLocalCache = enableLocalCache;  if (enableCache) {     if (enableLocalCache &amp;amp;&amp;amp; (factoryConfig == null || !factoryConfig.LocalCacheProperties.IsEnabled))     {         TimeSpan localTimeout = new TimeSpan(0, 0, 30);         DataCacheLocalCacheProperties localCacheConfig = new DataCacheLocalCacheProperties(10000, localTimeout, DataCacheLocalCacheInvalidationPolicy.TimeoutBased);         factoryConfig = new DataCacheFactoryConfiguration();          factoryConfig.LocalCacheProperties = localCacheConfig;         cacheFactory = new DataCacheFactory(factoryConfig);     }     else if (!enableLocalCache &amp;amp;&amp;amp; (factoryConfig == null || factoryConfig.LocalCacheProperties.IsEnabled))     {         cacheFactory = null;     } }  if (cacheFactory == null) {     factoryConfig = new DataCacheFactoryConfiguration();     cacheFactory = new DataCacheFactory(factoryConfig); }   }  ...</pre>
+</li>
+<li>
+<p>打开 <strong>Controllers</strong> 文件夹中的 <strong>HomeController.cs</strong> 文件并查找 <strong>Index</strong> 操作。找到实例化新 <strong>ProductsRepository</strong> 的行，然后使用以下突出显示的代码替换这些行：</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-GetProducts LocalCache-CS</em>）<!--mark:7-10; strike: 11-13--></p>
+<pre class="prettyprint">public class HomeController : Controller {   ...                          public ActionResult Index()   {     bool enableCache = (bool)this.Session["EnableCache"];     bool enableLocalCache = (bool)this.Session["EnableLocalCache"];  // retrieve product catalog from repository and measure the elapsed time Services.IProductRepository productRepository = new Services.ProductsRepository(enableCache, enableLocalCache); // retrieve product catalog from repository and measure the elapsed time Services.IProductRepository productRepository = new Services.ProductsRepository(enableCache); Stopwatch stopwatch = new Stopwatch(); stopWatch.Start(); var products = productRepository.GetProducts(); ...   }</pre>
+</li>
+<li>
+<p>在同一方法中，找到创建新的 <strong>IndexViewModel</strong> 的代码并添加以下突出显示的属性。</p>
+<!--mark: 25-->
+<pre class="prettyprint">public class HomeController : Controller {   ...                          public ActionResult Index()   {       bool enableCache = (bool)this.Session["EnableCache"];       bool enableLocalCache = (bool)this.Session["EnableLocalCache"];       // retrieve product catalog from repository and measure the elapsed time       Services.IProductRepository productRepository =       new Services.ProductsRepository(enableCache, enableLocalCache);       Stopwatch stopwatch = new Stopwatch();       stopWatch.Start();       var products = productRepository.GetProducts();       stopWatch.Stop();    // add all products currently not in session   var itemsInSession = this.Session["Cart"] as List&amp;lt;string&amp;gt; ?? new List&amp;lt;string&amp;gt;();   var filteredProducts = products.Where(item =&amp;gt; !itemsInSession.Contains(item));    IndexViewModel model = new IndexViewModel()   {       Products = filteredProducts,       ElapsedTime = stopWatch.ElapsedMilliseconds,       IsCacheEnabled = enableCache,       IsLocalCacheEnabled = enableLocalCache,       ObjectId = products.GetHashCode().ToString()   };   return View(model);     } }</pre>
+</li>
+<li>
+<p>向 <strong>HomeController</strong> 中添加新的操作方法，以从应用程序的 UI 中启用或禁用本地缓存。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-EnableLocalCache method-CS</em>）<!--mark: 4-8--></p>
+<pre class="prettyprint">public class HomeController : Controller {   ...   public ActionResult EnableLocalCache(bool enabled)   {     this.Session["EnableLocalCache"] = enabled;     return RedirectToAction("Index");   } }</pre>
+</li>
+<li>
+<p>打开 <strong>Views\Home</strong> 文件夹中的 <strong>Index.cshtml</strong> 文件，并将以下突出显示的代码添加到 <strong>elapsedTime</strong> div 的上方。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex2-EnableLocalCache Option-HTML</em>）<!--mark: 12-23--></p>
+<pre class="prettyprint">&lt;fieldset&gt;      &lt;legend&gt;Cache settings for product data&lt;/legend&gt;Enable Cache:      @if (Model.IsCacheEnabled)      {           &lt;span&gt;Yes |&lt;/span&gt;&lt;span&gt;@Html.ActionLink("No", "EnableCache", new { enabled = false })&lt;/span&gt;      }      else      {           &lt;span&gt;@Html.ActionLink("Yes", "EnableCache", new { enabled = true })&lt;/span&gt;&lt;span&gt; | No&lt;/span&gt;      }      &lt;br /&gt;      @if(Model.IsCacheEnabled)      {           &lt;span&gt;Use Local Cache:&lt;/span&gt;           if (Model.IsLocalCacheEnabled)           {                 &lt;span&gt;Yes |&lt;/span&gt;&lt;span&gt;@Html.ActionLink("No", "EnableLocalCache", new { enabled = false })&lt;/span&gt;           }           else           {                 &lt;span&gt;@Html.ActionLink("Yes", "EnableLocalCache", new { enabled = true })&lt;/span&gt;&lt;span&gt; | No&lt;/span&gt;           }      }      &lt;div id="elapsedTime"&gt;Elapsed time: @Model.ElapsedTime.ToString() milliseconds.&lt;/div&gt; &lt;/fieldset&gt;</pre>
+</li>
+<li>
+<p>按 <strong>F5</strong> 在计算模拟器中构建并启动应用程序。</p>
+</li>
+<li>
+<p>在您启动应用程序时，缓存选项最初处于禁用状态，并且本地缓存选项处于隐藏状态（它将在您启用缓存后显示）。启用缓存，然后启用本地缓存。</p>
+</li>
+<li>
+<p>刷新页面多次，直到经过的时间稳定为止。注意读取时间现在显著缩短，可能在一毫秒以下，这指示应用程序现在从本地内存中缓存检索数据。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-buildingappswithcaching/images/using-the-local-cache.png" alt="使用本地缓存"/></p>
+<p><em>使用本地缓存</em></p>
+</li>
+<li>
+<p>观察您每次刷新页面时，产品目录上方显示的 <strong>Object ID</strong> 保持不变，这表明存储库现在每次都返回相同对象。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>这是需要考虑的一个重要方面。以前，禁用本地缓存时，更改从缓存中检索到的对象对已缓存数据毫无影响，并且后续获取总是返回全新副本。在您启用本地缓存后，它会存储对内存中对象的引用，并且对对象所做的任何更改都直接影响已缓存数据。在您自己的应用程序中使用缓存时，您应注意这一点，并考虑在更改已缓存对象后从缓存中检索同一对象时，结果中可能包括或不包括这些更改，具体取决于该结果是由本地缓存还是远程缓存返回。</p>
+</div>
+</li>
+<li>
+<p>等待至少 30 秒，然后再次刷新页面。注意经过的时间恢复为其原始值，并且对象 ID 已更改，这指示由于在存储对象时在对象上设置了有效期策略，已缓存项已过期并已将其从缓存中清除。</p>
+</li>
+</ol><a name="Exercise3"></a>
+<h3>练习 3：创建可重用且可扩展的缓存层</h3>
+<p>在上一个练习中，您了解到通过直接将数据访问类中的方法更新为缓存从存储库中检索到的数据来使用 Windows Azure Caching 的基本情况。虽然此做法可以显著提高效率，但它需要您将每个数据访问方法都更改为启用缓存。无需更改现有数据访问类的替代方法将更具优势。</p>
+<p>在此练习中，您将了解如何在现有数据访问类之上构建缓存层，以允许您通过简单的配置更改来插入不同的缓存提供程序或一起删除它们。</p>
+<p>为构建此缓存层，您将实现一个名为 <strong>CachedDataSource</strong> 的抽象缓存类，它将为在缓存中存储和删除数据提供支持。然后，将从此类派生以在应用程序中为任何数据源创建缓存等效项。唯一要求是数据源需要实现用于定义其数据访问操作的协定。缓存类将封装您需要在其构造函数中提供的缓存提供程序，并提供方法来从缓存中检索和删除数据。</p>
+<p>缓存类中的数据检索方法将接收唯一标识已缓存项的缓存键、从数据源中检索数据的委托以及确定何时从缓存中清除项的缓存有效期策略。此方法实现经典缓存模式：它首先尝试从缓存中检索项，如果没有找到副本，则使用提供的委托从源中检索数据，然后将数据存储在缓存中。</p>
+<p><strong>CachedDataSource</strong> 类的实现完全可重用，从而允许您使用任何符合您的要求的缓存提供程序。若要指定缓存提供程序，请将 <a href="http://msdn.microsoft.com/zh-cn/library/system.runtime.caching.objectcache.aspx">ObjectCache</a> 实例提供给其构造函数。在 .NET Framework 4 中引入了属于 <strong>System.Runtime.Caching</strong> 命名空间一部分的 <strong>ObjectCache</strong> 类以使缓存可供所有应用程序使用。此抽象类表示对象缓存并提供用于访问基础缓存提供程序的基方法和属性。.NET Framework 已提供此类的具体实现，从而能够提供内存中缓存 <a href="http://msdn.microsoft.com/zh-cn/library/system.runtime.caching.memorycache.aspx">MemoryCache</a>。</p>
+<p>若要将给定缓存服务与 <strong>CachedDataSource</strong> 派生类一起使用，您需要提供特定于缓存提供程序的 <strong>ObjectCache</strong> 实现。好方法是创建允许您基于需求选择合适的缓存实现的数据源工厂。然后，替换缓存提供程序只需更改配置文件中的设置。</p>
+<p>目前，Windows Azure Caching 没有提供自己的 <strong>ObjectCache</strong> 实现。不过，您可以创建一个来提供其服务的包装。您将在 <strong>BuildingAppsWithCacheService\Source\Assets</strong> 文件夹中找到此类实现的示例 <strong>AzureCacheProvider</strong>。此类派生自 <strong>ObjectCache</strong> 以在 Windows Azure Caching 中公开服务。</p>
+<p>若要在 Azure Store 应用程序中利用此缓存实现，您将创建 <strong>ProductsRepository</strong> 类的缓存对应部分。应用程序使用此类（它使用单个 <strong>GetProducts</strong> 操作实现 <strong>IProductsRepository</strong> 协定）从 Windows Azure SQL Database 中检索目录信息。若要创建缓存产品目录源，您需要执行下列步骤：</p>
+<ul>
+<li>
+<p>创建派生自 <strong>CachedDataSource</strong> 的新 <strong>CachingProductsReposity</strong> 类。</p>
+</li>
+<li>
+<p>向新类中添加接收具有非缓存数据源类的实例的 <strong>IProductRepository</strong> 参数和具有要使用的缓存提供程序的实例的 <strong>ObjectCache</strong> 参数的构造函数。</p>
+</li>
+<li>
+<p>通过调用基类中的 <strong>RetrievedCachedData</strong> 方法并提供调用原始数据源类的委托来实现 <strong>IProductRepository</strong> 接口中的每个方法。</p>
+</li>
+</ul>
+<a name="Ex3Task1"></a>
+<p><strong>任务 1 – 实现缓存数据源基类</strong></p>
+<p>在此任务中，您将创建将用作缓存数据源类的基类的抽象类。您可以在需要缓存层的任何项目中使用此通用类。</p>
+<ol>
+<li>
+<p>以管理员身份启动 <strong>Microsoft Visual Studio 2012</strong>。</p>
+</li>
+<li>
+<p>打开位于 <strong>Source\Ex3-ReusableCachingImplementation</strong> 中的 <strong>Begin</strong> 解决方案。</p>
+<div class="dev-callout"><strong>重要说明</strong>
+<p><strong>重要说明：</strong>在实施该解决方案之前，请确保设置了启动项目。对于 MVC 项目，起始页必须留空。</p>
+<p>若要设置启动项目，请在“解决方案资源管理器”<strong></strong>中右键单击“CloudShop.Azure”<strong></strong>项目，然后选择“设为启动项目”<strong></strong>。</p>
+<p>若要设置起始页，请在“解决方案资源管理器”<strong></strong>中右键单击“CloudShop”<strong></strong>项目，然后选择“属性”<strong></strong>。在“属性”<strong></strong>窗口中，选择“Web”<strong></strong>选项卡，然后在“启动操作”<strong></strong>中选择“特定页”<strong></strong>。保留此字段的值为空。</p>
+</div>
+</li>
+<li>
+<p>在 <strong>Web.config</strong> 文件中，更新 <em>NorthwindEntities</em> 连接字符串以指向您的数据库。使用您在门户中注册的用于在设置过程中创建数据库的 Windows Azure SQL Database 服务器名称、管理员用户名和管理员密码来替换 <strong>[YOUR-SQL-DATABASE-SERVER-ADDRESS]</strong>、<strong>[SQL-DATABASE-USERNAME]</strong> 和 <strong>[SQL-DATABASE-PASSWORD]</strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 请确保您按照设置部分的说明在您自己的 Windows Azure SQL Database 帐户中创建 Northwind2 数据库的副本，并配置 Windows Azure SQL Database 防火墙设置。</p>
+</div>
+</li>
+<li>
+<p>添加对 <strong>CloudShop</strong> 项目中的 <strong>System.Runtime.Caching</strong> 程序集的引用。</p>
+</li>
+<li>
+<p>在 <strong>CloudShop</strong> 项目的 <strong>Services</strong> 文件夹中，添加一个名为 <strong>Caching</strong> 的新文件夹。</p>
+</li>
+<li>
+<p>在上一步中创建的 <strong>Caching</strong> 文件夹中，添加一个名为 <strong>CachedDataSource.cs</strong> 的新类文件。</p>
+</li>
+<li>
+<p>在新类文件中，添加 <strong>System.Runtime.Caching</strong> 的命名空间指令。</p>
+<!--mark: 5-->
+<pre class="prettyprint">using System; using System.Collections.Generic; using System.Linq; using System.Web; using System.Runtime.Caching; ...</pre>
+</li>
+<li>
+<p>为 <strong>CachedDataSource</strong> 类指定 <strong>abstract</strong> 修饰符。</p>
+<!--mark: 1-3-->
+<pre class="prettyprint">public abstract class CachedDataSource { }</pre>
+</li>
+<li>
+<p>将以下（突出显示的）成员字段添加到类中。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-CachedDataSource member fields-CS</em>）<!--mark: 3,4--></p>
+<pre class="prettyprint">public abstract class CachedDataSource {   private readonly ObjectCache cacheProvider;   private readonly string regionName; }</pre>
+</li>
+<li>
+<p>现在，定义接收对象缓存和区域名称作为参数的构造函数，如以下（突出显示的部分）所示。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-CachedDataSource constructor-CS</em>）<!--mark: 4-18--></p>
+<pre class="prettyprint">public abstract class CachedDataSource {   ...   public CachedDataSource(ObjectCache cacheProvider, string regionName)   {     if (cacheProvider == null)     {       throw new ArgumentNullException("cacheProvider");     }  if (cacheProvider is MemoryCache) {   regionName = null; }  this.cacheProvider = cacheProvider; this.regionName = regionName;     } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>CachedDataSource</strong> 构造函数接收 ObjectCache (<a href="http://msdn.microsoft.com/zh-cn/library/system.runtime.caching.objectcache.aspx">http://msdn.microsoft.com/zh-cn/library/system.runtime.caching.objectcache.aspx</a>) 实例作为参数，它提供用于访问对象缓存的方法和属性以及区域名称。缓存区域是缓存中用于组织缓存对象的分区。</p>
+</div>
+</li>
+<li>
+<p>接下来，添加以下（突出显示的）方法来从缓存中检索数据。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-RetrieveCachedData method-CS</em>）<!--mark: 4-19--></p>
+<pre class="prettyprint">public abstract class CachedDataSource {   ...   protected T RetrieveCachedData&lt;T&gt;(string cacheKey, Func&lt;T&gt; fallbackFunction, CacheItemPolicy cachePolicy) where T : class   {     var data = this.cacheProvider.Get(cacheKey, this.regionName) as T;     if (data != null)     {       return data;     }  data = fallbackFunction(); if (data != null) {   this.cacheProvider.Add(new CacheItem(cacheKey, data, this.regionName), cachePolicy); }  return data;     } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>RetrieveCachedData</strong> 方法使用提供的键来从缓存中检索请求项的副本。如果数据存在，则返回它；否则，使用提供的回退委托来从数据源中获取信息，然后使用提供的缓存有效期策略缓存结果。</p>
+</div>
+</li>
+<li>
+<p>最后，添加一个用于从缓存中删除项的方法。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-RemoveCachedData method-CS</em>）<!--mark: 4-7--></p>
+<pre class="prettyprint">public abstract class CachedDataSource {   ...   protected void RemoveCachedData(string cacheKey)   {     this.cacheProvider.Remove(cacheKey, this.regionName);   } }</pre>
+</li>
+<li>
+<p>保存 <strong>CachedDataSource.cs</strong> 文件。</p>
+</li>
+</ol><a name="Ex3Task2"></a>
+<p><strong>任务 2 – 构建缓存产品目录存储库</strong></p>
+<p>在您创建了缓存数据源的抽象基类后，您现在将创建提供 <strong>ProductsRepository</strong> 类的缓存替代的具体实现。此任务表示使用 <strong>CachedDataSource</strong> 类为数据访问代码创建缓存层时通常遵循的步骤。</p>
+<ol>
+<li>
+<p>在 <strong>CloudShop</strong> 项目的 <strong>Services\Caching</strong> 文件夹中，添加一个名为 <strong>CachedProductsRepository.cs</strong> 的新类文件。</p>
+</li>
+<li>
+<p>在该新类文件中，附加 <strong>System.Runtime.Caching</strong> 和 <strong>CloudShop.Services</strong> 的命名空间指令。</p>
+<!-- mark:5-6 -->
+<pre class="prettyprint">using System; using System.Collections.Generic; using System.Linq; using System.Web; using CloudShop.Services using System.Runtime.Caching; ...</pre>
+</li>
+<li>
+<p>将 <strong>CachedProductsRepository</strong> 类的声明更改为派生自 <strong>CachedDataSource</strong> 和 <strong>IProductRepository</strong>，如以下（突出显示部分）所示。</p>
+<!--mark: 2-->
+<pre class="prettyprint">public class CachedProductsRepository    : CachedDataSource, IProductRepository { }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>缓存数据源类派生自 <strong>CachedDataSource</strong> 以提供必要的缓存行为，并实现原始数据源类使用的相同协定。</p>
+</div>
+</li>
+<li>
+<p>添加以下代码以定义构造函数，并声明保存对基础数据源的引用的成员字段，如以下（突出显示部分）所示。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-CachedProductsRepository constructor-CS</em>）<!--mark: 3-9--></p>
+<pre class="prettyprint">public class CachedProductsRepository : CachedDataSource, IProductRepository {   private readonly IProductRepository repository;    public CachedProductsRepository(IProductRepository repository, ObjectCache cacheProvider) :     base(cacheProvider, "Products")   {     this.repository = repository;   } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>CachedProductsRepository</strong> 构造函数使用提供的缓存提供程序初始化其基类，并将对基础数据源的引用保存到成员字段中。该类定义“Products”<em></em>缓存区域。</p>
+</div>
+</li>
+<li>
+<p>最后，通过实现 <strong>GetProducts</strong> 方法来执行 <strong>IProductRepository</strong> 协定，如以下（突出显示部分）所示。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-GetProducts method -CS</em>）<!--mark: 4-10--></p>
+<pre class="prettyprint">public class CachedProductsRepository : CachedDataSource, IProductRepository {   ...   public List&lt;string&gt; GetProducts()   {     return RetrieveCachedData(     "allproducts",     () =&gt; this.repository.GetProducts(),     new CacheItemPolicy { AbsoluteExpiration = DateTime.UtcNow.AddMinutes(1) });   } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>GetProducts</strong> 方法调用基类中的 <strong>RetrieveCachedData</strong>，以传入标识已缓存项的键（在此示例中为“allproducts”<em></em>）、仅在原始数据源中调用 <strong>GetProducts</strong> 方法的 lambda 表达式形式的回退委托以及将项的有效期设置为 1 分钟的 <a href="http://msdn.microsoft.com/zh-cn/library/system.runtime.caching.cacheitempolicy.aspx">CacheItemPolicy</a>。</p>
+</div>
+<p>因为 <strong>IProductRepository</strong> 协定非常简单，所以这是提供缓存实现所需的一切。通常，数据源将具有多个方法，但基本步骤应不变，从而允许您通过复制此相同模式来实现每个方法。</p>
+</li>
+</ol><a name="Ex3Task3"></a>
+<p><strong>任务 3 – 创建数据源工厂类</strong></p>
+<p>在此任务中，您将创建一个可返回数据源实例的工厂类。工厂确定要从应用程序配置设置使用的缓存提供程序，并返回适当配置为使用所选缓存提供程序的数据源。</p>
+<ol>
+<li>
+<p>将位于 <strong>\Source\Assets</strong> 文件夹中的 <strong>AzureCacheProvider.cs</strong> 文件的副本添加到 <strong>CloudShop</strong> 项目中并将它置于 <strong>Services\Caching</strong> 文件夹中。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>AzureCacheProvider</strong> 类实现包装 Windows Azure 缓存服务所提供的服务的 <strong>ObjectCache</strong>。</p>
+</div>
+</li>
+<li>
+<p>在 <strong>CloudShop</strong> 项目的 <strong>Services</strong> 文件夹中，添加一个名为 <strong>DataSourceFactory.cs</strong> 的新类文件。</p>
+</li>
+<li>
+<p>在新类文件中，插入 <strong>System.Configuration</strong>、<strong>System.Runtime.Caching</strong>、<strong>CloudShop.Services</strong> 和 <strong>CloudShop.Services.Caching</strong> 的命名空间指令。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-DataSourceFactory namespaces-CS</em>）<!--mark: 5-8--></p>
+<pre class="prettyprint">using System; using System.Collections.Generic; using System.Linq; using System.Web; using System.Configuration; using System.Runtime.Caching; using CloudShop.Services; using CloudShop.Services.Caching;</pre>
+</li>
+<li>
+<p>现在，添加以下代码来为 <strong>DataSourceFactory</strong> 类定义类型构造函数，并声明保存对已配置的缓存服务提供程序的引用的静态字段，如以下（突出显示部分）所示。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-DataSourceFactory class constructor-CS</em>）<!--mark: 3-20--></p>
+<pre class="prettyprint">public class DataSourceFactory {   private static readonly ObjectCache cacheProvider;    static DataSourceFactory()   {     string provider = ConfigurationManager.AppSettings["CacheService.Provider"];     if (provider != null)     {       switch (ConfigurationManager.AppSettings["CacheService.Provider"].ToUpperInvariant())       {         case "AZURE":           cacheProvider = new AzureCacheProvider();           break;         case "INMEMORY":           cacheProvider = MemoryCache.Default;           break;       }     }   } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>类构造函数从配置中读取 <em>CacheService.Provider</em> 设置并基于其值初始化应用程序的缓存提供程序。在此示例中，识别了设置的两个不同值，一个用于 Windows Azure Caching，另一个用于 .NET Framework 4 提供的默认内存中缓存提供程序。</p>
+</div>
+</li>
+<li>
+<p>接下来，添加以下属性来返回已配置的缓存服务提供程序。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-CacheProvider property-CS</em>）<!--mark: 4-7--></p>
+<pre class="prettyprint">public class DataSourceFactory {   ...   public static ObjectCache CacheProvider   {     get { return cacheProvider; }   } }</pre>
+</li>
+<li>
+<p>最后，添加一个方法来返回使用已配置的缓存服务提供程序初始化的 <strong>IProductRepository</strong> 数据源的实例。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-GetProductsRepository method-CS</em>）<!--mark: 4-13--></p>
+<pre class="prettyprint">public class DataSourceFactory {   ...   public static IProductRepository GetProductsRepository(bool enableCache)   {     var dataSource = new ProductsRepository();     if (enableCache &amp;&amp; CacheProvider != null)     {       return new CachedProductsRepository(dataSource, cacheProvider);     }  return dataSource;     } }</pre>
+</li>
+</ol><a name="Ex3Task4"></a>
+<p><strong>任务 4 – 配置应用程序的缓存</strong></p>
+<p>在此任务中，您将更新应用程序以利用数据源工厂实例化产品目录数据源。为完成缓存层的设置，您将定义必要的配置设置以选择缓存提供程序。</p>
+<ol>
+<li>
+<p>打开 <strong>Controllers</strong> 文件夹中的 <strong>HomeController.cs</strong> 文件并查找 <strong>Index</strong> 方法。在此方法中，使用下面显示的（突出显示的）使用 <strong>DataSourceFactory</strong> 检索 <strong>IProductRepository</strong> 实例的代码替换实例化 <strong>productRepository</strong> 本地变量的行。</p>
+<!--mark: 10-->
+<pre class="prettyprint">public class HomeController : Controller {   ...   public ActionResult Index()   {     bool enableCache = (bool)this.Session["EnableCache"];  // retrieve product catalog from repository and measure the elapsed time Services.IProductRepository productRepository = CloudShop.Services.DataSourceFactory.GetProductsRepository(enableCache); Stopwatch stopWatch = new Stopwatch(); stopWatch.Start(); ...     }   ... }</pre>
+</li>
+<li>
+<p>若要配置 <strong>DataSourceFactory</strong>，请打开 <strong>Web.config</strong> 文件并将以下（突出显示的）设置添加到 <strong>appSettings</strong> 部分中。</p>
+<p>（代码段 - <em>BuildingAppsWithCachingService-Ex3-Web.config appSettings section-CS</em>）<!--mark: 3--></p>
+<pre class="prettyprint">&lt;appSettings&gt;      ...     &lt;add key="CacheService.Provider" value="InMemory" /&gt;   &lt;/appSettings&gt;</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 如果在单个节点中托管应用程序，则内存中缓存提供程序将是一个好选择。</p>
+</div>
+</li>
+<li>
+<p>按 <strong>Ctrl+F5</strong> 来在计算模拟器中构建并测试增强的缓存实现。</p>
+</li>
+<li>
+<p>在您启动应用程序时，缓存最初处于禁用状态。单击“Use cache for product data”<strong></strong>中的“Yes”<strong></strong>并等待页面刷新。请记住启用缓存后的初次请求包括检索数据并将其插入缓存中所需的开销。</p>
+</li>
+<li>
+<p>单击“Products”<strong></strong>，或再次在浏览器中刷新页面。这次，应用程序从缓存中检索产品数据，并且考虑到您当前已将它配置为使用 .NET Framework 所提供的内存中缓存，因此，经过的时间应缩短，很可能在一毫秒以下。</p>
+</li>
+<li>
+<p>现在，在 <strong>Web.config</strong> 文件中，找到 <strong>appSettings</strong> 部分并将 <strong>CacheService.Provider</strong> 设置的值设置为“Azure”<em></em>。</p>
+<!--mark: 3-->
+<pre class="prettyprint">&lt;appSettings&gt;           ...         &lt;add key="CacheService.Provider" value="Azure" /&gt;   &lt;/appSettings&gt;</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>如果在多个节点中托管应用程序，则内存中缓存提供程序不再是一个好选择。您可以利用 Windows Azure Caching 提供的分布式缓存。</p>
+</div>
+</li>
+<li>
+<p>保存 <strong>Web.config</strong> 文件。</p>
+</li>
+<li>
+<p>单击“Recycle”<strong></strong>链接来回收角色并重新加载配置。在您单击此链接后，“Products”页将变为空白。</p>
+</li>
+<li>
+<p>返回到浏览器，从地址栏中删除 <em>/Home/Recylce</em>，然后按 Enter 来重新加载网站。“Products”<strong></strong>页应在短暂延迟后恢复正常。</p>
+</li>
+<li>
+<p>确保缓存仍处于启用状态，然后在浏览器中刷新页面<strong>两次</strong>来使用数据准备缓存。请注意，已缓存方案的经过的时间增加，这表明应用程序现在使用 Windows Azure Caching 提供程序而非内存中提供程序。</p>
+</li>
+</ol><a name="Summary"></a>
+<h2>摘要</h2>
+<p>在本动手实验中，您了解到如何使用 Windows Azure Caching。您了解了如何将会话状态配置为跨缓存群集缓存，从而允许在重新启动时和跨托管应用程序的多个角色实例保存会话。另外，您还了解到使用 Windows Azure 缓存数据的基础知识，具体而言，即，如何缓存对 Windows Azure SQL Database 进行的查询的结果。最后，您了解了将允许您以非常简单的方式向应用程序中添加缓存层的可重用缓存层实现。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>使用缓存服务构建 Windows Azure 云服务 - 动手实验</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[了解在您的云服务角色中启用缓存服务是多么容易，并了解如何使用缓存服务为您的云服务提供高性能的内存中缓存。]]></metaDescription><linkid>develop-training-kit-hol-buildingappswithcaching</linkid><urlDisplayName>使用缓存服务构建 Windows Azure 云服务</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

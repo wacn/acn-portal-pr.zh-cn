@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18830" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="22" createDate="2013-07-11T10:43:28" updateDate="2014-08-18T11:09:19" nodeName="service bus amqp" urlName="service-bus-amqp" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18830" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>如何将 AMQP 1.0 用于 .NET Service Bus .NET API</h1>
+<h2><span class="short-header">简介</span>简介</h2>
+<p>高级消息队列协议 (AMQP) 1.0 是一个高效、可靠的线级消息传递协议，可用于构建可靠的跨平台消息传递应用程序。</p>
+<p>添加 AMQP 1.0 意味着现在可以通过一系列使用有效的二进制协议的平台利用 Service Bus 的队列和发布/订阅中转消息传递功能。此外，您还可以生成由结合使用多个语言、框架和操作系统构建的组件组成的应用程序。</p>
+<p>本操作方法指南说明如何使用 .NET API 通过 AMQP 1.0 来使用 Service Bus 中转消息传递功能（队列和发布/订阅主题）。</p>
+<h2><span class="short-header">入门</span>Service Bus 入门</h2>
+<p>此指南假定您具有 Service Bus 命名空间。如果没有，可以使用 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>轻松创建一个。有关如何创建 Service Bus 命名空间和队列的详细演练，请参考名为“<a href="/zh-cn/develop/net/how-to-guides/service-bus-queues/">如何使用 Service Bus 队列</a>”的操作方法指南。</p>
+<h2><span class="short-header">下</span>载 Service Bus AMQP 1.0 </h2>
+<p>通过 .NET 访问 Service Bus 中的 AMQP 1.0 支持需要更新的客户端库。您可以通过 NuGet 下载该客户端库。包名为“ServiceBus.Preview”，其中包含名为“Microsoft.ServiceBus.Preview.dll”的新 Service Bus 库。应使用此库来代替生产版本（“Microsoft.ServiceBus.dll”）以使用 AMQP 1.0 功能。</p>
+<h2><span class="short-header">为 .NET 应用程序编码</span></h2>
+<p>默认情况下，Service Bus .NET 客户端库使用基于 SOAP 的专用协议与 Service Bus 服务通信。 可以配置该库以使用 AMQP 1.0。除了配置协议选择（如下一节中所述）外，应用程序代码不变。 在使用 AMQP 时，一些高级配置设置还具有新的含义。在本简短的操作方法指南中，没有使用这些设置，但在“Service Bus AMQP  开发人员指南”中提供了更多详细信息。</p>
+<h3>通过 App.config 进行配置</h3>
+<p>应用程序使用 App.config 配置文件存储设置是一个很好的做法。对于 Service Bus 应用程序，您可以使用 App.config 来存储 Service Bus <strong>ConnectionString</strong> 的设置。另外，下面的应用程序示例存储它所使用的 Service Bus 消息传递实体的名称。</p>
+<p>下面显示了 App.config 文件示例：</p>
+<pre class="prettyprint">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+        &lt;add key="Microsoft.ServiceBus.ConnectionString"
+             value="Endpoint=sb://[namespace].servicebus.chinacloudapi.cn;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp" /&gt;
+        &lt;add key="EntityName" value="queue1" /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;</pre>
+<h3>配置 Service Bus 连接字符串</h3>
+<p><strong>Microsoft.ServiceBus.ConnectionString</strong> 设置的值是用于配置与 Service Bus 的连接的 Service Bus 连接字符串，其格式如下所示：</p>
+<pre class="prettyprint">Endpoint=sb://[namespace].servicebus.chinacloudapi.cn;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp</pre>
+<p>其中，[namespace]、[issuer name] 和 [issuer key] 可从 Windows Azure 管理门户获得。有关更多信息，请参见<a href="/zh-cn/develop/net/how-to-guides/service-bus-queues/">如何使用 Service Bus 队列</a>。</p>
+<p>在使用 AMQP 时，连接字符串附加了“;TransportType=Amqp”，以通知客户端库使用 AMQP 1.0 连接到 Service Bus。</p>
+<h3>配置实体名称</h3>
+<p>此应用程序示例使用 App.config 文件的 <strong>appSettings</strong> 节中的“EntityName”设置来配置应用程序与其交换消息的队列的名称。</p>
+<h3>使用 Service Bus 队列的简单 .NET 应用程序</h3>
+<p>下面这个简单的程序示例将 BrokeredMessages 发送到 Service Bus 队列，然后接收返回的消息。</p>
+<pre class="prettyprint">// SimpleSenderReceiver.cs
+
+using System;
+using System.Configuration;
+using System.Threading;
+using Microsoft.ServiceBus.Messaging;
+
+namespace SimpleSenderReceiver
+{
+    class SimpleSenderReceiver
+    {
+        private static string connectionString;
+        private static string entityName;
+        private static Boolean runReceiver = true;
+        private MessagingFactory factory;
+        private MessageSender sender;
+        private MessageReceiver receiver;
+        private MessageListener messageListener;
+        private Thread listenerThread;
+
+        static void Main(string[] args)
+        {
+            try
+            {
+                if ((args.Length &gt; 0) &amp;&amp; args[0].ToLower().Equals("sendonly"))
+                    runReceiver = false;
+
+                string ConnectionStringKey = "Microsoft.ServiceBus.ConnectionString";
+                string entityNameKey = "EntityName";
+                entityName = ConfigurationManager.AppSettings[entityNameKey];
+                connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];                
+
+                SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
+
+                Console.WriteLine("Press [enter] to send a message. " +
+                    "Type 'exit' + [enter] to quit.");
+
+                while (true)
+                {
+                    string s = Console.ReadLine();
+                    if (s.ToLower().Equals("exit"))
+                    {
+                        simpleSenderReceiver.Close();
+                        System.Environment.Exit(0);
+                    }
+                    else
+                        simpleSenderReceiver.SendMessage();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Caught exception: " + e.Message);
+            }
+        }
+
+        public SimpleSenderReceiver()
+        {
+            factory = MessagingFactory.CreateFromConnectionString(connectionString);
+            sender = factory.CreateMessageSender(entityName);
+
+            if (runReceiver)
+            {
+                receiver = factory.CreateMessageReceiver(entityName);
+                messageListener = new MessageListener(receiver);
+                listenerThread = new Thread(messageListener.Listen);
+                listenerThread.Start();
+            }
+        }
+
+        public void Close()
+        {
+            messageListener.RequestStop();
+            listenerThread.Join();
+            factory.Close();
+        }
+
+        private void SendMessage()
+        {
+            BrokeredMessage message = 
+                new BrokeredMessage("Test AMQP message from .NET");
+            sender.Send(message);
+            Console.WriteLine("Sent message with MessageID = " + message.MessageId);
+        }   
+    }
+
+    public class MessageListener
+    {
+        private MessageReceiver messageReceiver;
+        public MessageListener(MessageReceiver receiver)
+        {
+            messageReceiver = receiver;
+        }
+
+        public void Listen()
+        {
+            while (!_shouldStop)
+            {
+                try
+                {
+                    BrokeredMessage message = 
+                        messageReceiver.Receive(new TimeSpan(0, 0, 10));
+                    if (message != null)
+                    {
+                        Console.WriteLine("Received message with MessageID = " + message.MessageId);
+                        message.Complete();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Caught exception: " + e.Message);
+                    break;
+                }
+            }
+        }
+
+        public void RequestStop()
+        {
+            _shouldStop = true;
+        }
+
+        private volatile bool _shouldStop;
+    }
+}</pre>
+<h3>运行应用程序</h3>
+<p>运行应用程序将产生以下形式的输出：</p>
+<pre class="prettyprint">&gt; SimpleSenderReceiver.exe
+
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+
+Sent message with MessageID = 3f900a8971ec46febb01c3c27e8ebc3a
+Received message with MessageID = 3f900a8971ec46febb01c3c27e8ebc3a
+
+Sent message with MessageID = 6a402d2670d34141afed765381d67442
+Received message with MessageID = 6a402d2670d34141afed765381d67442
+
+Sent message with MessageID = e6333a37ba944612886d630dab78b62d
+Received message with MessageID = e6333a37ba944612886d630dab78b62d
+exit</pre>
+<h2><span class="short-header">跨平台消息传递</span>在 JMS 和 .NET 之间实现跨平台消息传递</h2>
+<p>本指南已演示如何使用 .NET 将消息发送到 Service Bus 以及如何使用 .NET 接收这些消息。但是，AMQP 1.0 的关键优势之一是它支持通过以不同语言编写的组件生成应用程序，从而能够可靠和完全无损地交换消息。</p>
+<p>使用上面的 .NET 应用程序示例，以及从随附的<a href="http://aka.ms/ll1fm3">如何将 Java 消息服务 (JMS) API 用于 Service Bus 和 AMQP 1.0</a> 指南中选取的类似 Java 应用程序，可以在 .NET 和 Java 之间交换消息。</p>
+<p>有关使用 Service Bus 和 AMQP 1.0 进行跨平台消息传递的详情的更多信息，请参见“Service Bus AMQP  开发人员指南”。</p>
+<h3>JMS 到 .NET</h3>
+<p>演示 JMS 到 .NET 消息传递：</p>
+<ul>
+<li>启动 .NET 示例应用程序而不使用任何命令行参数。</li>
+<li>使用“sendonly”命令行参数启动 Java 示例应用程序。在此模式下，应用程序不会从队列接收消息，而只会发送消息。</li>
+<li>在 Java 应用程序控制台中按 <strong>Enter</strong> 几次，这将导致消息发送。</li>
+<li>这些消息由 .NET 应用程序接收。</li>
+</ul>
+<h4>从 JMS 应用程序输出</h4>
+<pre class="prettyprint">&gt; java SimpleSenderReceiver sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with JMSMessageID = ID:4364096528752411591
+Sent message with JMSMessageID = ID:459252991689389983
+Sent message with JMSMessageID = ID:1565011046230456854
+exit</pre>
+<h4>从 .NET 应用程序输出</h4>
+<pre class="prettyprint">&gt; SimpleSenderReceiver.exe  
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with MessageID = 4364096528752411591
+Received message with MessageID = 459252991689389983
+Received message with MessageID = 1565011046230456854
+exit</pre>
+<h3>.NET 到 JMS</h3>
+<p>演示 NET 到 JMS 消息传递：</p>
+<ul>
+<li>使用“sendonly”命令行参数启动 .NET 应用程序示例。在此模式下，应用程序不会从队列接收消息，而只会发送消息。</li>
+<li>启动 Java 应用程序示例而不使用任何命令行参数。</li>
+<li>在 .NET 应用程序控制台中按 <strong>Enter</strong> 几次，这将导致消息发送。</li>
+<li>这些消息由 Java 应用程序接收。</li>
+</ul>
+<h4>从 .NET 应用程序输出</h4>
+<pre class="prettyprint">&gt; SimpleSenderReceiver.exe sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+exit</pre>
+<h4>从 JMS 应用程序输出</h4>
+<pre class="prettyprint">&gt; java SimpleSenderReceiver 
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+exit</pre>
+<h2><span class="short-header">不</span>受支持的功能和限制</h2>
+<p>.NET Service Bus API 的一些功能当前不受 Service Bus 中的  AMQP 1.0 的支持，具体功能如下：</p>
+<ul>
+<li>事务</li>
+<li>按消息序列号接收，即 MessageReceiver.Receive(long sequenceNumber)。</li>
+<li>会话状态，即 MessageSession.GetState()/SetState()</li>
+<li>在订阅规则筛选器 (SqlFilter.Parameters) 和订阅规则操作 (SqlRuleAction.Parameters) 中使用参数</li>
+<li>仅在使用 CorrelationId 时支持 CorrelationFilter</li>
+<li>基于批处理的 API</li>
+<li>向外扩展接收</li>
+<li>消息自动转发</li>
+<li>消息锁定续订</li>
+<li>一些微小的行为差异</li>
+</ul>
+<p>有关更多信息，请参见“Service Bus AMQP  开发人员指南”。</p>
+<h2><span class="short-header">摘要</span></h2>
+<p>本操作方法指南演示了如何使用 AMQP 1.0 和 Service Bus .NET API 通过 .NET 访问 Service Bus 中转消息传递功能（队列和发布/订阅主题）。</p>
+<p>也可以通过其他语言（包括 Java、C、Python 和 PHP）使用 Service Bus AMQP 1.0 支持。使用这些不同语言构建的组件可以使用 Service Bus 中的 AMQP 1.0 可靠且完全无损地交换消息。Service Bus AMQP 1.0  开发人员指南中提供了更多信息。</p>
+<h2><span class="short-header"> </span></h2>
+<h2><span class="short-header">更多信息</span></h2>
+<ul>
+<li><a href="http://aka.ms/pgr3dp">Windows Azure Service Bus 中的 AMQP 1.0 支持</a></li>
+<li><a href="http://aka.ms/ll1fm3">如何将 Java 消息服务 (JMS) API 用于 Service Bus 和 AMQP 1.0</a></li>
+<li><a href="http://aka.ms/tnwtu4">Service Bus AMQP 版开发人员指南（包含在 ServiceBus.Preview NuGet 程序包中）</a></li>
+<li><a href="/zh-cn/develop/net/how-to-guides/service-bus-queues/">如何使用 Service Bus 队列</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>service bus amqp</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>service bus amqp</linkid><urlDisplayName>service bus amqp</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

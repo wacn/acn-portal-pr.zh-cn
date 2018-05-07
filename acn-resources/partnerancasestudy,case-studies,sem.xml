@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    <p><b>* 此案例基于在全球其他地区由微软运营的 Microsoft Azure 云平台实施，仅供由世纪互联运营的 Microsoft Azure 客户参考。</b></p>
+                    <h2>关于思亿欧</h2>
+					<p>杭州思亿欧网络科技股份有限公司成立于 2003 年，致力于为中国各类型企业提供互联网技术应用产品和服务。公司现共有员工 1000 余名，在全国各个重点城市设有 100 余家分公司和核心代理商。公司于 2006 年成立了面向国内外主流搜索引擎的整站优化事业部，于 2009 年推出了网络营销综合解决方案，2010 年推出了互联网营销“网络全案”服务，2011 年独创了搜索流量计费服务模式，2013 年底成功研发了针对外贸企业的网络营销产品外贸快车，并于 2014 年初推向市场，2015 年建成全国渠道体系。2015 年 8 月，杭州思亿欧网络科技股份有限公司旗下子公司大显科技隆重推出面向国内中小内贸企业网络营销综合解决方案产品亿企宝。</p>
+					
+                    <p>近 14 年的从业经验，思亿欧建立了完备的技术体系，服务了千余家品牌客户，以及近 10 万家中小企业，积累了雄厚的技术实力。如今，公司拥有企业级互联网技术应用产品线：外贸快车、整站优化、网络全案、亿企宝。</p>
+                </div>
+                <div class="section-component">
+					<h2>业务需求与挑战</h2>
+					<p>思亿欧有企业用户 16000 余家，其中外贸快车用户 9000 余家，外贸快车是基于大数据和云计算的智能网络营销系统平台。独创五大功能系统，帮助外贸企业智能创建多语种营销型网站和最先进的 VR 展示网站，通过采购商数据挖掘，以及 SEO、SNS 等多渠道网络营销，实现全球推广和新兴市场开发。</p>
+					
+					<p>思亿欧研发外贸快车这一产品主要目标客户群体是国内的一些外贸企业，利用该产品计划为这些企业提供平台做出口贸易，并为外贸企业或对外工厂做网站，将其产品放在网站上，之后通过思亿欧的各种渠道和线上营销手段，将产品推广出去。出海外贸企业对 IT 基础架构最基本的要求就是稳定：包括服务器性能稳定、海外网络状况稳定。当时公司IT系统有 200+ 虚拟主机/VPS 分布在多个机房，在同一机房的服务器受到攻击时，思亿欧的服务器也会受到影响。随着公司的业务发展，IT 系统部署非常费时费力，维护不便，故障难处理，扩展不灵活；技术方面，高可用、负载均衡、异地备份、海外 CDN 等技术都是公司无法提供的。基于多方面的需求，思亿欧决定将 IT 系统上云部署。</p>
+					
+                </div>
+                <div class="section-component">
+					<h2>为什么选择 Azure</h2>
+					<p>在选择公有云平台的过程中，思亿欧对比考察了多家海内外知名云服务商，由于公司部分业务是是面向海外的企业，所以首先考虑外资的云服务商，其次由于思亿欧大部分程序是用 C#.NET 开发，迁移到云端尽量最大化的减少额外工作量。经过 2 家云服务商的对比，微软的品牌值得信赖、海外网络通信质量好、服务器性能稳定、升降配置容易、维护压力小、同时 Azure 也能完全满足全球地理位置上的广度。同时我们微软产品用得比较多，如 SQL Server，Windows Server， 选择微软云服务可使产品之间更容易协调匹配。Azure 在服务和组件完美的同时，计算价格方式也很透明，根据用量的计费方式非常科学合理，最终选择使用海外 Azure。</p>   
+				</div> 
+                <div class="section-component">
+                    <h2>Azure 解决方案</h2>
+                    <p>2014 年起，思亿欧开始在外贸快车、亿企宝这两款产品中搭载 Azure 的组件和服务。依靠 Azure 的组件和服务，外贸快车上线时，仅仅花了数十分钟就完成了服务器部署。在 Azure 上存储的外贸企业网站数据包括：产品数据，产品图片，规格参数描述，企业新闻，搜索引擎排名数据，用户访问行为数据，采购商询盘数据等。目前使用的 Azure 服务包括： VM、 Load Balance、 SQL Server、 Redis、 CDN 等。目前最重要的两部分是 Blob 和 SQL Server Azure，思亿欧用 Blob 来存储图片及大文件，仅需添加 Storage account 即可方便部署，解决了外贸快车大容量的存储难题，每个 Blob 文件的唯一 http 地址，确保了安全方便的访问。思亿欧使用最频繁的服务是 SQL Server Azure，目前有两个 P6 数据库，8 个 P2 数据库，数 10 个 P1 级别的数据库，购买数据库后就有相应的域名可以直接访问。</p>
+                    <p>在数据安全方面，选择 Azure 云存储的解决方案来确保数据库的安全。Azure 能恢复 35 天内的任意还原点，对程序员误操作提供了非常高的保障。基于此思亿欧的常规数据仅允许 Azure 访问；另外，Azure 的透明数据加密，动态数据掩码，威胁检测和审核，也极大的提高了数据的安全性。</p>
+                </div>
+                <div class="section-component">
+                    <h2>成效与收益</h2>
+                    <p>Azure 的使用，满足了思亿欧预期的目标，主要体现在以下几个方面。</p>
+                    <p>首先，Azure 的使用，让客户企业更加放心思亿欧，Azure 的弹性配置能确保 99.99% 的在线率及连通率，能确保客户企业网站及后台功都能被流畅地访问和使用。</p>
+                    <p>其次，Azure 的便捷性节省了在时间和人力上的成本，2014 年，如果选择传统方式采购硬件，装配服务器到上架、环境部署、性能测试，整个流程耗时很长，但是公司使用 Azure 上线外贸快车，从购买 VM 及 Sql server 到上线，仅仅花了 2 小时，非常便捷，后台的很多问题和需求可以直接用网页版就可以处理。使用了 Azure 之后，无需专门的技术人员，就实现了灾备，异地复制和 Redis 集群的功能。这也奠定了思亿欧选择长期使用 Azure 的决心。</p>
+                    <p>第三，关键时刻 Azure 的表现一直让思亿欧很满意，外贸快车在 2016 年广交会期间，系统承受的访问量是平时的 15~20 倍，Azure 后台升降配置非常访问，轻点鼠标就将 SQL SERVER 从 P2 升级至 P6，确保高访问量时用户仍可流畅使用。组件技术高效能的同时，Azure 团队提供的后期服务同样有保障。思亿欧在实施解决方案时，遇到终结点数量限制，提交申请后，Azure 服务团队及时响应为思亿欧增加了终结点配额。</p>
+                    <p>目前思亿欧通过海外 Azure 让国内企业放心地走出去，未来随着思亿欧的业务发展也将继续选择国内 Azure 把海外企业热情地迎进来。思亿欧期待 2018 年能够承载增加到 10 万用户并发使用，并且计划将更多的服务移到 Azure 上。</p>
+                </div>              
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_sql.png"><a target="_blank" href="/home/features/sql-database/" id="case-study_sino_sql-database">SQL 数据库</a></li>
+                            <li><img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_cdn.png"><a target="_blank" href="/home/features/cdn/" id="case-study_laihua_cdn">CDN</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_laihua_storage">存储</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_redis.png"><a target="_blank" href="/home/features/redis-cache/" id="case-study_gump-come_redis-cache">Redis 缓存</a></li>
+                        </ul>
+                           							
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>思亿欧案例 | Azure</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription><![CDATA[思亿欧通过海外 Azure 的 Blob 存储和 SQL Server 让国内企业放心地走向海外。]]></metaDescription>
+    <linkid>case-studies-sem</linkid>
+    <urlDisplayName>思亿欧案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-sem-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_sem" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">思亿欧</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.sem.com.cn/" id="case-study-sem" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/sem80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>思亿欧</h1>
+                            <p>思亿欧通过海外 Azure 的 Blob 存储和 SQL Server 让国内企业放心地走向海外。 </p>
+                        </div>
+                        <p class="casestudy-info">Azure 的便捷性大幅节省了我们时间和人力成本，通过使用 Azure，客户企业的网站及后台功都能被流畅地访问和使用，让客户企业对思亿欧更加放心。目前思亿欧通过海外 Azure 让国内企业放心地走出去，未来随着思亿欧的业务发展也将继续选择国内 Azure 把海外企业热情地迎进来。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">何旭明，杭州思亿欧网络科技股份有限公司董事长 </span>
+                        <a href="#" class="video-play-button" id="case-study-video-player"></a>
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_sem.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19131" parentID="19130" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:45:24" updateDate="2014-08-18T11:21:45" nodeName="Blob Service" urlName="blob-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19130,19131" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何从 Python 使用 Blob 存储服务</h1>
+<p>本指南将演示如何使用 Windows Azure Blob 存储服务执行常见任务。相关示例是使用 Python API 编写的。涉及的任务包括<strong>上载</strong>、<strong>列出</strong>、<strong>下载</strong>和<strong>删除</strong> Blob。有关 Blob 的详细信息，请参阅<a href="#next-steps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<p><a href="#what-is">什么是 Blob 存储？</a> <br /><a href="#concepts">概念</a> <br /><a href="#create-account">创建 Windows Azure 存储帐户</a> <br /><a href="#create-container">如何：创建容器</a> <br /><a href="#upload-blob">如何：将 Blob 上载到容器</a> <br /><a href="#list-blob">如何：列出容器中的 Blob</a> <br /><a href="#download-blobs">如何：下载 Blob</a> <br /><a href="#delete-blobs">如何：删除 Blob</a> <br /><a href="#large-blobs">如何：上载和下载大型 Blob</a> <br /><a href="#next-steps">后续步骤</a></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="howto-blob-storage" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a name="create-account"></a>创建 Windows Azure 存储帐户</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a name="create-container"></a>如何：创建容器</h2>
+<p><strong>注意：</strong>如果您需要安装 Python 或客户端库，请参阅 <a href="/zh-cn/develop/python/common-tasks/install-python">Python 安装指南</a>。</p>
+<p>通过 <strong>BlobService</strong> 对象，可以使用容器和 Blob。以下代码创建 <strong>BlobService</strong> 对象。将以下代码添加到您希望在其中以编程方式访问 Windows Azure 存储的任何 Python 文件的顶部附近：</p>
+<pre class="prettyprint">from azure.storage import *</pre>
+<p>以下代码使用存储帐户名称和帐户密钥创建 <strong>BlobService</strong> 对象。使用实际帐户和密钥替换“myaccount”和“mykey”。</p>
+<pre class="prettyprint">blob_service = BlobService(account_name='myaccount', account_key='mykey')</pre>
+<p>所有存储 Blob 都驻留在一个容器中。如果该容器不存在，可以使用 <strong>BlobService</strong> 对象来创建它：</p>
+<pre class="prettyprint">blob_service.create_container('mycontainer')</pre>
+<p>默认情况下，新容器是专用容器，因此您必须指定存储访问密钥（已在上面完成此操作）才能从该容器下载 Blob。如果您要让容器中的文件可供所有人使用，则可以使用以下代码创建容器并传递公共访问级别：</p>
+<pre class="prettyprint">blob_service.create_container('mycontainer', x_ms_blob_public_access='container')</pre>
+<p>或者，也可以在创建容器后使用以下代码修改该容器：</p>
+<pre class="prettyprint">blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')</pre>
+<p>在此更改后，Internet 上的任何人都可以查看公共容器中的 Blob，但只有您可以修改或删除它们。</p>
+<h2><a name="upload-blob"></a>如何：将 Blob 上载到容器</h2>
+<p>若要将文件上载到 Blob，请使用 <strong>put_blob</strong> 方法来创建该 Blob，以便将文件流用作 Blob 的内容。首先创建名为 <strong>task1.txt</strong> 的文件（任意内容即可），然后将它存储在您的 Python 文件所在的目录中。</p>
+<pre class="prettyprint">myblob = open(r'task1.txt', 'r').read()
+blob_service.put_blob('mycontainer', 'myblob', myblob, x_ms_blob_type='BlockBlob')</pre>
+<h2><a name="list-blob"></a>如何：列出容器中的 Blob</h2>
+<p>若要列出容器中的 Blob，请使用带 <strong>for</strong> 循环的 <strong>list_blobs</strong> 方法来显示容器中每个 Blob 的名称。以下代码将容器中每个 Blob 的<strong>名称</strong>和 <strong>url</strong> 输出到控制台。</p>
+<pre class="prettyprint">blobs = blob_service.list_blobs('mycontainer')
+for blob in blobs:
+    print(blob.name)
+    print(blob.url)</pre>
+<h2><a name="download-blobs"></a>如何：下载 Blob</h2>
+<p>若要下载 Blob，请使用 <strong>get_blob</strong> 方法将 Blob 内容传输到稍后可以保存到本地文件的流对象。</p>
+<pre class="prettyprint">blob = blob_service.get_blob('mycontainer', 'myblob')
+with open(r'out-task1.txt', 'w') as f:
+    f.write(blob)</pre>
+<h2><a name="delete-blobs"></a>如何：删除 Blob</h2>
+<p>最后，若要删除 Blob，请调用 <strong>delete_blob</strong>。</p>
+<pre class="prettyprint">blob_service.delete_blob('mycontainer', 'myblob')</pre>
+<h2><a name="large-blobs"></a>如何：上载和下载大型 Blob</h2>
+<p>块 Blob 的最大大小为 200 GB。对于小于 64 MB 的 Blob，可以通过调用一次 <strong>put_blob</strong> 或 <strong>get_blob</strong> 来上载或下载 Blob，如前所述。对于大于 64 MB 的 Blob，需要以 4 MB 或更小的块的形式上载或下载 Blob。</p>
+<p>以下代码演示用于上载或下载任意大小的块 Blob 的函数示例。</p>
+<pre class="prettyprint">import base64
+
+chunk_size = 4 * 1024 * 1024
+
+def upload(blob_service, container_name, blob_name, file_path):
+    blob_service.create_container(container_name, None, None, False)
+    blob_service.put_blob(container_name, blob_name, '', 'BlockBlob')
+
+    block_ids = []
+    index = 0
+    with open(file_path, 'rb') as f:
+        while True:
+            data = f.read(chunk_size)
+            if data:
+                length = len(data)
+                block_id = base64.b64encode(str(index))
+                blob_service.put_block(container_name, blob_name, data, block_id)
+                block_ids.append(block_id)
+                index += 1
+            else:
+                break
+
+    blob_service.put_block_list(container_name, blob_name, block_ids)
+
+def download(blob_service, container_name, blob_name, file_path):
+    props = blob_service.get_blob_properties(container_name, blob_name)
+    blob_size = int(props['content-length'])
+
+    index = 0
+    with open(file_path, 'wb') as f:
+        while index &lt; blob_size:
+            chunk_range = 'bytes={}-{}'.format(index, index + chunk_size - 1)
+            data = blob_service.get_blob(container_name, blob_name, x_ms_range=chunk_range)
+            length = len(data)
+            index += length
+            if length &gt; 0:
+                f.write(data)
+                if length &lt; chunk_size:
+                    break
+            else:
+                break</pre>
+<p>如果您需要大于 200 GB 的 Blob，则可以使用页 Blob 代替块 Blob。页 Blob 的最大大小为 1 TB，其中的页与 512 字节页边界对齐。使用 <strong>put_blob</strong> 可创建页 Blob，使用 <strong>put_page</strong> 可向其中写入内容，而使用 <strong>get_blob</strong> 可从中读取内容。</p>
+<h2><a name="next-steps"></a>后续步骤</h2>
+<p>现在，您已了解有关 Blob 存储的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>查看 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>访问 <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure 存储团队博客</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>blob service</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>blob service</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>blob service</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

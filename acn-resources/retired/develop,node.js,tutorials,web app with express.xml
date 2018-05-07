@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19018" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="7" createDate="2013-07-11T11:17:22" updateDate="2014-08-18T11:17:33" nodeName="Web App with Express" urlName="web-app-with-express" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19018" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>使用 Express 在 Windows Azure 云服务中构建 Node.js Web 应用程序</h1>
+<p>Node.js 包含核心运行时中最小的一个功能集。开发人员在开发 Node.js 应用程序时经常会使用第三方模块来提供额外功能。在本教程中，您将使用 <a href="http://expressjs.com/">Express</a> 模块新建一个应用程序，该模块可提供用于创建 Node.js Web 应用程序的 MVC 框架。</p>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node36.png" alt="Web 浏览器中显示 Welcome to Express in Windows Azure"/></p>
+<h2>创建云服务项目</h2>
+<p>执行下列步骤可新建一个名为“expressapp”的云服务项目：</p>
+<ol>
+<li>
+<p>从“开始”菜单或“开始”屏幕，搜索“Windows Azure PowerShell”。最后，右键单击“Windows Azure PowerShell”并选择“以管理员身份运行”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/azure-powershell-start.png" alt="Windows Azure PowerShell 图标"/></p>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/node" chunkname="install-dev-tools" macroAlias="AzureChunkDisplayer" />
+</li>
+<li>
+<p>将目录更改为 <strong>c:\node</strong> 目录，然后输入下列命令以新建一个名为 <strong>expressapp</strong> 的解决方案和名为 <strong>WebRole1</strong> 的 Web 角色：</p>
+<pre class="prettyprint">PS C:\node&gt; New-AzureServiceProject expressapp
+PS C:\Node&gt; Add-AzureNodeWebRole</pre>
+</li>
+</ol>
+<h2>安装 Express</h2>
+<ol>
+<li>
+<p>通过发出以下命令安装 Express module：</p>
+<pre class="prettyprint">PS C:\node\expressapp&gt; npm install express -g</pre>
+<p>npm 命令的输出应与以下结果类似。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/express-g.png" alt="Windows PowerShell 显示 npm install express 命令的输出。"/></p>
+</li>
+<li>
+<p>将目录更改为 <strong>WebRole1</strong> 目录，然后使用 express 命令生成一个新的应用程序：</p>
+<pre class="prettyprint">PS C:\node\expressapp\WebRole1&gt; express</pre>
+<p>系统将提示您是否覆盖之前创建的应用程序。输入 <strong>y</strong> 或 <strong>yes</strong> 以继续操作。Express 将生成用于构建您的应用程序的 app.js 文件和一个文件夹结构。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node23.png" alt="express 命令的输出"/></p>
+</li>
+<li>
+<p>删除 <strong>server.js</strong> 文件，然后将生成的 <strong>app.js</strong> 文件重命名为 <strong>server.js</strong>。</p>
+<pre class="prettyprint">PS C:\node\expressapp\WebRole1&gt; del server.js
+PS C:\node\expressapp\WebRole1&gt; ren app.js server.js</pre>
+</li>
+<li>
+<p>若要安装在 package.json 文件中定义的其他依赖项，请输入以下命令：</p>
+<pre class="prettyprint">PS C:\node\expressapp\WebRole1&gt; npm install</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node26.png" alt="npm install 命令的输出"/></p>
+</li>
+<li>
+<p>使用以下命令以在 Windows Azure 仿真程序中运行应用程序：</p>
+<pre class="prettyprint">PS C:\node\expressapp\WebRole1&gt; Start-AzureEmulator -launch</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node28.png" alt="包含 Welcome to Express 的网页。"/></p>
+</li>
+</ol>
+<h2>修改视图</h2>
+<p>现在，您将修改视图以显示消息“Welcome to Express in Windows Azure”。</p>
+<ol>
+<li>
+<p>请输入以下命令来打开 index.jade 文件：</p>
+<pre class="prettyprint">PS C:\node\expressapp\WebRole1&gt; notepad views/index.jade</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/getting-started-19.png" alt="index.jade 文件的内容。"/></p>
+<p>Jade 是 Express 应用程序使用的默认视图引擎。有关 Jade 视图引擎的详细信息，请参阅 <a href="http://jade-lang.com">http://jade-lang.com</a>。</p>
+</li>
+<li>
+<p>通过追加 <strong>in Windows Azure</strong> 来修改最后一行文本。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node31.png" alt="index.jade 文件，最后一行的内容为：p Welcome to #{title} in Windows Azure"/></p>
+</li>
+<li>
+<p>保存文件并退出记事本。</p>
+</li>
+<li>
+<p>刷新浏览器，您将看到所做的更改。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node32.png" alt="浏览器窗口，其中的页面包含 Welcome to Express in Windows Azure"/></p>
+</li>
+</ol>
+<p>测试应用程序后，请使用 <strong>Stop-AzureEmulator</strong> cmdlet 停止仿真程序。</p>
+<h2>将应用程序重新发布到 Windows Azure</h2>
+<p>在 Windows Azure PowerShell 窗口中，可使用 <strong>Publish-AzureServiceProject</strong> cmdlet 将应用程序部署到云服务</p>
+<pre class="prettyprint">PS C:\node\expressapp\WebRole1&gt; Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch</pre>
+<p>在部署操作完成后，浏览器将打开并显示该网页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node36.png" alt="Web 浏览器中显示 Express 页。URL 指示它现在托管在 Windows Azure 上。"/></p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>使用 Express 构建 Web 应用程序 (Node.js) - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-nodejs-basic-web-app-with-express</linkid><metaKeywords>Azure Node.js Hello World 教程, Azure Node.js Hello World, Azure Node.js 入门教程, Azure Node.js 教程, Azure Node.js Express 教程</metaKeywords><metaDescription><![CDATA[本教程以云服务教程为基础，演示如何使用 Express 模块。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>使用 Express 构建 Web 应用程序</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

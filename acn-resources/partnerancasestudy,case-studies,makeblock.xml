@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    <p><b>* 此案例基于在全球其他地区由微软运营的 Microsoft Azure 云平台实施，仅供由世纪互联运营的 Microsoft Azure 客户参考。</b></p>
+                    <h2>公司概况</h2>
+
+					<p>深圳市创客工场科技有限公司（Makeblock Co., Ltd）成立于 2013 年，其主品牌 Makeblock 目前已成为全球 STEAM 教育解决方案领导者。神经元主要面向学校、培训机构和家庭的 STEAM 教育和娱乐场景提供业界最全的硬件、软件产品和运营顶尖的机器人赛事，以一体化的教育解决方案和创新的模式，推动科技和教育的深度结合。目前公司有 450 名员工，其中近一半为研发人员。产品进入全球 140+ 个国家，拥有 1000+ 渠道合作伙伴，用户人数超过 450 万人，并仍在持续增长。同时，Makeblock 的产品进入全球 2 万多所学校，被广泛应用于课堂教学及家庭教育，引领孩子的 STEAM 教育启蒙。</p>
+
+                    <p>Makeblock 一直致力于帮助人们在物理世界中创造，培养创新的土壤并为更好的教育尽一份力。通过开发硬软件产品，配合丰富的教程资源以及运营赛事活动，Makeblock 极大地降低了创造的门槛，让每个人都能实现奇思妙想、享受创造的乐趣。2018 年，Makeblock 计划将青少年机器人赛事走向海外，打造全球顶尖的青少年机器人赛事。同时，Makeblock 也会持续推进 STEAM 教育的全球化。除了继续研发独特创新的机器人产品，还将普及融入认知服务和物联网等最新技术的 STEAM 教育编程软件 mBlock 5，让孩子在好玩的游戏和应用中，更生动地掌握认知服务技术背后的逻辑和原理。Makeblock 始终保持为孩子培养创新的土壤，为更好的教育尽一份力的初心。</p>
+                </div>
+                <div class="section-component">
+					<h2>业务需求与挑战</h2>
+
+                    <p>Makeblock 成立早期，主要服务的是公司官网和电商平台，支持电商平台在重要节假日做促销活动。随着公司的快速发展，对开始有更多需求，包括：统一的账户系统、高性能和高可靠的服务，评估并引入各类在线协作工具、敏捷开发流程支持、简洁高效的服务管理工具、以及各类第三方服务，如：微软认知服务，IFTTT 服务等。另外， Makeblock 在 2018 年计划走向全球举办 MakeX 青少年机器人赛事，背后需要具备强大的研发、IT 系统做支撑，以确保系统性能、运行稳定、网络互通、以及比赛系统的易用性等。Makeblock 暂无自建数据中心的计划，因此需要找到适合业务的云服务系统，以够最大程度上支持未来公司的各个产品线，通过云服务系统将各个产品线连接起来。</p>
+
+                    <p>对于云服务系统的选择标准，首先，需要满足高兼容性的要求，Makeblock 产品开发过程中用到多种语言，包括：NodeJS、 PHP、Python、Golang 等。另外，需要满足开源系统，Makeblock 实际开发中服务端开发全部给予 Linux 系统。因此，在评估和选择云服务时，Makeblock 设定的关键业务需求包括：</p>
+                    <ul>
+                        <li>云服务兼容多种开发语言，满足开源系统环境</li>
+                        <li>业务分布在全球，需要有不同区域数据中心和虚拟机节点，保证访问速度</li>
+                        <li>对 Docker 优良的支持</li>
+                        <li>稳定的云数据库</li>
+                    </ul>
+					
+                </div>
+                <div class="section-component">
+					<h2>为什么选择 Azure?</h2>
+					<p>结合 Makeblock 实际业务需求最终选择 Azure 服务。</p>
+                    <p>一方面 Azure 在全球多个区域都有数据中心，与 Makeblock 业务完全相符；</p>
+                    <p>另一方面 Azure 在很多细分领域表现专业，不仅能够提供一套 API，还能提供完整的解决方案，助力公司业务发展。比如物联网服务和认知服务，公司的产品是参考 Azure 相关 API 和实例，产生了更多的灵感；</p>
+                    <p>第三，Makeblock 曾与微软开展过多次机器人方面的合作，期间使用了微软的认知服务、物联网服务；在神经元众筹中，微软认知服务是重要卖点，这给 Makeblock 与微软的合作带来更多可能。</p>
+                    
+				</div>      
+
+                <div class="section-component">
+                    <h2>解决方案</h2>
+
+                    <p><strong>高可用性 PaaS 层服务：</strong></p>
+                    <p>Makeblock 主要采用的是微服务架构来部署服务器，通过对外部提供统一的 API，实现移动端和桌面客户端接入。下图是 Makeblock 的基本系统架构，采用多个服务集群部署的方式，保证在一定程度上扩容能力和容错能力；数据库使用 Redis + Mysql + MongoDB 混合模式，Redis 用作热数据缓存，MySQL 用作关键数据存储，MongoDB 用于灵活多变的业务数据存储。公司在产品的开发阶段通过使用 Azure 的虚拟机服务和 Cosmos DB 数据存储服务，使得开发过程中能访问公网，实现前后端分离开发。使得项目的发布环境在开发测试生产三个过程中保持统一。</p>
+                    <br/>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/makeblock-01.jpg" alt=""/>
+                    <br/>
+                    <p style="text-align:center;">Makeblock 的 IT 业务架构系统</p>
+
+                    <p><strong>认知服务极大扩展了 Makeblock 神经元的功能</strong></p>
+                    <p>作为 Makeblock 的重磅产品，Makeblock 神经元现阶段包含 30 余种不同功能的模块：灯光、声音、传感器、马达、可编程电路等，结合连线式编程，让创意更好地被实现。通过 Azure 虚拟机搭建的 IoT 服务，实现了神经元的远程操控；图形化编程方式，只需将模块按序连接，输入自定义参数，即可采集数据、控制动作、输出信息等，完成敲击代码实现的功能。 完成创意项目的制作后，用户可以本地生成程序，上传云端，可在任意时间、任意地点、任意联网设备上访问云端来控制家中联网的神经元创意项目。 Azure 的 Cosmos DB 满足了神经元对大数据存储的需求，在节约了自己搭建数据中心的成本与精力的同时，实现了数据的高可用性。认知服务通过集成到客户端 APP，使得客户端具备认知服务能力，极大扩展了神经元的功能。为保障认知服务 key 的安全性，将 key 保存在服务端，通过自己的服务器转发认知服务的请求实现 key 保密。</p>
+
+                     <br/>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/makeblock-02.jpg" alt=""/>
+                    <br/>
+
+                    <p style="text-align:center;">Makeblock 使用 Azure 的系统架构图示意图</p>
+                </div>
+
+                <div class="section-component">
+                    <h2>客户收益</h2>
+
+                    <p>目前 Makeblock 搭载 Azure 发展海外业务已经进入了 140+ 国家，未来公司业务的规划会在教育领域投入更多，集中力量打造适合教育领域的物联网平台，为用户提供更多优质的服务，如课堂管理系统，教育站，论坛、社区、电商等等。</p>
+                    <br/>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/makeblock-03.jpg" alt=""/>
+                    <br/>
+
+                    <p><strong>1.   AI 与认知服务的完美结合</strong></p>
+                    <p>神经元的每一个电子积木都拥有独立的控制器，这能让它们变得更智能，每一个感应器可以自己处理数据，自己决定、反馈给主控。其依靠 Azure 提供的人工智能、认知服务和大数据存储，使神经元的可扩展度和想象力比此前产品更好。微软的认知服务拓展了神经元的能力，并助力其增加品牌价值在众筹期间上线的众筹目标金额。</p>
+
+                    <p><strong>2.   有效降低初创企业的经济成本</strong></p>
+                    <p>Makeblock 为学校、培训机构和家庭提供一站式的机器人创建、搭建解决方案。Makeblock 神经元做为一套用于 STEM 教育的可编程电子模块组装套件，用户可以在完成作品后在本地生成程序并上传至云端，甚至能够通过云端来对神经元创意项目进行远程操作。如果自建数据中心，这些硬件成本、人力的投入肯定是不小的，对于初创企业更希望将钱花在刀刃上。Azure 帮助 Makeblock 极大的节约了运维成本，之前公司 IT 运维需要 5 位工程师，目前在 Azure 的服务下仅需 1 位兼职 IT 工程师即可运维公司所有服务器。并且通过使用 Azure PaaS 层的容器服务，Makeblock 的开发时间由过去 1 周到现在仅需 3 天，效率提升了 40%。</p>
+
+                    <p><strong>3.   拥抱开源，支持更多 Linux 系统</strong></p>
+                    <p>支持开源的 Azure 不但满足了公司产品开发过程中用到多种语言，而且通过 Redis + Mysql + MongoDB 的混合部署模式满足了海外业务的需求，以及基于 Linux 系统的开发环境。海外 Azure 的数据中心覆盖全球 42 个国家和地区，确保服务海外用户时产品依然保障了响应快、服务优的品质。Azure 平台功能强大，强调整体资源，服务稳定，没有出现过断网等异常。提供了 Azure 的客户端 SDK 支持，可以不经过控制台，操作 Azure 里面的资源，从而实现系统自我监控和扩容。</p>
+
+                </div>
+
+
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_makeblock_vm">虚拟机</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_mysql.png"><a target="_blank" href="/home/features/mysql/" id="case-study_makeblock_mysql">MySQL Database on Azure</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_redis.png"><a target="_blank" href="/home/features/redis-cache/" id="case-study_makeblock_redis-cache">Redis 缓存</a></li>
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_cognitive-services.png"><a target="_blank" href="/home/features/cognitive-services/" id="case-study_ieemoo_cognitive">认知服务</a></li>
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_cosmos-db.png"><a target="_blank" href="/home/features/cosmos-db/" id="case-study_makeblock_cognitive">Azure Cosmos DB</a></li>
+                        </ul>
+                           							
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>创客工场案例 | Azure</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription><![CDATA[Azure 的 Cosmos DB 满足神经元数据存储需求，认知服务使客户端其具备认知服务能力。]]></metaDescription>
+    <linkid>case-studies-makeblock</linkid>
+    <urlDisplayName>创客工场案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-makeblock-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_zpmc" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">创客工场</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.makeblock.com/" id="case-study-zpmcwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/makeblock80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>创客工场</h1>
+                            <p>Azure 的 Cosmos DB 满足神经元数据存储需求，认知服务使客户端其具备认知服务能力。</p>
+                        </div>
+                        <p class="casestudy-info">Azure 的 AI 服务拓展了 Makeblock 产品的能力，增加了 Makeblock 的品牌价值。Makeblock 产品和 AI 结合，使得 AI 走进学校和家庭，推进 AI 教育发展。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">王建军，Makeblock 公司创始人 </span>
+                        <!-- <a href="#" class="video-play-button" id="case-study-video-player"></a>  -->
+                    </div>
+                          
+                    <!-- <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_makeblock.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div> -->
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

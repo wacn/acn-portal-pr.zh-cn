@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="19329" parentID="19326" level="3" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="3" createDate="2013-08-27T11:20:07" updateDate="2014-08-18T11:34:25" nodeName="Web" urlName="web" writerName="uRest" creatorName="xunfan" path="-1,11978,19326,19329" isDoc="" isResponsive="1">
+    <bodyText>
+      <![CDATA[
+<script type="text/javascript">
+  $(document).ready(function () {
+        
+        //ul select
+        $(document).on("click", ".sou-tab li a", ulSelectClick);
+        function ulSelectClick(e) {
+            var el = $(this).attr('id');
+            if (el.indexOf("-") >= 0)
+                el = el.split("-")[1];
+            $(".newsection").each(function () {
+                if ($(this).attr('data-value') == el) {
+                    $(".sou-tab a.select").removeClass("select").addClass("unselect");
+                    $(".secshow").removeClass("secshow").addClass("hide");
+                    $("#tab-" + el).removeClass("unselect").addClass("select");
+                    $(this).removeClass("hide").addClass("secshow");
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 0);
+                }
+            });
+
+        }
+    });
+</script>
+<style type="text/css">
+.bannerbox{
+  width: 100%;
+  background-color:#7F4998;
+}
+.banner_ {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Segoe UI', 'San Francisco', Helvetica, Arial, 'Microsoft YaHei', Hiragino sans-serif GB, '黑体';
+  height: 300px;
+  max-width: 1240px;
+  background:#7F4998 url("//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-dev-test.png") no-repeat right 0;
+  text-align: center;
+}
+.banner_ .banner_inner {
+  margin: 0 auto;                                                                                                                         
+  width: 1280px;
+  padding: 0 20px;
+  position: relative;
+  color: #fff;
+}
+.banner_ .banner_inner .title1 {
+  position: absolute;
+  height: 32px;
+  font-size: 32px;
+  line-height: 32px;
+  top: 45px;
+  left: 0px;
+  font-weight: lighter;
+}
+.banner_ .banner_inner .title2 {
+  position: absolute;
+  height: 14px;
+  font-size: 14px;
+  line-height: 14px;
+  top: 96px;
+  left: 0px;
+}
+.banner_ .banner_inner img {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  top: 60px;
+  left: 970px;
+}
+ .hide {
+        display: none;
+    }
+
+    .secshow {
+        display: block;
+    }
+ /*sou 导航*/
+    .sou-tab {
+        padding: 0px;
+        margin: 0px;
+        position: absolute;
+        top: 260px;
+        left: 0;
+    }
+
+        .sou-tab li {
+            float: left;
+            list-style-type: none;
+            margin-right: 1px;
+        }
+
+        .sou-tab a.select {
+            background-color: #fff;
+            color: #636468;
+            cursor: default;
+        }
+
+        .sou-tab a {
+            float: left;
+            display: block;
+            min-width: 180px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            background-color: #dd5900;
+            color: #fff;
+            -webkit-transition: all .1s ease-in-out;
+            transition: all .1s ease-in-out;
+        }
+
+            .sou-tab a.unselect:hover {
+                background-color: #ff8c00;
+            }
+
+
+/*独到之处*/
+    .right-content {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+        width: 100%;
+    }
+     .right-content-content {
+        margin-right: calc(59% - 50vw+9px);
+        height: 100%;
+        background-color: white;
+    }
+    .right-content-top {
+        clear: none;
+        max-width: 100%;
+    }
+     .right-content-summarize {
+      /*  padding-left: 170px;*/
+        position: relative;
+        padding-top: 60px;
+        clear: both;
+        width: 100%;
+    }
+
+/*newsection 内容*/
+    .newsection {
+        width: 100%;
+        max-width: 1250px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .newsection h2 {
+        font-size: 36px;
+        line-height: 42px;
+        margin-bottom: 20px;
+    }
+
+    .section-content {
+        overflow: hidden;
+        clear: both;
+    }
+
+    .border-style {
+        border-bottom: 1px solid #d4d4d4;
+        overflow: hidden;
+        margin-bottom: 60px;
+    }
+    
+      /*左侧*/
+    .left-newsection {
+        float: left;
+        width: 70%;
+    }
+
+    .newsection .sec-distance {
+        margin-right: 5.6%;
+    }
+
+    .right-newsection {
+        float: right;
+    }
+    .right-case-section {
+        width: 266px;
+        float: right;
+    }
+.content_ {
+  font-family: 'Segoe UI', 'San Francisco', Helvetica, Arial, 'Microsoft YaHei', Hiragino sans-serif GB, '黑体';
+  margin: 0 auto;
+  padding: 10px 20px 60px 20px;
+  /*background-color:blue;*/
+  overflow: hidden;
+  width: 1280px;
+  max-width: 1280px;
+  text-align: center;
+}
+.content_ .web_item {
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  padding: 50px 0 0 0;
+  /*background-color:red;*/
+  overflow: hidden;
+}
+.content_ .web_item .left {
+  width: 66.66666%;
+  /*background-color:#d3cbcb;*/
+  float: left;
+}
+.content_ .web_item .left .title1 {
+  font-size: 32px;
+  font-weight: lighter;
+  color: #323a45;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 0 15px 0;
+}
+.content_ .web_item .left .txt1 {
+  font-size: 14px;
+  color: #5e6d81;
+  line-height: 22px;
+  margin: 5px 0 0 0;
+  padding: 0 20px 0 0;
+}
+.content_ .web_item .left .title2 {
+  font-size: 20px;
+  color: #323a45;
+  height: 20px;
+  line-height: 20px;
+  margin: 15px 0 15px 0;
+}
+.content_ .web_item .left a {
+  text-decoration: none;
+}
+.content_ .web_item .left .txt2 {
+  color: #00a3d9;
+  font-size: 14px;
+  height: 14px;
+  line-height: 14px;
+  display: inline;
+  padding-bottom: 1px;
+}
+.content_ .web_item .left .txt2:hover {
+  border-bottom: 1px solid #00a3d9;
+}
+.content_ .web_item .left .title3 {
+  font-size: 20px;
+  color: #323a45;
+  height: 20px;
+  line-height: 20px;
+  margin: 20px 0 15px 0;
+}
+.content_ .web_item .left .txt3 {
+  /*height:24px;*/
+  line-height: 50px;
+}
+.content_ .web_item .left .txt3 .server {
+  float: left;
+  margin: 0 0 0 0;
+  width: 205px;
+}
+.content_ .web_item .left .txt3 .server .icon {
+  float: left;
+  width: 24px;
+  height: 24px;
+}
+.content_ .web_item .left .txt3 .server .name {
+  float: left;
+  color: #00a3d9;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+  margin-left: 6px;
+  display: inline-block;
+}
+.content_ .web_item .left .txt3 .server:hover .name {
+  border-bottom: 1px solid #00a3d9;
+}
+.content_ .web_item .right {
+  width: 33.33333%;
+  overflow: hidden;
+  float: left;
+}
+.content_ .web_item .right .pic {
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.content_ .web_item .right .pic img {
+  margin: 0 auto;
+}
+.zh-cn p{line-height: 24px;}
+    </style>
+    <div class="bannerbox">
+      <div class="banner_">
+          <div class="banner_inner">
+              <div class="title1">开源软件</div>
+              <div class="title2" style="width: 500px; text-align: left; line-height: 24px;">Azure 是个开放的平台 – 支持各类协议、标准、语言、开源软件包、开发工具、服务器操作系统以及客户端设备。微软开放技术与 Azure 的工程师团队以及各大开源社区、标准化机构紧密合作为客户提供“业界最佳”工具和技术进行设计、开发、部署并管理云服务和应用，保障其在技术与培训上的现有投资。</div>
+              <!--<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-dev-test.png" />-->
+              <ul class="sou-tab">
+                  <li><a id="tab-benefits" href="#benefits" class="select">好处</a></li>
+                  <li><a id="tab-scenarios" href="#scenarios" class="unselect">方案</a></li>
+                  <li><a id="tab-started" href="#started" class="unselect">入门</a></li>
+              </ul>
+          </div> 
+      </div>
+    </div>
+    <!--content-->
+        <div class="right-content">
+            <div class="right-content-content">
+                <div class="right-content-top">
+                    <div class="right-content-summarize">
+                        <!--好处-->
+                        <div class="newsection secshow" data-value="benefits">
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="oss-moreTools" class="anchor"></a>开发者拥有更多编程语言、开发工具及平台选择</h2>
+                                    <p>开发者可以使用他们已知并且喜爱的编程语言和工具，如 Node.js、PHP、Java Ruby、Python 以及其他可选的工具、语言和运行时。并且 Azure SDK 也属于开放资源。同时 Azure 也提供微软参与测试和支持的 Linux 发行版本，比如 Ubuntu 14.04 LTS, CentOS 6.6, SLES 12 和 OpenSUSE 13.2。并且，VM Depot 提供了来自全球开源软件社区贡献的 Linux 虚拟机映像。</p>
+                                    <p><a id="solutions_oss_opensource" href="https://docs.azure.cn/virtual-machines/virtual-machines-linux-opensource-links/" target="_blank">了解Azure上的Linux和开源计算</a></p>
+                                </div>
+
+                                <div class="right-case-section">
+                                    <p style="color: #666; font-style: normal;">
+                                        “微软刚刚涉足 IaaS 市场就已表现不俗，而 Ubuntu 的使命是帮助客户在 Azure 上运行适用于 Linux 的工作负荷。” <br />
+                                        <span>Canonical 公司 CEO，Mark Shuttleworth</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="border-style"></div>
+                            <div class="section-content">
+                                <div style="float:left; width:28%;">
+                                    <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/OSS_20150825.png" alt="" style="width:100%;">
+                                </div>
+                                <div class="left-newsection" style="float:right">
+                                    <h2><a id="oss-easyBuild" class="anchor"></a>亦可选择基于开源平台的云端服务</h2>
+                                    <p>Azure 为您提供基于开源平台的云端服务。Azure上的 MySQL 数据库全面兼容 MySQL 协议，支持您熟悉的平台和工具。连接 MySQL 和云，无需维护基础架构，支持弹性扩展和收缩，提供完善监控体验。HDInsight 是完全基于 Apache Hadoop 的云端服务，您可在几分钟内创建 Hadoop 集群，在 Java、.Net 等环境中开发，按需扩展至 PB 级别，处理非结构化和半结构化数据。Azure Redis 缓存目前以预览版提供基于流行的开放源代码 Redis 缓存。使用 Azure Redis 缓存创建的缓存可从 Azure 内的任何应用程序进行访问。</p>
+                                </div>
+                            </div>
+                            <div class="border-style" style="margin-top:10px;"></div>
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="oss-devicveService" class="anchor"></a>享用各类应用和设备上所适用的流行服务</h2>
+                                    <p>
+                                        Azure 已支持越来越多的开源软件包，如 Solr（企业搜索）、CouchDB（数据库服务）、DrupalOrchard CMS、phpBB、Umbraco CMS 等等。这些开源软件包同样可以部署在虚拟机上，从而便于您对其应用配置的完全掌控。
+                                        <a id="sou_oss_soft" style="font-size: 12px;" href="/develop/other/open-source-software/" class="trianglelink grey">了解更多</a>
+                                    </p>
+                                </div>
+                                <div class="right-case-section">
+                                    <img src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/OSS-02.PNG" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <!--方案-->
+                        <div class="newsection hide" data-value="scenarios">
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="oss-VMdepot" class="anchor"></a>使用 VM Depot 降低测试环境成本</h2>
+                                    <p>Azure 和 VM Depot 服务结合使用可将测试环境配置时间大大缩短 ，配合脚本化部署即可实现在平台上向客户实时交付。与此同时，按照团队工作性质创建通用的镜像文件上传到 VM Depot 不仅可以实现构建环境的重复使用，同样也节省了虚拟镜像的存储成本。</p>
+                                </div>
+                                <div class="right-case-section">
+                                    <p style="color: #666; font-style: normal;">
+                                        “在 Azure 平台上使用VM Depot 大幅提升我们硬件（CPU）使用效率至60%，同时又为我们降低测试环境的准备周期至原先的1/3. Azure 与 VM Depot 这一方案组合大大助力了文思海辉拥抱云计算，服务来自世界各地的客户与商业伙伴。” <br />
+                                        <span>Pactera 高级副总裁 欧美事业群 吴凯</span>
+                                    </p>
+                                    <p><a id="oss_grey1" target="_blank" style="font-size: 12px;" href="/partnerancasestudy/case-studies/PacteraWithVMDepot/" class="trianglelink grey">了解更多</a></p>
+                                </div>
+                            </div>
+                            <div class="border-style"></div>
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="oss-linuxVM" class="anchor"></a>使用 Azure 上的 Linux 虚拟机平台开发运营大型 3D 手机网游</h2>
+                                    <p>Azure 为蓝港提供按需的基础结构，从而让蓝港可以根据业务的需求灵活的改变规模并适应新的市场趋势。端到端的解决方案为蓝港在线既有的手机游戏开源平台架构提供了全面的支持，可靠的数据中心环境为玩家提供流畅的在线游戏体验。借助 Azure 的弹性，快速调配游戏所需资源，优化利用效率，降低IT基础设施采购与运维成本，向轻资产重业务企业转变。</p>
+                                </div>
+                                <div class="right-case-section">
+                                    <p style="color: #666; font-style: normal;">
+                                        “「苍穹之剑3D」在游戏中创新性的使用了 Azure 公有云服务。Azure 对开源架构的全面和稳健的支持为游戏中的‘万人同服’等重要环节实现了坚实保障，极大地提升了用户的游戏体验感觉。”  <br />
+                                        <span>蓝港在线创始人、董事长兼CEO 王峰</span>
+                                    </p>
+                                    <p><a id="oss_grey2" target="_blank" style="font-size: 12px;" href="/partnerancasestudy/case-studies/langang/" class="trianglelink grey">了解更多</a></p>
+                                </div>
+                            </div>
+                            <div class="border-style"></div>
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="oss-deviceCloud" class="anchor"></a>基于 Azure 的开源平台助力天智通达实现“云+端”</h2>
+                                    <p>Azure 提供了高可靠性和海量的存储空间，其低廉的存储成本和高可用性，完全满足天智通达的存储需求。Azure 提供的 VM 虚机服务，用户可快速并部署应用，天智通达将 Admin Portal、MCP Portal、ADS Portal、Client Portal 和 VcRead 官方网站全部部署在 Azure 的虚机中，通过 Blob Storage 存储大量 DMM 格式的电子杂志和一些非结构化数据，同时，使用两台虚机构建了 MySQL Cluster，用于存储关系型数据。</p>
+                                    <p>
+                                        在系统的整体迁移中，无论虚机的兼容性和对 CentOS 操作系统的支持，还是在 VM 中部署 Nginx、Nagios、MySQL 等开源软件都没遇到任何障碍，系统迁移后的运行结果显示 Azure 完美兼容 VcRead 平台上的所有开源软件。Azure 对开源软件的完美支持体现了卓越的平台开放性，也为使用开源软件的企业和开源爱好者将应用部署到 Azure 增加了信心。
+                                    </p>
+                                </div>
+                                <div class="right-case-section" >
+                                    <p style="color: #666; font-style: normal;">
+                                        "VcRead 作为移动互联网新兴应用运营平台，将数据部署在云端，是典型的云+端应用场景的实践，微软“移动为先，云为先“的整体战略，非常适用于移动APP的应用场景。作为云端的 Azure 具有卓越的系统稳定性和高可用性，为 VcRead 提供了理想的云端平台。VcRead 的系统使用了大量的开源软件，Azure 给予了完美支持，打消了我们一开始的顾虑。”  <br />
+                                        <span>VcRead 系统研发部总监 王继远</span>
+                                    </p>
+                                    <p><a id="oss_grey3" target="_blank" style="font-size: 12px;" href="/partnerancasestudy/case-studies/VcRead/" class="trianglelink grey">了解更多</a></p>
+                                </div>
+                            </div>
+                            <div class="border-style"></div>
+                            <div class="section-content">
+                                <div class="left-newsection">
+                                    <h2><a id="oss-ITstruction" class="anchor"></a>灵活的Azure平台为企业发展提供可持续的互操作 IT 架构</h2>
+                                    <p>Azure 是一个开放的云计算平台，并非是 Microsoft 技术开发者所专享。Azure 对于开源技术提供了完美的支持。本地应用迁移到 Azure 平台，并不意味着要放弃或更换原有的开发技术而全面转向 Microsoft 技术领域。</p>
+                                </div>
+                                <div class="right-case-section" style="margin-bottom:60px;">
+                                    <p style="color: #666; font-style: normal;">
+                                        “Azure 帮助我们提升整体运营效率40%，其开放的架构以及对开源技术的支持更大大保障了我们系统的延展性和可用性。”  <br />
+                                        <span>Pactera 高级副总裁 欧美事业群 吴凯</span>
+                                    </p>
+                                    <p><a id="oss_grey4" style="font-size: 12px;" target="_blank" href="/partnerancasestudy/case-studies/wensihaihui/" class="trianglelink grey">了解更多</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--入门-->
+                        <div class="newsection hide" data-value="started">
+                            <div class="newsection-resources">
+                                <!--其他资源-->
+                                <div>
+                                    <h2><a id="oss-depotZN" class="anchor"></a>虚拟机的安装和配置</h2>
+                                    
+                                    <p>您可在您的 Azure 中轻松安装和配置 Linux 虚拟机。</p>
+                                    <p><a id="Linux_on_Azure_intro" href="https://docs.azure.cn/" target="_blank">Azure 上 Linux 的简介</a></p>
+                                    <p><a id="Linux_on_Azure_distribution" href="https://docs.azure.cn/" target="_blank">Azure 中认可的 Linux 发行版</a></p>
+                                    <p><a id="create_LinuxVM" href="https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-cli/" target="_blank">创建运行 Linux 的虚拟机</a></p>
+                                      <p><a id="solution_oss_archive" href="http://www.cnblogs.com/WilsonWu/archive/2012/12/13/2816122.html" target="_blank">创建支持 Apache，PHP 以及 MySQL 的 CentOS Web Virtual Machine Server</a></p>
+                                      
+                                    <p class="content-p-mar">也可以通过 VM Depot 部署预配置操作系统、应用程序和开发栈的社区主导型目录。查找您喜爱的软件并快速部署， 或加入社区、建立虚拟机镜像然后与他人分享。</p>
+                                    <p><a id="deploy_VMDepotVM" href="https://channel9.msdn.com/Blogs/Interoperability-Chn/-Microsoft-Azure-VM-Depot-/" target="_blank">通过 Azure 管理门户部署 VM Depot 虚拟机</a></p>
+                                </div>
+                                <div class="border-style" style="margin-top:60px;"></div>
+                                <div>
+                                    <h2>开源平台的安装和配置</h2>
+                                    <p><span style="font-weight:bold;">MySQL Database on Azure </span>全面兼容 MySQL 协议，是全托管的数据库服务平台 (DB as a Service)，提供高可用，高可靠，高安全的云端数据库。</p>
+                                    <p><a id="entry_MySQL_on_Azure" href="https://docs.azure.cn/mysql/mysql-database-get-started/" target="_blank">MySQL Database on Azure 数据库入门</a></p>
+                                    <p><a id="Servicelayer_edition" href="https://docs.azure.cn/mysql/mysql-database-performance-guidance-asdb-test-result/" target="_blank">了解服务层和版本</a></p>
+                                    <p class="content-p-mar"><span style="font-weight:bold;">HDInsight </span>是完全基于 Apache Hadoop 的云数据服务，处理非结构化、半结构化数据，按需灵活拓展。帮助您将本地 Hadoop 集群与云连接，通过使用微软分析平台系统，同时对本地和云端的 Hadoop 进行查询。</p>
+                                    <p><a id="intro_hadoop_in_HDinsight" href="https://docs.azure.cn/hdinsight/hdinsight-hadoop-introduction/" target="_blank">HDInsight 中的 Hadoop 简介</a></p>
+                                    <p><a id="use_Hadoop_in_HDinsight" href="https://docs.azure.cn/hdinsight/" target="_blank">开始使用 HDInsight 中的 Hadoop</a></p>
+                                    <p class="content-p-mar"><span style="font-weight:bold;">Azure Redis 缓存</span>目前以预览版提供基于流行的开放源代码 Redis 缓存。让您访问 Microsoft 管理的安全专用的 Redis 缓存。使用 Azure Redis 缓存创建的缓存可从 Azure 内的任何应用程序进行访问。</p>
+                                    <p><a id="how_to_use_Redis" href="https://docs.azure.cn/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/" target="_blank">如何使用 Redis 缓存？</a></p>
+                                    </div>
+                                       <div class="border-style" style="margin-top:60px;"></div>
+                                    <div>
+                                    <h2 style="margin-top:20px;"><a id="oss-buildOpenSource" class="anchor"></a>开源应用的安装与配置</h2>
+                                    <p>CouchDB 安装包工具可简化 Azure 虚拟机（用于 IaaS）或 Azure 辅助角色（用于 PaaS）中承载的 CouchDB 群集的创建、配置和部署过程。</p>
+                                    <p><a id="solution_oss_CouchDB" href="http://msopentechrelease.blob.core.windows.net/windows-azure-couchdb/CouchDBInstVM.zip"  target="_blank">下载 CouchDB 安装包</a></p>
+                                    <p  style="margin-top:15px;">Solr 安装包可用于“平台即服务”(PaaS) 配置。当您完成本教程后，您将能够使用 Solr 仪表板将数据导入您的副本集。本文档介绍如何使用该安装程序。</p>
+                                    <p><a id="solution_oss_solr" href="http://msopentechrelease.blob.core.windows.net/windows-azure-solr/SolrInstWR.zip"  target="_blank">下载 Solr 安装包</a></p>
+                                    <p style="margin-top:15px;">MongoDB 是基于分布式文件存储且具备强大可用性，扩展性的高性能数据库。以下文档将向您介绍如何在 Azure 上部署及应用 MongoDB 数据库。</p>
+                                    <p style="padding-bottom:40px;"><a id="create_Mongodb_in_Azure" href="https://docs.azure.cn/" target="_blank">如何在 Azure 中创建 MongoDB 数据库</a></p>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        function onload() {
+            var strUrl = window.location.href;
+            if (strUrl.indexOf("#") >= 0) {
+                var strhref = strUrl.split("#")[1];
+                $(".newsection").each(function () {
+                    var secID = $(this).attr('data-value');
+                    if (strhref == secID) {
+                        $("a.select").removeClass("select").addClass("unselect");
+                        $(".secshow").removeClass("secshow").addClass("hide");
+                        $("#tab-" + secID).removeClass("unselect").addClass("select");
+                        $(this).removeClass("hide").addClass("secshow");
+                    }
+                });
+            };
+        };
+        onload();
+    </script>
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>开源软件 | Azure</pageTitle>
+    <metaKeywords>Azure, 微软云, 解决方案, 架构, 方案, 产品应用, Web 应用, 应用程序, 解决方案, Visual Studio, 云架构, 数字营销, 应用程序</metaKeywords>
+    <metaDescription><![CDATA[Web 应用程序是面向云架构的最快方式，Windows Azure 为各种规模的 Web 应用程序提供安全而灵活的开发、部署和扩展选项。利用现有工具创建和部署应用程序，无需费力管理基础结构。提供可靠的企业级基础架构。]]></metaDescription>
+    <linkid>solutions-oss</linkid>
+    <urlDisplayName>开源软件</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate>solution-template</pageTemplate>
+    <localize>1</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+  </umbTextpage>
+</localize>

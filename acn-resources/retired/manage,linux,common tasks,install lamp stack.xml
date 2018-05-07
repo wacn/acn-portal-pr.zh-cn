@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19206" parentID="19201" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="5" createDate="2013-07-11T11:59:50" updateDate="2014-08-18T11:25:21" nodeName="Install LAMP stack" urlName="install-lamp-stack" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19201,19206" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中的 Linux 虚拟机上安装 LAMP 堆栈</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" macroAlias="AzureChunkDisplayer" chunkname="disclaimer" />
+<p>LAMP 堆栈包含以下不同元素：</p>
+<ul>
+<li><strong>L</strong>inux - 操作系统</li>
+<li><strong>A</strong>pache - Web 服务器</li>
+<li><strong>M</strong>ySQL - 数据库服务器</li>
+<li><strong>P</strong>HP - 编程语言</li>
+</ul>
+<h2>在 Ubuntu 上安装</h2>
+<p>您将需要安装以下程序包：</p>
+<ul>
+<li><code>apache2</code></li>
+<li><code>mysql-server</code></li>
+<li><code>php5</code></li>
+<li><code>php5-mysql</code></li>
+<li><code>libapache2-mod-auth-mysql</code></li>
+<li><code>libapache2-mod-php5</code></li>
+<li><code>php5-xsl</code></li>
+<li><code>php5-gd</code></li>
+<li><code>php-pear</code></li>
+</ul>
+<p>您可以将其作为单个 <code>apt-get install</code> 命令运行：</p>
+<pre class="prettyprint">apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-auth-mysql libapache2-mod-php5 php5-xsl php5-gd php-pear</pre>
+<h2>在 CentOS 上安装</h2>
+<p>您将需要安装以下程序包：</p>
+<ul>
+<li><code>httpd</code></li>
+<li><code>mysql</code></li>
+<li><code>mysql-server</code></li>
+<li><code>php</code></li>
+<li><code>php-mysql</code></li>
+</ul>
+<p>您可以将其作为单个 <code>yum install</code> 命令运行：</p>
+<pre class="prettyprint">yum install httpd mysql mysql-server php-php-mysql</pre>
+<h2>设置</h2>
+<ol>
+<li>
+<p>设置 <strong>Apache</strong>。</p>
+<ol>
+<li>
+<p>您将需要重新启动 Apache Web 服务器。运行以下命令：</p>
+<pre class="prettyprint">sudo /etc/init.d/apache2 restart</pre>
+</li>
+<li>查看安装是否正在运行。使您的浏览器指向：<a href=""></a>。应该会显示“It works!”。</li>
+</ol></li>
+<li>
+<p>设置 <strong>MySQL</strong>。</p>
+<ol>
+<li>
+<p>通过运行以下命令为 mysql 设置根密码</p>
+<pre class="prettyprint">mysqladmin -u root -p password yourpassword</pre>
+</li>
+<li>
+<p>使用 <code>mysql</code> 或多种 MySQL 客户端登录到控制台。</p>
+</li>
+</ol></li>
+<li>
+<p>设置 <strong>PHP</strong>。</p>
+<ol>
+<li>
+<p>通过运行以下命令启用 Apache PHP 模块：</p>
+<pre class="prettyprint">sudo a2enmod php5</pre>
+</li>
+<li>
+<p>通过运行以下命令重新启动 Apache：</p>
+<pre class="prettyprint">sudo service apache2 restart</pre>
+</li>
+</ol></li>
+</ol>
+<h2>延伸阅读</h2>
+<p>有许多在 Ubuntu 上设置 LAMP 堆栈的资源。</p>
+<ul>
+<li><a href="https://help.ubuntu.com/community/ApacheMySQLPHP">https://help.ubuntu.com/community/ApacheMySQLPHP</a></li>
+<li><a href="http://fedorasolved.org/server-solutions/lamp-stack">http://fedorasolved.org/server-solutions/lamp-stack</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在 Linux 虚拟机上安装 LAMP 堆栈</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-common-tasks-lampstack</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中在 Linux 虚拟机 (VM) 上安装 LAMP 堆栈。您可以在 Ubuntu 或 CentOS 上进行安装。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>安装 LAMP 堆栈</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

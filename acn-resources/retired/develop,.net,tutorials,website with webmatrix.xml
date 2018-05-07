@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18871" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="19" createDate="2013-07-11T10:54:28" updateDate="2014-08-18T11:10:45" nodeName="Website with WebMatrix" urlName="website-with-webmatrix" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18871" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>使用 Microsoft WebMatrix 开发和部署网站</h1>
+<p>本指南介绍如何使用 Microsoft WebMatrix 创建网站和将其部署到 Windows Azure。您将使用 WebMatrix 网站模板中的一个示例应用程序。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何从 Windows Azure 门户中创建网站。</li>
+<li>如何将该网站导入 WebMatrix 以及自定义该网站以使用某个 WebMatrix 模板。</li>
+<li>如何将自定义的网站直接从 WebMatrix 中部署到 Windows Azure。</li>
+</ul>
+<?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-websites-note" macroAlias="AzureChunkDisplayer" />
+<h2>使用 Windows Azure 门户创建网站</h2>
+<ol>
+<li>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 门户</a>。</li>
+<li>单击 Windows Azure 门户左下角的“新建”<strong></strong>。</li>
+<li>
+<p>单击“网站”<strong></strong>，单击“快速创建”<strong></strong>，输入“URL”<strong></strong>的值（例如 <em>bakerysample</em>），选择距您的目标用户最近的“区域”<strong></strong>（这样将确保性能最佳），然后在页面底部单击“创建网站”<strong></strong>的复选标记以开始创建该网站：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtocreatenewsite.png" alt="创建新网站"/></p>
+</li>
+<li>
+<p>创建该网站后，门户将显示所有与您的订阅关联的网站。确认刚刚创建的网站的“状态”<strong></strong>为“正在运行”<strong></strong>，然后通过单击“名称”<strong></strong>列中显示的网站名称打开网站的管理页，从而打开网站的“仪表板”<strong></strong>管理页。</p>
+</li>
+</ol>
+<h2>将该网站导入到 WebMatrix 中并使用模板自定义该网站</h2>
+<ol>
+<li>
+<p>从“仪表板”<strong></strong>页中，单击页面底部的 WebMatrix 图标以在 WebMatrix 中打开该网站</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtoopensiteinwebmatrix2a.png" alt="在 WebMatrix 2 中打开网站"/></p>
+</li>
+<li>
+<p>如果未安装 WebMatrix 2，则 Web 平台安装程序 4.0 将安装 Microsoft WebMatrix 2 和所有必备软件，然后显示一个对话框，指示“检测到空网站”<strong></strong>。单击使用内置网站模板的选项：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtodownloadsite.png" alt="检测到空网站"/></p>
+</li>
+<li>
+<p>单击使用内置网站模板的选项后，从模板列表中选择“面包店”<strong></strong>，输入“面包店示例”<strong></strong>作为“网站名称”<strong></strong>，然后单击“下一步”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtositefromtemplate.png" alt="从模板创建网站"/></p>
+<p>在 WebMatrix 生成网站完毕后，将显示 WebMatrix IDE：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtowebmatrixide.png" alt="Web Matrix 2 IDE"/></p>
+</li>
+</ol>
+<h2>测试网站</h2>
+<p>面包店示例中含有一个模拟的订单表格，其中向您提供的 Windows Live Hotmail 帐户发送一封电子邮件及所订购的货物。</p>
+<ol>
+<li>
+<p>在 WebMatrix 的左侧导航窗格中，展开“面包店示例”<strong></strong>文件夹。</p>。
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-1.png"/></p>
+</li>
+<li>
+<p>通过双击文件名打开 <em>Order.cshtml</em> 页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-2.png"/></p>
+</li>
+<li>
+<p>查找内容为“//针对 Hotmail 的 SMTP 配置”的注释。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-3.png"/></p>
+</li>
+<li>
+<p>更改以下行中的值以符合您自己的电子邮件提供商：</p>
+<pre class="prettyprint">WebMail.SmtpServer = "smtp.live.com"; WebMail.SmtpPort  = 25; WebMail.EnableSsl = true;    //Enter your Hotmail credentials for UserName/Password and a "From" address for the e-mail WebMail.UserName = ""; WebMail.Password = ""; WebMail.From = "";</pre>
+<p>将 WebMail.SmtpServer 的值改为您在正常情况下用于发送电子邮件的电子邮件服务器的名称。然后，填写用户名和密码的值。将 From 属性设置为您的电子邮件地址。</p>
+</li>
+<li>
+<p>在 WebMatrix 功能区上，单击“运行”<strong></strong>以测试网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-4.png"/></p>
+</li>
+<li>
+<p>在某个产品上单击“立即订购”<strong></strong>，然后将订单发给您自己。</p>
+</li>
+<li>
+<p>检查您的电子邮件，确保获得了订单确认。如果发送电子邮件遇到困难，请参阅《ASP.NET 网页 (Razor) 故障排除指南》中的<a href="http://go.microsoft.com/fwlink/?LinkId=253001#email">有关发送电子邮件的问题</a>。</p>
+</li>
+</ol>
+<h2>将自定义的网站从 WebMatrix 部署到 Windows Azure</h2>
+<ol>
+<li>
+<p>在 WebMatrix 中，从“主页”(Home)<strong></strong> 功能区单击“发布”(Publish)<strong></strong>，为网站显示“发布预览”(Publish Preview)<strong></strong> 对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtopublishpreview.png" alt="WebMatrix 发布预览"/></p>
+</li>
+<li>
+<p>单击以选中 bakery.sdf 旁的复选框，然后单击“继续”<strong></strong>。发布完毕后，将在 WebMatrix IDE 底部显示 Windows Azure 上更新网站的 URL。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtopublished2.png" alt="发布完毕"/></p>
+</li>
+<li>
+<p>单击该链接以在浏览器中打开该网站：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/howtobakerysamplesite.png" alt="面包店示例网站"/></p>
+<p>还可通过单击“网站”<strong></strong>以显示订阅的所有网站，在 Windows Azure 门户中找到网站的 URL。每个网站的 URL 显示在“网站”页上的“URL”列中。</p>
+</li>
+</ol>
+<h2>修改该网站并将其重新发布到 Windows Azure 网站</h2>
+<p>可使用 WebMatrix 修改该网站并将其重新发布到 Windows Azure 网站。在以下过程中，您将添加一个复选框以指示订单是赠品。</p>
+<ol>
+<li>
+<p>打开 <em>Order.cshtml</em> 页。</p>
+</li>
+<li>
+<p>找到“shiping”类窗体定义。紧接 &lt;li&gt; 块后插入以下代码。</p>
+<pre class="prettyprint">&lt;li class="gift"&gt;     &lt;div class="fieldcontainer" data-role="fieldcontain"&gt;         &lt;label for="isGift"&gt;This is a gift&lt;/label&gt;                    &lt;div&gt;@Html.CheckBox("isGift")&lt;/div&gt;     &lt;/div&gt; &lt;/li&gt;</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-5.png"/></p>
+</li>
+<li>
+<p>在文件中找到“var shipping = Request["orderShipping"];”行，然后紧接其后插入下面这行代码。</p>
+<pre class="prettyprint">var gift = Request["isGift"];</pre>
+</li>
+<li>
+<p>在以下代码段中紧接确认配送地址不为空的代码块后。</p>
+<pre class="prettyprint">if(gift != null) {     body += "This is a gift." + "&lt;br/&gt;"; }</pre>
+<p>您的 <em>order.cshtml</em> 文件应与下图类似。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-6.png"/></p>
+</li>
+<li>
+<p>保存该文件并在本地运行网站，然后向您自己发送一个测试订单。确保测试这个新复选框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/website-with-webmatrix-sample-mod-1-7.png"/></p>
+</li>
+<li>
+<p>通过在“主页”<strong></strong>功能区上单击“发布”<strong></strong>，重新发布该网站。</p>
+</li>
+<li>
+<p>在“发布预览”<strong></strong>对话框上，确保选中 Order.cshtml 并单击“继续”。</p>
+</li>
+<li>
+<p>单击该链接以在浏览器中打开网站并测试 Windows Azure 网站上的更新。</p>
+</li>
+</ol>
+<h1>后续步骤</h1>
+<p>您已了解如何创建网站并将网站从 WebMatrix 部署到 Windows Azure。若要了解有关 WebMatrix 的详细信息，请参阅下列资源：</p>
+<ul>
+<li>
+<p><a href="http://go.microsoft.com/fwlink/?LinkID=253622&amp;clcid=0x409">WebMatrix for Windows Azure</a></p>
+</li>
+<li>
+<p><a href="http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398">WebMatrix 网站</a></p>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>用 WebMatrix 生成 .NET 网站 - Windows Azure 教程</pageTitle><metaKeywords>WebMatrix Windows Azure, WebMatrix Azure, Azure 网站 WebMatrix, Azure 网站 WebMatrix, Web Matrix Azure, WebMatrix Azure</metaKeywords><metaDescription><![CDATA[学习如何用 WebMatrix 开发和部署 Windows Azure 网站。]]></metaDescription><linkid>develop-dotnet-website-with-webmatrix</linkid><urlDisplayName>使用 WebMatrix 创建网站</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

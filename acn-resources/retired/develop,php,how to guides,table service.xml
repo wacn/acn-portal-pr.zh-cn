@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19078" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="2" createDate="2013-07-11T11:29:12" updateDate="2014-08-18T11:20:11" nodeName="Table Service" urlName="table-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19078" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>如何通过 PHP 使用表服务</h1>
+<p>本指南将演示如何使用 Windows Azure 表服务执行常见任务。这些示例通过 PHP 编写并使用 <a href="http://go.microsoft.com/fwlink/?LinkID=252473">Windows Azure SDK for PHP</a>。所涉及的任务包括<strong>创建和删除表以及在表中插入、删除和查询实体</strong>。有关 Windows Azure 表服务的详细信息，请参阅<a href="#NextSteps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是表服务？</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#CreateAccount">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#CreateApplication">创建 PHP 应用程序</a></li>
+<li><a href="#ConfigureStorage">配置您的应用程序以访问表服务</a></li>
+<li><a href="#ConnectionString">设置 Windows Azure 存储连接</a></li>
+<li><a href="#CreateTable">如何：创建表</a></li>
+<li><a href="#AddEntity">如何：将实体添加到表</a></li>
+<li><a href="#RetrieveEntity">如何：检索单个实体</a></li>
+<li><a href="#RetEntitiesInPartition">如何：检索分区中的所有实体</a></li>
+<li><a href="#RetrieveSubset">如何：检索分区中的一部分实体</a></li>
+<li><a href="#RetPropertiesSubset">如何：检索一部分实体属性</a></li>
+<li><a href="#UpdateEntity">如何：更新实体</a></li>
+<li><a href="#BatchOperations">如何：对表操作进行批处理</a></li>
+<li><a href="#DeleteTable">如何：删除表</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="howto-table-storage" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a id="CreateAccount"></a>创建 Windows Azure 存储帐户</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a id="CreateApplication"></a>创建 PHP 应用程序</h2>
+<p>创建访问 Windows Azure 表服务的 PHP 应用程序的唯一要求是从代码中引用 Windows Azure SDK for PHP 中的类。您可以使用任何开发工具来创建应用程序，包括记事本。</p>
+<p>在本指南中，您将使用表服务功能，这些功能可从 PHP 应用程序中本地调用，或在 Windows Azure 的 Web 角色、辅助角色或网站中运行的代码中调用。</p>
+<h2><a id="GetClientLibrary"></a>获取 Windows Azure 客户端库</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="get-client-libraries" macroAlias="AzureChunkDisplayer" ?-->
+<h2><a id="ConfigureStorage"></a>配置您的应用程序以访问表服务</h2>
+<p>若要使用 Windows Azure 表服务 API，您需要：</p>
+<ol>
+<li>使用 <a href="http://php.net/require_once">require_once</a> 语句引用 autoloader 文件，并</li>
+<li>引用可使用的所有类。</li>
+</ol>
+<p>下面的示例演示如何包含 autoloader 文件并引用 <strong>ServicesBuilder</strong> 类。</p>
+<div class="dev-callout">注意
+<p>本示例（以及本文中的其他示例）假定您已通过 Composer 安装用于 Windows Azure 的 PHP 客户端库。如果您已手动安装这些库或将其作为 PEAR 包安装，则需要引用 <code>WindowsAzure.php</code> autoloader 文件。</p>
+</div>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+use WindowsAzure\Common\ServicesBuilder;</pre>
+<p>在下面的示例中，将始终显示 <code>require_once</code> 语句，但仅引用执行该示例所需的类。</p>
+<h2><a id="ConnectionString"></a>设置 Windows Azure 存储连接</h2>
+<p>若要实例化 Windows Azure 表服务客户端，您必须先拥有有效的连接字符串。表服务连接字符串的格式为：</p>
+<p>对于访问实时服务：</p>
+<pre class="prettyprint">DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]</pre>
+<p>对于访问仿真程序存储：</p>
+<pre class="prettyprint">UseDevelopmentStorage=true</pre>
+<p>若要创建任何 Windows Azure 服务客户端，您将需要使用 <strong>ServicesBuilder</strong> 类。您可以：</p>
+<ul>
+<li>将连接字符串直接传递给此类或</li>
+<li>使用 <strong>CloudConfigurationManager (CCM)</strong>检查此连接字符串的多个外部源：
+<ul>
+<li>默认情况下，它附带了对一个外部源的支持 - 环境变量</li>
+<li>可通过扩展 <strong>ConnectionStringSource</strong> 类来添加新源</li>
+</ul>
+</li>
+</ul>
+<p>在此处列出的示例中，将直接传递连接字符串。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);</pre>
+<h2><a id="CreateTable"></a>如何：创建表</h2>
+<p>利用 <strong>TableRestProxy</strong> 对象，可以使用 <strong>createTable</strong> 方法创建表。创建表时，可以设置表服务超时。（有关表服务超时的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd894042.aspx">为表服务操作设置超时</a>。）</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+try {
+    // Create table.
+    $tableRestProxy-&gt;createTable("mytable");
+}
+catch(ServiceException $e){
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    // Handle exception based on error codes and messages.
+    // Error codes and messages can be found here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+}</pre>
+<p>有关表名称的限制的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179338.aspx">了解表服务数据模型</a>。</p>
+<h2><a id="AddEntity"></a>如何：将实体添加到表</h2>
+<p>若要将实体添加到表，请创建一个新的 <strong>Entity</strong> 对象并将其传递到 <strong>TableRestProxy-&gt;insertEntity</strong>。请注意，在创建实体时，您必须指定 <code>PartitionKey</code> 和 <code>RowKey</code>。这些值是实体的唯一标识符，并且其查询速度比其他实体属性的查询速度快得多。系统使用 <code>PartitionKey</code> 自动将表的实体分发到多个存储节点上。具有相同的 <code>PartitionKey</code> 的实体存储在同一个节点上。（对存储在同一节点上的多个实体执行操作要将比对存储在不同节点上的实体执行的操作的效果更佳。）<code>RowKey</code> 是实体在分区中的唯一 ID。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Table\Models\Entity;
+use WindowsAzure\Table\Models\EdmType;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+$entity = new Entity();
+$entity-&gt;setPartitionKey("tasksSeattle");
+$entity-&gt;setRowKey("1");
+$entity-&gt;addProperty("Description", null, "Take out the trash.");
+$entity-&gt;addProperty("DueDate", 
+                     EdmType::DATETIME, 
+                     new DateTime("2012-11-05T08:15:00-08:00"));
+$entity-&gt;addProperty("Location", EdmType::STRING, "Home");
+
+try{
+    $tableRestProxy-&gt;insertEntity("mytable", $entity);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+}</pre>
+<p>有关表属性和类型的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179338.aspx">了解表服务数据模型</a>。</p>
+<p><strong>TableRestProxy</strong> 类提供了用于插入实体的两种替代方法：<strong>insertOrMergeEntity</strong> 和 <strong>insertOrReplaceEntity</strong>。若要使用这些方法，请创建一个新的 <strong>Entity</strong>，并将其作为参数传递到上述任一方法。如果实体不存在，则每种方法都将插入实体。在实体已存在的情况下，如果属性已存在，则 <strong>insertOrMergeEntity</strong> 将更新属性值；如果属性不存在，则该方法将添加新属性，而 <strong>insertOrReplaceEntity</strong> 将完全替换现有实体。下面的示例演示如何使用 <strong>insertOrMergeEntity</strong>。如果 <code>PartitionKey</code> 为“tasksSeattle”且 <code>RowKey</code> 为“1”的实体不存在，则将会插入该实体。但是，如果之前已插入该实体（如上面的示例所示），则将更新 <code>DueDate</code> 属性并添加 <code>Status</code> 属性。系统还将更新 <code>Description</code> 和 <code>Location</code> 属性，但使用的值实际上会使其保持不变。如果后面两个属性未如示例中所示进行添加，而是存在于目标实体上，则其现有值将保持不变。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Table\Models\Entity;
+use WindowsAzure\Table\Models\EdmType;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+//Create new entity.
+$entity = new Entity();
+
+// PartitionKey and RowKey are required.
+$entity-&gt;setPartitionKey("tasksSeattle");
+$entity-&gt;setRowKey("1");
+
+// If entity exists, existing properties are updated with new values and
+// new properties are added. Missing properties are unchanged.
+$entity-&gt;addProperty("Description", null, "Take out the trash.");
+$entity-&gt;addProperty("DueDate", EdmType::DATETIME, new DateTime()); // Modified the DueDate field.
+$entity-&gt;addProperty("Location", EdmType::STRING, "Home");
+$entity-&gt;addProperty("Status", EdmType::STRING, "Complete"); // Added Status field.
+
+try {
+    // Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
+    // would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
+    $tableRestProxy-&gt;insertOrMergeEntity("mytable", $entity);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2><a id="RetrieveEntity"></a>如何：检索单个实体</h2>
+<p>利用 <strong>TableRestProxy-&gt;getEntity</strong> 方法，可以通过查询实体的 <code>PartitionKey</code> 和 <code>RowKey</code> 来检索它。在下面的示例中，分区键 <code>tasksSeattle</code> 和行键 <code>1</code> 将传递到 <strong>getEntity</strong> 方法。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+try {
+    $result = $tableRestProxy-&gt;getEntity("mytable", "tasksSeattle", 1);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}
+
+$entity = $result-&gt;getEntity();
+
+echo $entity-&gt;getPartitionKey().":".$entity-&gt;getRowKey();</pre>
+<h2><a id="RetEntitiesInPartition"></a>如何：检索分区中的所有实体</h2>
+<p>实体查询是使用筛选器构造的（有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd894031.aspx">查询表和实体</a>）。若要检索分区中的所有实体，请使用筛选器“PartitionKey eq <em>partition_name</em>”。下面的示例演示如何通过将筛选器传递到 <strong>queryEntities</strong> 方法来检索 <code>tasksSeattle</code> 分区中的所有实体。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+$filter = "PartitionKey eq 'tasksSeattle'";
+
+try {
+    $result = $tableRestProxy-&gt;queryEntities("mytable", $filter);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}
+
+$entities = $result-&gt;getEntities();
+
+foreach($entities as $entity){
+    echo $entity-&gt;getPartitionKey().":".$entity-&gt;getRowKey()."&lt;br /&gt;";
+}</pre>
+<h2><a id="RetrieveSubset"></a>如何：检索分区中的一部分实体</h2>
+<p>上一示例中使用的同一模式可用于检索分区中的部分实体。您检索的部分实体将由您使用的筛选器确定（有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd894031.aspx">查询表和实体</a>）。下面的示例演示如何使用筛选器检索具有特定的 <code>Location</code> 和早于指定日期的 <code>DueDate</code> 的所有实体。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
+
+try {
+    $result = $tableRestProxy-&gt;queryEntities("mytable", $filter);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}
+
+$entities = $result-&gt;getEntities();
+
+foreach($entities as $entity){
+    echo $entity-&gt;getPartitionKey().":".$entity-&gt;getRowKey()."&lt;br /&gt;";
+}</pre>
+<h2><a id="RetPropertiesSubset"></a>如何：检索一部分实体属性</h2>
+<p>查询可检索一部分实体属性。此方法称为<em>投影</em>，可减少带宽并改善查询性能，尤其是对于大型实体。若要指定要检索的属性，请将该属性的名称传递到 <strong>Query-&gt;addSelectField</strong> 方法。可以多次调用此方法来添加更多属性。执行 <strong>TableRestProxy-&gt;queryEntities</strong> 后，返回的实体仅具有选定的属性。（若要返回一部分表实体，请使用上述查询中所示的筛选器。）</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Table\Models\QueryEntitiesOptions;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+$options = new QueryEntitiesOptions();
+$options-&gt;addSelectField("Description");
+
+try {
+    $result = $tableRestProxy-&gt;queryEntities("mytable", $options);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}
+
+// All entities in the table are returned, regardless of whether 
+// they have the Description field.
+// To limit the results returned, use a filter.
+$entities = $result-&gt;getEntities();
+
+foreach($entities as $entity){
+    $description = $entity-&gt;getProperty("Description")-&gt;getValue();
+    echo $description."&lt;br /&gt;";
+}</pre>
+<h2><a id="UpdateEntity"></a>如何：更新实体</h2>
+<p>可通过对现有实体使用 <strong>Entity-&gt;setProperty</strong> 和 <strong>Entity-&gt;addProperty</strong> 方法并调用 <strong>TableRestProxy-&gt;updateEntity</strong> 来更新该实体。下面的示例将检索一个实体、修改一个属性、删除另一个属性并添加一个新属性。请注意，通过将属性的值设为 <strong>null</strong> 可删除该属性。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Table\Models\Entity;
+use WindowsAzure\Table\Models\EdmType;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+$result = $tableRestProxy-&gt;getEntity("mytable", "tasksSeattle", 1);
+
+$entity = $result-&gt;getEntity();
+
+$entity-&gt;setPropertyValue("DueDate", new DateTime()); //Modified DueDate.
+
+$entity-&gt;setPropertyValue("Location", null); //Removed Location.
+
+$entity-&gt;addProperty("Status", EdmType::STRING, "In progress"); //Added Status.
+
+try {
+    $tableRestProxy-&gt;updateEntity("mytable", $entity);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2><a id="DeleteEntity"></a>如何：删除实体</h2>
+<p>若要删除实体，请将表名称以及实体的 <code>PartitionKey</code> 和 <code>RowKey</code> 传递到 <strong>TableRestProxy-&gt;deleteEntity</strong> 方法。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+try {
+    // Delete entity.
+    $tableRestProxy-&gt;deleteEntity("mytable", "tasksSeattle", "2");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>请注意，为了进行并发检查，可以使用 <strong>DeleteEntityOptions-&gt;setEtag</strong> 方法并将 <strong>DeleteEntityOptions</strong> 对象作为第四个参数传递到 <strong>deleteEntity</strong>，来为要删除的实体设置 Etag。</p>
+<h2><a id="BatchOperations"></a>如何：对表操作进行批处理</h2>
+<p>利用 <strong>TableRestProxy-&gt;batch</strong> 方法，您可以通过一个请求执行多个操作。此处的模式涉及将操作添加到 <strong>BatchRequest</strong> 对象，然后将 <strong>BatchRequest</strong> 对象传递到 <strong>TableRestProxy-&gt;batch</strong> 方法。若要将操作添加到 <strong>BatchRequest</strong> 对象，可以多次调用以下任一方法：</p>
+<ul>
+<li><strong>addInsertEntity</strong>（添加 insertEntity 操作）</li>
+<li><strong>addUpdateEntity</strong>（添加 updateEntity 操作）</li>
+<li><strong>addMergeEntity</strong>（添加 mergeEntity 操作）</li>
+<li><strong>addInsertOrReplaceEntity</strong>（添加 insertOrReplaceEntity 操作）</li>
+<li><strong>addInsertOrMergeEntity</strong>（添加 insertOrMergeEntity 操作）</li>
+<li><strong>addDeleteEntity</strong>（添加 deleteEntity 操作）</li>
+</ul>
+<p>下面的示例演示如何通过一个请求执行 <strong>insertEntity</strong> 和 <strong>deleteEntity</strong> 操作：</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Table\Models\Entity;
+use WindowsAzure\Table\Models\EdmType;
+use WindowsAzure\Table\Models\BatchOperations;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+// Create list of batch operation.
+$operations = new BatchOperations();
+
+$entity1 = new Entity();
+$entity1-&gt;setPartitionKey("tasksSeattle");
+$entity1-&gt;setRowKey("2");
+$entity1-&gt;addProperty("Description", null, "Clean roof gutters.");
+$entity1-&gt;addProperty("DueDate", 
+                      EdmType::DATETIME, 
+                      new DateTime("2012-11-05T08:15:00-08:00"));
+$entity1-&gt;addProperty("Location", EdmType::STRING, "Home");
+
+// Add operation to list of batch operations.
+$operations-&gt;addInsertEntity("mytable", $entity1);
+
+// Add operation to list of batch operations.
+$operations-&gt;addDeleteEntity("mytable", "tasksSeattle", "1");
+
+try {
+    $tableRestProxy-&gt;batch($operations);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>有关对表操作进行批处理的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd894038.aspx">执行实体组事务</a>。</p>
+<h2><a id="DeleteTable"></a>如何：删除表</h2>
+<p>最后，若要删除表，请将表名称传递到 <strong>TableRestProxy-&gt;deleteTable</strong> 方法。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()-&gt;createTableService($connectionString);
+
+try {
+    // Delete table.
+    $tableRestProxy-&gt;deleteTable("mytable");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179438.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2><a id="NextSteps"></a>后续步骤</h2>
+<p>现在，您已了解 Windows Azure 表服务的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>请参阅 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>请访问 Windows Azure 存储团队博客：<a href="http://blogs.msdn.com/b/windowsazurestorage/">http://blogs.msdn.com/b/windowsazurestorage/</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>table service</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>table service</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>table service</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

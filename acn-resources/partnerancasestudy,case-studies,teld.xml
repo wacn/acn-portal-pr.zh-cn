@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+					<h2>公司概况</h2>
+					<p>青岛特来电新能源有限公司（以下简称“特来电”）是青岛特锐德电气股份有限公司的全资子公司，主要从事新能源汽车充电网的建设、运营及互联网的增值服务。特来电采用互联网思维，依靠国际领先的汽车群智能充电技术和系统，创新电动汽车充电商业模式，致力于建设并运营全国最大的汽车充电网。通过大系统卖电、大平台卖车、大共享租车、大数据修车、大支付金融、大客户电商，建立“让客户满意、让政府放心”的中国最大汽车充电系统生态公司，打造充电网、车联网、互联网“三网融合”的新能源互联网。</p>  
+				</div> 
+                <div class="section-component">
+                    <h2>业务需求与挑战 </h2>
+                    <p>截止到目前，特来电在全国 267 个城市展开充电基础设施建设，投建 18 万余个充电终端，公共充电桩数量全国第一，每天产生的订单所带来的数据量给云平台、大数据、云基础设施造成一定压力。特来电希望找到合适的云平台解决面临的挑战。</p> 
+                    <p>1. 数据的可用性</p>
+                    <ul>
+                        <li>根据服务级别协议，对整个云平台的可用性和可靠性要求达到 99.95%，全年的故障时间需控制在 4 小时以内。</li>
+                        <li>每天来自不同渠道的数据总量预计在 5TB，设备端每秒中都上传海量数据到云平台，系统将面临超高并发的数据计算。</li>
+                    </ul>
+                    <p>2. 超强扩展</p>
+                    <ul>
+                        <li>短促活动举办期间，数据量将会暴涨至日常的 3~5 倍，需要在短时间内快速的扩展资源。</li>
+                        <li>底层基础框架中在开发其他业务系统时，需要基于底层的框架所提供的规范即可接入平台。</li>
+                    </ul>
+                    <p>3. 故障运维</p>
+                    <ul>
+                        <li>服务器由 4 台扩展到 200+ 台，快速定位问题及修复是运维和开发体系的难点。</li>
+                        <li>运维与管理设备在通讯、订单、交易、用户、后台等环节投入消耗过。</li>
+                    </ul>
+                </div> 
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>为了解决 IT 及基础设施层面的运维，保障特来电能够将全部的精力放在业务系统的开发上，公司决定选择借助专业云平台来满足用户端与设备端的超大数据负荷，在尝试对比过多家海内外知名云服务商后，特来电最终选择使用 Azure 云平台，因为 Azure 具有及时响应的服务、专职的客户经理、专业性强的产品。</p>  
+                    <br/>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/casestudy-teld-01.png" alt=""/>
+                    <br/>
+                    <p style="text-align:center">特来电管理平台系统架构图</p>
+                    <p>特来电的云平台目前在使用 Azure 的服务包括：VM、 Storage、AD、 HDInsight、 Virtual Network、 Traffic Manager 等。云平台是整个特来电充电系统的大脑和核心，整个平台构筑在高可用的 Azure 基础设施之上，技术平台层提供高并发、海量数据处理、大数据分析挖掘的能力。特来电使用的 Azure 产品与服务对外提供 99.9% 的 SLA，在充电、充值、付费、数据分析等关键业务环节中满足特来电的性能需求，同时保证数据足够的安全。其中对特来电业务系统最重要的 Azure 服务是 NLB 外部服务的负载均衡和 ILB 内部服务的负载均衡服务，NLB 为特来电的超大访问量提供了外部访问请求的负载，缓解了处理访问请求的压力并提供了容错能力。另外 ILB 的部署完善了外部 NLB 后面的应用和数据层的负载均衡配置，避免了部分保密数据暴露在外网，以达到数据的安全要求。</p>
+                    <p><strong>颠覆传统的智能系统</strong></p>
+                    <p>传统的充电桩功能繁杂，除了插头供电外，还要提供计量、插卡、收费、显示等功能。特来电首创电动汽车群智能充电系统，将充电桩控制、计量、保护的功能后推到箱式变电站，将插卡、收费、人机对话功能上传至云平台 APP 端，充电桩仅负责插头功能。用户通过 APP 端，可实现查找周边充电站、远程控制充电开关与速度、实时查看充电现状与费用等信息。基于 Azure IaaS 层的服务，特来电实现了充电结束后扫码在线支付，彻底颠覆了传统充电桩只能支持刷卡计费的模式，实现了充电站无人值守运营，降低了运营成本，提高了产品及服务的市场竞争力。</p>
+                    <p><strong>智能便捷的维护模式</strong></p>
+                    <p>特来电创新的智能充电箱变内置通讯模块，可以实现环控、配电、充电等数据实时上传云平台，通过“场站现场运维监控、手机远程监控、大数据云平台中心监控”有效三联控，随时掌握公交充电站的运行情况、故障情况，实现远程设备监控。特来电智能充电箱变的“群管群控、模块结构”基于 Azure storage、HDInsight 等实现了对充电数据的管理，便于统一调度和智能管理，10 分钟更换模块，1 小时排除故障，保障场站的高效运行。当设备模块发生故障，智能箱变将第一时间发送信息到云平台，云平台将“维修任务”工单通过特来电运维 APP 下达给运维人员。运维人员将根据运维 APP 指示，前往充电站进行备用模块更换。</p>
+                </div> 
+                <div class="section-component">
+                    <h2>客户收益</h2>
+                    <p>Azure 所提供的 IaaS 层的 VM 等服务为特来电的基础设施提供了保障，使其有更多的精力专注于业务方面；同时 HDInsight、Redis 等 PaaS 服务，解决了 Hadoop 集群复杂的调优工作。在 Azure 的协助下，特来电的 IT 部门以敏捷的方式提供了高等级计算、存储和网络资源，在提高工作效率、减少交付周期、降低成本、提高对法规的遵从方面，彰显出无可比拟的竞争优势。</p> 
+                    <p><strong>IT 运维成本缩减 60% 以上</strong></p>
+                    <p>在实施 Azure 解决方案的过程中，特来电遇到了几次关键的性能事件，Azure Service+ Microsoft Premier Service 团队都及时提供了专业的解决方案，完全满足了特来电不用再为 IT 运维耗时耗力的需求，实现了将全部精力投入产品开发的预期；运维人力成本缩减 60% 以上；数据中心也实现了低成本的自建与维护。</p>
+                    <p><strong>高等级安全防护标准保障数据安全</strong></p>
+                    <p>Azure 在特来电公司整体 IT 的安全性方面同样发挥了着极其重要的作用。传统安全设备的部署与维护在云端统一完成，Azure 采用高标准数据中心方案实施与运维，从业务启动到壮大的过程中持续为企业提供高等级安全防护标准。另外，Azure 的安全咨询服务为从第三方视角进行了合规审视，实现了内审与外审的结合。</p>
+                    <p><strong>跨地域快速部署</strong></p>
+                    <p>Azure 是一个完整的商业资源池，从技术文档到合作伙伴资源，提供可信的、基于云的解决方案，满足业务需求，更加快速地启动和运行业务应用。Azure 全球范围内提供各种资源，在未来的全球业务拓展中可灵活完成本地化部署。</p> 
+                </div>                
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_teld_vm">虚拟机</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_teld_storage">存储</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_redis.png"><a target="_blank" href="/home/features/redis-cache/" id="case-study_teld_redis-cache">Redis 缓存</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_hdinsight.png"><a target="_blank" href="/home/features/hdinsight/" id="case-study_teld_hdinsight">HDInsight</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_virtual_network.png"><a target="_blank" href="/home/features/virtual-network/" id="case-study_teld_virtual-network">虚拟网络</a></li>
+                        </ul>				
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>特来电案例 | Azure</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription><![CDATA[Azure 所提供的 IaaS 层的 VM 等服务为特来电的基础设施提供了保障，同时 HDInsight、Redis 等 PaaS 服务，解决了 Hadoop 集群复杂的调优工作。]]></metaDescription>
+    <linkid>case-studies-teld</linkid>
+    <urlDisplayName>特来电案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-teld-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_teld" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">特来电</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="https://www.teld.cn/" id="case-study-teldwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/teld-logo-80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>特来电</h1>
+                            <p>Azure 所提供的 IaaS 层和 PaaS 层服务为特来电的基础设施提供了保障，解决了复杂的调优工作。</p>
+                        </div>
+                        <p class="casestudy-info">Azure 的表现一直让特来电很满意，不仅帮助我们解决了基础设施层面的运维，同时也帮助我们的业务快速发展。未来也会使用 Azure 更多的服务助力特来电打造引领充电网、车联网、互联网“三网融合”的新能源互联网。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">郭永光，特来电新能源有限公司 CEO   </span>
+                        <a href="#" class="video-play-button" id="case-study-video-player"></a>
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_teld.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>  
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

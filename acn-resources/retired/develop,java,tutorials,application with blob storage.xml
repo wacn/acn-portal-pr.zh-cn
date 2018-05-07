@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18585" parentID="18582" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="3" createDate="2013-06-04T10:07:27" updateDate="2014-08-18T11:12:55" nodeName="Application with Blob Storage" urlName="application-with-blob-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18582,18585" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>使用 Blob 存储的本地应用程序</h1>
+<p>以下示例向您演示如何使用 Windows Azure 存储在 Windows Azure 中存储图像。以下代码是一个控制台应用程序的代码，该应用程序将一个图像上载到 Windows Azure，然后创建用于在浏览器中显示该图像的 HTML 文件。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#bkmk_prerequisites">先决条件</a></li>
+<li><a href="#bkmk_uploadfile">使用 Windows Azure Blob 存储上载文件</a></li>
+<li><a href="#bkmk_deletecontainer">删除容器</a></li>
+</ul>
+<h2><a name="bkmk_prerequisites"></a>先决条件</h2>
+<ol>
+<li>已安装 Java 开发人员工具包 (JDK)、1.6 版或更高版本。</li>
+<li>已安装 Windows Azure SDK。</li>
+<li>适用于 Windows Azure Libraries for Java 的 JAR 以及任何适用的依赖项 JAR 已安装并且位于 Java 编译器使用的生成路径中。有关安装 Windows Azure Libraries for Java 的信息，请参阅<a href="/zh-cn/develop/java/java-home/download-for-windows/">下载 Windows Azure SDK for Java</a>。</li>
+<li>已设置 Windows Azure 存储帐户。以下代码将使用存储帐户的帐户名称和帐户密钥。有关创建存储帐户的信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/manage/services/storage/how-to-create-a-storage-account/">如何创建存储帐户</a>；有关检索帐户密钥的信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/manage/services/storage/how-to-manage-a-storage-account/">如何管理存储帐户</a>。</li>
+<li>您已创建存储在路径 c:\myimages\image1.jpg 处的已命名本地图像文件。或者，在示例中修改 <strong>FileInputStream</strong> 构造函数以使用其他图像路径和文件名。</li>
+</ol>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-account-note" macroAlias="AzureChunkDisplayer" />
+<h2><a name="bkmk_uploadfile"></a>使用 Windows Azure Blob 存储上载文件</h2>
+<p>此处提供了分步过程；如果您要跳过这些过程，则可在本主题的后面找到完整的代码。</p>
+<p>在代码的开头包含对 Windows Azure 核心存储类、Windows Azure Blob 客户端类、Java IO 类和 <strong>URISyntaxException</strong> 类的导入：</p>
+<pre class="prettyprint">import com.microsoft.windowsazure.services.core.storage.*;
+import com.microsoft.windowsazure.services.blob.client.*;
+import java.io.*;
+import java.net.URISyntaxException;</pre>
+<p>声明一个名为 <strong>StorageSample</strong> 的类，并包含左大括号 <strong>{</strong>。</p>
+<pre class="prettyprint">public class StorageSample {</pre>
+<p>在 <strong>StorageSample</strong> 类中，声明一个将包含默认终结点协议、您的存储帐户名称以及存储访问密钥（在您的 Windows Azure 存储帐户中指定）的字符串变量。将占位符值 <strong>your_account_name</strong> 和 <strong>your_account_key</strong> 分别替换为您自己的帐户名称和帐户密钥。</p>
+<pre class="prettyprint">public static final String storageConnectionString = 
+       "DefaultEndpointsProtocol=http;" + 
+           "AccountName=your_account_name;" + 
+           "AccountKey=your_account_name";</pre>
+<p>添加对 <strong>main</strong> 的声明，包括 <strong>try</strong> 块并包括必需的左大括号 <strong>{</strong>。</p>
+<pre class="prettyprint">public static void main(String[] args) 
+{
+    try
+    {</pre>
+<p>声明以下类型的变量（说明针对的是如何在此示例中使用这些变量）：</p>
+<ul>
+<li><strong>CloudStorageAccount</strong>：用于使用 Windows Azure 存储帐户名称和密钥初始化帐户对象，以及用于创建 Blob 客户端对象。</li>
+<li><strong>CloudBlobClient</strong>：用于访问 Blob 服务。</li>
+<li><strong>CloudBlobContainer</strong>：用于创建 Blob 容器、列出容器中的 Blob 以及删除容器。</li>
+<li><strong>CloudBlockBlob</strong>：用于将本地图像文件上载到容器。</li>
+</ul>
+<!-- -->
+<pre class="prettyprint">CloudStorageAccount account;
+CloudBlobClient serviceClient;
+CloudBlobContainer container;
+CloudBlockBlob blob;</pre>
+<p>向 <strong>account</strong> 变量赋予值。</p>
+<pre class="prettyprint">account = CloudStorageAccount.parse(storageConnectionString);</pre>
+<p>向 <strong>serviceClient</strong> 变量赋予值。</p>
+<pre class="prettyprint">serviceClient = account.createCloudBlobClient();</pre>
+<p>向 <strong>container</strong> 变量赋予值。我们将获取对容器 namedgettingstarted 的引用。</p>
+<pre class="prettyprint">// Container name must be lower case. container = serviceClient.getContainerReference("gettingstarted");</pre>
+<p>创建该容器。如果该容器不存在，此方法将创建该容器（并返回 <strong>true</strong>）。如果该容器存在，则此方法将返回 <strong>false</strong>。<strong>createIfNotExist</strong> 的一个替代方法是 <strong>create</strong> 方法（如果该容器已存在，则该方法将返回错误）。</p>
+<pre class="prettyprint">container.createIfNotExist();</pre>
+<p>为容器设置匿名访问。</p>
+<pre class="prettyprint">// Set anonymous access on the container.
+BlobContainerPermissions containerPermissions;
+containerPermissions = new BlobContainerPermissions();
+containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
+container.uploadPermissions(containerPermissions);</pre>
+<p>获取对块 Blob 的引用，它将表示 Windows Azure 存储中的 Blob。</p>
+<pre class="prettyprint">blob = container.getBlockBlobReference("image1.jpg");</pre>
+<p>使用 <strong>File</strong> 构造函数获取对将上载的本地创建的文件的引用。（确保在运行代码之前已创建此文件。）</p>
+<pre class="prettyprint">File fileReference = new File ("c:\\myimages\\image1.jpg");</pre>
+<p>通过对 <strong>CloudBlockBlob.upload</strong> 方法的调用上载本地文件。<strong>CloudBlockBlob.upload</strong> 方法的第一个参数是表示将上载到 Windows Azure 存储的本地文件的 <strong>FileInputStream</strong> 对象。第二个参数是此文件的大小（以字节为单位）。</p>
+<pre class="prettyprint">blob.upload(new FileInputStream(fileReference), fileReference.length());</pre>
+<p>调用一个名为 <strong>MakeHTMLPage</strong> 的 helper 函数来生成包含一个 <strong>&lt;image&gt;</strong> 元素的基本 HTML 页，并将元素中的源设置为现在位于您的 Windows Azure 存储帐户中的 Blob。（本主题后面将讨论 <strong>MakeHTMLPage</strong> 的代码。）</p>
+<pre class="prettyprint">MakeHTMLPage(container);</pre>
+<p>打印输出有关创建的 HTML 页的状态消息和信息。</p>
+<pre class="prettyprint">System.out.println("Processing complete."); System.out.println("Open index.html to see the images stored in your storage account.");</pre>
+<p>通过插入右大括号结束 <strong>try</strong> 块： <strong>}</strong></p>
+<p>处理下列异常：</p>
+<ul>
+<li><strong>FileNotFoundException</strong>：可由 <strong>FileInputStream</strong> 或 <strong>FileOutputStream</strong> 构造函数引发。</li>
+<li><strong>StorageException</strong>：可由 Windows Azure 客户端存储库引发。</li>
+<li><strong>URISyntaxException</strong>：可由 <strong>ListBlobItem.getUri</strong> 方法引发。</li>
+<li><strong>Exception</strong>：一般异常处理。</li>
+</ul>
+<!-- -->
+<pre class="prettyprint">catch (FileNotFoundException fileNotFoundException)
+{
+    System.out.print("FileNotFoundException encountered: ");
+    System.out.println(fileNotFoundException.getMessage());
+    System.exit(-1);
+}
+catch (StorageException storageException)
+{
+    System.out.print("StorageException encountered: ");
+    System.out.println(storageException.getMessage());
+    System.exit(-1);
+}
+catch (URISyntaxException uriSyntaxException)
+{
+    System.out.print("URISyntaxException encountered: ");
+    System.out.println(uriSyntaxException.getMessage());
+    System.exit(-1);
+}
+catch (Exception e)
+{
+    System.out.print("Exception encountered: ");
+    System.out.println(e.getMessage());
+    System.exit(-1);
+}</pre>
+<p>通过插入右大括号结束 <strong>main</strong>： <strong>}</strong></p>
+<p>创建一个名为 <strong>MakeHTMLPage</strong> 的方法以创建基本 HTML 页。此方法具有一个 <strong>CloudBlobContainer</strong> 类型的参数，该参数将用于循环访问已上载 Blob 的列表。此方法将引发 <strong>FileNotFoundException</strong> 类型的异常（可由 <strong>FileOutputStream</strong> 构造函数引发）以及 <strong>URISyntaxException</strong>（可由 <strong>ListBlobItem.getUri</strong> 方法引发）。包括左大括号 <strong>{</strong>。</p>
+<pre class="prettyprint">public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
+{</pre>
+<p>创建一个名为 <strong>index.html</strong> 的本地文件。</p>
+<pre class="prettyprint">PrintStream stream;
+stream = new PrintStream(new FileOutputStream("index.html"));</pre>
+<p>写入本地文件，加入 <strong>&lt;html&gt;</strong>、<strong>&lt;header&gt;</strong> 和 <strong>&lt;body&gt;</strong> 元素。</p>
+<pre class="prettyprint">stream.println("&lt;html&gt;");
+stream.println("&lt;header/&gt;");
+stream.println("&lt;body&gt;");</pre>
+<p>循环访问已上载 Blob 的列表。对于 HTML 页中的每个 Blob，创建一个 <strong>&lt;img&gt;</strong> 元素，并将该元素的 <strong>src</strong> 属性发送到 Blob 的 URI（如同它存在于您的 Windows Azure 存储帐户中一样）。虽然您仅在此示例中添加了一个图像，但如果添加更多图像，此代码将循环访问所有这些图像。</p>
+<p>为了简单起见，此示例假定上载的每个 Blob 都是一个图像。如果您更新了图像之外的 Blob，或者更新了页面 Blob 而不是块 Blob，则请根据需要调整代码。</p>
+<pre class="prettyprint">// Enumerate the uploaded blobs.
+for (ListBlobItem blobItem : container.listBlobs()) {
+// List each blob as an &lt;img&gt; element in the HTML body.
+stream.println("&lt;img src='" + blobItem.getUri() + "'/&gt;&lt;br/&gt;");
+}</pre>
+<p>结束 <strong>&lt;body&gt;</strong> 元素和 <strong>&lt;html&gt;</strong> 元素。</p>
+<pre class="prettyprint">stream.println("&lt;/body&gt;");
+stream.println("&lt;/html&gt;");</pre>
+<p>结束本地文件。</p>
+<pre class="prettyprint">stream.close();</pre>
+<p>通过插入右大括号结束 <strong>MakeHTMLPage</strong>： <strong>}</strong></p>
+<p>通过插入右大括号结束 <strong>StorageSample</strong>： <strong>}</strong></p>
+<p>以下是此示例的完整代码。请记住将占位符值 <strong>your_account_name</strong> 和 <strong>your_account_key</strong> 分别修改为使用您自己的帐户名称和帐户密钥。</p>
+<pre class="prettyprint">import com.microsoft.windowsazure.services.core.storage.*;
+import com.microsoft.windowsazure.services.blob.client.*;
+import java.io.*;
+import java.net.URISyntaxException;
+
+// Create an image, c:\myimages\image1.jpg, prior to running this sample.
+// Alternatively, change the value used by the FileInputStream constructor 
+// to use a different image path and file that you have already created.
+public class StorageSample {
+
+    public static final String storageConnectionString = 
+            "DefaultEndpointsProtocol=http;" + 
+               "AccountName=your_account_name;" + 
+               "AccountKey=your_account_name"; 
+
+    public static void main(String[] args) 
+    {
+        try
+        {
+            CloudStorageAccount account;
+            CloudBlobClient serviceClient;
+            CloudBlobContainer container;
+            CloudBlockBlob blob;
+
+            account = CloudStorageAccount.parse(storageConnectionString);
+            serviceClient = account.createCloudBlobClient();
+            // Container name must be lower case.
+            container = serviceClient.getContainerReference("gettingstarted");
+            container.createIfNotExist();
+
+            // Set anonymous access on the container.
+            BlobContainerPermissions containerPermissions;
+            containerPermissions = new BlobContainerPermissions();
+            containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
+            container.uploadPermissions(containerPermissions);
+
+            // Upload an image file.
+            blob = container.getBlockBlobReference("image1.jpg");
+            File fileReference = new File ("c:\\myimages\\image1.jpg");
+            blob.upload(new FileInputStream(fileReference), fileReference.length());
+
+            // At this point the image is uploaded.
+            // Next, create an HTML page that lists all of the uploaded images.
+            MakeHTMLPage(container);
+
+            System.out.println("Processing complete.");
+            System.out.println("Open index.html to see the images stored in your storage account.");
+
+        }
+        catch (FileNotFoundException fileNotFoundException)
+        {
+            System.out.print("FileNotFoundException encountered: ");
+            System.out.println(fileNotFoundException.getMessage());
+            System.exit(-1);
+        }
+        catch (StorageException storageException)
+        {
+            System.out.print("StorageException encountered: ");
+            System.out.println(storageException.getMessage());
+            System.exit(-1);
+        }
+        catch (URISyntaxException uriSyntaxException)
+        {
+            System.out.print("URISyntaxException encountered: ");
+            System.out.println(uriSyntaxException.getMessage());
+            System.exit(-1);
+        }
+        catch (Exception e)
+        {
+            System.out.print("Exception encountered: ");
+            System.out.println(e.getMessage());
+            System.exit(-1);
+        }
+    }
+
+    // Create an HTML page that can be used to display the uploaded images.
+    // This example assumes all of the blobs are for images.
+    public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
+{
+        PrintStream stream;
+        stream = new PrintStream(new FileOutputStream("index.html"));
+
+        // Create the opening &lt;html&gt;, &lt;header&gt;, and &lt;body&gt; elements.
+        stream.println("&lt;html&gt;");
+        stream.println("&lt;header/&gt;");
+        stream.println("&lt;body&gt;");
+
+        // Enumerate the uploaded blobs.
+        for (ListBlobItem blobItem : container.listBlobs()) {
+            // List each blob as an &lt;img&gt; element in the HTML body.
+            stream.println("&lt;img src='" + blobItem.getUri() + "'/&gt;&lt;br/&gt;");
+        }
+
+        stream.println("&lt;/body&gt;");
+
+        // Complete the &lt;html&gt; element and close the file.
+        stream.println("&lt;/html&gt;");
+        stream.close();
+    }
+}</pre>
+<p>除了将本地图像文件上载到 Windows Azure 存储之外，此示例代码还将创建一个本地文件 namedindex.html，您可在浏览器中打开该文件以查看上载的图像。</p>
+<p>由于代码包含您的帐户名称和帐户密钥，因此请确保您的源代码是安全的。</p>
+<h2><a name="bkmk_deletecontainer"></a>删除容器</h2>
+<p>由于您的存储是收费的，因此您可能希望在完成对此示例的试验后删除 gettingstartedcontainer。若要删除容器，请使用 <strong>CloudBlobContainer.delete</strong> 方法：</p>
+<pre class="prettyprint">container = serviceClient.getContainerReference("gettingstarted");
+container.delete();</pre>
+<p>若要调用 <strong>CloudBlobContainer.delete</strong> 方法，初始化 <strong>CloudStorageAccount</strong>、<strong>ClodBlobClient</strong>、<strong>CloudBlobContainer</strong> 对象的过程与为 <strong>createIfNotExist</strong> 方法演示的过程相同。以下是删除容器 namedgettingstarted 的完整示例。</p>
+<pre class="prettyprint">import com.microsoft.windowsazure.services.core.storage.*;
+import com.microsoft.windowsazure.services.blob.client.*;
+
+public class DeleteContainer {
+
+    public static final String storageConnectionString = 
+            "DefaultEndpointsProtocol=http;" + 
+               "AccountName=your_account_name;" + 
+               "AccountKey=your_account_key"; 
+
+    public static void main(String[] args) 
+    {
+        try
+        {
+            CloudStorageAccount account;
+            CloudBlobClient serviceClient;
+            CloudBlobContainer container;
+
+            account = CloudStorageAccount.parse(storageConnectionString);
+            serviceClient = account.createCloudBlobClient();
+            // Container name must be lower case.
+            container = serviceClient.getContainerReference("gettingstarted");
+            container.delete();
+
+            System.out.println("Container deleted.");
+
+        }
+        catch (StorageException storageException)
+        {
+            System.out.print("StorageException encountered: ");
+            System.out.println(storageException.getMessage());
+            System.exit(-1);
+        }
+        catch (Exception e)
+        {
+            System.out.print("Exception encountered: ");
+            System.out.println(e.getMessage());
+            System.exit(-1);
+        }
+    }
+}</pre>
+<p>有关其他 Blob 存储类和方法的概述，请参阅<a href="/zh-cn/develop/java/how-to-guides/blob-storage/">如何通过 Java 使用 Blob 存储服务</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>使用 Blob 存储的本地应用程序 (Java) - Windows Azure</pageTitle><metaKeywords>Azure Blob 存储, Azure Blob Java, Azure Blob 示例, Azure Blob 教程</metaKeywords><metaDescription><![CDATA[了解如何创建将图像上载到 Windows Azure 并在浏览器中显示图像的控制台应用程序。使用 Java 的代码示例。]]></metaDescription><linkid>dev-java-how-to-on-premise-application-with-blob-storage</linkid><urlDisplayName>图像库和存储</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18859" parentID="18853" level="6" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="3" createDate="2013-07-11T10:51:32" updateDate="2014-08-18T11:10:26" nodeName="3 Web Role" urlName="3-web-role" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18853,18859" isDoc=""><bodyText><![CDATA[<div>
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/zh-cn/develop/net/compute/">计算</a></li>
+<li class="menu-nodejs-data"><a href="/zh-cn/develop/net/data/">数据服务</a></li>
+<li class="menu-nodejs-appservices"><a href="/zh-cn/develop/net/app-services/">应用服务</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/zh-cn/support/forums/">论坛</a></li>
+</ul>
+<ul>
+<li>本系列中的内容</li>
+<li><a href="../1-overview/">1. 概述</a></li>
+<li><a href="../2-download-and-run/">2. 下载并运行</a></li>
+<li><strong>3. Web 角色</strong></li>
+<li><a href="../4-worker-role-a/">4. 辅助角色 A</a></li>
+<li><a href="../5-worker-role-b/">5. 辅助角色 B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>在此页上（跳转到）：</li>
+</ul>
+</div>
+</div>
+</div>
+<h1>为 Windows Azure Email Service 应用程序生成 Web 角色 - 第 3 部分，共 5 部分。</h1>
+<p>这是五个系列教程中的第三个教程，此系列教程演示如何生成和部署 Windows Azure Email Service 示例应用程序。有关应用程序和本系列教程的信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。</p>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>如何创建含有云服务项目及 Web 角色和辅助角色的解决方案。</li>
+<li>如何在 MVC 4 控制器和视图中使用 Windows Azure 表、Blob 和查询。</li>
+<li>如何在使用 Windows Azure 表时处理并发冲突。</li>
+<li>如何配置 Web 角色或 Web 项目以使用 Windows Azure 存储帐户。</li>
+</ul>
+<h2><a name="cloudproject"></a> <span class="short-header">创建解决方案</span>创建 Visual Studio 解决方案</h2>
+<p>首先创建一个 Visual Studio 解决方案，其中含有 Web 前端的项目和一个后端 Windows Azure 辅助角色的项目。将稍后添加第二个辅助角色。</p>
+<p>（如果要在 Windows Azure 网站而非 Windows Azure 云服务中运行 Web UI，请参阅本教程后面的<a href="#alternativearchitecture">备选体系结构</a>一节以了解对这些说明的更改。）</p>
+<h3>创建含有一个 Web 角色和一个辅助角色的云服务项目</h3>
+<ol>
+<li>
+<p>用管理权限启动 Visual Studio 2012 或 Visual Studio 2012 for Web Express。</p>
+<p>使您可在本地测试云项目的 Windows Azure 计算模拟器需要管理权限。</p>
+</li>
+<li>
+<p>从“文件”<strong></strong>菜单中选择“新建项目”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-file-new-project.png" alt="“新建项目”菜单"/></p>
+</li>
+<li>
+<p>在“已安装的模板”<strong></strong>下展开“C#”<strong></strong>并选择“Cloud”<strong></strong>（云），然后选择“Windows Azure 云服务”<strong></strong>。</p>
+</li>
+<li>
+<p>将该应用程序命名为“AzureEmailService”<strong></strong>，然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-new-cloud-project.png" alt="“新建项目”对话框"/></p>
+</li>
+<li>
+<p>在“新 Windows Azure 云服务”<strong></strong>对话框中，选择“ASP.NET MVC 4 Web 角色”<strong></strong>，然后单击指向右侧的箭头。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-new-cloud-service-dialog.png" alt="“新 Windows Azure 云项目”对话框"/></p>
+</li>
+<li>
+<p>在右侧的列中，将指针悬停在 <strong>MvcWebRole1</strong> 上，然后单击铅笔图标以更改 Web 角色的名称。</p>
+</li>
+<li>
+<p>输入 MvcWebRole 作为新名称，然后按 Enter。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-new-cloud-service-dialog-rename.png" alt="“新 Windows Azure 云项目”对话框 - 重命名 Web 角色"/></p>
+</li>
+<li>
+<p>按相同过程添加一个“辅助角色”<strong></strong>，将其命名为 WorkerRoleA，然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-new-cloud-service-add-worker-a.png" alt="“新 Windows Azure 云项目”对话框 - 添加辅助角色"/></p>
+</li>
+<li>
+<p>在“新建 ASP.NET MVC 4 项目”<strong></strong>对话框中，选择“Internet 应用程序”<strong></strong>模板。</p>
+</li>
+<li>
+<p>在“视图引擎”<strong></strong>下拉列表中，确保选择“Razor”<strong></strong>，然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-new-mvc4-project.png" alt="“新建项目”对话框"/></p>
+</li>
+</ol>
+<h3>设置页眉、菜单和页脚</h3>
+<p>在这一节中，请更新在管理员 Web UI 每页上显示的页眉、页脚和菜单项。该应用程序将有三组管理员网页：一个用于邮件列表，一个用于邮件列表的订户，一个用于邮件。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，展开 Views\Shared 文件夹，然后打开 _Layout.cshtml 文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-opening-layout-cshtml.png" alt="解决方案资源管理器中的 _Layout.cshtml"/></p>
+</li>
+<li>
+<p>在 <strong>&lt;title&gt;</strong> 元素中，将“我的 ASP.NET MVC 应用程序”更改为“Windows Azure Email Service”。</p>
+</li>
+<li>
+<p>在含有类“site-title”的 <strong>&lt;p&gt;</strong> 元素中，将“将你的徽标放置在此处”更改为“Windows Azure Email Service”，然后将“Home”更改为“MailingList”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-title-and-logo-in-layout.png" alt="_Layout.cshtml 中的 title 和 header"/></p>
+</li>
+<li>
+<p>删除 menu 部分：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-menu-in-layout.png" alt="_Layout.cshtml 中的 menu"/></p>
+</li>
+<li>
+<p>在旧 menu 部分所在位置插入新 menu 部分：</p>
+<pre class="prettyprint">&lt;ul id="menu"&gt;     &lt;li&gt;@Html.ActionLink("Mailing Lists", "Index", "MailingList")&lt;/li&gt;     &lt;li&gt;@Html.ActionLink("Messages", "Index", "Message")&lt;/li&gt;     &lt;li&gt;@Html.ActionLink("Subscribers", "Index", "Subscriber")&lt;/li&gt; &lt;/ul&gt;</pre>
+</li>
+<li>
+<p>在 <strong>&lt;footer&gt;</strong> 元素中，将“我的 ASP.NET MVC 应用程序”更改为“Windows Azure Email Service”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-footer-in-layout.png" alt="_Layout.cshtml 中的 footer"/></p>
+</li>
+</ol>
+<h3>在本地运行应用程序</h3>
+<ol>
+<li>
+<p>按 Ctrl+F5 运行应用程序。</p>
+<p>随后在默认浏览器中显示该应用程序主页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-home-page-before-adding-controllers.png" alt="主页"/></p>
+<p>该应用程序在 Windows Azure 计算模拟器中运行。可在 Windows 系统任务栏中看到计算模拟器图标：</p>
+<p>![系统任务栏中的计算模拟器][mtas-compute-emulator-icon]</p>
+</li>
+</ol>
+<h2><a name="tracing"></a> <span class="short-header">配置跟踪</span>配置跟踪</h2>
+<p>若要能够保存跟踪数据，请打开 <em>WebRole.cs</em> 文件，然后添加以下 <code>ConfigureDiagnostics</code> 方法。请将调用这个新方法的代码添加到 <code>OnStart</code> 方法中。</p>
+<pre class="prettyprint">private void ConfigureDiagnostics() {     DiagnosticMonitorConfiguration config = DiagnosticMonitor.GetDefaultInitialConfiguration();     config.Logs.BufferQuotaInMB = 500;     config.Logs.ScheduledTransferLogLevelFilter = LogLevel.Verbose;     config.Logs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1d);      DiagnosticMonitor.Start(         "Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString",         config); }  public override bool OnStart() {     ConfigureDiagnostics();     return base.OnStart(); }</pre>
+<p><code>ConfigureDiagnostics</code> 方法在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">第二个教程</a>中有述。</p>
+<h2><a name="restarts"></a> <span class="short-header">重新启动</span>添加高效地处理重新启动的代码。</h2>
+<p>Windows Azure 云服务应用程序大约每个月重新启动两次以进行操作系统更新。（有关操作系统更新的详细信息，请参阅<a href="http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx">因操作系统升级而重新启动角色实例</a>。）当 Web 应用程序即将关闭时，将引发 <code>OnStop</code> 事件。Visual Studio 创建的 Web 角色样板不重写 <code>OnStop</code> 方法，因此应用程序只有几秒时间用于处理完 HTTP 请求，然后就会关闭。可添加重写 <code>OnStop</code> 方法的代码以确保正常处理关闭。</p>
+<p>若要处理关闭和重新启动，请打开 <em>WebRole.cs</em> 文件，然后添加以下 <code>OnStop</code> 方法重写。</p>
+<pre class="prettyprint">public override void OnStop()   {       Trace.TraceInformation("OnStop called from WebRole");       var rcCounter = new PerformanceCounter("ASP.NET", "Requests Current", "");       while (rcCounter.NextValue() &gt; 0)       {           Trace.TraceInformation("ASP.NET Requests Current = " + rcCounter.NextValue().ToString());           System.Threading.Thread.Sleep(1000);       }              }</pre>
+<p>此代码另外需要一个 <code>using</code> 声明：</p>
+<pre class="prettyprint">using System.Diagnostics;</pre>
+<p><code>OnStop</code> 方法最多有 5 分钟时间可在关闭应用程序前退出。可添加一个睡眠调用，在 5 分钟后调用 <code>OnStop</code> 方法，以使应用程序尽可能有时间处理当前的请求，但如果正确扩大了应用程序规模，则它处理其余请求所用的时间应大大少于 5 分钟。最好尽快停止，以使应用程序可尽快重新启动，然后继续处理请求。</p>
+<p>Windows Azure 使某个角色脱机后，负载平衡器即停止向该角色实例发送请求，然后调用 <code>OnStop</code> 方法。如果角色没有其他实例，则直到角色完全关闭并重新启动后（此过程一般耗时数分钟）才有请求要处理。正因如此，Windows Azure 服务级别协议要求每个角色至少要有两个实例，以便充分利用运行时间保证。</p>
+<p>在针对 <code>OnStop</code> 方法显示的代码中，创建了一个 ASP.NET 性能计数器用于 <code>Requests Current</code>。<code>Requests Current</code> 计数器值包含当前的请求数，包括排队、正在执行或等待写入客户端的请求。每秒检查一次 <code>Requests Current</code> 值，当它降到零后，<code>OnStop</code> 方法即返回。<code>OnStop</code> 返回后，该角色即关闭。</p>
+<p>从 <code>OnStop</code> 方法中调用但不执行<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433075.aspx">按需传输</a>时，不保存跟踪数据。可用 <a href="http://technet.microsoft.com/zh-cn/sysinternals/bb896647.aspx">dbgview</a> 实用程序通过远程桌面连接实时查看 <code>OnStop</code> 跟踪信息。</p>
+<h2><a name="updatescl"></a> <span class="short-header">更新存储客户端库</span>更新存储客户端库 NuGet 程序包</h2>
+<p>用于使用 Windows Azure 存储表、队列和 Blob 的 API 框架为存储客户端库 (SCL)。此 API 包括在云服务项目模板中的 NuGet 程序包内。但是，截至撰写本教程时，项目模板包括 SCL 的 1.7 版，而非当前的 2.0 版。因此，在开始编写代码前，将更新 NuGet 程序包。</p>
+<ol>
+<li>
+<p>在 Visual Studio 的“工具”<strong></strong>菜单中，将鼠标悬停在“库程序包管理器”<strong></strong>上，然后单击“管理解决方案的 NuGet 程序包”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-manage-nuget-for-solution.png" alt="“管理解决方案的 NuGet 程序包”菜单"/></p>
+</li>
+<li>
+<p>在“管理 NuGet 程序包”<strong></strong>对话框的左窗格中，选择“更新”<strong></strong>，然后向下滚动至“Windows Azure Storage”<strong></strong>程序包，再单击“更新”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-update-storage-nuget-pkg.png" alt="“管理 NuGet 程序包”对话框中的“Windows Azure Storage”程序包"/></p>
+</li>
+<li>
+<p>在“选择项目”<strong></strong>对话框中，确保选择这两个项目，然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-nuget-select-projects.png" alt="在“选择项目”对话框中选择这两个项目"/></p>
+</li>
+<li>
+<p>接受许可条款以完成程序包的安装，然后关闭“管理 NuGet 程序包”<strong></strong>对话框。</p>
+</li>
+<li>
+<p>在 WorkerRoleA 项目中的 WorkerRoleA.cs 中，删除以下 <code>using</code> 语句，因为不再需要它：</p>
+<pre class="prettyprint">using Microsoft.WindowsAzure.StorageClient;</pre>
+</li>
+</ol>
+<p>SCL 的 1.7 版中含有一个 LINQ 提供程序，可简化表查询的编码。截至撰写本教程时，2.0 表服务层 (TSL) 尚未具有 LINQ 提供程序。如果要使用 LINQ，则仍可在 <a href="http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.table.dataservices.aspx">Microsoft.WindowsAzure.Storage.Table.DataServices</a> 命名空间中访问 SCL 1.7 LINQ 提供程序。2.0 TSL 旨在提高性能，而 1.7 LINQ 提供程序无法从所有这些改进中获益。示例应用程序使用 2.0 TSL，因此它不使用 LINQ 进行查询。有关 SCL 和 TSL 2.0 的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>结尾处的资源。</p>
+<h2><a name="addref2"></a> <span class="short-header">添加 SCL 1.7 引用</span>添加对 SCL 1.7 程序集的引用</h2>
+<p>存储客户端库 (SCL) 的 2.0 版缺少进行诊断所需的一部分内容，因此必须添加对 SCL 1.7 程序集的引用。</p>
+<ol>
+<li>
+<p>右键单击 MvcWebRole 项目，然后选择“添加引用”<strong></strong>。</p>
+</li>
+<li>
+<p>单击对话框底部的“浏览...”<strong></strong>按钮。</p>
+</li>
+<li>
+<p>导航到以下文件夹：</p>
+<pre class="prettyprint">C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref</pre>
+</li>
+<li>
+<p>选择“Microsoft.WindowsAzure.StorageClient.dll”<em></em>，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>在“引用管理器”<strong></strong>对话框中，单击“确定”<strong></strong>。</p>
+</li>
+<li>
+<p>对 WorkerRoleA 项目重复该过程。</p>
+</li>
+</ol>
+<h2><a name="createifnotexists"></a> <span class="short-header">App_Start 代码</span>在 Application_Start 方法中添加创建表、队列和 Blob 容器的代码</h2>
+<p>Web 应用程序将使用 <code>MailingList</code> 表、<code>Message</code> 表、<code>azuremailsubscribequeue</code> 队列和 <code>azuremailblobcontainer</code> Blob 容器。可使用 Azure Storage Explorer 等工具手动创建这些项，但以后每次以新的存储帐户使用该应用程序时都必须手动执行此操作。在这一节中，您将添加在应用程序启动时运行的代码，确认存在所需的表、队列和 Blob 容器，如果不存在，则创建它们。</p>
+<p>可将这段一次性启动代码添加到 <em>WebRole.cs</em> 文件中的 <code>OnStart</code> 方法，或添加到 <em>Global.asax</em> 文件。对于本教程，您将在 <em>Global.asax</em> 文件中初始化 Windows Azure 存储，因为这样对 Windows Azure 网站和 Windows Azure 云服务 Web 角色均有效。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，展开 <em>Global.asax</em>，然后打开 <em>Global.asax.cs</em>。</p>
+</li>
+<li>
+<p>在 <code>Application_Start</code> 方法后添加一个新的 <code>CreateTablesQueuesBlobContainers</code> 方法，然后从 <code>Application_Start</code> 方法中调用这个新方法，如下例所示：</p>
+<pre class="prettyprint">protected void Application_Start() {     AreaRegistration.RegisterAllAreas();     WebApiConfig.Register(GlobalConfiguration.Configuration);     FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);     RouteConfig.RegisterRoutes(RouteTable.Routes);     BundleConfig.RegisterBundles(BundleTable.Bundles);     AuthConfig.RegisterAuth();     // Verify that all of the tables, queues, and blob containers used in this application     // exist, and create any that don't already exist.     CreateTablesQueuesBlobContainers(); }   private static void CreateTablesQueuesBlobContainers() {     var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));     // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:     //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);     var tableClient = storageAccount.CreateCloudTableClient();     var mailingListTable = tableClient.GetTableReference("MailingList");     mailingListTable.CreateIfNotExists();     var messageTable = tableClient.GetTableReference("Message");     messageTable.CreateIfNotExists();     var blobClient = storageAccount.CreateCloudBlobClient();     var blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");     blobContainer.CreateIfNotExists();     var queueClient = storageAccount.CreateCloudQueueClient();     var subscribeQueue = queueClient.GetQueueReference("azuremailsubscribequeue");     subscribeQueue.CreateIfNotExists(); }</pre>
+</li>
+<li>
+<p>右键单击 <code>RoleEnvironment</code> 下的蓝色波浪线，选择“解析”<strong></strong>，然后选择“using Microsoft.WindowsAzure.ServiceRuntime”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-4.png" alt="右键单击"/></p>
+</li>
+<li>
+<p>右键单击 <code>CloudStorageAccount</code> 下的蓝色波浪线，选择“解析”<strong></strong>，然后选择“using Microsoft.WindowsAzure.Storage”<strong></strong>。</p>
+</li>
+<li>
+<p>或者，可手动添加以下 using 语句：</p>
+<pre class="prettyprint">using Microsoft.WindowsAzure.ServiceRuntime; using Microsoft.WindowsAzure.Storage;</pre>
+</li>
+<li>
+<p>生成应用程序，该操作将保存文件并确认没有任何编译错误。</p>
+</li>
+</ol>
+<p>在以下各节中，您生成 Web 应用程序的组件，并可用开发存储或存储帐户测试这些组件，而不必先手动创建表、队列或 Blob 容器。</p>
+<h2><a name="mailinglist"></a> <span class="short-header">Mailing List</span>创建和测试 Mailing Lists 控制器和视图</h2>
+<p>管理员使用“Mailing Lists”<strong></strong>Web UI 创建、编辑和显示邮件列表，如“Contoso University History Department announcements”和“Fabrikam Engineering job postings”。</p>
+<h3>向 Models 文件夹添加 MailingList 实体类</h3>
+<p><code>MailingList</code> 实体类用于 <code>MailingList</code> 表中包含列表信息（如该列表的说明和发送到该列表的电子邮件的“发件人”电子邮件地址）的行。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 <code>Models</code> 文件夹，然后选择“添加现有项<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-add-existing-item-to-models.png" alt="向 Models 文件夹添加现有项"/></p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <code>Models</code> 文件夹中的 <em>MailingList.cs</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>MailingList.cs</em> 并检查代码。</p>
+<pre class="prettyprint">public class MailingList : TableEntity {     public MailingList()     {         this.RowKey = "mailinglist";     }   [Required] [RegularExpression(@"[\w]+",  ErrorMessage = @"Only alphanumeric characters and underscore (_) are allowed.")] [Display(Name = "List Name")] public string ListName {     get     {         return this.PartitionKey;     }     set     {         this.PartitionKey = value;     } }   [Required] [Display(Name = "'From' Email Address")] public string FromEmailAddress { get; set; }   public string Description { get; set; }   }</pre>
+<p>Windows Azure 存储 TSL 2.0 API 要求用于表操作的实体类派生自 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx">TableEntity</a>。此类定义 <code>PartitionKey</code>、<code>RowKey</code>、<code>TimeStamp</code> 和 <code>ETag</code> 字段。系统使用 <code>TimeStamp</code> 和 <code>ETag</code> 属性。您将在本教程的后面了解如何将 <code>ETag</code> 属性用于并发处理。</p>
+<p>（还有一个 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx">DynamicTableEntity</a> 类用于要使用表行作为键值对的 Dictionary 集合而非通过预定义的模型类使用表行时。有关详细信息，请参阅 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx">Windows Azure 存储客户端库 2.0 表详解</a>。）</p>
+<p><code>mailinglist</code> 表分区键为列表名称。在此实体类中，可使用 <code>PartitionKey</code> 属性（在 <code>TableEntity</code> 类中定义）或 <code>ListName</code> 属性（在 <code>MailingList</code> 类中定义）访问该分区键值。<code>ListName</code> 属性使用 <code>PartitionKey</code> 作为其后备变量。通过定义 <code>ListName</code> 属性，可在代码中使用更具描述性的变量名称，并可更简便地对 Web UI 进行编程，因为可向 <code>ListName</code> 属性添加格式化和验证 DataAnnotations 特性，但不能将这些特性直接添加到 <code>PartitionKey</code> 属性。</p>
+<p><code>ListName</code> 属性上的 <code>RegularExpression</code> 特性使 MVC 验证用户输入，以确保所输入的列表名称值仅包含字母字符或下划线。实施此限制是为了使列表名称简明，以便于在 URL 的查询字符串中使用这些名称。</p>
+<p><strong>注意：</strong>如果希望减轻对列表名称格式的约束，可允许在查询字符串中使用其他字符和 URL 编码的列表名称。但是，Windows Azure 表分区键或行键中不允许使用某些字符，因此至少必须排除这些字符。有关分区键或行键字段中不允许使用或会导致问题的字符的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179338.aspx">了解表服务数据模型</a>和 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx">PartitionKey 或 RowKey 中的百分号字符</a>。</p>
+<p><code>MailingList</code> 类定义一个默认构造函数，后者将 <code>RowKey</code> 设置为硬编码的字符串“mailinglist”，因为此表中的所有邮件列表行均以该值作为其行键。（有关表结构的说明，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。）为此，只要常量值可与某个电子邮件地址（此表中订户行的行键）永不相同，即可选择该常量值。</p>
+<p>创建新的 <code>MailingList</code> 实体时，总是必须输入列表名称和“发件人”电子邮件地址，因此二者有 <code>Required</code> 特性。</p>
+<p><code>Display</code> 特性指定要用于 MVC UI 中某个字段的默认标题。</p>
+</li>
+</ol>
+<h3>添加 MailingList MVC 控制器</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 Controllers 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-add-existing-item-to-controllers.png" alt="向 Controllers 文件夹添加现有项"/></p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <code>Controllers</code> 文件夹中的 <em>MailingListController.cs</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>MailingListController.cs</em> 并检查代码。</p>
+<p>默认构造函数创建一个 <code>CloudTable</code> 对象以供使用 <code>mailinglist</code> 表。</p>
+<pre class="prettyprint">public class MailingListController : Controller {     private CloudTable mailingListTable;   public MailingListController() {     var storageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));     // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:     //    var storageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);       var tableClient = storageAccount.CreateCloudTableClient();     mailingListTable = tableClient.GetTableReference("mailinglist"); }</pre>
+<p>这段代码从云服务项目设置文件获取 Windows Azure 存储帐户的凭据以连接到该存储帐户。（您将在本教程的后面配置这些设置，然后再测试控制器。）如果将在 Windows Azure 网站中运行 MVC 项目，则可改为从 Web.config 文件获取连接字符串。</p>
+<p>接下来是 <code>FindRow</code> 方法，只要控制器需要查找 <code>MailingList</code> 表的某个具体邮件列表条目（例如，为了编辑邮件列表条目），即调用该方法。这段代码使用传入到它的分区键和行键值检索一个 <code>MailingList</code> 实体。此控制器所编辑的行是以“MailingList”作为行键的行，因此可能已将行键硬编码为“MailingList”，但对于所有控制器中的 <code>FindRow</code> 方法都使用同时指定分区键和行键的模式。</p>
+<pre class="prettyprint">private MailingList FindRow(string partitionKey, string rowKey) {     var retrieveOperation = TableOperation.Retrieve&lt;MailingList&gt;(partitionKey, rowKey);     var retrievedResult = mailingListTable.Execute(retrieveOperation);     var mailingList = retrievedResult.Result as MailingList;     if (mailingList == null)     {         throw new Exception("No mailing list found for: " + partitionKey);     }   return mailingList;   }</pre>
+<p>比较 <code>MailingList</code> 控制器中的 <code>FindRow</code> 方法（它返回邮件列表行）与 <code>Subscriber</code> 控制器中的 <code>FindRow</code> 方法（它返回同一 <code>mailinglist</code> 表中的订户行）会有所启发。</p>
+<pre class="prettyprint">private Subscriber FindRow(string partitionKey, string rowKey) {     var retrieveOperation = TableOperation.Retrieve&lt;Subscriber&gt;(partitionKey, rowKey);     var retrievedResult = mailingListTable.Execute(retrieveOperation);     var subscriber = retrievedResult.Result as Subscriber;     if (subscriber == null)     {         throw new Exception("No subscriber found for: " + partitionKey + ", " + rowKey);     }     return subscriber; }</pre>
+<p>这两种查询的唯一区别是其传递给 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx">TableOperation.Retrieve</a> 方法的模型类型。该模型类型指定查询应返回的行的架构（属性）。一个表可在不同的行中采用不同的架构。在读取某行时，通常指定用于创建该行的同一模型类型。</p>
+<p><strong>Index</strong> 页显示所有邮件列表行，因此 <code>Index</code> 方法中的查询返回所有以“mailinglist”为行键的 <code>MailingList</code> 实体（表中的其他行以电子邮件地址为行键，并且这些行包含订户信息）。</p>
+<pre class="prettyprint">var query = new TableQuery&lt;MailingList&gt;().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, "mailinglist"));         lists = mailingListTable.ExecuteQuery(query, reqOptions).ToList();</pre>
+<p><code>Index</code> 方法在此查询前后加入旨在处理超时情况的代码。</p>
+<pre class="prettyprint">public ActionResult Index() {     TableRequestOptions reqOptions = new TableRequestOptions()     {         MaximumExecutionTime = TimeSpan.FromSeconds(1.5),         RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3)     };     List&lt;MailingList&gt; lists;     try     {         var query = new TableQuery&lt;MailingList&gt;().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, "mailinglist"));         lists = mailingListTable.ExecuteQuery(query, reqOptions).ToList();     }     catch (StorageException se)     {         ViewBag.errorMessage = "Timeout error, try again. ";         Trace.TraceError(se.Message);         return View("Error");     }   return View(lists);   }</pre>
+<p>如果未指定超时参数，则 API 自动重试三次，其中以指数形式提高超时限制。对于有用户等待显示页面的 Web 界面，这可能会导致等待时间长得无法令人接受。因此，这段代码指定线性重试（因此超时限制不会每次都提高）和用户合理等待的超时限制。</p>
+<p>当用户单击 <strong>Create</strong> 页上的 <strong>Create</strong> 按钮时，MVC 模型绑定器根据在视图中输入的内容创建一个 <code>MailingList</code> 实体，而 <code>HttpPost Create</code> 方法将该实体添加到表中。</p>
+<pre class="prettyprint">[HttpPost] [ValidateAntiForgeryToken] public ActionResult Create(MailingList mailingList) {     if (ModelState.IsValid)     {         var insertOperation = TableOperation.Insert(mailingList);         mailingListTable.Execute(insertOperation);         return RedirectToAction("Index");     }   return View(mailingList);   }</pre>
+<p>对于 <strong>Edit</strong> 页，<code>HttpGet Edit</code> 方法查找行，而 <code>HttpPost</code> 方法更新行。</p>
+<pre class="prettyprint">[HttpPost] [ValidateAntiForgeryToken] public ActionResult Edit(string partitionKey, string rowKey, MailingList editedMailingList) {     if (ModelState.IsValid)     {         var mailingList = new MailingList();         UpdateModel(mailingList);         try         {             var replaceOperation = TableOperation.Replace(mailingList);             mailingListTable.Execute(replaceOperation);             return RedirectToAction("Index");         }         catch (StorageException ex)         {             if (ex.RequestInformation.HttpStatusCode == 412)             {                 // Concurrency error                 var currentMailingList = FindRow(partitionKey, rowKey);                 if (currentMailingList.FromEmailAddress != editedMailingList.FromEmailAddress)                 {                     ModelState.AddModelError("FromEmailAddress", "Current value: " + currentMailingList.FromEmailAddress);                 }                 if (currentMailingList.Description != editedMailingList.Description)                 {                     ModelState.AddModelError("Description", "Current value: " + currentMailingList.Description);                 }                 ModelState.AddModelError(string.Empty, "The record you attempted to edit "                     + "was modified by another user after you got the original value. The "                     + "edit operation was canceled and the current values in the database "                     + "have been displayed. If you still want to edit this record, click "                     + "the Save button again. Otherwise click the Back to List hyperlink.");                  ModelState.SetModelValue("ETag", new ValueProviderResult(currentMailingList.ETag, currentMailingList.ETag, null));             }             else             {                 throw;              }         }     }     return View(editedMailingList); }</pre>
+<p>try-catch 块处理并发错误。如果用户选择一个邮件列表进行编辑，然后在浏览器中显示 <strong>Edit</strong> 页时有另一个用户在编辑同一邮件列表，则引发并发异常。发生这种情况时，这段代码将显示一条警告消息，并指示其他用户更改了哪些字段。TSL API 使用 <code>ETag</code> 检查是否有并发冲突。每次更新表行时，都会更改 <code>ETag</code> 值。当获取某行进行编辑时，保存 <code>ETag</code> 值，而在执行更新或删除操作时，传入已保存的 <code>ETag</code> 值。（<code>Edit</code> 视图有一个隐藏的字段用于 ETag 值。）如果更新操作发现所更新的记录上的 <code>ETag</code> 值与传入到更新操作的 <code>ETag</code> 值不同，则该操作引发并发异常。如果不在意并发冲突，则将传入到更新操作的实体中的 ETag 字段设置为星号（“*”），即可忽略冲突。</p>
+<p>注意：HTTP 412 错误不是并发错误所特有的。SCL API 还会因其他错误而引发该错误。</p>
+<p>对于 <strong>Delete</strong> 页，<code>HttpGet Delete</code> 方法查找行以显示其内容，而 <code>HttpPost</code> 方法删除 <code>MailingList</code> 行以及 <code>MailingList</code> 表中任何与该行关联的 <code>Subscriber</code> 行。</p>
+<pre class="prettyprint">[HttpPost, ActionName("Delete")] [ValidateAntiForgeryToken] public ActionResult DeleteConfirmed(string partitionKey) {     // Delete all rows for this mailing list, that is,      // Subscriber rows as well as MailingList rows.     // Therefore, no need to specify row key.     var query = new TableQuery&lt;MailingList&gt;().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, partitionKey));     var listRows = mailingListTable.ExecuteQuery(query).ToList();     var batchOperation = new TableBatchOperation();     int itemsInBatch = 0;     foreach (MailingList listRow in listRows)     {         batchOperation.Delete(listRow);         itemsInBatch++;         if (itemsInBatch == 100)         {             mailingListTable.ExecuteBatch(batchOperation);             itemsInBatch = 0;             batchOperation = new TableBatchOperation();         }     }     if (itemsInBatch &gt; 0)     {         mailingListTable.ExecuteBatch(batchOperation);     }     return RedirectToAction("Index"); }</pre>
+<p>在需要删除大量订户的情况下，这段代码批量删除记录。删除一行的事务成本与批量删除 100 行相同。一批中最多可执行 100 个操作。</p>
+<p>尽管该循环同时处理 <code>MailingList</code> 行和 <code>Subscriber</code> 行，但它将这些行均读入 <code>MailingList</code> 实体类，因为 <code>Delete</code> 操作只需要 <code>PartitionKey</code>、<code>RowKey</code> 和 <code>ETag</code> 这三个字段。</p>
+</li>
+</ol>
+<h3>添加 MailingList MVC 视图</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中 MVC 项目中的 <em>Views</em> 文件夹下，创建一个新文件夹，并将其命名为 <em>MailingList</em>。</p>
+</li>
+<li>
+<p>右键单击这个新 <em>Views\MailingList</em> 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-add-existing-item-to-views.png" alt="向 Views 文件夹添加现有项"/></p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Views\MailingList</em> 文件夹中的所有四个 .cshtml 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>Edit.cshtml</em> 文件并检查代码。</p>
+<pre class="prettyprint">@model MvcWebRole.Models.MailingList         @{     ViewBag.Title = "Edit Mailing List"; }         &lt;h2&gt;Edit Mailing List&lt;/h2&gt;       @using (Html.BeginForm()) {       @Html.AntiForgeryToken()       @Html.ValidationSummary(true)       @Html.HiddenFor(model =&gt; model.ETag)       &lt;fieldset&gt;         &lt;legend&gt;MailingList&lt;/legend&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.ListName)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.DisplayFor(model =&gt; model.ListName)         &lt;/div&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.Description)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.EditorFor(model =&gt; model.Description)             @Html.ValidationMessageFor(model =&gt; model.Description)         &lt;/div&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.FromEmailAddress)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.EditorFor(model =&gt; model.FromEmailAddress)             @Html.ValidationMessageFor(model =&gt; model.FromEmailAddress)         &lt;/div&gt;         &lt;p&gt;             &lt;input type="submit" value="Save" /&gt;         &lt;/p&gt;     &lt;/fieldset&gt; } &lt;div&gt;     @Html.ActionLink("Back to List", "Index") &lt;/div&gt;       @section Scripts {     @Scripts.Render("~/bundles/jqueryval") }</pre>
+<p>这段代码通常用于 MVC 视图。注意，其中加入了隐藏字段以保留用于处理并发冲突的 <code>ETag</code> 值。另请注意，<code>ListName</code> 字段具有 <code>DisplayFor</code> 帮助器而非 <code>EditorFor</code> 帮助器。我们未使 <strong>Edit</strong> 页可更改列表名称，因为这需要在控制器中加入复杂的代码：<code>HttpPost Edit</code> 方法必须删除现有的邮件列表行和所有关联的订户行，然后向所有这些行重新插入新键值。在生产应用程序中，您可能决定值得提高复杂程度。您在后面将了解，<code>Subscriber</code> 控制器确实允许更改列表名称，因为一次仅影响一行。</p>
+<p><em>Create.cshtml</em> 和 <em>Delete.cshtml</em> 代码与 <em>Edit.cshtml</em> 类似。</p>
+</li>
+<li>
+<p>打开 <em>Index.cshtml</em> 并检查代码。</p>
+<pre class="prettyprint">@model IEnumerable&lt;MvcWebRole.Models.MailingList&gt; @{     ViewBag.Title = "Mailing Lists"; } &lt;h2&gt;Mailing Lists&lt;/h2&gt; &lt;p&gt;     @Html.ActionLink("Create New", "Create") &lt;/p&gt; &lt;table&gt;     &lt;tr&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.ListName)         &lt;/th&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.Description)         &lt;/th&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.FromEmailAddress)         &lt;/th&gt;         &lt;th&gt;&lt;/th&gt;     &lt;/tr&gt; @foreach (var item in Model) {     &lt;tr&gt;         &lt;td&gt;             @Html.DisplayFor(modelItem =&gt; item.ListName)         &lt;/td&gt;         &lt;td&gt;             @Html.DisplayFor(modelItem =&gt; item.Description)         &lt;/td&gt;         &lt;td&gt;             @Html.DisplayFor(modelItem =&gt; item.FromEmailAddress)         &lt;/td&gt;         &lt;td&gt;             @Html.ActionLink("Edit", "Edit", new { PartitionKey = item.PartitionKey, RowKey=item.RowKey }) |             @Html.ActionLink("Delete", "Delete", new { PartitionKey = item.PartitionKey, RowKey=item.RowKey  })         &lt;/td&gt;     &lt;/tr&gt; } &lt;/table&gt;</pre>
+<p>这段代码通常也用于 MVC 视图。<strong>Edit</strong> 和 <strong>Delete</strong> 超链接指定分区键和行键的查询字符串参数以标识具体的一行。对于 <code>MailingList</code> 实体，实际上只需要分区键，因为行键始终为“MailingList”，但同时保留二者，以使 MVC 视图代码在所有控制器和视图中保持一致。</p>
+</li>
+</ol>
+<h3>使 MailingList 成为默认控制器</h3>
+<ol>
+<li>
+<p>打开 <em>App_Start</em> 文件夹中的 <em>Route.config.cs</em>。</p>
+</li>
+<li>
+<p>在指定默认值的行中，将默认控制器从“Home”更改为“MailingList”。</p>
+<pre class="prettyprint">routes.MapRoute(      name: "Default",      url: "{controller}/{action}/{id}",      defaults: new { controller = "MailingList", action = "Index", id = UrlParameter.Optional }</pre>
+</li>
+</ol>
+<h2><a name="configurestorage"></a> <span class="short-header">配置存储</span>配置 Web 角色以使用测试 Windows Azure 存储帐户</h2>
+<p>您将输入测试存储帐户的设置，在本地运行项目时将使用该帐户。若要添加新设置，必须同时为云和本地添加该设置，但以后可更改云值。将稍后为辅助角色 A 添加相同设置。</p>
+<p>（如果要在 Windows Azure 网站而非 Windows Azure 云服务中运行 Web UI，请参阅本教程后面的<a href="#alternativearchitecture">备选体系结构</a>一节以了解对这些说明的更改。）</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>AzureEmailService</strong> 云项目中“角色”<strong></strong>下的 <strong>MvcWebRole</strong>，然后选择“属性”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-mvcwebrole-properties-menu.png" alt="Web 角色属性"/></p>
+</li>
+<li>
+<p>确保在“服务配置”<strong></strong>下拉列表中选择“所有配置”<strong></strong>。</p>
+</li>
+<li>
+<p>选择“设置”<strong></strong>选项卡，然后单击“添加设置”<strong></strong>。</p>
+</li>
+<li>
+<p>在“名称”<strong></strong>列中输入“StorageConnectionString”。</p>
+</li>
+<li>
+<p>在“类型”<strong></strong>下拉列表中选择“连接字符串”<strong></strong>。</p>
+</li>
+<li>
+<p>单击该行右端的省略号 (<strong>...</strong>) 按钮以打开“创建存储帐户连接字符串”<strong></strong>对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-elip.png" alt="右键单击属性"/> </p>
+</li>
+<li>
+<p>在“创建存储连接字符串”<strong></strong>对话框中，单击“您的订阅”<strong></strong>单选按钮，然后单击“下载发布设置”<strong></strong>链接。</p>
+<p><strong>注意：</strong>如果配置过教程 2 的存储设置，并且正在同一计算机上进行本教程，则不必再次下载设置，只需单击“您的订阅”<strong></strong>，然后选择正确的“订阅”<strong></strong>和“帐户名称”<strong></strong>即可。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-enter.png" alt="右键单击属性"/> </p>
+<p>单击“下载发布设置”<strong></strong>链接后，Visual Studio 将启动默认浏览器的一个新实例，其中打开 Windows Azure 管理门户下载发布设置页的 URL。如果未登录到门户，则将提示您登录。登录后，浏览器将提示您保存发布设置。记下保存设置的位置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-3.png" alt="发布设置"/></p>
+</li>
+<li>
+<p>在“创建存储连接字符串”<strong></strong>对话框中，单击“导入”<strong></strong>，然后导航到上一步中保存的发布设置文件。</p>
+</li>
+<li>
+<p>选择要使用的订阅和存储帐户，然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-5.png" alt="选择存储帐户"/></p>
+</li>
+<li>
+<p>按用于 <code>StorageConnectionString</code> 连接字符串的相同过程设置 <code>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</code> 连接字符串。</p>
+<p>不必再次下载发布设置文件。单击 <code>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</code> 连接字符串的省略号后，将发现“创建存储连接字符串”<strong></strong>对话框记住了您的订阅信息。单击“您的订阅”<strong></strong>单选按钮后，只需选择以前选择过的同一“订阅”<strong></strong>和“帐户名称”<strong></strong>，然后单击“确定”<strong></strong>。</p>
+</li>
+<li>
+<p>按用于 MvcWebRole 角色的两个连接字符串的同一过程设置 WorkerRoleA 角色的连接字符串。</p>
+</li>
+</ol>
+<p>用“添加设置”<strong></strong>按钮添加新设置时，将新设置添加到 <em>ServiceDefinition.csdf</em> 文件中和两个 <em>.cscfg</em> 配置文件的每个文件中的 XML。Visual Studio 将以下 XML 添加到 <em>ServiceDefinition.csdf</em> 文件。</p>
+<pre class="prettyprint">&lt;ConfigurationSettings&gt;     &lt;Setting name="StorageConnectionString" /&gt;   &lt;/ConfigurationSettings&gt;</pre>
+<p>将以下 XML 添加到每个 <em>.cscfg</em> 配置文件。</p>
+<pre class="prettyprint">&lt;Setting name="StorageConnectionString"    value="DefaultEndpointsProtocol=https;    AccountName=azuremailstorage;    AccountKey=[your account key]" /&gt;</pre>
+<p>可手动将设置添加到 <em>ServiceDefinition.csdf</em> 文件和两个 <em>.cscfg</em> 配置文件，但使用属性编辑器编辑连接字符串有以下优点：</p>
+<ul>
+<li>仅在一处添加新设置，即可将正确的设置 XML 添加到所有三个文件。</li>
+<li>
+<p>为三个设置文件生成正确的 XML。<em>ServiceDefinition.csdf</em> 文件定义每个 <em>.cscfg</em> 配置文件中必须具有的设置。如果 <em>ServiceDefinition.csdf</em> 文件和两个 <em>.cscfg</em> 配置文件的设置不一致，则 Visual Studio 将显示以下错误消息：“当前服务模型不同步。请确保服务配置和定义文件均有效。”</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-er1.png" alt="“服务配置和定义文件无效”错误"/></p>
+</li>
+</ul>
+<p>如果显示此错误，则直到解决不一致问题后，属性编辑器才能工作。</p>
+<h3>测试应用程序</h3>
+<ol>
+<li>
+<p>按 CTRL+F5 运行项目。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-mailing-list-empty-index-page.png" alt="邮件列表索引页为空"/></p>
+</li>
+<li>
+<p>使用 <strong>Create</strong> 功能添加一些邮件列表，然后尝试 <strong>Edit</strong> 和 <strong>Delete</strong> 功能以确保其可正常发挥作用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-mailing-list-index-page.png" alt="有几行内容的邮件列表索引页"/></p>
+</li>
+</ol>
+<h2><a name="subscriber"></a> <span class="short-header">Subscriber</span>创建和测试 Subscriber 控制器和视图</h2>
+<p>管理员使用 <strong>Subscriber</strong> Web UI 将向邮件列表添加新订户以及编辑、显示和删除现有订户。</p>
+<h3>向 Models 文件夹添加 Subscriber 实体类</h3>
+<p><code>Subscriber</code> 实体类用于 <code>MailingList</code> 表中包含列表订户信息的行。这些行包括个人电子邮件地址以及地址是否经过验证等信息。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 <em>Models</em> 文件夹，然后选择“添加现有项<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Models</em> 文件夹中的 <em>Subscriber.cs</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>Subscriber.cs</em> 并检查代码。</p>
+<pre class="prettyprint">public class Subscriber : TableEntity     {         [Required]         public string ListName         {             get             {                 return this.PartitionKey;             }             set             {                 this.PartitionKey = value;             }         }       [Required]     [Display(Name = "Email Address")]     public string EmailAddress     {         get         {             return this.RowKey;         }         set         {             this.RowKey = value;         }     }       public string SubscriberGUID { get; set; }       public bool? Verified { get; set; } }</pre>
+<p>如同 <code>MailingList</code> 实体类一样，<code>Subscriber</code> 实体类用于读写 <code>mailinglist</code> 表中的行。<code>Subscriber</code> 行使用电子邮件地址而非常量“mailinglist”作为行键。（有关表结构的说明，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。）因此，定义一个 <code>EmailAddress</code> 属性，它使用 <code>RowKey</code> 属性作为其后备字段，如同 <code>ListName</code> 使用 <code>PartitionKey</code> 作为其后备字段一样。如前所述，这样可在该属性上放置格式化和验证 DataAnnotations 特性。</p>
+<p>创建 <code>Subscriber</code> 实体时，即生成 <code>SubscriberGUID</code> 值。它用于订阅和取消订阅链接中，以帮助确保只有经过授权的人员可订阅或取消订阅电子邮件地址。</p>
+<p>为新订户初始创建行时，<code>Verified</code> 值为 <code>false</code>。仅在新订户单击欢迎电子邮件中的 <strong>Confirm</strong> 超链接后，<code>Verified</code> 值才会变为 <code>true</code>。如果向列表发送邮件时某个订户的 <code>Verified</code> 值为 <code>false</code>，则不向该订户发送任何电子邮件。</p>
+<p><code>Subscriber</code> 实体中的 <code>Verified</code> 属性被定义为可为 null。当您规定查询应返回 <code>Subscriber</code> 实体时，所检索的某些行可能没有 <code>Verified</code> 属性。因此，<code>Subscriber</code> 实体将其 <code>Verified</code> 属性定义为可为 null，这样，如果某个查询返回没有 <em>Verified</em> 属性的表行，它可更准确地反映某行的实际内容。您可能习惯于使用 SQL Server 表，其中每行的架构均相同。在 Windows Azure 存储表中，每行就是多个属性的集合，并且每行均可有一组不同的属性。例如，在 Windows Azure Email Service 示例应用程序中，以“MailingList”为行键的行没有 <code>Verified</code> 属性。如果某个查询返回的表行没有 <code>Verified</code> 属性，则将 <code>Subscriber</code> 实体类实例化后，实体对象中的 <code>Verified</code> 属性将为 null。如果该属性不可为 null，则对于 <code>Verified</code> 为 <code>false</code> 的行和完全没有 <code>Verified</code> 属性的行，将得到同样的 <code>false</code> 值。因此，使用 Windows Azure 表的一个最佳做法是让实体类的每个属性均可为 null，以准确读取使用不同实体类或当前实体类不同版本创建的行。</p>
+</li>
+</ol>
+<h3>添加 Subscriber MVC 控制器</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 <em>Controllers</em> 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Controllers</em> 文件夹中的 <em>SubscriberController.cs</em> 文件，然后单击“添加”<strong></strong>。（确保获得 <em>Subscriber.cs</em> 而非 <em>Subscribe.cs</em>；将在后面添加 <em>Subscribe.cs</em>。）</p>
+</li>
+<li>
+<p>打开 <em>SubscriberController.cs</em> 并检查代码。</p>
+<p>此控制器中的大多数代码与您在 <code>MailingList</code> 控制器中看到的代码类似。甚至表名称都相同，因为订户信息存放在 <code>MailingList</code> 表中。在 <code>FindRow</code> 方法后，可看到一个 <code>GetListNames</code> 方法。此方法获取 <strong>Create</strong> 和 <strong>Edit</strong> 页上一个下拉列表的数据，从该下拉列表中可选择要将电子邮件地址订阅到的邮件列表。</p>
+<pre class="prettyprint">private List&lt;MailingList&gt; GetListNames() {     var query = (new TableQuery&lt;MailingList&gt;().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, "mailinglist")));     var lists = mailingListTable.ExecuteQuery(query).ToList();     return lists; }</pre>
+<p>在 <code>MailingList</code> 控制器中您也看到过同样的查询。对于该下拉列表，您需要具有邮件列表信息的行，因此仅选择 RowKey 为“mailinglist”的那些行。</p>
+<p>对于检索 <strong>Index</strong> 页数据的方法，需要行有订户信息，因此选择所有 RowKey 不是“MailingList”的行。</p>
+<pre class="prettyprint">public ActionResult Index() {     var query = (new TableQuery&lt;Subscriber&gt;().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.NotEqual, "mailinglist")));     var subscribers = mailingListTable.ExecuteQuery(query).ToList();     return View(subscribers); }</pre>
+<p>注意，查询规定将数据读入 <code>Subscriber</code> 对象（通过指定 <code>&lt;Subscriber&gt;</code>），但将从 <code>mailinglist</code> 表读取数据。</p>
+<p><strong>注意：</strong>订户数可能会增长得过大，以致无法仅在一个查询中这样处理。在本教程的未来版本中，我们希望实现分页功能，并演示如何处理继续标记。在执行将返回 1000 行以上的查询时需要处理继续标记：Windows Azure 返回 1000 行和一个继续标记，您使用该标记执行另一个查询，后者从上一个查询停止处开始。（Azure Storage Explorer 不处理继续标记；因此，其查询将不返回 1000 行以上。）有关大型结果集和继续标记的详细信息，请参阅<a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx">如何充分利用 Windows Azure 表</a>和 <a href="http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously">Windows Azure 表：认真地说，应有继续标记</a>。</p>
+<p>在 <code>HttpGet Create</code> 方法中设置用于下拉列表的数据，在 <code>HttpPost</code> 方法中设置默认值，然后保存新实体。</p>
+<pre class="prettyprint">public ActionResult Create() {     var lists = GetListNames();     ViewBag.ListName = new SelectList(lists, "ListName", "Description");     var model = new Subscriber() { Verified = false };     return View(model); }   [HttpPost] [ValidateAntiForgeryToken] public ActionResult Create(Subscriber subscriber) {     if (ModelState.IsValid)     {         subscriber.SubscriberGUID = Guid.NewGuid().ToString();         if (subscriber.Verified.HasValue == false)         {             subscriber.Verified = false;         }       var insertOperation = TableOperation.Insert(subscriber);     mailingListTable.Execute(insertOperation);     return RedirectToAction("Index"); }   var lists = GetListNames(); ViewBag.ListName = new SelectList(lists, "ListName", "Description", subscriber.ListName);   return View(subscriber);   }</pre>
+<p><code>HttpPost Edit</code> 页比您在 <code>MailingList</code> 控制器中看到的内容要复杂，因为可在 <code>Subscriber</code> 页中更改列表名称或电子邮件地址，而这两者都是键字段。如果用户更改其中一个字段，则必须删除现有记录，然后添加新记录而非更新现有记录。以下代码演示 Edit 方法的一部分，其中处理键与非键更改的不同过程：</p>
+<pre class="prettyprint">if (ModelState.IsValid)     {         try         {             UpdateModel(editedSubscriber, string.Empty, null, excludeProperties);             if (editedSubscriber.PartitionKey == partitionKey &amp;&amp; editedSubscriber.RowKey == rowKey)             {                 //Keys didn't change -- Update the row                 var replaceOperation = TableOperation.Replace(editedSubscriber);                 mailingListTable.Execute(replaceOperation);             }             else             {                 // Keys changed, delete the old record and insert the new one.                 if (editedSubscriber.PartitionKey != partitionKey)                 {                     // PartitionKey changed, can't do delete/insert in a batch.                     var deleteOperation = TableOperation.Delete(new Subscriber { PartitionKey = partitionKey, RowKey = rowKey, ETag = editedSubscriber.ETag });                     mailingListTable.Execute(deleteOperation);                     var insertOperation = TableOperation.Insert(editedSubscriber);                     mailingListTable.Execute(insertOperation);                 }                 else                 {                     // RowKey changed, do delete/insert in a batch.                     var batchOperation = new TableBatchOperation();                     batchOperation.Delete(new Subscriber { PartitionKey = partitionKey, RowKey = rowKey, ETag = editedSubscriber.ETag });                     batchOperation.Insert(editedSubscriber);                     mailingListTable.ExecuteBatch(batchOperation);                 }             }             return RedirectToAction("Index");</pre>
+<p>MVC 模型绑定器传递给 <code>Edit</code> 方法的参数包括原始列表名称和电子邮件地址值（在 <code>partitionKey</code> 和 <code>rowKey</code> 参数中）和用户输入的值（在 <code>listName</code> 和 <code>emailAddress</code> 参数中）：</p>
+<pre class="prettyprint">public ActionResult Edit(string partitionKey, string rowKey, string listName, string emailAddress)</pre>
+<p>传递给 <code>UpdateModel</code> 方法的参数从模型绑定中排除 <code>PartitionKey</code> 和 <code>RowKey</code> 属性：</p>
+<pre class="prettyprint">var excludeProperties = new string[] { "PartitionKey", "RowKey" };</pre>
+<p>其原因是 <code>ListName</code> 和 <code>EmailAddress</code> 属性使用 <code>PartitionKey</code> 和 <code>RowKey</code> 作为其后备属性，并且用户可能已更改其中某个值。在模型绑定器通过设置 <code>ListName</code> 属性更新模型时，将自动更新 <code>PartitionKey</code> 属性。如果模型绑定器要在更新 <code>ListName</code> 属性后用 <code>PartitionKey</code> 属性的原始值更新该属性，则它会覆盖由 <code>ListName</code> 属性设置的新值。<code>EmailAddress</code> 属性以相同方式自动更新 <code>RowKey</code> 属性。</p>
+<p>这段代码更新 <code>editedSubscriber</code> 模型对象后，即判断更改了分区键还是行键。如果更改了其中任意一个键值，则必须删除现有的订户行，然后插入一个新行。如果仅更改了行键，则可在原子批事务中进行删除和插入。</p>
+<p>注意，这段代码创建一个新实体以传入到 <code>Delete</code> 操作：</p>
+<pre class="prettyprint">// RowKey changed, do delete/insert in a batch.     var batchOperation = new TableBatchOperation();     batchOperation.Delete(new Subscriber { PartitionKey = partitionKey, RowKey = rowKey, ETag = editedSubscriber.ETag });     batchOperation.Insert(editedSubscriber);     mailingListTable.ExecuteBatch(batchOperation);</pre>
+<p>成批传入操作的实体必须是各不相同的实体。例如，不能创建 <code>Subscriber</code> 实体，将其传入到 <code>Delete</code> 操作，更改同一 <code>Subscriber</code> 实体中的某个值，然后将其传入到 <code>Insert</code> 操作。如果这样做，则属性更改后实体的状态将同时对 Delete 和 Insert 操作有效。</p>
+<p><strong>注意：</strong>必须对同一分区进行批量操作。由于更改列表名称即更改分区键，因此不能在事务中这样做。</p>
+</li>
+</ol>
+<h3>添加 Subscriber MVC 视图</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中 MVC 项目中的 <em>Views</em> 文件夹下，创建一个新文件夹，并将其命名为 <em>Subscriber</em>。</p>
+</li>
+<li>
+<p>右键单击这个新 <em>Views\Subscriber</em> 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Views\Subscriber</em> 文件夹中的所有五个 .cshtml 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>Edit.cshtml</em> 文件并检查代码。</p>
+<pre class="prettyprint">@model MvcWebRole.Models.Subscriber   @{     ViewBag.Title = "Edit Subscriber"; }   &lt;h2&gt;Edit Subscriber&lt;/h2&gt;   @using (Html.BeginForm()) {     @Html.AntiForgeryToken()     @Html.ValidationSummary(true)      @Html.HiddenFor(model =&gt; model.SubscriberGUID)      @Html.HiddenFor(model =&gt; model.ETag)      &lt;fieldset&gt;         &lt;legend&gt;Subscriber&lt;/legend&gt;         &lt;div class="display-label"&gt;              @Html.DisplayNameFor(model =&gt; model.ListName)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.DropDownList("ListName", String.Empty)             @Html.ValidationMessageFor(model =&gt; model.ListName)         &lt;/div&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.EmailAddress)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.EditorFor(model =&gt; model.EmailAddress)             @Html.ValidationMessageFor(model =&gt; model.EmailAddress)         &lt;/div&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.Verified)         &lt;/div&gt;         &lt;div class="display-field"&gt;             @Html.EditorFor(model =&gt; model.Verified)         &lt;/div&gt;         &lt;p&gt;             &lt;input type="submit" value="Save" /&gt;         &lt;/p&gt;     &lt;/fieldset&gt; }   &lt;div&gt;     @Html.ActionLink("Back to List", "Index") &lt;/div&gt;   @section Scripts {     @Scripts.Render("~/bundles/jqueryval") }</pre>
+<p>这段代码与先前在 <code>MailingList</code><strong>Edit</strong> 视图中看到的类似。其中未显示 <code>SubscriberGUID</code> 值，因此 <code>HttpPost</code> 控制器方法的窗体字段中不自动提供该值。因此，加入一个隐藏字段以保留此值。</p>
+<p>其他视图包含的代码与在 <code>MailingList</code> 控制器中看到的类似。</p>
+</li>
+</ol>
+<h3>测试应用程序</h3>
+<ol>
+<li>
+<p>按 CTRL+F5 运行项目，然后单击 <strong>Subscribers</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-subscribers-empty-index-page.png" alt="空的订户索引页"/></p>
+</li>
+<li>
+<p>使用 <strong>Create</strong> 功能添加一些邮件列表，然后尝试 <strong>Edit</strong> 和 <strong>Delete</strong> 功能以确保其可正常发挥作用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-subscribers-index-page.png" alt="有几行内容的订户索引页"/></p>
+</li>
+</ol>
+<h2><a name="message"></a> <span class="short-header">Message</span>创建和测试 Message 控制器和视图</h2>
+<p>管理员使用 <strong>Message</strong> Web UI 创建、编辑和显示有关安排发送到邮件列表的邮件的信息。</p>
+<h3>向 Models 文件夹添加 Message 实体类</h3>
+<p><code>Message</code> 实体类用于 <code>Message</code> 表中包含安排发送到列表的邮件信息的行。这些行包含主题行、要将邮件发送到的列表以及发送该邮件的计划日期等信息。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 <em>Models</em> 文件夹，然后选择“添加现有项<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <strong>Models</strong> 文件夹中的 <em>Message.cs</em> 文件，然后单击“添加”</p>。
+</li>
+<li>
+<p>打开 <em>Message.cs</em> 并检查代码。</p>
+<pre class="prettyprint">public class Message : TableEntity {     private DateTime? _scheduledDate;     private long _messageRef;   public Message() {     this.MessageRef = DateTime.Now.Ticks;     this.Status = "Pending"; }   [Required] [Display(Name = "Scheduled Date")] // DataType.Date shows Date only (not time) and allows easy hook-up of jQuery DatePicker [DataType(DataType.Date)] public DateTime? ScheduledDate  {     get     {         return _scheduledDate;     }     set     {         _scheduledDate = value;         this.PartitionKey = value.Value.ToString("yyyy-MM-dd");     } }   public long MessageRef  {     get     {         return _messageRef;     }     set     {         _messageRef = value;         this.RowKey = "message" + value.ToString();     } }   [Required] [Display(Name = "List Name")] public string ListName { get; set; }   [Required] [Display(Name = "Subject Line")] public string SubjectLine { get; set; }   // Pending, Queuing, Processing, Complete public string Status { get; set; }   }</pre>
+<p><code>Message</code> 类定义一个默认构造函数，后者将 <code>MessageRef</code> 属性设置为一个唯一的邮件值。由于此值是行键的一部分，因此 <code>MessageRef</code> 属性的 setter 还自动设置 <code>RowKey</code> 属性。<code>MessageRef</code> 属性 setter 将“message”字面值与 <code>MessageRef</code> 值串联在一起，然后将其放入 <code>RowKey</code> 属性。</p>
+<p>通过从 <code>DateTime.Now</code> 获取 <code>Ticks</code> 值创建 <code>MessageRef</code> 值。这样确保默认情况下在 Web UI 中显示邮件时，将按为给定计划日期创建邮件的顺序显示这些邮件（<code>ScheduledDate</code> 是分区键）。可使用 GUID 使邮件行变得独一无二，但默认检索顺序为随机。</p>
+<p>默认构造函数还为新的 <code>message</code> 行设置 Pending 默认状态。</p>
+<p>有关 <code>Message</code> 表结构的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。</p>
+</li>
+</ol>
+<h3>添加 Message MVC 控制器</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 Controllers 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Controllers</em> 文件夹中的 <em>MessageController.cs</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>MessageController.cs</em> 并检查代码。</p>
+<p>此控制器中的大多数代码与您在 <code>Subscriber</code> 控制器中看到的代码类似。其中新增的内容是有关使用 Blob 的代码。对于每封邮件，将以 .htm 和 .txt 文件的形式上载电子邮件的 HTML 和纯文本内容，并将其存储在 Blob 中。</p>
+<p>Blobs 存储在 Blob 容器中。Windows Azure Email Service 应用程序将其所有 Blob 均存储在一个名为“azuremailblobcontainer”的 Blob 容器中，而控制器构造函数中的代码获取对此 Blob 容器的引用：</p>
+<pre class="prettyprint">public class MessageController : Controller {     private TableServiceContext serviceContext;     private static CloudBlobContainer blobContainer;     public MessageController() {     var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));     // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:     //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);       // Get context object for working with tables and a reference to the blob container.     var tableClient = storageAccount.CreateCloudTableClient(); serviceContext = tableClient.GetTableServiceContext();     var blobClient = storageAccount.CreateCloudBlobClient();     blobContainer = blobClient.GetContainerReference("azuremailblobcontainer"); }</pre>
+<p>对于用户选择上载的每个文件，MVC 视图都提供一个 <code>HttpPostedFile</code> 对象，其中包含有关该文件的信息。用户创建新邮件时，使用 <code>HttpPostedFile</code> 对象将文件保存到 Blob。当用户编辑消息时，可决定上载替换文件或使 Blob 保持不变。</p>
+<p>该控制器中含有一个方法，<code>HttpPost Create</code> 和 <code>HttpPost Edit</code> 方法调用该方法以保存 Blob：</p>
+<pre class="prettyprint">private void SaveBlob(string blobName, HttpPostedFileBase httpPostedFile) {     // Retrieve reference to a blob.      CloudBlockBlob blob = blobContainer.GetBlockBlobReference(blobName);     // Create the blob or overwrite the existing blob by uploading a local file.     using (var fileStream = httpPostedFile.InputStream)     {         blob.UploadFromStream(fileStream);     } }</pre>
+<p><code>HttpPost Create</code> 方法保存两个 Blob，然后添加 <code>Message</code> 表行。命名 Blob 的方法是将 <code>MessageRef</code> 值与文件扩展名“.htm”或“.txt”串联在一起。</p>
+<pre class="prettyprint">[HttpPost] [ValidateAntiForgeryToken] public ActionResult Create(Message message, HttpPostedFileBase file, HttpPostedFileBase txtFile) {     if (file == null)     {         ModelState.AddModelError(string.Empty, "Please provide an HTML file path");     }   if (txtFile == null) {     ModelState.AddModelError(string.Empty, "Please provide a Text file path"); }   if (ModelState.IsValid) {     SaveBlob(message.MessageRef + ".htm", file);     SaveBlob(message.MessageRef + ".txt", txtFile);       var insertOperation = TableOperation.Insert(message);     messageTable.Execute(insertOperation);       return RedirectToAction("Index"); }   var lists = GetListNames(); ViewBag.ListName = new SelectList(lists, "ListName", "Description"); return View(message);   }</pre>
+<p><code>HttpGet Edit</code> 方法验证所检索的邮件处于 <code>Pending</code> 状态，以使用户在辅助角色 B 开始处理邮件后即无法更改该邮件。<code>HttpPost Edit</code> 方法以及 <code>Delete</code> 和 <code>DeleteConfirmed</code> 方法中有类似的代码。</p>
+<pre class="prettyprint">public ActionResult Edit(string partitionKey, string rowKey) {     var message = FindRow(partitionKey, rowKey);     if (message.Status != "Pending")     {         throw new Exception("Message can't be edited because it isn't in Pending status.");     }   var lists = GetListNames(); ViewBag.ListName = new SelectList(lists, "ListName", "Description", message.ListName); return View(message);   }</pre>
+<p>在 <code>HttpPost Edit</code> 方法中，仅在用户决定上载新文件时，代码才会保存新 Blob。以下代码省略了方法的并发处理部分，因为该部分与您先前在 <code>MailingList</code> 控制器中看到的相同。</p>
+<pre class="prettyprint">[HttpPost] [ValidateAntiForgeryToken] public ActionResult Edit(string partitionKey, string rowKey, Message editedMsg,     DateTime scheduledDate, HttpPostedFileBase httpFile, HttpPostedFileBase txtFile) {     if (ModelState.IsValid)     {         var excludePropLst = new List&lt;string&gt;();         excludePropLst.Add("PartitionKey");         excludePropLst.Add("RowKey");       if (httpFile == null)     {         // They didn't enter a path or navigate to a file, so don't update the file.         excludePropLst.Add("HtmlPath");     }     else     {         // They DID enter a path or navigate to a file, assume it's changed.         SaveBlob(editedMsg.MessageRef + ".htm", httpFile);     }       if (txtFile == null)     {         excludePropLst.Add("TextPath");     }     else     {         SaveBlob(editedMsg.MessageRef + ".txt", txtFile);     }       string[] excludeProperties = excludePropLst.ToArray();       try     {         UpdateModel(editedMsg, string.Empty, null, excludeProperties);         if (editedMsg.PartitionKey == partitionKey)         {             // Keys didn't change -- update the row.             var replaceOperation = TableOperation.Replace(editedMsg);             messageTable.Execute(replaceOperation);         }         else         {             // Partition key changed -- delete and insert the row.             // (Partition key has scheduled date which may be changed;             // row key has MessageRef which does not change.)             var deleteOperation = TableOperation.Delete(new Message { PartitionKey = partitionKey, RowKey = rowKey, ETag = editedMsg.ETag });             messageTable.Execute(deleteOperation);             var insertOperation = TableOperation.Insert(editedMsg);             messageTable.Execute(insertOperation);         }         return RedirectToAction("Index");     }</pre>
+<p>如果更改了计划日期，则将更改分区键，并且必须删除再插入一行。不能在事务中这样做，因为会影响多个分区。</p>
+<p><code>HttpPost Delete</code> 方法在删除表中的行时将删除 Blob：</p>
+<pre class="prettyprint">[HttpPost, ActionName("Delete")] public ActionResult DeleteConfirmed(String partitionKey, string rowKey) {     // Get the row again to make sure it's still in Pending status.     var message = FindRow(partitionKey, rowKey);     if (message.Status != "Pending")     {         throw new Exception("Message can't be deleted because it isn't in Pending status.");     }   DeleteBlob(message.MessageRef + ".htm"); DeleteBlob(message.MessageRef + ".txt"); var deleteOperation = TableOperation.Delete(message); messageTable.Execute(deleteOperation); return RedirectToAction("Index");   }   private void DeleteBlob(string blobName) {     var blob = blobContainer.GetBlockBlobReference(blobName);     blob.Delete(); }</pre>
+</li>
+</ol>
+<h3>添加 Message MVC 视图</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中 MVC 项目中的 <em>Views</em> 文件夹下，创建一个新文件夹，并将其命名为 <code>Message</code>。</p>
+</li>
+<li>
+<p>右键单击这个新 <em>Views\Message</em> 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Views\Message</em> 文件夹中的所有五个 .cshtml 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>Edit.cshtml</em> 文件并检查代码。</p>
+<pre class="prettyprint">@model MvcWebRole.Models.Message   @{     ViewBag.Title = "Edit Message"; }   &lt;h2&gt;Edit Message&lt;/h2&gt;   @using (Html.BeginForm("Edit", "Message", FormMethod.Post, new { enctype = "multipart/form-data" })) {     @Html.AntiForgeryToken()     @Html.ValidationSummary(true)     @Html.HiddenFor(model =&gt; model.ETag)     &lt;fieldset&gt;         &lt;legend&gt;Message&lt;/legend&gt;         @Html.HiddenFor(model =&gt; model.MessageRef)         @Html.HiddenFor(model =&gt; model.PartitionKey)         @Html.HiddenFor(model =&gt; model.RowKey)         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.ListName, "MailingList")         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.DropDownList("ListName", String.Empty)             @Html.ValidationMessageFor(model =&gt; model.ListName)         &lt;/div&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.SubjectLine)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.EditorFor(model =&gt; model.SubjectLine)             @Html.ValidationMessageFor(model =&gt; model.SubjectLine)         &lt;/div&gt;         &lt;div class="editor-label"&gt;             HTML Path: Leave blank to keep current HTML File.         &lt;/div&gt;         &lt;div class="editor-field"&gt;             &lt;input type="file" name="file" /&gt;         &lt;/div&gt;         &lt;div class="editor-label"&gt;             Text Path: Leave blank to keep current Text File.         &lt;/div&gt;         &lt;div class="editor-field"&gt;             &lt;input type="file" name="TxtFile" /&gt;         &lt;/div&gt;         &lt;div class="editor-label"&gt;             @Html.LabelFor(model =&gt; model.ScheduledDate)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.EditorFor(model =&gt; model.ScheduledDate)             @Html.ValidationMessageFor(model =&gt; model.ScheduledDate)         &lt;/div&gt;         &lt;div class="display-label"&gt;             @Html.DisplayNameFor(model =&gt; model.Status)         &lt;/div&gt;         &lt;div class="editor-field"&gt;             @Html.EditorFor(model =&gt; model.Status)         &lt;/div&gt;        &lt;p&gt;             &lt;input type="submit" value="Save" /&gt;         &lt;/p&gt;     &lt;/fieldset&gt; }   &lt;div&gt;     @Html.ActionLink("Back to List", "Index") &lt;/div&gt;   @section Scripts {     @Scripts.Render("~/bundles/jqueryval") }</pre>
+<p><code>HttpPost Edit</code> 方法需要分区键和行键，因此这段代码在一个隐藏的字段中提供这些键。<code>Subscriber</code> 控制器中不需要隐藏的字段，因为 (a) <code>Subscriber</code> 模型中的 <code>ListName</code> 和 <code>EmailAddress</code> 属性更新 <code>PartitionKey</code> 和 <code>RowKey</code> 属性，并且 (b) <code>ListName</code> 和 <code>EmailAddress</code> 属性与 Edit 视图中的 <code>EditorFor</code> 帮助器包括在一起。<code>Subscriber</code> 模型的 MVC 模型绑定器更新 <code>ListName</code> 属性，<code>PartitionKey</code> 属性自动更新，而在 MVC 模型绑定器在 <code>Subscriber</code> 模型中的 <code>EmailAddress</code> 属性时，<code>RowKey</code> 属性将自动更新。在 <code>Message</code> 模型中，映射到分区键和行键的字段是不可编辑的字段，因此不以此方式设置这些字段。</p>
+<p>还加入了一个隐藏的字段用于 <code>MessageRef</code> 属性。其值与分区键相同，但加入它是为了使 <code>HttpPost Edit</code> 方法中的代码更清楚明了。加入 <code>MessageRef</code> 隐藏字段使 <code>HttpPost Edit</code> 方法中的代码可在构建 Blob 文件名时按该名称引用 <code>MessageRef</code> 值。</p>
+</li>
+<li>
+<p>打开 <em>Index.cshtml</em> 文件并检查代码。</p>
+<pre class="prettyprint">@model IEnumerable&lt;MvcWebRole.Models.Message&gt;   @{     ViewBag.Title = "Messages"; }   &lt;h2&gt;Messages&lt;/h2&gt;   &lt;p&gt;     @Html.ActionLink("Create New", "Create") &lt;/p&gt; &lt;table&gt;     &lt;tr&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.ListName)         &lt;/th&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.SubjectLine)         &lt;/th&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.ScheduledDate)         &lt;/th&gt;         &lt;th&gt;             @Html.DisplayNameFor(model =&gt; model.Status)         &lt;/th&gt;         &lt;th&gt;&lt;/th&gt;     &lt;/tr&gt;     @foreach (var item in Model)     {         &lt;tr&gt;             &lt;td&gt;                 @Html.DisplayFor(modelItem =&gt; item.ListName)             &lt;/td&gt;             &lt;td&gt;                 @Html.DisplayFor(modelItem =&gt; item.SubjectLine)             &lt;/td&gt;             &lt;td&gt;                 @Html.DisplayFor(modelItem =&gt; item.ScheduledDate)             &lt;/td&gt;             &lt;td&gt;                 @item.Status             &lt;/td&gt;             &lt;td&gt;                 @if (item.Status == "Pending")                 {                     @Html.ActionLink("Edit", "Edit", new { PartitionKey = item.PartitionKey, RowKey = item.RowKey })  @: |                      @Html.ActionLink("Delete", "Delete", new { PartitionKey = item.PartitionKey, RowKey = item.RowKey }) @: |                 }                 @Html.ActionLink("Details", "Details", new { PartitionKey = item.PartitionKey, RowKey = item.RowKey })             &lt;/td&gt;         &lt;/tr&gt;     }   &lt;/table&gt;</pre>
+<p>此处与其他 <strong>Index</strong> 视图的区别是仅对状态为 <code>Pending</code> 的邮件显示 <strong>Edit</strong> 和 <strong>Delete</strong> 链接：</p>
+<pre class="prettyprint">@if (item.Status == "Pending") {     @Html.ActionLink("Edit", "Edit", new { PartitionKey = item.PartitionKey, RowKey = item.RowKey })  @: |      @Html.ActionLink("Delete", "Delete", new { PartitionKey = item.PartitionKey, RowKey = item.RowKey }) @: | }</pre>
+<p>这样可帮助阻止用户在辅助角色 A 开始处理邮件后对该邮件作出更改。</p>
+<p>其他视图包含的代码与在其他控制器中看到的 <strong>Edit</strong> 视图或其他视图类似。</p>
+</li>
+</ol>
+<h3>测试应用程序</h3>
+<ol>
+<li>
+<p>按 CTRL+F5 运行项目，然后单击 <strong>Messages</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-message-empty-index-page.png" alt="空的邮件索引页"/></p>
+</li>
+<li>
+<p>使用 <strong>Create</strong> 功能添加一些邮件列表，然后尝试 <strong>Edit</strong> 和 <strong>Delete</strong> 功能以确保其可正常发挥作用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-message-index-page.png" alt="有几行内容的订户索引页"/></p>
+</li>
+</ol>
+<h2><a name="unsubscribe"></a> <span class="short-header">Unsubscribe</span>创建和测试 Unsubscribe 控制器和视图</h2>
+<p>接下来，您将实现取消订阅过程的 UI。</p>
+<p><strong>注意：</strong>本教程仅生成取消订阅过程的控制器，而非不生成订阅过程的控制器。如<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">第一个教程</a>所述，直到我们实现适合服务方法的安全措施后，才会介绍订阅过程的 UI 和服务方法。在此之前，可使用 <strong>Subscriber</strong> 管理员网页将电子邮件地址订阅到列表。</p>
+<h3>向 Models 文件夹添加 Unsubscribe 视图模型</h3>
+<p><code>UnsubscribeVM</code> 视图模型用于在 <code>Unsubscribe</code> 控制器与其视图之间传递数据。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 <code>Models</code> 文件夹，然后选择“添加现有项<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <strong>Models</strong> 文件夹中的 <code>UnsubscribeVM.cs</code> 文件，然后单击“添加”</p>。
+</li>
+<li>
+<p>打开 <code>UnsubscribeVM.cs</code> 并检查代码。</p>
+<pre class="prettyprint">public class UnsubscribeVM {     public string EmailAddress { get; set; }     public string ListName { get; set; }     public string ListDescription { get; set; }     public string SubscriberGUID { get; set; }     public bool? Confirmed { get; set; } }</pre>
+<p>取消订阅中含有 <code>SubscriberGUID</code>。该值用于从 <code>MailingList</code> 表获取电子邮件地址、列表名称和列表说明。视图显示电子邮件地址以及要从中取消订阅的列表的说明，并且显示一个 <strong>Confirm</strong> 按钮，用户必须单击该按钮才能完成取消订阅过程。</p>
+</li>
+</ol>
+<h3>添加 Unsubscribe 控制器</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 MVC 项目中的 <code>Controllers</code> 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Controllers</em> 文件夹中的 <em>UnsubscribeController.cs</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>UnsubscribeController.cs</em> 并检查代码。</p>
+<p>此控制器有一个显示初始取消订阅页的 <code>HttpGet Index</code> 方法和一个处理 <strong>Confirm</strong> 或 <strong>Cancel</strong> 按钮的 <code>HttpPost Index</code> 方法。</p>
+<p><code>HttpGet Index</code> 方法使用查询字符串中的 GUID 和列表名称获取订户的 <code>MailingList</code> 表行。然后，它将视图所需的所有信息均放入视图模型并显示 <strong>Unsubscribe</strong> 页。它将 <code>Confirmed</code> 属性设置为 null 以让视图显示 <strong>Unsubscribe</strong> 页的初始版本。</p>
+<pre class="prettyprint">public ActionResult Index(string id, string listName)  {      if (string.IsNullOrEmpty(id) == true || string.IsNullOrEmpty(listName))      {          ViewBag.errorMessage = "Empty subscriber ID or list name.";          return View("Error");      }      string filter = TableQuery.CombineFilters(          TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),          TableOperators.And,          TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, id));      var query = new TableQuery&lt;Subscriber&gt;().Where(filter);      var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();      if (subscriber == null)      {          ViewBag.Message = "You are already unsubscribed";          return View("Message");      }      var unsubscribeVM = new UnsubscribeVM();      unsubscribeVM.EmailAddress = MaskEmail(subscriber.EmailAddress);      unsubscribeVM.ListDescription = FindRow(subscriber.ListName, "mailinglist").Description;      unsubscribeVM.SubscriberGUID = id;      unsubscribeVM.Confirmed = null;      return View(unsubscribeVM);  }</pre>
+<p>注意：分区键或行键中没有 SubscriberGUID，所以此查询的性能将随分区大小（邮件列表中电子邮件地址的数量）的增大而降低。有关使此查询可更大幅度地改变规模的备选方法的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。</p>
+<p><code>HttpPost Index</code> 方法又使用 GUID 和列表名称获取订户信息，然后填充视图模型属性。然后，如果单击了 <strong>Confirm</strong> 按钮，则它将删除 <code>MailingList</code> 表中的订户行。如果按了 <strong>Confirm</strong> 按钮，则它还将 <code>Confirm</code> 属性设置为 <code>true</code>，否则，它将 <code>Confirm</code> 属性设置为 <code>false</code>。<code>Confirm</code> 属性的值让视图显示 <strong>Unsubscribe</strong> 页的确认或取消版本。</p>
+<pre class="prettyprint">[HttpPost]  [ValidateAntiForgeryToken] public ActionResult Index(string subscriberGUID, string listName, string action) {     string filter = TableQuery.CombineFilters(         TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),         TableOperators.And,         TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, subscriberGUID));     var query = new TableQuery&lt;Subscriber&gt;().Where(filter);     var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();   var unsubscribeVM = new UnsubscribeVM(); unsubscribeVM.EmailAddress = MaskEmail(subscriber.EmailAddress); unsubscribeVM.ListDescription = FindRow(subscriber.ListName, "mailinglist").Description; unsubscribeVM.SubscriberGUID = subscriberGUID; unsubscribeVM.Confirmed = false;   if (action == "Confirm") {     unsubscribeVM.Confirmed = true;     var deleteOperation = TableOperation.Delete(subscriber);     mailingListTable.Execute(deleteOperation); }   return View(unsubscribeVM);   }</pre>
+</li>
+</ol>
+<h3>创建 MVC 视图</h3>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中 MVC 项目中的 <em>Views</em> 文件夹下，创建一个新文件夹，并将其命名为 <em>Unsubscribe</em>。</p>
+</li>
+<li>
+<p>右键单击这个新 <em>Views\Unsubscribe</em> 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 <em>Views\Unsubscribe</em> 文件夹中的 <em>Index.cshtml</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>Index.cshtml</em> 文件并检查代码。</p>
+<pre class="prettyprint">@model MvcWebRole.Models.UnsubscribeVM   @{     ViewBag.Title = "Unsubscribe";     Layout = null; }   &lt;h2&gt;Email List Subscription Service&lt;/h2&gt;   @using (Html.BeginForm()) {     @Html.AntiForgeryToken()     @Html.ValidationSummary(true)     &lt;fieldset&gt;         &lt;legend&gt;Unsubscribe from Mailing List&lt;/legend&gt;         @Html.HiddenFor(model =&gt; model.SubscriberGUID)         @Html.HiddenFor(model =&gt; model.EmailAddress)         @Html.HiddenFor(model =&gt; model.ListName)         @if (Model.Confirmed == null) {             &lt;p&gt;                 Do you want to unsubscribe  @Html.DisplayFor(model =&gt; model.EmailAddress) from:  @Html.DisplayFor(model =&gt; model.ListDescription)?            &lt;/p&gt;             &lt;br /&gt;             &lt;p&gt;                 &lt;input type="submit" value="Confirm" name="action"/&gt;                  &amp;nbsp; &amp;nbsp;                 &lt;input type="submit" value="Cancel" name="action"/&gt;             &lt;/p&gt;         }         @if (Model.Confirmed == false) {             &lt;p&gt;                 @Html.DisplayFor(model =&gt; model.EmailAddress)  will NOT be unsubscribed from: @Html.DisplayFor(model =&gt; model.ListDescription).             &lt;/p&gt;         }         @if (Model.Confirmed == true) {             &lt;p&gt;                 @Html.DisplayFor(model =&gt; model.EmailAddress)  has been unsubscribed from:  @Html.DisplayFor(model =&gt; model.ListDescription).             &lt;/p&gt;         }     &lt;/fieldset&gt; }   @section Scripts {     @Scripts.Render("~/bundles/jqueryval") }</pre>
+<p><code>Layout = null</code> 行规定不应使用 _Layout.cshtml 文件显示此页。<strong>Unsubscribe</strong> 页显示一个非常简单的 UI，其中没有用于管理员网页的页眉和页脚。</p>
+<p>在该页的正文中，<code>Confirmed</code> 属性决定将在该页上显示的内容：如果该属性为 null，则显示 <strong>Confirm</strong> 和 <strong>Cancel</strong> 按钮，如果该属性为 true，则显示取消订阅已确认的消息，如果该属性为 false，则显示取消订阅已取消的消息。</p>
+</li>
+</ol>
+<h3>测试应用程序</h3>
+<ol>
+<li>
+<p>按 CTRL-F5 运行项目，然后单击 <strong>Subscribers</strong>。</p>
+</li>
+<li>
+<p>单击 <strong>Create</strong>，然后为早期进行测试时创建的任何邮件列表创建一个新订户。</p>
+<p>使浏览器窗口保持打开在 <strong>Subscribers</strong><strong>Index</strong> 页上。</p>
+</li>
+<li>
+<p>打开 Azure Storage Explorer，然后选择测试存储帐户。</p>
+</li>
+<li>
+<p>单击“Storage Type”<strong></strong>（存储类型）下的“Tables”<strong></strong>（表），选择 <strong>MailingList</strong> 表，然后单击“Query”<strong></strong>（查询）。</p>
+</li>
+<li>
+<p>双击您添加的订户行。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-ase-unsubscribe.png" alt="Azure Storage Explorer"/></p>
+</li>
+<li>
+<p>在“Edit Entity”<strong></strong>（编辑实体）对话框中，选择并复制 <code>SubscriberGUID</code> 值。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-ase-edit-entity-unsubscribe.png" alt="Azure Storage Explorer"/></p>
+</li>
+<li>
+<p>切换回浏览器窗口。在浏览器的地址栏中，将 URL 中的“Subscriber”更改为“unsubscribe?ID=[guidvalue]&amp;listName=[listname]”，其中 [guidvalue] 是从 Azure Storage Explorer 复制的 GUID，[listname] 是邮件列表的名称。例如：</p>
+<pre class="prettyprint">http://127.0.0.1/unsubscribe?ID=b7860242-7c2f-48fb-9d27-d18908ddc9aa&amp;listName=contoso1</pre>
+<p>随后将显示要求确认的 <strong>Unsubscribe</strong> 页版本：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-unsubscribe-query-page.png" alt="取消订阅页面"/></p>
+</li>
+<li>
+<p>单击 <strong>Confirm</strong>，然后即可看到已取消订阅电子邮件地址的确认。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-unsubscribe-confirmation-page.png" alt="确认取消订阅页面"/></p>
+</li>
+<li>
+<p>返回 <strong>Subscribers</strong><strong>Index</strong> 页以确认那里不再有订户行。</p>
+</li>
+</ol>
+<h2><a name="alternativearchitecture"></a> <span class="short-header">备选体系结构</span>（可选）生成备选体系结构</h2>
+<p>如果要生成备选体系结构（即在 Windows Azure 网站而非 Windows Azure 云服务 Web 角色中运行 Web UI），则说明将有以下更改。</p>
+<ul>
+<li>
+<p>创建解决方案时，首先创建“ASP.NET MVC 4 Web 应用程序”<strong></strong>项目，然后向解决方案添加一个具有辅助角色的“Windows Azure 云服务”<strong></strong>项目。</p>
+</li>
+<li>
+<p>在 Web.config 文件而非云服务设置文件中存储 Windows Azure 存储连接字符串。（此项仅对 Windows Azure 网站有效。如果尝试在 Windows Azure 云服务 Web 角色中使用存储连接字符串的 Web.config 文件，则将显示 HTTP 500 错误。）</p>
+<p>将一个名为 <code>StorageConnectionString</code> 的新连接字符串添加到 <em>Web.config</em> 文件，如下例所示：</p>
+<pre class="prettyprint">&lt;connectionStrings&gt;       &lt;add name="DefaultConnection" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-MvcWebRole-20121010185535;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-MvcWebRole-20121010185535.mdf" providerName="System.Data.SqlClient" /&gt;       &lt;add name="StorageConnectionString" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[primarykey]" /&gt;    &lt;/connectionStrings&gt;</pre>
+<p>从 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>中获取连接字符串的值：选择“存储”<strong></strong>选项卡和存储帐户，然后单击页面底部的“管理密钥”<strong></strong>。</p>
+</li>
+<li>
+<p>只要在代码中发现 <code>RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString")</code>，就将其替换为 <code>ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString</code>。</p>
+</li>
+</ul>
+<h2><a name="nextsteps"></a> <span class="short -header">后续步骤</span>后续步骤</h2>
+<p>如<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中第一个教程</a>所述，直到实现共享密钥以保护 ASP.NET Web API 服务方法后，我们才会在本教程中详细演示如何生成订阅过程。但是，IP 限制也保护服务方法，并且您可通过从下载的项目中复制以下文件，添加订阅功能。</p>
+<p>对于 ASP.NET Web API 服务方法：</p>
+<ul>
+<li>Controllers\SubscribeAPI.cs</li>
+</ul>
+<p>对于订户在服务方法生成的电子邮件中单击“确认”<strong></strong>链接时所获得的网页：</p>
+<ul>
+<li>Models\SubscribeVM.cs</li>
+<li>Controllers\SubscribeController.cs</li>
+<li>Views\Subscribe\Index.cshtml</li>
+</ul>
+<p>在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/">下一个教程</a>中，您将配置辅助角色 A（即安排电子邮件的辅助角色）并对其进行编程。</p>
+<p>有关使用 Windows Azure 存储表、队列和 Blob 的其他资源的链接，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>的结尾。</p>
+<div><a href="../4-worker-role-a/" class="site-arrowboxcta download-cta">教程 4</a></div>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>多层网站教程 - 第 3 步：Web 角色</pageTitle><metaKeywords>Windows Azure 教程, Email Service 应用程序, ASP.NET MVC 4 Web 角色, MVC 4 控制器, Web API 控制器, 云服务项目</metaKeywords><metaDescription><![CDATA[本系列中的第三个教程，向您传授如何配置计算机以进行 Windows Azure 开发和部署 Email Service 应用程序。]]></metaDescription><linkid>develop-net-tutorials-multi-tier-web-site-3-web-role</linkid><urlDisplayName>步骤 3:Web 角色</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

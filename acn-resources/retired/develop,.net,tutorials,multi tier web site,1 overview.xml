@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18858" parentID="18853" level="6" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="0" createDate="2013-07-11T10:50:59" updateDate="2014-08-18T11:10:21" nodeName="1 Overview" urlName="1-overview" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18853,18858" isDoc=""><bodyText><![CDATA[<div>
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/zh-cn/develop/net/compute/">计算</a></li>
+<li class="menu-nodejs-data"><a href="/zh-cn/develop/net/data/">数据服务</a></li>
+<li class="menu-nodejs-appservices"><a href="/zh-cn/develop/net/app-services/">应用服务</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/zh-cn/support/forums/">论坛</a></li>
+</ul>
+<ul>
+<li>本系列中的内容</li>
+<li><strong>1. 概述</strong></li>
+<li><a href="../2-download-and-run/">2. 下载并运行</a></li>
+<li><a href="../3-web-role/">3. Web 角色</a></li>
+<li><a href="../4-worker-role-a/">4. 辅助角色 A</a></li>
+<li><a href="../5-worker-role-b/">5. 辅助角色 B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>在此页上（跳转到）：</li>
+</ul>
+</div>
+</div>
+</div>
+<h1>使用存储表、队列和 Blob 的 .NET 多层应用程序 - 第 1 部分，共 5 部分</h1>
+<p>本系列教程演示如何创建使用 Windows Azure 存储表、队列和 Blob 的多层 ASP.NET MVC 4 Web 应用程序，以及如何将该应用程序部署到 Windows Azure 云服务。本教程假定您以前没有使用 Windows Azure 的经历。学完本系列教程后，您将了解如何生成可复原、规模可变且由数据驱动的 Web 应用程序以及将其部署到云。</p>
+<h2><a name="whatyoulllearn"></a> <span class="short-header">您将学习的内容</span>您将学习的内容</h2>
+<p>在本系列教程中，您将学习以下各项：</p>
+<ul>
+<li>如何通过安装 Windows Azure SDK 来让您的计算机可以进行 Windows Azure 开发。</li>
+<li>如何用一个 MVC 4 Web 角色和两个辅助角色创建 Visual Studio 云项目。</li>
+<li>如何将云项目发布到 Windows Azure 云服务。</li>
+<li>如何将 MVC 4 项目发布到 Windows Azure 网站（如果更愿意这样做）并仍在云服务中使用辅助角色。</li>
+<li>如何使用 Windows Azure 队列存储服务在层间或辅助角色间进行通信。</li>
+<li>如何使用 Windows Azure 表存储服务作为结构化非关系数据的可大幅改变规模的数据存储。</li>
+<li>如何使用 Windows Azure Blob 服务在云中存储文件。</li>
+<li>如何使用 Visual Studio 或 Azure Storage Explorer 查看和编辑 Windows Azure 表、队列和 Blob。</li>
+<li>如何使用 SendGrid 发送电子邮件。</li>
+<li>如何配置跟踪和查看跟踪数据。</li>
+<li>如何通过增加辅助角色实例数扩大应用程序规模。</li>
+</ul>
+<h2><a name="frontendoverview"></a> <span class="short-header">前端概述</span>前端概述</h2>
+<p>您将生成的应用程序是一个电子邮件列表服务。该多层应用程序的前端包括该服务的管理员用于管理电子邮件列表的网页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-mailing-list-index-page.png" alt="邮件列表索引页"/></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-subscribers-index-page.png" alt="订户索引页"/></p>
+<p>还有一组页面，供管理员用于创建要发送到电子邮件列表的邮件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-message-index-page.png" alt="邮件索引页"/></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-message-create-page.png" alt="邮件创建页"/></p>
+<p>该服务的客户是让其客户有机会在客户网站上注册邮件列表的公司。例如，管理员设置一个 Contoso University History Department announcements 列表。当有学生对 History Department announcements 感兴趣时，单击 Contoso University 网站上的一个链接，然后 Contoso University 将对 Windows Azure Email Service 应用程序进行一个 Web 服务调用。该服务的方法向客户发送一封电子邮件。这封电子邮件中含有一个超链接，当收件人单击该链接时，将显示一个页面，其中欢迎客户使用 History Department Announcements 列表。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-subscribe-email.png" alt="确认电子邮件"/></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-subscribe-confirmation-page.png" alt="欢迎使用列表页面"/></p>
+<p>该服务发送的每封电子邮件（订阅确认除外）均包括一个可用于取消订阅的超链接。如果收件人单击该链接，则将显示一个网页，要求确认取消订阅的意图。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-unsubscribe-query-page.png" alt="确认取消订阅页面"/></p>
+<p>如果收件人单击“确认”按钮，则将显示一个页面，确认已从列表中删除了该人员。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-unsubscribe-confirmation-page.png" alt="确认取消订阅的页面"/></p>
+<h2><a name="whyanemaillistapp"></a> <span class="short-header">教程</span>本系列中的教程</h2>
+<p>此处是教程列表及其内容的摘要：</p>
+<ol>
+<li><strong>Windows Azure Email Service 应用程序简介</strong>（本教程）。应用程序及其体系结构的概述。</li>
+<li><a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">配置和部署 Windows Azure Email Service 应用程序</a>。如何下载示例应用程序、配置它、在本地测试它、部署它以及在云中测试它。</li>
+<li><a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/3-web-role/">为 Windows Azure Email Service 应用程序生成 Web 角色</a>。如何生成应用程序的 MVC 4 组件以及在本地测试这些组件。</li>
+<li><a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/">为 Windows Azure Email Service 应用程序生成辅助角色 A（电子邮件计划程序）</a>。如何生成创建用于发送电子邮件的队列工作项的后端组件以及在本地测试该组件。</li>
+<li><a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">为 Windows Azure Email Service 应用程序构建辅助角色 B（电子邮件发送程序）</a>。如何生成处理用于发送电子邮件的队列工作项的后端组件以及在本地测试该组件。</li>
+</ol>
+<p>如果只想下载应用程序并试用它，则只需要学习前两个教程。如果要从头查看涉及像这样生成应用程序的所有步骤，请在学完前两个教程后学习后三个教程。</p>
+<h2><a name="whyanemaillistapp"></a> <span class="short-header">为什么选择此应用程序</span>为什么选择电子邮件列表服务应用程序</h2>
+<p>我们选择了电子邮件列表服务作为此示例应用程序，因为这种应用程序需要可复原且规模可变，而这两项功能使其特别适合 Windows Azure。</p>
+<h3>可复原</h3>
+<p>如果服务器在向一个大型列表发出电子邮件时发生故障，您希望能够轻松而迅速地启动新服务器，并且希望应用程序在中断处恢复运行，而不丢失或重复任何电子邮件。如果某个 Windows Azure 云服务 Web 或辅助角色实例（虚拟机）发生故障，则将自动更换它。此外，Windows Azure 存储队列和表提供一种保持服务器间通信的方法以顺利度过故障时期而不丢失工作内容。</p>
+<h3>规模可变</h3>
+<p>电子邮件服务还必须能够应对工作负荷猛增又猛减的情况，因为有时向小型列表发送电子邮件，而有时向非常大的列表发送。在许多托管环境中，必须购买和维护充足的硬件才能应对工作负荷猛增又猛减的情况，并且在全部时间都必须按全部容量付款，但实际上可能只有 5% 的时间能用到它。通过 Windows Azure，只需在需要计算能力时按实际需要量的计算能力付款。若要扩大规模应对大邮件，只需更改一项配置设置以增加可用于处理工作负载的服务器数即可，并且可通过编程方式做到这一点。例如，可配置应用程序，以便在队列中等待的工作项数超出某个数量时，Windows Azure 自动启动处理这些工作项的辅助角色的其他实例。</p>
+<h2><a name="backendoverview"></a> <span class="short-header">后端概述</span>后端概述</h2>
+<p>前端在 Windows Azure 表中存储电子邮件列表和要发送到这些列表的邮件。当管理员安排发送邮件时，将向 <code>message</code> 表添加一个表行，其中包含计划日期以及主题行等其他数据。一个辅助角色定期扫描 <code>message</code> 表，查找需要发送的邮件（我们将它称为辅助角色 A）。</p>
+<p>当辅助角色 A 找到需要发送的邮件时，它执行以下任务：</p>
+<ul>
+<li>获取目标电子邮件列表中的所有电子邮件地址。</li>
+<li>将发送每封电子邮件所需的信息放入 <code>message</code> 表中。</li>
+<li>为需要发送的每封电子邮件创建一个队列工作项。</li>
+</ul>
+<p>另一个辅助角色（辅助角色 B）轮询队列中的工作项。当辅助角色 B 找到工作项时，它通过发送电子邮件处理该项，然后从队列中删除该工作项。下图展示了这些关系。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-roles-a-and-b.png" alt="电子邮件处理过程"/></p>
+<p>如果辅助角色 B 因故障而必须重新启动，则不会丢失任何电子邮件，因为直到发送电子邮件后才删除该电子邮件的队列工作项。后端还实现一种表处理方式，在辅助角色 A 因故障而必须重新启动的情况下阻止发送多封电子邮件。在这种情况下，可能会为一个给定的目标电子邮件地址产生多个队列工作项。但是对于每个目标电子邮件地址，<code>message</code> 表中都有一行跟踪是否已发送了电子邮件。根据重新启动和电子邮件处理时机的不同，辅助角色 A 使用此行避免另外创建一个队列工作项，或辅助角色 B 使用此行避免另外发送一封电子邮件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-message-processing.png" alt="防止电子邮件重复"/></p>
+<p>辅助角色 B 还轮询由 Web API 服务方法为新订阅放入订阅队列的工作项。找到后，它发送确认电子邮件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-subscribe-diagram.png" alt="订阅队列邮件处理"/></p>
+<h2><a name="tables"></a> <span class="short-header">表</span>Windows Azure 表</h2>
+<p>Windows Azure Email Service 应用程序在 Windows Azure 存储表中存储数据。Windows Azure 表是 NoSQL 数据存储，而非 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee336279.aspx">Windows Azure SQL Database</a> 这样的关系数据库。当效率和规模可变性比数据规范化和关系完整性更重要时，适合选择此类表。例如，在此应用程序中，一个辅助角色在每次创建一个队列工作项时创建一行，另一个辅助角色在每次发送一封电子邮件时检索和更新一行，如果使用关系数据库，则这种方式可能会成为性能瓶颈。此外，Windows Azure 表比 Windows Azure SQL 更经济实惠。有关 Windows Azure 表的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>结尾处列出的资源。</p>
+<p>以下几节介绍 Windows Azure Email Service 应用程序使用的 Windows Azure 表的内容。有关显示表及其关系的图，请参阅本页中的 <a href="#datadiagram">Windows Azure Email Service 数据图</a>。</p>
+<h3>mailinglist 表</h3>
+<p><code>mailinglist</code> 表存储有关邮件列表及其订户的信息。（Windows Azure 表命名约定最佳做法为全部使用小写字母。）管理员使用网页创建和编辑邮件列表，而客户和订户使用一组网页和一个服务方法进行订阅和取消订阅。</p>
+<p>在 NoSQL 表中，不同的行可具有不同的架构，通常可利用这种灵活性让一个表存储将在关系数据库中需要多个表的数据。例如，若要在 SQL Database 中存储邮件列表数据，可使用三个表：一个 <code>mailinglist</code> 表存储有关列表的信息、一个 <code>subscriber</code> 表存储有关订户的信息和一个 <code>mailinglistsubscriber</code> 表将邮件列表与订户关联（反之亦然）。在此应用程序的 NoSQL 表中，所有这些功能都融入一个名为 <code>mailinglist</code> 的表中。</p>
+<p>在 Windows Azure 表中，每行都有一个分区键和一个行键，两者独一无二地标识该行。分区键在逻辑上将表划分为多个分区。在分区中，行键独一无二地标识一行。由于没有辅助索引，因此，为了确保应用程序可改变规模，必须设计您自己的表，以使您总是可在查询的 Where 子句中指定分区键和行键值，这一点很重要。</p>
+<p><code>mailinglist</code> 表的分区键是邮件列表的名称。</p>
+<p><code>mailinglist</code> 表的行键可以是以下两项之一：常量“mailinglist”或订户的电子邮件地址。行键为“mailinglist”的行包括有关邮件列表的信息。以电子邮件地址为行键的行包括有关列表订户的信息。</p>
+<p>换句话说，行键为“mailinglist”的行相当于关系数据库中的 <code>mailinglist</code> 表。以电子邮件地址为行键的行相当于关系数据库中的 <code>subscriber</code> 表和 <code>mailinglistsubscriber</code> 关联表。</p>
+<p>以此方式让一个表实现多种用途可提高性能。在关系数据库中，必须读取三个表，并且必须对三组行进行排序和彼此匹配，此过程比较耗时。此处仅读取一个表，并自动按分区键和行键顺序返回该表的行。</p>
+<p>以下网格显示包含邮件列表信息的行（行键为“MailingList”）的行属性。</p>
+<table border="1">
+<tbody>
+<tr bgcolor="lightgray"><th>属性</th><th>数据类型</th><th>说明</th></tr>
+<tr>
+<td>PartitionKey</td>
+<td>String</td>
+<td>ListName：邮件列表的唯一标识符，例如：contoso1。表的典型用法是检索某个特定邮件列表的所有信息，因此使用列表名称是将表分区的一个高效方式。</td>
+</tr>
+<tr>
+<td>RowKey</td>
+<td>String</td>
+<td>常量“mailinglist”。</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>String</td>
+<td>邮件列表的说明，例如：“Contoso University History Department announcements”。</td>
+</tr>
+<tr>
+<td>FromEmailAddress</td>
+<td>String</td>
+<td>发送到此列表的电子邮件中的“发件人”电子邮件地址，例如：donotreply@contoso.edu。</td>
+</tr>
+</tbody>
+</table>
+<p>以下网格显示包含列表的订户信息的行（行键为电子邮件地址）的行属性。</p>
+<table border="1">
+<tbody>
+<tr bgcolor="lightgray"><th>属性</th><th>数据类型</th><th>说明</th></tr>
+<tr>
+<td>PartitionKey</td>
+<td>String</td>
+<td>ListName：邮件列表的名称（唯一标识符），例如：contoso1。</td>
+</tr>
+<tr>
+<td>RowKey</td>
+<td>String</td>
+<td>EmailAddress：订户的电子邮件地址，例如：student1@contoso.edu。</td>
+</tr>
+<tr>
+<td>SubscriberGUID</td>
+<td>String</td>
+<td>将电子邮件地址添加到列表时生成。用于在订阅和取消订阅链接中，以使难以订阅或取消订阅其他人的电子邮件地址。<br /><br />对 Subscribe 和 Unsubscribe 网页的某些查询仅指定 PartitionKey 和此属性。在不使用 RowKey 的情况下查询分区将使应用程序的规模可变性受限，因为随着邮件列表大小的增大，查询耗时将越来越长。一个改善规模可变性的方法是添加在 RowKey 属性中具有 SubscriberGUID 的查找行。例如，对于每个电子邮件地址，一行可在 RowKey 中具有“email:student1@domain.com”，而同一订户的另一行可在 RowKey 中具有“guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a”。这一点容易实现，因为易于对分区中行的原子批事务编码。我们希望在示例应用程序的下一版本中实现这一点。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508997.aspx">真实情况：为 Windows Azure 表存储设计规模可变的分区策略</a></td>
+</tr>
+<tr>
+<td>已验证</td>
+<td>Boolean</td>
+<td>为新订户初始创建行时，该值为 false。仅在新订户单击欢迎电子邮件中的 Confirm 超链接或管理员将其设置为 true 后，它才会变为 true。如果向列表发送邮件时其某个订户的 Verified 值为 false，则不向该订户发送任何电子邮件。</td>
+</tr>
+</tbody>
+</table>
+<p>以下列表显示表中数据可能类似的形式的示例。</p>
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>contoso1</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>mailinglist</td>
+</tr>
+<tr><th align="right">说明</th>
+<td>Contoso University History Department announcements</td>
+</tr>
+<tr><th align="right">FromEmailAddress</th>
+<td>donotreply@contoso.edu</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>contoso1</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>student1@domain.com</td>
+</tr>
+<tr><th align="right">SubscriberGUID</th>
+<td>6f32b03b-90ed-41a9-b8ac-c1310c67b66a</td>
+</tr>
+<tr><th align="right">已验证</th>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>contoso1</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>student2@domain.com</td>
+</tr>
+<tr><th align="right">SubscriberGUID</th>
+<td>01234567-90ed-41a9-b8ac-c1310c67b66a</td>
+</tr>
+<tr><th align="right">已验证</th>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>fabrikam1</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>mailinglist</td>
+</tr>
+<tr><th align="right">说明</th>
+<td>Fabrikam Engineering job postings</td>
+</tr>
+<tr><th align="right">FromEmailAddress</th>
+<td>donotreply@fabrikam.com</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>fabrikam1</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>applicant1@domain.com</td>
+</tr>
+<tr><th align="right">SubscriberGUID</th>
+<td>76543210-90ed-41a9-b8ac-c1310c67b66a</td>
+</tr>
+<tr><th align="right">已验证</th>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h3>message 表</h3>
+<p><code>message</code> 表存储有关被安排发送到邮件列表的邮件的信息。管理员使用网页创建和编辑此表中的行，而辅助角色使用该表将有关每封电子邮件的信息从辅助角色 A 传递到辅助角色 B。</p>
+<p>message 表的分区键是安排发送电子邮件的日期，格式为 yyyy-mm-dd。这样可为最常对表执行的查询优化此表，其中选择 <code>ScheduledDate</code> 为今天或更早的行。但是，这样可能会产生性能瓶颈，因为 Windows Azure 存储表对于一个分区的吞吐量最大为每秒 500 个实体。对于要发送的每封电子邮件，应用程序都向 <code>message</code> 表写入一行，读取一行，然后删除一行。因此，处理安排在一天发送的 1000000 封电子邮件所用的最短时间是接近两小时，无论添加多少个辅助角色以处理增加的负载都是如此。</p>
+<p><code>message</code> 表的行键可以是以下两项之一：常量“message”外加邮件的一个唯一键（称为 <code>MessageRef</code>），或 <code>MessageRef</code> 值外加订户的电子邮件地址。行键以“message”开头的行包括有关邮件的信息，如要将该邮件发送到的邮件列表以及应何时发送该邮件。以 <code>MessageRef</code> 和电子邮件地址作为行键的行具有向该电子邮件地址发送电子邮件所需的所有信息。</p>
+<p>在关系数据库方面，行键以“message”开头的行相当于 <code>message</code> 表。行键为 <code>MessageRef</code> 的行外加电子邮件地址相当于一个包含 <code>mailinglist</code>、<code>message</code> 和 <code>subscriber</code> 信息的联接查询视图。</p>
+<p>以下网格显示具有关于邮件自身的信息的 <code>message</code> 表行的行属性。</p>
+<table border="1">
+<tbody>
+<tr bgcolor="lightgray"><th>属性</th><th>数据类型</th><th>说明</th></tr>
+<tr>
+<td>PartitionKey</td>
+<td>String</td>
+<td>安排发送邮件的日期，为 yyyy-mm-dd 格式。</td>
+</tr>
+<tr>
+<td>RowKey</td>
+<td>String</td>
+<td>串联 <code>MessageRef</code> 值的常量“message”。<code>MessageRef</code> 是在创建行时通过从 <code>DateTime.Now</code> 获取 <code>Ticks</code> 值而产生的唯一值。<br /><br />注意：应准备大容量、多线程、多实例的应用程序以处理在使用 Ticks 时出现的重复 RowKey 异常。Ticks 不保证唯一。</td>
+</tr>
+<tr>
+<td>ScheduledDate</td>
+<td>日期</td>
+<td>安排发送邮件的日期。（与 <code>PartitionKey</code> 相同，但为 Date 格式。）</td>
+</tr>
+<tr>
+<td>SubjectLine</td>
+<td>String</td>
+<td>电子邮件的主题行。</td>
+</tr>
+<tr>
+<td>ListName</td>
+<td>String</td>
+<td>要将此邮件发送到的列表。</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>String</td>
+<td>
+<ul>
+<li>“Pending”- 辅助角色 A 尚未开始创建队列邮件以安排电子邮件。</li>
+<li>“Queuing”- 辅助角色 A 已开始创建队列邮件以安排电子邮件。</li>
+<li>“Processing”- 辅助角色 A 已为列表中的所有电子邮件创建了队列工作项，但尚未发送所有电子邮件。</li>
+<li>“Completed”- 辅助角色 B 已处理完所有队列工作项（已发送所有电子邮件）。Completed 行存档在 <code>messagearchive</code> 表中，后面叙述了这一点。我们希望在下一版本中使此属性为 <code>enum</code>。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>当辅助角色 A 为要发送到列表的电子邮件创建队列邮件时，它在 <code>message</code> 表中创建一个电子邮件行。当辅助角色 B 发送该电子邮件时，它将电子邮件行移至 <code>messagearchive</code> 表，并将 <code>EmailSent</code> 属性更新为 <code>true</code>。将状态为 Processing 的邮件的所有电子邮件行存档后，辅助角色 A 将状态设置为 Completed，并将 <code>message</code> 行移至 <code>messagearchive</code> 表。</p>
+<p>以下网格显示 <code>message</code> 表中电子邮件行的行属性。</p>
+<table border="1">
+<tbody>
+<tr bgcolor="lightgray"><th>属性</th><th>数据类型</th><th>说明</th></tr>
+<tr>
+<td>PartitionKey</td>
+<td>String</td>
+<td>安排发送邮件的日期，为 yyyy-mm-dd 格式。</td>
+</tr>
+<tr>
+<td>RowKey</td>
+<td>String</td>
+<td><code>MessageRef</code> 值以及来自 <code>mailinglist</code> 表 <code>subscriber</code> 行的目标电子邮件地址。</td>
+</tr>
+<tr>
+<td>MessageRef</td>
+<td>Long</td>
+<td>与 <code>RowKey</code> 的 <code>MessageRef</code> 部分相同。</td>
+</tr>
+<tr>
+<td>ScheduledDate</td>
+<td>日期</td>
+<td>来自 <code>message</code> 表 <code>message</code> 行的计划日期。（与 <code>PartitionKey</code> 相同，但为 Date 格式。）</td>
+</tr>
+<tr>
+<td>SubjectLine</td>
+<td>String</td>
+<td>来自 <code>message</code> 表 <code>message</code> 行的电子邮件主题行。</td>
+</tr>
+<tr>
+<td>ListName</td>
+<td>String</td>
+<td>来自 <code>mailinglist</code> 表的邮件列表名称。</td>
+</tr>
+<tr>
+<td>FromEmailAddress</td>
+<td>String</td>
+<td>来自 <code>mailinglist</code> 表 <code>mailinglist</code> 行的“发件人”电子邮件地址。</td>
+</tr>
+<tr>
+<td>EmailAddress</td>
+<td>String</td>
+<td>来自 <code>mailinglist</code> 表 <code>subscriber</code> 行的电子邮件地址。</td>
+</tr>
+<tr>
+<td>SubscriberGUID</td>
+<td>String</td>
+<td>来自 <code>mailinglist</code> 表 <code>subscriber</code> 行的订户 ID。</td>
+</tr>
+<tr>
+<td>EmailSent</td>
+<td>Boolean</td>
+<td>False 表示尚未发送电子邮件；true 表示已发送电子邮件。</td>
+</tr>
+</tbody>
+</table>
+<p>这些行中具有冗余数据，一般在关系数据库中要避免出现冗余数据。但在本例中，用冗余数据的缺点换取提高处理效率和规模可变性的益处。由于电子邮件所需的所有数据均在其中一行内，因此辅助角色 B 在从队列中抽取工作项时只需读取一行即可发送电子邮件。</p>
+<p>您可能想知道电子邮件的正文来自何处。这些行对于包含电子邮件正文的文件没有 Blob 引用，因为该值派生自 <code>MessageRef</code> 值。例如，如果 <code>MessageRef</code> 为 634852858215726983，则将 Blob 命名为 634852858215726983.htm 和 634852858215726983.txt。</p>
+<p>以下列表显示表中数据可能类似的形式的示例。</p>
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>2012-10-15</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>message634852858215726983</td>
+</tr>
+<tr><th align="right">MessageRef</th>
+<td>634852858215726983</td>
+</tr>
+<tr><th align="right">ScheduledDate</th>
+<td>2012-10-15</td>
+</tr>
+<tr><th align="right">SubjectLine</th>
+<td>New lecture series</td>
+</tr>
+<tr><th align="right">ListName</th>
+<td>contoso1</td>
+</tr>
+<tr><th align="right">状态</th>
+<td>Processing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>2012-10-15</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>634852858215726983student1@contoso.edu</td>
+</tr>
+<tr><th align="right">MessageRef</th>
+<td>634852858215726983</td>
+</tr>
+<tr><th align="right">ScheduledDate</th>
+<td>2012-10-15</td>
+</tr>
+<tr><th align="right">SubjectLine</th>
+<td>New lecture series</td>
+</tr>
+<tr><th align="right">ListName</th>
+<td>contoso1</td>
+</tr>
+<tr><th align="right">FromEmailAddress</th>
+<td>donotreply@contoso.edu</td>
+</tr>
+<tr><th align="right">EmailAddress</th>
+<td>student1@contoso.edu</td>
+</tr>
+<tr><th align="right">SubscriberGUID</th>
+<td>76543210-90ed-41a9-b8ac-c1310c67b66a</td>
+</tr>
+<tr><th align="right">EmailSent</th>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>2012-10-15</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>634852858215726983student2@contoso.edu</td>
+</tr>
+<tr><th align="right">MessageRef</th>
+<td>634852858215726983</td>
+</tr>
+<tr><th align="right">ScheduledDate</th>
+<td>2012-10-15</td>
+</tr>
+<tr><th align="right">SubjectLine</th>
+<td>New lecture series</td>
+</tr>
+<tr><th align="right">ListName</th>
+<td>contoso1</td>
+</tr>
+<tr><th align="right">FromEmailAddress</th>
+<td>donotreply@contoso.edu</td>
+</tr>
+<tr><th align="right">EmailAddress</th>
+<td>student2@contoso.edu</td>
+</tr>
+<tr><th align="right">SubscriberGUID</th>
+<td>12345678-90ed-41a9-b8ac-c1310c679876</td>
+</tr>
+<tr><th align="right">EmailSent</th>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table border="1">
+<tbody>
+<tr><th width="200" align="right">PartitionKey</th>
+<td>2012-11-15</td>
+</tr>
+<tr><th align="right">RowKey</th>
+<td>message124852858215726999</td>
+</tr>
+<tr><th align="right">MessageRef</th>
+<td>124852858215726999</td>
+</tr>
+<tr><th align="right">ScheduledDate</th>
+<td>2012-11-15</td>
+</tr>
+<tr><th align="right">SubjectLine</th>
+<td>New job postings</td>
+</tr>
+<tr><th align="right">ListName</th>
+<td>fabrikam</td>
+</tr>
+<tr><th align="right">状态</th>
+<td>挂起</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h3>messagearchive 表</h3>
+<p>确保查询高效执行（尤其是必须搜索 <code>PartitionKey</code> 和 <code>RowKey</code> 以外的字段时）的一个策略是限制表的大小。辅助角色 A 中检查对于某封邮件是否已发送所有电子邮件的查询需要查找 <code>message</code> 表中 <code>EmailSent</code> 为 false 的电子邮件行。<code>EmailSent</code> 值不在 PartitionKey 或 RowKey 中，因此对于含有大量电子邮件行的邮件，这不是高效的查询。因此，在发送电子邮件后，该应用程序将电子邮件行移至 <code>messagearchive</code> 表。因此，用于检查对于某封邮件是否已发送所有电子邮件的查询只需查询 message 表的 <code>PartitionKey</code> 和 <code>RowKey</code>，因为如果该查询找到某封邮件的任何电子邮件行，则表示有未发送的邮件，而不能将这封邮件标为 <code>Complete</code>。</p>
+<p><code>messagearchive</code> 表中的行架构与 <code>message</code> 表的相同。根据要对此存档数据执行什么操作，可通过减少为每行存储的属性数以及通过删除早于某个时间的行，限制其大小和费用。</p>
+<h2><a name="queues"></a> <span class="short-header">队列</span>Windows Azure 队列</h2>
+<p>Windows Azure 队列便于在此多层应用程序的各层之间以及后端层中辅助角色之间进行通信。队列用于在辅助角色 A 与辅助角色 B 之间进行通信以使应用程序规模可变。辅助角色 A 可在 Message 表中为每封电子邮件创建一行，而辅助角色 B 可扫描表中代表尚未发送的电子邮件的行，但您将无法添加辅助角色 B 的其他实例以分担工作。使用表行协调辅助角色 A 与辅助角色 B 之间工作的问题在于无法确保只有一个辅助角色实例将选取任何给定表行进行处理。队列可提供这种保证。当辅助角色实例从队列抽取工作项时，队列服务确保没有其他辅助角色实例可抽取同一工作项。Windows Azure 队列特有的这种租用功能便于在一个辅助角色的多个实例之间分担工作负载。</p>
+<p>Windows Azure 还提供 Service Bus 队列服务。有关 Windows Azure 存储队列和 Service Bus 队列的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>结尾处列出的资源。</p>
+<p>Windows Azure Email Service 应用程序使用两个队列，分别名为 <code>AzureMailQueue</code> 和 <code>AzureMailSubscribeQueue</code>。</p>
+<h3>AzureMailQueue</h3>
+<p><code>AzureMailQueue</code> 队列协调将电子邮件发送到电子邮件列表的过程。辅助角色 A 在要发送的每封电子邮件的队列中放置一个工作项，然后辅助角色 B 从队列中抽取一个工作项并发送该电子邮件。</p>
+<p>队列工作项含有一个逗号分隔字符串，后者由邮件的安排日期（<code>message</code> 表的分区键）以及 <code>MessageRef</code> 和 <code>EmailAddress</code> 值（<code>message</code> 表的行键）组成，外加一个标志，指示是否在辅助角色因故障而重新启动后创建该项，例如：</p>
+<pre class="prettyprint">2012-10-15,634852858215726983,student1@contoso.edu,0</pre>
+<p>辅助角色 B 使用这些值查找 <code>message</code> 表中包含发送电子邮件所需的所有信息的行。如果重新启动标志指示经过重新启动，则辅助角色 B 确保尚未发送该电子邮件，然后再发送该电子邮件。</p>
+<p>当通信量猛增又猛减时，可重新配置云服务，以使辅助角色 B 的多个实例实例化，并且其中每个实例均可独自从队列中抽取工作项。</p>
+<h3>AzureMailSubscribeQueue</h3>
+<p><code>AzureMailSubscribeQueue</code> 队列协调发送订阅确认电子邮件的过程。调用服务方法后，作为响应，该服务方法在队列中放置一个工作项。辅助角色 B 从队列中抽取该工作项，然后发送订阅确认电子邮件。</p>
+<p>队列工作项包含订户 GUID。此值唯一地标识电子邮件地址及其订阅到的列表，而这些是辅助角色 B 发送确认电子邮件所需的全部信息。如前所述，这需要查询一个不在 <code>PartitionKey</code> 或 <code>RowKey</code> 中的字段，而此过程效率较低。若要使应用程序可更大幅度地改变规模，必须重新构造 <code>mailinglist</code> 表以在 <code>RowKey</code> 中加入订户 GUID。</p>
+<h2><a name="datadiagram"></a> <span class="short-header">数据图</span>Windows Azure Email Service 数据图</h2>
+<p>下图显示表和队列以及二者的关系。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-datadiagram.png" alt="Windows Azure Email Service 应用程序的数据图"/></p>
+<h2><a name="blobs"></a> <span class="short-header">Blob</span>Windows Azure Blob</h2>
+<p>Blob 是“二进制大型对象”的简称。Windows Azure Blob 服务提供一种将文件上载和存储到云中的方法。有关 Windows Azure Blob 的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>结尾处列出的资源。</p>
+<p>Windows Azure 电子邮件服务管理员将 HTML 格式的电子邮件正文放入一个 <em>.htm</em> 文件中，将纯文本格式的正文放入一个 <em>.txt</em> 文件中。当其安排电子邮件时，他们将这些文件上载到 <strong>Create Message</strong> 网页中，然后该页面的 ASP.NET MVC 控制器将上载的文件存储在 Windows Azure Blob 中。</p>
+<p>Blob 存储在 Blob 容器中，如同文件存储在文件夹中。Windows Azure 电子邮件服务应用程序仅使用一个 Blob 容器，名为 <strong>azuremailblobcontainer</strong>。通过将 MessageRef 值与文件扩展名串联，派生出容器中 Blob 的名称，例如：634852858215726983.htm 和 634852858215726983.txt。</p>
+<p>由于 HTML 和纯文本邮件实际上都是字符串，因此我们可将应用程序设计为将电子邮件正文存储在 <code>Message</code> 表的字符串属性中而非 Blob 中。但是，表行中属性的大小有 64K 的限制，因此使用 Blob 可避免对电子邮件正文大小的这一限制。（64K 是属性的最大总大小；考虑到编码开销后，属性中可存储的最大字符串大小实际更接近于 48K。）</p>
+<h2><a name="wawsvswacs"></a> <span class="short-header">云服务与网站</span>Windows Azure 云服务与 Windows Azure 网站</h2>
+<p>下载 Windows Azure Email Service 时，它被配置为前端和后端在同一个 Windows Azure 云服务中运行。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-architecture-overview.png" alt="应用程序体系结构概述"/></p>
+<p>一个备选的体系结构是在 Windows Azure 网站中运行前端。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-alternative-architecture.png" alt="备选的应用程序体系结构"/></p>
+<p>将所有组件放入云服务可简化配置和部署。如果创建的应用程序的 ASP.NET MVC 前端在 Windows Azure 网站中，则将有两个部署，一个部署到 Windows Azure 网站，一个部署到 Windows Azure 云服务。此外，Windows Azure 云服务 Web 角色提供以下在 Windows Azure 网站中没有的功能：</p>
+<ul>
+<li>支持自定义和通配符证书。</li>
+<li>完全控制 IIS 的配置方式。Windows Azure 网站上无法启用多种 IIS 功能。通过 Windows Azure Web 角色，可定义一个启动命令，该命令运行 <a href="http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe" title="appCmd">AppCmd</a> 程序以修改无法在 <em>Web.config</em> 文件中配置的 IIS 设置。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433059.aspx">如何在 Windows Azure 中配置 IIS 组件</a>和<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj154098.aspx">如何阻止特定 IP 地址访问 Web 角色</a>。</li>
+<li>支持使用<a href="/zh-cn/develop/net/how-to-guides/autoscaling/">自动改变规模应用程序块</a>自动改变您的 Web 应用程序规模。</li>
+<li>可运行经过提权的启动脚本以安装应用程序、修改注册表设置、安装性能计数器等。</li>
+<li>用于 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433122.aspx">Windows Azure Connect</a> 和 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">Windows Azure 虚拟网络</a>的网络隔离。</li>
+<li>用于调试和高级诊断的远程桌面访问。</li>
+<li>通过<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee517253.aspx" title="VIP 交换">虚拟 IP 交换</a>进行升级。此项功能交换临时部署与生产部署的内容。</li>
+</ul>
+<p>该备选体系结构还可能带来一些成本优势，因为 Windows Azure 网站在类似容量上的费用与在云服务中运行的 Web 角色相比可能更低。本系列中的后续教程介绍可区分这两个体系结构的实现详细信息。</p>
+<p>有关如何在 Windows Azure 网站与 Windows Azure 云服务之间进行选择的详细信息，请参阅 <a href="http://www.windowsazure.cn/zh-cn/manage/windows/fundamentals/compute/">Windows Azure 执行模型</a>。</p>
+<!--<h2><a name="cost"></a> <span class="short-header">成本</span>成本</h2>
+<p>本节简要概述在 Windows Azure 中运行示例应用程序的成本，以 2012 年 12 月发布本教程时的实际费率为准。在根据成本做出任何商业决策之前，务必在以下网页上检查当前费率：</p>
+<ul>
+<li><a href="http://www.windowsazure.cn/zh-cn/pricing/calculator/">Windows Azure 价格计算器</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/store/service/?id=f131eadb-7aa3-401a-a2fb-1c7e71f45c3c">SendGrid Windows Azure</a></li>
+</ul>
+<p>您决定保留的 Web 和辅助角色实例数影响成本。为了符合 <a href="http://www.windowsazure.cn/zh-cn/support/legal/sla/" title="SLA">Azure 云服务 99.95% 服务级别协议 (SLA)</a>，必须为每个角色部署两个或更多实例。必须至少运行两个角色实例的原因之一是因为运行应用程序的虚拟机大约每个月重新启动两次以进行操作系统升级。（有关操作系统更新的详细信息，请参阅<a href="http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx">因操作系统升级而重新启动角色实例</a>。）</p>
+<p>此示例中的两个辅助角色执行的工作对时间要求并不严格，因此不需要 99.95% SLA。因此，只要一个实例足以处理工作负载，则每个辅助角色仅运行一个实例就合情合理。Web 角色实例对时间很敏感，即用户希望网站永不停机，因此生产应用程序至少应有 Web 角色的两个实例。</p>
+<p>下表显示假定 Windows Azure Email Service 示例应用程序的默认体系结构在最低工作负载下的成本。所显示的成本以使用超小型（共享）虚拟机大小为准。创建 Visual Studio 云项目时的默认虚拟机大小为小型，其费用大约是超小型大小的六倍。</p>
+<table border="1">
+<tbody>
+<tr bgcolor="lightgray"><th>组件或服务</th><th>费率</th><th>每月成本</th></tr>
+<tr>
+<td>Web 角色</td>
+<td>2 个实例，超小型实例每小时收费 $.02</td>
+<td>$29.00</td>
+</tr>
+<tr>
+<td>辅助角色 A（安排发送电子邮件）</td>
+<td>1 个实例，超小型实例每小时收费 $.02</td>
+<td>$14.50</td>
+</tr>
+<tr>
+<td>辅助角色 B（发送电子邮件）</td>
+<td>1 个实例，超小型实例每小时收费 $.02</td>
+<td>$14.50</td>
+</tr>
+<tr>
+<td>Windows Azure 存储事务</td>
+<td>每月 100 万个事务，每 100 万个收费 $0.10（每次查询计为一个事务；辅助角色 A 持续查询表中需要发送的邮件。应用程序还被配置为将诊断数据写入 Windows Azure 存储，并且它每次这样做时都是一个事务。）</td>
+<td>$0.10</td>
+</tr>
+<tr>
+<td>Windows Azure 本地冗余存储</td>
+<td>25 GB 收费 $2.33（包括应用程序表和诊断数据的存储。）</td>
+<td>$2.33</td>
+</tr>
+<tr>
+<td>带宽</td>
+<td>传出 5 GB 免费</td>
+<td>免费</td>
+</tr>
+<tr>
+<td>SendGrid</td>
+<td>Windows Azure 客户每月可免费发送 25000 封电子邮件</td>
+<td>免费</td>
+</tr>
+<tr>
+<td colspan="2">总计</td>
+<td>$60.43</td>
+</tr>
+</tbody>
+</table>
+<p>如您所见，角色实例是总成本的主要组成部分。即使角色实例已停止，其也会产生费用；必须删除角色实例才能不再产生任何费用。一种节省成本的方法是将来自辅助角色 A 和辅助角色 B 的所有代码移入一个辅助角色。对于这些教程，我们有意地决定实现两个辅助实例以简化横向扩展。辅助角色 B 执行的工作由 Windows Azure 队列服务进行协调，这表示只需增加角色实例数，即可横向扩展辅助角色 B。（辅助角色 B 是高负载条件的限制因素。）辅助角色 A 执行的工作不由队列进行协调，因此，无法运行辅助角色 A 的多个实例。如果将两个辅助角色组合在一起并要允许进行横向扩展，则需要实现某个机制以确保仅在一个实例中运行辅助角色 A 任务。（<a href="http://nuget.org/packages/Microsoft.Experience.CloudFx" title="CloudFX">CloudFx</a> 提供一个此类机制。请参阅 <a href="http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&amp;pathId=528472169">WorkerRole.cs 示例</a>。）</p>
+<p>也可将来自两个辅助角色的所有代码移入 Web 角色，以使所有内容在 Web 角色中运行。但是，不支持在 ASP.NET 中执行后台任务，也不认为此方式可靠，并且此体系结构将难以改变规模。有关详细信息，请参阅<a href="http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx">在 ASP.NET 中实现周期性后台任务的危险因素</a>。另请参阅<a href="http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html">如何在 Windows Azure 中将辅助角色和 Web 角色组合在一起</a>和<a href="http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html">将多个 Azure 辅助角色组合为一个 Azure Web 角色</a>。</p>
+<p>另一个可降低成本的备选体系结构为使用<a href="/zh-cn/develop/net/how-to-guides/autoscaling/">自动改变规模应用程序块</a>仅在计划期限内自动部署辅助角色，并在完成工作后将其删除。有关自动改变规模的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>结尾处的链接。</p>
+<p>Windows Azure 未来可能会提供对计划重新引导的通知机制，这样可仅在重新引导时间范围内启动额外的 Web 角色实例。您无法享受 99.95 SLA，但可将成本降低几乎一半，并确保在重新引导间隔期间 Web 应用程序保持可用。</p> -->
+<h2><a name="auth"></a> <span class="short-header">身份验证和授权</span>身份验证和授权</h2>
+<p>在生产应用程序中，要为 ASP.NET MVC Web 前端实现类似于 ASP.NET 成员资格系统的身份验证和授权机制，包括 ASP.NET Web API 服务方法。还有其他方法可保护 Web API 服务方法，如使用共享机密。示例应用程序中省略了身份验证和授权功能是为了使其易于设置和部署。（本系列中的第二个教程演示如何实现 IP 限制，以使未经授权的人员在您将应用程序部署到云后无法使用该应用程序。）</p>
+<p>有关如何在 ASP.NET MVC Web 项目中实现身份验证和授权的详细信息，请参阅以下资源：</p>
+<ul>
+<li><a href="http://www.asp.net/web-api/overview/security/authentication-and-authorization/authentication-and-authorization-in-aspnet-web-api">ASP.NET Web API 中的身份验证和授权</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/ff398049(VS.98).aspx">使用窗体身份验证</a></li>
+<li><a href="http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-7">音乐商店第 7 部分：成员身份和授权</a></li>
+</ul>
+<p><strong>注意</strong>：我们原先计划加入一个使用共享机密保护 Web API 服务方法的机制，但未能及时在初始发布时完成它。因此，第三个教程不演示如何生成订阅过程的 Web API 控制器。我们希望在本教程的下一版中加入实现安全订阅过程的说明。在此之前，可通过使用管理员网页将电子邮件地址订阅到列表，测试该应用程序。</p>
+<h2><a name="nextsteps"></a> <span class="short-header">后续步骤</span>后续步骤</h2>
+<p>在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">下一教程</a>中，您将下载示例项目、配置开发环境、针对环境配置项目以及在本地和云中测试该项目。在后续教程中，您将了解如何从头开始生成项目。</p>
+<p>有关使用 Windows Azure 存储表、队列和 Blob 的其他资源的链接，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>的结尾。</p>
+<div><a href="../2-download-and-run/" class="site-arrowboxcta download-cta">教程 2</a></div>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>多层 ASP.NET MVC 4 网站教程 - 第 1 步：概述</pageTitle><metaKeywords>Windows Azure 教程, 电子邮件列表服务应用程序, 电子邮件服务体系结构, Azure 教程概述</metaKeywords><metaDescription><![CDATA[了解分为五部分的多层网站教程。]]></metaDescription><linkid>develop-net-tutorials-multi-tier-web-site-1-overview</linkid><urlDisplayName>步骤 1:概述</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

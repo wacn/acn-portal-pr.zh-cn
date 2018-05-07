@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T11:41:59" urlName="data-transfer" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            
+            <div>   
+                    <h1>存储 - 块 Blob</h1>
+			</div>
+			<div class="pricing-page-section">
+                    <h2>定价详细信息</h2>
+					<p>块 Blob 存储用于流式处理和存储文档、视频、图片、备份和其他非结构化文本或二进制数据。追加 Blob 也按块 Blob 计量。</p>
+                    <p>常规用途存储帐户中的块 Blob 价格如下。若要查看具有“热”和“冷”访问级别的 Blob 存储帐户中的块 Blob 价格，请查看<a id="pricing-details-storage-blob_pricing-details-storage" href="/pricing/details/storage/" style="color: #00a8d9;">存储价格</a>页面。</p>
+					<p><a id="pricing-details-storage-blob_documentation-articles-storage-introduction" href="//docs.azure.cn/storage/storage-introduction/" style="color: #00a8d9;display:inline-block;line-height:26px;margin-left:0">了解更多<i class="icon icon-arrow-right"></i></a></p>
+            </div>
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>数据存储价格</h2>
+                    <ul>
+						<!-- BEGIN: Table-Content-->
+						<div class="tags-date">
+							<div class="ms-date">*以下价格均为含税价格。</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong>每月存储容量</strong></th>
+								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="left"><strong>区域冗余存储 (ZRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+								<th align="left"><strong>只读访问跨地域冗余存储 (RA-GRS)</strong></th>
+							</tr>
+							<tr>
+								<td>0 至 1TB<sup>1</sup></td>
+								<td>¥0.41/GB</td>
+								<td>¥0.64/GB</td>
+								<td>¥0.82/GB</td>
+								<td>¥1.04/GB</td>
+							</tr>
+							<tr>
+								<td>1TB 至 50 TB</td>
+								<td>¥0.37/GB</td>
+								<td>¥0.54/GB</td>
+								<td>¥0.74/GB</td>
+								<td>¥0.94/GB</td>
+							</tr>
+							<tr>
+								<td>大于 50 TB</td>
+								<td>¥0.33/GB</td>
+								<td>¥0.50/GB</td>
+								<td>¥0.66/GB</td>
+								<td>¥0.83/GB</td>
+							</tr>
+						</table>
+						<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>						
+                    </ul>
+				 <div class="more-detail">
+				 <p></p>
+				 <h2>操作和数据传输价格</h2>
+				 <p>以下价格是针对块 Blob 数据的 HTTP 操作成本以及从块 Blob 检索数据或将数据写入到块 Blob 的成本。</p>
+					<div class="tags-date">
+						<div class="ms-date">*以下价格均为含税价格。</div><br />
+					</div>
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th align="left"><strong></strong></th>
+							<th align="left"><strong>(LRS)</strong></th>
+							<th align="left"><strong>(ZRS)</strong></th>
+							<th align="left"><strong>(GRS)</strong></th>
+							<th align="left"><strong>(RA-GRS)</strong></th>
+						  
+						</tr>
+						<tr>
+							<td>写入操作（按 10,000 计）</td>
+							<td align="left">￥0.045</td>					   
+							<td align="left">￥0.045</td>					   
+							<td align="left">￥0.09</td>					   
+							<td align="left">￥0.09</td>					   
+						</tr>					
+						<tr>
+							<td>列出并创建容器操作（按 10,000 计）</td>
+							<td align="left">￥0.045</td>
+							<td align="left">￥0.045</td>
+							<td align="left">￥0.045</td>
+							<td align="left">￥0.045</td>					   
+						</tr>
+						<tr>
+							<td>读取操作（按 10,000 计）</td>
+							<td align="left">￥0.015</td>
+							<td align="left">￥0.015</td>						   
+							<td align="left">￥0.015</td>						   
+							<td align="left">￥0.015</td>						   
+						</tr>
+						<tr>
+							<td>所有其他操作（按 10,000 计）</td>
+							<td align="left">￥0.015</td>
+							<td align="left">￥0.015</td>						   
+							<td align="left">￥0.015</td>						   
+							<td align="left">￥0.015</td>						   
+						</tr>
+						<tr>
+							<td>数据检索（GB）</td>
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+						</tr>
+						<tr>
+							<td>数据写入（GB）</td>
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+						</tr>
+						<tr>
+							<td>异地复制数据传输（GB）</td>
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+							<td align="left">免费</td>						   
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="blob-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>块 Blob 本身不提供有财务方面支持的服务级别协议。其可用性取决于所使用的基础存储的服务级别协议。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/storage/" id="pricing_block-blob_sla">服务级别协议</a>页。</p>
+                </div>
+                <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
+                <!--END: Support and service code chunk-->
+              
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>价格详情 - 存储 - 块（Blob Storage – Block Blob） | Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage-blob</linkid>
+    <metaKeywords>Azure, 微软云, Azure 存储 - 块, Blob Storage – Block Blob, 价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[了解 价格详情 - 存储 - 块（Blob Storage – Block Blob））的价格详情。提供块 Blob - 存储价格与块 Blob - 访问价格相关报价。]]></metaDescription>
+    <urlDisplayName>价格详情 - 存储 - 块</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

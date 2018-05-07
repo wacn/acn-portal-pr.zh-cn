@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19059" parentID="19058" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:28:08" updateDate="2014-08-18T11:19:23" nodeName="Download PHP SDK" urlName="download-php-sdk" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19058,19059" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/php" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>下载 Windows Azure SDK for PHP</h1>
+<p>Windows Azure SDK for PHP 包含可供您用来开发、部署和管理针对 Windows Azure 的 PHP 应用程序的各种组件。具体而言，Windows Azure SDK for PHP 包括：</p>
+<ul>
+<li><strong>Windows Azure 的 PHP 客户端库</strong>。这些类库提供了一个用于访问 Windows Azure 功能（例如，数据管理服务和云服务）的接口。</li>
+<li><strong>针对 Mac 和 Linux 的 Windows Azure 命令行工具</strong>。这是一组用于部署和管理 Windows Azure 服务（例如，Windows Azure 网站和 Windows Azure 虚拟机）的命令行工具。这些工具适用于任何平台，包括 Mac、Linux 和 Windows。</li>
+<li><strong>Windows Azure PowerShell（仅限 Windows）</strong>。这是一组用于部署和管理 Windows Azure 服务（例如，云服务和虚拟机）的 PowerShell cmdlet。</li>
+<li><strong>Windows Azure 仿真程序（仅限 Windows）</strong>。计算和存储仿真程序是一系列云服务和数据管理服务的本地仿真程序，允许您在本地测试应用程序。Windows Azure 仿真程序仅在 Windows 上运行。</li>
+</ul>
+<p>以下各节将介绍如何下载和安装上述组件。</p>
+<p>本主题中的说明假定您已安装 <a href="http://www.php.net/manual/en/install.php">PHP</a>。</p>
+<div class="dev-callout">注意
+<p>若要使用 Windows Azure 的 PHP 客户端库，则必须拥有 PHP 5.3 或更高版本。</p>
+</div>
+<h2>Windows Azure 的 PHP 客户端库</h2>
+<p>Windows Azure 的 PHP 客户端库提供了一个用于从任何操作系统访问 Windows Azure 功能（例如，数据管理服务和云服务）的接口。可通过 Composer 或 PEAR 包管理器安装或手动安装这些库。</p>
+<p>有关如何使用 Windows Azure 的 PHP 客户端库的信息，请参阅<a href="/zh-cn/develop/php/how-to-guides/blob-service/">如何使用 Blob 服务</a>、<a href="/zh-cn/develop/php/how-to-guides/table-service/">如何使用表服务</a>以及<a href="/zh-cn/develop/php/how-to-guides/queue-service/">如何使用队列服务</a>。</p>
+<h3>通过 Composer 安装</h3>
+<ol>
+<li>
+<p><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">安装 Git</a>。</p>
+<div class="dev-callout">注意
+<p>在 Windows 上，您还需要向您的 PATH 环境变量中添加 Git 可执行文件。</p>
+</div>
+</li>
+<li>
+<p>在您的项目的根目录中创建名为 <strong>composer.json</strong> 的文件并向其中添加以下代码：</p>
+<pre class="prettyprint">{
+    "require": {
+        "microsoft/windowsazure": "*"
+    },          
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        }
+    ],
+    "minimum-stability": "dev"
+}</pre>
+</li>
+<li>
+<p>将 <strong><a href="http://getcomposer.org/composer.phar">composer.phar</a></strong> 下载到项目根目录中。</p>
+</li>
+<li>
+<p>打开命令提示符并在项目根目录中执行该文件</p>
+<pre class="prettyprint">php composer.phar install</pre>
+</li>
+</ol>
+<h3>作为 PEAR 包安装</h3>
+<p>若要将 Windows Azure 的 PHP 客户端库作为 PEAR 包安装，请执行下列步骤：</p>
+<ol>
+<li><a href="http://pear.php.net/manual/en/installation.getting.php">安装 PEAR</a>。</li>
+<li>
+<p>设置 Windows Azure PEAR 通道：</p>
+<pre class="prettyprint">pear channel-discover pear.windowsazure.cn</pre>
+</li>
+<li>
+<p>安装 PEAR 包：</p>
+<pre class="prettyprint">pear install pear.windowsazure.cn/WindowsAzure-0.3.1</pre>
+</li>
+</ol>
+<p>安装完成后，您可以从应用程序中引用类库。</p>
+<h3>手动安装</h3>
+<p>要手动下载并安装用于 Windows Azure 的 PHP 客户端库，请执行以下步骤：</p>
+<ol>
+<li>
+<p>下载包含 <a href="http://go.microsoft.com/fwlink/?LinkId=252719">GitHub</a> 中的库的 .zip 存档。或者，复制现有存储库并将其克隆到您的本地计算机。（后一种选择需要一个 GitHub 帐户并要求已在本地安装 Git。）</p>
+<div class="dev-callout">注意
+<p>用于 Windows Azure 的 PHP 客户端库依赖于 <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>、<a href="http://pear.php.net/package/Mail_mime">Mail_mime</a> 和 <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a> PEAR 包。要处理这些依赖关系，建议使用 <a href="http://pear.php.net/manual/en/installation.php">PEAR 包管理器</a>安装这些包。</p>
+</div>
+</li>
+<li>
+<p>将已下载的存档的 <code>WindowsAzure</code> 目录复制到应用程序目录结构中并从应用程序引用类。</p>
+</li>
+</ol>
+<h2>Windows Azure PowerShell 和 Windows Azure 仿真程序</h2>
+<p>Windows Azure PowerShell 是一组用于部署和管理 Windows Azure 服务（例如，云服务和虚拟机）的 PowerShell cmdlet。Windows Azure 仿真程序是一系列云服务和数据管理服务的仿真程序，允许您在本地测试应用程序。这些组件仅受 Windows 支持。</p>
+<p>安装 Windows Azure PowerShell 和 Windows Azure 仿真程序的建议方法是使用 <a href="http://go.microsoft.com/fwlink/?LinkId=253447">Microsoft Web 平台安装程序</a>。请注意，您也可以选择安装其他开发组件，如 PHP、SQL Server、Microsoft Drivers for SQL Server for PHP 和 WebMatrix。</p>
+<p>有关如何使用 Windows Azure PowerShell 的信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=252718">如何使用 Windows Azure PowerShell</a>。</p>
+<h2>针对 Mac 和 Linux 的 Windows Azure 命令行工具</h2>
+<p>针对 Mac 和 Linux 的 Windows Azure 命令行工具是一组用于部署和管理 Windows Azure 服务（例如，Windows Azure 网站和 Windows Azure 虚拟机）的命令行工具。下面的列表说明如何根据您的操作系统安装工具：</p>
+<ul>
+<li>
+<p><strong>Mac</strong>：在此处下载 Windows Azure SDK 安装程序：<a href="http://go.microsoft.com/fwlink/?LinkId=252249">http://go.microsoft.com/fwlink/?LinkId=252249</a>。打开已下载的 .pkg 文件并按照系统提示完成安装步骤。</p>
+</li>
+<li>
+<p><strong>Linux</strong>：安装最新版本的 <a href="http://nodejs.org/">Node.js</a>（请参阅<a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">通过程序包管理器安装 Node.js</a>），然后运行以下命令：</p>
+<pre class="prettyprint">npm install azure-cli -g</pre>
+<div class="dev-callout">注意
+<p>您可能需要使用提升的权限才能运行此命令：</p>
+<pre class="prettyprint">sudo npm install azure-cli -g</pre>
+</div>
+</li>
+</ul>
+<p>有关如何使用针对 Mac 和 Linux 的 Windows Azure 命令行工具的信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=252717">如何使用针对 Mac 和 Linux 的命令行工具</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>下载 Windows Azure SDK for PHP</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-php-common-tasks-download-php-sdk</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何下载和安装 Windows Azure SDK for PHP。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>下载 PHP SDK</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

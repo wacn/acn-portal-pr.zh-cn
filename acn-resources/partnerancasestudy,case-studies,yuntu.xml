@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+	  
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    <h2>业务背景</h2>
+                    <p>近年来，国内的移动互联网市场发展迅猛，竞争也日益激烈，飞速发展的市场和各类创业公司的崛起让市场模式逐渐的固化，同质化产品不断增多，市场开始从蓝海转变为红海。一部分国内企业开始将目光投向海外市场。北京云图微动科技有限公司 （ 以下简称“云图微动” ） 就是其中的一员。公司成立于 2011 年，专注于图片美化、摄影类移动应用的开发与运营，旗下核心产品包括玩图 ( FotoRus ) 、画中画相机 ( PIP Camera ) 、拼立得 ( InstaMag ) 、美丽拍 ( InstaBeauty ) 、自拍相机 ( Makeup Camera ) 等，长期占据摄影类 APP 榜单前 10 位。这些产品通过提供创新的创意图片、视频美化、特效以及深度的社交集成与分享，赢得了年轻用户的青睐，迅速占领了国内市场。截至 2016 年 6 月，云图微动旗下 产品全球用户总数超 6 亿，移动端月活跃用户超 1.5 亿，全球每日新增用户过 100 万。App Annie 数据显示，2016 年第一季度， 云图微动应用下载量位居全球第 13 位，在中国开发商中位列前三。全球智能手机产业的发展，手机终端和移动应用发行渠道等的不断成熟，为云图微动提供了进军海外市场的机遇。然而在向海外市场拓展的过程中，云图微动面临着几个方面的挑战。企业需要为不同国家和地区的用户提供优质的服务，首先需要投入大量资金用于数据中心的建设，其中所涉及的费用不仅包括机房的租金，还包含大量软硬件的采购成本，以及负责后续运营技术团队的人力资源成本。漫长的建设周期不仅使企业的产品难以快速推向市场，在变化莫测的移动应用市场，企业也需要承担无法实现预期投资回报的风险。</p>
+                    <p>公有云为云图微动提供了发展的契机，企业能够直接在云上开展业务而无需自建数据中心。因此，云图微动选择具有全球部署规模的公有云服务提供商作为企业的基础平台，于 2012 年加入微软 Azure 云加速孵化器并与微软公有云团队展开深度的合作，采用面向服务的架构构建应用程序，率先将旗下首款移动端图片美化应用“玩图” App 的后端部署至由微软运营的  Azure 香港数据中心，在 2014 年由世纪互联运营的  Azure 服务正式在中国大陆商用之后，企业实现了国内与海外市场的全面覆盖。</p>
+                </div>
+               
+                <div class="section-component">
+                     <h2>解决方案</h2>
+                    <p>云图微动为了实现全球各区域市场的高效服务运营与交付，技术团队利用 Azure 全球化的分布，以香港数据中心为核心，向全球其他国家和地区的数据中心分发数据，并借助智能 DNS、CDN、流量管理器等技术，提升服务的响应速度与可靠性。随着公司核心产品用户数量的不断增长，云图微动的技术团队也在不断的创新，使用更多全新的 Azure 服务实现架构和成本的优化。</p>
+                    <h3>采用 D 系列虚拟机提升性能表现。</h3>
+                    <p>技术团队将原有部署在 Azure 云上的 A 系列虚拟机逐步升级至具有更多 CPU 核心与内存，并配备了 SSD 存储的 D 系列虚拟机，从而利用固态存储 MySQL 以及 MongoDB 对性能的要求。</p>
+                    <h3>从 IaaS 到 PaaS 逐步迁移。</h3>
+                    <p>为了加快新 APP 的上线和高可靠性，安全性，技术团队将原本部署在虚拟机中的 Web API 改为通过 Azure 的 Web APP 提供，消除底层虚拟机维护所需的补丁和管理等工作，并使用了数个 MS6、MS3 性能级别的 MySQL Database on Azure PaaS 数据库替代传统虚拟机中运行的 MySQL，自动备份时间扩展至 30 天并且可以在 7 天内任意时间点的回滚，并通过异地冗余提升整个平台的可靠性。此外，云图微动还利用 Azure 媒体服务实现短视频内容的云端转码，让用户在不同尺寸和分辨率的终端设备上获得最佳的观看体验。</p>				
+					<h3>通过 Azure CDN 服务实现内容加速。</h3>
+                    <p>Azure 整合了国际主流的 CDN 服务提供商，技术人员可以直接通过 Azure 管理门户对所需加速的内容配置 CDN 服务，实现对 Azure Blob 存储中的静态图片内容，短视频等媒体信息和应用程序提供网络加速，无论终端用户使用何种运营商的何种类型网络，都能够通过智能化的 CDN 连接到最优质的节点快速获取内容。</p>
+					<p>在未来，云图微动将会使用 ExpressRoute 与 Azure 分布在全球各地的数据中心建立可靠性更高、速度更快的专线连接，为环球旅行的客户提供更好的照片、视频分享和社交体验。</p>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/casestudy/mysql-case-framework-yuntu-latest.jpg" alt="公有云上的架构" title="" style="width:auto;height:auto;">					
+                </div>
+               
+                <div class="section-component">
+                    <h2>客户收益</h2>
+                    <h3>更快的将新产品推向全球各个地区</h3>
+                    <p>得益于 Azure 全球各数据中心所提供的一致技术架构和相同的用户体验，云图微动在中国大陆部署于由世纪互联运营的  Azure 上的虚拟机映像、数据库、Web API 等多种服务无需修改即可被部署到由微软运营的北美、巴西、香港、新加坡等国家和地区的  Azure 数据中心，简化应用后端的开发和维护，从而大幅缩短创意照片与视频处理分享移动应用的上市周期，迅速开拓海外市场。借助这种敏捷的部署方式，云图微动能够比行业竞争对手领先一步，将新功能特性快速交付给用户，在全球化的激烈竞争中抢占市场先机，并保持快速的业务增长。</p>
+                    <h3>降低成本并灵活的应对业务需求</h3>
+                    <p>云图微动能够充分利用 Azure 按需使用，按用量付费的特点来消除建设传统数据中心所需要的高昂前期成本。借助云服务的弹性扩展能力，云图微动能够针对开发测试、应用上架、访问高峰等场景不同的用量阈值自动化的调整所用资源，在双核心、3.5 GB 内存到 16 核心、112 GB 内存并配备 SSD 的不同级别虚拟机，数据库和其他云服务规格中灵活的做出选择，同时借助 Azure 数据中心所具备的骨干网络接入和广泛的 CDN 节点优势为分布在全球各地的数以亿计的用户提供良好的使用体验。</p>
+                    <h3>简化 IT 运维复杂度提升数据可靠性</h3>
+                    <p>通过应用后端逐步迁移至 PaaS 层，云图微动进一步简化了 IT 管理的复杂度。与部署在虚拟机当中的 MySQL 不同，使用 MySQL Database on Azure 这种具有高度可靠性的 PaaS 服务，云图微动不再需要自行构建群集就能够实现数据的高可靠性，同时利用 Azure 所提供的异地多重数据副本的优势，保障核心业务数据的安全与高可用。此外，PaaS 服务提供自动软件更新功能，让云图微动无需人工对数据库、Web App 等服务进行任何基础架构的维护与补丁更新，即可保障平台的安全。</p>
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">			    
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_media-services.png"><a target="_blank" href="/home/features/media-services/" id="case-study_yuntu_media-service">媒体服务</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_web.png"><a target="_blank" href="/home/features/web-site/" id="case-study_yuntu_web-site">Web 应用</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_yuntu_virtual-machines">虚拟机</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png	"><a target="_blank" href="/home/features/storage/" id="case-study_yuntu_storage">存储</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_mysql.png"><a target="_blank" href="/home/features/mysql/" id="case-study_yuntu_mysql">MySQL Database on Azure</a></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>云图微动-Azure云计算</pageTitle>
+    <metaKeywords>云图微动 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[通过 MySQL 数据库及负载均衡器，轻松应对高峰访问量。凭借 Azure 云平台，“编程之美”比赛系统能够通过在云端部署虚拟机快速满足参赛者各种访问需求，大大降低 IT 成本。Azure 提供了灵活的自动快速扩展功能，能够对访问量变化做出快速响应。
+]]></metaDescription>
+    <linkid>case-studies-yuntu</linkid>
+    <urlDisplayName>云图微动</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_yuntu" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">云图微动</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.fotoable.com/" id="case-study-yuntuwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/logo/32.jpg" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>云图微动</h1>
+                            <p>专注于图像处理及应用工具类产品的研发和运营。</p>
+                        </div>
+                        <p class="casestudy-info">
+                            在中国由世纪互联运营的  Azure 与世界其他地区的 Azure 公有云服务具有一致的技术架构，让我们只需一次开发就可以将业务部署到全球，降低业务的多次重复开发成本和运营成本，同时还能够利用 Azure 的网络优势为中国本土市场和增长迅速的海外市场用户提供高效、低延迟的社交分享体验，让我们更具信心的去应对激烈的市场竞争。
+                        </p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">上官业云 ，IT 负责人，北京云图微动科技有限公司</span>
+                        <!--<a href="#" class="video-play-button" id="case-study-video-player"></a>-->
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/wacneditor/ruxin-Finalised.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

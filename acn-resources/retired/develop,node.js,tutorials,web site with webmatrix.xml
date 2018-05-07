@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19014" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="3" createDate="2013-07-11T11:17:21" updateDate="2014-08-18T11:17:43" nodeName="Web Site with WebMatrix" urlName="web-site-with-webmatrix" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19014" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>使用 WebMatrix 构建 Node.js 网站并将其部署到 Windows Azure</h1>
+<p>本教程向您演示如何使用 WebMatrix 开发 Node.js 应用程序并将其部署到 Windows Azure 网站。WebMatrix 是来自 Microsoft 的一款免费 Web 开发工具，包含网站开发所需的一切。WebMatrix 包含一些使您能够轻松使用 Node.js 的功能，包括代码完成、预构建的模板以及对 Jade、LESS 和 CoffeeScript 的编辑器支持。了解有关<a href="http://go.microsoft.com/fwlink/?LinkID=253622&amp;clcid=0x409">适用于 Windows Azure 的 WebMatrix</a> 的详细信息。</p>
+<p>完成本指南之后，您将拥有一个在 Windows Azure 中运行的 Node.js 网站。</p>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-node-complete.png" alt="Windows Azure Node 网站"/></p>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-account-and-websites-note" macroAlias="AzureChunkDisplayer" />
+<h2>创建 Windows Azure 网站</h2>
+<p>按照以下步骤创建 Windows Azure 网站。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>若要完成本教程，您需要一个启用了 Windows Azure 网站功能的 Windows Azure 帐户。</p>
+<ul>
+<li>如果您没有帐户，则可以创建一个免费的试用帐户，只需几分钟即可完成。有关详细信息，请参阅 <a href="http://www.windowsazure.cn/zh-cn/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure 免费试用</a>。</li>
+<li>如果您已有一个帐户但需要启用 Windows Azure 网站预览，请参阅<a href="../create-a-windows-azure-account/#enable" target="_blank">启用 Windows Azure 预览功能</a>。</li>
+</ul>
+</div>
+<p> </p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>单击门户左下角的“+ 新建”图标</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/plus-new.png" alt="Windows Azure 门户上的“+ 新建”链接将突出显示。"/></p>
+</li>
+<li>
+<p>单击“网站”，然后单击“快速创建”。输入一个<strong> URL</strong> 值，在“区域”下拉菜单中为您的网站选择数据中心。单击对话框底部的复选标记。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/create-quick-website.png" alt="“快速创建”对话框"/></p>
+</li>
+<li>
+<p>一旦网站状态变成“正在运行”，则单击网站名称以访问“仪表板”</p>
+</li>
+</ol>
+<h2>将网站导入到 WebMatrix 中并应用 Express 模板</h2>
+<ol>
+<li>
+<p>从“仪表板”中，单击页面底部的 WebMatrix 图标，在 WebMatrix 2 中打开网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-launch-webmatrix.png" alt="启动 WebMatrix"/></p>
+</li>
+<li>
+<p>如果未安装 WebMatrix 2，则 Web 平台安装程序 4.0 将安装 Microsoft WebMatrix 2 和所有必需的必备组件。WebMatrix 将启动并显示一个指示“检测到空网站”(Empty Site Detected)的对话框。单击“是，从模板库安装”(Yes, install from the Template Gallery)以选择内置模板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-download-site.png" alt="检测到空网站"/></p>
+</li>
+<li>
+<p>在“从模板创建网站”(Site from Template)对话框中，选择“Node”，然后选择“Express 网站”(Express Site)。最后，单击“下一步”(Next)。如果您缺少“Express 网站”模板的任何必备组件，系统将提示您安装它们。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-templates.png" alt="选择 Express 模板"/></p>
+</li>
+<li>
+<p>在 WebMatrix 完成构建网站后，将显示 WebMatrix IDE。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-ide.png" alt="WebMatrix IDE"/></p>
+</li>
+</ol>
+<h2>将您的应用程序发布到 Windows Azure</h2>
+<ol>
+<li>
+<p>在 WebMatrix 中，从“主页”(Home)功能区单击“发布”(Publish)，为网站显示“发布预览”(Publish Preview)对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-publishpreview.png" alt="发布预览"/></p>
+</li>
+<li>
+<p>单击“继续”(Continue)。发布完成后，将在 WebMatrix IDE 底部显示 Windows Azure 上网站的 URL</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-publish-complete.png" alt="发布完成"/></p>
+</li>
+<li>
+<p>单击链接在您的浏览器中打开该网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-express-webiste.png" alt="Express 网站"/></p>
+</li>
+</ol>
+<h2>修改并重新发布应用程序</h2>
+<p>您可轻松修改并重新发布应用程序。在此，您将简单更改 <strong>index.jade</strong> 文件中的标题，然后重新发布应用程序。</p>
+<ol>
+<li>
+<p>在 WebMatrix 中，选择“文件”，然后展开 <strong>views</strong> 文件夹。双击打开 <strong>index.jade</strong> 文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-node-edit.png" alt="显示 index.jade 的 WebMatrix"/></p>
+</li>
+<li>
+<p>将第二行更改为以下内容：</p>
+<pre class="prettyprint">p Welcome to #{title} with WebMatrix on Windows Azure!</pre>
+</li>
+<li>
+<p>保存所做更改，然后单击发布图标。最后，单击“发布预览”(Publish Preview) 对话框中的“继续”(Continue)，并等待发布更新。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-republish.png" alt="发布预览"/></p>
+</li>
+<li>
+<p>发布完成后，使用发布过程完成时返回的链接查看更新的网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/webmatrix-node-complete.png" alt="Windows Azure Node 网站"/></p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>使用 WebMatrix 构建 Node.js 网站 - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>web-site-with-webmatrix</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[本教程演示如何使用 WebMatrix 开发 Node.js 应用程序并将其部署到 Windows Azure 网站。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>使用 WebMatrix 构建网站</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

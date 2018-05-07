@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19164" parentID="19159" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-07-11T11:51:07" updateDate="2014-08-18T11:22:46" nodeName="HOL-DeployingSQLServerForSharePoint" urlName="hol-deployingsqlserverforsharepoint" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,19159,19164" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/trainingkit" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>在 Windows Azure 中为 SharePoint 配置 SQL Server 2012 服务器</h1>
+<h3><a href="http://www.contentinstaller.net/Install/Content/LAB_ConfiguringSqlServerforSharepoint">下载实验资产</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint/fork_select">在 Github 上执行自我复制</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint/issues">报告问题</a></h3>
+<a name="Overview"></a>
+<h2>概述</h2>
+<p>在本动手实验中，您将了解如何在部署 SharePoint 场动手实验的过程中创建和配置运行 SQL Server 2012 的虚拟机。</p>
+<a name="Objectives"></a>
+<h3>目标</h3>
+<p>在本动手实验中，您将了解如何：</p>
+<ol>
+<li>使用 Windows Azure 门户创建与另一台虚拟机托管在同一云服务中的虚拟机。</li>
+<li>配置 SQL Server 2012</li>
+</ol>
+<h3>设置</h3>
+<p>本实验需要使用 Windows Azure PowerShell Cmdlet。如果您尚未配置它们，请参见<strong>使用 PowerShell 自动化 Windows Azure</strong> 模块中的<strong>自动化 VM 管理</strong>动手实验。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 若要完成整个动手实验，您必须具有网络连接。</p>
+</div>
+<a name="Prerequisites"></a>
+<h3>必备组件</h3>
+<p>完成本动手实验需要以下各项：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055">Windows Azure PowerShell CmdLet</a></li>
+</ul>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 本实验设计为使用 Windows 7 操作系统。</p>
+</div>
+<a name="Exercises"></a>
+<h2>练习</h2>
+<p>本动手实验包括以下练习：</p>
+<ol>
+<li><a href="#Exercise1">使用 Windows Azure 门户创建和配置具有 SQL Server 2012 的 Windows Server VM</a></li>
+</ol>
+<p>完成本实验的估计时间：<strong>30 分钟</strong>。</p>
+<a name="Exercise1"></a>
+<h3>练习 1：创建和配置具有 SQL Server 2012 的 Windows Server VM</h3>
+<p>您现在将创建 Windows Server VM 并配置 SQL Server。您将自动设置在启动时加入 Active Directory 域的新虚拟机。</p>
+<ol>
+<li>
+<p>如果您没有域控制器虚拟机的 IP 地址，请使用 Web 浏览器导航到 <strong>Windows Azure 门户</strong>，然后使用与您的 Windows Azure 帐户关联的 <strong>Microsoft 帐户</strong>登录。</p>
+</li>
+<li>
+<p>转到“虚拟机”<strong></strong>，选择您在其中部署了 AD 的 VM，然后选择底部面板中的“连接”<strong></strong>按钮。</p>
+</li>
+<li>
+<p>在 VM 中，转到“开始”<strong></strong>，键入 <strong>cmd</strong>，然后按 <strong>Enter</strong>。</p>
+</li>
+<li>
+<p>键入 <strong>ipconfig</strong>，然后按 <strong>Enter</strong>。记下 <strong>IPv4 地址</strong>，您将在此练习的后面使用它。关闭<strong>远程桌面</strong>连接。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/ip-address.png" alt="IP 地址"/></p>
+<p><em>IP 地址</em></p>
+</li>
+<li>
+<p>打开 <strong>Windows Azure PowerShell</strong>。选择“开始”<strong></strong>|“所有程序”<strong></strong>|“Windows Azure”<strong></strong>|“Windows Azure PowerShell”<strong></strong>，右键单击“Windows Azure Powershell”<strong></strong>，然后选择“以管理员身份运行”<strong></strong>。</p>
+</li>
+<li>
+<p>执行以下命令来获取可用操作系统磁盘映像的名称。记下 <strong>SQL Server 2012</strong> 映像磁盘名称。此映像是已安装 SQL Server 2012 的 Windows Server 2008 R2。</p>
+<!-- mark:1 -->
+<pre class="prettyprint">Get-AzureVMImage | Select ImageName</pre>
+</li>
+<li>
+<p>执行以下命令来定义新虚拟机的操作系统磁盘映像名称。</p>
+<!-- mark:1 -->
+<pre class="prettyprint">$imgName = '[OS-IMAGE-NAME]'</pre>
+</li>
+<li>
+<p>设置 VM 的 DNS 设置。为此，您将使用在“在 Windows Azure 中部署 Active Directory”动手实验（您在其中配置了 Active Directory）中创建的虚拟机。在执行以下命令之前先替换占位符。使用您在此练习开头复制的 IP 地址。</p>
+<!-- mark:1-4 -->
+<pre class="prettyprint">$advmIP = '[AD-IP-ADDRESS]' $advmName = '[AD-VM-NAME]' &lt;h1&gt;Point to IP Address of Domain Controller Created Earlier&lt;/h1&gt;  $dns1 = New-AzureDns -Name $advmName -IPAddress $advmIP</pre>
+</li>
+<li>
+<p>设置新 VM 的配置设置以在设置过程中自动加入域。在执行以下命令之前，使用管理员密码和域密码替换占位符。</p>
+<!-- mark:1-12 -->
+<pre class="prettyprint">$vmName = 'SqlServer2012VM' $adminPassword = '[YOUR-PASSWORD]' $domainPassword = '[YOUR-PASSWORD]' $domainUser = 'administrator' $FQDomainName = 'contoso.com' $subNet = 'AppSubnet' &lt;h1&gt;Configuring VM to Automatically Join Domain&lt;/h1&gt;  $advm1 = New-AzureVMConfig -Name $vmName -InstanceSize Small -ImageName $imgName |              Add-AzureProvisioningConfig -WindowsDomain -Password $adminPassword `             -Domain 'contoso' -DomainPassword $domainPassword `             -DomainUserName $domainUser -JoinDomain $FQDomainName |      Set-AzureSubnet -SubnetNames $subNet</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>上一个命令假定您使用<strong>部署 Active Directory</strong> 动手实验中所示的域名和子网的建议名称。如果您使用不同的名称，则可能需要更新这些值。</p>
+</div>
+</li>
+<li>
+<p>使用您在前面的步骤中定义的域和 DNS 设置创建新虚拟机。使用唯一的服务名称替换占位符。</p>
+<pre class="prettyprint">$serviceName = [YOUR-SERVICE-NAME] $affinityGroup = 'adag' $adVNET = 'ADVNET' &lt;h1&gt;New Cloud Service with VNET and DNS settings&lt;/h1&gt;  New-AzureVM –ServiceName $serviceName -AffinityGroup $affinityGroup `                                 -VMs $advm1 -DnsSettings $dns1 -VNetName $adVNET</pre>
+</li>
+<li>
+<p>在设置过程完成后，使用远程桌面连接到 VM，并验证它是否已自动加入您的现有域。</p>
+</li>
+</ol><a name="Ex1Task2"></a>
+<p><strong>任务 2 - 为 SQL Server 配置磁盘</strong></p>
+<ol>
+<li>
+<p>在 <strong>Windows Azure 门户</strong>中，选择您在“任务 1”中创建的 <em>SQLServer2012VM</em> 虚拟机，然后单击“附加”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/attachemptydisk.png" alt="attachemptydisk"/></p>
+<p><em>附加空磁盘</em></p>
+</li>
+<li>
+<p>选择“附加空磁盘”，然后选择 50 GB</p>
+</li>
+<li>
+<p>等候磁盘设置完毕，然后重复此过程。</p>
+</li>
+<li>
+<p>您现在应该已将 2 个 50 GB 数据磁盘附加到此虚拟机。</p>
+</li>
+<li>
+<p>单击“连接”并使用 RDP 登录到虚拟机。</p>
+</li>
+<li>
+<p>登录后，从“开始”<strong></strong>|“管理工具”<strong></strong>启动“计算机管理”<strong></strong>，然后在“存储”<strong></strong>下单击“磁盘管理”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/rawdisks.png" alt="rawdisks"/></p>
+</li>
+<li>
+<p>右键单击每个磁盘（在左侧）并将它标记为联机。</p>
+</li>
+<li>
+<p>在磁盘联机后，您将需要右键单击一个磁盘，然后单击“初始化”<strong></strong>（在左侧）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/initializedisk.png" alt="initializedisk"/></p>
+</li>
+<li>
+<p>在初始化磁盘后，您将需要右键单击右侧并选择“创建简单卷”（软件 RAID 也受支持，因此还将提供相关选项）。创建简单卷向导将允许您格式化磁盘并装入它们以供使用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/initializeddisks.png" alt="initializeddisks"/></p>
+</li>
+<li>
+<p>您现在将配置数据库默认位置。为此，请启动 SQL 企业管理器，右键单击服务器名称，单击“属性”<strong></strong>，然后单击“数据库设置”<strong></strong>。</p>
+</li>
+<li>
+<p>为默认的数据、日志和备份文件夹指定新数据磁盘，然后单击“确定”关闭该管理器。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/dbsettings.png" alt="dbsettings"/></p>
+</li>
+</ol><a name="Ex1Task3"></a>
+<p><strong>任务 3 - 更新 SQL Server 网络配置</strong></p>
+<ol>
+<li>
+<p>在 <strong>Windows Azure 门户</strong>中，选择您在“任务 1”中创建的 <em>SQLServerVM1</em> 虚拟机，然后单击“连接”<strong></strong>。</p>
+</li>
+<li>
+<p>单击“打开”<strong></strong>并使用您在创建 VM 时定义的管理员凭据登录。</p>
+</li>
+<li>
+<p>从“开始”|“所有程序”|“Microsoft SQL Server 2012”|“配置工具”<strong></strong>打开“SQL Server 配置管理器”<strong></strong>。</p>
+</li>
+<li>
+<p>展开“SQL Server 网络配置”<strong></strong>节点并选择“MSSQLServer 的协议”<strong></strong>（如果您在安装 SQL Server 时使用了其他实例名称，则此选项可能更改）。确保启用了“共享内存”<strong></strong>、“命名管道”<strong></strong>和“TCP/IP”<strong></strong>协议。若要启用某协议，请右键单击协议名称并选择“启用”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/enabling-sql-server-protocols.png" alt="启用 SQL Server 协议"/></p>
+</li>
+<li>
+<p>关闭“SQL Server 配置管理器”<strong></strong>。</p>
+</li>
+<li>
+<p>从“开始”|“管理工具”<strong></strong>打开“高级安全 Windows 防火墙”</p>
+</li>
+<li>
+<p>右键单击“入站规则”并选择“新建规则”。</p>
+</li>
+<li>
+<p>选择“端口”，然后单击“下一步”</p>
+</li>
+<li>
+<p>为端口指定 1433，并接受默认值，直到最后一个屏幕。将规则命名为 <em>SQL</em>。</p>
+</li>
+</ol><a name="Ex1Task4"></a>
+<p><strong>任务 4 - 加入 Active Directory 域</strong></p>
+<ol>
+<li>
+<p>从“开始”<strong></strong>右键单击“计算机”<strong></strong>，然后选择“属性”<strong></strong>。</p>
+</li>
+<li>
+<p>单击“高级系统设置”<strong></strong>，然后切换到“计算机名称”<strong></strong>选项卡。然后单击“更改”<strong></strong>。</p>
+</li>
+<li>
+<p>选择“域”，然后输入 contoso.com。在出现提示时，使用 contoso\administrator 并允许重新启动。</p>
+</li>
+<li>
+<p>重新启动后，再次通过远程桌面登录</p>
+</li>
+</ol>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 您将收到以下可以放心忽略的错误。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-deployingsqlserverforsharepoint/images/domjoinerror.png" alt="domjoinerror"/></p>
+<ol>
+<li>启动 SQL 企业管理器，然后在“安全性”|“登录”下添加 contoso\administrator 登录并指定 sysadmin 服务器角色。</li>
+</ol><a name="summary"></a>
+<h2>摘要</h2>
+<p>在本实验中，您了解到如何通过在 Windows Azure 门户中设置虚拟机，然后在 SQL Server 中应用配置来创建和配置 SQL Server 2012 数据库。您还了解了如何将虚拟机加入现有云服务和域中。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>为 SharePoint 部署 SQL Server – Windows Azure HOL</pageTitle><metaKeywords>Windows Azure 虚拟机, Azure SharePoint, 虚拟机, SQL Server 2012, SQL Server</metaKeywords><metaDescription><![CDATA[在本实验中，您将了解如何在部署 SharePoint 场实验的过程中创建和配置运行 SQL Server 2012 的虚拟机。]]></metaDescription><linkid>Devlop-trainingkit-HOL-DeployingSQLServerForSharePoint</linkid><urlDisplayName>为 SharePoint 部署 SQL Server</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

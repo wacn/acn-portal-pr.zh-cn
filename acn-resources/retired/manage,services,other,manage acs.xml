@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19272" parentID="19270" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="2" createDate="2013-07-11T12:12:32" updateDate="2014-08-18T11:28:46" nodeName="Manage ACS" urlName="manage-acs" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19270,19272" isDoc=""><bodyText><![CDATA[<div>
+<h1>管理 ACS 命名空间</h1>
+<p>本主题概述了为确保使用 Windows Azure Acccess Control 服务 (ACS) 的应用程序不间断地持续正常工作，而建议您定期执行的管理任务。这些管理任务如下所示：</p>
+<ol>
+<li>
+<p>重要说明：跟踪由 ACS 命名空间、依赖方应用程序、服务标识、标识提供者和 ACS 管理服务帐户使用的证书、密钥和密码的到期情况并执行其滚动更新。有关详细信息，请参阅下面的“证书和密钥管理指南”。</p>
+</li>
+<li>
+<p>查看您的标识提供者、服务标识、规则和门户管理员，并删除过期的项目。</p>
+</li>
+</ol>
+<p>有关 ACS 的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/gg429786.aspx">Access Control 服务 2.0</a>。</p>
+<h2>证书和密钥管理指南</h2>
+<p>为了安全起见，请确保 ACS 中使用的证书和密钥会过期。跟踪到期日期很重要，以便能够续订这些证书和密钥。</p>
+<p>用于滚动更新令牌签名（对称密钥或 X.509 证书）或令牌解密证书的高级步骤为：</p>
+<ol>
+<li>在 ACS 中，在将过期的现有证书或密钥旁边将新的证书或密钥配置为“辅助”密钥。</li>
+<li>告知使用服务的合作伙伴，他们需要在某个截止日期之前更新其相应的密钥。</li>
+<li>合作伙伴应为其依赖方或标识提供者更新相应的证书或密钥。例如，为包含新的令牌签名验证证书的 ACS 命名空间导入更新的 WS 联合身份验证元数据，或手动在应用程序配置中配置对称密钥。</li>
+<li>更新所有应用程序后（或截止日期已过后），在 ACS 配置中将新的证书或密钥标记为主要。</li>
+<li>在合理的宽限期过后，将从 ACS 配置中删除旧证书或密钥。</li>
+</ol>
+<p>用于滚动更新令牌加密证书的高级步骤为：</p>
+<ol>
+<li>您（或您的合作伙伴）在依赖方应用程序中更新用于令牌解密的相应的证书或密钥。</li>
+<li>在 ACS 中，在将过期的现有证书旁边配置新的加密证书。</li>
+<li>删除旧的加密证书。</li>
+</ol>
+<p>用于滚动更新服务标识或管理服务密钥的高级步骤为：</p>
+<ol>
+<li>在 ACS 中，在将过期的现有证书或密钥旁边配置新的证书或密钥。</li>
+<li>您（或您的合作伙伴）在客户端应用程序中更新用于令牌请求的相应的证书或密钥。</li>
+<li>更新所有客户端后（或合理的宽限期过后），将删除旧的证书或密钥。</li>
+</ol>
+<p>当证书或密钥过期后，ACS 将无法发出阻止依赖方正常运营的令牌。ACS 将忽略过期的证书和密钥，这实际上会导致出现异常，就好像起初未配置证书或密钥一样。在下面各节中，您将了解有关 ACS 托管的每个证书和密钥的信息，如何续订证书和密钥以及如何识别证书和密钥是否已过期且需要续订。</p>
+<ul>
+<li>使用 ACS 管理门户中的“证书和密钥”部分以管理与服务命名空间和依赖方应用程序相关的证书和密钥。有关这些凭据类型的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185932.aspx">证书和密钥</a>。</li>
+<li>使用 ACS 管理门户中的“服务标识”部分以管理与服务标识相关的凭据（证书、密钥或密码）。有关服务标识的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185945.aspx">服务标识</a>。</li>
+<li>使用 ACS 管理门户中的“管理服务”部分以管理与 ACS 管理服务帐户相关的凭据（凭据、密钥或密码）。有关 ACS 管理服务的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/gg185972.aspx">ACS 管理服务</a>。</li>
+</ul>
+<p>有一些证书和密钥类型在 ACS 管理门户中不可见。具体而言，对于 WS 联合身份验证标识提供者（如 AD FS）而言，您必须主动检查标识提供者使用的证书的有效性。目前，通过 WS 联合身份验证标识提供者的元数据提供的证书在 ACS 管理门户上不可见。若要验证证书的有效性，您必须使用管理服务检查 <a href="http://msdn.microsoft.com/zh-cn/library/hh124084.aspx">IdentityProviderKey</a> 的 StartDate 和 EndDate 属性的有效日期和到期日期。当证书或密钥因到期而失效时，ACS 将开始引发异常，即特定于证书或密钥的 <a href="http://msdn.microsoft.com/zh-cn/library/gg185949.aspx">ACS 错误代码</a>。有关特定的错误代码，请参阅下面各节。</p>
+<p>您可以使用 <a href="http://msdn.microsoft.com/zh-cn/library/gg185972.aspx">ACS 管理服务</a>以编程方式更新证书和密钥。请考虑查看可作为 <a href="http://msdn.microsoft.com/zh-cn/library/gg185970.aspx">代码示例：管理服务</a>的一部分下载的 KeyManagement 代码示例。</p>
+<h2>可用证书和密钥</h2>
+<p>以下列表显示了 ACS 中使用的可用证书和密钥，并且必须跟踪其到期日期：</p>
+<ul>
+<li>令牌签名证书</li>
+<li>令牌签名密钥</li>
+<li>令牌加密证书</li>
+<li>令牌解密证书</li>
+<li>服务标识凭据</li>
+<li>ACS 管理服务帐户凭据</li>
+<li>标识提供者签名和加密证书</li>
+</ul>
+<p>本主题的其余部分详细介绍了每个证书和密钥。</p>
+<h2>令牌签名证书</h2>
+<p>ACS 会对自己颁发的所有安全令牌进行签名。在您构建使用 ACS 颁发的 SAML 令牌的应用程序时，将使用 X.509 证书进行签名。</p>
+<p>您可以通过 ACS 管理门户的“证书和密钥”部分管理令牌签名证书。</p>
+<p><strong>管理令牌签名证书</strong></p>
+<ol>
+<li>
+<p>打开 Internet 浏览器并访问 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>使用 Windows Live ID 登录到该网站。如果您没有 Windows Live ID，则请单击“注册”以自行创建该 ID。</p>
+</li>
+<li>
+<p>使用您的 Windows Live ID 登录后，您将重定向到管理门户页。在该页的左下方，单击“Service Bus 和 Access Control”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs1.png"/></p>
+</li>
+<li>
+<p>若要启动 ACS 管理门户，请单击左侧树中的“访问控制”，选择要配置的 ACS 服务命名空间，然后从该页顶部的工具栏中单击“Access Control 服务”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs2.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs3.png"/></p>
+</li>
+<li>
+<p>在“服务设置”部分的下方，单击左侧树中的“证书和密钥”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs4.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs5.png"/></p>
+</li>
+<li>
+<p>在“令牌签名”部分的下方，使用“添加”按钮以在将到期的现有证书旁边将 ACS 中的新证书配置为“辅助”密钥。</p>
+</li>
+<li>
+<p>告知使用服务的合作伙伴，他们需要在某个截止日期之前更新其相应的密钥。</p>
+</li>
+<li>
+<p>合作伙伴应为其依赖方或标识提供者更新相应的证书。例如，为包含新的令牌签名验证证书的 ACS 命名空间导入更新的 WS 联合身份验证元数据，或手动在应用程序配置中配置对称密钥。</p>
+</li>
+<li>
+<p>更新所有应用程序后（或截止日期已过后），在 ACS 配置中将新的证书标记为主要。</p>
+</li>
+<li>
+<p>在合理的宽限期过后，使用“证书和密钥”页的“令牌签名”部分下方的“删除”按钮可从 ACS 配置中删除旧证书。</p>
+</li>
+</ol>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185932.aspx">证书和密钥</a>。</p>
+<p>在签名证书过期后，如果您尝试请求令牌，将收到以下错误：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>错误代码</td>
+<td>消息</td>
+<td>修复消息所需的操作</td>
+</tr>
+<tr>
+<td>ACS50004</td>
+<td>未配置主要 X.509 签名证书。SAML 需要签名证书。</td>
+<td>如果所选的依赖方将 SAML 用作令牌类型，请确保为该依赖方或服务命名空间配置有效的 X.509 证书。证书必须设置为主证书且必须在其有效期内。</td>
+</tr>
+</tbody>
+</table>
+<h2>令牌签名密钥</h2>
+<p>ACS 会对自己颁发的所有安全令牌进行签名。在您构建使用 ACS 颁发的 SWT 令牌的应用程序时，将使用 256 位对称签名密钥。</p>
+<p>您可以通过 ACS 管理门户的“证书和密钥”部分管理令牌签名密钥。</p>
+<p><strong>管理令牌签名密钥</strong></p>
+<ol>
+<li>
+<p>打开 Internet 浏览器并访问 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>使用 Windows Live ID 登录到该网站。如果您没有 Windows Live ID，则请单击“注册”以自行创建该 ID。</p>
+</li>
+<li>
+<p>使用您的 Windows Live ID 登录后，您将重定向到管理门户页。在该页的左下方，单击“Service Bus 和 Access Control”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs1.png"/></p>
+</li>
+<li>
+<p>若要启动 ACS 管理门户，请单击左侧树中的“访问控制”，选择要配置的 ACS 服务命名空间，然后从该页顶部的工具栏中单击“Access Control 服务”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs2.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs3.png"/></p>
+</li>
+<li>
+<p>在“服务设置”部分的下方，单击左侧树中的“证书和密钥”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs4.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs5.png"/></p>
+</li>
+<li>
+<p>在“令牌签名”部分的下方，使用“添加”按钮以在将到期的现有密钥旁边将 ACS 中的新密钥配置为“辅助”密钥。</p>
+</li>
+<li>
+<p>告知使用服务的合作伙伴，他们需要在某个截止日期之前更新其相应的密钥。</p>
+</li>
+<li>
+<p>合作伙伴应为其依赖方或标识提供者更新相应的密钥。例如，为包含新的令牌签名验证证书的 ACS 命名空间导入更新的 WS 联合身份验证元数据，或手动在应用程序配置中配置对称密钥。</p>
+</li>
+<li>
+<p>更新所有应用程序后（或截止日期已过后），在 ACS 配置中将新的密钥标记为主要。</p>
+</li>
+<li>
+<p>在合理的宽限期过后，使用“证书和密钥”页的“令牌签名”部分下方的“删除”按钮可从 ACS 配置中删除旧密钥。</p>
+</li>
+</ol>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185932.aspx">证书和密钥</a>。</p>
+<p>在签名密钥过期后，如果您尝试请求令牌，将收到以下错误：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>错误代码</td>
+<td>消息</td>
+<td>修复消息所需的操作</td>
+</tr>
+<tr>
+<td>ACS50003</td>
+<td>未配置主要对称签名密钥。SWT 需要对称签名密钥。</td>
+<td>如果所选的依赖方将 SWT 用作其令牌类型，请确保为该依赖方或服务命名空间配置对称密钥，并确保该密钥被设置为主要且在其有效期内。</td>
+</tr>
+</tbody>
+</table>
+<h2>令牌加密证书</h2>
+<p>如果依赖方应用程序是通过 WS-Trust 协议使用所有权确认令牌的 Web 服务，则令牌加密是必需的，在其他情况下，令牌加密是可选的。</p>
+<p>您可以通过 ACS 管理门户的“证书和密钥”部分管理令牌加密证书。</p>
+<p><strong>管理令牌加密证书</strong></p>
+<ol>
+<li>
+<p>打开 Internet 浏览器并访问 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>使用 Windows Live ID 登录到该网站。如果您没有 Windows Live ID，则请单击“注册”以自行创建该 ID。</p>
+</li>
+<li>
+<p>使用您的 Windows Live ID 登录后，您将重定向到管理门户页。在该页的左下方，单击“Service Bus 和 Access Control”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs1.png"/></p>
+</li>
+<li>
+<p>若要启动 ACS 管理门户，请单击左侧树中的“访问控制”，选择要配置的 ACS 服务命名空间，然后从该页顶部的工具栏中单击“Access Control 服务”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs2.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs3.png"/></p>
+</li>
+<li>
+<p>在“服务设置”部分的下方，单击左侧树中的“证书和密钥”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs4.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs7.png"/></p>
+</li>
+<li>
+<p>您（或您的合作伙伴）在依赖方应用程序中更新用于令牌解密的相应的证书或密钥。</p>
+</li>
+<li>使用“添加”按钮以在 ACS 中将到期的现有证书的旁边配置新的加密证书。</li>
+<li>使用“删除”以删除旧的加密证书。</li>
+</ol>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185932.aspx">证书和密钥</a>。</p>
+<p>在加密证书过期后，如果您尝试请求令牌，将收到以下错误：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>错误代码</td>
+<td>消息</td>
+<td>修复消息所需的操作</td>
+</tr>
+<tr>
+<td>ACS50005</td>
+<td>需要令牌加密，但未为依赖方配置加密证书。</td>
+<td>为选定的依赖方禁用令牌加密，或上载要用于令牌加密的 X.509 证书。</td>
+</tr>
+</tbody>
+</table>
+<h2>令牌解密证书</h2>
+<p>ACS 可以接受来自 WS 联合身份验证标识提供者（例如，AD FS 2.0）的加密令牌。将使用 ACS 中托管的 X.509 证书进行解密。</p>
+<p>您可以通过 ACS 管理门户的“证书和密钥”部分管理令牌解密证书。</p>
+<p><strong>管理令牌解密证书</strong></p>
+<ol>
+<li>
+<p>打开 Internet 浏览器并访问 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>使用 Windows Live ID 登录到该网站。如果您没有 Windows Live ID，则请单击“注册”以自行创建该 ID。</p>
+</li>
+<li>
+<p>使用您的 Windows Live ID 登录后，您将重定向到管理门户页。在该页的左下方，单击“Service Bus 和 Access Control”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs1.png"/></p>
+</li>
+<li>
+<p>若要启动 ACS 管理门户，请单击左侧树中的“访问控制”，选择要配置的 ACS 服务命名空间，然后从该页顶部的工具栏中单击“Access Control 服务”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs2.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs3.png"/></p>
+</li>
+<li>
+<p>在“服务设置”部分的下方，单击左侧树中的“证书和密钥”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs4.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs9.png"/></p>
+</li>
+<li>
+<p>在“令牌解密”部分的下方，使用“添加”按钮以在将到期的现有证书旁边将 ACS 中的新证书配置为“辅助”密钥。</p>
+</li>
+<li>
+<p>告知使用服务的合作伙伴，他们需要在某个截止日期之前更新其相应的密钥。</p>
+</li>
+<li>
+<p>合作伙伴应为其依赖方或标识提供者更新相应的证书。例如，为包含新的令牌签名验证证书的 ACS 命名空间导入更新的 WS 联合身份验证元数据，或手动在应用程序配置中配置对称密钥。</p>
+</li>
+<li>
+<p>更新所有应用程序后（或截止日期已过后），在 ACS 配置中将新的证书标记为主要。</p>
+</li>
+<li>
+<p>在合理的宽限期过后，使用“证书和密钥”页的“令牌签名”部分下方的“删除”按钮可从 ACS 配置中删除旧证书。</p>
+</li>
+</ol>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185932.aspx">证书和密钥</a>。</p>
+<p>在解密证书过期后，如果您尝试请求令牌，将收到以下错误：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>错误代码</td>
+<td>消息</td>
+</tr>
+<tr>
+<td>ACS10001</td>
+<td>处理 SOAP 标头时出错。</td>
+</tr>
+<tr>
+<td>ACS20001</td>
+<td>处理 WS 联合身份验证登录响应时出错。</td>
+</tr>
+</tbody>
+</table>
+<h2>服务标识凭据</h2>
+<p>服务标识是为 ACS 命名空间全局配置的凭据，这些凭据允许应用程序或客户端使用 ACS 直接进行身份验证并接收令牌。有三类可与 ACS 服务标识关联的凭据，即对称密钥、密码和 X.509 证书。</p>
+<p>您可以通过 ACS 管理门户的服务标识页管理服务标识凭据。</p>
+<p><strong>管理服务标识凭据</strong></p>
+<ol>
+<li>
+<p>打开 Internet 浏览器并访问 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>使用 Windows Live ID 登录到该网站。如果您没有 Windows Live ID，则请单击“注册”以自行创建该 ID。</p>
+</li>
+<li>
+<p>使用您的 Windows Live ID 登录后，您将重定向到管理门户页。在该页的左下方，单击“Service Bus 和 Access Control”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs1.png"/></p>
+</li>
+<li>
+<p>若要启动 ACS 管理门户，请单击左侧树中的“访问控制”，选择要配置的 ACS 服务命名空间，然后从该页顶部的工具栏中单击“Access Control 服务”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs2.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs3.png"/></p>
+</li>
+<li>
+<p>在“服务设置”部分的下方，单击左侧树中的“服务标识”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs11.png"/></p>
+</li>
+<li>
+<p>单击要编辑的服务标识。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs112.png"/></p>
+</li>
+<li>
+<p>在“凭据”部分，使用“添加”按钮以在 ACS 中将到期的现有证书或密钥旁边配置新的证书或密钥。</p>
+</li>
+<li>
+<p>您（或您的合作伙伴）在客户端应用程序中更新用于令牌请求的相应的证书或密钥。</p>
+</li>
+<li>
+<p>更新所有客户端后（或合理的宽限期过后），使用“删除”按钮以删除旧的证书或密钥。</p>
+</li>
+</ol>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/gg185945.aspx">服务标识</a>。</p>
+<p>以下是在凭据过期时 ACS 将引发的异常：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>凭据&gt;</td>
+<td>错误代码</td>
+<td>消息</td>
+<td>修复消息所需的操作</td>
+</tr>
+<tr>
+<td>对称密钥、密码</td>
+<td>ACS50006</td>
+<td>签名验证失败。（消息中可能包含了更多详细信息。）</td>
+</tr>
+<tr>
+<td>X.509 证书</td>
+<td>ACS50016</td>
+<td>带主题“&lt;证书主题名称&gt;”和指纹“&lt;证书指纹&gt;”的 X509 证书与任何配置的证书均不匹配。</td>
+<td>确保请求的证书已上载到 ACS。</td>
+</tr>
+</tbody>
+</table>
+<p>若要验证和更新对称密钥或密码的到期日期，或要将新证书作为服务标识凭据上载，请按照<a href="http://msdn.microsoft.com/zh-cn/library/gg185924.aspx">如何：添加具有 X.509 证书、密码或对称密钥的服务标识</a>中概述的说明进行操作。“编辑服务标识”页中可用的服务标识凭据的列表。</p>
+<h2>管理服务凭据</h2>
+<p>ACS 管理服务是 ACS 的一个关键组件，它允许您以编程方式在 ACS 命名空间中管理和配置设置。ACS 管理服务帐户可以与三种凭据类型相关联：对称密钥、密码和 X.509 证书。</p>
+<p>您可以通过 ACS 管理门户的“管理服务”页管理管理服务凭据。</p>
+<p><strong>管理 ACS 管理服务凭据</strong></p>
+<ol>
+<li>
+<p>打开 Internet 浏览器并访问 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>使用 Windows Live ID 登录到该网站。如果您没有 Windows Live ID，则请单击“注册”以自行创建该 ID。</p>
+</li>
+<li>
+<p>使用您的 Windows Live ID 登录后，您将重定向到管理门户页。在该页的左下方，单击“Service Bus 和 Access Control”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs1.png"/></p>
+</li>
+<li>
+<p>若要启动 ACS 管理门户，请单击左侧树中的“访问控制”，选择要配置的 ACS 服务命名空间，然后从该页顶部的工具栏中单击“Access Control 服务”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs2.png"/></p>
+<p>此时，您的屏幕应与下图类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs3.png"/></p>
+</li>
+<li>
+<p>在“管理”部分的下方，单击左侧树中的“管理服务”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs14.png"/></p>
+</li>
+<li>
+<p>单击管理服务帐户。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/acs15.png"/></p>
+</li>
+<li>
+<p>在“凭据”部分，使用“添加”按钮以在 ACS 中将到期的现有证书或密钥旁边配置新的证书或密钥。</p>
+</li>
+<li>
+<p>您（或您的合作伙伴）在客户端应用程序中更新用于令牌请求的相应的证书或密钥。</p>
+</li>
+<li>
+<p>更新所有客户端后（或合理的宽限期过后），使用“删除”按钮以删除旧的证书或密钥。</p>
+</li>
+</ol>
+<p>有关详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/gg185972.aspx">ACS 管理服务</a>。</p>
+<p>如果这些凭据过期，ACS 将引发下列异常：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>凭据&gt;</td>
+<td>错误代码</td>
+<td>消息</td>
+<td>修复消息所需的操作</td>
+</tr>
+<tr>
+<td>对称密钥、密码</td>
+<td>ACS50006</td>
+<td>签名验证失败。（消息中可能包含了更多详细信息。）</td>
+</tr>
+<tr>
+<td>X.509 证书</td>
+<td>ACS50016</td>
+<td>带主题“&lt;证书主题名称&gt;”和指纹“&lt;证书指纹&gt;”的 X509 证书与任何配置的证书均不匹配。</td>
+<td>确保请求的证书已上载到 ACS。</td>
+</tr>
+</tbody>
+</table>
+<p>ACS 管理门户中的“编辑管理服务帐户”页上提供了 ACS 管理服务帐户凭据的列表。</p>
+<h2>WS 联合身份验证标识提供者证书</h2>
+<p>WS 联合身份验证标识提供者证书可通过其元数据获得。在配置 WS 联合身份验证标识提供者（例如 AD FS）时，将使用通过 URL 或以文件形式提供的 WS 联合身份验证元数据来配置 WS 联合身份验证签名证书，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/gg185933.aspx">WS 联合身份验证标识提供者</a>和<a href="http://msdn.microsoft.com/zh-cn/library/gg185961.aspx">如何：将 AD FS 2.0 配置为标识提供者</a>以了解更多信息。在 ACS 中配置 WS 联合身份验证标识提供者后，可使用 ACS 管理服务来查询它的证书有效性。请注意，对于每次通过 ACS 管理门户或 ACS 管理服务进行的元数据连续上载，都将替换密钥。</p>
+<p>以下是在证书过期时 ACS 将引发的异常：</p>
+<table border="0">
+<tbody>
+<tr>
+<td>错误代码</td>
+<td>消息</td>
+</tr>
+<tr>
+<td>ACS10001</td>
+<td>处理 SOAP 标头时出错。</td>
+</tr>
+<tr>
+<td>ACS20001</td>
+<td>处理 WS 联合身份验证登录响应时出错。</td>
+</tr>
+<tr>
+<td>ACS50006</td>
+<td>签名验证失败。（消息中可能包含了更多详细信息。）</td>
+</tr>
+</tbody>
+</table>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Access Control 服务 - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-manage-acs</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何使用证书和密钥管理您的 Windows Azure Access Control 服务 (ACS)。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>管理 ACS</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

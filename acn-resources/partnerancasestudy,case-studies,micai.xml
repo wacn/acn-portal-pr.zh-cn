@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+	  
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    <p><b>* 此案例中部分服务基于全球其他地区由微软运营的 Microsoft Azure ，仅供由世纪互联运营的 Microsoft Azure 客户参考。</b></p>
+                   
+                    <h2>业务背景</h2>
+                    <p>近年来，随着人们财富迅猛增长，财富拥有者对理财服务的需求也变得更加多样化，传统的投资理财方式已无法满足民众的需求。另一方面，人工智能和互联网 + 也让金融和投资机构面临数字化转型的压力。</p>
+					
+					<p>作为一家致力于提供智能化投资服务的金融科技初创公司，弥财使用目前全球最权威的 5 大金融算法、分析技术和大数据，像私人金融顾问一样为投资者提供量身设计的投资组合方案。重点为金融机构、银行、券商、财富平台以及互联网金融资产管理公司提供数字化转型的支持，引入弥财的新一代 AI 智投平台，该方案引入了 Azure 的 Cortana Intelligence Suite 人工智能技术，提供 Robo Advisory 机器人投顾与 Hybrid Robo Advisory 人机互动智能投顾，为机构和投资者建立桥梁。这一平台以数据的真实性和含金量为核心，用户画像数据的采集与分析，依托云端平台的海量存储空间和高性能计算进行数据的治理，并整合人工智能、机器学习等数据挖掘技术，将数据转化为业务能力，同时支持线上与线下服务的结合，为中低净值的客户提供在线自助式智能投顾服务，让银行等金融机构的理财师也可以为高净值的客户提供专属的个性化线下服务体验。</p>
+					
+					<p>初创企业首先考虑的是成本，弥财核心技术团队在该解决方案的研发过程中需要在 IT 建设、运营成本、系统可靠性、安全性等方面做出平衡，在这种需求之下，公有云与丰富的开源技术就成了最佳选择。</p>
+					
+                </div>
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>在公有云服务的选型过程中，弥财对市场上的主流云服务商进行了审慎评估，最终决定采用由微软提供技术的由世纪互联运营的 Microsoft Azure 公有云平台。相比其他的公有云品牌，Azure 作为首个在中国落地商用的国际品牌公有云服务，既能够以完善的本地合规性提供可信赖的云服务，同时也具备国际一流的技术与支持服务水准，并且具备开放灵活的特点，提供对开源与社区软件的全方位支持，同时也可以提供 Cortana Intelligence Suite 的智能人工交互技术。让弥财能够以自己熟悉的开源操作系统、开发语言在 Azure 公有云上为智能投顾解决方案提供支持。弥财的核心应用包括：</p>
+					
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/micai-content.png" alt=" " title="" style="width:auto;height:auto;">
+					
+					<br/>
+					<h3>跨区部署和动态伸缩的开源服务器环境</h3>
+					
+                    <p>为了更好的支持分布于全国各地的用户并提升智能投顾服务的可用性与性能，弥财分别在 Azure 位于北京和上海的两个数据中心部署具备自动扩展能力 Ubuntu 虚拟机实例，并通过配置负载均衡器与流量管理器服务实现智能化管理，通过 zabbix 进行监控，自动根据用户的并发访问量调整计算资源，并将用户流量引导至最佳的服务器。</p>
+					
+					<h3>基于 PaaS 服务的高性能开源数据库平台</h3>
+					
+                    <p>以平台即服务（PaaS）替代传统的虚拟机为智能投顾提供数据平台支持。弥财采用 MySQL Database on Azure（DB as a Service）构建具有异地灾备恢复能力的数据库管理超过 130G 的数据并应对超过 1600 次/秒的数据访问量，整合 Azure Redis 缓存服务提升吞吐量降低延迟，以改善应用性能。</p>
+					
+					<h3>基于 Linux 群集的托管 Hadoop 数据分析平台</h3>
+					
+                    <p>通过采用 Azure HDInsight 这一全符合 Apache Hadoop 标准的云端托管大数据分析服务，弥财能够在数分钟内建立基于 Linux 的 Hadoop 群集，快速的从各类结构化、半结构化、非结构化的数据中获得用于智能投顾分析的洞察力，将复杂的数据转化为业务能力，为智能投顾服务提供更好的支持。</p>
+                    
+                </div>
+                <div class="section-component">
+                    <h2>客户收益</h2>
+					
+                    <p>弥财借助 Azure 公有云和开源解决方案所构建的云端智能投顾平台的可靠架构为企业带来了多方面的优势和一系列的收益,这些收益包括：</p>
+					
+                    <h3>降低企业成本并提供更具竞争力的服务</h3>
+					
+                    <p>通过利用全面支持开源解决方案的 Azure 公有云平台，弥财仅需通过 Azure 管理门户就可以完成智能投顾后端 IT 环境（包括 Linux 虚拟机、MySQL、Redis、以及基于 Linux 群集的Hadoop等）的构建，而无需自行建设数据中心。不仅如此，利用 Azure 公有云的按用量计费、灵活扩展的能力敏捷的应对未来的业务增长，缩短服务上线所需的时间，让企业能够同时利用云的成本效益和开源软件零许可证费用所带来的低成本创造更具价格竞争力的智能投顾产品与服务，赢得更多客户的信赖。</p>
+					
+					<h3>提升系统平台的可靠性与数据安全性</h3>
+					
+                    <p>Azure 公有云上所提供的众多开源技术都基于社区版本构建，无论是 IaaS 中的 Linux 虚拟机还是 PaaS 服务中的 MySQL Database on Azure 服务，都以最新的社区代码为基础，并融合了 Azure 在北京和上海两个相隔 1000 公里以上的数据中心所提供的数据异地冗余优势与具有财务保障的SLA，让弥财能够确保核心业务信息的数据安全并将系统和数据的可靠性提升至 99.99%。此外，通过以 Azure 的 PaaS 服务逐步替代传统的虚拟机，弥财只需关注上层的业务与数据，将底层IT架构的管理和补丁更新交由 Azure 云运营团队完成，企业进一步降低了运维工作的压力。</p>
+					
+					<h3>实现快速的技术研发缩短产品迭代周期</h3>
+					
+                    <p>通过在 Azure 公有云上使用开源技术方案搭建开发测试环境，弥财的研发团队能够利用灵活的云资源和最新版本的开源社区软件所提供的新功能在短时间内完成产品的功能迭代，并在实际的应用场景和压力下进行测试，让金融行业用户获得完整的试用体验，并获得来自市场的反馈，及时对产品做出改进和修正，使弥财的智能投顾平台可以更加符合市场与用户的需求，从而提升企业自身在行业内的竞争力并保持领先地位。</p>
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_hdinsight.png"><a target="_blank" href="/home/features/hdinsight/" id="case-study_micai_hdinsight">HDInsight</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_mysql.png"><a target="_blank" href="/home/features/mysql/" id="case-study_micai_mysql">MySQL Database on Azure</a></li>
+							<li>Cortana Intelligence 套件</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>弥财-Azure云计算</pageTitle>
+    <metaKeywords>弥财 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[弥财在 Azure 上利用开源技术，以智能化的投资服务让财富管理更加简单。金融行业需要高可靠性和高安全性的解决方案，作为一家初创型的公司，我们同时也要平衡运维成本，以最优的性价比推出受市场认可的智能化投资顾问服务。Azure 作为首个在中国大陆落地商用的公有云平台，具有成熟的云服务体系，并且具备完善的合规性和对开源平台的全面支持，让我们可以灵活的选择市场上广受认可的开源技术架构结合 Azure 公有云的可靠性，以经济效益兼备的方式进行快速的方案开发，而无需自行构建IT基础设施，从而实现更加专注的业务发展。
+]]></metaDescription>
+    <linkid>case-studies-micai</linkid>
+    <urlDisplayName>弥财</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_micai" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">弥财</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="https://micaiapp.com/" id="case-study-micaiwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/micai-logo-80.png" class="casestudy-logo" data-rjs="2"/></a>
+                            
+                            <h1>弥财</h1>                       
+							<p>弥财在 Azure 上利用开源技术，以智能化的投资服务让财富管理更加简单。</p>
+                        </div>
+                        <p class="casestudy-info">金融行业需要高可靠性和高安全性的解决方案，作为一家初创型的公司，我们同时也要平衡运维成本，以最优的性价比推出受市场认可的智能化投资顾问服务。Azure 作为首个在中国大陆落地商用的公有云平台，具有成熟的云服务体系，并且具备完善的合规性和对开源平台的全面支持，让我们可以灵活的选择市场上广受认可的开源技术架构结合 Azure 公有云的可靠性，以经济效益兼备的方式进行快速的方案开发，而无需自行构建 IT 基础设施，从而实现更加专注的业务发展。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">万德博 Greg Van den Bergh，CEO，弥财</span>     
+
+						<!--<a href="#" class="video-play-button" id="case-study-video-player"></a>	-->					
+                    </div>
+                    
+					
+                    <!--
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_coca-cola-amatil.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                    -->				
+					
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

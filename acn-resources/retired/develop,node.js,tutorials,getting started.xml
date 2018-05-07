@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19013" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="2" createDate="2013-07-11T11:17:21" updateDate="2014-08-18T11:17:29" nodeName="Getting Started" urlName="getting-started" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19013" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/node" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>构建 Node.js 应用程序并将其部署到 Windows Azure 云服务</h1>
+<p>完成本指南时，您将在 Windows Azure 云服务中运行一个简单的 Node.js 应用程序。云服务是 Windows Azure 中可扩展的云应用程序的构建基块。它们允许进行单独且独立的管理，并允许横向扩展应用程序的前端和后端组件。这些组件分别称为“Web 角色”和“辅助角色”。云服务为可靠托管每个角色提供强大的专用虚拟机。</p>
+<div class="dev-callout"><strong>想要构建一个简单的网站？</strong>
+<p>如果您的方案只涉及一个简单的网站前端，则可以考虑<a href="../create-a-website-(mac)">使用轻型 Windows Azure 网站。</a>随着您的网站的不断扩大和您的需求的变化，您可以轻松升级到云服务。</p>
+</div>
+<p> </p>
+<p>通过学习本教程，您将可以构建一个托管在 Web 角色中的简单 Web 应用程序。您将使用计算仿真程序在本地测试您的应用程序，然后使用 PowerShell 命令行工具来部署该应用程序。</p>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node21.png" alt="浏览器窗口中显示“Hello World”"/></p>
+<h2>创建新的 Node 应用程序</h2>
+<p>执行以下任务可创建一个新的 Windows Azure 云服务项目以及基本的 Node.js 基架：</p>
+<ol>
+<li>
+<p>从“开始”菜单或“开始”屏幕，搜索“Windows Azure PowerShell”。最后，右键单击“Windows Azure PowerShell”并选择“以管理员身份运行”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/azure-powershell-start.png" alt="Windows Azure PowerShell 图标"/></p>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/node" chunkname="install-dev-tools" macroAlias="AzureChunkDisplayer" />
+</li>
+<li>
+<p>在 C 盘新建一个 <strong>node</strong> 目录，然后更改到 c:\node 目录：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/getting-started-6.png" alt="命令提示符处显示命令“mkdir c:\node”和“cd node”。"/></p>
+</li>
+<li>
+<p>输入以下 cmdlet 以创建新的解决方案：</p>
+<pre class="prettyprint">PS C:\node&gt; New-AzureServiceProject helloworld</pre>
+<p>您将看到以下响应：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node9.png" alt="New-AzureService helloworld 命令的结果"/></p>
+<p><strong>New-AzureServiceProject</strong> cmdlet 生成一个用于新建将发布到云服务的 Windows Azure Node 应用程序的基础结构。该结构包含向 Windows Azure 发布应用程序所需的配置文件。该 cmdlet 还会将工作目录更改为服务的目录。</p>
+<p>使用 <strong>New-AzureServiceProject</strong> cmdlet 创建的文件包括：</p>
+<ul>
+<li>
+<p><strong>ServiceConfiguration.Cloud.cscfg</strong>、<strong>ServiceConfiguration.Local.cscfg</strong> 和 <strong>ServiceDefinition.csdef</strong> 是发布应用程序所需的特定于 Windows Azure 的文件。</p>
+<p>有关这些文件的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj155995.aspx">创建 Windows Azure 托管服务概述</a>。</p>
+</li>
+<li>
+<p><strong>deploymentSettings.json</strong> 存储供 Windows Azure PowerShell 部署 cmdlet 使用的本地设置。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>输入以下命令以使用 <strong>Add-AzureNodeWebRole cmdlet</strong> 添加新的 Web 角色：</p>
+<pre class="prettyprint">PS C:\node\helloworld&gt; Add-AzureNodeWebRole</pre>
+<p>您将看到以下响应：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node11.png" alt="Add-AzureNodeWebRole 命令的输出。"/></p>
+<p><strong>Add-AzureNodeWebRole</strong> cmdlet 为应用程序创建新目录并为基础 Node.js 应用程序生成基架。该命令还会修改在上一步中创建的 <strong>ServiceConfiguration.Cloud.csfg</strong>、<strong>ServiceConfiguration.Local.csfg</strong> 和 <strong>ServiceDefinition.csdef</strong> 文件，从而为新角色添加配置项。</p>
+<div class="dev-callout">注意
+<p>默认情况下，如果您未提供角色名称，将为您创建一个角色名称。您可以提供一个名称作为 Add-AzureNodeWebRole 的第一个参数。例如，<code>Add-AzureNodeWebRole MyRole</code></p>
+</div>
+</li>
+<li>
+<p>使用以下命令导航到 <strong>WebRole1</strong> 目录，然后在记事本中打开 <strong>server.js</strong> 文件。</p>
+<pre class="prettyprint">PS C:\\node\\helloworld&gt; cd WebRole1
+PS C:\node\helloworld\WebRole1&gt; notepad server.js</pre>
+<p><strong>server.js</strong> 文件是使用 <strong>Add-AzureNodeWebRole</strong> cmdlet 创建的，并且包含以下起始代码。此代码与 <a href="http://nodejs.org/">nodejs.org</a> 网站上的“Hello World”示例类似，只不过：</p>
+<ul>
+<li>端口已更改，以允许应用程序通过云环境查找分配给它的正确端口。</li>
+<li>已删除控制台日志记录功能。</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node13.png" alt="记事本中显示 server.js 的内容"/></p>
+</li>
+</ol>
+<h2>在仿真程序中本地运行应用程序</h2>
+<p>Windows Azure 计算仿真程序是 Windows Azure SDK 所安装的工具之一，您可以使用此工具本地测试应用程序。计算仿真程序将模拟在将应用程序部署到云时该程序将要运行的环境。执行以下步骤以在仿真程序中测试该应用程序。</p>
+<ol>
+<li>
+<p>关闭“记事本”并切换回 Windows PowerShell 窗口。输入以下 cmdlet 以在仿真程序中运行您的服务：</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Start-AzureEmulator -Launch</pre>
+<p><strong>–Launch</strong> 参数指定工具应自动打开浏览器窗口，并当应用程序在仿真程序中运行时立即显示该应用程序。这将打开一个浏览器，其中显示“Hello World”，如以下屏幕快照所示。这表示服务正在计算仿真程序中运行且工作正常。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node14.png" alt="Web 浏览器中显示“Hello World”网页"/></p>
+</li>
+<li>
+<p>若要停止计算仿真程序，请使用 <strong>Stop-AzureEmulator</strong> 命令：</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Stop-AzureEmulator</pre>
+</li>
+</ol>
+<h2>将应用程序部署到 Windows Azure</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-account-note" macroAlias="AzureChunkDisplayer" />
+<h3><a id="download_publishing_settings"></a>下载 Windows Azure 发布设置</h3>
+<p>若要将应用程序部署到 Windows Azure，必须先为 Windows Azure 订阅下载发布设置。以下步骤将指导您完成此过程：</p>
+<ol>
+<li>
+<p>从 Windows PowerShell 窗口中，通过运行以下 cmdlet 来启动下载页：</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Get-AzurePublishSettingsFile</pre>
+<p>此操作将使用浏览器导航到发布设置下载页。系统可能会提示您使用 Microsoft 帐户登录。如果是这样，请使用与您的 Windows Azure 订阅关联的帐户。</p>
+<p>将已下载的配置文件保存到您能够轻松访问的文件位置。</p>
+</li>
+<li>
+<p>在 Windows Azure PowerShell 窗口中，使用以下 cmdlet 配置 Windows PowerShell for Node.js cmdlet 以使用所下载的 Windows Azure 发布配置文件：</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Import-AzurePublishSettingsFile [path to file]</pre>
+<div class="dev-callout">注意
+<p>导入发布设置之后，应考虑删除所下载的 .publishSettings 文件，因为该文件包含可供他人用来访问您的帐户的信息。</p>
+</div>
+</li>
+</ol>
+<h3>发布应用程序</h3>
+<ol>
+<li>
+<p>使用 <strong>Publish-AzureServiceProject</strong> cmdlet 发布应用程序，如下所示。</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Publish-AzureServiceProject –ServiceName NodeHelloWorld –Location "East US” -Launch</pre>
+<ul>
+<li>
+<p><strong>servicename</strong> 参数指定用于此部署的名称。此名称必须是唯一的，否则发布过程将失败。</p>
+</li>
+<li>
+<p><strong>location</strong> 参数指定将要在其中托管应用程序的数据中心。若要查看可用数据中心的列表，请使用 <strong>Get-AzureLocation</strong> cmdlet。</p>
+</li>
+<li>
+<p><strong>launch</strong> 参数将在部署完成后启动您的浏览器并导航到托管服务。</p>
+</li>
+</ul>
+<p>发布成功之后，您将看到如下响应：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node19.png" alt="Publish-AzureService 命令的输出"/></p>
+<p><strong>Publish-AzureServiceProject</strong> cmdlet 执行以下步骤：</p>
+<ol>
+<li>创建将部署到 Windows Azure 的程序包。该包将包含 node.js 应用程序文件夹中的所有文件。</li>
+<li>如果存储帐户不存在，将创建一个新的“存储帐户”。Windows Azure 存储帐户用于存储部署期间的应用程序包。在部署完成后，您可以安全删除该存储帐户。</li>
+<li>如果云服务尚不存在，将创建一个新的“云服务”。“云服务”是一个容器，用于在将应用程序部署到 Windows Azure 时托管该应用程序。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj155995.aspx">创建 Windows Azure 托管服务概述</a>。</li>
+<li>将部署包发布到 Windows Azure。</li>
+</ol>
+<div class="dev-callout">注意
+<p>部署应用程序并在首次发布该程序后使其可供使用可能需要花费 5–7 分钟时间。</p>
+</div>
+<p>在部署完成后，系统会打开一个浏览器窗口并导航到云服务。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node21.png" alt="浏览器窗口中显示“Hello World”页面。URL 指示该页面托管在 Windows Azure 上。"/></p>
+<p>您的应用程序现在正在 Windows Azure 上运行！</p>
+</li>
+</ol>
+<h2>停止并删除应用程序</h2>
+<p>部署应用程序后，您可能希望禁用它，以避免产生额外费用。Windows Azure 将按使用的服务器小时数对 Web 角色实例计费。您的应用程序部署之后就会开始使用服务器时间，即使相关实例并未运行且处于停止状态也是如此。</p>
+<ol>
+<li>
+<p>在 Windows PowerShell 窗口中，使用以下 cmdlet 以停止上一节中创建的服务部署：</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Stop-AzureService</pre>
+<p>停止服务可能需要花费几分钟时间。在服务停止时，您会收到一条指示服务已停止的消息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node48.png" alt="Stop-AzureService 命令的状态"/></p>
+</li>
+<li>
+<p>若要删除服务，请调用以下 cmdlet：</p>
+<pre class="prettyprint">PS C:\node\helloworld\WebRole1&gt; Remove-AzureService</pre>
+<p>在出现提示时，输入 <strong>Y</strong> 即可删除该服务。</p>
+<p>删除服务可能需要花费几分钟时间。删除服务后，您将收到一条指示服务已被删除的消息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/node49.png" alt="Remove-AzureService 命令的状态"/></p>
+</li>
+</ol>
+<div class="dev-callout"><strong>注意</strong>
+<p>删除服务不会删除最初发布服务时所创建的存储帐户，并且您仍需为使用的存储付费。有关删除存储帐户的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh531562.aspx">如何从 Windows Azure 订阅中删除存储帐户</a>。</p>
+</div>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>Node.js 入门指南 - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-nodejs-getting-started</linkid><metaKeywords>Azure node.js 入门, Azure Node.js 教程, Azure Node.js 教程</metaKeywords><metaDescription><![CDATA[一类端到端教程，可帮助您开发简单的 Node.js Web 应用程序并将其部署到 Windows Azure。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>云服务</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

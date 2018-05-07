@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19088" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="12" createDate="2013-07-11T11:29:14" updateDate="2014-08-18T11:20:16" nodeName="Web SSO" urlName="web-sso" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19088" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>通过 PHP 和 Windows Azure Active Directory 实现的 Web 单一登录</h1>
+<h2><a name="introduction"></a>介绍</h2>
+<p>本教程将向 PHP 开发人员介绍如何利用 Windows Azure Active Directory 为 Office 365 客户的用户实现单一登录。您将了解如何执行以下操作：</p>
+<ul>
+<li>在客户的租户中设置 Web 应用程序</li>
+<li>使用 WS 联合身份验证保护应用程序</li>
+</ul>
+<h3>先决条件</h3>
+<p>本演练具有以下开发环境先决条件：</p>
+<ul>
+<li><a href="https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP">针对 Windows Azure Active Directory 的 PHP 示例代码</a></li>
+<li><a href="http://www.eclipse.org/pdt/downloads/">Eclipse PDT 3.0.x 一体式</a></li>
+<li>PHP 5.3.1（通过 Web 平台安装程序）</li>
+<li>启用了 SSL 的 Internet Information Services (IIS) 7.5</li>
+<li>Windows PowerShell</li>
+<li><a href="http://onlinehelp.microsoft.com/zh-cn/office365-enterprises/ff652560.aspx">Office 365 PowerShell Commandlets</a></li>
+</ul>
+<h3>目录</h3>
+<ul>
+<li><a href="#introduction">介绍</a></li>
+<li><a href="#createapp">步骤 1：创建 PHP 应用程序</a></li>
+<li><a href="#provisionapp">步骤 2：在公司的目录租户中设置应用程序</a></li>
+<li><a href="#protectapp">步骤 3：通过对员工登录使用 WS 联合身份验证来保护应用程序</a></li>
+<li><a href="#summary">摘要</a></li>
+</ul>
+<h2><a name="createapp"></a>步骤 1：创建 PHP 应用程序</h2>
+<p>此步骤介绍如何创建将表示受保护资源的简单 PHP 应用程序。对此资源的访问权限将通过公司的 STS 管理的联合身份验证（将在本教程后面部分介绍）授予。</p>
+<ol>
+<li>打开 Eclipse 的新实例。</li>
+<li>在“文件”菜单中，单击“新建”，然后单击“新建 PHP 项目”。</li>
+<li>在“新建 PHP 项目”对话框中，将项目命名为 <em>phpSample</em>，然后单击“完成”。</li>
+<li>在左侧的“PHP 资源管理器”菜单中，右键单击“phpProject”，单击“新建”，然后单击“PHP 文件”。</li>
+<li>在“新建 PHP 文件”对话框中，将文件命名为 <strong>index.php</strong>，然后单击“完成”。</li>
+<li>
+<p>将生成的标记替换为以下内容，然后保存 <strong>index.php</strong>：</p>
+<pre class="prettyprint">&lt;!DOCTYPE&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+    &lt;title&gt;Index&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Index Page&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</li>
+<li>
+<p>通过在运行提示下键入 <em>inetmgr</em> 并按 Enter 来打开 <strong>Internet Information Services (IIS) 管理器</strong>。</p>
+</li>
+<li>
+<p>在 IIS 管理器中，展开左侧菜单中的 <strong>Sites</strong> 文件夹，右键单击“默认网站”，然后单击“添加应用程序...”。</p>
+</li>
+<li>
+<p>在“添加应用程序”对话框中，将“别名”值设置为 <em>phpSample</em>，将“物理路径”设置为用于创建 PHP 项目的文件路径。</p>
+</li>
+<li>
+<p>在 Eclipse 的“运行”菜单中，单击“运行”。</p>
+</li>
+<li>
+<p>在“运行 PHP Web 应用程序”菜单中，单击“确定”。</p>
+</li>
+<li>
+<p><strong>index.php</strong> 页将在 Eclipse 的新选项卡中打开。该页面只应显示以下文本：<em>索引页</em>。</p>
+</li>
+</ol>
+<h2><a name="provisionapp"></a>步骤 2：在公司的目录租户中设置应用程序</h2>
+<p>此步骤介绍 Windows Azure Active Directory 客户的管理员如何在其租户中设置 PHP 应用程序以及如何配置单一登录。完成此步骤后，公司的员工可以使用其 Office 365 帐户对 Web 应用程序进行身份验证。</p>
+<p>设置过程的第一步是为应用程序创建新的服务主体。Windows Azure Active Directory 将使用服务主体来向目录注册和验证应用程序。</p>
+<ol>
+<li>如果尚未下载和安装 Office 365 PowerShell Commandlets，则执行此操作。</li>
+<li>在“开始”菜单中，运行“用于 Windows PowerShell 的 Microsoft Online Services 模块”控制台。此控制台提供了用于配置有关 Office 365 租户的属性（如创建和修改服务主体）的命令行环境。</li>
+<li>
+<p>若要导入必需的 <strong>MSOnlineExtended</strong> 模块，请键入以下命令并按 Enter：</p>
+<pre class="prettyprint">Import-Module MSOnlineExtended -Force</pre>
+</li>
+<li>
+<p>若要连接到 Office 365 目录，您将需要提供公司的管理员凭据。请键入以下命令并按 Enter，然后在提示符处输入凭据：</p>
+<pre class="prettyprint">Connect-MsolService</pre>
+</li>
+<li>
+<p>现在，您将为应用程序创建新的服务主体。请键入以下命令并按 Enter：</p>
+<pre class="prettyprint">New-MsolServicePrincipal -ServicePrincipalNames @("phpSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013"</pre>
+<p>此步骤将输出类似于下面的信息：</p>
+<pre class="prettyprint">The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
+DisplayName           : Federation Sample PHP Web Site
+ServicePrincipalNames : {phpSample/localhost}
+ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
+AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
+TrustedForDelegation  : False
+AccountEnabled        : True
+KeyType               : Symmetric
+KeyId                 : f1735cbe-aa46-421b-8a1c-03b8f9bb3565
+StartDate             : 12/01/2012 08:00:00 a.m.
+EndDate               : 12/01/2013 08:00:00 a.m.
+Usage                 : Verify</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>您应该保存此输出，尤其是生成的对称密钥。此密钥仅在服务主体创建期间对您显示，您以后将无法检索它。使用 Graph API 在目录中读取和写入信息还需要其他值。</p>
+</div>
+</li>
+<li>
+<p>最后一个步骤是为应用程序设置答复 URL。在进行身份验证尝试之后，将在答复 URL 中发送响应。请键入以下命令并按 Enter：</p>
+<pre class="prettyprint">$replyUrl = New-MsolServicePrincipalAddresses â€“Address "https://localhost/phpSample" 
+
+
+Set-MsolServicePrincipal â€“AppPrincipalId "7829c758-2bef-43df-a685-717089474505" â€“Addresses $replyUrl</pre>
+</li>
+</ol>
+<p>现在已经在目录中设置 Web 应用程序，公司员工可以使用它来进行 Web 单一登录。</p>
+<h2><a name="protectapp"></a>步骤 3：通过对员工登录使用 WS 联合身份验证来保护应用程序</h2>
+<p>此步骤演示如何使用 Windows Identity Foundation (WIF) 和与必备组件中的示例代码一起下载的 simpleSAML.php 库来添加对联合登录的支持。您还将添加登录页并配置应用程序和目录租户之间的信任关系。</p>
+<ol>
+<li>
+<p>在 Eclipse 中，右键单击 <strong>phpSample</strong> 项目，单击“新建”，然后单击“文件”。</p>
+</li>
+<li>
+<p>在“新建文件”对话框中，将文件命名为 <strong>federation.ini</strong>，然后单击“完成”。</p>
+</li>
+<li>
+<p>在新的 <strong>federation.ini</strong> 文件中，输入以下信息，并提供包含创建服务主体时在第 2 步中保存的信息的值：</p>
+<pre class="prettyprint">federation.trustedissuers.issuer=https://accounts.accesscontrol.chinacloudapi.cn/v2/wsfederation
+federation.trustedissuers.thumbprint=qY+Drf20Zz+A4t2we3PebCopoCugO76My+JMVsqNBFc=
+federation.trustedissuers.friendlyname=Fabrikam
+federation.audienceuris=spn:7829c758-2bef-43df-a685-717089474505
+federation.realm=spn:7829c758-2bef-43df-a685-717089474505
+federation.reply=https://localhost/phpSample/index.php</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>必须在 Theaudienceurisandrealmvalues 前面加上“spn:”。</p>
+</div>
+</li>
+<li>
+<p>在 Eclipse 中，右键单击 <strong>phpSample</strong> 项目，单击“新建”，然后单击“PHP 文件”。</p>
+</li>
+<li>
+<p>在“新建 PHP 文件”对话框中，将文件命名为 <strong>secureResource.php</strong>，然后单击“完成”。</p>
+</li>
+<li>
+<p>在新 <strong>secureResource.php</strong> 文件中，输入以下代码，并将 <strong>c:\phpLibraries</strong> 路径替换为已下载示例代码的根位置。根位置应包含 <strong>simpleSAML.php</strong> 文件和 <strong>federation</strong> 文件夹：</p>
+<pre class="prettyprint">&lt;?php
+ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
+require_once ('federation/FederatedLoginManager.php');
+session_start();
+$token = $_POST['wresult'];
+$loginManager = new FederatedLoginManager();
+if (!$loginManager-&gt;isAuthenticated()) {
+    if (isset ($token)) {
+        try {
+            $loginManager-&gt;authenticate($token);
+        } catch (Exception $e) {
+            print_r($e-&gt;getMessage());
+        }  
+    } else {
+        $returnUrl = "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+        header('Pragma: no-cache');
+        header('Cache-Control: no-cache, must-revalidate');
+        header("Location: " . FederatedLoginManager :: getFederatedLoginUrl($returnUrl), true, 302);
+        exit();
+    }
+}
+?&gt;</pre>
+</li>
+<li>
+<p>打开 <strong>index.php</strong> 页并更新其内容以保护页面，然后将其保存：</p>
+<pre class="prettyprint">&lt;?php
+require_once (dirname(__FILE__) . '/secureResource.php');
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+    &lt;title&gt;Index Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Index Page&lt;/h2&gt;
+    &lt;h3&gt;Welcome &lt;strong&gt;&lt;?php print_r($loginManager-&gt;getPrincipal()-&gt;getName()); ?&gt;&lt;/strong&gt;!&lt;/h3&gt;
+    &lt;h4&gt;Claim list:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;?php
+        foreach ($loginManager-&gt;getClaims() as $claim) {
+            print_r('&lt;li&gt;' . $claim-&gt;toString() . '&lt;/li&gt;');
+        }
+        ?&gt;  
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</li>
+<li>
+<p>在“运行”菜单中，单击“运行”。您将自动重定向到“Office 365 标识提供程序”页，您可在其中使用目录租户凭据进行登录。例如，<em>john.doe@fabrikam.onmicrosoft.com</em>。</p>
+</li>
+</ol>
+<h2><a name="summary"></a>摘要</h2>
+<p>本教程已向您演示如何创建和配置使用 Windows Azure Active Directory 的单一登录功能的单租户 PHP 应用程序。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>web sso</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>web sso</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>web sso</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

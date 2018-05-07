@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18435" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="2" createDate="2013-05-03T16:12:20" updateDate="2014-08-18T11:10:47" nodeName="windows virtual machine" urlName="windows-virtual-machine" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18435" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO macroAlias="AzureChunkDisplayer" chunkpath="devcenter/dotnet" chunkname="article-left-menu" hide="0" />
+<h1>创建运行 Windows Server 2008 R2 的虚拟机</h1>
+<p>当您使用 Windows Azure 管理门户中的映像库时，创建运行 Windows Server 操作系统的虚拟机很容易。本教程将教您如何在云中创建您随后可以访问和自定义的运行 Windows Server 的虚拟机。您无需具备使用过 Windows Azure 的经验即可使用本教程。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li><a href="#virtualmachine">Windows Azure 中的虚拟机是什么</a></li>
+<li><a href="#custommachine">如何使用管理门户创建一个运行 Windows Server 的自定义虚拟机</a></li>
+<li><a href="#logon">虚拟机创建后如何进行登录</a></li>
+<li><a href="#attachdisk">如何将数据磁盘附加到新的虚拟机</a></li>
+<li><a href="#endpoints">如何设置与虚拟机的通信</a></li>
+<li><a href="#nextsteps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO macroAlias="AzureChunkDisplayer" chunkpath="devcenter/shared" chunkname="create-account-and-vms-note" hide="0" />
+<h2><a id="virtualmachine"></a><span class="short-header">什么是虚拟机？</span>Windows Azure 中的虚拟机是什么？</h2>
+<p>Windows Azure 中的虚拟机是云中的某个您可以控制和管理的服务器。在 Windows Azure 中创建虚拟机后，您可以随时删除和重新创建该虚拟机，并且可以像访问任何其他服务器一样访问该虚拟机。可以使用虚拟硬盘 (VHD) 文件创建一个虚拟机。您可以使用以下类型的虚拟硬盘 (VHD) 来创建虚拟机：</p>
+<ul>
+<li><strong>映像</strong> - 映像是用作模板以新建虚拟机的 VHD。映像是一个模板，因为它没有类似于正在运行的虚拟机这样的特定设置，如计算机名称和用户帐户设置。如果您使用映像来创建虚拟机，则会为新建的虚拟机自动创建一个操作系统磁盘。</li>
+<li><strong>磁盘</strong> - 磁盘是您可以作为操作系统的运行版本来启动和安装的 VHD。磁盘是一个可以运行的映像版本。附加到虚拟化硬件和作为服务一部分运行的任何 VHD 均为磁盘。映像在进行设置后，即成为磁盘。使用映像创建虚拟机时始终会创建一个磁盘。</li>
+</ul>
+<p>您可以使用以下选项来从映像创建虚拟机：</p>
+<ul>
+<li>通过使用 Windows Azure 管理门户映像库中的某个映像创建虚拟机。</li>
+<li>创建包含映像的 VHD 文件并将其上载到 Windows Azure，然后使用该映像创建虚拟机。<!--有关如何创建和上载自定义映像的详细信息，请参阅<a href="/zh-cn/manage/windows/common-tasks/upload-a-vhd/">创建和上载包含 Windows Server 操作系统的虚拟硬盘</a>。--></li>
+</ul>
+<h2><a id="custommachine"></a><span class="short-header">创建虚拟机</span>如何使用管理门户创建运行 Windows Server 的自定义虚拟机</h2>
+<p>您可以使用管理门户中的“从库中”功能来创建自定义虚拟机。当您创建此虚拟机时，您可以定义虚拟机的大小、连接的资源、DNS 名称以及网络连接性（如果需要）。</p>
+<ol>
+<li>登录到 Windows Azure 管理门户。</li>
+<li>
+<p>在命令栏上，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/createnew.png" alt="从库中创建虚拟机"/></p>
+<p>这将显示“虚拟机操作系统选择”对话框。您现在可从映像库中选择一个映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/imageselectionwindows.png" alt="选择操作系统映像。"/></p>
+</li>
+<li>
+<p>单击“平台映像”，选择“Windows Server 2008 R2 SP1”映像，然后单击箭头以继续。</p>
+<p>这将显示“虚拟机配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/imagedefinewindows.png" alt="指定虚拟机的详细信息"/></p>
+</li>
+<li>
+<p>在“虚拟机名称”中，键入您要用于该虚拟机的名称。对于此虚拟机，键入 <strong>MyTestVM1</strong>。</p>
+</li>
+<li>
+<p>在“新密码”中，为该虚拟机上的 Administrator 帐户键入密码。对于此虚拟机，键入 <strong>MyPassword1</strong>。在“确认密码”中，重新键入该密码。</p>
+</li>
+<li>
+<p>在“大小”中，选择虚拟机的大小。所选大小具体取决于您应用程序所需的内核数。对于此虚拟机，选择“特小”。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>这将显示“虚拟机模式”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/imagestandalonewindows.png" alt="指定虚拟机的详细信息"/></p>
+</li>
+<li>
+<p>您可以将云服务下的多个虚拟机连接在一起从而提供强大的应用程序，但在本教程中，您将创建单个虚拟机。因此，请选择“独立虚拟机”。</p>
+</li>
+<li>
+<p>您创建的虚拟机将包含在某个云服务中。在“DNS 名称”中，键入为虚拟机创建的云服务的名称。输入的名称可包含 3-24 个小写字母和数字。此值将成为用于联系虚拟机所属云服务的 URI 的一部分。对于此虚拟机，键入 <strong>MyService1</strong>。</p>
+</li>
+<li>
+<p>选择 VHD 文件的存储帐户。在本教程中，选择“使用自动生成的存储帐户”。</p>
+</li>
+<li>
+<p>在“区域/地缘组/虚拟网络”中，选择“China North”作为虚拟机的位置。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>这将显示“虚拟机选项”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/imageoptionswindows.png" alt="指定计算机的连接选项"/></p>
+</li>
+<li>
+<p>仅在您将此虚拟机连接到其他虚拟机或将虚拟机添加到虚拟网络时，此页上的选项才适用。对于此虚拟机，您将不会创建可用性集或连接到虚拟网络。单击复选标记以创建虚拟机。</p>
+<p>Windows Azure 即会创建虚拟机并配置操作系统设置。在 Windows Azure 创建完虚拟机后，它将在 Windows Azure 管理门户中列为“正在运行”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/vmsuccesswindows.png" alt="成功创建虚拟机"/></p>
+</li>
+</ol>
+<h2><a id="logon"></a><span class="short-header">登录虚拟机</span>虚拟机创建后如何进行登录</h2>
+<p>您可以登录到您创建的虚拟机以管理其设置和在其上运行的应用程序。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://www.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择 <strong>MyTestVM1</strong> 虚拟机。</p>
+</li>
+<li>
+<p>在命令栏上，单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/connectwindows.png" alt="连接到虚拟机"/></p>
+</li>
+<li>
+<p>单击“打开”以使用为虚拟机自动创建的远程桌面协议文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/connectrdp.png" alt="使用远程桌面协议文件"/></p>
+</li>
+<li>
+<p>单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/connectpublisher.png" alt="继续连接"/></p>
+</li>
+<li>
+<p>在密码框中，键入 <strong>MyPassword1</strong>，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/connectcreds.png" alt="输入密码"/></p>
+</li>
+<li>
+<p>单击“是”以验证虚拟机的标识。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/connectverify.png" alt="验证计算机的标识"/></p>
+<p>您现在可以像使用您办公室中的服务器一样使用虚拟机。</p>
+</li>
+</ol>
+<h2><a id="attachdisk"></a><span class="short-header">附加数据磁盘</span>如何将数据磁盘附加到新的虚拟机</h2>
+<p>应用程序可能需要存储数据。若要进行此设置，请将数据磁盘附加到虚拟机。执行此操作的最简单的方法是将空数据磁盘附加到虚拟机。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择 <strong>MyTestVM1</strong> 虚拟机。</p>
+</li>
+<li>
+<p>在命令栏上，单击“附加”，然后单击“附加空磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/attachdiskwindows.png" alt="附加空磁盘"/></p>
+<p>这将显示“附加空磁盘”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/attachnewdiskwindows.png" alt="附加空磁盘"/></p>
+</li>
+<li>
+<p>已为您定义好了“虚拟机名称”、“存储位置”和“文件名”。您只需要输入所需的磁盘大小。在“大小”字段中键入 <strong>5</strong>。</p>
+<p><strong>注意：</strong>所有磁盘都是从 Windows Azure 存储中的 VHD 文件创建的。您可以为添加到存储的 VHD 文件提供名称，但是 Windows Azure 会自动生成磁盘名称。</p>
+</li>
+<li>
+<p>单击复选标记以将数据磁盘附加到虚拟机。</p>
+</li>
+<li>
+<p>单击虚拟机的名称可显示仪表板；这样您可以验证数据磁盘是否已成功附加到虚拟机。</p>
+<p>现在虚拟机的磁盘数为 2 个。您附加的磁盘会列在“磁盘”表中。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/attachemptysuccess.png" alt="附加空磁盘"/></p>
+</li>
+</ol>
+<p>在您将数据磁盘附加到虚拟机后，该磁盘会处于脱机和未初始化状态。您必须先登录虚拟机并初始化磁盘，才能使用该磁盘存储数据。</p>
+<ol>
+<li>
+<p>使用“登录虚拟机”中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在您登录虚拟机后，打开“服务器管理器”。在左侧窗格中，展开“存储”，然后单击“磁盘管理”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/servermanager.png" alt="在服务器管理器中初始化磁盘"/></p>
+</li>
+<li>
+<p>右键单击“磁盘 2”，然后单击“初始化磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/initializedisk.png" alt="开始初始化"/></p>
+</li>
+<li>
+<p>单击“确定”开始初始化过程。</p>
+</li>
+<li>
+<p>右键单击磁盘 2 的空间分配区域，单击“新建简单卷”，然后使用默认值完成该向导。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/initializediskvolume.png" alt="创建卷"/></p>
+<p>磁盘现在处于联机状态且可以使用新的驱动器号。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/initializesuccess.png" alt="初始化成功"/></p>
+</li>
+</ol>
+<h2><a id="endpoints"></a><span class="short-header">设置通信</span>如何设置与虚拟机的通信</h2>
+<p>在 Windows Azure 中创建的所有虚拟机可以自动与位于同一云服务或虚拟网络中的其他虚拟机进行通信。但是，您需要向虚拟机添加终结点，以便 Internet 上的其他资源或其他虚拟网络与该虚拟机进行通信。您可以将特定端口和协议与终结点相关联。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择 <strong>MyTestVM1</strong> 虚拟机。</p>
+</li>
+<li>
+<p>单击“终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/endpointswindows.png" alt="添加终结点"/></p>
+</li>
+<li>
+<p>在本教程中，您将添加一个终结点以便使用 TCP 协议与虚拟机进行通信。单击“添加终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/addendpointstart.png" alt="终结点"/></p>
+<p>这将显示“添加终结点”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/addendpointwindows.png" alt="添加 TCP 终结点"/></p>
+</li>
+<li>
+<p>接受“添加终结点”的默认选择，然后单击箭头以继续。</p>
+<p>这将显示“新建终结点详细信息”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/endpointtcpwindows.png" alt="定义终结点"/></p>
+</li>
+<li>
+<p>在“名称”字段，键入 <strong>MyTCPEndpoint1</strong>。</p>
+</li>
+<li>
+<p>在“公用端口”和“私有端口”字段，键入 <strong>80</strong>。这些端口号可以是不同的。公用端口是来自 Windows Azure 外部的通信的入口点。Windows Azure 负载平衡器使用公用端口。您可以使用虚拟机上的私有端口和防火墙规则，从而以适合您应用程序的方式重定向通信流量。</p>
+</li>
+<li>
+<p>单击复选标记以创建终结点。</p>
+<p>现在，您将看到终结点列在“终结点”页上。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/endpointwindowsnew.png" alt="已成功创建终结点"/></p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure 开发：创建虚拟机 (.NET)</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Server 2008 R2 创建 Windows Azure 虚拟机。]]></metaDescription><linkid>dev-net-tutorials-windows-virtual-machine</linkid><urlDisplayName>Windows 虚拟机</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical>http://www.windowsazure.cn/zh-cn/manage/windows/tutorials/virtual-machine-from-gallery/</metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

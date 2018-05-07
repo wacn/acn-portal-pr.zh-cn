@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="193465" parentID="11978" level="2" writerID="106" creatorID="94" nodeType="1059" template="1052" sortOrder="14" createDate="2013-10-29T16:12:26" updateDate="2014-11-11T02:00:53" nodeName="Product Feedback Vote" urlName="product-feedback" writerName="content" creatorName="xunfan" path="-1,11978,19341" isDoc="" isResponsive="true">
+    <bodyText>
+              <![CDATA[
+        <style type="text/css">
+            html, body {
+                margin: 0;
+                padding: 0;
+                font-family: 微软雅黑;
+            }
+
+            .hide {
+                display: none !important;
+            }
+
+            .header {
+                background-color: #006EBB;
+                height: 210px;
+                width: 100%;
+            }
+
+            .header h1{
+                margin: 0;
+                font-size: 36px;
+                color: white;
+                line-height: 54px;
+                font-weight: normal;
+            }
+
+            .header h2 {
+                font-weight: normal;
+                color: #65b6f0;
+                margin: 0;
+                font-size: 24px;
+                margin-top: 28px;
+            }
+
+            .header .header-container {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1250px;
+                min-width: 960px;
+                padding: 0 20px;
+                box-sizing: border-box;
+                padding-top: 45px;
+            }
+
+            .pd-fd-container {
+                position: relative;
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1250px;
+                min-width: 960px;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+
+            .pd-fd-container .login {
+                display: inline-block;
+                color: #31aadd;
+                text-decoration: none;
+                padding-right: 15px;
+                border-right: 1px solid #B3B3B3;
+                font-size: 14px;
+                margin-right: 15px;
+            }
+
+            .pd-fd-container .feedback {
+                color: #666;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+            .pd-fd-vote-actions {
+                position: relative;
+                margin-top: 80px;
+            }
+
+            .pd-fd-vote-actions .arrow-right {
+                position: absolute;
+                top: 7px;
+                left: 285px;
+                background: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/rightarrow.png);
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-size: contain;
+            }
+
+            .pd-fd-table {
+                max-width: 990px;
+                width: 100%;
+                margin: 0 auto;
+                margin-top: 20px;
+                text-align: left;
+                border-collapse: collapse;
+            }
+
+            .pd-fd-table th {
+                font-size: 16px;
+                color: #666;
+                font-weight: normal;
+                border-bottom: 1px solid #9c9c9c;
+                border-right: 1px solid #D9D9D9;
+                padding-left: 25px;
+                padding-bottom: 8px;
+            }
+
+            .pd-fd-table tr {
+                height: 40px;
+                border-bottom: 1px solid #D9D9D9;
+            } 
+
+            .pd-fd-table td {
+                padding-left: 25px;
+                font-size: 14px;
+                color: black;
+            }
+
+            .pd-fd-table .vote-btn {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                vertical-align: middle;
+                background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/vote/thumbsup-enabled.png);
+                background-size: contain;
+                margin-left: 40px;
+                position: relative;
+                top: -2px;
+            }
+            
+            .pd-fd-table .vote-btn.loading {
+                background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/vote/pd-fd-vote.png);
+            }
+
+            .pd-fd-table .vote-btn.disabled {
+                background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/vote/thumbsup-disabled.png);
+            }
+
+            .pd-fd-table .vote-count {
+                vertical-align: middle;
+            }
+
+            .pd-fd-container .page-nav-container ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .page-nav-container {
+                font-size: 14px;
+            }
+
+            .page-nav-container ul li {
+                display: inline-block;
+            }
+
+            .page-nav-container {
+                max-width: 990px;
+                width: 100%;
+                margin: 20px auto;
+            }
+
+            .page-nav-container ul a {
+                color: #666;
+                font-size: 14px;
+                text-decoration: none;
+                padding: 0 5px;
+            }
+
+            .page-nav-container .page-num {
+                outline: none;
+                width: 65px;
+                height: 25px;
+                vertical-align: middle;
+                margin-left: 30px;
+                margin-right: 5px;
+                border: 1px solid #D9D9D9;
+            }
+            
+            .page-nav-container .page-nav .active a {
+                font-weight: bolder;
+            }
+
+            .page-nav-container .total {
+                text-align: right;
+                color: #bdbdbd;
+                margin: 20px 0;
+            }
+            
+            .table-filter {
+                margin-top: 40px;
+                font-size: 14px;
+                color: #7f7f7f;
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            
+            .table-filter-ticket {
+                margin-top: 40px;
+                font-size: 14px;
+                color: #7f7f7f;
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            
+            .table-filter-ticket label {
+                font-size: 16px;
+                color: #7f7f7f;
+                display: inline-block;
+                margin-right: 10px;
+                margin-top: 0;
+                vertical-align: middle;
+            }
+            
+            
+            .table-filter label {
+                font-size: 16px;
+                color: #7f7f7f;
+                display: inline-block;
+                margin-right: 10px;
+                margin-top: 0;
+                vertical-align: middle;
+            }
+
+            .auto-input {
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            .auto-input input {
+                padding: 0 10px;
+                position: relative;
+                left: -1px;
+                font-size: 16px;
+                color: #666;
+                font-weight: normal;
+                width: 220px;
+                outline: none;
+                box-sizing: border-box;
+                height: 30px;
+                background: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/drop-arrow-down.png);
+                background-size: 20px;
+                background-repeat: no-repeat;
+                background-position: 100% 50%;
+                border: 1px solid #bfbfbf;
+            }
+            .auto-input ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                box-shadow: 0 1px 4px 1px gray;
+                width: 220px;
+                position: absolute;
+                background: white;
+                z-index: 20;
+            }
+            .auto-input ul a {
+                font-size: 14px;
+                color: #7f7f7f;
+                display: block;
+                width: 100%;
+                padding: 0 10px;
+                text-decoration: none;
+                box-sizing: border-box;
+            }
+            .auto-input ul a:hover {
+                background: #3aa0cc;
+                color: white;
+            }
+            .pd-fd-spinner {
+                width: 100%;
+                height: 200px;
+                line-height: 200px;
+                text-align: center;
+            }
+            .pd-fd-spinner img {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                vertical-align: middle;
+            }
+            
+            .pd-fd-table tbody tr td:last-child {
+                box-sizing: border-box;
+                padding-left: 80px;
+                width: 200px;
+            }
+        </style>
+
+        <div class="header">
+            <div class="header-container">
+                <h1>Windows Azure产品功能投票</h1>
+                <h2>选择您期待的产品功能</h2>
+            </div>
+        </div>
+        <div class="pd-fd-container">
+            <div class="pd-fd-vote-actions">
+                <a href="#" class="login" id="pdFdVoteLogin">登录投票</a>
+                <a href="/product-feedback" class="feedback" id="pdFdVoteFeedback">提供Windows Azure产品反馈</a>
+                <span class="arrow-right"></span>
+            </div>
+            
+            <div class="table-filter">
+                <label>服务</label>
+                <div class="auto-input">
+                    <input type="text" value="虚拟机" id="pdFdFeedbackSelect"/>
+                </div>
+            </div>
+            <div class="table-filter-ticket">
+                <label>当前票数</label>
+                <div class="auto-input">
+                    <input type="text" value="" id="pdFdFeedbackSelectTicket"/>
+                </div>
+            </div>
+            
+            <div class="pd-fd-spinner">
+              <img src="http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/vote/spinner-md.gif" />
+            </div>
+            
+            <table class="pd-fd-table hide">
+                <thead>
+                        <th style="width: 10%;">序号</th>
+                        <th style="width: 22%;">服务</th>
+                        <th style="width: 50%;">功能点</th>
+                        <th style="border-right: none;">当前票数</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="page-nav-container hide">
+                <div class="total">
+                    <span class="total-pagenum">23</span>
+                    <span>项</span>
+                </div>
+                <ul class="page-nav">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                </ul>
+                <input type="text" class="page-num" id="pdfdPageNum"/>
+                <span>页</span>
+            </div>
+        </div>
+        
+        <script type="text/template" id="feedbackTableTmpl">
+            <% _(feedbackList).each(function(feedback){ %>
+                <tr data-id="<%= feedback.Id %>">
+                    <td>ID<%= feedback.Id %></td>
+                    <td><%- feedback.Service.Name %></td>
+                    <td><%- feedback.Description %></td>
+                    <td>
+                        <span class="vote-count"><%= feedback.VoteCount %></span>
+                        <% if(feedback.isVotable){ %>
+                          <a href="#" class="vote-btn"></a>
+                        <% } else { %>
+                          <a href="#" class="vote-btn disabled"></a>
+                        <% } %>
+                        
+                    </td>
+                </tr>
+            <% }) %>
+        </script>
+        
+        <script type="text/template" id="feedbackPageNavTmpl">
+            <div class="total">
+                <span class="total-pagenum"><%= totalCount %></span>
+                <span>项</span>
+            </div>
+            <ul  
+                <% if(totalCount == 0) { %> 
+                    class="page-nav hide"
+                <% } else { %>
+                    class="page-nav"
+                <% } %>
+            >
+                <% for(var count = 1; count <= Math.floor( totalCount / 10 ) + 1; count ++ ){ %>
+                    <% if(count == currentPage) { %>
+                        <li class="active"><a href="#"><%= count %></a></li>
+                    <% } else { %>
+                        <li><a href="#"><%= count %></a></li>
+                    <% } %>
+                <% } %>
+            </ul>
+            <% if(totalCount != 0){ %>
+            <input type="text" class="page-num" />
+            <span>页</span>
+            <% } %>
+        </script>
+        
+        <script type="text/javascript">
+            (function ($) {
+                $.fn.autoComplete = function (orginList) {
+                    $(this).each(function(){
+                        var order = 0;
+                        var completeList = orginList.map(function(item){
+                            order += 1;
+                            var newItem =  {
+                                'item': item,
+                                'order': order-1,
+                            }
+                            if(typeof item.id != 'undefined'){
+                                newItem.item = item.item,
+                                newItem.id = item.id;
+                            }
+                            return newItem;
+                        })
+                        //completeList = completeList.sort(msort);
+                        // clear input value and previous list
+                        $(this).find('ul').remove();
+                        $(this).find('input').val("");
+                        $(this).append("<ul class='auto-input-list hide'></ul>");
+                        var listDom = $(this).find('.auto-input-list');
+                        for(var count=0,length=completeList.length;count<length;count++){
+                            var itemID = "";
+                            if(typeof completeList[count].id != 'undefined'){
+                                itemID = completeList[count].id;
+                            }
+                            listDom.append("<li "+
+                                "data-id='"+ itemID +"'"
+                                +"data-order='"+ completeList[count].order +
+                                "'><a href='#'>"+ 
+                                completeList[count].item +
+                                "</a></li>");
+                        }
+                        if ($(this).find('input').is(":focus")) {
+                            listDom.removeClass('hide');
+                        }
+
+                        var that = this;
+                        $(this).find('input').on('focus', function (evt) {
+                            listDom.removeClass('hide');
+                        })
+
+                        // filter results
+                        $(this).find('input').on('input', function (evt) {
+                            var filter = $(this).val();
+                            var newList = filterList(filter, completeList);
+                            listDom.find('li').remove();
+                            for (var count = 0, length = newList.length; count < length; count++) {
+                                var itemID = "";
+                                if(typeof newList[count].id != 'undefined'){
+                                    itemID = newList[count].id;
+                                }
+                                listDom.append("<li data-id='"+
+                                    itemID
+                                    +"' data-order='"+
+                                 newList[count].order +
+                                 "'><a href='#'>" + 
+                                 newList[count].item + "</a></li>");
+                            }
+                        })
+
+                        // item click listener
+                        $(this).on('click','li', function (evt) {
+                            evt.preventDefault();
+                            $(that).find('input').val($(this).text());
+                            $(that).find('input').text($(this).text());
+                            $(that).find('input').data('id', $(this).data('id'));
+                            $(that).find('input').data('order', $(this).data('order'));
+                            listDom.addClass('hide');
+                            $(that).trigger("change.autoComplete");
+                        })
+                    })
+                }
+
+                $(document).off('click', hideList);
+                $(document).on('click', hideList);
+
+                function hideList(evt) {
+                    if ($(evt.target).parents('.auto-input').length == 0) {
+                        $('.auto-input-list').addClass('hide');
+                        
+                    }
+                }
+
+                function filterList(filter, data) {
+                    var tempList = [];
+                    for (var count = 0, length = data.length; count < length; count++) {
+                        if (data[count].item.toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+                            tempList.push(data[count]);
+                        }
+                    }
+                    return tempList;//.sort(msort);
+                }
+
+                function msort(a,b){
+                    if(a.item > b.item){
+                        return 1;
+                    }else{
+                        return -1;
+                    }
+                }
+            })(jQuery);
+
+            
+            (function(){
+                var serviceList = [];
+                var userInfo = {};
+                var serviceFeedbackList = [];
+                var totalServiceFeedbackCount = 0;
+                
+                // get all services
+                var wacnApi = new WacnApi(WacnUserAppkey);
+                wacnApi.getAllServices().then(function(services){
+                    serviceList = services;
+                    autoCompleteServiceList = [{
+                        "id": 0,
+                        "item": "全部",
+                    }];
+                    autoCompleteServiceList = autoCompleteServiceList.concat(_(services).map(function(service){
+                        return {
+                            "item": service.Name,
+                            "id": service.Id,
+                        }
+                    }));
+                    $(".table-filter .auto-input").autoComplete(autoCompleteServiceList);
+                    $(".table-filter .auto-input input").val("全部");
+                })
+                $(".table-filter-ticket .auto-input").autoComplete([
+                    {
+                        "item": "全部",
+                        "id": 1,
+                    },
+                    {
+                        "item": "小于5",
+                        "id": 2,
+                    },
+                    {
+                        "item": "5到10",
+                        "id": 3,
+                    },
+                    {
+                        "item": "10到15",
+                        "id": 4,
+                    },
+                    {
+                        "item": "大于15",
+                        "id": 5,
+                    }
+                ]);
+                $(".table-filter-ticket .auto-input input").val("全部");
+            
+                // get all product feedbacks
+                wacnApi.getUserInfo(WacnUserEmail).then(function(user){
+                    userInfo = user;
+                    wacnApi.addRoleProdFeedbackVoter(user);
+                    return wacnApi.getProdFeedbacks(user, 0, 10);
+                }).then(function(feedback){
+                    serviceFeedbackList = feedback;
+                    wacnApi.getProdFeedbacksCount().then(function(count){
+                        renderFeedbackPage(feedback, count, 1);
+                        stopLoading();
+                    })
+                })
+            
+                // binding events
+                $(document).on("click", ".pd-fd-table tbody .vote-btn", function(evt) {
+                    evt.preventDefault();
+                    var self = this;
+                    if($(this).hasClass("disabled"))
+                        return;
+                    if(typeof userInfo.Id == "undefined"){
+                        $(".login-type-win").removeClass("hide");
+                        return;
+                    }
+                    var feedbackId = $(this).closest("tr").data("id");
+                    wacnApi.voteFeedback(getDataById(feedbackId, serviceFeedbackList)).then(function(){
+                        $(self).addClass("disabled");
+                        // get new data from server
+                        wacnApi.getOneProdFeedback(feedbackId).then(function(targetFeedback){
+                            $(self).closest("tr").find(".vote-count").text(targetFeedback.VoteCount);
+                        });
+                    }, function(){
+                        alert("投票失败请稍后重试");
+                    });
+                })
+                
+                $(document).on("click", ".page-nav li a", function(evt){
+                    evt.preventDefault();
+                    var pageNum = parseInt($(this).text());
+                    renderPage(pageNum);
+                })
+                
+                $(document).on("click", ".table-filter .auto-input-list li a", function(evt){
+                    evt.preventDefault();
+                    renderPage(1);
+                })
+                
+                $(document).on("click", ".table-filter-ticket .auto-input-list li a", function(evt){
+                    evt.preventDefault();
+                    renderPage(1);
+                })
+                
+                $(document).on("keyup", ".page-nav-container input", function(evt){
+                    if (evt.keyCode == 13) {
+                        // enter pressed
+                        var pageNav = $(".page-nav");
+                        var totalPageNum = pageNav.find("li").length;
+                        var currentPageNum = parseInt(pageNav.find(".active").text());
+                        if($(this).val() > totalPageNum || parseInt($(this).val()) == NaN ){
+                            $(this).val("");
+                            return;
+                        }
+                        
+                        var pageNum = parseInt($(this).val());
+                        renderPage(pageNum);
+                    }
+                })
+                
+                $(document).on('click', '.pd-fd-vote-actions .login', function(evt){
+                    evt.preventDefault();
+                    if(WacnUserEmail != "")
+                        return;
+                    $(".login-type-win").removeClass("hide");
+                })
+                
+                
+                function renderPage(pageNum) {
+                    var start = 10 * (pageNum - 1);
+                    var end = 10 * pageNum;
+                    var serviceId = $(".table-filter .auto-input input").data("id");
+                    var voteCountId = $(".table-filter-ticket .auto-input input").data("id");
+                    var voteIdRangeMapping = {
+                      "1": {
+                          "start": -1,
+                          "end": -1
+                      },
+                      "2": {
+                          "start": -1,
+                          "end": 5,
+                      },
+                      "3": {
+                          "start": 5,
+                          "end": 10,
+                      },
+                      "4": {
+                          "start": 10,
+                          "end": 15,
+                      },
+                      "5": {
+                          "start": 15,
+                          "end": -1,
+                      }
+                    }
+                    startLoading();
+                    wacnApi.getProdFeedbacks(userInfo, start, end, serviceId, voteIdRangeMapping[voteCountId]).then(function(feedbacks){
+                        serviceFeedbackList = feedbacks;
+                        return wacnApi.getProdFeedbacksCount(serviceId).then(function(count){
+                            renderFeedbackPage(feedbacks, count, pageNum);
+                            stopLoading();
+                        })
+                    }, function(){
+                        alert("网络请求错误请稍后重试。");
+                        stopLoading();
+                    })
+                }
+            
+                function renderFeedbackPage(feedbackList, total, currentPage) {
+                    var feedbackTableTmpl = _.template($("#feedbackTableTmpl").html());
+                    $(".pd-fd-table tbody").html(feedbackTableTmpl({
+                        "feedbackList": feedbackList,
+                    }))
+                    var feedbackPageNavTmpl = _.template($("#feedbackPageNavTmpl").html());
+                    $(".page-nav-container").html(feedbackPageNavTmpl({
+                        "totalCount": total,
+                        "currentPage": currentPage
+                    }))
+                }
+            
+                function stopLoading() {
+                    $(".pd-fd-spinner").addClass("hide");
+                    $(".pd-fd-table").removeClass("hide");
+                    $(".page-nav-container").removeClass("hide");
+                }
+            
+                function startLoading() {
+                    $(".pd-fd-spinner").removeClass("hide");
+                    $(".pd-fd-table").addClass("hide");
+                    $(".page-nav-container").addClass("hide");
+                }
+                
+                function getDataById(id, dataList){
+                    return _(dataList).filter(function(data){
+                        return data.Id == id;
+                    })[0];
+                }
+            })();
+            
+        </script>
+        ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>Windows Azure 产品反馈</pageTitle>
+    <metaKeywords>Azure,微软云,产品反馈,反馈,投票</metaKeywords>
+    <metaDescription>
+      <![CDATA[
+        微软云 Windows Azure 产品反馈。想要成为影响我们产品方向的用户吗？快点来给我们提供反馈吧。为自己喜欢的反馈投上一票吧。
+        ]]></metaDescription>
+    <linkid>productfeedback</linkid>
+    <urlDisplayName>产品反馈</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText></headerText>
+    <forbidPublish>1</forbidPublish>
+  </umbTextpage>
+</localize>

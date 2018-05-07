@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19278" parentID="19277" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="1" createDate="2013-07-11T12:15:19" updateDate="2014-08-18T11:28:56" nodeName="Manage Service Bus Messaging Entities" urlName="manage-service-bus-messaging-entities" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19277,19278" isDoc=""><bodyText><![CDATA[<h1>如何管理 Service Bus 消息传递实体</h1>
+<p>本主题介绍如何使用 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>创建和管理 Service Bus 实体。您可以使用该门户创建新的服务命名空间或消息传递实体（队列、主题或订阅）。也可删除实体或更改实体的状态。 </p>
+<h2>目录</h2>
+<ul>
+<li><a href="#create">如何：创建 Service Bus 实体</a></li>
+<li><a href="#delete">如何：删除 Service Bus 实体</a></li>
+<li><a href="#disableenable">如何：禁用或启用 Service Bus 实体</a></li>
+<li><a href="#seealso">其他资源</a></li>
+</ul>
+<h2 id="create">如何：创建 Service Bus 实体</h2>
+<p>Windows Azure 管理门户支持两种创建 Service Bus 实体的方法：“快速创建”或“自定义创建”。</p>
+<h3>快速创建</h3>
+<p>利用快速创建，您只需一个简单的步骤即可创建 Service Bus 队列、主题或中继服务命名空间。按照下列步骤操作可创建 Service Bus 实体。</p>
+<ol>
+<li>登录到 <a href="http://manage.windowsazure.cn">Windows Azure管理门户</a>。</li>
+<li>单击该管理门户左下角的“新建”图标。</li>
+<li>
+<p>单击“应用服务”图标，然后单击“Service Bus 队列”（主题或中继）。单击“快速创建”，并输入队列名称、区域和 Windows Azure 订阅 ID。</p>
+<p>a. 如果这是您在选定区域中的第一个命名空间，则此门户会建议一个命名空间队列；[您的实体名称]-ns。您可以更改此值。</p>
+<p>b. 如果您在此区域中已拥有至少一个服务命名空间，则会自动选择一个命名空间。您可以更改该选定的命名空间。</p>
+</li>
+<li>
+<p>单击“创建新队列”（或主题）旁边的复选标记。</p>
+</li>
+<li>
+<p>创建队列或主题后，将显示以下消息：“已完成‘[队列名称]’的创建”。</p>
+<p>a. 如果您在此区域或此 Windows Azure 订阅中没有任何命名空间，则会自动为您创建一个新的命名空间。在上述情况下，您将收到两条成功消息：一条针对命名空间的创建，另一条针对实体的创建。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/queuequickcreate.png"/></p>
+</li>
+</ol>
+<p>在左侧导航栏上单击“Service Bus”图标可获取命名空间的列表。您将找到刚创建的新命名空间。在列表中单击此命名空间。您将在该命名空间的下方看到刚创建的实体。</p>
+<p><strong>注意</strong> 您无法立即查看列出的命名空间。创建服务命名空间和更新门户界面需要几秒钟的时间。</p>
+<p><strong>注意</strong> 对中继使用“快速创建”不会创建新的中继终结点。而只会创建一个命名空间，可在其下方以编程方式创建中继终结点。有关更多详细信息，请参阅 <a href="/zh-cn/develop/net/how-to-guides/service-bus-relay/">Service Bus 文档</a>。</p>
+<h3>自定义创建</h3>
+<p>“自定义创建”是更详细的版本，它为您提供了可用于更改要创建的实体（队列或主题）的属性的默认值的设置。若要使用“自定义创建”创建主题或实体，请执行下列步骤：</p>
+<ol>
+<li>登录到 <a href="http://manage.windowsazure.cn">Windows Azure管理门户</a>。</li>
+<li>单击该管理门户左下角的“新建”。</li>
+<li>单击“应用服务”图标，然后单击“Service Bus 队列”（主题或中继）。然后单击“自定义创建”。</li>
+<li>
+<p>在第一个对话框屏幕中，输入队列名称、区域和 Windows Azure 订阅 ID。</p>
+<p>a. 如果这是您在选定区域中的第一个服务命名空间，则此门户会建议一个命名空间队列；[您的实体名称]-ns。您可以更改此值。</p>
+<p>b. 如果您在此区域中已拥有至少一个命名空间，则会自动选择一个命名空间。您可以更改该选定的命名空间。</p>
+</li>
+<li>
+<p>单击“*下一步*”插入剩余属性。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/addqueue1.png"/></p>
+</li>
+<li>
+<p>单击复选标记以创建队列。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/configurequeue.png"/></p>
+</li>
+</ol>
+<p>在左侧导航栏上单击“Service Bus”图标可获取服务命名空间的列表。您将找到刚创建的新命名空间。在列表中单击此命名空间。您将在该命名空间的下方看到刚创建的实体。</p>
+<h2 id="delete">如何：删除 Service Bus 实体</h2>
+<p>通过使用此门户，可以删除 Service Bus 消息传递实体。此操作适用于队列、主题和主题订阅。若要删除队列或主题，请执行以下操作：</p>
+<ol>
+<li>导航到服务命名空间列表视图，并单击您在其下方创建实体（队列或主题）的命名空间。</li>
+<li>
+<p>单击页面底部的“删除”图标并确认删除操作。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/deleteentity.png"/></p>
+</li>
+</ol>
+<p><strong>注意</strong> 实体删除是不可恢复的。一旦执行删除，便无法恢复。但是，您可以创建带同一名称的其他实体。</p>
+<p>若要删除主题订阅，请执行以下操作：</p>
+<ol>
+<li>导航到命名空间列表视图，并单击您在其下方创建主题的命名空间。</li>
+<li>单击您在其下方创建订阅的主题。</li>
+<li>单击“订阅”选项卡并选择要删除的订阅。</li>
+<li>单击页面底部的“删除”图标并确认删除操作。</li>
+</ol>
+<h2 id="disableenable">如何：禁用或启用 Service Bus 实体</h2>
+<p>可以使用此门户更改 Service Bus 实体的状态。此操作适用于队列和主题。若要禁用或启用队列或主题，请执行以下操作：</p>
+<ol>
+<li>导航到服务命名空间列表视图，并单击您在其下方创建实体（队列或主题）的命名空间。</li>
+<li>
+<p>在页面底部，单击“禁用”（或“启用”）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/disableenable.png"/></p>
+</li>
+</ol>
+<h2 id="seealso">其他资源</h2>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=266834">Windows Azure Service Bus</a></p>
+<p>Windows Azure 网站上的 <a href="/zh-cn/develop/net/">.NET 开发人员中心</a></p>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=264293">创建使用 Service Bus 主题和订阅的应用程序</a></p>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=264291">队列、主题和订阅</a></p>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>管理 Service Bus 消息传递实体 - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>service-bus-manage-messaging-entitites</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何管理</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

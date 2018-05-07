@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18866" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="14" createDate="2013-07-11T10:53:18" updateDate="2014-08-18T11:10:14" nodeName="Hadoop Marketplace" urlName="hadoop-marketplace" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18866" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>在 Windows Azure 上运行 Hadoop 作业，从 Windows Azure Marketplace 导入数据，然后用 Excel Hive 外接程序分析数据</h1>
+<p>本教程演示如何以两种方式使用基于 Apache™ Hadoop™ 的 Windows Azure 服务在群集中运行 MapReduce 程序，以及如何使用 Excel 分析使用基于 Hive 的连接导入群集的数据。</p>
+<p>第一种运行 MapReduce 程序的方式为使用“创建作业”<strong></strong>UI 通过 Hadoop jar 文件运行。第二种方式为使用 Pig 上由<strong>交互式控制台</strong>提供的流畅 API 通过查询运行。第一种方法使用以 Java 编写的 MapReduce 程序，第二种方法使用以 Javascript 编写的脚本。本教程还演示如何向 HDFS 群集上载需要作为对于 MapReduce 程序的输入的文件，以及如何从 HDFS 群集读取 MapReduce 输出文件以检查分析的结果。</p>
+<p>Windows Azure Marketplace 从领先的商业数据提供商和权威公共数据源收集数据、影像和实时 Web 服务。它可简化多种数据的购买和消费，其中包括人口统计、环境、财务、零售和体育运动数据。本教程演示如何将这些数据上载到 Hadoop on Windows Azure 中，以及如何使用 Hive 脚本查询这些数据。</p>
+<p>Microsoft 大数据解决方案的一项重要功能是将 Hadoop 与 Microsoft 商业智能 (BI) 的组件相集成。Hadoop 与 Microsoft BI 相集成的一个好例子是可将 Excel 连接到 Hadoop 群集中的 Hive 数据仓库框架。本教程演示如何通过 Hive ODBC 驱动程序使用 Excel 访问和查看群集中的数据。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何使用 Hadoop jar 文件运行一个基本的 Java MapReduce 程序。</li>
+<li>如何将输入文件上载到 HDFS 群集以及从 HDFS 群集读取输出文件。</li>
+<li>如何使用 Pig 上由交互式 JavaScript 控制台提供的流畅 API，通过查询运行 JavaScript MapReduce 脚本。</li>
+<li>如何使用交互式 Hive 控制台将数据从 DataMarket 导入到 Hadoop on Windows Azure 群集中。</li>
+<li>如何使用 Excel 查询存储在 Hadoop on Windows Azure 群集中的数据。</li>
+</ul>
+<p>本教程由以下几部分组成：</p>
+<ol>
+<li><a href="#segment1">如何将 Hadoop jar 文件与“创建作业”UI 配合使用以运行一个基本的 Java MapReduce 程序</a>。</li>
+<li><a href="#segment2">如何使用交互式控制台运行 JavaScript MapReduce 脚本</a>。</li>
+<li><a href="#segment3">如何用 Hive 交互式控制台从 DataMarket 导入数据</a>。</li>
+<li><a href="#segment4">如何从 Excel 中连接和查询群集中的 Hive 数据</a>。</li>
+</ol>
+<p> </p>
+<h3>设置和配置</h3>
+<p>您必须拥有可访问 Hadoop on Windows Azure 的帐户，并且必须已创建一个群集供本教程使用。若要获取帐户并创建 Hadoop 群集，请按<em><a href="/zh-cn/develop/net/tutorials/intro-to-hadoop/">基于 Apache Hadoop 的 Windows Azure 服务简介</a></em>主题的“Microsoft Hadoop on Windows Azure 入门”<em></em>一节中概述的说明进行操作。</p>
+<p> </p>
+<h3>如何将 Hadoop jar 文件与“创建作业”UI 配合使用以运行一个基本的 Java MapReduce 程序</h3>
+<p>从“帐户”<strong></strong>页的“您的任务”<strong></strong>部分中，单击“创建作业”<strong></strong>图标以显示“创建作业”<strong></strong>UI。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/createjobui.png" alt="CreateJobUI"/></p>
+<p>若要运行 MapReduce 程序，请指定要使用的“作业名称”和“JAR 文件”。添加参数以指定要运行的 MapReduce 程序的名称、输入和代码文件的位置以及输出目录。</p>
+<p>若要观看如何使用此界面运行 MapReduce 作业的简单示例，请查看 Pi Estimator 示例。返回“帐户”<strong></strong>页。在“管理帐户”<strong></strong>部分向下滚动至“示例”<strong></strong>图标，然后单击该图标。</p>
+<p>从“帐户”<strong></strong>页中，在“管理帐户”<strong></strong>部分向下滚动至“示例”<strong></strong>图标，然后单击该图标。</p>
+<p>单击“Hadoop 示例库”中的“Pi Estimator”<strong></strong>示例图标。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/piestimatorsample.png" alt="PiEstimatorSample"/></p>
+<p>“Pi Estimator”<strong></strong>页上提供了有关 Java MapReduce 程序可用的应用程序和下载以及含有 Hadoop on Windows Azure 部署应用程序所需的文件的 jar 文件的信息。</p>
+<p>单击右侧的“部署到您的群集”<strong></strong>按钮以将这些文件部署到群集。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/piestimatorcreatejob.png" alt="PiEstimatorCreateJob"/></p>
+<p>本示例中替您填写了“创建作业”<strong></strong>页上的字段。第一个参数值默认为“pi 16 10000000”。第一个数字指示要创建多少个映射（默认为 16），第二个数字指示每个映射生成多少个示例（默认情况下为 1000 万）。因此，此程序使用 1.6 亿个随机点估算 Pi。自动根据指定的参数和 jar 文件为您构造<strong>最后一个命令</strong>。</p>
+<p>若要在 Hadoop 群集上运行该程序，只需单击页面右侧的蓝色“执行作业”<strong></strong>按钮。</p>
+<p>随后将在页面上显示作业的状态，而在作业完成后，状态变为“成功完成”<em></em>。结果显示在“Output(stdout)”部分的底部。对于默认参数，结果为舍入时精确到 8 位小数的“Pi = 3.14159155000000000000”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/piestimatorsampleresult.png" alt="PiEstimatorSampleResult"/></p>
+<p> </p>
+<h3>如何使用交互式控制台运行 JavaScript MapReduce 脚本</h3>
+<p>此部分演示如何使用 Pig 上由<strong>交互式控制台</strong>提供的流畅 API 运行 MapReduce 作业。此示例需要一个输入数据文件。此处使用的 WordCount 示例已将此文件上载到群集。但此示例不要求将 .js 脚本上载到群集，您可通过此步骤演示将文件从<strong>交互式控制台</strong>上载到 HDFS 的过程。</p>
+<p>首先，将 WordCount.js 脚本的一个副本下载到本地计算机。将其存储在本地以将其上载到群集。单击<a href="http://isoprodstore.blob.core.chinacloudapi.cn/isotopectp/examples/WordCount.js" title="JavaScript.js">此处</a>，然后将 WordCount.js 文件的一个副本保存到本地的 ../downloads 目录。此外，下载《达芬奇笔记》<em></em>（可在<a href="http://isoprodstore.blob.core.chinacloudapi.cn/isotopectp/examples/davinci.txt">此处</a>获得）。</p>
+<p>若要进入交互式 JavaScript 控制台，请返回“帐户”<a href="https://www.hadooponazure.com/Account"></a>页面。向下滚动至“您的群集”<strong></strong>部分，然后单击“交互式控制台”<strong></strong>图标以显示“交互式 JavaScript 控制台”<a href="https://www.hadooponazure.com/Cluster/InteractiveJS"></a>。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/interactivejspage.png" alt="InteractiveJsPage"/></p>
+<p>若要将 JavaScript.js 文件上载到群集，请在 js&gt; 控制台上输入上载命令 <code>fs.put()</code> 并从 downloads 文件夹选择 Wordcount.js，对于“目标”参数，请使用 <strong>./WordCount.js/</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/wordcountsampleuploadwindow.png" alt="WordCountSampleUploadWindow"/> <br />单击“源”<strong></strong>的“浏览”<strong></strong>按钮，导航到 ../downloads 目录并选择 WordCount.js 文件。输入所示的“目标”<strong></strong>值并单击“上载”<strong></strong>按钮。</p>
+<p>重复此步骤，使用 <strong>./example/data/</strong> 为“目标”上载 <strong>davinci.txt</strong> 文件。</p>
+<p>从 js&gt; 控制台中使用以下命令执行 MapReduce 程序：</p>
+<p><code> pig.from("/example/data/davinci.txt").mapReduce("WordCount.js", "word, count:long").orderBy("count DESC").take(10).to("DaVinciTop10Words")</code></p>
+<p>如果要观察作业进度的详细信息，请向右滚动并单击“查看日志”<strong></strong>。如果作业未能完成，则此日志还将提供诊断信息。</p>
+<p>若要在作业完成后即显示 DaVinciTop10Words 目录中的结果，请在 js&gt; 提示符下使用 <code>file = fs.read("DaVinciTop10Words")</code> 命令。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/wordcountsamplereadtop10.png" alt="WordCountSampleReadTop10"/></p>
+<p> </p>
+<h3>如何用 Hive 交互式控制台从 DataMarket 导入数据</h3>
+<p>在浏览器中打开 <a href="https://datamarket.azure.com/" title="DataMarket">Windows Azure Marketplace</a> 页，然后用一个有效的 Windlows Live ID 登录。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketfrontpage.png" alt="DataMarketFrontPage"/></p>
+<p>单击“我的帐户”<strong></strong>选项卡，然后填写注册表格以开立订阅帐户。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketregistration.png" alt="DataMarketRegistration"/></p>
+<p>记下分配给您的帐户的默认帐户密钥的值。应用程序使用帐户密钥访问 Windows Azure Marketplace 数据集订阅。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketaccountkeys.png" alt="DataMarketAccountKeys"/></p>
+<p>单击靠近页面顶部的菜单栏中间的“数据”<strong></strong>菜单图标。向页面右上方的“搜索 Marketplace”框中输入“crime”，然后按 <strong>Enter</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketcrimedatasearch.png" alt="DataMarketCrimeDataSearch"/></p>
+<p>选择“2006-2008 Crime in the United States (Data.gov)”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketcrimedata.png" alt="DataMarketCrimeData"/></p>
+<p>按页面右侧的“订阅”<strong></strong>按钮。注意，订阅此项免费。同意“注册”页上的条件，然后单击“注册”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketcrimedataexplore.png" alt="DataMarketCrimeDataExplore"/></p>
+<p>随后将显示“收据”页。按“浏览此数据集”<strong></strong>按钮以显示一个窗口，从中可生成查询。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketquerycrimedata.png" alt="DataMarketQueryCrimeData"/></p>
+<p>按页面右侧的“运行查询”<strong></strong>按钮以运行不带任何参数的查询。记下查询的名称和表的名称，然后单击“开发”<strong></strong>选项卡以显示自动生成的查询。复制此查询。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/datamarketquerycrimeresult.png" alt="DataMarketQueryCrimeResult"/></p>
+<p>返回 Hadoop on Windows Azure 帐户页，向下滚动至“您的群集”<strong></strong>部分，然后单击“管理群集”<strong></strong>图标。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/manageclostericononaccountpage.png" alt="ManageClosterIconOnAccountPage"/></p>
+<p>选择 <strong>DataMarket</strong> 图标选项以从 Windows Azure DataMarket 导入数据。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/manageclusterdatamarketoption.png" alt="ManageClusterDataMarketOption"/></p>
+<p>输入订阅的“用户名”<strong></strong>和“密钥”<strong></strong>、“查询”<strong></strong>以及从 DataMarket 帐户获取的“Hive 表名称”<strong></strong>。用户名是用于 Live ID 的电子邮件。密钥的值是打开 Marketplace 帐户时分配给帐户的帐户密钥默认值。还可在 Marketplace“帐户详细信息”页上以“主帐户密钥”值的形式找到它。输入该参数后，按“导入数据”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/importfromdatamarket.png" alt="ImportFromDataMarket"/></p>
+<p>随后显示 DataMarket“导入”页，上面报告导入的进度。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/crimedataimportprogress.png" alt="CrimeDataImportProgress"/></p>
+<p>导入任务完毕时，返回“帐户”页，然后从“您的群集”<strong></strong>部分中选择“交互式控制台”<strong></strong>图标。再按控制台页上的“Hive”<strong></strong>选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/crimedatahiveconsole.png" alt="crimedatahiveconsole"/></p>
+<p>输入此代码段 -</p>
+<pre class="prettyprint">create table crime_results as select city, max(violentcrime)  as maxviolentcrime from crime_data  group by city order by maxviolentcrime desc limit 10</pre>
+<p>然后，按“计算”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/crimedatahiveconsolewithquery.png" alt="CrimeDataHiveConsoleWithQuery"/></p>
+<p> </p>
+<h3>如何从 Excel 中连接和查询群集中的 Hive 数据</h3>
+<p>返回“帐户”页，然后从“您的群集”<strong></strong>部分中选择“打开端口”<strong></strong>图标以打开“配置端口”页。通过单击其“切换”按钮，在端口 10000 上打开 ODBC 服务器。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/openodbcport10000.png" alt="OpenODBCPort10000"/></p>
+<p>返回“帐户”页，然后从“管理帐户”<strong></strong>部分中选择“下载”<strong></strong>图标，再选择相应的 .msi 文件以安装 Hive ODBC 驱动程序和 Excel Hive 外接程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/downloadlinkhiveodbc.png" alt="DownloadLinkHiveODBC"/></p>
+<p>从随后弹出的“SmartScreen 筛选器”<strong></strong>窗口中选择“仍要运行”<strong></strong>选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/runawayhiveodbc.png" alt="RunawayHiveODBC"/></p>
+<p>安装完毕后，打开 Excel。在“数据”菜单下，单击“Hive 面板”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/exceldatamenuhivepanel.png" alt="ExcelDataMenuHivePanel"/></p>
+<p>按左侧“Hive 查询”<strong></strong>面板上的“输入群集详细信息”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/excelhivecredentials.png" alt="ExcelHiveCredentials"/></p>
+<p>为群集提供一个描述，输入 localhost 作为“主机”值，10000 作为“端口号”。在“身份验证”<strong></strong>部分的“用户名”/“密码”选项中输入 Hadoop on Windows Azure 群集的凭据。然后单击<strong>搣确定攠</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/excelodbchivesetupwindow.png" alt="ExcelODBCHiveSetupWindow"/></p>
+<p>从“Hive 查询”<strong></strong>面板的“选择要查询的 Hive 对象”<strong></strong>菜单中选择“crime_results”。然后，在“列”<strong></strong>部分中选中 city 和 maxviolentcrime。<br />单击“HiveQL”以显示查询：<code>select city, mazviolentcrime from crime_results limit 200</code></p>
+<p>单击“执行查询”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/excelexecutehivequery.png" alt="ExcelExecuteHiveQuery"/></p>
+<p>现在可看到暴力犯罪最多的城市。从“插入”<strong></strong>菜单中，选择“条形图”选项以向页中插入一个条形图，使数据可视化。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/excelhivequeryresults.png" alt="ExcelHiveQueryResults"/></p>
+<hr />
+<p> </p>
+<h2>摘要</h2>
+<p>在本教程中，您已了解两种使用 Hadoop on Windows Azure 门户运行 MapReduce 作业的方式。一种使用“创建作业”<strong></strong>UI，通过 jar 文件运行 Java MapReduce 程序。另一种使用<strong>交互式控制台</strong>，通过在 Pig 查询中使用 .js 脚本运行 MapReduce 作业。您还已了解如何将这些数据上载到 Hadoop on Windows Azure 中以及从<strong>交互式控制台</strong>中使用 Hive 脚本查询这些数据。最后，您还已了解如何通过 Hive ODBC 驱动程序使用 Excel 访问和查看存储在 HDFS 群集中的数据。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>运行 Hadoop 作业和分析数据 (.NET) - Windows Azure</pageTitle><metaKeywords>Azure MapReduce, Azure Apache Hadoop, Azure Hive 数据, Azure Hadoop 群集, Azure Hadoop Excel</metaKeywords><metaDescription><![CDATA[本教程向您传授如何使用基于 Apache Hadoop 的 Windows Azure 服务运行 MapReduce 程序。然后，从 Excel 中查询 Hive 数据。]]></metaDescription><linkid>dev-net-tutorials-hadoop-marketplace</linkid><urlDisplayName>Hadoop Marketplace</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

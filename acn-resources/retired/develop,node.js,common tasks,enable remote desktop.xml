@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18983" parentID="18978" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="5" createDate="2013-07-11T11:13:50" updateDate="2014-08-18T11:16:16" nodeName="Enable Remote Desktop" urlName="enable-remote-desktop" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,18978,18983" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>在 Windows Azure 中启用远程桌面</h1>
+<p>您可以通过远程桌面访问在 Windows Azure 中运行的角色实例的桌面。您可以使用远程桌面连接配置虚拟机，或者排查应用程序问题。</p>
+<div class="dev-callout">注意
+<p>本文中的步骤仅适用于托管为 Windows Azure 云服务的 Node 应用程序。</p>
+</div>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#step1">步骤 1：使用 Windows Azure PowerShell 配置远程桌面访问服务</a></li>
+<li><a href="#step2">步骤 2：连接到角色实例</a></li>
+<li><a href="#step3">步骤 3：使用 Windows Azure PowerShell 配置禁用远程桌面访问的服务</a></li>
+</ul>
+<h2><a name="step1"></a>步骤 1：使用 Windows Azure PowerShell 配置远程桌面访问服务</h2>
+<p>要使用远程桌面，您需要使用用户名、密码和证书配置服务定义和服务配置，以向云中的角色实例进行身份验证。<a href="http://go.microsoft.com/?linkid=9790229&amp;clcid=0x409">Windows Azure PowerShell</a> 中包含 <strong>Enable-AzureServiceProjectRemoteDesktop</strong> cmdlet，它会为您完成此配置。</p>
+<p>在创建服务定义的计算机上执行以下步骤。</p>
+<ol>
+<li>
+<p>从“开始”菜单中，选择“Windows Azure PowerShell”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/azure-powershell-menu.png" alt="Windows Azure PowerShell“开始”菜单项"/></p>
+</li>
+<li>
+<p>将目录更改为服务目录，键入 <strong>Enable-AzureServiceProjectRemoteDesktop</strong>，然后输入要向云中的角色实例进行身份验证时使用的用户名和密码。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/enable-rdp.png" alt="enable-azureserviceprojectremotedesktop"/></p>
+</li>
+<li>
+<p>将服务配置更改发布到云。在 <strong>Windows Azure PowerShell</strong> 提示符下，键入 <strong>Publish-AzureServiceProject</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/publish-rdp.png" alt="publish-azureserviceproject"/></p>
+</li>
+</ol>
+<p>完成这些步骤后，将在云中为远程桌面访问配置服务的角色实例。</p>
+<h2><a name="step2"></a>步骤 2：连接到角色实例</h2>
+<p>当您的部署在 Windows Azure 中启动并运行后，便可以连接到角色实例。</p>
+<ol>
+<li>
+<p>在 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>中，选择“云服务”，然后选择在上面的步骤 1 中部署的服务</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-services-remote.png" alt="Azure 管理门户"/></p>
+</li>
+<li>
+<p>单击“实例”，然后单击“生产”或“过渡”查看您的服务实例。选择一个实例，然后单击页面底部的“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-instance.png" alt="实例页"/></p>
+</li>
+<li>
+<p>单击“连接”后，Web 浏览器会提示您保存 .rdp 文件。如果您使用的是 Internet Explorer，请单击“打开”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/rdp-open.png" alt="提示打开或保存 .rdp 文件"/></p>
+</li>
+<li>
+<p>打开该文件时，会显示以下安全提示：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/remote-desktop-12.png" alt="Windows 安全性提示"/></p>
+</li>
+<li>
+<p>单击“连接”，将显示一个安全提示，要求输入访问该实例的凭据。输入在<a href="#step1">步骤 1</a> 中创建的密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/remote-desktop-13.png" alt="用户名/密码提示"/></p>
+</li>
+</ol>
+<p>连接完成后，远程桌面连接将在 Windows Azure 中显示该实例的桌面。您已成功获取对该实例的远程访问权限，并且可以执行任何必需任务来管理应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/remote-desktop-14.png" alt="远程桌面会话"/></p>
+<h2><a name="step3"></a>步骤 3：使用 Windows Azure PowerShell 配置禁用远程桌面访问的服务</h2>
+<p>当您不再需要与云中角色实例的远程桌面连接时，可使用 <a href="http://go.microsoft.com/?linkid=9790229&amp;clcid=0x409">Windows Azure PowerShell</a> 禁用远程桌面访问</p>
+<ol>
+<li>
+<p>从“开始”菜单中，选择“Windows Azure PowerShell”。</p>
+</li>
+<li>
+<p>将目录更改为服务目录，并键入 <strong>Disable-AzureServiceProjectRemoteDesktop</strong>：</p>
+</li>
+<li>
+<p>将服务配置更改发布到云。在 <strong>Windows Azure PowerShell</strong> 提示符下，键入 <strong>Publish-AzureServiceProject</strong>：</p>
+</li>
+</ol>
+<h2>其他资源</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh124107.aspx">远程访问 Windows Azure 中的角色实例</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg443832.aspx">将远程桌面与 Windows Azure 角色一起使用</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>对云服务启用远程桌面 (Node.js)</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>dev-node-remotedesktop</linkid><metaKeywords>Azure Node.js 远程访问, Azure Node.js 远程连接, Azure Node.js VM 访问, Azure Node.js 虚拟机访问</metaKeywords><metaDescription><![CDATA[了解如何对承载 Windows Azure Node.js 应用程序的虚拟机进行远程桌面访问。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>启用远程桌面</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

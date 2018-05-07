@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="19329" parentID="19326" level="3" writerID="52" creatorID="94" nodeType="1059" template="1" sortOrder="3" createDate="2013-08-27T11:20:07" updateDate="2014-08-18T11:34:25" nodeName="Web" urlName="web" writerName="uRest" creatorName="xunfan" path="-1,11978,19326,19329" isDoc="" isResponsive="1">
+    <bodyText>
+      <![CDATA[
+            <div class="section-component"> 
+                <p>快速部署典型LAMP网站架构，从易上手的<a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-lamp-website-kickstart/" id="oss-website_open-source-azure-virtual-machines-lamp-website-kickstart">单机版</a>到足以应对高并发大流量的<a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-create-website-cluster/" id="oss-website_open-source-azure-virtual-machines-create-website-cluster">集群</a>。</p>
+                <div class="section-image">
+                    <img src="http://wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/oss-website-framework.jpg" />
+                </div>
+                <h2 class="oss-title">单机快捷建站</h2>
+                <p>脚本部署 LAMP，快捷方便，提供基于 CentOS ， Ubuntu ， SLES 的三个版本的部署脚本。配合域名服务，快速上线。</p>
+                <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-lamp-website-kickstart/" id="oss-website_open-source-azure-virtual-machines-lamp-website-kickstart">在 Azure Linux 虚拟机上快速搭建单机版 LAMP 网站</a>
+            </div>
+            <div class="section-component"> 
+                <h2 class="oss-title">集群网站部署</h2>
+                <p>大流量，高并发网站架构，将架构的各个模块解耦，服务化，做到整体水平扩展。使用负载均衡技术来进行流量分发，多服务器支撑业务系统水平扩展。 CDN 加速静态文件访问，通过 redis 缓存加速数据库的访问，数据库通过主备功能实现数据同步，并进行读写分离以及分表。使用分布式存储服务等。</p>
+                <h3>开始使用：</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-create-website-cluster/" id="oss-website_open-source-azure-virtual-machines-create-website-cluster02">构建网站集群</a>
+            </div>
+            <div class="section-component"> 
+                <h1 class="oss-title">自定义建站</h1>
+                <h2>域名登记<span> ( DNS， ICP 备案 )</span></h2>
+                <p>您需要到正规域名服务提供商购买域名作为您网站的“标识”。根据国家相关法规，您还需要去到相关机构完成网站备案。网站备案的目的是为了防止在网上从事非法的网站经营活动，打击不良互联网信息的传播，如果网站不备案的话，很有可能被查处以后关停。</p>
+                <p>您在创建虚机时会默认创建一个“云服务”，会生成标识这台虚拟机的 DNS 名称和一个公网 IP 地址。如果这台虚拟机作为您网站的访问入口，您需要参考以下链接为 Azure 云服务配置您在域名服务提供商获得的域名。这样用户访问您的域名，即可访问到此台虚拟机，即您的网站了。</p>
+                <h3>了解更多：</h3>
+                <a href="https://docs.azure.cn/cloud-services/cloud-services-custom-domain-name/" id="oss-website_cloud-services-custom-domain-name">为 Azure 云服务配置自定义域名链接</a>
+                <h2>建服务器<span> ( Nginx , Apache-PHP , Tomcat-JAVA )</span></h2>
+                <p>根据您的业务情况选购适合的服务器，并在服务器上部署程序运行所需要的环境 ( 如语言环境 Java 、 PHP 等； WEB 相关如 Tomcat , Nginx , Apache 等 )。</p>
+                <h3>了解更多:</h3>
+                <p>服务器选型请参考</p>
+                <a href="/home/features/virtual-machines/" id="oss-website_virtual-machines">虚拟机</a>
+                <p>环境部署请参考相关文档</p>
+                <a href="https://docs.azure.cn/zh-cn/virtual-machines/linux/classic/setup-tomcat/" id="oss-website_virtual-machines-linux-setup-tomcat7-linux">如何使用 Azure 在 Linux  虚拟机上设置 Tomcat7</a> <br/>                
+				<a href="https://docs.azure.cn/virtual-machines/virtual-machines-linux-create-lamp-stack/" id="oss-website_virtual-machines-linux-create-lamp-stack">在 Azure 上部署 LAMP 堆栈</a> <br/>               
+			   <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-set-up-nginx-web-server/" id="oss-website_open-source-azure-virtual-machines-linux-set-up-nginx-web-server">在 Azure Linux 虚拟机上安装 Nginx</a>
+                <h2>网络<span> ( Azure DNS / V-net , HAProxy , Nginx )</span></h2>
+                <p>使用 Azure 虚拟网络，您在云中的专用网络。可以通过站点到站点 VPN 轻松扩展本地网络。您可以控制网络拓扑 ( 包括 DNS 和 IP  地址范围的配置，子网划分 )，并采用与本地基础结构相同的管理方式。随处进行安全连接。</p>
+                <p>灵活的负载均衡选项，使用 HAProxy , Nginx , 流量管理器等。</p>
+                <h3>了解更多:</h3>
+                <a href="/home/features/virtual-network/" id="oss-website_virtual-network">虚拟网络</a><br/>
+                <a href="/home/features/traffic-manager/" id="oss-website_traffic-manager">流量管理器</a>    
+                <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-install-and-configure-haproxy/" id="oss-website_open-source-azure-virtual-machines-linux-install-and-configure-haproxy">在 Azure Linux 虚拟机上安装配置 HAProxy</a>         
+                <h2>存储<span> ( MySQL MongoDB , Redis , listed other as reference )</span></h2>
+                <p>提供全托管的 MySQL 数据库服务 ( DB as a Service )，缓存数据库服务以及自行搭建 MongoDB , MySQL , Redis 数据库向导。</p>
+                <p>MySQL Database on Azure 兼容 MySQL 开源数据库平台；帮助用户快速部署；提供高可靠、高安全、高可用、高性价比的数据库；降低运维成本，让您专注于创新开发。</p>
+                <p>Azure Redis 缓存基于流行的开放源 Redis 缓存，进行高吞吐量、一致的低延迟数据访问，为可快速扩展的 Azure 应用程序助力。</p>
+                <p>MongoDB ( from humongous ) 是一个跨平台的，面向文档的 NoSQL 数据库。他支持的数据结构非常松散, 支持动态模式，支持 sharding , 易于扩展。</p>  
+                <h3>了解更多:</h3>
+                <a href="/home/features/mysql/" id="">MySQL Database on Azure</a><br/>
+                <a href="/home/features/redis-cache/" id="oss-website_redis-cache">Redis 缓存</a>
+                <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-install-mysql/" id="oss-website_open-source-azure-virtual-machines-linux-install-mysql">在 Azure Linux 虚拟机上安装 MySQL </a><br/>                    
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-configure-redis-cluster/" id="oss-website_open-source-azure-virtual-machines-linux-configure-redis-cluster">在 Azure Linux 虚拟机上配置 Redis 集群</a><br/>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-manage-mongodb-cluster/" id="oss-website_open-source-azure-virtual-machines-manage-mongodb-cluster">在 Azure Linux 虚拟机上管理配置 MongoDB 集群</a>
+                <h2>安全性<span> ( DDOS )</span></h2>
+                <p>Linux 虚拟机远程连接的一些安全贴士，比如端口， ACL ，身份验证，以及网络隔离等措施。</p>
+                <h3>了解更多:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-rdp-security-guide/" id="oss-website_open-source-azure-virtual-machines-linux-rdp-security-guide">Linux 虚拟机远程连接安全贴士</a>
+                <h2>监控<span> ( Zabbix )</span></h2>
+                <p>Zabbix 是一个基于 WEB 界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案。它监控数以千计的服务器，虚拟机和网络设备，实时收集数以百万计的监控指标，是一款优秀的企业级监控软件。</p>
+                <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-configure-zabbix-1/" id="oss-website_open-source-azure-virtual-machines-linux-configure-zabbix-1">在 Azure Linux 虚拟机上配置zabbix监控 ( 一 )</a><br/>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-configure-zabbix-2/" id="oss-website_open-source-azure-virtual-machines-linux-configure-zabbix-2">在 Azure Linux 虚拟机上配置zabbix监控 ( 二 )</a><br/>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-configure-zabbix-3/" id="oss-website_open-source-azure-virtual-machines-linux-configure-zabbix-3">在 Azure Linux 虚拟机上配置zabbix监控 ( 三 )</a>
+                <h2>备份<span> ( VM backup , DB / data backup )</span> / 灾备<span> ( Availability set , Traffic Manager )</span></h2>
+                <p>Azure 备份是简单、可靠的数据保护解决方案，两个 Azure 数据中心维护6份数据副本，拥有99.9% 的服务可用性，提供了运行稳定性。提供服务器备份和自建数据库的备份向导。</p>
+                <p>流量管理器通过自动故障转移提高关键应用程序的可用性，灵活的负载平衡选项对应用程序流量进行平均或权重分配，在不停机的情况下执行升级和服务维护，支持大型复杂部署的流量分配。</p>
+                <h3>了解更多:</h3>
+                <a href="/home/features/backup/" id="oss-website_backup">备份</a><br/>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-configure-availability-set/" id="oss-website_open-source-azure-virtual-machines-configure-availability-set">在 Azure 平台配置可用性集</a><br/>
+                <a href="/home/features/traffic-manager/" id="oss-website_traffic-manager">流量管理器</a>
+                <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-linux-backup-databases/" id="oss-website_open-source-azure-virtual-machines-linux-backup-databases">Azure Linux 虚拟机上的数据库的备份</a>
+                <p>可用性集 ( Availability set ) 通过放置一组相似配置的虚拟机在可用性集里，在一些虚拟机停机期间亦可做到应用程序和服务高可用，提供冗余。</p> 
+                <h2>扩展<span> ( Cluster )</span></h2>
+                <p>依据网站不同的发展阶段和业务规模，选择合适的架构方案，有效降低网站开发运维难度，保证服务质量。其中一个设计思想是将架构的各个模块解耦，服务化，做到整体水平扩展。</p>
+                <h3>开始使用:</h3>
+                <a href="https://docs.azure.cn/articles/open-source-azure-virtual-machines-create-website-cluster/" id="oss-website_open-source-azure-virtual-machines-create-website-cluster03">构建网站集群</a>
+            </div>
+                   
+    ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>Azure云服务快速网站建设解决方案- Azure云计算</pageTitle>
+    <metaKeywords>Azure云建站,网站建设解决方案,快速建站</metaKeywords>
+    <metaDescription><![CDATA[借助 Azure 网站建设开源解决方案，快捷建站，业务快速上线；应对业务规模的变化，提供合适的网站架构方案，轻松扩展；有效降低运维难度和资源投入。]]></metaDescription>
+    <linkid>solutions-oss-website</linkid>
+    <urlDisplayName>网站建设开源解决方案</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate>solution-template</pageTemplate>
+    <localize>1</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <banner>
+      <![CDATA[
+    	<!-- BEGIN: Banner -->
+            <div class="common-banner" data-config="{'backgroundColor':'#0078D7', 'backgroundImage':'http://wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/banner-oss-mongodb.png','imageHeight':'300'}">         
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <h1>网站建设</h1>
+                        <p>快捷建站，业务快速上线；应对业务规模的变化，提供合适的网站架构方案，轻松扩展；有效降低运维难度和资源投入。</p>
+                    </div>
+                </div>
+            </div>
+        <!-- End: Banner-->
+    ]]>
+    </banner>
+  </umbTextpage>
+</localize>

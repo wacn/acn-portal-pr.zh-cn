@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19081" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="5" createDate="2013-07-11T11:29:13" updateDate="2014-08-18T11:20:07" nodeName="Service-Bus-Topics" urlName="service-bus-topics" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19081" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何使用 Service Bus 主题/订阅</h1>
+<p>本指南将演示如何使用 Service Bus 主题和订阅。这些示例通过 PHP 编写并使用 <a href="http://go.microsoft.com/fwlink/?LinkId=252473">Windows Azure SDK for PHP</a>。所涉及的任务包括<strong>创建主题和订阅</strong>、<strong>创建订阅筛选器</strong>、<strong>将消息发送到主题</strong>、<strong>从订阅接收消息</strong>和<strong>删除主题和订阅</strong>。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-are-service-bus-topics">什么是 Service Bus 主题和订阅？</a></li>
+<li><a href="#create-a-service-namespace">创建服务命名空间</a></li>
+<li><a href="#obtain-default-credentials">获取命名空间的默认管理凭据</a></li>
+<li><a href="#CreateApplication">创建 PHP 应用程序</a></li>
+<li><a href="#GetClientLibrary">获取 Windows Azure 客户端库</a></li>
+<li><a href="#ConfigureApp">将应用程序配置为使用 Service Bus</a></li>
+<li><a href="#CreateTopic">如何：创建主题</a></li>
+<li><a href="#CreateSubscription">如何：创建订阅</a></li>
+<li><a href="#SendMessage">如何：将消息发送到主题</a></li>
+<li><a href="#ReceiveMessages">如何：从订阅接收消息</a></li>
+<li><a href="#HandleCrashes">如何：处理应用程序崩溃和不可读消息</a></li>
+<li><a href="#DeleteTopicsAndSubscriptions">如何：删除主题和订阅</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared (1)" hide="0" chunkname="howto-service-bus-topics" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="CreateApplication">创建 PHP 应用程序</h2>
+<p>创建访问 Windows Azure Blob 服务的 PHP 应用程序的唯一要求是从代码中引用 <a href="http://go.microsoft.com/fwlink/?LinkId=252473">Windows Azure SDK for PHP</a> 中的类。您可以使用任何开发工具来创建应用程序，包括记事本。</p>
+<div class="dev-callout">注意
+<p>您的 PHP 安装还必须已安装并启用 <a href="http://php.net/openssl">OpenSSL 扩展</a>。</p>
+</div>
+<p>在本指南中，您将使用服务功能，这些功能可在 PHP 应用程序中本地调用，或在 Windows Azure 的 Web 角色、辅助角色或网站中运行的代码中调用。</p>
+<h2 id="GetClientLibrary">获取 Windows Azure 客户端库</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="get-client-libraries" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="ConfigureApp">将应用程序配置为使用 Service Bus</h2>
+<p>若要使用 Windows Azure Servise Bus 主题 API，您需要：</p>
+<ol>
+<li>使用 <a href="http://php.net/require_once">require_once</a> 语句引用 autoloader 文件，并</li>
+<li>引用可使用的所有类。</li>
+</ol>
+<p>下面的示例演示如何包含 autoloader 文件并引用 <strong>ServiceBusService</strong> 类。</p>
+<div class="dev-callout">注意
+<p>本示例（以及本文中的其他示例）假定您已通过 Composer 安装用于 Windows Azure 的 PHP 客户端库。如果您已手动安装这些库或将其作为 PEAR 包安装，则需要引用 <code>WindowsAzure.php</code> autoloader 文件。</p>
+</div>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+use WindowsAzure\Common\ServicesBuilder;</pre>
+<p>在下面的示例中，将始终显示 <code>require_once</code> 语句，但仅引用执行该示例所需的类。</p>
+<h2 id="ConnectionString">设置 Windows Azure Service Bus 连接</h2>
+<p>若要实例化 Windows Azure Service Bus 客户端，您必须先拥有采用此格式的有效连接字符串：</p>
+<pre class="prettyprint">Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]</pre>
+<p>其中，终结点的格式通常为 <code>https://[yourNamespace].servicebus.chinacloudapi.cn</code>。</p>
+<p>若要创建任何 Windows Azure 服务客户端，您将需要使用 <strong>ServicesBuilder</strong> 类。您可以：</p>
+<ul>
+<li>将连接字符串直接传递给此类或</li>
+<li>使用 <strong>CloudConfigurationManager (CCM)</strong>检查此连接字符串的多个外部源：
+<ul>
+<li>默认情况下，它附带了对一个外部源的支持 - 环境变量</li>
+<li>可通过扩展 <strong>ConnectionStringSource</strong> 类来添加新源</li>
+</ul>
+</li>
+</ul>
+<p>在此处列出的示例中，将直接传递连接字符串。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+
+$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
+
+$serviceBusRestProxy = ServicesBuilder::getInstance()-&gt;createServiceBusService($connectionString);</pre>
+<h2 id="CreateTopic">如何：创建主题</h2>
+<p>Service Bus 主题的管理操作可通过 <strong>ServiceBusRestProxy</strong> 类执行。<strong>ServiceBusRestProxy</strong> 对象是通过 <strong>ServicesBuilder::createServiceBusService</strong> 工厂方法与一个适当的连接字符串（该字符串封装了令牌权限以进行管理）构造的。</p>
+<p>下面的示例说明如何实例化 <strong>ServiceBusRestProxy</strong> 并调用 <strong>ServiceBusRestProxy-&gt;createTopic</strong> 来在 <code>MySBNamespace</code> 服务命名空间中创建名为 <code>mytopic</code> 的主题：</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\TopicInfo;
+
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()-&gt;createServiceBusService($connectionString);
+
+try {       
+    // Create topic.
+    $topicInfo = new TopicInfo("mytopic");
+    $serviceBusRestProxy-&gt;createTopic($topicInfo);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<div class="dev-callout">注意
+<p>可以使用 thelistTopicsmethod onServiceBusRestProxyobjects 来检查具有指定名称的主题是否已存在于服务命名空间中。</p>
+</div>
+<h2 id="CreateSubscription">如何：创建订阅</h2>
+<p>主题订阅同样使用 <strong>ServiceBusRestProxy-&gt;createSubscription</strong> 方法创建。订阅将被命名，且具有限制传递到订阅的虚拟队列的消息集的可选筛选器。</p>
+<h3>创建具有默认 (MatchAll) 筛选器的订阅</h3>
+<p><strong>MatchAll</strong> 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。使用 <strong>MatchAll</strong> 筛选器时，发布到主题的所有消息都将置于订阅的虚拟队列中。下面的示例将创建名为“mysubscription”的订阅，并使用默认的 <strong>MatchAll</strong> 筛选器。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
+
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()-&gt;createServiceBusService($connectionString);
+
+try {
+    // Create subscription.
+    $subscriptionInfo = new SubscriptionInfo("mysubscription");
+    $serviceBusRestProxy-&gt;createSubscription("mytopic", $subscriptionInfo);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h3>创建具有筛选器的订阅</h3>
+<p>您还可以设置一些筛选器，用来确定应该在特定主题订阅中显示的发送到主题的消息的范围。订阅支持的最灵活的一种筛选器是 <strong>SqlFilter</strong>，它实现了一部分 SQL92 功能。SQL 筛选器将对发布到主题的消息的属性进行操作。有关 SqlFilters 的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx">SqlFilter.SqlExpression Property</a>。</p>
+<div class="dev-callout">注意
+<p>有关订阅的每个规则单独处理传入消息，并将其结果消息添加到订阅。此外，每个新订阅的筛选器具有一个默认规则，该规则包含将主题中的所有消息添加到订阅的筛选器。若要仅接收与您的筛选器的消息，您必须删除默认规则。可以使用 theServiceBusRestProxy-&gt;deleteRulemethod 删除默认规则。</p>
+</div>
+<p>下面的示例将创建一个名为“HighMessages”的订阅，该订阅包含 <strong>SqlFilter</strong> 仅选择具有大于 3 的自定义 <strong>MessageNumber</strong> 属性的消息（有关将自定义属性添加到消息的信息，请参阅<a href="#SendMessage">如何：将消息发送到主题</a>）：</p>
+<pre class="prettyprint">$subscriptionInfo = new SubscriptionInfo("HighMessages");
+$serviceBusRestProxy-&gt;createSubscription("mytopic", $subscriptionInfo);
+
+$serviceBusRestProxy-&gt;deleteRule("mytopic", "HighMessages", '$Default');
+
+$ruleInfo = new RuleInfo("HighMessagesRule");
+$ruleInfo-&gt;withSqlFilter("MessageNumber &gt; 3");
+$ruleResult = $serviceBusRestProxy-&gt;createRule("mytopic", "HighMessages", $ruleInfo);</pre>
+<p>请注意，上面的代码需要使用另一个命名空间：<code>WindowsAzure\ServiceBus\Models\SubscriptionInfo</code>。</p>
+<p>同样，下面的示例将创建一个名为“LowMessages”的订阅，该订阅包含仅选择 MessageNumber 属性小于或等于 3 的消息的 SqlFilter：</p>
+<pre class="prettyprint">$subscriptionInfo = new SubscriptionInfo("LowMessages");
+$serviceBusRestProxy-&gt;createSubscription("mytopic", $subscriptionInfo);
+
+$serviceBusRestProxy-&gt;deleteRule("mytopic", "LowMessages", '$Default');
+
+$ruleInfo = new RuleInfo("LowMessagesRule");
+$ruleInfo-&gt;withSqlFilter("MessageNumber &lt;= 3");
+$ruleResult = $serviceBusRestProxy-&gt;createRule("mytopic", "LowMessages", $ruleInfo);</pre>
+<p>现在，当消息发送到 <code>mytopic</code> 主题后，它总是会传送给订阅了 <code>mysubscription</code> 订阅的接收者，并且选择性地传送给订阅了“HighMessages”和“LowMessages”订阅的接收者（具体取决于消息内容）。</p>
+<h2 id="SendMessage">如何：将消息发送到主题</h2>
+<p>若要向 Service Bus 主题发送消息，您的应用程序将调用 <strong>ServiceBusRestProxy-&gt;sendTopicMessage</strong> 方法。下面的代码演示了如何将消息发送到我们之前在 <code>MySBNamespace</code> 服务命名空间中创建的 <code>mytopic</code> 主题。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()-&gt;createServiceBusService($connectionString);
+
+try {
+    // Create message.
+    $message = new BrokeredMessage();
+    $message-&gt;setBody("my message");
+
+    // Send message.
+    $serviceBusRestProxy-&gt;sendTopicMessage("mytopic", $message);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780775
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>发送到 Service Bus 主题的消息是 <strong>BrokeredMessage</strong> 类的实例。<strong>BrokeredMessage</strong> 对象包含一组标准属性和方法（如 <strong>getLabel</strong>、<strong>getTimeToLive</strong>、<strong>setLabel</strong> 和 <strong>setTimeToLive</strong>）以及用来保存自定义应用程序特定属性的属性。下面的示例演示如何向我们之前创建的 <code>mytopic</code> 主题发送五条测试消息。<strong>setProperty</strong> 方法用于将自定义属性（<code>MessageNumber</code>）添加到每条消息。请注意 <code>MessageNumber</code> 属性值在每条消息中都不同（这可用于确定接收到消息的订阅，如上面的<a href="#CreateSubscription">如何：创建订阅</a>一节所示）：</p>
+<pre class="prettyprint">for($i = 0; $i &lt; 5; $i++){
+    // Create message.
+    $message = new BrokeredMessage();
+    $message-&gt;setBody("my message ".$i);
+
+    // Set custom property.
+    $message-&gt;setProperty("MessageNumber", $i);
+
+    // Send message.
+    $serviceBusRestProxy-&gt;sendTopicMessage("mytopic", $message);
+}</pre>
+<p>Service Bus 队列支持最大为 256 KB 的消息（标头最大为 64 KB，其中包括标准和自定义应用程序属性）。一个队列可包含的消息数不受限制，但消息的总大小受限。队列大小的上限为 5 GB。</p>
+<h2 id="ReceiveMessages">如何：从订阅接收消息</h2>
+<p>从订阅接收消息的主要方法是使用 <strong>ServiceBusRestProxy-&gt;receiveSubscriptionMessage</strong> 方法。收到的消息可在两种不同模式下工作：<strong>ReceiveAndDelete</strong>（默认值）和 <strong>PeekLock</strong>。</p>
+<p>当使用 <strong>ReceiveAndDelete</strong> 模式时，接收是一个单击操作 - 即，当 Service Bus 接收订阅中的消息读取请求时，它会将消息标记为“将使用”并将其返回应用程序。<strong>ReceiveAndDelete</strong> 模式是最简单的模式，最适合应用程序允许出现故障时不处理消息的方案。为了理解这一点，可以考虑这样一个方案：使用方发出接收请求，但是处理请求前发生了崩溃。由于 Service Bus 会将消息标记为“将使用”，因此当应用程序重启并重新开始使用消息时，它会丢失在发生崩溃前使用的消息。</p>
+<p>在 <strong>PeekLock</strong> 模式下，接收消息会变成一个两阶段操作，这将能够支持不能允许丢失消息的应用程序。当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，然后将该消息返回到应用程序。在应用程序处理完消息（或以可靠方式存储消息以供将来处理）后，它通过将收到的消息传递到 <strong>ServiceBusRestProxy-&gt;deleteMessage</strong> 来完成接收过程的第二个阶段。当 Service Bus 发现 <strong>deleteMessage</strong> 调用时，它会将消息标记为“将使用”并将其从队列中删除。</p>
+<p>下面的示例演示了如何使用 <strong>PeekLock</strong> 模式（非默认模式）接收和处理消息。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()-&gt;createServiceBusService($connectionString);
+
+try {
+    // Set receive mode to PeekLock (default is ReceiveAndDelete)
+    $options = new ReceiveMessageOptions();
+    $options-&gt;setPeekLock();
+
+    // Get message.
+    $message = $serviceBusRestProxy-&gt;receiveSubscriptionMessage("mytopic", 
+                                                                "mysubscription", 
+                                                                $options);
+    echo "Body: ".$message-&gt;getBody()."&lt;br /&gt;";
+    echo "MessageID: ".$message-&gt;getMessageId()."&lt;br /&gt;";
+
+    /*---------------------------
+        Process message here.
+    ----------------------------*/
+
+    // Delete message. Not necessary if peek lock is not set.
+    echo "Deleting message...&lt;br /&gt;";
+    $serviceBusRestProxy-&gt;deleteMessage($message);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here:
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780735
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="HandleCrashes">如何：处理应用程序崩溃和不可读消息</h2>
+<p>Service Bus 提供了相应功能来帮助您轻松地从应用程序的错误中恢复或解决处理消息时遇到的问题。如果接收方应用程序出于某种原因无法处理消息，它可以对收到的消息调用 <strong>unlockMessage</strong> 方法（而不是 <strong>deleteMessage</strong> 方法）。这将导致 Service Bus 解锁队列中的消息并使它能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。</p>
+<p>此外，还存在与队列中的锁定消息关联的超时，如果应用程序未能在锁定超时到达之前处理消息（例如，如果应用程序发生崩溃），则 Service Bus 将自动解锁消息并使其重新可被接收。</p>
+<p>如果在处理消息之后但在发出 <strong>deleteMessage</strong> 请求之前应用程序发生崩溃，该消息将在应用程序重新启动时重新传送给它。此情况通常称作<strong>至少处理一次</strong>，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。通常可使用消息的 <strong>getMessageId</strong> 方法实现此操作，这在多个传送尝试中保持不变。</p>
+<h2 id="DeleteTopicsAndSubscriptions">如何删除主题和订阅</h2>
+<p>若要删除主题或订阅，请分别使用 <strong>ServiceBusRestProxy-&gt;deleteTopic</strong> 或 <strong>ServiceBusRestProxy-&gt;deleteSubscripton</strong> 方法。请注意，删除主题也会删除向该主题注册的所有订阅。</p>
+<p>下面的示例演示了如何删除主题 (<code>mytopic</code>) 及其注册的订阅。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\ServiceBus\ServiceBusService;
+use WindowsAzure\ServiceBus\ServiceBusSettings;
+use WindowsAzure\Common\ServiceException;
+
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()-&gt;createServiceBusService($connectionString);
+
+try {       
+    // Delete topic.
+    $serviceBusRestProxy-&gt;deleteTopic("mytopic");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<p>通过使用 <strong>deleteSubscription</strong> 方法，您可以单独删除订阅：</p>
+<pre class="prettyprint">$serviceBusRestProxy-&gt;deleteSubscription("mytopic", "mysubscription");</pre>
+<h2 id="NextSteps">后续步骤</h2>
+<p>现在，您已了解 Service Bus 队列的基础知识，请参阅 MSDN 主题<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh367516.aspx">队列、主题和订阅</a>以获取更多信息。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>service-bus-topics</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>service-bus-topics</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>service-bus-topics</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

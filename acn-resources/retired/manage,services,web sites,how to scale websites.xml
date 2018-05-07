@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19287" parentID="19282" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="5" createDate="2013-07-11T12:16:38" updateDate="2014-08-18T11:29:34" nodeName="How to Scale Websites" urlName="how-to-scale-websites" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19282,19287" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何缩放网站</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>可以使用 Windows Azure管理门户缩放网站，并指定您是希望网站在“免费”、“共享”还是“专属”网站模式中运行。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#freemode">“免费”网站模式</a></li>
+<li><a href="#sharedmode">“共享”网站模式</a></li>
+<li><a href="#reservedmode">“专属”网站模式</a></li>
+<li><a href="#howtochangescale">如何：更改网站的缩放选项</a></li>
+</ul>
+<h2><a name="freemode"></a>“免费”网站模式</h2>
+<p>初次创建网站后，该网站将在“免费”<strong></strong>网站模式中运行，这意味着，它将与也在“免费”或“共享”网站模式中运行网站的其他订户共享可用计算资源。</p>
+<p>尽管与其他配置相比，配置为在“免费”模式中运行的网站的单个实例提供的性能相当有限，但它提供的性能仍足够用来完成开发任务或概念证明工作。</p>
+<p>如果将配置为使用“免费”网站模式在单个实例中运行的网站投入生产，则随时间增加的客户端请求的平均数将证明对网站可用的资源是远远不够的。如果超出了网站的 CPU 时间配额，则将停止同一订阅中的所有网站（通常，网站实例会在闲置 20 分钟后卸载）。网站将在下一个配额时间间隔重新启动。</p>
+<p>在将网站投入生产之前，可通过更改网站的“缩放”<strong></strong>管理页上可用的配置选项来估计网站应处理的负载并考虑向上扩展/向外扩展网站。</p>
+<p><strong>警告</strong> <br />适用于网站的缩放选项也适用于满足下列条件的所有网站：</p>
+<ol>
+<li>配置为在“共享”或“专属”网站模式中运行。</li>
+<li>位于为其修改缩放选项的网站所在的区域。</li>
+</ol>
+<p>为此，建议您将所有“概念证明”网站配置为在“免费”网站模式中运行，或在打算向上扩展或向外扩展的网站所在的区域之外的其他区域创建网站。</p>
+<h2><a name="sharedmode"></a>“共享”网站模式</h2>
+<p>配置为或更新为“共享”<strong></strong>模式的网站将使用成本较低的缩放模式，并且提供的性能要高于“免费”<strong></strong>模式提供的性能。可通过管理门户的“缩放”<strong></strong>选项卡轻松更改为“共享”<strong></strong>模式。这些更改只需几秒钟即可应用，并且不需要更改代码或重新部署应用程序。</p>
+<p>“共享”<strong></strong>模式中的网站将部署到“免费”<strong></strong>模式中的网站所在的多租户环境中，但未对该网站可使用的带宽设置配额或上限。“共享”<strong></strong>网站上提供的第一个 5 GB 带宽是免费的；后续带宽将按照出站带宽的标准“现用现付”费率进行收费。</p>
+<p>此外，在“共享”<strong></strong>模式中运行的网站现在能够使用 CNAME 和 A 记录接收多个自定义 DNS 域名的映射。通过使用 A 记录，可以仅使用域名（例如，http://microsoft.com 以及 http://www.microsoft.com）访问网站。将来，基于 SNI 的 SSL 还可用于在“共享”<strong></strong>模式中运行的网站。</p>
+<h2><a name="reservedmode"></a>“专属”网站模式</h2>
+<p>配置为“专属”<strong></strong>的网站将提供比配置为“免费”<strong></strong>或“共享”<strong></strong>的网站更一致的性能。</p>
+<p>将网站配置为“专属”时，将指定网站的大小（“小”<strong></strong>、“中”<strong></strong>或“大”<strong></strong>）。使用大型“专属实例大小”<strong></strong>配置的网站在负载下的运行性能更佳。</p>
+<p>还指定“专属实例数”<strong></strong>的值（从 1 到 3）。增大“专属实例数”<strong></strong>的值将提供容错能力，并通过向外扩展改进性能。</p>
+<p>在将网站从“免费”<strong></strong>网站模式切换到“专属”<strong></strong>网站模式之前，您必须先删除网站订阅已有的支出上限。</p>
+<h2><a name="howtochangescale"></a>如何：更改网站的缩放选项</h2>
+<p>配置为在“免费”<strong></strong>或“共享”<strong></strong>网站模式<strong></strong>中运行的网站有权访问与<a href="http://go.microsoft.com/fwlink/?LinkID=236449">如何：配置虚拟机大小</a>的表中所述的“特小”虚拟机大小关联的资源。</p>
+<p>若要更改网站的缩放选项，请在“管理门户”中打开网站的“缩放”<strong></strong>管理页以配置下列缩放选项：</p>
+<ul>
+<li>
+<p><strong>网站模式</strong> - 默认情况下，设置为“免费”<strong></strong>。在将“网站模式”<strong></strong>从“免费”<strong></strong>或“共享”<strong></strong>更改为“专属”<strong></strong>时，将向上扩展网站以使其在有权访问其他内存、磁盘空间和带宽的单个专用内核上的小型计算实例中运行。有关详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkID=236449">如何：配置虚拟机大小</a>。</p>
+</li>
+<li>
+<p><strong>专属实例大小</strong> - 提供用于对在“专属”<strong></strong>网站模式中运行的网站进行向上扩展的选项。如果将“专属实例大小”<strong></strong>从“小”<strong></strong>更改为“中”<strong></strong>或“大”<strong></strong>，则网站将在相应大小的计算实例中运行并且有权访问每种大小的关联资源。有关详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkID=236449">如何：配置虚拟机大小</a>。</p>
+</li>
+<li>
+<p><strong>专属/共享实例数</strong> - 通过运行其他网站实例，增大此值以提供容错能力并通过向外扩展改进性能。</p>
+</li>
+</ul>
+<p>请注意，当您增大“共享实例数”<strong></strong>的值时，还会增大超出分配给每个网站订阅的用于在“共享”网站模式中运行网站的资源量的可能性。将根据每天的资源使用情况计算为此目的分配的资源。有关资源使用率配额的详细信息，请参阅<a href="/zh-cn/manage/services/web-sites/how-to-monitor-websites/">如何监视网站</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何缩放网站 - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><linkid>manage-scenarios-how-to-scale-websites</linkid><metaKeywords>Azure 缩放网站, 共享网站, 专属网站</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中缩放网站。并了解如何使用“共享”和“专属”网站模式。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何缩放</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

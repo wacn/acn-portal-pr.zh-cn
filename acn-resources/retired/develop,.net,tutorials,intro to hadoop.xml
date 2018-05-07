@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18862" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="10" createDate="2013-07-11T10:52:15" updateDate="2014-08-18T11:10:19" nodeName="Intro to Hadoop" urlName="intro-to-hadoop" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18862" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>Hadoop on Windows Azure 简介</h1>
+<p><strong>概述</strong> <br />基于 Apache™ Hadoop™ 的 Windows Azure 服务是一项在云中部署和配置群集的服务，其中提供旨在管理、分析和报告大数据的软件框架。</p>
+<p>以“大数据”的称呼描述数据是为了表明收集数据的规模不断增大、速度不断加快，并要针对种类繁多的非结构化格式和多变的语义上下文收集数据。收集大数据的过程本身并不为企业创造价值。若要使大数据发挥价值，成为可付诸行动的情报或见解，这些数据必须容易取得，经过清理和分析，然后以有用的形式呈现出来（一般与来自各种其他来源的数据一起呈现）。</p>
+<p>Apache Hadoop 是一个软件框架，它可简化对大数据的管理和分析。Apache Hadoop 内核通过 Hadoop 分布式文件系统 (HDFS) 使数据存储变得可靠，并提供一个简单的 MapReduce 编程模型以并行处理和分析存储在此分布式系统中的数据。HDFS 通过数据复制的方式处理在部署如此高度分散的系统时出现的硬件故障问题。</p>
+<p>为了简化分析来自各种来源的非结构化数据的复杂过程，MapReduce 编程模型提供一种核心抽象，使映射和化简操作得以闭合。MapReduce 编程模型将其所有作业视为对键值对数据集进行的计算。因此，输入和输出文件都必须包含此类键值对数据集。Pig 和 Hive 等其他与 Hadoop 相关的项目以 HDFS 和 MapReduce 框架为基础构建而来，可提高数据流控制和查询等功能的抽象级别，并提供集成大数据分析和端到端管理所需的仓库和挖掘等其他功能。</p>
+<p>以云中一项服务的形式实现 Hadoop on Windows Azure 后，可在一个更简单、规模变化更灵活和更具成本效益的环境中提供 HDFS/MapReduce 软件框架和相关项目。为简化配置和运行 Hadoop 作业以及与部署的群集进行交互的过程，Microsoft 提供 JavaScript 和 Hive 控制台。这种简化的 JavaScript 方法提供一条通往 Hadoop 框架的专用通道，使 IT 专业人员和更大范围的开发人员可管理和分析大数据。</p>
+<p>除了与 Apache Hadoop 相关的可用生态系统项目之外，它还提供开放式数据库连接 (ODBC) 驱动程序以集成 Excel、SQL Server Analysis Services 和 Reporting Services 等商业智能 (BI) 工具，从而推动和简化端到端数据分析。</p>
+<p>本主题介绍 Hadoop on Windows Azure 生态系统、Hadoop on Windows Azure 的主要方案，并浏览 Hadoop on Windows Azure 门户。其中包含以下各节：</p>
+<ul>
+<li>
+<p><a href="#BigData">大数据：大容量、高速、多样化和多变性。</a>- 大数据的性质决定了最好由 Hadoop 等 NoSQL 系统而非传统的关系数据库管理系统 (RDBMS) 进行管理。</p>
+</li>
+<li>
+<p><a href="#Ecosystem">Hadoop on Windows Azure 生态系统</a> - Hadoop on Windows Azure 提供 Pig、Hive、Mahout、Pegasus、Sqoop 和 Flume 实现，并支持 Excel、SQL Server Analysis Services 和 Reporting Services 等其他与 HDFS 和 MapReduce 框架集成的 BI 工具。</p>
+</li>
+<li>
+<p><a href="#Scenarios">Hadoop on Windows Azure 的大数据方案</a> - 适合使用 Hadoop on Windows Azure 的作业类型。</p>
+</li>
+<li>
+<p><a href="#HadoopOnAzure">Microsoft Hadoop on Windows Azure 入门</a> - 获得基于 Apache™ Hadoop™ 的 Windows Azure 服务门户的简介。</p>
+</li>
+<li>
+<p><a href="#Tour">浏览门户</a> - 部署群集、管理帐户、运行示例以及交互式 JavaScript 控制台。</p>
+</li>
+<li>
+<p><a href="#Resources">Hadoop on Windows Azure 的资源</a> - 可找到资源和其他信息的地方。</p>
+</li>
+</ul>
+<h2 id="bigdata"><a name="BigData"></a>大数据：大容量、高速、多样化和多变性</h2>
+<p>无法通过传统的 RDBMS 管理或处理大数据，因为大数据容量过大、数据产生的速度过于迅猛或数据结构的多样化和语义多变性不适合关系数据库体系结构。</p>
+<p><strong>大容量</strong> <br />Hadoop 大数据解决方案是对两种不同趋势作出的反应。一方面，由于硬盘驱动器的容量在过去 20 年间持续大幅提高，因此可存储由网站以及由连接到 Internet 的一代又一代的新式设备和仪器产生的巨量新数据。此外，每个人的在线行为自动受到跟踪。另一方面，这些容量不断增大的驱动器上的数据访问速度却并未同步提高，因此从超大磁盘读取和向其写入的过程过于缓慢。</p>
+<p>对于此类网络带宽瓶颈的解决方案有两项首要功能。首先，HDFS 提供某种类型的分布式体系结构，后者将数据存储在多个磁盘上，并可并行读取这些磁盘。其次，将任何数据处理计算要求移至数据存储节点，使得可尽量在本地访问数据。MapReduce 性能提高依靠的就是这种称为数据本地性的设计原则。此理念通过将程序移至数据（而非将数据移至程序）节省带宽，从而使 MapReduce 编程模型随数据集大小线性地改变规模。即使群集大小随所处理的数据容量成比例增大，作业的执行时间也相差无几。</p>
+<p><strong>高速</strong> <br />组织获得数据的速度遵循一种趋势，这种趋势非常类似于前面介绍的数据容量持续增大，并且日益增多的电子商务点击流消费者行为日志记录以及与 Facebook 和 Twitter 等社交网站关联的数据仍在不断加快该速度。智能手机和平板电脑设备的激增大大提高了产生在线数据的速度。在线游戏和科学仪器产生数据流的速度也使传统的 RDBMS 无法应付。在商业和游戏活动中确保占据竞争优势需要做到快速响应和快速得到数据分析结果。这些具有严密反馈环路的高速数据流需要 Hadoop 这样针对快速存储和检索经过优化的 NoSQL 方法。</p>
+<p><strong>多样化</strong> <br />所产生的数据大部分都杂乱无章。多种多样的数据源无法提供可及时管理传统 RDBMS 的静态结构。例如，社交网络数据通常基于文本，其形式多种多样，无法保持一成不变。来自图像和传感器馈送的数据也表现出类似的难题。此类非结构化数据需要 Hadoop 这样灵活的 NoSQL 系统，此类系统可提供充足的结构以容纳传入的数据，并且无需严格的架构即可存储这些数据。清理非结构化数据是一个重要的处理部分，在准备非结构化数据以供应用程序使用时需要进行此处理。为了更方便地提供纯净的高质量数据，有多个数据市场正在专门提供此项服务并展开竞争。</p>
+<p><strong>多变性</strong> <br />在诠释大数据的过程中也会产生更大的问题。“多变性”一词应用于大数据时，往往具体指代可遇到含义有多种变化的情况。查找最适合从中诠释非结构化数据的语义上下文可大大提高分析的复杂性。</p>
+<h2 id="ecosystem"><a name="Ecosystem"></a>Hadoop on Windows Azure 生态系统</h2>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/thehadoopecosystem.png" alt="TheHadoopEcosystem"/></p>
+<p><strong>简介</strong> <br />Hadoop on Windows Azure 提供一个框架，该框架实现用于处理大数据的基于 Microsoft 云的解决方案。此联合生态系统可管理和分析大量数据，同时充分利用并行处理功能、其他 HDFS 体系结构优化和 MapReduce 编程模型。Sqoop 和 Flume 等技术将 HDFS 与关系数据存储和日志文件相集成。Hive 和 Pig 集成数据处理和仓库功能。Pegasus 提供图挖掘功能。Microsoft 大数据解决方案与 Microsoft BI 工具（包括 SQL Server Analysis Services、Reporting Services、PowerPivot 和 Excel）相集成。通过 Microsoft BI 工具，可对 Hadoop on Windows Azure 生态系统存储和管理的数据执行直接 BI 处理。与 Apache 兼容的技术和同类技术是此生态系统的一部分，适合在 Hadoop 群集上运行，本节中逐项列出并简要介绍这些技术。</p>
+<p><strong>Pig</strong> <br />Pig 是 Hadoop 群集上用于处理大数据的一种高级平台。Pig 由一种称作 Pig Latin 的数据流语言（该语言支持编写对大数据集的查询）和一个从控制台运行程序的执行环境组成。Pig Latin 程序由多个在后台转换为 MapReduce 程序系列的数据集转换系列组成。Pig Latin 抽象提供的数据结构比 MapReduce 更丰富，并为 Hadoop 执行 SQL 为 RDBMS 系统执行的操作。Pig Latin 可进行全面扩展。在编制分析时，可调用以 Java、Python、C# 或 JavaScrip 编写的用户定义函数 (UDF) 以自定义每个处理路径阶段。有关详细信息，请参阅<a href="http://pig.apache.org/">欢迎使用 Apache Pig！</a></p>
+<p><strong>Hive</strong> <br />Hive 是一种分布式数据仓库，用于管理存储在 HDFS 中的数据。它是 Hadoop 的查询引擎。Hive 适用于 SQL 能力较强的分析人员，它提供一个与 SQL 相似的接口和一个关系数据模型。Hive 使用一种称作 HiveQL（SQL 的一种变体）的语言。Hive 类似于 Pig，也是 MapReduce 上的一种抽象，它在运行时将查询转换为一系列 MapReduce 作业。Hive 的方案在概念上更接近于 RDBMS 的方案，因此适合用于更加结构化的数据。对于非结构化数据，选择 Pig 会更好。Hadoop on Windows Azure 包括 Hive的 ODBC 驱动程序，通过后者，可从 Excel 等商业智能工具中直接实时查询 Hadoop。有关详细信息，请参阅<a href="http://hive.apache.org/">欢迎使用 Apache Hive！</a></p>
+<p><strong>Mahout</strong> <br />Mahout 是一个开源机器学习库，可简化构建规模可变的匹配学习库。按映射/化简范例以 Apache Hadoop 为基础实现聚类分析、分类和基于批次的协作筛选方面的算法。有关详细信息，请参阅 <a href="http://mahout.apache.org/">Apache Mahout 是什么</a>。</p>
+<p><strong>Pagasus</strong> <br />Pegasus 是一种在 Hadoop 上运行的 PB 级图挖掘系统。图挖掘是用于查找以图为特征的模式、规则和异常的数据挖掘。这种语境下的图是一组对象，其中任意两个对象之间均有链接。此结构类型以随处可见的网络为特征，包括在 Web、计算机和社交网站（Facebook、Twitter）上链接的页面以及多种生物和物理系统。在 Pegasus 之前，所挖掘的图最多只能含有数百万个对象。通过开发在 Hadoop 群集上并行运行的算法，Pegasus 开发的算法可挖掘含有数十亿个对象的图。有关详细信息，请参阅 <a href="http://www.cs.cmu.edu/~pegasus/">Pegasus 项目</a>网站。</p>
+<p><strong>Sqoop</strong> <br />Sqoop 是在 Hadoop 与关系数据库（如 SQL ）或其他结构化数据存储之间尽可能高效地传送大容量数据的工具。使用 Sqoop 可将数据从外部结构化数据存储导入到 HDFS 或相关的系统（如 Hive）。Sqoop 也可从 Hadoop 中提取数据并将提取到的数据导出到外部关系数据库、企业数据仓库或任何其他结构化数据存储类型。有关详细信息，请参阅 <a href="http://sqoop.apache.org/">Apache Sqoop</a> 网站。</p>
+<p><strong>Flume</strong> Flume 是一种分布式、可靠且可用的服务，用于高效地收集和聚合大量日志数据以及将这些数据移至 HDFS。Flume 的体系结构基于流式数据流。它具有可调和可靠性机制以及许多故障转移和恢复机制，因此坚实可靠并可容错。它采用一个简单的可扩展数据模型，可实现联机分析应用程序。有关详细信息，请参阅 <a href="http://incubator.apache.org/flume/">Flume</a> 网站（构建中）。</p>
+<p><strong>商业智能工具</strong> <br />您所熟知的商业智能 (BI) 工具（如 Excel、PowerPivot、SQL Server Analysis Services 和 Reporting Services）使用 ODBC 驱动程序检索、分析和报告与 Hadoop on Windows Azure 集成的数据。可在 <em>Hadoop on Windows Azure</em> 门户<a href="http://social.technet.microsoft.com/wiki/contents/articles/6226.how-to-connect-excel-to-hadoop-on-azure-via-hiveodbc-en-us.aspx">如何通过 HiveODBC 将 Excel 连接到 Hadoop on Windows Azure</a> 下载 Hive ODBC 驱动程序和用于 Excel 的 Hive 外接程序。<br />* 有关 Analysis Services 的信息，请参阅 <a href="http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx">SQL Server 2012 Analysis Services</a>。<br />* 有关 Reporting Services 的信息，请参阅 <a href="http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-reporting-services.aspx">SQL Server 2012 Reporting</a>。</p>
+<h2 id="senarios"><a name="Scenarios"></a>Hadoop on Windows Azure 的大数据方案</h2>
+<p>可为 Hadoop on Windows Azure 应用程序提供实例的典型方案是以批处理形式对存储在 Windows Azure 节点上的整个非结构化数据集（不需要频繁更新）进行临时分析。</p>
+<p>这些情况适用于商业、科技和管制方面的多种活动。例如，这些情况包括监控零售业的供应链、金融业的可疑交易模式、公用事业和服务的需求模式、环境传感器阵列测量的空气和水质量或大城市区域内的犯罪模式。</p>
+<p>Hadoop 最适合处理在写入后不需要频繁更新但经常读取以进行完整分析的大量记录或存档的数据。此方案对更适合由 RDBMS 处理的数据加以补充，RDBMS 要求数据容量较小（GB 而非 PB），并且必须持续更新它，或查询它以获得完整数据集内的特定数据点。RDBMS 最适合根据固定架构组织和存储的结构化数据。MapReduce 适用于没有预定义架构的非结构化数据，因为它在处理数据可解释数据。</p>
+<h2 id="hadoopOnAzure"><a name="HadoopOnAzure"></a> Microsoft Hadoop on Windows Azure 入门</h2>
+<p><strong>基于 Apache Hadoop 的 Windows Azure 服务使用的门户</strong> <br />Hadoop on Windows Azure 的 Microsoft 实现使用一个门户配置新的 Apache Hadoop 群集。在该门户上配置的群集只是临时的，几天后就会到期。当时钟上剩余六小时以下时，允许延长到期时间。这些群集运行的作业可处理群集上或其他位置的数据。例如，数据可位于 Windows Azure 帐户中，也可通过 FTP 将数据传输到群集。</p>
+<p>使用临时群集的优点是没有维护 MapReduce 并行处理作业所需硬件的成本。使用群集，然后释放它或允许它到期。Apache Hadoop 部署解决方案还可用于将 Apache Hadoop 部署到 Windows Azure 帐户或由您管理的内部部署硬件。</p>
+<p><strong>获得对 CTP 和部署 Hadoop 群集的访问权限</strong> <br />获得对 Hadoop on Windows Azure 的访问权限、登录网站以及部署您在 Windows Azure 上的第一个 Hadoop 群集的步骤如下。</p>
+<ol>
+<li>通过填写 <a href="https://connect.microsoft.com/continue.aspx?pageType=2&amp;regType=1&amp;cru=%2fSQLServer%2fSurvey%2fSurvey.aspx%3fSurveyID%3d13697&amp;cu=">Apache Hadoop for Windows Azure &amp; Windows Server</a> Connect 个人资料，提供有关您自己、业务领域和技术方案的信息。需要 LiveID（例如，Hotmail.com、Live.com）以填写和提交 Connect 个人资料。这可能需要一些预备步骤。</li>
+<li>收到邀请代码后，转到 <a href="https://www.hadooponazure.com">HadoopOnAzure.com</a> 网站，然后单击“登录”。</li>
+<li>
+<p>如果您是首次访问，则要求您允许 <em>HadoopOnAzure.com</em> 访问您的 LiveID 个人资料信息。单击“是”。随后将打开“已有代码”对话框。</p>
+</li>
+<li>
+<p>在“已有代码”对话框中，输入邀请代码，然后单击“注册”。</p>
+</li>
+<li>对于新帐户，您的第一项任务是创建 Hadoop on Windows Azure 群集。您的选项如下：<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/requestnewcluster.png" alt="RequestNewCluster"/> 您的选项为：<br /><strong>DNS 名称</strong>：选择群集的名称。此处使用“samples8”。<br />群集大小：选择要对照进行测试的群集的大小。当前，必须使用<strong>较小的</strong> 3 节点群集。<br />群集登录：提供群集的“用户名”和“密码”以登录到它。此处使用默认值“someUserName”。</li>
+<li>单击“请求群集”（右侧的条，绿条下）</li>
+<li>此时，Hadoop on Windows Azure 服务开始创建新群集，此过程最多耗时 10 分钟，具体取决于节点数和群集数。</li>
+</ol>
+<h2 id="tour"><a name="Tour"></a>门户浏览</h2>
+<p>登录到所部署的群集后，即打开您的帐户页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/hadooponazureaccountpage.png" alt="HadoopOnAzureAccountPage"/></p>
+<p><em>Hadoop on Windows Azure 门户</em></p>
+<p>门户上有三个部分，集中了链接到 Hadoop on Windows Azure 各项管理功能的图标：</p>
+<ul>
+<li><strong>您的任务</strong>：在此部分中，可创建新作业以及跟踪以前创建或运行的作业。</li>
+<li><strong>您的群集</strong>：此部分提供多种与群集进行交互和管理群集的方法，例如，JavaScript 和 Hive 的“交互式控制台”、用于直接访问群集的“远程桌面”、可为 ODCB FTPS 连接的“打开端口”以及“管理群集”存储、数据市场、灾难恢复以及连接到 Amazon S3 帐户。</li>
+<li><strong>管理帐户</strong>：此部分跟踪帐户上的“作业历史记录”、允许访问 Hadoop on Windows Azure 附带的准备好运行的“示例”以及提供 Hadoop on Windows Azure 的客户端实用程序（如 Hive ODBC 驱动程序以及用于 Excel 的 Hive 外接程序）的“下载”。</li>
+</ul>
+<p>若要探索门户功能，请单击任意图标。有关“新建作业”和“交互式控制台”功能的用法，请参阅“用 Hadoop on Windows Azure 运行作业”主题。有关运行“示例”的演练，请参阅“示例”主题。可从头节点上的命令窗口中使用 Hadoop 文件系统命令（可在“远程桌面”中打开该窗口）。</p>
+<h2 id="Resources"><a name="Resources"></a>Hadoop on Windows Azure 的资源</h2>
+<p><strong>Microsoft：Windows Azure 上的 Hadoop</strong></p>
+<ul>
+<li><a href="https://www.hadooponazure.com/">欢迎使用 Hadoop on Windows Azure</a> - 基于 Apache Hadoop 的 Windows Azure 服务的欢迎页。</li>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/6206.hadoop-based-services-on-windows-azure-how-to-guide.aspx">基于 Apache Hadoop 的 Windows Azure 服务操作方法指南</a> - TechNet Wiki，含有关 Hadoop on Windows Azure 的文档的链接。</li>
+<li><a href="http://www.windowsazure.cn/zh-cn/home/scenarios/big-data/">大数据和 Windows Azure</a> - 探索用 Windows Azure 可构建什么内容的大数据方案。</li>
+</ul>
+<p><strong>Microsoft：Windows 和 SQL Database</strong></p>
+<ul>
+<li><a href="http://www.windowsazure.cn/zh-cn/">Windows Azure 主页</a> - 开始生成应用程序所需的方案、免费试用版注册、开发工具和文档。</li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee336279.aspx">MSDN SQL Database</a> - SQL Database 的 MSDN 文档</li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg442309.aspx">SQL Database 的管理门户</a> - 一个易用的轻型数据库管理工具，用于在云中管理 SQL Database。</li>
+<li><a href="http://msftdbprodsamples.codeplex.com/releases/view/37304">Adventure Works for SQL Database</a> - SQL Databse 示例数据库的下载页。</li>
+</ul>
+<p><strong>Microsoft：商业智能</strong></p>
+<ul>
+<li><a href="http://www.microsoft.com/zh-cn/bi/PowerPivot.aspx">Microsoft BI PowerPivot</a> - 一个功能强大的数据混合与数据探索工具。</li>
+<li><a href="http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx">SQL Server 2012 Analysis Services</a> - 生成包罗万象的企业级分析解决方案，而这些解决方案产生可付诸行动的深刻见解。</li>
+<li><a href="http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-reporting-services.aspx">SQL Server 2012 Reporting</a> - 一个包罗万象、可大幅改变规模的解决方案，可帮助整个企业即时做出决策。</li>
+</ul>
+<p><strong>Apache Hadoop</strong>：</p>
+<ul>
+<li><a href="http://hadoop.apache.org/">Apache Hadoop</a> - 一个软件库，它提供一个框架，在此框架下可对跨越计算机群集的大数据集进行分布式处理。</li>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/HDFSHighAvailability.html">HDFS</a> - Hadoop 分布式文件系统 (HDFS) 是由 Hadoop 应用程序使用的主存储系统。</li>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Map Reduce</a> - 一个编程模型和软件框架，用于编写可快速地并行处理大型计算节点群集上的大量数据。</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Hadoop 简介 (.NET) - Windows Azure 教程</pageTitle><metaKeywords>Azure Hadoop 简介, Hadoop Azure 基础, Azure Hadoop 简介</metaKeywords><metaDescription><![CDATA[了解使用 Hadoop on Windows Azure。]]></metaDescription><linkid>develop-dotnet-intro-to-hadoop</linkid><urlDisplayName>Hadoop 简介</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

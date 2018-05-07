@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19012" parentID="19011" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:17:20" updateDate="2014-08-18T11:17:24" nodeName="Create a Website (Mac)" urlName="create-a-website-(mac)" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17380,19011,19012" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/node" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>构建 Node.js 网站并部署到 Windows Azure</h1>
+<p>本教程演示如何创建 <a href="http://nodejs.org/">Node</a> 应用程序并使用 <a href="http://git-scm.com/">Git</a> 将其部署到 Windows Azure 网站。本教程中的说明适用于任何能够运行 Node 的操作系统。</p>
+<p>以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/helloazure.png" alt="显示“Hello World”消息的浏览器。"/></p>
+<h2>创建 Windows Azure 网站并启用 Git 发布</h2>
+<p>按照这些步骤操作创建一个 Windows Azure 网站，然后对该网站启用 Git 发布。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>若要完成本教程，您需要一个启用了 Windows Azure 网站功能的 Windows Azure 帐户。</p>
+<ul>
+<li>如果您没有帐户，则可以创建一个免费的试用帐户，只需几分钟即可完成。有关详细信息，请参阅 <a href="http://www.windowsazure.cn/zh-cn/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure 免费试用</a>。</li>
+<li>如果您已有一个帐户但需要启用 Windows Azure 网站预览，请参阅<a href="../create-a-windows-azure-account/#enable" target="_blank">启用 Windows Azure 预览功能</a>。</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>单击门户左下角的“+ 新建”图标</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/plus-new.png" alt="Windows Azure 门户上的“+ 新建”链接将突出显示。"/></p>
+</li>
+<li>
+<p>单击“网站”，然后单击“快速创建”。输入一个<strong> URL</strong> 值，在“区域”下拉菜单中为您的网站选择数据中心。单击对话框底部的复选标记。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/create-quick-website.png" alt="“快速创建”对话框"/></p>
+</li>
+<li>
+<p>一旦网站状态变成“正在运行”，则单击网站名称以访问“仪表板”</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/go_to_dashboard.png" alt="打开网站仪表板"/></p>
+</li>
+<li>
+<p>在仪表板的右下角，选择“设置 Git 发布”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/setup_git_publishing.png" alt="设置 Git 发布"/></p>
+</li>
+<li>
+<p>要启用 Git 发布，必须提供用户名和密码。如果您先前已对某个 Windows Azure 网站启用了发布，则系统不会提示您输入用户名或密码，而是用您先前指定的用户名和密码创建一个 Git 存储库。记下此用户名和密码，因为它们将用于您创建的所有 Windows Azure 网站的 Git 发布。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-deployment-credentials.png" alt="提示输入用户名和密码的对话框。"/></p>
+</li>
+<li>
+<p>一旦 Git 存储库准备就绪，就会显示有关要用于设置本地存储库并将文件推送到 Windows Azure 的 Git 命令的说明。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git_instructions.png" alt="为网站创建存储库后返回的 Git 部署说明。"/></p>
+</li>
+</ol>
+<h2>本地构建和测试应用程序</h2>
+<p>在本节中，您将创建一个 <strong>server.js</strong> 文件，其中包含来自 <a href="http://nodejs.org/">nodejs.org</a> 的“hello world”示例。此示例是通过修改原始示例得出的，为了适应在 Windows Azure 网站中运行而添加了 process.env.PORT 作为侦听端口。</p>
+<ol>
+<li>使用文本编辑器，在 <strong>helloworld</strong> 目录中创建名为 <strong>server.js</strong> 的新文件。如果 <strong>helloworld</strong> 目录不存在，则创建它。</li>
+<li>
+<p>在 <strong>server.js</strong> 文件中添加以下内容，然后保存：</p>
+<pre class="prettyprint">var http = require('http')
+var port = process.env.PORT || 1337;
+http.createServer(function(req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello World\n');
+}).listen(port);</pre>
+</li>
+<li>
+<p>打开命令行，使用下面的命令在本地启动网页：</p>
+<pre class="prettyprint">node server.js</pre>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/node" chunkname="install-dev-tools" macroAlias="AzureChunkDisplayer" />
+</li>
+<li>
+<p>打开 Web 浏览器，导航到 http://localhost:1337。出现显示“Hello World”的网页，如下面的屏幕截图所示：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/helloworldlocal.png" alt="显示“Hello World”消息的浏览器。"/></p>
+</li>
+</ol>
+<h2>发布应用程序</h2>
+<ol>
+<li>
+<p>从命令行中，将目录更改为 <strong>helloworld</strong> 目录，然后输入下面的命令来初始化本地 Git 存储库。</p>
+<pre class="prettyprint">git init</pre>
+<div class="dev-callout"><strong>Git 命令不可用？</strong>
+<p><a href="http://git-scm.com/" target="_blank">Git</a> 是一个分布式版本控制系统，可用来部署 Windows Azure 网站。有关针对您的平台的安装说明，请参阅 <a href="http://git-scm.com/download" target="_blank">Git 下载页</a>。</p>
+</div>
+</li>
+<li>
+<p>使用以下命令将文件添加到存储库中：</p>
+<pre class="prettyprint">git add .
+git commit -m "initial commit"</pre>
+</li>
+<li>
+<p>使用以下命令添加 Git remote，以便将更新推送到您之前创建的 Windows Azure 网站：</p>
+<pre class="prettyprint">git remote add azure [URL for remote repository]</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git_instructions.png" alt="为网站创建存储库后返回的 Git 部署说明。"/></p>
+</li>
+<li>
+<p>使用以下命令将更改推送到 Windows Azure：</p>
+<pre class="prettyprint">git push azure master</pre>
+<p>系统会提示您输入之前创建的密码，然后，您将看到下面的输出：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/git_push_azure.png" alt="Git 命令行输出"/></p>
+<p>如果您在管理门户内导航到您的 Windows Azure 网站的部署选项卡，您将在部署历史记录中看到您的第一个部署：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/git_deployments_first.png" alt="门户上的 Git 部署状态"/></p>
+</li>
+<li>
+<p>使用管理门户内您的 Windows Azure 网站页面上的“浏览”按钮浏览到您的网站。</p>
+</li>
+</ol>
+<h2>发布对应用程序所做的更改</h2>
+<ol>
+<li>在文本编辑器中打开 <strong>server.js</strong> 文件，将“Hello World\n”更改为“Hello Azure\n”。保存文件。</li>
+<li>
+<p>从命令行中，将目录更改为 <strong>helloworld</strong> 目录，然后运行以下命令：</p>
+<pre class="prettyprint">git add .
+git commit -m "changing to hello azure"
+git push azure master</pre>
+<p>系统会提示您输入之前创建的密码。如果您在管理门户内导航到您的 Windows Azure 网站的部署选项卡，您会看到更新的部署历史记录：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/git_deployments_second.png" alt="门户上更新的 Git 部署状态"/></p>
+</li>
+<li>
+<p>使用“浏览”按钮浏览到您的网站，注意更新已应用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/node/helloazure.png" alt="显示“Hello Azure”的网页"/></p>
+</li>
+<li>
+<p>要恢复到以前的部署，可以在管理门户中您的 Windows Azure 网站的“部署”选项卡中选择该部署，然后使用“重新部署”按钮。</p>
+</li>
+</ol>
+<h2>后续步骤</h2>
+<p>虽然本文中的步骤使用 Windows Azure 门户来创建网站，但您也可以使用<a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">适用于 Mac 和 Linux 的 Windows Azure 命令行工具</a>执行同样的操作。</p>
+<h2>其他资源</h2>
+<ul>
+<li><a href="/zh-cn/develop/nodejs/how-to-guides/powershell-cmdlets/">Windows Azure PowerShell</a></li>
+<li><a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">适用于 Mac 和 Linux 的 Windows Azure 命令行工具</a></li>
+</ul></p>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>在 Mac 上创建 Node.js 网站 - Windows Azure 教程</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-node-create-a-website-mac</linkid><metaKeywords>Azure 创建网站 Node, Azure 部署网站 Node, 网站 Node.js, Node 网站</metaKeywords><metaDescription><![CDATA[学习如何构建 Node.js 网站并在 Windows Azure 中部署。代码示例使用 Java 编写。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>网站</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

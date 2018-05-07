@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+				
+			<div class="common-content-bookmark">
+                <div class="section-component">       
+                <h2>业务背景</h2>
+					<p>轻易贷是轻易科技有限公司创建的网络 P2P 平台。这一互联网金融服务平台以母公司开元金融 20 多年来积攒的行业优质资源为优势，深耕互联网金融与汽车运输服务领域产业链。帮助中小企业获得低息、稳定、快捷的贷款，解决中小企业贷款难、利息高的难题;也为理财用户提供一种安全、稳健、收益高的理财新渠道。</p>
+                    <p>作为一家互联网金融企业，轻易科技有限公司十分重视平台的可靠性与安全性。该客户从公司成立之初便将业务应用部署在企业自行管理的私有云中，随着“轻易贷”用户规模的不断扩大，本地私有云环境的容量、规模已无法满足业务的需求，客户在 IT 管理上开始遇到瓶颈和一些挑战。首先体现在成本方面，为了应对不断增长的用户数量，需要不断地对计算、存储、网络资源进行扩充，无论是硬件服务器的采购、带宽和 IDC 托管机房的租赁都会给客户带来高昂的前期成本支出。其次来自于运维管理方面，客户一直采用开源的 OpenStack 方案构建私有云环境，技术团队需要在部署之前进行大量的兼容性测试工作和性能调优，最终才能实现向生产环境的部署，并且受到成本的束缚，采用单一节点的数据中心在稳定性和可靠性方面已无法满足新的要求。此外，安全性也是客户考虑的重要因素，在本地私有云环境的部署中，客户需要采购不同厂家的 WAF、IDS、IPS 设备，并且需要进行复杂的配置。最终，客户希望通过一种新的方式，为“轻易贷”金融平台提供更加安全可靠、灵活和具有弹性的 IT 资源支持。</p>
+                   
+                </div>
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>为了解决业务发展过程中所面临的各项挑战，轻易科技选择采用公有云服务来更加敏捷地应对市场变化并更好地服务客户。经过对市场上主流公有云服务提供商的全面审慎评估，轻易科技最终选择由微软提供技术，世纪互联运营的 Microsoft Azure 智能云平台。之所以做出这样的选择，是因为 Azure 作为首个在华正式商用的国际品牌公有云服务，能够提供完善的技术特性，覆盖从 IaaS 到 PaaS 的丰富云服务，不仅如此，在安全性、合规性和隐私保护方面， Azure 作为一个中立的云平台，提供了全面的合规性与隐私保护承诺，在服务条款中明确声明不会将客户的数据用于商业目的，从而可满足“轻易贷“互联网金融服务平台严苛数据隐私保护要求。</p>
+					<p>轻易科技的关键应用包括：</p>
+					<h3>以站点到站点 VPN 实现平滑的数据迁移</h3>
+					<p>通过配置 Azure Site to Site VPN 服务，轻易科技将托管在 IDC 机房的本地数据中心与 Azure 公有云实现连通，组建用于虚拟机、数据和应用迁移的混合云环境，并执行迁移操作。借助 Azure 对开源软件的广泛支持，技术团队可以利用 Azure 内建的开源操作系统模板快速构建虚拟机，配合 PowerShell 实现批量操作，将运行在 OpenStack 私有云环境的现有虚拟机无缝迁移至 Azure 公有云上运行。</p>
+					
+					<h3>利用 Azure 多重安全机制保障信息安全</h3>
+					<p>轻易科技借助 Azure 内置的 DDoS 保护，无需额外的硬件设备，即可实现对所有入站 Internet 连接的检测，保护“轻易贷”平台免受大规模的攻击。除此之外，技术团队还利用 Azure 所提供的 Web 应用防火墙、网络安全组规则对核心应用提供保护，以保障运行在云端的核心业务系统得到完整的网络隔离，变得更为安全可靠。</p>
+					
+					<h3>以 PaaS 服务缩短云端部署周期</h3>
+					<p>轻易科技的数据团队可以利用 Azure 开箱即用的丰富 PaaS 服务，例如 MySQL Database on Azure、Azure SQL Database 等实现数据库的快速构建，并通过 HDInsight 这一完全托管的 Hadoop 服务实现大数据分析，为“轻易贷”平台上的中小企业客户提供业务洞察力，帮助投资者实现精准的投资，并取得最佳的投资收益，开启智能理财新时代。</p>
+                </div>
+               
+                <div class="section-component">
+                    <h2>客户收益</h2>
+                    <p>轻易科技有限公司通过将本地部署的私有云逐步迁移至由微软提供核心技术，世纪互联运营的 Microsoft Azure 公有云平台，为企业带来了一系列显著的收益，这些收益包括：</p>
+					
+					<h3>优化企业 IT 架构和成本专注主营业务发展</h3>
+					<p>Azure 具有按需使用，按用量计费的特点，可提供弹性和灵活的资源。通过配置自动化的资源扩展，轻易科技的技术团队能够轻松应对“轻易贷”用户不断增长对IT资源的新要求，为用户提供不间断的可靠服务。不仅如此，在向 Azure 迁移之后，轻易科技无需再自行维护 IT 基础架构，可直接利用 Azure 丰富的 IaaS 和 PaaS 服务实现快速的服务部署，帮助企业将高昂的 IT 固定资产和运维投入转化为日常业务运营成本，不仅实现了成本上节约，也让企业实现了轻资产、重业务的目标，企业因此可以将更多的人力和财力专注于“轻易贷”平台的发展。</p>
+					
+					<h3>全面提升在线金融平台的安全性与可靠性</h3>
+					<p>得益于 Azure 所提供的丰富安全特性和合规性认证，相比传统自建数据中心，轻易科技能够借助 Azure 具有财务保障的服务级别协议承诺，以更具成本效益的方式提升“轻易贷”互联网金融平台的安全性和可靠性。通过配置数据地理冗余，轻易科技能够将核心数据以加密的方式安全地在 Azure 位于北京和上海的两个数据中心内各存储 3 份副本，确保数据的万无一失。在安全管理方面，运维人员通过 Azure 门户一个入口就能够实现对于 Web 应用防火墙、网络规则、加密方式的配置，简化配置并实现虚拟机、数据库以及 Web 应用安全配置的一致性，保障用户的信息和资金安全。</p>
+					
+					<h3>引入新技术为客户创造差异化的体验</h3>
+					<p>在使用 Azure 智能云之后，轻易科技能够借助 Azure 丰富的认知服务将人工智能技术引入到自身的互联网金融服务之中，从而为客户创造差异化的体验，在互联网金融服务日益同质化的今天保持企业独特的竞争优势。现在，轻易科技的技术研发团队只需调用 Azure 智能云提供的人脸识别 API，就能够在金融服务中实现精准的用户身份验证、确保客户操作的可信性，而无需进行复杂的开发。</p>
+                </div>
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_qingyidai_vm">虚拟机</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_hdinsight.png"><a target="_blank" href="/home/features/hdinsight/" id="case-study_qingyidai_hdinsight">HDInsight</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_mysql.png"><a target="_blank" href="/home/features/mysql/" id="case-study_qingyidai_mysql">MySQL Database on Azure</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_sql.png"><a target="_blank" href="/home/features/sql-database/" id="case-study_qingyidai_sql-database">SQL 数据库</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_web.png"><a target="_blank" href="/home/features/app-service/web-apps/" id="case-study_qingyidai_web-apps">Web 应用</a></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>轻易贷-Azure云计算</pageTitle>
+    <metaKeywords>轻易贷 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[在 Azure上打造“轻易贷“平台，轻易科技提供安全、可靠的互联网金融服务。我们十分重视业务平台的安全性和可靠性， Azure 作为一个可靠和中立的云平台，非常适合互联网金融行业的应用。其高标准的机房设计、优质的网络和多副本数据异地冗余能够提供超越传统本地数据中心的性能表现，并且确保数据的万无一失。在安全上，Azure 不仅通过了多项国际性的安全标准，也符合本地的法规和信息安全认证，并且内置多种安全和加密机制，确保平台免受 DDoS 攻击，避免数据和客户隐私遭受非法访问，让我们的‘轻易贷’平台更加的安全和可信赖。
+
+]]></metaDescription>
+    <linkid>case-studies-qingyidai</linkid>
+    <urlDisplayName>轻易贷案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-qingyidai-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_qingyidai" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">轻易贷</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="https://www.qingyidai.com/" id="case-study-qingyidai" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/qingyidai-logo-80.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>轻易贷</h1>
+                            <p>在 Azure上打造“轻易贷“平台，轻易科技提供安全、可靠的互联网金融服务。</p>
+                        </div>
+                        <p class="casestudy-info" style="margin-top:20px;">我们十分重视业务平台的安全性和可靠性， Azure 作为一个可靠和中立的云平台，非常适合互联网金融行业的应用。其高标准的机房设计、优质的网络和多副本数据异地冗余能够提供超越传统本地数据中心的性能表现，并且确保数据的万无一失。在安全上，Azure 不仅通过了多项国际性的安全标准，也符合本地的法规和信息安全认证，并且内置多种安全和加密机制，确保平台免受 DDoS 攻击，避免数据和客户隐私遭受非法访问，让我们的‘轻易贷’平台更加的安全和可信赖。
+                        </p>
+                       <span class="tips">—— 李昂，CEO，轻易科技有限公司</span>
+                        <p class="casestudy-info">与需要自行维护管理的本地单点部署的私有云环境相比，使用 Azure 之后我们可以获得全面的技术支持，实现快速的系统迁移与更新，以更加敏捷的方式满足业务发展的需求。</p>
+                        <span class="tips">—— 李功训，运营副总，轻易科技有限公司</span>
+                        <!-- <a href="#" class="video-play-button" id="case-study-video-player"></a> -->
+                    </div>
+                    <!--      
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_qingyidai.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+					-->
+					
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

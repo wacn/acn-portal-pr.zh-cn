@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19266" parentID="19263" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="3" createDate="2013-07-11T12:12:09" updateDate="2014-08-18T11:28:35" nodeName="Add a VM to a Virtual Network" urlName="add-a-vm-to-a-virtual-network" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19263,19266" isDoc=""><bodyText><![CDATA[<div>
+<h1 id="vnet3">将虚拟机添加到虚拟网络</h1>
+<!--在本教程中的某个位置，我需要引用另一个虚拟机教程 -->
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>本教程将指导您完成创建 Windows Azure 存储帐户和添加到<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">虚拟网络</a>的虚拟机 (VM) 的步骤。</p>
+<p>本教程假定您之前未使用过 Windows Azure。</p>
+<div class="dev-callout">重要说明
+<p>如果计划创建 VM 以安装新 Active Directory 林，请按照<a href="../active-directory-forest/">在 Windows Azure 中安装新 Active Directory 林</a>中的说明进行操作。</p>
+</div>
+<h2>目标</h2>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>
+<p><a href="#CreateStorageAcct">如何创建存储帐户</a></p>
+</li>
+<li>
+<p><a href="#CreateVM">如何创建虚拟机并将其部署到虚拟网络</a></p>
+</li>
+</ul>
+<h2>先决条件</h2>
+<ul>
+<li>
+<p>完成以下教程之一：</p>
+<ul>
+<li>
+<p><a href="/zh-cn/manage/services/networking/create-a-virtual-network/">在 Windows Azure 中创建虚拟网络</a></p>
+<p>- 或 -</p>
+</li>
+<li><a href="/zh-cn/manage/services/networking/cross-premises-connectivity/">创建虚拟网络进行跨界连接</a></li>
+</ul>
+</li>
+<li>
+<p>至少具有一个有效的活动订阅的 Windows Live 帐户。</p>
+</li>
+<li>
+<p><a href="/zh-cn/manage/services/networking/create-a-virtual-network/">在 Windows Azure 中创建虚拟网络</a>或<a href="/zh-cn/manage/services/networking/cross-premises-connectivity/">创建虚拟网络进行跨界连接</a>中的以下对象的名称：</p>
+<ul>
+<li>
+<p>为虚拟网络分配的地缘组。</p>
+</li>
+<li>
+<p>虚拟网络的名称。</p>
+</li>
+<li>
+<p>子网的名称。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="CreateStorageAcct"></a>创建存储帐户</h2>
+<ol>
+<li>
+<p>在屏幕左下角的 <a href="http://manage.windowsazure.cn/">Windows Azure管理门户</a>中创建虚拟网络后，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_01_newstorageaccount.png" alt="NewStorAcct"/></p>
+</li>
+<li>
+<p>在导航窗格中，单击“数据服务”、“存储”和“快速创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_02_storageacct_quickcreate.png" alt="QuickCreate"/></p>
+</li>
+<li>
+<p>输入以下信息，然后单击屏幕右下角的复选标记。</p>
+<ul>
+<li>
+<p><strong>URL：</strong>键入 <em>yourstorage</em>。</p>
+</li>
+<li>
+<p><strong>区域/地缘组：</strong>从下拉列表中，选择“YourAffinityGroup”。</p>
+</li>
+<li>
+<p><strong>启用地域复制：</strong> 选中此框。</p>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_03_createnewstorageaccount.png" alt="CreateNewAcct"/></p>
+</li>
+<li>
+<p>在“存储”页上，当过程完成时，“状态”列将显示“联机”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_04_newstorageacctcreated.png" alt="NewStorAcctCreated"/></p>
+</li>
+</ol>
+<h2><a name="CreateVM"></a>创建虚拟机并将其部署到虚拟网络</h2>
+<p><strong>创建虚拟机并将其部署到虚拟网络：</strong></p>
+<ol>
+<li>
+<p>创建存储帐户后，在屏幕左下角单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_05_newvm.png" alt="NewVM"/></p>
+</li>
+<li>
+<p>在导航窗格中，依次单击“计算”、“虚拟机”和“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_06_vm_fromgallery.png" alt="FromGallery"/></p>
+</li>
+<li>
+<p>在“VM OS 选择”屏幕上，选择“2012 年 10 月版 Windows Server 2008 R2 SP1”（或可用的最新版），然后单击“下一步”箭头。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_07_vmosselect_win2008r2.png" alt="VMOS"/></p>
+</li>
+<li>
+<p>在“虚拟机配置”屏幕上，输入以下信息，然后单击“下一步”箭头。</p>
+<!-- SHOULD WE TELL USERS TO WRITE DOWN USER NAME AND PASS?? -->
+<p><strong>提示：</strong> 写下用户名和密码，因为它们是您用来登录到新虚拟机的凭据。</p>
+<ul>
+<li>
+<p><strong>虚拟机名称：</strong>键入 <em>YourVMachine</em>。</p>
+</li>
+<li>
+<p><strong>新用户名：</strong> 只读。</p>
+</li>
+<li>
+<p><strong>新密码：</strong> 输入强密码。</p>
+</li>
+<li>
+<p><strong>确认密码：</strong> 重新输入密码。</p>
+</li>
+<li>
+<p><strong>大小：</strong>选择“小”。</p>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_08_vmconfig.png" alt="VMConfig"/></p>
+</li>
+<li>
+<p>在“虚拟机模式”屏幕上，输入以下信息，然后单击“下一步”箭头。</p>
+<ul>
+<li>
+<p><strong>独立虚拟机：</strong> 将此选项保持选定状态。</p>
+</li>
+<li>
+<p><strong>DNS 名称：</strong>键入“yourcloudapplication”。</p>
+</li>
+<li>
+<p><strong>存储帐户：</strong>选择“yourstorage”。</p>
+</li>
+<li>
+<p><strong>区域/地缘组/虚拟网络：</strong>从下拉列表中，选择“YourVirtualNetwork”。</p>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_09_vmmode.png" alt="VMMode"/></p>
+</li>
+<li>
+<p>在“虚拟机选项”屏幕上，输入以下信息，然后单击复选标记按钮。此时将创建您的虚拟机。创建完新的虚拟机需要最多 10 分钟。</p>
+<!-- 确认创建虚拟机所需的平均时间 -->
+<ul>
+<li>
+<p><strong>可用性集：</strong>选择“无”。</p>
+</li>
+<li>
+<p><strong>虚拟网络子网：</strong>选择“FrontEndSubnet”。</p>
+</li>
+</ul>
+<div class="dev-callout">注意
+<p>您应选择至少一个子网且不应选择网关子网。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_10_vmoptions.png" alt="VMOptions"/></p>
+</li>
+<li>
+<p>创建虚拟机后，虚拟机屏幕上的“状态”将为“正在运行”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_11_vminstances.png" alt="VMInstances"/></p>
+</li>
+<li>
+<p>在导航窗格中，单击“所有项目”。您创建的所有对象将与其当前状态一起显示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut3_12_alltab.png" alt="AllTab"/></p>
+</li>
+</ol>
+<h2>后续步骤</h2>
+<p>若要在刚创建的虚拟机上为本地 Active Directory 域额外安装一台域控制器，请参阅<a href="/zh-cn/manage/services/networking/replica-domain-controller/">在 Windows Azure 虚拟网络中安装副本 Active Directory 域控制器</a>。</p>
+<h2>另请参阅</h2>
+<ul>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">Windows Azure 虚拟网络</a></p>
+</li>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156097.aspx">使用网络配置文件配置虚拟网络（可能为英文页面）</a></p>
+</li>
+</ul>
+<!-- 链接 --> <!-- 内部链接 --> <!-- 图像 --></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>将虚拟机添加到虚拟网络 - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-add-a-vm-to-a-virtual-network</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[本教程将教您如何创建存储帐户和添加到 Windows Azure 虚拟网络的虚拟机 (VM)。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>将虚拟机添加到虚拟网络</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

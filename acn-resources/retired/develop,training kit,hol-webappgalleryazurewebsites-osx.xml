@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19170" parentID="19159" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="11" createDate="2013-07-11T11:51:08" updateDate="2014-08-18T11:22:57" nodeName="HOL-WebAppGalleryAzureWebSites-OSX" urlName="hol-webappgalleryazurewebsites-osx" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,19159,19170" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/trainingkit" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>在 Windows Azure 中创建网站 (OS X)</h1>
+<h3><a href="http://www.contentinstaller.net/Install/Content/LAB_WebAppGalleryAzureWebSites-OSX">下载实验资产</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-WebAppGalleryAzureWebSites-OSX/fork_select">在 Github 上执行自我复制</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-WebAppGalleryAzureWebSites-OSX/issues">报告问题</a></h3>
+<a name="Overview"></a>
+<h2>概述</h2>
+在本动手实验中，您将了解如何使用预打包应用程序库中的模板在 Windows Azure 中新建网站。<p>在创建网站后，您将使用文本编辑器编辑该网站并使用 FTP 更新它。</p>
+<a name="Objectives"></a>
+<h3>目标</h3>
+<p>在本动手实验中，您将了解如何：</p>
+<ul>
+<li>通过使用模板库中的预打包应用程序在 Windows Azure 中新建网站</li>
+<li>通过使用文本编辑器编辑文件来更新网站并使用 FTP 更新它</li>
+</ul>
+<a name="Prerequisites"></a>
+<h3>必备组件</h3>
+<p>完成本动手实验需要以下各项：</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 本实验设计为使用 Mac OS X 操作系统</p>
+</div>
+<a name="Exercises"></a>
+<h2>练习</h2>
+<p>本动手实验包括以下练习：</p>
+<ol>
+<li><a href="#Exercise1">练习 1：使用应用程序库创建 Windows Azure 网站</a></li>
+<li><a href="#Exercise2">练习 2：使用文本编辑器在 OS X 上自定义网站并使用 FTP 更新该网站</a></li>
+</ol><a name="Exercise1"></a>
+<h3>练习 1：使用应用程序库创建 Windows Azure 网站</h3>
+<p>在此练习中，您将使用应用程序库中的预打包 Web 应用程序创建一个新网站。</p>
+<ol>
+<li>
+<p>转到 <a href="https://manage.windowsazure.cn/">Windows Azure 管理门户</a>，并使用与您的订阅关联的 Microsoft 凭据登录。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/login.png" alt="登录到 Windows Azure 门户"/></p>
+<p><em>登录到 Windows Azure 管理门户</em></p>
+</li>
+<li>
+<p>单击命令栏上的“新建”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/new-website.png" alt="创建新网站"/></p>
+<p><em>创建新网站</em></p>
+</li>
+<li>
+<p>单击“网站”<strong></strong>，然后单击“从库中”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/new-web-site-from-the-gallery.png" alt="从库中创建新网站"/></p>
+<p><em>从库中创建新网站</em></p>
+</li>
+<li>
+<p>在“博客”<strong></strong>类别中，选择 <strong>WordPress</strong> 应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-application.png" alt="从库中创建 WordPress 应用程序"/></p>
+<p><em>从库中创建 WordPress 应用程序</em></p>
+</li>
+<li>
+<p>在“配置应用”<strong></strong>页中，键入可用的 <strong>URL</strong>（例如 <em>wpressSample</em>）并从“数据库”<strong></strong>下拉列表中选择“新建 MySQL 数据库”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/web-site-settings.png" alt="配置网站"/></p>
+<p><em>配置网站</em></p>
+</li>
+<li>
+<p>在“创建新的数据库”<strong></strong>页中，键入数据库名称或者使用门户给定的默认名称。选中复选框以接受法律条款，然后单击“确认”按钮以完成网站创建。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/database-settings.png" alt="配置数据库设置"/></p>
+<p><em>配置<strong>数据库设置</strong></em></p>
+</li>
+<li>
+<p>创建网站后，将在“网站”<strong></strong>部分列出该网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-web-site.png" alt="WordPress 网站"/></p>
+<p><em>WordPress 网站</em></p>
+</li>
+<li>
+<p>单击网站以打开其“仪表板”<strong></strong>，然后单击“站点 URL”<strong></strong>链接以浏览到该新网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-web-site-administration.png" alt="WordPress 网站仪表板"/></p>
+<p><em>WordPress 网站仪表板</em></p>
+</li>
+<li>
+<p>现在，您将配置 <strong>WordPress</strong> 以使其能够在 <strong>Windows Azure</strong> 上运行。填写“网站标题”<strong></strong>、“用户名”<strong></strong>、“密码”<strong></strong>和“电子邮件”<strong></strong>字段。然后，单击“安装 WordPress”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/configuring-wordpress-application.png" alt="配置 WordPress 应用程序"/></p>
+<p><em>安装 WordPress 应用程序</em></p>
+</li>
+<li>
+<p>将开始安装 WordPress。安装过程完成后，将打开一个显示最终状态的屏幕。单击“登录”<strong></strong>以访问 Word Press 应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-installation-success.png" alt="安装成功"/></p>
+<p><em>安装成功</em></p>
+</li>
+<li>
+<p>输入之前配置的“用户名”<strong></strong>和“密码”<strong></strong>，然后单击“登录”<strong></strong>以打开管理站点。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-login-screen.png" alt="WordPress 登录"/></p>
+<p><em>WordPress 登录</em></p>
+</li>
+<li>
+<p>若要打开 WordPress 博客，可在管理站点上单击页面左上角、包含站点名称的链接，在本例中为 <strong>WordPress Sample</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-sample-admin.png" alt="WordPress 管理站点"/></p>
+<p><em>WordPress 管理站点</em></p>
+</li>
+<li>
+<p>将显示“Hello World”博客文章示例。在下一个练习中，您将了解如何使用 FTP 发布功能自定义博客页面。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-sample-site.png" alt="WordPress“Hello World”文章示例"/></p>
+<p><em>WordPress“Hello World”文章示例</em></p>
+</li>
+</ol>
+<p> </p>
+<h3>练习 2：使用文本编辑器在 OS X 上自定义网站并使用 FTP 更新该网站</h3>
+<p>在此练习中，您将通过向博客文章中添加 Facebook 的“喜欢”<strong></strong>按钮，来使用 FTP 发布功能更新网站。</p>
+<ol>
+<li>
+<p>转到 Windows Azure 门户仪表板并复制“FTP 主机名”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/ftp-hostname.png" alt="获取 FTP 部署主机名"/></p>
+<p><em>获取 FTP 部署主机名</em></p>
+</li>
+<li>
+<p>返回到命令提示符，并通过运行以下命令（使用从门户获取的值替换主机名）连接到 FTP 发布服务。</p>
+<pre class="prettyprint">ftp waws-prod-blu-001.ftp.azurewebsites.chinacloudapi.cn</pre>
+<p>`</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/ftp-connect.png" alt="连接到 FTP 服务器"/></p>
+<p><em>连接到 FTP 服务器</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意</strong>：应使用从门户获取的值替换第一个 <strong>waws-prod-blu-001.ftp.azurewebsites.chinacloudapi.cn</strong> 值。另请删除上面所述的 <strong>ftp://</strong> 前缀。</p>
+</div>
+</li>
+<li>
+<p>提供您的部署凭据的“用户名”<strong></strong>和“密码”<strong></strong>。请确保“用户名”<strong></strong>以“网站”<strong></strong>名称作为前缀（例如 <strong>wpressSample\admin</strong>）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/ftp-user-pass.png" alt="提供 FTP 凭据"/></p>
+<p><em>提供 FTP 凭据</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>部署凭据不同于与您的 Windows Azure 订阅关联的 Live ID，并且可用于与您的订阅关联的所有 Windows Azure 网站。如果您不知道您的部署凭据，则可以使用管理门户轻松地重置它们。打开网站的“仪表板”<strong></strong>页，单击“重置部署凭据”<strong></strong>链接。提供新密码并单击“确定”。</p>
+</div>
+<blockquote>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/deployment-credentials.png" alt="输入用户名和密码"/></p>
+<p><em>输入用户名和密码</em></p>
+</blockquote>
+</li>
+<li>
+<p>转到 <strong>wp-content | themes | twentyeleven</strong> 文件夹，使用 <strong>GET</strong> ftp 命令下载 <strong>single.php</strong>。</p>
+<pre class="prettyprint">get site/wwwroot/wp-content/themes/twentyeleven/single.php single.php</pre>
+<p>`</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/ftp-download-single.png" alt="下载 single.php"/></p>
+<p><em>下载 single.php</em></p>
+</li>
+<li>
+<p>在文本编辑器中打开 <strong>single.php</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/textedit-edit-single.png" alt="打开 single.php"/></p>
+<p><em>打开 single.php</em></p>
+</li>
+<li>
+<p>在 <code>&lt;div id="content" role="main"&gt;</code> 元素之前添加以下代码。保存文件。</p>
+<pre class="prettyprint">&lt;div id="fb-root"&gt;&lt;/div&gt; &lt;script src="http://connect.facebook.net/en_US/all.js#xfbml=1"&gt;&lt;/script&gt; &lt;fb:like href="&lt;?php echo get_permalink(); ?&gt;" show_faces="true" width="450"&gt;&lt;/fb:like&gt;</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>使用此代码，您将包含 JavaScript SDK (JS SDK)，使您能够使用 Facebook 社交插件。可在<a href="http://developers.facebook.com/docs/reference/plugins/like/">此处</a>详细了解 Facebook“喜欢”按钮。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/single-fbsdk.png" alt="添加 Facebook“喜欢”按钮"/></p>
+<p><em>添加 Facebook“喜欢”按钮</em></p>
+</li>
+<li>
+<p>使用 <strong>PUT</strong> ftp 命令上载 <strong>single.php</strong> 文件。</p>
+<pre class="prettyprint">put single.php site/wwwroot/wp-content/themes/twentyeleven/single.php</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/ftp-put.png" alt="上载 single.php 文件"/></p>
+<p><em>上载 single.php 文件</em></p>
+</li>
+<li>
+<p>现在，打开 WordPress 博客查看刚添加的 Facebook“喜欢”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-webappgalleryazurewebsites-osx/images/wordpress-fb-like-button.png" alt="Facebook“喜欢”按钮"/></p>
+<p><em>Facebook“喜欢”按钮</em></p>
+</li>
+</ol><a name="Summary"></a>
+<h2>摘要</h2>
+<p>在本动手实验中，您已了解如何使用预打包应用程序库中的模板在 Windows Azure 中新建网站。在创建网站后，您使用文本编辑器更新了该网站并使用 FTP 更新了网站文件。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure 网站库 (OSX) – Windows Azure HOL</pageTitle><metaKeywords>CMS, Windows Azure, 开源, 网站</metaKeywords><metaDescription><![CDATA[在本动手实验中，您将了解如何使用预打包应用程序库中的模板在 Windows Azure 中创建新网站。]]></metaDescription><linkid>Devlop-trainingkit-HOL-WebAppGalleryAzureWebSites-OSX</linkid><urlDisplayName>Windows Azure 网站库 (OSX)</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18806" parentID="18795" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="11" createDate="2013-07-11T10:33:34" updateDate="2014-08-18T11:08:17" nodeName="Performance Profiling" urlName="performance-profiling" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18795,18806" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>在 Windows Azure 中使用性能计数器</h1>
+<p>您可以在 Windows Azure 应用程序中使用性能计数器来收集可帮助确定系统瓶颈以及微调系统和应用程序性能的数据。Windows Azure 提供了一些适用于 Windows Server 2008、IIS 和 ASP.NET 的性能计数器。有关可能适用于 Windows Azure 应用程序的性能计数器的列表，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh411520.aspx">在 Windows Azure 应用程序中创建和使用性能计数器的概述（可能为英文页面）</a>。</p>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#step1">步骤 1:从性能计数器中收集数据</a></li>
+<li><a href="#step2">步骤 2:（可选）创建自定义性能计数器</a></li>
+<li><a href="#step3">步骤 3:查询性能计数器数据</a></li>
+</ul>
+<h2><a name="step1"></a>步骤 1:从性能计数器中收集数据</h2>
+<p>通过以下方式在 Windows Azure 应用程序中配置性能计数器数据收集：使用 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitor.getdefaultinitialconfiguration.aspx">GetDefaultInitialConfiguration</a> 方法，再将 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.performancecounters.aspx">PerformanceCounters</a> 数据源与 <a href="http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.diagnostics.performancecounterconfiguration.aspx">PerformanceCounterConfiguration</a> 的实例一起添加，然后使用更改后的配置调用 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee772721.aspx">Start</a> 方法。执行下列步骤可从性能计数器中收集数据。</p>
+<ol>
+<li>
+<p>打开角色的源文件。</p>
+<p><strong>注意</strong>：下列步骤中的代码通常会添加到角色的 <strong>OnStart</strong> 方法。</p>
+</li>
+<li>
+<p>获取一个诊断监视器配置实例。下面的代码示例演示如何获取默认诊断监视器配置对象：</p>
+<pre class="prettyprint">var config = DiagnosticMonitor.GetDefaultInitialConfiguration();</pre>
+</li>
+<li>
+<p>指定要监视的性能计数器。以下示例显示了将添加到诊断监视器配置中的性能计数器：</p>
+<pre class="prettyprint">config.PerformanceCounters.DataSources.Add(
+ new PerformanceCounterConfiguration())
+ {
+     CounterSpecifier = @"\Processor(_Total)\% Processor Time",
+     SampleRate = TimeSpan.FromSeconds(5)
+ });</pre>
+</li>
+<li>
+<p>使用更改的配置启动诊断监视器。下面的代码示例演示如何启动监视器：</p>
+<pre class="prettyprint">DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);</pre>
+<p><strong>注意</strong>：此代码示例演示如何使用连接字符串。有关使用连接字符串的更多信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758697.aspx">如何配置连接字符串</a>。</p>
+</li>
+<li>
+<p>保存并生成项目，然后部署应用程序。</p>
+</li>
+</ol>
+<p>完成这些步骤后，将由 Windows Azure 诊断监视器来收集性能计数器数据。</p>
+<h2><a name="step2"></a>步骤 2:（可选）创建自定义性能计数器</h2>
+<p>可通过使用自定义类别和计数器名称为每个计数器创建 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.diagnostics.performancecounterconfiguration.aspx">PerformanceCounterConfiguration</a> 实例并将这些实例添加到 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.aspx">DiagnosticMonitorConfiguration</a> 中的 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.performancecounters.aspx">PerformanceCounters</a> 数据源集合，来将新的自定义性能计数器添加到应用程序中的诊断监视器配置中。执行下列步骤可创建自定义性能计数器。</p>
+<ol>
+<li>打开应用程序的服务定义文件 (CSDEF)。</li>
+<li>
+<p>将 <strong>Runtime</strong> 元素添加到 <strong>WebRole</strong> 或 <strong>WorkerRole</strong> 元素可允许使用提升的权限执行：</p>
+<pre class="prettyprint">&lt;Runtime executionContext="elevated" /&gt;</pre>
+</li>
+<li>
+<p>保存文件。</p>
+</li>
+<li>打开角色的源文件。</li>
+<li>
+<p>添加以下 <strong>using</strong> 语句（如果没有）：</p>
+<pre class="prettyprint">using System.Diagnostics;</pre>
+</li>
+<li>
+<p>在角色的 <strong>OnStart</strong> 方法中创建自定义性能计数器类别。下面的示例创建一个带两个计数器的自定义类别（如果该类别不存在）：</p>
+<pre class="prettyprint">if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
+{
+   CounterCreationDataCollection counterCollection = new CounterCreationDataCollection();
+
+
+   // add a counter tracking user button1 clicks
+   CounterCreationData operationTotal1 = new CounterCreationData();
+   operationTotal1.CounterName = "MyButton1Counter";
+   operationTotal1.CounterHelp = "My Custom Counter for Button1";
+   operationTotal1.CounterType = PerformanceCounterType.NumberOfItems32;
+   counterCollection.Add(operationTotal1);
+
+
+   // add a counter tracking user button2 clicks
+   CounterCreationData operationTotal2 = new CounterCreationData();
+   operationTotal2.CounterName = "MyButton2Counter";
+   operationTotal2.CounterHelp = "My Custom Counter for Button2";
+   operationTotal2.CounterType = PerformanceCounterType.NumberOfItems32;
+   counterCollection.Add(operationTotal2);
+
+
+   PerformanceCounterCategory.Create(
+     "MyCustomCounterCategory",
+     "My Custom Counter Category",
+     PerformanceCounterCategoryType.SingleInstance, counterCollection);
+
+
+   Trace.WriteLine("Custom counter category created.");
+}
+else{
+   Trace.WriteLine("Custom counter category already exists.");
+}</pre>
+</li>
+<li>
+<p>在调用 <strong>base.OnStart</strong> 之前，将新的自定义性能计数器添加到诊断监视器配置中并在 <strong>OnStart</strong> 方法中启动诊断监视器：</p>
+<pre class="prettyprint">DiagnosticMonitorConfiguration config =
+  DiagnosticMonitor.GetDefaultInitialConfiguration();
+config.PerformanceCounters.ScheduledTransferPeriod =
+  TimeSpan.FromMinutes(2D);
+config.PerformanceCounters.BufferQuotaInMB = 512;
+TimeSpan perfSampleRate = TimeSpan.FromSeconds(30D);
+
+
+// Add configuration settings for custom performance counters.
+config.PerformanceCounters.DataSources.Add(
+  new PerformanceCounterConfiguration()
+{
+  CounterSpecifier = @"\MyCustomCounterCategory\MyButton1Counter",
+        SampleRate = perfSampleRate
+});
+
+
+config.PerformanceCounters.DataSources.Add(
+  new PerformanceCounterConfiguration()
+{
+  CounterSpecifier = @"\MyCustomCounterCategory\MyButton2Counter",
+        SampleRate = perfSampleRate
+});
+
+
+// Apply the updated configuration to the diagnostic monitor.    
+DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);</pre>
+</li>
+<li>
+<p>更新应用程序中的计数器。下面的示例对 <strong>Button1_Click</strong> 事件更新自定义性能计数器：</p>
+<pre class="prettyprint">protected void Button1_Click(object sender, EventArgs e)
+{
+  button1Counter = new PerformanceCounter(
+    "MyCustomCounterCategory",
+    "MyButton1Counter",
+    string.Empty,
+    false);
+
+
+  button1Counter.Increment();
+  this.Button1.Text = "Button 1 count: " +
+    button1Counter.RawValue.ToString();
+}</pre>
+</li>
+<li>
+<p>保存并生成项目，然后部署应用程序。</p>
+</li>
+</ol>
+<p>完成这些步骤后，将由 Windows Azure 诊断监视器收集自定义性能计数器数据。</p>
+<h2><a name="step3"></a>步骤 3:查询性能计数器数据</h2>
+<p>在将 Windows Azure 诊断监视器配置为收集性能计数器数据并将该数据传输到 Windows Azure 存储后，可以访问该数据以进行报告。可以报告 Windows Azure 应用程序中的性能计数器数据，方式是通过枚举对 Windows Azure 存储中的 <strong>WADPerformanceCountersTable</strong> 执行 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758648.aspx">CloudTableQuery</a> 查询所获得的结果。执行下列步骤可查询性能计数器数据。</p>
+<ol>
+<li>打开角色的源文件以包含代码。</li>
+<li>
+<p>添加下列 <strong>using</strong> 语句（如果尚未添加这些语句）：</p>
+<pre class="prettyprint">using System.Linq;
+using Microsoft.WindowsAzure;
+using Microsoft.WindowsAzure.StorageClient;</pre>
+</li>
+<li>
+<p>创建一个表示性能计数器表查询的表架构的类：</p>
+<pre class="prettyprint">public class PerformanceCountersEntity : TableServiceEntity
+{
+  public long EventTickCount { get; set; }
+  public string DeploymentId { get; set; }
+  public string Role { get; set; }
+  public string RoleInstance { get; set; }
+  public string CounterName { get; set; }
+  public string CounterValue { get; set; }
+}</pre>
+</li>
+<li>
+<p>获取表服务上下文的实例。以下代码示例演示如何获取默认诊断监视器表服务上下文：</p>
+<pre class="prettyprint">CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+  "Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString");
+      CloudTableClient cloudTableClient =
+  storageAccount.CreateCloudTableClient();
+      TableServiceContext serviceContext =
+  cloudTableClient.GetDataServiceContext();</pre>
+</li>
+<li>
+<p>创建一个查询以指定要返回的表条目。下面的示例返回当前角色实例的前五分钟内产生的处理器 (CPU) 使用率条目：</p>
+<pre class="prettyprint">IQueryable&lt;PerformanceCountersEntity&gt; performanceCountersTable =
+  serviceContext.CreateQuery&lt;PerformanceCountersEntity&gt;(
+    "WADPerformanceCountersTable");
+var selection = from row in performanceCountersTable
+  where row.EventTickCount &gt; DateTime.UtcNow.AddMinutes(-5.0).Ticks
+  &amp;&amp; row.CounterName.Equals(@"\Processor(_Total)\% Processor Time")
+  select row;
+
+
+CloudTableQuery&lt;PerformanceCountersEntity&gt; query =
+  selection.AsTableServiceQuery&lt;PerformanceCountersEntity&gt;();
+
+
+// Use the Execute command explicitly on the TableServiceQuery to
+// take advantage of continuation tokens automatically and get all the data.
+IEnumerable&lt;PerformanceCountersEntity&gt; result = query.Execute();</pre>
+<p><strong>注意：</strong>有关查询语法的更多信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/bb308959.aspx">LINQ：.NET 语言集成查询（可能为英文页面）</a>。</p>
+</li>
+<li>
+<p>使用结果来分析和报告应用程序性能：</p>
+<pre class="prettyprint">List&lt;PerformanceCountersEntity&gt; list = result.ToList();
+    // Display list members here.</pre>
+</li>
+<li>
+<p>保存并生成项目，然后部署应用程序。</p>
+</li>
+</ol>
+<p>完成这些步骤后，可使用性能计数器数据进行报告。</p>
+<h2>其他资源</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433048.aspx">使用 Windows Azure 诊断收集日志记录数据</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee405479.aspx">调试 Windows Azure 应用程序</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/net/how-to-guides/autoscaling/">如何使用自动缩放应用程序块</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>performance profiling</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>performance profiling</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>performance profiling</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

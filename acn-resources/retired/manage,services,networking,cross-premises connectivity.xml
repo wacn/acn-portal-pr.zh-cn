@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19265" parentID="19263" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="2" createDate="2013-07-11T12:12:09" updateDate="2014-08-18T11:28:38" nodeName="Cross-premises Connectivity" urlName="cross-premises-connectivity" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19263,19265" isDoc=""><bodyText><![CDATA[<h1 id="vnettut1">创建虚拟网络进行跨界连接</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>本教程将指导您完成创建使用管理门户连接到公司网络的 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">Windows Azure 虚拟网络</a>的步骤。完成本教程后，您将拥有一个虚拟网络，可在其中部署 Windows Azure 服务并与公司网络进行通信。</p>
+<p>本教程假定您之前未使用过 Windows Azure。</p>
+<!-- 添加有关需要网络工程师进行 VPN 配置的可能性的信息 -->
+<p>有关添加虚拟机并将本地 Active Directory 扩展到 Windows Azure 虚拟网络的信息，请参阅以下内容：</p>
+<ul>
+<li>
+<p><a href="/zh-cn/manage/services/networking/add-a-vm-to-a-virtual-network/">将虚拟机添加到虚拟网络</a></p>
+</li>
+<li>
+<p><a href="/zh-cn/manage/services/networking/replica-domain-controller/">在 Windows Azure 虚拟网络中安装副本 Active Directory 域控制器</a></p>
+</li>
+</ul>
+<p>有关在 Windows Azure 虚拟机上部署 AD DS 的指南，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156090.aspx">在 Windows Azure 虚拟机中部署 Windows Server Active Directory 的准则（可能为英文页面）</a>。</p>
+<h2>目标</h2>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>
+<p>如何设置可将 Windows Azure 服务添加到的基本 Windows Azure 虚拟网络。</p>
+</li>
+<li>
+<p>如何将虚拟网络配置为与公司网络进行通信。</p>
+</li>
+<li>
+<p>如何将 VPN 设备配置为与 Windows Azure 虚拟网络进行通信。</p>
+</li>
+</ul>
+<h2>先决条件</h2>
+<ul>
+<li>
+<p>要用于虚拟网络和子网的地址空间（使用 CIDR 表示法）。</p>
+</li>
+<li>
+<p>DNS 服务器的名称和 IP 地址（若要使用本地 DNS 服务器进行名称解析）。</p>
+</li>
+<li>
+<p>VPN 设备的公共 IP 地址。此 VPN 设备不能位于 NAT 的后面。您可以从网络工程师处获得它。</p>
+</li>
+<li>
+<p>本地网络的地址空间。</p>
+</li>
+</ul>
+<h2>高级步骤</h2>
+<ol>
+<li>
+<p><a href="#CreateVN">创建虚拟网络</a></p>
+</li>
+<li>
+<p><a href="#StartGateway">启动网关并为网络管理员收集信息</a></p>
+</li>
+<li>
+<p><a href="#ConfigVPN">配置 VPN 设备</a></p>
+</li>
+</ol>
+<h2><a name="CreateVN"></a>创建虚拟网络</h2>
+<p><strong>创建连接到公司网络的虚拟网络：</strong></p>
+<ol>
+<li>登录到 <a href="http://manage.windowsazure.cn/">Windows Azure管理门户</a>。</li>
+<li>
+<p>在屏幕左下角，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut1_00_new.png" alt="CreateNew"/></p>
+</li>
+<li>
+<p>在导航窗格中，单击“网络”，然后单击“自定义创建”</p>
+。
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut1_01_network_customcreate.png" alt="CustomCreate"/></p>
+</li>
+<li>
+<p>在“虚拟网络详细信息”屏幕上，输入以下信息，然后单击“下一步”箭头。</p>
+<ul>
+<li>
+<p><strong>名称：</strong>键入“YourVirtualNetwork”。</p>
+</li>
+<li>
+<p><strong>地缘组：</strong>从下拉列表中，选择“创建新的地缘组”。地缘组是一种用于在同一数据中心以物理方式将 Windows Azure 服务组合起来以提高性能的方法。只能向一个虚拟网络分配地缘组。</p>
+</li>
+<li>
+<p><strong>区域：</strong>从下拉列表中，选择所需的区域。将在位于指定区域内的数据中心创建您的虚拟网络。</p>
+</li>
+<li>
+<p><strong>地缘组名称：</strong>键入“YourAffinityGroup”。</p>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut1_02_vndetails.png" alt="VNDetails"/></p>
+</li>
+<li>
+<p>在“地址空间和子网”屏幕上，输入以下信息，然后单击“下一步”箭头。地址空间必须为用 CIDR 表示法指定的专用地址范围：10.0.0.0/8、172.16.0.0/12 或 192.168.0.0/16（由 RFC 1918 指定）。</p>
+<p><strong>注意：</strong> 每添加一个地址空间，就请单击一次加号按钮。</p>
+<ul>
+<li><strong>地址空间：</strong> 键入“10.4.0.0/16”。</li>
+<li>
+<p><strong>子网：</strong> 输入以下内容：</p>
+<ul>
+<li><em>FrontEndSubnet，10.4.2.0/24</em></li>
+<li><em>BackEndSubnet，10.4.3.0/24</em></li>
+<li><em>ADDNSSubnet，10.4.4.0/24</em></li>
+</ul>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_03b_addressspaceandsubnet_crossprem.png" alt="AddressSpace"/></p>
+</li>
+<li>
+<p>在“DNS 服务器和本地网络”屏幕上，输入以下信息，然后单击“下一步”箭头。</p>
+<ul>
+<li><strong>DNS 服务器：</strong>键入“YourDNS，10.1.0.4”。</li>
+<li><strong>配置与本地网络的连接：</strong> 选中此框。</li>
+<li><strong>网关子网：</strong>键入“10.4.1.0/24”。</li>
+<li><strong>本地网络：</strong> 选择默认的“创建新的本地网络”。</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_04_dnsserversandlocalnetworks_crossprem.png" alt="DNSServer"/></p>
+</li>
+<li>
+<p>在“创建新的本地网络”屏幕上，输入以下信息，然后单击右下角的复选标记。将在几分钟内创建完您的虚拟网络。</p>
+<p><strong>注意：</strong> 可从网络管理员处获得 VPN 设备 IP 地址。</p>
+<ul>
+<li><strong>名称：</strong>键入“YourCorpHQ”。</li>
+<li>
+<p><strong>VPN 设备 IP 地址：</strong>输入 VPN 设备的公共 IP 地址。此设备不应位于 NAT 的后面。有关 VPN 设备的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156075.aspx">有关虚拟网络的 VPN 设备（可能为英文页面）</a>。</p>
+</li>
+<li>
+<p><strong>地址空间：</strong>键入“10.1.0.0/16”。</p>
+</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_05_createlocalnetwork.png" alt="CreateLocal"/></p>
+</li>
+<li>
+<p>此时，您已在 Windows Azure 中拥有一个虚拟网络，可以在门户的“虚拟网络”选项卡上看到它。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_06_vnstatus_created.png" alt="VNCreated"/></p>
+</li>
+</ol>
+<h2><a name="StartGateway"></a>启动网关</h2>
+<p><strong>启动网关：</strong></p>
+<ol>
+<li>
+<p>创建虚拟网络后，网络屏幕上的“状态”将显示为“已创建”。</p>
+<p>在“名称”列中，单击“YourVirtualNetwork”以打开仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_06b_vnstatus_viewdashboard.png" alt="ViewDash"/></p>
+</li>
+<li>
+<p>在“仪表板”页的底部，单击“创建网关”。当系统提示您确认是否要创建网关时，请单击“是”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_07_creategateway.png" alt="CreateGW"/></p>
+</li>
+<li>
+<p>当网关创建开始时，您将看到下面的屏幕快照中所示的消息。</p>
+<p>创建完网关可能需要最多 15 分钟。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_09_gatewaybeingcreated.png" alt="GWCreating"/></p>
+</li>
+<li>
+<p>创建网关后，您需要收集一些信息，并将这些信息发送给网络管理员以便其配置 VPN 设备。后续步骤将指导您完成此过程。</p>
+</li>
+<li>
+<p>在仪表板上，复制网关 IP 地址：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_10_gatewayipaddress.png" alt="GWIP"/></p>
+</li>
+<li>
+<p>获取共享密钥。单击仪表板底部的“查看密钥”，然后复制对话框中的“共享密钥”。</p>
+<!-- 这会让人感到迷惑 -->
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_11_sharedkey.png" alt="SharedKey"/></p>
+</li>
+<li>
+<p>下载 VPN 配置文件。在仪表板上，单击“下载”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_12_downloadvpnfile.png" alt="DwnldVPN"/></p>
+</li>
+<li>
+<p>在“下载 VPN 设备配置脚本”对话框中，为您公司的 VPN 设备选择供应商、平台和操作系统。单击对号按钮并保存该文件。</p>
+<p>有关其他受支持的 VPN 设备和脚本模板，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=248098">有关虚拟网络的 VPN 设备（可能为英文页面）</a>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/vntut2_13_downloadvpndevicescript.png" alt="DwnldVPNConfig"/></p>
+</li>
+<li>
+<p>向网络管理员发送以下信息：</p>
+<ul>
+<li>网关 IP 地址</li>
+<li>共享密钥</li>
+<li>VPN 配置脚本</li>
+</ul>
+</li>
+</ol>
+<h2><a name="ConfigVPN"></a>配置 VPN 设备（网络管理员）</h2>
+<p>此过程应由网络管理员执行。由于每台 VPN 设备各不相同，因此这是一个高级过程。</p>
+<p>您可以从管理门户或从 MSDN 库的<a href="http://go.microsoft.com/fwlink/?LinkId=248098">有关虚拟网络的 VPN 设备（可能为英文页面）</a>部分获取 VPN 配置脚本。</p>
+<p>有关详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=254218">建立站点到站点 VPN 连接（可能为英文页面）</a>和 VPN 设备文档。</p>
+<p>此过程假定：</p>
+<ul>
+<li>
+<p>已为您的公司配置 VPN 设备。</p>
+<!-- 确认以下内容是正确的
+执行此过程的网络管理员了解 IPSec。
+--></li>
+</ul>
+<p><strong>配置 VPN 设备：</strong></p>
+<ol>
+<li>
+<p>修改 VPN 配置脚本。您将配置：</p>
+<p>a. 安全策略</p>
+<p>b. 传入隧道</p>
+<p>c. 传出隧道</p>
+</li>
+<li>
+<p>运行修改后的 VPN 配置脚本来配置 VPN 设备。</p>
+</li>
+<li>
+<p>通过运行下列命令之一来测试连接：</p>
+<table border="1">
+<tbody>
+<tr><th>Cisco ASA</th><th>Cisco ISR/ASR</th><th>Juniper SSG/ISG</th><th>Juniper SRX/J</th></tr>
+<tr>
+<td>Check main mode SAs</td>
+<td>show crypto isakmp sa</td>
+<td>show crypto isakmp sa</td>
+<td>get ike cookie</td>
+<td>show security ike security-association</td>
+</tr>
+<tr>
+<td>Check quick mode SAs</td>
+<td>show crypto ipsec sa</td>
+<td>show crypto ipsec sa</td>
+<td>get sa</td>
+<td>show security ipsec security-association</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2>后续步骤</h2>
+<p>若要将本地 Active Directory 扩展到您刚创建的虚拟网络，请继续学习以下教程：</p>
+<ul>
+<li>
+<p><a href="/zh-cn/manage/services/networking/add-a-vm-to-a-virtual-network/">将虚拟机添加到虚拟网络</a></p>
+</li>
+<li>
+<p><a href="/zh-cn/manage/services/networking/replica-domain-controller/">在 Windows Azure 虚拟网络中安装副本 Active Directory 域控制器</a></p>
+</li>
+</ul>
+<h2>另请参阅</h2>
+<ul>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156007.aspx">Windows Azure 虚拟网络</a></p>
+</li>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156097.aspx">使用网络配置文件配置虚拟网络（可能为英文页面）</a></p>
+</li>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156075.aspx">有关虚拟网络的 VPN 设备（可能为英文页面）</a></p>
+</li>
+<li>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=248097">Windows Azure 名称解析概述</a></p>
+</li>
+</ul>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>创建跨界虚拟网络 - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-cross-premises-connectivity</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何创建具有跨界连接的 Windows Azure 虚拟网络。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>跨界连接</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

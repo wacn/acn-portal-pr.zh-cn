@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19196" parentID="19185" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="11" createDate="2013-07-11T11:59:48" updateDate="2014-08-18T11:26:13" nodeName="SSH into Linux" urlName="ssh-into-linux" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19185,19196" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何在 Windows Azure 中将 SSH 用于 Linux</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" macroAlias="AzureChunkDisplayer" chunkname="disclaimer" />
+<p>本主题描述了用于生成与 Windows Azure 兼容的 SSH 密钥的步骤。</p>
+<p>当前版本的 Windows Azure 管理门户只接受封装在 X509 证书中的 SSH 公钥。按照下列步骤操作可生成 SSH 密钥并将其与 Windows Azure 配合使用。</p>
+<h2>在 Linux 上获取 OpenSSL</h2>
+<p>若要在 Linux 计算机上获取 Openssl，请使用本机包管理解决方案进行 Linux 分发：</p>
+<ul>
+<li>Redhat/CentOS：<code>yum install openssl</code></li>
+<li>Debian：<code>apt-get install openssl</code></li>
+<li>Ubuntu：<code>apt-get install openssl</code></li>
+</ul>
+<h2>在 Linux 中生成 Windows Azure 兼容密钥</h2>
+<ol>
+<li>
+<p>使用 <code>openssl</code> 生成带 2048 位 RSA 密钥对的 X509 证书。请回答 <code>openssl</code> 提示的几个问题（您可以将其保留为空）。平台不使用这些字段中的内容。</p>
+<pre class="prettyprint">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem</pre>
+</li>
+<li>
+<p>更改私钥的权限可对其进行保护。</p>
+<pre class="prettyprint">chmod 600 myPrivateKey.key</pre>
+</li>
+<li>
+<p>在创建 Linux 虚拟机时上载 <code>myCert.pem</code>。设置过程会自动将此证书中的公钥安装到虚拟机中指定用户的 <code>authorized_keys</code> 文件中。</p>
+</li>
+<li>
+<p>如果您将直接使用 API，且不使用管理门户，请使用以下命令将 <code>myCert.pem</code> 转换为 <code>myCert.cer</code>（DER 编码的 X509 证书）：</p>
+<pre class="prettyprint">openssl  x509 -outform der -in myCert.pem -out myCert.cer</pre>
+</li>
+</ol>
+<h2>从 Linux 连接到 Windows Azure 虚拟机</h2>
+<p>在特定端口（此端口可能与使用的标准端口不同）中使用 SSH 设置每个 Linux 虚拟机，以便您</p>
+<ol>
+<li>从管理门户中查找将用于连接到 Linux 虚拟机的端口。</li>
+<li>
+<p>使用 <code>ssh</code> 连接到 Linux 虚拟机。在您首次登录时，系统将提示您接受主机公钥的指纹。</p>
+<pre class="prettyprint">ssh -i  myPrivateKey.key -p &lt;port&gt; username@servicename.chinacloudapp.cn</pre>
+</li>
+<li>（可选）您可以将 <code>myPrivateKey.key</code> 复制到 <code>~/.ssh/id_rsa</code>，以便您的 openssh 客户端可自动选取它而无需使用 <code>-i</code> 选项。</li>
+</ol>
+<h2>在 Windows 上获取 OpenSSL</h2>
+<h3>使用 msysgit</h3>
+<ol>
+<li>从以下位置下载和安装 msysgit：<a href="http://msysgit.github.com/">http://msysgit.github.com/</a></li>
+<li>从安装的目录运行 <code>msys</code>（示例：c:\msysgit\msys.exe）</li>
+<li>通过键入 <code>cd bin</code> 更改为 <code>bin</code> 目录</li>
+</ol>
+<h3>使用针对 Windows 的 GitHub</h3>
+<ol>
+<li>从以下位置下载和安装针对 Windows 的 GitHub：<a href="http://windows.github.com/">http://windows.github.com/</a></li>
+<li>从“开始”菜单 &gt;“所有程序”&gt;“GitHub, Inc”运行 Git Shell</li>
+</ol>
+<h3>使用 cygwin</h3>
+<ol>
+<li>从以下位置下载和安装 Cygwin：<a href="http://cygwin.com/">http://cygwin.com/</a></li>
+<li>确保安装了 OpenSSL 包及其所有依赖项。</li>
+<li>运行 <code>cygwin</code></li>
+</ol>
+<h2>在 Windows 上创建私钥</h2>
+<ol>
+<li>按照上述某组说明进行操作以便能够运行 <code>openssl.exe</code></li>
+<li>
+<p>键入以下命令：</p>
+<pre class="prettyprint">openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem</pre>
+</li>
+<li>
+<p>您的屏幕应与下图中所示类似：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxwelcomegit.png" alt="linuxwelcomegit"/></p>
+</li>
+<li>
+<p>回答询问的问题。</p>
+</li>
+<li>应已创建两个文件：<code>myPrivateKey.key</code> 和 <code>myCert.pem</code>。</li>
+<li>
+<p>如果您将直接使用 API，且不使用管理门户，请使用以下命令将 <code>myCert.pem</code> 转换为 <code>myCert.cer</code>（DER 编码的 X509 证书）：</p>
+<pre class="prettyprint">openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer</pre>
+</li>
+</ol>
+<h2>为 Putty 创建 PPK</h2>
+<ol>
+<li>从以下位置下载和安装 puttygen：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a></li>
+<li>运行 <code>puttygen.exe</code></li>
+<li>单击菜单：“文件”&gt;“加载私钥”</li>
+<li>查找名为 <code>myPrivateKey.key</code> 的私钥。您将需要更改文件筛选器以显示<strong>所有文件 (*.*)</strong></li>
+<li>
+<p>单击“打开”。您将收到与下面类似的提示：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxgoodforeignkey.png" alt="linuxgoodforeignkey"/></p>
+</li>
+<li>
+<p>单击“确定”。</p>
+</li>
+<li>
+<p>单击在下面的屏幕快照中突出显示的“保存私钥”：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxputtyprivatekey.png" alt="linuxputtyprivatekey"/></p>
+</li>
+<li>
+<p>将文件另存为 PPK。</p>
+</li>
+</ol>
+<h2>使用 Putty 连接到 Linux 计算机</h2>
+<ol>
+<li>从以下位置下载和安装 putty：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a></li>
+<li>运行 putty.exe</li>
+<li>
+<p>从管理门户使用 IP 填充主机名。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxputtyconfig.png" alt="linuxputtyconfig"/></p>
+</li>
+<li>
+<p>在选择“打开”之前，请单击“连接”&gt;“SSH”&gt;“Auth”选项卡可选择密钥。在下面的屏幕快照中查找要填充的字段。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxputtyprivatekey.png" alt="linuxputtyprivatekey"/></p>
+</li>
+<li>
+<p>单击“打开”连接到您的虚拟机。</p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在 Windows Azure 中使用 SSH 连接到 Linux 虚拟机</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>article</linkid><metaKeywords>Azure SSH 密钥 Linux, Linux vm SSH</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 上通过 Linux 虚拟机生成和使用 SSH 密钥。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>使用 SSH</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

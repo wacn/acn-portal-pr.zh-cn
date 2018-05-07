@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18432" parentID="18423" level="5" writerID="106" creatorID="94" nodeType="1059" template="1052" sortOrder="2" createDate="2013-05-03T16:07:09" updateDate="2014-09-03T05:58:06" nodeName="sql database" urlName="sql-database" writerName="content" creatorName="xunfan" path="-1,11978,13431,17371,18423,18432" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在 .NET 应用程序中使用 Windows Azure SQL Database</h1>
+<p>本指南说明如何在 Windows Azure SQL Database 上创建逻辑服务器和数据库实例，以及如何使用下列 .NET Framework 数据提供程序技术连接到数据库：ADO.NET、ODBC 和 EntityClient Provider。</p>
+<h2 id="Whatis">什么是 SQL Database</h2>
+<p>SQL Database 为 Windows Azure 提供关系数据库管理系统并且基于 SQL Server 技术。使用 SQL Database 实例，您可以轻松地配置并部署关系数据库解决方案到云中，并利用分布式的数据中心，提供了企业级的可用性、可缩放性和安全性, 具有内置数据保护和自愈的好处。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#PreReq1">登录 Windows Azure</a></li>
+<li><a href="#PreReq2">创建和配置 SQL Database</a></li>
+<li><a href="#connect-db">连接到 SQL Database</a></li>
+<li><a href="#using-sql-server">使用 ADO.NET 进行连接</a></li>
+<li><a href="#using-ODBC">使用 ODBC 进行连接</a></li>
+<li><a href="#using-entity">使用 EntityClient Provider 进行连接</a></li>
+<li><a href="#next-steps">后续步骤</a></li>
+</ul>
+<h2 id="PreReq1">登录 Windows Azure</h2>
+<p>SQL Database 在 Windows Azure 上提供关系数据存储、访问和管理服务。若要使用它，您将需要一个 Windows Azure 订阅。</p>
+<ol>
+<li>
+<p>打开 Web 浏览器并浏览到 <a href="http://www.windowsazure.cn">http://www.windowsazure.cn</a>。若要开始使用免费帐户，请单击右上角的免费试用并执行相应步骤。</p>
+</li>
+<li>
+<p>现已创建您的帐户。一切准备就绪，即可开始。</p>
+</li>
+</ol>
+<h2 id="PreReq2"><span class="short-header">创建和配置 SQL Database</span></h2>
+<p>接下来，您需要创建和配置数据库及服务器。在新的 Windows Azure管理门户中，您可以先使用已修订的工作流创建数据库，然后配置服务器。</p>
+<h3 id="createsrvr">创建数据库实例和逻辑服务器</h3>
+<ol>
+<li>
+<p>登录 <a href="http://www.windowsazure.cn">http://www.windowsazure.cn</a>。</p>
+</li>
+<li>
+<p>单击页面底部的“+新建”。</p>
+</li>
+<li>
+<p>单击“数据服务”。</p>
+</li>
+<li>
+<p>单击“SQL Database”。</p>
+</li>
+<li>
+<p>单击“自定义创建”。</p>
+</li>
+<li>
+<p>在“名称”中，输入数据库名称。</p>
+</li>
+<li>
+<p>选择版本、最大大小和排序规则。考虑到本指南的用途，您可以使用默认值。</p>
+<p>SQL Database 提供两个数据库版本。Web 版数据库的大小最大可达 5 GB。企业版数据库的大小最大可达 50 GB。</p>
+<p>最大大小是在首次创建数据库时指定的，稍后可以使用“更改数据库”对其进行更改。最大大小可限制数据库的大小。</p>
+<p>在 Windows Azure 上创建的每个 SQL Database 实际上都具有三个副本。这样做是为了确保实现高可用性。故障转移是透明的并且是该服务的一部分。</p>
+</li>
+<li>
+<p>在“服务器”中，选择“新建 SQL Database 服务器”。</p>
+</li>
+<li>
+<p>单击箭头，转到下一页。</p>
+</li>
+<li>
+<p>在“服务器设置”中，输入 SQL Server 身份验证登录名。</p>
+<p>SQL Database 使用 SQL 身份验证进行加密连接。将使用您提供的名称创建一个分配给 sysadmin 固定服务器角色的新 SQL Server 身份验证登录名。</p>
+<p>登录名不能是电子邮件地址、Windows 用户帐户或 Windows Live ID。SQL Database 不支持声明，也不支持 Windows 身份验证。</p>
+</li>
+<li>
+<p>提供使用大小写值以及数字或符号组成的超过 8 个字符的强密码。</p>
+</li>
+<li>
+<p>选择区域。区域将确定服务器的地理位置。区域不能随意切换，因此要选择一个对此服务器有效的区域。选择一个最靠近您的位置。将 Windows Azure 应用程序和数据库放置在同一个区域可以减少出口带宽成本和数据延迟。</p>
+</li>
+<li>
+<p>确保“允许 Windows Azure 服务访问服务器”选项处于选中状态，以便您能够使用 SQL Database 的管理门户、存储服务以及 Windows Azure 上的其他服务连接到此数据库。</p>
+</li>
+<li>
+<p>完成后，单击页面底部的复选标记。</p>
+</li>
+</ol>
+<p>请注意，您没有指定服务器名称。SQL Database 会自动生成服务器名称以确保没有重复的 DNS 条目。服务器名称是一个由 10 个字符组成的字母数字字符串。您不能更改 SQL Database 服务器的名称。</p>
+<p>创建数据库后，单击它以打开其仪表板。仪表板提供可在应用程序代码中复制和使用的连接字符串。仪表板还显示了您在从 Management Studio 或其他管理工具中连接到数据库时所需要指定的管理 URL。</p>
+<p><img src="/media/devcenter/dotnet/sqldbdashboard.png" alt="图像 1"/></p>
+<p>在下一步中，您将配置防火墙以便可以访问来自您网络上运行的应用程序的连接。</p>
+<h3 id="configFWLogical">配置逻辑服务器的防火墙</h3>
+<ol>
+<li>
+<p>单击“SQL Database”，单击页面顶部的“服务器”，然后单击您刚才创建的服务器。</p>
+<p><img src="/media/devcenter/dotnet/sqldbfirewall.png" alt="图像 2"/></p>
+</li>
+<li>
+<p>单击“配置”。</p>
+</li>
+<li>
+<p>复制当前客户端 IP 地址。如果您从某网络进行连接，这就是您的路由器或代理服务器侦听的 IP 地址。SQL Database 会检测当前连接所使用的 IP 地址，以便您可以创建一个防火墙规则以接受来自此设备的连接请求。</p>
+</li>
+<li>
+<p>将 IP 地址粘贴到“起始 IP 地址”和“结束 IP 地址”中，以确定允许访问服务器的地址范围。以后，如果您遇到指示该范围太窄的连接错误，则可以编辑此规则来扩大该范围。</p>
+<p>如果客户端计算机使用动态分配的 IP 地址，您必须指定一个足以包含分配给您网络中计算机的 IP 地址的范围。从较窄的范围开始，然后仅在您需要时对其进行扩展。</p>
+</li>
+<li>
+<p>为防火墙规则输入名称，例如，您的计算机或公司的名称。</p>
+</li>
+<li>
+<p>单击该规则旁边的复选标记进行保存。</p>
+<p><img src="/media/devcenter/dotnet/sqldbiprange.png" alt="图像 3"/></p>
+</li>
+<li>
+<p>单击页面底部的“保存”以完成该步骤。如果没有看到“保存”，请刷新浏览器页面。</p>
+</li>
+</ol>
+<p>现在，您拥有数据库实例、逻辑服务器、允许来自您的 IP 地址的入站连接的防火墙规则以及管理员登录名。您现在可以通过编程方式连接到数据库。</p>
+<h2 id="Connect-DB"><span class="short-header">连接到 SQL Database</span></h2>
+<p>本节介绍如何使用不同的 .NET Framework 数据提供程序连接到 SQL Database 实例。</p>
+<p>如果您选择使用 Visual Studio 并且您的配置没有将 Windows Azure Web 应用程序包含为前端，则无需在开发计算机上安装其他工具或 SDK。您现在即可开始开发应用程序。</p>
+<p>您可以使用 Visual Studio 中的所有相同设计器工具处理 SQL Database，就像可以使用这些工具处理 SQL Server 一样。服务器资源管理器允许您查看（但不能编辑）数据库对象。Visual Studio 实体数据模型设计器功能完备，您可以用它来创建针对 SQL Database 的模型以使用 Entity Framework。</p>
+<h3><a name="using-sql-server"></a>使用用于 SQL Server 的 .NET Framework 数据提供程序</h3>
+<p><strong>System.Data.SqlClient</strong> 命名空间是用于 SQL Server 的 .NET Framework 数据提供程序。</p>
+<p>标准连接字符串类似于以下内容：</p>
+<pre class="prettyprint">Server=tcp:.devdatabase.chinacloudapi.cn; Database=; User ID=@; Password=; Trusted_Connection=False; Encrypt=True;</pre>
+<p>您可以使用 <strong>SQLConnectionStringBuilder</strong> 类构建连接字符串，如以下代码示例所示：</p>
+<pre class="prettyprint">SqlConnectionStringBuilder csBuilder; csBuilder = new SqlConnectionStringBuilder(); csBuilder.DataSource = xxxxxxxxxx.devdatabase.chinacloudapi.cn; csBuilder.InitialCatalog = testDB; csBuilder.Encrypt = true; csBuilder.TrustServerCertificate = false; csBuilder.UserID = MyAdmin; csBuilder.Password = pass@word1;</pre>
+<p>如果事先知道连接字符串的元素，则可以将其存储在配置文件中并在运行时进行检索，从而构造一个连接字符串。下面是配置文件中的一个连接字符串示例：</p>
+<pre class="prettyprint">&lt;connectionStrings&gt;   &lt;add name="ConnectionString"         connectionString ="Server=tcp:xxxxxxxxxx.devdatabase.chinacloudapi.cn;Database=testDB;User ID=MyAdmin@xxxxxxxxxx;Password=pass@word1;Trusted_Connection=False;Encrypt=True;" /&gt; &lt;/connectionStrings&gt;</pre>
+<p>要检索配置文件中的连接字符串，您可以使用 <strong>ConfigurationManager</strong> 类：</p>
+<pre class="prettyprint">SqlConnectionStringBuilder csBuilder; csBuilder = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString); After you have built your connection string, you can use the SQLConnection class to connect the SQL Database server: SqlConnection conn = new SqlConnection(csBuilder.ToString()); conn.Open();</pre>
+<h3><a name="using-ODBC"></a>使用用于 ODBC 的 .NET Framework 数据提供程序</h3>
+<p><strong>System.Data.Odbc</strong> 命名空间是用于 ODBC 的 .NET Framework 数据提供程序。下面是一个 ODBC 连接字符串示例：</p>
+<pre class="prettyprint">Driver={SQL Server Native Client 10.0}; Server=tcp:.devdatabase.chinacloudapi.cn; Database=; Uid=@; Pwd=; Encrypt=yes;</pre>
+<p><strong>OdbcConnection</strong> 类表示与数据源的开放连接。下面是有关如何打开连接的代码示例：</p>
+<pre class="prettyprint">string cs = "Driver={SQL Server Native Client 10.0};" +             "Server=tcp:xxxxxxxxxx.devdatabase.chinacloudapi.cn;" +             "Database=testDB;"+             "Uid=MyAdmin@xxxxxxxxxx;" +             "Pwd=pass@word1;"+             "Encrypt=yes;";  OdbcConnection conn = new OdbcConnection(cs); conn.Open();</pre>
+<p>如果要在运行时构建连接字符串，您可以使用 <strong>OdbcConnectionStringBuilder</strong> 类。</p>
+<h3><a name="using-entity"></a>使用 EntityClient 提供程序</h3>
+<p><strong>System.Data.EntityClient</strong> 命名空间是用于 Entity Framework 的 .NET Framework 数据提供程序。</p>
+<p>使用 Entity Framework，开发人员可以通过针对概念应用程序模型进行编程（而不是直接针对关系存储架构进行编程）来创建数据访问应用程序。通过提供与基础数据提供程序和关系数据库的 <strong>EntityConnection</strong>，可在特定于存储的 ADO.NET 数据提供程序的基础上构建 Entity Framework。</p>
+<p>要构造一个 <strong>EntityConnection</strong> 对象，您必须引用一组包含所需模型和映射的元数据，还要引用特定于存储的数据提供程序名称和连接字符串。<strong>EntityConnection</strong> 建立之后，即可通过概念模型生成的类访问实体。</p>
+<p>下面是一个连接字符串示例：</p>
+<pre class="prettyprint">metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.devdatabase.chinacloudapi.cn;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"</pre>
+<p>有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/bb738561.aspx">用于实体框架的 EntityClient 提供程序</a>[]。</p>
+<h2><a name="next-steps"></a>后续步骤</h2>
+<p>现在，您已经了解连接到 SQL Database 的相关基础知识，查看下面的资源可了解有关 SQL Database 的更多信息。</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee621787.aspx">开发：操作方法主题 (SQL Database)</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee336279.aspx">SQL Database</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>Windows Azure 开发：如何使用 SQL Database (.NET) </pageTitle><metaKeywords>SQL Azure 入门, SQL Azure 入门, SQL Azure 数据库连接, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient</metaKeywords><metaDescription><![CDATA[SQL Database 入门。了解如何创建 SQL Database 实例，以及如何使用 ADO.NET、ODBC 和 EntityClient Provider 与该实例建立连接。]]></metaDescription><linkid>dev-net-how-to-sql-azure</linkid><urlDisplayName>SQL Database</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19073" parentID="19058" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="15" createDate="2013-07-11T11:28:10" updateDate="2014-08-18T11:19:14" nodeName="Create a PHP Web Site" urlName="create-a-php-web-site" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19058,19073" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在 Windows Azure 网站中创建 PHP 网站</h1>
+<p>本文将说明如何使用 <a href="http://windows.azure.com/">Windows Azure 管理门户</a>、<a href="/zh-cn/develop/php/how-to-guides/command-line-tools/">针对 Mac 和 Linux 的 Windows Azure 命令行工具</a>或 <a href="/zh-cn/develop/php/how-to-guides/powershell-cmdlets/">Windows Azure PowerShell cmdlet</a> 来在 <a href="/zh-cn/manage/services/web-sites/">Windows Azure 网站</a>中创建 PHP 网站。</p>
+<p>通常，在 Windows Azure 网站中创建 PHP 网站与创建<em>任何</em> 其他网站并无差异。默认情况下，将为所有网站启用 PHP。有关配置 PHP（或提供您自定义的 PHP 运行时）的信息，请参阅<a href="/zh-cn/develop/php/common-tasks/configure-php-web-site/">如何在 Windows Azure 网站中配置 PHP</a>。</p>
+<p>下述每个选项将向您演示如何在共享的托管环境中免费创建网站，但在 CPU 使用率和带宽使用率上有一些限制。有关详细信息，请参阅 <a href="/zh-cn/pricing/details/#header-1">Windows Azure 网站定价</a>。有关如何升级和缩放您的网站的信息，请参阅<a href="/zh-cn/manage/services/web-sites/how-to-scale-websites/">如何缩放网站</a>。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#portal">使用 Windows Azure 门户创建网站</a></li>
+<li><a href="#XplatTools">使用针对 Mac 和 Linux 的 Windows Azure 命令行工具创建网站</a></li>
+<li><a href="#PowerShell">使用 Windows Azure PowerShell cmdlet 创建网站</a></li>
+</ul>
+<h2 id="portal">使用 Windows Azure 门户创建 PHP 网站</h2>
+<p>在 Windows Azure 门户中创建网站时，您有三个选项：“快速创建”<strong></strong>、“与数据库一起创建”<strong></strong>和“从库中”<strong></strong>。以下说明将介绍“快速创建”<strong></strong>选项。有关其他两个选项的信息，请参阅<a href="/zh-cn/develop/php/tutorials/website-w-mysql-and-git/">创建 PHP-MySQL Windows Azure 网站并使用 Git 进行部署</a>和<a href="/zh-cn/develop/php/tutorials/website-from-gallery/">在 Windows Azure 中从库中创建 WordPress 网站</a>。</p>
+<p>若要使用 Windows Azure 门户创建 PHP 网站，请执行以下操作：</p>
+<ol>
+<li>登录到 <a href="http://windows.azure.com/">Windows Azure 管理门户</a>。</li>
+<li>
+<p>单击页面底部的“+新建”<strong></strong>，然后依次单击“计算”<strong></strong>、“网站”<strong></strong>和“快速创建”<strong></strong>。提供网站的“URL”<strong></strong>，并选择网站的“区域”<strong></strong>。最后，单击“创建网站”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/select-quickcreate-website.png" alt="选择“快速创建”网站"/></p>
+</li>
+</ol>
+<h2 id="XplatTools">使用针对 Mac 和 Linux 的 Windows Azure 命令行工具创建 PHP 网站</h2>
+<p>若要使用针对 Mac 和 Linux 的 Windows Azure 命令行工具创建 PHP 网站，请执行以下操作：</p>
+<ol>
+<li>
+<p>按照此处的说明进行操作来安装 Windows Azure 命令行工具：<a href="/zh-cn/develop/php/how-to-guides/command-line-tools/#Download">如何安装针对 Mac 和 Linux 的 Windows Azure 命令行工具</a>。</p>
+</li>
+<li>
+<p>按照此处的说明进行操作来下载和导入您的发布设置文件：<a href="/zh-cn/develop/php/how-to-guides/command-line-tools/#Account">如何下载和导入发布设置</a>。</p>
+</li>
+<li>
+<p>从命令提示符处运行以下命令：</p>
+<pre class="prettyprint">azure site create MySiteName</pre>
+</li>
+</ol>
+<p>新创建的网站的 URL 将为 <code>http://MySiteName.chinacloudsites.cn</code>。</p>
+<p>请注意，您可以将 <code>azure site create</code> 命令与下列任一选项一起执行：</p>
+<ul>
+<li><code>--location [location name]</code>。该选项允许您指定创建网站的数据中心的位置（例如“美国西部”）。如果忽略此选项，系统将提示您选择一个位置。</li>
+<li><code>--hostname [custom host name]</code>。此选项允许您指定网站的自定义主机名。</li>
+<li><code>--git</code>。此选项允许您使用 Git 通过在本地应用程序目录和网站的数据中心创建 Git 存储库来发布到网站。请注意，如果本地文件夹已是 Git 存储库，则此命令会将新的远程添加到现有存储库，并指向网站数据中心内的存储库。</li>
+</ul>
+<p>有关其他选项的信息，请参阅<a href="/zh-cn/develop/php/how-to-guides/command-line-tools/#WebSites">如何创建和管理 Windows Azure 网站</a>。</p>
+<h2 id="PowerShell">使用 Windows Azure PowerShell cmdlet 创建 PHP 网站</h2>
+<p>若要使用 Windows Azure PowerShell cmdlet 创建 PHP 网站，请执行以下操作：</p>
+<ol>
+<li>
+<p>按照此处的说明进行操作来安装 Windows Azure PowerShell cmdlet：<a href="/zh-cn/develop/php/how-to-guides/powershell-cmdlets/#GetStarted">Windows Azure PowerShell 入门</a>。</p>
+</li>
+<li>
+<p>按照此处的说明进行操作来下载和导入您的发布设置文件：<a href="/zh-cn/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings">如何：导入发布设置</a>。</p>
+</li>
+<li>
+<p>打开 PowerShell 命令提示符，并执行以下命令：</p>
+<pre class="prettyprint">New-AzureWebSite MySiteName</pre>
+</li>
+</ol>
+<p>新创建的网站的 URL 将为 <code>http://MySiteName.chinacloudsites.cn</code>。</p>
+<p>请注意，您可以将 <code>New-AzureWebSite</code> 命令与下列任一选项一起执行：</p>
+<ul>
+<li><code>-Location [location name]</code>。该选项允许您指定创建网站的数据中心的位置（例如“美国西部”）。如果忽略此选项，系统将提示您选择一个位置。</li>
+<li><code>-Hostname [custom host name]</code>。此选项允许您指定网站的自定义主机名。</li>
+<li><code>-Git</code>。此选项允许您使用 Git 通过在本地应用程序目录和网站的数据中心创建 Git 存储库来发布到网站。请注意，如果本地文件夹已是 Git 存储库，则此命令会将新的远程添加到现有存储库，并指向网站数据中心内的存储库。</li>
+</ul>
+<p>有关其他选项的信息，请参阅<a href="/zh-cn/develop/php/how-to-guides/powershell-cmdlets/#WebSite">如何：创建和管理 Windows Azure 网站</a>。</p>
+<h2 id="NextSteps">后续步骤</h2>
+<p>现在您已在 Windows Azure 网站中创建 PHP 网站，可以管理、配置、监视、部署到和缩放您的网站。有关详细信息，请参阅以下链接：</p>
+<ul>
+<li><a href="/zh-cn/manage/services/web-sites/how-to-configure-websites/">如何配置网站</a></li>
+<li><a href="/zh-cn/develop/php/common-tasks/configure-php-web-site/">如何在 Windows Azure 网站中配置 PHP</a></li>
+<li><a href="/zh-cn/manage/services/web-sites/how-to-manage-websites/">如何管理网站</a></li>
+<li><a href="/zh-cn/manage/services/web-sites/how-to-monitor-websites/">如何监视网站</a></li>
+<li><a href="/zh-cn/manage/services/web-sites/how-to-monitor-websites/">如何缩放网站</a></li>
+<li><a href="/zh-cn/develop/php/common-tasks/publishing-with-git/">使用 Git 进行发布</a></li>
+</ul>
+<p>有关端到端教程，请访问 <a href="/zh-cn/develop/php/tutorials/">PHP 开发中心 - 教程</a>页。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>创建 PHP 网站</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>develop-php-common-tasks-create-a-php-web-site</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>创建 PHP 网站</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate></TextpageLeftNav></localize>

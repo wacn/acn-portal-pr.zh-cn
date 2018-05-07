@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage template="302" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+    <bodyText>
+    <![CDATA[
+         <p><tags ms.service="legal-en" ms.date="12/2017" wacn.date="12/2017" wacn.lang="en"/></p>
+
+        <p><div class='language-switch'><ul><li><a href='/support/sla/cosmos-db/'>中文</a></li><li class="active"><a href='/support/sla/cosmos-db-en/'>English</a></li></ul></div></p>
+
+        <h1>SLA for Azure Cosmos DB</h1><div class="tags-date"><div class="ms-date">Updated: 12/2017</div></div>
+        <p><a href="/home/features/cosmos-db/">Azure Cosmos DB</a>, operated by 21Vianet in China, is <a href="//docs.azure.cn/zh-cn/cosmos-db/distribute-data-globally/">a distributed</a> multi-model database service. It offers turnkey  distribution across any number of Azure regions in China by transparently scaling and replicating your data wherever your users are. The service offers comprehensive 99.99% SLAs which covers the guarantees for throughput, consistency, availability and latency for the Cosmos DB Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning multiple Azure regions, configured with any of the four relaxed Consistency Levels. Furthermore, independent of the choice of a Consistency Level, Cosmos DB offers 99.999% SLA for read availability for Database Accounts spanning two or more Azure regions.</p>
+        <h2>Introduction</h2>
+        <p>This Service Level Agreement for Azure (this &quot;SLA&quot;) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the &quot;Agreement&quot;).</p>
+        <p>We provide financial backing to our commitment to achieve and maintain Service Levels for our Services. If we do not achieve and maintain the Service Levels for each Service as described in this SLA, then you may be eligible for a credit towards a portion of your monthly service fees. These terms will be fixed for term of your Agreement. If a subscription is renewed, the version of this SLA that is current at the time the renewal term commences will apply throughout the renewal term. We will provide at least 90 days' notice for adverse material changes to this SLA. You can review the most current version of this SLA at any time by visiting <a href="/support/legal/sla/">https://www.azure.cn/support/legal/sla/</a>.</p>
+        <h2>General Terms</h2>
+        <h3>1. Definitions</h3>
+        <ol>
+        <li>
+        <p>&quot;Claim&quot; means a claim submitted by Customer to 21Vianet pursuant to this SLA that a Service Level has not been met and that a Service Credit may be due to Customer. </p>
+        </li>
+        <li>
+        <p>&quot;Customer&quot; refers to the organization that has entered into the Agreement.</p>
+        </li>
+        <li>
+        <p>&quot;Customer Support&quot; means the services by which 21Vianet may provide assistance to Customer to resolve issues with the Services.</p>
+        </li>
+        <li>
+        <p>&quot;Error Code&quot; means an indication that an operation has failed, such as an HTTP status code in the 5xx range.</p>
+        </li>
+        <li>
+        <p>&quot;External Connectivity&quot; is bi-directional network traffic over supported protocols such as HTTP and HTTPS that can be sent and received from a public IP address.</p>
+        </li>
+        <li>
+        <p>&quot;Incident&quot; means any set of circumstances resulting in a failure to meet a Service Level.</p>
+        </li>
+        <li>
+        <p>&quot;Management Portal&quot; means the web interface, provided by 21Vianet, through which customers may manage the Service.</p>
+        </li>
+        <li>
+        <p>&quot;21Vianet&quot; means the 21Vianet entity that appears on Customer's Agreement.</p>
+        </li>
+        <li>
+        <p>&quot;Preview&quot; refers to a preview, beta, or other pre-release version of a service or software offered to obtain customer feedback.</p>
+        </li>
+        <li>
+        <p>&quot;Service&quot; or &quot;Services&quot; refers to a Azure service provided to Customer pursuant to the Agreement for which an SLA is provided below.</p>
+        </li>
+        <li>
+        <p>&quot;Service Credit&quot; is the percentage of the monthly service fees for the affected Service or Service Resource that is credited to Customer for a validated Claim.</p>
+        </li>
+        <li>
+        <p>&quot;Service Level&quot; means standards 21Vianet chooses to adhere to and by which it measures the level of service it provides for each Service as specifically set forth below.</p>
+        </li>
+        <li>
+        <p>&quot;Service Resource&quot; means an individual resource available for use within a Service.</p>
+        </li>
+        <li>
+        <p>&quot;Success Code&quot; means an indication that an operation has succeeded, such as an HTTP status code in the 2xx range.</p>
+        </li>
+        <li>
+        <p>&quot;Support Window&quot; refers to the period of time during which a Service feature or compatibility with a separate product or service is supported. </p>
+        </li>
+        <li>
+        <p>&quot;Virtual Network&quot; refers to a virtual private network that includes a collection of user-defined IP addresses and subnets that form a network boundary within Azure.</p>
+        </li>
+        <li>
+        <p>&quot;Virtual Network Gateway&quot; refers to a gateway that facilitates cross-premises connectivity between a Virtual Network and a customer on-premises network.</p>
+        </li>
+        </ol>
+        <h3>2. Service Credit Claims</h3>
+        <ol>
+        <li>
+        <p>In order for 21Vianet to consider a Claim, Customer must submit the Claim to Customer Support within two months of the end of the billing month in which the Incident that is the subject of the Claim occurs. Customer must provide to Customer Support all information necessary for 21Vianet to validate the Claim, including but not limited to detailed descriptions of the Incident, the time and duration of the Incident, the affected resources or operations, and any attempts made by Customer to resolve the Incident</p>
+        </li>
+        <li>
+        <p>21Vianet will use all information reasonably available to it to validate the Claim and to determine whether any Service Credits are due.</p>
+        </li>
+        <li>
+        <p>In the event that more than one Service Level for a particular Service is not met because of the same Incident, Customer must choose only one Service Level under which a Claim may be made based on the Incident.</p>
+        </li>
+        <li>
+        <p>Service Credits apply only to fees paid for the particular Service, Service Resource, or Service tier for which a Service Level has not been met. In cases where Service Levels apply to individual Service Resources or to separate Service tiers, Service Credits apply only to fees paid for the affected Service Resource or Service tier, as applicable.</p>
+        </li>
+        </ol>
+        <h3>3. SLA Exclusions</h3>
+        <p>This SLA and any applicable Service Levels do not apply to any performance or availability issues:</p>
+        <ol>
+        <li>
+        <p>Due to factors outside 21Vianet’s reasonable control (for example, a network or device failure external to 21Vianet’s data centers, including at Customer's site or between Customer's site and 21Vianet’s data center);</p>
+        </li>
+        <li>
+        <p>That resulted from Customer's use of hardware, software, or services not provided by 21Vianet as part of the Services (for example, third-party software or services purchased from the Azure Store or other non-Azure services provided by 21Vianet);</p>
+        </li>
+        <li>
+        <p>Due to Customer's use of the Service in a manner inconsistent with the features and functionality of the Service (for example, attempts to perform operations that are not supported) or inconsistent with published documentation or guidance;</p>
+        </li>
+        <li>
+        <p>That resulted from faulty input, instructions, or arguments (for example, requests to access files that do not exist);</p>
+        </li>
+        <li>
+        <p>Caused by Customer's use of the Service after 21Vianet advised Customer to modify its use of the Service, if Customer did not modify its use as advised;</p>
+        </li>
+        <li>
+        <p>During or with respect to Previews or to purchases made using 21Vianet subscription credits;</p>
+        </li>
+        <li>
+        <p>That resulted from Customer's attempts to perform operations that exceed prescribed quotas or that resulted from throttling of suspected abusive behavior;</p>
+        </li>
+        <li>
+        <p>Due to Customer's use Service features that are outside of associated Support Windows; or</p>
+        </li>
+        <li>
+        <p>Attributable to acts by persons gaining unauthorized access to 21Vianet’s Service by means of Customer's passwords or equipment or otherwise resulting from Customer's failure to follow appropriate security practices.</p>
+        </li>
+        </ol>
+        <h3>4. Service Credits</h3>
+        <ol>
+        <li>
+        <p>The amount and method of calculation of Service Credits is described below in connection with each Service. </p>
+        </li>
+        <li>
+        <p>Service Credits are Customer's sole and exclusive remedy for any failure to meet any Service Level.</p>
+        </li>
+        <li>
+        <p>The Service Credits awarded in any billing month for a particular Service or Service Resource will not, under any circumstance, exceed Customer's monthly service fees that Service or Service Resource, as applicable, in the billing month.</p>
+        </li>
+        <li>
+        <p>For Services purchased as part of a suite, the Service Credit will be based on the pro-rata portion of the cost of the Service, as determined by 21Vianet in its reasonable discretion. In cases where Customer has purchased Services from a reseller, the Service Credit will be based on the estimated retail price for the applicable Service, as determined by 21Vianet in its reasonable discretion.</p>
+        </li>
+        </ol>
+         <h2>SLA details</h2>
+        <h3>Additional Definitions</h3>
+        <ol>
+            <li>
+                <p>&quot;<strong>Collection</strong>&quot; is a container of JSON documents, and a unit of scale for transactions and queries.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Consumed RUs</strong>&quot; is the sum of the Request Units consumed by all the requests which are processed by the Azure Cosmos DB Collection in a given second.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Database Account</strong>&quot; is the top-level resource of the Azure Cosmos DB resource model. An Azure Cosmos DB Database Account contains one or more databases.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Failed Requests</strong>&quot; are requests within Total Requests that either return an Error Code or fail to return a Success Code within the maximum upper bounds documented in the table below.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Failed Read Requests</strong>&quot; are requests within Total Read Requests that either return an Error Code or fail to return a Success Code within the maximum upper bounds documented in the table below.</p>
+            </li>
+            <table>
+                <tr>
+                    <th>OPERATION</th>
+                    <th>MAXIMUM UPPER BOUND ON PROCESSING LATENCY</th>
+                </tr>
+                <tr>
+                    <td>All Database Account configuration operations</td>
+                    <td>2 Minutes</td>
+                </tr>
+                <tr>
+                    <td>Add a new Region</td>
+                    <td>60 Minutes</td>
+                </tr>
+                <tr>
+                    <td>Manual Failover</td>
+                    <td>5 Minutes</td>
+                </tr>
+                <tr>
+                    <td>Resource Operations</td>
+                    <td>5 Sec</td>
+                </tr>
+                <tr>
+                    <td>Media Operations</td>
+                    <td>60 Sec</td>
+                </tr>
+            </table>
+            <li>
+                <p>&quot;<strong>Provisioned RUs</strong>&quot; is the total provisioned Request Units for a given Azure Cosmos DB Collection for a given second.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Rate Limited Requests</strong>&quot; are requests which are throttled by the Azure Cosmos DB Collection after Consumed RUs have exceeded the Provisioned RUs for a partition in the Collection for a given second.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Request Unit (RU)</strong>&quot; is a measure of throughput in Azure Cosmos DB.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Resource</strong>&quot; is a set of URI addressable entities associated with a Database Account.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Successful Requests</strong>&quot; are Total Requests minus Failed Requests.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Total Requests</strong>&quot; is the set of all requests, including Rate Limited Requests and all Failed Requests, issued against Resources within a one-hour interval within a given Azure subscription during a billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Total Read Requests</strong>&quot; is the set of all the read requests, including Rate Limited Requests and all the Failed Read Requests, issued against Resources within a one-hour interval within a given Azure subscription during a billing month.</p>
+            </li>
+            
+        </ol>
+        <h3>Availability SLA</h3>
+        <ol>
+            <li>
+                <p>&quot;<strong>Read Error Rate</strong>&quot; is the total number of Failed Read Requests divided by Total Read Requests, across all Resources in a given Azure subscription, during a given one-hour interval. If the Total Read Requests in a given one-hour interval is zero, the Read Error Rate for that interval is 0%.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Error Rate</strong>&quot; is the total number of Failed Requests divided by Total Requests, across all Resources in a given Azure subscription, during a given one-hour interval. If the Total Requests in a given one-hour interval is zero, the Error Rate for that interval is 0%.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Average Error Rate</strong>&quot; for a billing month is the sum of Error Rates for each hour in the billing month divided by the total number of hours in the billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Average Read Error Rate</strong>&quot; for a billing month is the sum of Read Error Rates for each hour in the billing month divided by the total number of hours in the billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Monthly Availability Percentage</strong> for the Azure Cosmos DB Service deployed via Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning multiple regions, configured with any of the four relaxed Consistency Levels is calculated by subtracting from 100% the Average Error Rate for a given Azure subscription in a billing month. Monthly Availability Percentage is represented by the following formula:</p>
+                <p>Monthly Uptime % = 100% - Average Error Rate</p>
+            </li>
+            <li>
+                <p>Service Credit:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>MONTHLY AVAILABILITY PERCENTAGE</th>
+                        <th>SERVICE CREDIT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.99%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <p>&quot;<strong>Monthly Read Availability Percentage</strong>&quot; for the Azure Cosmos DB service deployed via Database Account configured to span two or more regions is calculated by subtracting from 100% the Average Read Error Rate for a given Azure subscription in a billing month. Monthly Read Availability Percentage is represented by the following formula:</p>
+                <p>Monthly Read Availability Uptime % = 100% - Average Read Error Rate</p>
+            </li>
+            <li>
+                <p>Service Credit:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>MONTHLY READ AVAILABILITY PERCENTAGE</th>
+                        <th>SERVICE CREDIT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.999%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ol>
+        <h3>Throughput SLA</h3>
+        <ol>
+            <li>
+                <p>&quot;<strong>Throughput Failed Requests</strong>&quot; are requests which are throttled by the Azure Cosmos DB Collection resulting in an Error Code, before Consumed RUs have exceeded the Provisioned RUs for a partition in the Collection for a given second.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Error Rate</strong>&quot; is the total number of Throughput Failed Requests divided by Total Requests, across all Resources in a given Azure subscription, during a given one-hour interval. If the Total Requests in a given one-hour interval is zero, the Error Rate for that interval is 0%.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Average Error Rate</strong>&quot; for a billing month is the sum of Error Rates for each hour in the billing month divided by the total number of hours in the billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Monthly Throughput Percentage</strong>&quot; for the Azure Cosmos DB Service is calculated by subtracting from 100% the Average Error Rate for a given Azure subscription in a billing month. Monthly Throughput Percentage is represented by the following formula:</p>
+                <p>Monthly Throughput % = 100% - Average Error Rate</p>
+            </li>
+            <li>
+                <p>Service Credit:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>MONTHLY THROUGHPUT PERCENTAGE</th>
+                        <th>SERVICE CREDIT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.99%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ol>
+        <h3>Consistency SLA</h3>
+        <ol>
+            <li>
+                <p>&quot;<strong>K</strong>&quot;  is the number of versions of a given document for which the reads lag behind the writes.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>T</strong>&quot; is a given time interval.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Consistency Level</strong>&quot; is the setting for a particular read request that supports consistency guarantees. The following table captures the guarantees associated with the Consistency Levels.Note that Session, Bounded Staleness, Consistent Prefix and Eventual Consistency Levels are all referred to as “relaxed”.</p>
+            </li>
+            <table>
+                    <thead>
+                    <tr>
+                        <th>CONSISTENCY LEVEL</th>
+                        <th>CONSISTENCY GUARANTEES</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Strong</td>
+                        <td>Linearizability</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Session</td>
+                        <td>Read Your Own Write (Within Write Region)</td>
+                    </tr>
+                    <tr>
+                        <td>Monotonic Read</td>
+                    </tr>
+                    <tr>
+                        <td>Consistent Prefix</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Bounded Staleness</td>
+                        <td>Read Your Own Write (Within Write Region)</td>
+                    </tr>
+                    <tr>
+                        <td>Monotonic Read (Within a Region)</td>
+                    </tr>
+                    <tr>
+                        <td>Consistent Prefix</td>
+                    </tr>
+                    <tr>
+                        <td>Staleness Bound < K,T ></td>
+                    </tr>
+                    <tr>
+                        <td>Consistent Prefix </td>
+                        <td>Consistent Prefix</td>
+                    </tr>
+                    <tr>
+                        <td>Eventual</td>
+                        <td>Eventual</td>
+                    </tr>
+                    </tbody>
+                </table>
+            <li>
+                <p>&quot;<strong>Consistency Violation Rate</strong>&quot; is Successful Requests that could not be delivered when performing the consistency guarantees specified for the chosen Consistency Level divided by Total Requests, across all Resources in a given Azure subscription, during a given one-hour interval. If the Total Requests in a given one-hour interval is zero, the Consistency Violation Rate for that interval is 0%.。</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Average Consistency Violation Rate</strong>&quot; for a billing month is the sum of Consistency Violation Rates for each hour in the billing month divided by the total number of hours in the billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Monthly Consistency Attainment Percentage</strong>&quot; for the Azure Cosmos DB service is calculated by subtracting from 100% the Average Consistency Violation Rate for a given Azure Subscription in a billing month.</p>
+                <p>Monthly Consistency % = 100% - Average Consistency Violation Rate</p>
+            </li>
+            <li>
+                <p>Service Credit:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>MONTHLY CONSISTENCY ATTAINMENT PERCENTAGE</th>
+                        <th>SERVICE CREDIT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.99%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ol>
+        <h3>Latency SLA</h3>
+        <ol>
+            <li>
+                <p>&quot;<strong>Application</strong>&quot; is an Azure Cosmos DB application deployed within a local Azure region using the Azure Cosmos DB client SDK configured with TCP direct connectivity for a given Azure subscription in a billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>N</strong>&quot;is the number of Successful Requests for a given Application performing either document read or document write operations with a payload size less than or equal to 1 KB in a given hour.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>S</strong>&quot;is the latency-sorted set of Successful Request response times in ascending order for a given Application performing document read or document write operations with a payload size less than or equal to 1 KB in a given hour.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Ordinal Rank</strong>&quot;is the 99th percentile using the nearest rank method represented by the following formula:</p>
+                <p>Ordinal Rank = (99 / 100) * N</p>
+            </li>
+            <li>
+                <p>&quot;<strong>P99 Latency</strong>&quot; is the value at the Ordinal Rank of S.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Excessive Latency Hours</strong>&quot; is the total number of one-hour intervals during which Successful Requests submitted by an Application resulted in a P99 Latency greater than or equal to 10ms for document read or 15ms for document write operations. If the number of Successful Requests in a given one-hour interval is zero, the Excessive Latency Hours for that interval is 0.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Average Excessive Latency Rate</strong>&quot; for a billing month is the sum of Excessive Latency Hours divided by the total number of hours in the billing month.</p>
+            </li>
+            <li>
+                <p>&quot;<strong>Monthly P99 Latency Attainment Percentage</strong>&quot; for a given Azure Cosmos DB Application deployed via Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning multiple regions, configured with any of the four relaxed Consistency Levels is calculated by subtracting from 100% the Average Excessive Latency Rate for a given Azure subscription in a billing month. Monthly P99 Latency Attainment Percentage is represented by the following formula:</p>
+                <p>Monthly P99 Latency Attainment % = 100% - Average Excessive Latency Rate</p>
+            </li>
+            <li>
+                <p>Service Credit:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>MONTHLY P99 LATENCY ATTAINMENT PERCENTAGE</th>
+                        <th>SERVICE CREDIT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.99%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ol> 
+    ]]>
+    </bodyText>
+    <redirectURL>//www.azure.cn/en-us/support/sla/cosmos-db/</redirectURL>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>SLA for Azure Cosmos DB | Azure</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription>
+        <![CDATA[
+            SLA for Azure Cosmos DB
+        ]]>    
+    </metaDescription>
+    <linkid>0</linkid>
+    <urlDisplayName></urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate>0</pageTemplate>
+    <localize>1</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <banner>
+    </banner>
+  </umbTextpage>
+</localize>

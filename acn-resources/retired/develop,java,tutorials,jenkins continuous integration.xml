@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18588" parentID="18582" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="6" createDate="2013-06-04T10:07:28" updateDate="2014-08-18T11:12:59" nodeName="Jenkins Continuous Integration" urlName="jenkins-continuous-integration" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18396,18582,18588" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/java" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>将 Windows Azure 存储用于 Jenkins 持续集成解决方案</h1>
+<p>下列信息演示如何使用 Windows Azure Blob 服务作为 Jenkins 持续集成 (CI) 解决方案创建的生成项目的存储库。在以下情况中您将会发现这一做法很有用：您在敏捷开发环境进行编码（使用 Java 或其他语言），生成是基于持续集成运行的并且您需要一个适用于生成项目的存储库，以便（举例来说）您能与其他组织成员、您的客户共享生成项目或维护存档。</p>
+<p>在本教程中，您将使用 Microsoft Open Technologies, Inc. 提供的适用于 Jenkins CI 的 Windows Azure 存储插件。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#benefits">使用 Blob 服务的好处</a></li>
+<li><a href="#prerequisites">先决条件</a></li>
+<li><a href="#howtouse">如何将 Blob 服务用于 Jenkins CI</a></li>
+<li><a href="#howtoinstall">如何安装 Windows Azure 存储插件</a></li>
+<li><a href="#howtoconfigure">如何将 Windows Azure 存储插件配置为使用存储帐户</a></li>
+<li><a href="#howtocreatepostbuild">如何创建将您的生成项目上载到存储帐户的后期生成操作</a></li>
+<li><a href="#components">Blob 服务使用的组件</a></li>
+</ul>
+<h2><a name="benefits"></a> <span class="short header">好处</span>使用 Blob 服务的好处</h2>
+<p>使用 Blob 服务承载敏捷开发生成项目的好处包括：</p>
+<ul>
+<li>生成项目的高可用性。</li>
+<li>Jenkins CI 解决方案上载生成项目时的性能。</li>
+<li>客户和合作伙伴下载生成项目时的性能。</li>
+<li>通过选择匿名访问、基于过期的共享访问、签名访问、专用访问等来控制用户访问策略。</li>
+</ul>
+<h2><a name="prerequisites"></a> <span class="short header">先决条件</span>先决条件</h2>
+<p>您将需要下列项才能将 Blob 服务用于 Jenkins CI 解决方案：</p>
+<ul>
+<li>
+<p>一个 Jenkins 持续集成解决方案。</p>
+<p>如果您当前没有 Jenkins CI 解决方案，则可使用以下技术运行一个 Jenkins CI 解决方案：</p>
+<ol>
+<li>在已启用 Java 的计算机上，从 <a href="http://jenkins-ci.org">http://jenkins-ci.org</a> 下载 jenkins.war。</li>
+<li>
+<p>在打开到包含 jenkins.war 的文件夹的命令提示符处，运行：</p>
+<p><code>java –jar jenkins.war</code></p>
+</li>
+<li>
+<p>在浏览器中，打开 <code>http://localhost:8080/</code>。这将打开 Jenkins 仪表板，您可使用该仪表板安装并配置 Windows Azure 存储插件。</p>
+<p>虽然典型 Jenkins CI 解决方案将设置为作为一个服务运行，但在本教程中，通过命令行运行 Jenkins war 就足够了。</p>
+</li>
+</ol></li>
+<li>
+<p>一个 Windows Azure 帐户。您可在 <a href="http://www.windowsazure.cn">http://www.windowsazure.cn</a> 中注册 Windows Azure 帐户。</p>
+</li>
+<li>
+<p>一个 Windows Azure 存储帐户。如果您还没有存储帐户，则可使用<a href="/zh-cn/manage/services/storage/how-to-create-a-storage-account/">如何创建存储帐户</a>中的步骤创建一个。</p>
+</li>
+<li>
+<p>建议熟悉 Jenkins CI 解决方案（但不是必需的），因为以下内容将使用一个基本示例向您演示使用 Blob 服务作为 Jenkins CI 生成项目的存储库时所需的步骤。</p>
+</li>
+</ul>
+<h2><a name="howtouse"></a> <span class="short header">如何使用 Blob 服务</span>如何将 Blob 服务用于 Jenkins CI</h2>
+<p>若要将 Blob 服务用于 Jenkins，您将需要安装 Windows Azure 存储插件，并将该插件配置为使用存储帐户，然后创建一个将生成项目上载到存储帐户的后期生成操作。将在下面各节中介绍这些步骤。</p>
+<h2><a name="howtoinstall"></a> <span class="short header">如何安装</span>如何安装 Windows Azure 存储插件</h2>
+<ol>
+<li>在 Jenkins 仪表板中，单击“管理 Jenkins”。</li>
+<li>在“管理 Jenkins”页中，单击“管理插件”。</li>
+<li>单击“可用”选项卡。</li>
+<li>在“项目上载程序”部分，选中“Windows Azure 存储插件”。</li>
+<li>单击“安装而不重新启动”或“立即下载并在重新启动后安装”。</li>
+<li>重新启动 Jenkins。</li>
+</ol>
+<h2><a name="howtoconfigure"></a> <span class="short header">如何配置</span>如何将 Windows Azure 存储插件配置为使用存储帐户</h2>
+<ol>
+<li>在 Jenkins 仪表板中，单击“管理 Jenkins”。</li>
+<li>在“管理 Jenkins”页中，单击“配置系统”。</li>
+<li>在“Windows Azure 存储帐户配置”部分：<ol>
+<li>输入存储帐户名称，您可从 Windows Azure 门户 <a href="https://manage.windowsazure.cn">https://manage.windowsazure.cn</a> 获取该名称。</li>
+<li>输入存储帐户密钥，该密钥也可从 Windows Azure 门户获得。</li>
+<li>如果要使用公共 Windows Azure 云，则使用“Blob 服务终结点 URL”的默认值。如果要使用其他 Windows Azure 云，则使用在 Windows Azure 管理门户中为您的存储帐户指定的终结点。</li>
+<li>单击“验证存储凭据”以验证存储帐户。</li>
+<li>[可选] 如果您具有要使其可用于 Jenkins CI 的其他存储帐户，请单击“添加更多存储帐户”。</li>
+<li>单击“保存”以保存设置。</li>
+</ol></li>
+</ol>
+<h2><a name="howtocreatepostbuild"></a> <span class="short header">如何创建后期生成操作</span>如何创建将您的生成项目上载到存储帐户的后期生成操作</h2>
+<p>为了进行说明，首先我们将需要创建一个将创建若干文件的作业，然后添加后期生成操作以将文件上载到存储帐户。</p>
+<ol>
+<li>在 Jenkins 仪表板中，单击“新建作业”。</li>
+<li>将此作业命名为“MyJob”，单击“生成自由格式的软件项目”，然后单击“确定”。</li>
+<li>在作业配置的“生成”部分，单击“添加生成步骤”并选择“执行 Windows 批处理命令”。</li>
+<li>
+<p>在“命令”中，使用下列命令：</p>
+<pre class="prettyprint">md text
+cd text
+echo Hello Windows Azure Storage from Jenkins &gt; hello.txt
+date /t &gt; date.txt
+time /t &gt;&gt; date.txt</pre>
+</li>
+<li>
+<p>在作业配置的“后期生成操作”部分，单击“添加后期生成操作”并选择“将项目上载到 Windows Azure Blob 存储”。</p>
+</li>
+<li>对于“存储帐户名称”，请选择要使用的存储帐户。</li>
+<li>
+<p>对于“容器名称”，请指定容器名称。（如果上载生成项目时不存在该容器，则将创建该容器。）您可使用环境变量，因此在此示例中，请输入 <strong>${JOB_NAME}</strong> 作为容器名称。</p>
+<p><strong>提示</strong></p>
+<p>在您为“执行 Windows 批处理命令”输入脚本的“命令”部分的下面，有一个指向 Jenkins 识别的环境变量的链接。单击此链接可了解环境变量名称和说明。请注意，包含特殊字符的环境变量（如 <strong>BUILD_URL</strong> 环境变量）不允许作为容器名称或通用虚拟路径。</p>
+</li>
+<li>
+<p>在此示例中单击“将容器设为公开的”。（如果要使用私有容器，您将需要创建共享访问签名以允许访问。这超出了本主题的范围。您可在<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508996.aspx">创建共享访问签名</a>中了解有关共享访问签名的详细信息。）</p>
+</li>
+<li>对于“要上载的项目列表”，请输入 <strong>text/*.txt</strong>。</li>
+<li>对于“已上载项目的通用虚拟路径”，请输入 <strong>${BUILD_ID}/${BUILD_NUMBER}</strong>。</li>
+<li>单击“保存”以保存设置。</li>
+<li>在 Jenkins 仪表板中，单击“立即生成”以运行 <strong>MyJob</strong>。检查控制台输出中的状态。当后期生成操作开始上载生成项目时，Windows Azure 存储的状态消息将包括在控制台输出中。</li>
+<li>成功完成此作业后，您可通过打开公共 Blob 检查生成项目。<ol>
+<li>登录 Windows Azure 管理门户 <a href="https://manage.windowsazure.cn">https://manage.windowsazure.cn</a>。</li>
+<li>单击“存储”。</li>
+<li>单击用于 Jenkins 的存储帐户名称。</li>
+<li>单击“容器”。</li>
+<li>单击名为 <strong>myjob</strong> 的容器，该名称是您创建 Jenkins 作业时分配的作业名称的小写形式。Windows Azure 存储中的容器名称和 Blob 名称均是小写的（并且是区分大小写的）。在名为 <strong>myjob</strong> 的容器的 Blob 列表中，您应该能看到 <strong>hello.txt</strong> 和 <strong>date.txt</strong>。复制这两项中任一项的 URL 并在浏览器中打开。您将看到作为生成项目上载的文本文件。</li>
+</ol></li>
+</ol>
+<h2><a></a> <span class="short header">Blob 服务组件</span>Blob 服务使用的组件</h2>
+<p>以下信息概述了 Blob 服务组件。</p>
+<ul>
+<li><strong>存储帐户</strong>： 对 Windows Azure 存储服务进行的所有访问都要通过存储帐户完成。存储帐户是访问 blob 的最高级别的命名空间。一个帐户可以包含无数个容器，只要这些容器的总大小不超过 100TB 即可。</li>
+<li><strong>容器</strong>： 一个容器包含一组 Blob 集。所有 blob 必须位于相应的容器中。一个帐户可以包含无限个容器。一个容器可以存储无限个 Blob。</li>
+<li><strong>Blob</strong>： 任何类型和大小的文件。Windows Azure 存储可存储两种类型的 Blob：块 Blob 和页 Blob。大部分文件都是块 blob。一个块 Blob 的大小可以达到 200 GB。本教程使用的是块 Blob。另一种 blob 类型为页 blob，其大小可以达 1 TB，在对文件中的一系列字节进行频繁修改时，这种 blob 类型更加高效。有关 Blob 的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee691964.aspx">了解块 Blob 和页 Blob</a>。</li>
+<li>
+<p><strong>URL 格式</strong>：使用以下 URL 格式可访问 Blob：</p>
+<p><code>http://storageaccount.blob.core.chinacloudapi.cn/container_name/blob_name</code></p>
+<p>（以上格式适用于公共 Windows Azure 云。如果要使用其他 Windows Azure 云，则使用 Windows Azure 管理门户中的终结点以确定您的 URL 终结点。）</p>
+<p>在以上格式中，<code>storageaccount</code> 表示存储帐户的名称，<code>container_name</code> 表示容器的名称，而 <code>blob_name</code> 表示 Blob 的名称。在容器名称中，您可具有多个由正斜杠 <strong>/</strong> 分隔的路径。本教程中的示例容器名称为 <strong>MyJob</strong>，<strong>${BUILD_ID/${BUILD_NUMBER}</strong> 用于通用虚拟路径，从而导致 Blob 具有以下格式的 URL：</p>
+<p><code>http://example.blob.core.chinacloudapi.cn/myjob/2013-01-28_15-00-35/2/hello.txt</code></p>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>将 Windows Azure 存储用于 Jenkins 持续集成解决方案</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[本教程演示如何使用 Windows Azure Blob 服务作为 Jenkins 持续集成解决方案创建的生成项目的存储库。]]></metaDescription><linkid>develop-java-tutorials-jenkins-continuous-integration</linkid><urlDisplayName>Jenkins 持续集成</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

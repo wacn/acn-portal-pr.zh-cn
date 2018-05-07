@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18405" parentID="17371" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="2" createDate="2013-04-26T13:01:20" updateDate="2014-08-18T11:08:34" nodeName="Compute" urlName="compute" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18405" isDoc=""><bodyText><![CDATA[<p><?UMBRACO_MACRO modalpopup="0" chunkurl="" chunkname="article-left-menu" hide="0" chunkpath="devcenter/dotnet" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1 id="menu-dotnet-compute">计算</h1>
+<h2>云服务</h2>
+<p class="subheading">是使用 Web 角色和辅助角色将逻辑分为多层的应用程序的理想之选</p>
+<h3 class="tutorial"><span>教程：</span><a href="/zh-cn/develop/net/tutorials/multi-tier-application/">使用服务总线队列构建 .NET 多层应用程序</a></h3>
+<p>构建一个前端 ASP.NET MVC Web 角色，该角色使用后端辅助角色来处理长时间运行的作业。您将学习如何创建和部署多角色解决方案，以及如何使用服务总线队列和主题来实现角色间通信。</p>
+<h3 class="feature"><span>功能指南：</span><a href="/zh-cn/develop/net/common-tasks/diagnostics/">诊断</a></h3>
+<p>通过 Windows Azure 诊断，可以从在 Windows Azure 中运行的应用程序收集诊断数据。可以将诊断数据用于调试和故障排除、度量性能、监视资源使用状况、进行流量分析和容量规划以及进行审核。</p>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/performance-profiling/">在 Windows Azure 中使用性能计数器</a></h3>
+<p>您可以在 Windows Azure 应用程序中使用性能计数器来收集可帮助确定系统瓶颈以及微调系统和应用程序性能的数据。本文介绍如何收集和查询性能计数器数据，以及如何创建您自己的自定义性能计数器。</p>
+<h3 class="feature"><span>功能指南：</span><a href="/zh-cn/develop/net/how-to-guides/autoscaling/">自动扩展应用程序块</a></h3>
+<p>用于 Windows Azure 的 Microsoft Enterprise Library 5.0 集成包中的“自动扩展应用程序块”功能提供使您能够自动扩展云服务的工具。您可以使用性能计数器来了解应用程序的性能，然后编写将自动扩展您的应用程序以根据指定目标和阈值进行调整的规则。</p>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/staging-deployment/">使用 Visual Studio 暂存云服务</a></h3>
+<p>了解如何将新版应用程序暂存到 Windows Azure 云服务，然后将其从过渡环境部署到生产环境。</p>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/custom-dns/">为 Windows Azure 云服务或存储帐户配置自定义域名</a></h3>
+<p>默认情况下，可以通过友好子域（例如，http://&gt;myapp&lt;.cloudapp.net 和 https://&gt;mydata&lt;.blob.core.windows.net）访问 Windows Azure 应用程序和存储帐户。本文演示如何在您自己的自定义域（如 http://&gt;myapp&lt;.com）中呈现您的应用程序和数据。</p>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/remote-desktop/">使用 Visual Studio 启用远程桌面</a></h3>
+<p>您能够通过远程桌面访问在 Windows Azure 中运行的云服务实例的桌面。您可以使用远程桌面连接配置虚拟机，或者排查应用程序问题。</p>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/enable-ssl/">在 Windows Azure 中为应用程序配置 SSL</a></h3>
+<p>安全套接字层 (SSL) 加密是用于保护通过 Internet 发送的数据的最常见方法。此常见任务讨论了如何为 Web 角色指定 HTTPS 终结点以及如何上载 SSL 证书来保护您的应用程序。</p>
+<h2>虚拟机</h2>
+<p class="subheading">针对您需要对应用程序的部署和执行过程进行完全控制的情况</p>
+<h3 class="tutorial"><span>教程：</span><a href="/zh-cn/develop/net/tutorials/windows-virtual-machine/">创建 Windows 虚拟机</a></h3>
+<p>实现运行 Windows Server 2008 并在 Windows Azure 中托管的虚拟机。您可以使用 Windows Azure 虚拟机运行任何应用程序。可使用独立虚拟机托管 .NET 应用程序，或者将虚拟机作为云服务的一部分进行集成。</p>
+<h3 class="tutorial"><span>教程：</span><a href="/zh-cn/develop/net/tutorials/compute-intensive-task-on-a-virtual-machine/">在 Windows Azure 虚拟机上的 .NET 中运行需要进行大量计算的任务</a></h3>
+<p>虚拟机是将现有应用程序快速移动到云中的一种有效方式。本教程演示如何创建 Windows Azure 虚拟机，以及使用该虚拟机托管需要进行大量计算的 .NET 应用程序。然后演示如何通过使用服务总线队列远程监控计算任务，来使用 Windows Azure 服务扩展该应用程序。</p>
+<h2>工具</h2>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/publishing-with-tfs/">使用 Team Foundation Service 发布</a></h3>
+<p>了解如何使用 Team Foundation Service 预览版自动执行 Windows Azure 应用程序的持续构建、打包和部署任务。</p>
+<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/continuous-delivery/">使用 Team Foundation Server 持续交付云服务</a></h3>
+<p>了解如何使用 Team Foundation Server 实现 Windows Azure 云服务的持续交付。此过程使您能够在签入每个代码后，自动创建服务包并将其部署到 Windows Azure。</p>
+<!--<h3 class="howto"><span>如何：</span><a href="/zh-cn/develop/net/common-tasks/publishing-with-git/">使用 Git 进行发布</a></h3>
+<p>Git 是一个受欢迎的、开源分布式版本控制系统。Windows Azure 网站允许您为您的站点启用 Git 存储库，以便快速且轻松地将代码更改发布到该站点。这一常见任务提供有关如何开始将 Git 与 Windows Azure 结合使用的详细信息</p>--></p>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure .NET 开发人员中心：计算</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[查找有关在 .NET 中使用 Windows Azure 网站、云服务和虚拟机的资源。]]></metaDescription><linkid>develop-net-compute</linkid><urlDisplayName>计算</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav sublanding</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

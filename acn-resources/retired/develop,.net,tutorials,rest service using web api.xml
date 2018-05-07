@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18851" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="7" createDate="2013-07-11T10:48:39" updateDate="2014-08-18T11:10:35" nodeName="REST service using Web API" urlName="rest-service-using-web-api" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18851" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>使用 ASP.NET Web API 和 SQL Database 创建支持移动设备的 REST 服务</h1>
+<p>本教程演示如何使用 Visual Studio 2012 或 Visual Studio 2012 for Web Express 中的“发布网站”向导将使用 ASP.NET Web API 的 ASP.NET Web 应用程序部署到 Windows Azure 网站。</p>
+<p>如果您还没有 Visual Studio 2012，则此 SDK 会自动安装 Visual Studio 2012 for Web Express。这样您就能够完全免费地开始针对 Windows Azure 进行开发。</p>
+<p>本教程假定您之前未使用过 Windows Azure。完成本教程之后，您将会获得一个在云中运行并使用云数据库的数据驱动的 Web 应用程序。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何通过安装 Windows Azure SDK 来让您的计算机可以进行 Windows Azure 开发。</li>
+<li>如何创建 Visual Studio ASP.NET MVC 4 项目并将其发布到 Windows Azure 网站。</li>
+<li>如何使用 ASP.NET Web API 启用 Restful API 调用。</li>
+<li>如何使用 SQL Database 在 Windows Azure 中存储数据。</li>
+<li>如何将应用程序更新发布到 Windows Azure。</li>
+</ul>
+<p>您将生成一个简单的联系人列表 Web 应用程序，该应用程序基于 ASP.NET MVC 4 构建并使用 ADO.NET Entity Framework 进行数据库访问。下图演示了完整的应用程序：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobil-intro-finished-web-app.png" alt="网站屏幕快照"/></p>
+<?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-websites-note" macroAlias="AzureChunkDisplayer" />
+<p>在本教程中：</p>
+<ul>
+<li><a href="#bkmk_setupdevenv">设置开发环境</a></li>
+<li><a href="#bkmk_setupwindowsazure">设置 Windows Azure 环境</a></li>
+<li><a href="#bkmk_createmvc4app">创建 ASP.NET MVC 4 应用程序</a></li>
+<li><a href="#bkmk_deploytowindowsazure1">将应用程序部署到 Windows Azure</a></li>
+<li><a href="#bkmk_addadatabase">向应用程序添加数据库</a></li>
+<li><a href="#bkmk_addcontroller">为数据添加控制器和视图</a></li>
+<li><a href="#bkmk_addwebapi">添加 Web API Restful 接口</a></li>
+<li><a href="#bkmk_deploydatabaseupdate">将应用程序更新发布到 Windows Azure 和 SQL Database</a></li>
+</ul>
+<h2><a name="bkmk_setupdevenv"></a>设置开发环境</h2>
+<p>首先，通过安装适用于 .NET Framework 的 Windows Azure SDK 来设置开发环境。</p>
+<ol>
+<li>若要安装 Windows Azure SDK for .NET，请单击以下链接。如果您尚未安装 Visual Studio 2012，可单击该链接安装它。本教程需要 Visual Studio 2012。<br /><a href="http://go.microsoft.com/fwlink/?LinkId=254364&amp;clcid=0x409" class="site-arrowboxcta download-cta">获取 Visual Studio 2012 相关工具和 SDK</a></li>
+<li>当提示您运行或保存 <em>vwdorvs11azurepack.exe</em> 时，单击“运行”。</li>
+</ol>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxf.png" alt="Web 平台安装程序 - Windows Azure SDK for .NET"/></p>
+<p>安装完成后，您便做好了开发准备工作。</p>
+<h2><a name="bkmk_setupwindowsazure"></a>设置 Windows Azure 环境</h2>
+<p>接下来，通过创建 Windows Azure 网站和 SQL Database 来设置 Windows Azure 环境。</p>
+<h3>在 Windows Azure 中创建网站和 SQL 数据库</h3>
+<p>下一步是创建您的应用程序将使用的 Windows Azure 网站和 SQL 数据库。</p>
+<p>您的 Windows Azure 网站将在共享宿主环境中运行，这意味着它将在与其他 Windows Azure 客户端共享的虚拟机 (VM) 上运行。共享宿主环境是一种在云中开始工作的低成本方式。稍后，如果您的 Web 流量增加，则应用程序可进行扩展，通过在专用 VM 上运行来满足需要。如果您需要一个更复杂的体系结构，则可迁移到 Windows Azure 云服务。云服务在您可根据自己的需求进行配置的专用 VM 上运行。</p>
+<p>SQL Database 是基于 SQL Server 技术构建的基于云的关系数据库服务。可以与 SQL Server 一起使用的工具和应用程序也可用于 SQL Database。</p>
+<ol>
+<li>在 <a href="https://manage.windowsazure.cn">Windows Azure 管理门户</a>中，单击左侧选项卡中的“网站”，然后单击“新建”。</li>
+<li>单击“自定义创建”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxcreatewswithdb.png" alt="管理门户中的“与数据库一起创建”链接"/><br />“新建网站 - 自定义创建”向导将会打开。</li>
+<li>在该向导的“新建网站”步骤中，在“URL”框中输入将用作您的应用程序的唯一 URL 的字符串。完整的 URL 将由在此输入的字符串加上在文本框下面看到的后缀组成。图中显示“contactmgr22”，但可能已有人使用了该 URL，因此必须另外选择一个。</li>
+<li>在“区域”下拉列表中，选择离您最近的区域。</li>
+<li>在“数据库”下拉列表中，选择“创建新的 SQL 数据库”。接受默认的连接字符串。<br /> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxz.png" alt="“新建网站 - 与数据库一起创建”向导的“创建新网站”步骤"/></li>
+<li>单击对话框底部的向右箭头。该向导将前进到“数据库设置”步骤。</li>
+<li>在“名称”框中，输入 <em>ContactDB</em>。</li>
+<li>在“服务器”框中，选择“新建 SQL Database 服务器”。或者，如果您之前创建了 SQL Server 数据库，则可从下拉列表控件中选择 SQL Server。</li>
+<li>单击对话框底部的向右箭头。</li>
+<li>输入管理员“登录名”和“密码”。如果您选择了“新建 SQL Database 服务器”，则在此处不要输入现有名称和密码。您应输入新的名称和密码，您现在定义的名称和密码将在您以后访问数据库时使用。如果您选择了之前创建的 SQL Server，系统将提示您输入之前创建的 SQL Server 帐户名称的密码。在本教程中，我们不选中<em>*高级*</em> 复选框。您可以使用<em>*高级*</em> 框设置数据库大小（默认为 1 GB，但您可以将其增加到 150 GB）和排序规则。</li>
+<li>单击对话框底部的复选标记以指示您已完成操作。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-setup-azure-site-004.png" alt="“新建网站 - 与数据库一起创建”向导的“数据库设置”步骤"/><br /><br />下图指示使用的是现有 SQL Server 和登录名。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxprevdb.png" alt="“新建网站 - 与数据库一起创建”向导的“数据库设置”步骤"/><br />管理门户返回到“网站”页面，“状态”列显示正在创建网站。稍后（通常不到一分钟），“状态”列会显示已成功创建网站。在左侧的导航栏中，您的帐户中拥有的网站的数量将会显示在“网站”图标旁边，而数据库的数量将会显示在“SQL Database”图标旁边。</li>
+</ol><!-- [管理门户的“网站”页，已创建网站][setup009] -->
+<h2><a name="bkmk_createmvc4app"></a>创建 ASP.NET MVC 4 应用程序</h2>
+<p>您已经创建了一个 Windows Azure 网站，但其中还没有内容。下一步将创建要发布到 Windows Azure 的 Visual Studio Web 应用程序。</p>
+<h3>创建项目</h3>
+<ol>
+<li>启动 Visual Studio 2012。</li>
+<li>在“文件”菜单中单击“新建项目”。</li>
+<li>在“新建项目”对话框中，展开“Visual C#”并在“已安装的模板”下选择“Web”，然后选择“ASP.NET MVC 4 Web 应用程序。保持默认值 <strong>.NET Framework 4.5</strong>。将应用程序命名为 <strong>ContactManager</strong>，然后单击“确定”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-createapp-002.png" alt="“新建项目”对话框"/></li>
+<li>在“新建 ASP.NET MVC 4 项目”对话框中，选择“Internet 应用程序”模板。保持默认值 Razor“视图引擎”，然后单击“确定”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxb2.png" alt="“新建 ASP.NET MVC 4 项目”对话框"/></li>
+</ol>
+<h3>设置页眉和页脚</h3>
+<ol>
+<li>在“解决方案资源管理器”中，展开 <em>Views\Shared</em> 文件夹，然后打开 <em>_Layout.cshtml</em> 文件。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-createapp-004.png" alt="解决方案资源管理器中的 _Layout.cshtml"/></li>
+<li>
+<p>将 <em>_Layout.cshtml</em> 文件的内容替换为以下代码：</p>
+<p>&lt;!DOCTYPE html&gt;<br /> &lt;html lang="en"&gt;<br /> &lt;head&gt;<br /> &lt;meta charset="utf-8" /&gt;<br /> &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;<br /> &lt;link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /&gt;<br /> &lt;meta name="viewport" content="width=device-width" /&gt;<br /> @Styles.Render("~/Content/css")<br /> @Scripts.Render("~/bundles/modernizr")<br /> &lt;/head&gt;<br /> &lt;body&gt;<br /> &lt;header&gt;<br /> &lt;div class="content-wrapper"&gt;<br /> &lt;div class="float-left"&gt;<br /> &lt;p class="site-title"&gt;@Html.ActionLink("Contact Manager", "Index", "Home")&lt;/p&gt;<br /><br /> &lt;/div&gt;<br /> &lt;/div&gt;<br /> &lt;/header&gt;<br /> &lt;div id="body"&gt;<br /> @RenderSection("featured", required:false)<br /> &lt;section class="content-wrapper main-content clear-fix"&gt;<br /> @RenderBody()<br /> &lt;/section&gt;<br /> &lt;/div&gt;<br /> &lt;footer&gt;<br /> &lt;div class="content-wrapper"&gt;<br /> &lt;div class="float-left"&gt;<br /> &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br /> &lt;/div&gt;<br /> &lt;/div&gt;<br /> &lt;/footer&gt;<br /><br /> @Scripts.Render("~/bundles/jquery")<br /> @RenderSection("scripts", required:false) &lt;/body&gt;<br /> &lt;/html&gt;</p>
+</li>
+</ol>
+<h3>在本地运行应用程序</h3>
+<ol>
+<li>按 Ctrl+F5 运行应用程序。应用程序主页将显示在默认浏览器中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxzz.png" alt="“待办事项列表”主页"/></li>
+</ol>
+<p>这就是您创建将要部署到 Windows Azure 的应用程序目前所需的全部操作。稍后您将添加数据库功能。</p>
+<h2><a name="bkmk_deploytowindowsazure1"></a>将应用程序部署到 Windows Azure</h2>
+<ol>
+<li>在浏览器中打开 <a href="http://manage.windowsazure.cn" title="门户">Windows Azure 管理门户</a>。</li>
+<li>在“网站”选项卡中，单击先前创建的网站的名称。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-setup-azure-site-006.png" alt="管理门户的“网站”选项卡中的“联系人管理器”应用程序"/></li>
+<li>在窗口右侧，单击“下载发布配置文件”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-deploy1-download-profile.png" alt="“快速启动”选项卡和“下载发布配置文件”按钮"/><br />此步骤将下载一个文件，其中包含将应用程序部署到您的网站所需的全部设置。您将此文件导入到 Visual Studio 中，这样您就不必手动输入此信息。</li>
+<li>将 .<em>publishsettings</em> 文件保存到一个可从 Visual Studio 访问的文件夹中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-deploy1-save-profile.png" alt="保存 .publishsettings 文件"/> <br />安全说明：.publishsettings 文件包含用于管理您的 Windows Azure 订阅和服务的凭据（未编码）。确保此文件安全的最佳做法是，将其暂时存储在您的源目录的外部（例如存储在 Libraries\Documents 文件夹中），然后在完成导入后将其删除。获得了 publishsettings 文件访问权的恶意用户可以编辑、创建和删除您的 Windows Azure 服务。</li>
+<li>在 Visual Studio 中，在“解决方案资源管理器”中右键单击项目，然后从上下文菜单中选择“发布”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-deploy1-publish-001.png" alt="项目上下文菜单中的“发布”"/><br />“发布 Web”向导将会打开。</li>
+<li>在“发布 Web”向导的“配置文件”选项卡中，单击“导入”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-deploy1-publish-002.png" alt="“发布 Web”向导中的“导入”按钮"/></li>
+<li>选择先前下载的 <em>.publishsettings</em> 文件，然后单击“打开”。</li>
+<li>在“连接”选项卡中，单击“验证连接”确保设置正确。在连接通过验证后，“验证连接”按钮旁边会出现一个绿色对勾。</li>
+<li>单击“下一步”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-deploy1-publish-005.png" alt="“连接”选项卡中的连接成功图标和“下一步”按钮"/></li>
+<li>
+<p>在“设置”选项卡中，单击“下一步”。<br />您可以接受此页上的所有默认设置。您将部署“发布”生成配置，因此不需要在目前服务器上删除文件。“数据库”下的 <strong>UsersContext (DefaultConnection)</strong> 条目来自使用 DefaultConnection 字符串的 <em>UsersContext:DbContext</em> 类。</p>
+<p><br /> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxpws.png" alt="“连接”选项卡中的连接成功图标和“下一步”按钮"/></p>
+</li>
+<li>在“预览”选项卡中，单击“开始预览”。<br />该选项卡会显示将复制到服务器的文件的列表。显示预览并不是发布应用程序所必需的，但它是一个需要了解的很有用的功能。在本例中，您不需要对显示的文件列表执行任何操作。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-deploy1-publish-007.png" alt="“预览”选项卡中的“开始预览”按钮"/></li>
+<li>单击“发布”。<br />Visual Studio 开始执行将文件复制到 Windows Azure 服务器的过程。“输出”窗口将显示已执行的部署操作并报告已成功完成部署。</li>
+<li>默认浏览器会自动打开，并指向所部署网站的 URL。<br /> 现在，您创建的应用程序即在云中运行。</li>
+</ol>
+<h2><a name="bkmk_addadatabase"></a>向应用程序添加数据库</h2>
+<p>接下来，您将更新 MVC 应用程序以添加显示和更新联系人以及在数据库中存储数据的功能。应用程序将使用 Entity Framework 创建数据库并读取和更新数据库中的数据。</p>
+<h3>为联系人添加数据模型类</h3>
+<p>首先，使用代码创建一个简单的数据模型。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”中，右键单击“模型”文件夹，单击“添加”，然后单击“类”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-adddatabase-001.png" alt="“模型”文件夹上下文菜单中的“添加类”"/></p>
+</li>
+<li>
+<p>在“添加新项”对话框中，将新的类文件命名为 <em>Contact.cs</em>，然后单击“添加”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-adddatabase-002.png" alt="“添加新项”对话框"/></p>
+</li>
+<li>
+<p>将 Contacts.cs 文件的内容替换为以下代码。</p>
+<pre class="prettyprint">using System.Globalization; namespace ContactManager.Models {     public class Contact     {         public int ContactId { get; set; }         public string Name { get; set; }         public string Address { get; set; }         public string City { get; set; }         public string State { get; set; }         public string Zip { get; set; }         public string Email { get; set; }         public string Twitter { get; set; }         public string Self         {             get { return string.Format(CultureInfo.CurrentCulture,                  "api/contacts/{0}", this.ContactId); }             set { }         }     } }</pre>
+<p><strong>Contacts</strong> 类定义您将为每个联系人存储的数据以及数据库需要的主键 ContactID。</p>
+</li>
+</ol>
+<h3>创建使应用程序用户可以使用联系人的网页</h3>
+<p>在 ASP.NET MVC 中，基架功能可自动生成执行创建、读取、更新和删除 (CRUD) 操作的代码。</p>
+<h2><a name="bkmk_addcontroller"></a>为数据添加控制器和视图</h2>
+<ol>
+<li>在“解决方案资源管理器”中，展开 Controllers 文件夹。</li>
+<li>生成项目 <strong>(Ctrl+Shift+B)</strong>。（在使用基架机制前必须生成项目。）</li>
+<li>右键单击 Controllers 文件夹，单击“添加”，然后单击“控制器...”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-controller-add-context-menu.png" alt="Controllers 文件夹中的“添加控制器”上下文菜单"/></li>
+<li>在“添加控制器”对话框中，输入“HomeController”作为控制器名称。将“基架选项模板”设置为“包含读/写操作和视图的 MVC 控制器(使用 Entity Framework)”。</li>
+<li>选择“联系人”作为模型类，并选择“&lt;新建数据上下文...&gt;”作为数据上下文类。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-controller-add-controller-dialog.png" alt="“添加控制器”对话框"/></li>
+<li>在“新建数据上下文”对话框中，接受默认值 <em>ContactManager.Models.ContactManagerContext</em>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxnewctx.png" alt="“添加控制器”对话框"/></li>
+<li>单击“确定”，然后单击“添加控制器”对话框中的“添加”。</li>
+<li>在“添加控制器”覆盖对话框中，确保选中所有选项，然后单击“确定”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxoverwrite.png" alt="“添加控制器”消息框"/><br />Visual Studio 将创建 Controller 方法并为 <strong>Contact</strong> 对象的 CRUD 数据库操作创建视图。</li>
+</ol>
+<h2>启用迁移、创建数据库、添加示例数据和数据初始值设定项</h2>
+<p>接下来的任务是启用 <a href="http://atlas.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" title="code first MVC">Code First 迁移</a>功能以根据您创建的数据模型创建数据库。</p>
+<ol>
+<li>在“工具”菜单中，依次选择“库程序包管理器”和“程序包管理器控制台”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-migrations-package-manager-menu.png" alt="“工具”菜单中的“程序包管理器控制台”"/></li>
+<li>
+<p>在“程序包管理器控制台”窗口中，输入以下命令：</p>
+<pre class="prettyprint">enable-migrations -ContextTypeName ContactManagerContext</pre>
+<p><br /> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxe.png" alt="enable-migrations"/><br />您必须指定上下文类型名称 (<strong>ContactManagerContext</strong>)，因为项目包含两个 <a href="http://msdn.microsoft.com/zh-cn/library/system.data.entity.dbcontext(v=VS.103).aspx">DbContext</a> 派生类，即我们刚添加的 <strong>ContactManagerContext</strong> 和用于成员资格数据库的 <strong>UsersContext</strong>。<strong>ContactManagerContext</strong> 类由 Visual Studio 支架向导添加。<br /><strong>enable-migrations</strong> 命令将创建一个 <em>Migrations</em> 文件夹，并在该文件夹中放入一个可编辑以配置 Migrations 的 <em>Configuration.cs</em> 文件。</p>
+</li>
+<li>
+<p>在“程序包管理器控制台”窗口中，输入以下命令：</p>
+<pre class="prettyprint">add-migration Initial</pre>
+<p><strong>add-migration Initial</strong> 命令生成一个名为 <strong>&lt;date_stamp&gt;Initial</strong> 的类，该类创建数据库。第一个参数 (<em>Initial</em>) 是任意参数并将用于创建文件名称。您可以在“解决方案资源管理器”中查看新的类文件。<br />在 <strong>Initial</strong> 类中，<strong>Up</strong> 方法用于创建 Contacts 表，而 <strong>Down</strong> 方法（在您想要返回到以前的状态时使用）用于删除该表。</p>
+</li>
+<li>右键单击 Migrations 文件夹，然后打开 <strong>Configuration.cs</strong> 文件。</li>
+<li>
+<p>添加以下命名空间。</p>
+<pre class="prettyprint">using ContactManager.Models;</pre>
+</li>
+<li>
+<p>将 <em>Seed</em> 方法替换为以下代码：</p>
+<pre class="prettyprint">protected override void Seed(ContactManager.Models.ContactManagerContext context) {     context.Contacts.AddOrUpdate(p =&gt; p.Name,        new Contact        {            Name = "Debra Garcia",            Address = "1234 Main St",            City = "Redmond",            State = "WA",            Zip = "10999",            Email = "debra@example.com",            Twitter = "debra_example"        },         new Contact         {             Name = "Thorsten Weinrich",             Address = "5678 1st Ave W",             City = "Redmond",             State = "WA",             Zip = "10999",             Email = "thorsten@example.com",             Twitter = "thorsten_example"         },         new Contact         {             Name = "Yuhong Li",             Address = "9012 State st",             City = "Redmond",             State = "WA",             Zip = "10999",             Email = "yuhong@example.com",             Twitter = "yuhong_example"         },         new Contact         {             Name = "Jon Orton",             Address = "3456 Maple St",             City = "Redmond",             State = "WA",             Zip = "10999",             Email = "jon@example.com",             Twitter = "jon_example"         },         new Contact         {             Name = "Diliana Alexieva-Bosseva",             Address = "7890 2nd Ave E",             City = "Redmond",             State = "WA",             Zip = "10999",             Email = "diliana@example.com",             Twitter = "diliana_example"         }         ); }</pre>
+<p>上面这段代码将用联系信息初始化数据库。有关将数据库列为种子的详细信息，请参阅<a href="http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx">将 Entity Framework (EF) 数据库列为种子并进行调试</a>。</p>
+</li>
+<li>
+<p>在“程序包管理器控制台”中输入以下命令：</p>
+<pre class="prettyprint">update-database</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-migrations-package-manager-console.png" alt="“程序包管理器控制台”命令"/></p>
+<p><strong>update-database</strong> 用于运行将创建数据库的初始迁移。默认情况下，将以 SQL Server Express LocalDB 数据库的形式创建数据库。（除非您已安装 SQL Server Express，在这种情况下，将使用 SQL Server Express 实例创建数据库。）</p>
+</li>
+<li>
+<p>按 Ctrl+F5 运行应用程序。</p>
+</li>
+</ol>
+<p>应用程序将显示种子数据并提供编辑、详细信息和删除链接。</p>
+<p><br /> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxz3.png" alt="数据的 MVC 视图"/></p>
+<h2><a name="bkmk_addview"></a>编辑视图</h2>
+<ol>
+<li>展开 Views\Home 文件夹，然后打开 Index.cshtml 文件。<!--<br/><img src="../Media/dntutmobile-controller-modify-index-context.png" alt="修改 views\home 文件夹中的 index.cshtml 上下文菜单"/>--></li>
+<li>
+<p>将该文件的内容替换为以下代码。</p>
+<pre class="prettyprint">@model IEnumerable&lt;ContactManager.Models.Contact&gt; @{     ViewBag.Title = "Home"; } @section Scripts {     @Scripts.Render("~/bundles/knockout")     &lt;script type="text/javascript"&gt;         function ContactsViewModel() {             var self = this;             self.contacts = ko.observableArray([]);             self.addContact = function () {                 $.post("api/contacts",                     $("#addContact").serialize(),                     function (value) {                         self.contacts.push(value);                     },                     "json");             }             self.removeContact = function (contact) {                 $.ajax({                     type: "DELETE",                     url: contact.Self,                     success: function () {                         self.contacts.remove(contact);                     }                 });             }           $.getJSON("api/contacts", function (data) {             self.contacts(data);         });     }     ko.applyBindings(new ContactsViewModel());     &lt;/script&gt; } &lt;ul id="contacts" data-bind="foreach: contacts"&gt;     &lt;li class="ui-widget-content ui-corner-all"&gt;         &lt;h1 data-bind="text: Name" class="ui-widget-header"&gt;&lt;/h1&gt;         &lt;div&gt;&lt;span data-bind="text: $data.Address || 'Address?'"&gt;&lt;/span&gt;&lt;/div&gt;         &lt;div&gt;             &lt;span data-bind="text: $data.City || 'City?'"&gt;&lt;/span&gt;,             &lt;span data-bind="text: $data.State || 'State?'"&gt;&lt;/span&gt;             &lt;span data-bind="text: $data.Zip || 'Zip?'"&gt;&lt;/span&gt;         &lt;/div&gt;         &lt;div data-bind="if: $data.Email"&gt;&lt;a data-bind="attr: { href: 'mailto:' + Email }, text: Email"&gt;&lt;/a&gt;&lt;/div&gt;         &lt;div data-bind="ifnot: $data.Email"&gt;&lt;span&gt;Email?&lt;/span&gt;&lt;/div&gt;         &lt;div data-bind="if: $data.Twitter"&gt;&lt;a data-bind="attr: { href: 'http://twitter.com/' + Twitter }, text: '@@' + Twitter"&gt;&lt;/a&gt;&lt;/div&gt;         &lt;div data-bind="ifnot: $data.Twitter"&gt;&lt;span&gt;Twitter?&lt;/span&gt;&lt;/div&gt;         &lt;p&gt;&lt;a data-bind="attr: { href: Self }, click: $root.removeContact" class="removeContact ui-state-default ui-corner-all"&gt;Remove&lt;/a&gt;&lt;/p&gt;     &lt;/li&gt; &lt;/ul&gt; &lt;form id="addContact" data-bind="submit: addContact"&gt;     &lt;fieldset&gt;         &lt;legend&gt;Add New Contact&lt;/legend&gt;         &lt;ol&gt;             &lt;li&gt;                 &lt;label for="Name"&gt;Name&lt;/label&gt;                 &lt;input type="text" name="Name" /&gt;             &lt;/li&gt;             &lt;li&gt;                 &lt;label for="Address"&gt;Address&lt;/label&gt;                 &lt;input type="text" name="Address" &gt;             &lt;/li&gt;             &lt;li&gt;                 &lt;label for="City"&gt;City&lt;/label&gt;                 &lt;input type="text" name="City" /&gt;             &lt;/li&gt;             &lt;li&gt;                 &lt;label for="State"&gt;State&lt;/label&gt;                 &lt;input type="text" name="State" /&gt;             &lt;/li&gt;             &lt;li&gt;                 &lt;label for="Zip"&gt;Zip&lt;/label&gt;                 &lt;input type="text" name="Zip" /&gt;             &lt;/li&gt;             &lt;li&gt;                 &lt;label for="Email"&gt;E-mail&lt;/label&gt;                 &lt;input type="text" name="Email" /&gt;             &lt;/li&gt;             &lt;li&gt;                 &lt;label for="Twitter"&gt;Twitter&lt;/label&gt;                 &lt;input type="text" name="Twitter" /&gt;             &lt;/li&gt;         &lt;/ol&gt;         &lt;input type="submit" value="Add" /&gt;     &lt;/fieldset&gt; &lt;/form&gt;</pre>
+</li>
+<li>
+<p>右键单击 Content 文件夹，然后单击“添加”，再单击“新建项...”。<br /><br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-controller-add-contents-context-menu.png" alt="向 Content 文件夹中添加样式表上下文菜单"/></p>
+</li>
+<li>在“添加新项”对话框中右上方的搜索框中输入“样式”，然后选择“样式表”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxstyle.png" alt="“添加新项”对话框"/></li>
+<li>
+<p>将文件命名为 Contacts.css，然后单击“添加”。将该文件的内容替换为以下代码。</p>
+<pre class="prettyprint">.column {     float: left;     width: 50%;     padding: 0;     margin: 5px 0; } form ol {     list-style-type: none;     padding: 0;     margin: 0; } form li {     padding: 1px;     margin: 3px; } form input[type="text"] {     width: 100%; } #addContact {     width: 300px;     float: left;     width:30%; } #contacts {     list-style-type: none;     margin: 0;     padding: 0;     float:left;     width: 70%; } #contacts li {     margin: 3px 3px 3px 0;     padding: 1px;     float: left;     width: 300px;     text-align: center;     background-image: none;     background-color: #F5F5F5; } #contacts li h1 {     padding: 0;     margin: 0;     background-image: none;     background-color: Orange;     color: White;     font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; } .removeContact, .viewImage {     padding: 3px;     text-decoration: none; }</pre>
+</li>
+<li>
+<p>展开 App_Start 文件夹，然后打开 BundleConfig.cs 文件。</p>
+<!--<br/>![修改 App_Start 文件夹中的 BundleConfig.cs 上下文菜单][addcode007]--></li>
+<li>
+<p>添加以下语句以注册 <a href="http://knockoutjs.com/index.html" title="KO">Knockout</a> 插件。</p>
+<pre class="prettyprint">bundles.Add(new ScriptBundle("~/bundles/knockout").Include(             "~/Scripts/knockout-{version}.js"));</pre>
+<p>此例使用 knockout 简化处理屏幕模板的动态 JavaScript 代码。</p>
+</li>
+<li>
+<p>修改 contents/css 条目以注册 contacts.css 样式表。将以下行：</p>
+<pre class="prettyprint">bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));</pre>
+<p>改为：</p>
+<pre class="prettyprint">bundles.Add(new StyleBundle("~/Content/css").Include(             "~/Content/site.css",             "~/Content/contacts.css"));</pre>
+</li>
+</ol>
+<h2><a name="bkmk_addwebapi"></a>添加 Web API Restful 接口的控制器</h2>
+<ol>
+<li>在“解决方案资源管理器”中，右键单击“Controllers”，然后单击“添加”，再单击“控制器....”</li>
+<li>在“添加控制器”对话框中，输入“ContactsController”作为控制器的名称，然后选择“包含读/写操作的 API 控制器(使用 Entity Framework)”模板。</li>
+<li>在“模型类”中选择 <em>Contact (ContactManager.Models)</em>，然后在“数据上下文类”中选择 <em>ContactManagerContext (ContactManager.Models)</em>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxaddapicontroller.png" alt="添加 API 控制器"/></li>
+<li>单击“添加”。</li>
+</ol>
+<h3>在本地运行应用程序</h3>
+<ol>
+<li>按 Ctrl+F5 运行应用程序。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobil-intro-finished-web-app.png" alt="“索引”页"/></li>
+<li>输入一个联系人，然后单击 <strong>Add</strong>。随后应用程序返回主页并显示您输入的联系人。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-webapi-added-contact.png" alt="包含待办事项列表项的索引页"/></li>
+<li>在浏览器中，将 /api/contacts 附加到 URL。所得的 URL 将类似于 http://localhost:1234/api/contacts。您添加的 RESTful Web API 返回所存储的联系人。<br />FireFox 和 Chrome 将以 XML 格式显示数据。</li>
+</ol>
+<p><br /> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxffchrome.png" alt="包含待办事项列表项的索引页"/> <br />IE 将提示您打开或保存 contacts。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-webapi-save-returned-contacts.png" alt="Web API 保存对话框"/><br />可在记事本或浏览器中打开返回的 contacts。其他应用程序（如移动网页或应用程序）可使用此输出。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-webapi-contacts-in-notepad.png" alt="Web API 保存对话框"/></p>
+<h2><a name="bkmk_deploydatabaseupdate"></a>将应用程序更新发布到 Windows Azure 和 SQL Database</h2>
+<p>若要发布应用程序，请重复先前执行的过程。</p>
+<ol>
+<li>在“解决方案资源管理器”中，右键单击该项目并选择“发布”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxp.png" alt="发布"/><br /><br /></li>
+<li>单击“设置”选项卡。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxz4.png" alt="“发布 Web”向导的“设置”选项卡"/></li>
+<li>在 <strong>ContactsManagerContext(ContactsManagerContext)</strong> 下，单击 <strong>v</strong> 图标以将“远程连接字符串”改为联系人数据库的连接字符串。</li>
+<li><strong>ContactsManagerContext(ContactsManagerContext)</strong> 数据库的远程连接字符串框现在含有在 <em>publishsettings</em> 文件中提供的 SQL Database 连接字符串。单击省略号 (<strong>...</strong>) 以查看 <em>ContactDB</em> 设置。<br /><br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rx22.png" alt="数据库设置"/><br /><br /></li>
+<li>关闭“目标连接字符串”对话框，然后在“发布 Web”对话框中，选中 <strong>UsersContext(DefaultConnection)</strong> 数据库的“执行 Code First 迁移(在应用程序启动时运行)”框。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/rxz44.png" alt="“发布 Web”向导的“设置”选项卡"/></li>
+<li>可单击 <strong>UsersContext(DefaultConnection)</strong> 数据库旁的 <strong>^</strong> 图标，这是成员资格数据库的连接信息，我们在本教程中不使用它。真实的应用程序需要进行身份验证和授权，因此您将使用成员资格数据库。请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/tutorials/web-site-with-sql-database/">部署含 OAuth、成员资格和 SQL Database 的安全 ASP.NET MVC 应用程序</a>，该文以本教程为基础，并演示如何部署含成员资格数据库的 Web 应用程序。</li>
+<li>单击“下一步”，然后单击“预览”。随后 Visual Studio 显示将添加或更新的文件的列表。</li>
+<li>单击“发布”。<br />部署完毕之后，浏览器将打开至应用程序的主页。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobil-intro-finished-web-app.png" alt="不含联系人的“索引”页"/><br />。Visual Studio 发布过程自动将所部署的 <em>Web.config</em> 文件中的连接字符串配置为指向 SQL Database。它还会对“代码优先迁移”功能进行配置，以便在应用程序在部署后首次访问数据库时自动将数据库升级到最新版本。此配置的结果是，Code First 通过运行先前创建的 <strong>Initial</strong> 类中的代码，创建了数据库。该功能会在应用程序在部署后首次尝试访问数据库时执行此操作。</li>
+<li>如同在本地运行应用程序时所做的那样，输入一个联系人以确认数据库部署成功。当看到保存了所输入的项，并在 Contact Manager 页上显示该项时，即了解已将其存储在数据库中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dntutmobile-webapi-added-contact.png" alt="含有联系人的索引页"/></li>
+</ol>
+<p>该应用程序现在在云中运行，并且使用 SQL Database 来存储数据。在 Windows Azure 中测试完应用程序后，将其删除。应用程序是公开的，并且没有限制访问的机制。</p>
+<h2><a name="nextsteps"></a>后续步骤</h2>
+<p>真实的应用程序需要进行身份验证和授权，因此您将使用成员资格数据库。教程<a href="http://www.windowsazure.cn/zh-cn/develop/net/tutorials/web-site-with-sql-database/">部署含 OAuth、成员资格和 SQL Database 的安全 ASP.NET MVC 应用程序</a>，该文以本教程为基础，并演示如何部署含成员资格数据库的 Web 应用程序。<br />还可使用 Windows Azure 存储（它以 Blob 和表形式提供非关系数据存储）在 Windows Azure 应用程序中存储数据。通过以下链接可获得有关 Web API、ASP.NET MVC 和 Window Azure 的详细信息。</p>
+<ul>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">使用存储表、队列和 Blob 的 .NET 多层应用程序</a>。</li>
+<li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application">使用 MVC 的 Entity Framework 入门</a></li>
+<li><a href="http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4">ASP.NET MVC 4 简介</a></li>
+<li><a href="http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api">您的第一个 ASP.NET Web API</a></li>
+</ul>
+<p>本教程和示例应用程序由 <a href="http://blogs.msdn.com/b/rickandy/">Rick Anderson</a> (Twitter <a href="https://twitter.com/RickAndMSFT">@RickAndMSFT</a>) 在 Tom Dykstra、Tom FitzMacken 和 Barry Dorrans (Twitter <a href="https://twitter.com/blowdart">@blowdart</a>) 的帮助下编写。</p>
+<p>请提供有关您喜欢的内容或者您希望看到改善的内容的反馈，不仅关于教程本身，也关于它所演示的产品。您的反馈将帮助我们确定优先改进哪些方面。我们特别希望确定大家对于对配置和部署成员资格数据库的流程进行更多自动化的兴趣有多大。</p>
+<!-- bookmarks --> <!-- links --> <!-- images--></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>使用 Web API 的 .NET REST 服务 - Windows Azure 教程</pageTitle><metaKeywords>Azure 教程网站, ASP.NET API 网站, Azure VS</metaKeywords><metaDescription><![CDATA[本教程向您传授如何使用 Visual Studio 将使用 ASP.NET Web API 的应用程序部署到 Windows Azure 网站。]]></metaDescription><linkid>develop-dotnet-rest-service-using-web-api</linkid><urlDisplayName>使用 Web API 的 REST 服务</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

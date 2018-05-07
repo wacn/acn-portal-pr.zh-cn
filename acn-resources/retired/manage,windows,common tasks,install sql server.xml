@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19298" parentID="18528" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="6" createDate="2013-07-11T12:50:11" updateDate="2014-08-18T11:30:02" nodeName="Install SQL Server" urlName="install-sql-server" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,17363,18528,19298" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 上设置 SQL Server 虚拟机</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>Windows Azure 虚拟机库可提供 Microsoft Windows Server 2008 R2 Service Pack 1（64 位）和 SQL Server 完整 64 位安装的 Windows Azure 虚拟机映像。您可以从 Windows Azure 库中选择一个虚拟机映像，通过几次单击，就可以将虚拟机配置为 Windows Azure 环境。</p>
+<p>在本教程中您将：</p>
+<ul>
+<li><a href="#Provision">连接到 Windows Azure 管理门户并从库中配置虚拟机</a></li>
+<li><a href="#RemoteDesktop">使用远程桌面和完整安装打开虚拟机</a></li>
+<li><a href="#SSMS">完成配置步骤以便在另一台计算机上使用 SQL Server Management Studio 连接到虚拟机</a></li>
+<li><a href="#Optional">后续步骤</a></li>
+</ul>
+<h2 id="Provision">连接到 Windows Azure 管理门户并从库中配置虚拟机</h2>
+<ol>
+<li>使用帐户登录 <a href="http://manage.windowsazure.cn">Windows Azure管理门户</a>。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/1login.png" alt="连接到门户"/></li>
+<li>
+<p>在 Windows Azure 管理门户上，依次单击网页左下角的“新建”、“虚拟机”和“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/2select-gallery.png" alt="打开库"/></p>
+</li>
+<li>
+<p>选择一个包含 SQL Server 的虚拟机映像，然后单击页面右下角的“下一步”箭头。有关许可的信息，请参阅<a href="http://www.microsoft.com/licensing/software-assurance/license-mobility.aspx">软件保障许可移动性（可能为英文页面）</a>。</p>
+<div class="dev-callout">注意
+<p>此评估版可用于测试，但不能将其升级到按小时付费的版本。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/3select-image.png" alt="打开库"/></p>
+</li>
+<li>
+<p>在“VM 配置”页面上，提供下列信息：</p>
+<ul>
+<li>提供虚拟机名称。</li>
+<li>保留“新用户名”框为“Administrator”。</li>
+<li>在“新密码”框中键入一个强密码。<a href="http://msdn.microsoft.com/zh-cn/library/ms161962.aspx">强密码</a></li>
+<li>在“确认密码”框中，再次键入该密码。</li>
+<li>从下拉列表中选择适当的大小。</li>
+</ul>
+<div class="dev-callout">注意
+<p>与大小相关的注意事项：</p>
+<ul>
+<li>“中型”是建议用于生产工作负载的最小大小。</li>
+<li>当使用 SQL Server 企业版时，请选择“大型”或“特大型”。</li>
+<li>选定的大小将限制您可配置的磁盘数量。（特小型 &lt;= 1、小型 &lt;= 2、中型 &lt;= 4、大型 &lt;= 8、特大型 &lt;= 16）</li>
+</ul>
+</div>
+<p>单击左下角的“下一步”箭头 (-&gt;) 以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/4vm-config.png" alt="VM 配置"/></p>
+</li>
+<li>
+<p>在“VM 模式”页面上，提供下列信息：</p>
+<ul>
+<li>选择“独立虚拟机”。</li>
+<li>在“DNS 名称”框中，提供您选定的 DNS 名称的第一部分，以便系统以 <strong>TESTNAME.chinacloudapp.cn</strong> 格式完成名称</li>
+<li>在“区域/地缘组/虚拟网络”框中，选择将承载此虚拟映像的区域。</li>
+</ul>
+<p>单击下一步箭头以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/5vm-mode.png" alt="VM 模式"/></p>
+</li>
+<li>
+<p>在“VM 选项”页上：</p>
+<ul>
+<li>在“可用性集”框中，选择“(无)”。</li>
+<li>阅读并接受法律条款。</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/6vm-options.png" alt="VM 选项"/></p>
+</li>
+<li>
+<p>单击右下角的对号标记以继续。</p>
+</li>
+<li>
+<p>请等候 Windows Azure 准备您的虚拟机。预计虚拟机的状态将出现如下变化：</p>
+<ul>
+<li>正在启动（正在配置）</li>
+<li>已停止</li>
+<li>正在启动（正在配置）</li>
+<li>正在运行（正在配置）</li>
+<li>正在运行</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/7vm-provisioning.png" alt="VM 选项"/></p>
+</li>
+</ol>
+<h2 id="RemoteDesktop">使用远程桌面和完整安装打开虚拟机</h2>
+<ol>
+<li>
+<p>配置完成后，单击虚拟机名称以转到“仪表板”页。在页面底部，单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/5vm-connect.png" alt="选择“仪表板”页"/></p>
+</li>
+<li>
+<p>选择通过 Windows 远程桌面程序 (<code>%windir%\system32\mstsc.exe</code>) 打开 rpd 文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/8vm-connect.png" alt="单击“打开”"/></p>
+</li>
+<li>
+<p>在“Windows 安全性”对话框中，提供您在之前的步骤中指定的 <strong>Administrator</strong> 帐户的密码。（系统可能会要求您验证虚拟机的凭据。）</p>
+</li>
+<li>
+<p>首次登录该虚拟机时，可能需要完成几个过程，这包括设置桌面、完成 Windows 更新和 Windows 初始配置任务 (sysprep)。Windows sysprep 完成后，SQL Server 安装程序将完成配置任务。在完成这些任务时会造成短暂的延迟。<code>SELECT @@SERVERNAME</code> 在 SQL Server 安装程序完成之前可能都不会返回正确的名称。</p>
+</li>
+</ol>
+<p>当您通过 Windows 远程桌面连接到虚拟机后，虚拟机几乎可以像任何其他计算机一样工作。以正常方式通过 SQL Server Management Studio（在虚拟机上运行）连接到 SQL Server 的默认实例。</p>
+<h2 id="SSMS">完成配置步骤以便在另一台计算机上使用 SQL Server Management Studio 连接到虚拟机</h2>
+<p>您必须先完成下列各节中描述的下列任务，然后才能通过 Internet 连接到 SQL Server 的实例：</p>
+<ul>
+<li><a href="#Endpoint">为虚拟机创建 TCP 终结点</a></li>
+<li><a href="#FW">在 Windows 防火墙中打开 TCP 端口</a></li>
+<li><a href="#TCP">将 SQL Server 配置为侦听 TCP 协议</a></li>
+<li><a href="#Mixed">配置混合模式的 SQL Server 身份验证</a></li>
+<li><a href="#Logins">创建 SQL Server 身份验证登录名</a></li>
+<li><a href="#DNS">确定虚拟机的 DNS 名称</a></li>
+<li><a href="#Connect">从其他计算机连接到数据库引擎</a></li>
+</ul>
+<p>下图中概述了此连接路径：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sqlvmconnectionsonazure.gif" alt="连接到 SQL Server 虚拟机"/></p>
+<h3 id="Endpoint">为虚拟机创建 TCP 终结点</h3>
+<p>虚拟机必须具有用于侦听传入 TCP 通信的终结点。此 Windows Azure 配置步骤将传入 TCP 端口流量定向至可供虚拟机访问的 TCP 端口。</p>
+<ol>
+<li>
+<p>在 Windows Azure 管理门户上，单击“虚拟机”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/26select-your-vm.png" alt="选择 VM"/></p>
+</li>
+<li>
+<p>单击新创建的虚拟机。将显示有关您的虚拟机的信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/27vm-connect.png" alt="单击 VM"/></p>
+</li>
+<li>
+<p>在页面的顶部附近选择“终结点”页，然后在页面的底部单击“添加终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/28add-endpoint.png" alt="单击“添加终结点”"/></p>
+</li>
+<li>
+<p>在“将终结点添加到虚拟机”页中，选择“添加终结点”，然后单击“下一步”箭头以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/29add-endpoint-to-vm.png" alt="单击“添加终结点”"/></p>
+</li>
+<li>
+<p>在“新建终结点详细信息”页上，提供下列信息。</p>
+<ul>
+<li>在“名称”框中，为终结点提供一个名称。</li>
+<li>在“协议”框中，选择“TCP”。</li>
+<li>在“公用端口”框中，键入 <strong>1433</strong> 或您选择的数字。这是接收传入 TCP 流量的 TCP 端口。SQL Server 一般使用 TCP 端口 1433，这是 Management Studio 使用的默认端口。由于此端口通常是恶意用户的目标端口，因此许多组织都会选择其他端口号。</li>
+<li>在“私有端口”框中，键入 <strong>1433</strong>。您可根据需要选择其他端口号。</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/30endpoint-details.png" alt="“终结点”屏幕"/></p>
+</li>
+<li>
+<p>单击复选标记以继续。将创建终结点。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/31vm-connect.png" alt="带有终结点的 VM"/></p>
+</li>
+</ol>
+<h3 id="FW">在 Windows 防火墙中为数据库引擎的默认实例打开 TCP 端口</h3>
+<ol>
+<li>
+<p>在“开始”菜单中，单击“运行”，键入 <strong>WF.msc</strong>，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/12open-wf.png" alt="启动防火墙程序"/></p>
+</li>
+<li>
+<p>在“高级安全 Windows 防火墙”的左侧窗格中，右键单击“入站规则”，然后单击操作窗格中的“新建规则”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/13new-fw-rule.png" alt="新建规则"/></p>
+</li>
+<li>
+<p>在“规则类型”对话框中，选择“端口”，然后单击“下一步”。</p>
+</li>
+<li>
+<p>在“协议和端口”对话框中，选择“TCP”。选择“特定本地端口”，然后键入数据库引擎实例的端口号（默认实例对应的端口号 <strong>1433</strong> 或您在终结点步骤中为私有端口选择的端口号）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/14port-1433.png" alt="TCP 端口 1433"/></p>
+</li>
+<li>
+<p>单击“下一步”。</p>
+</li>
+<li>
+<p>在“操作”对话框中，选择“允许连接”，然后单击“下一步”。</p>
+<p><strong>安全说明：</strong> 选择“只允许安全连接”可增加安全性。如果要在环境中配置其他安全选项，则选择此选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/15allow-connection.png" alt="允许连接"/></p>
+</li>
+<li>
+<p>在“配置文件”对话框中，选择“公用”，然后单击“下一步”。</p>
+<p><strong>安全说明：</strong> 选择“公用”允许通过 Internet 进行访问。如有可能，请选择更具限制性的配置文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/16public-profile.png" alt="公用配置文件"/></p>
+</li>
+<li>
+<p>在“名称”对话框中，为此规则键入名称和说明，然后单击“完成”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/17rule-name.png" alt="规则名称"/></p>
+</li>
+</ol>
+<p>根据需要为其他组件打开额外的端口。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/cc646023.aspx">配置 Windows 防火墙以允许 SQL Server 访问</a>。</p>
+<h3 id="TCP">将 SQL Server 配置为侦听 TCP 协议</h3>
+<p>此步骤可能已完成。</p>
+<ol>
+<li>
+<p>使用远程桌面连接到虚拟机后，在“开始”菜单上，依次单击“所有程序”、“Microsoft SQL Server <em>版本</em>”、“配置工具”和“SQL Server 配置管理器”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/9click-sscm.png" alt="打开 SSCM"/></p>
+</li>
+<li>
+<p>在 SQL Server 配置管理器的控制台窗格中，展开“SQL Server 网络配置”。</p>
+</li>
+<li>
+<p>在控制台窗格中，单击“<em>实例名称</em> 的协议”。（默认实例为“MSSQLSERVER 的协议”。）</p>
+</li>
+<li>
+<p>在详细信息窗格中，右键单击 TCP，然后单击“启用”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/10enable-tcp.png" alt="启用 TCP"/></p>
+</li>
+<li>
+<p>在控制台窗格中，单击“SQL Server 服务”。（完成下一步骤前可延迟重新启动数据库引擎。）</p>
+</li>
+<li>
+<p>在详细信息窗格中，右键单击“SQL Server (<em>实例名称</em>)”（默认实例为 <strong>SQL Server (MSSQLSERVER)</strong>），然后单击“重新启动”以停止并重新启动 SQL Server 的实例。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/11restart.png" alt="重新启动数据库引擎"/></p>
+</li>
+<li>
+<p>关闭 SQL Server 配置管理器。</p>
+</li>
+</ol>
+<p>有关为 SQL Server 数据库引擎启用协议的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/ms191294.aspx">启用或禁用服务器网络协议（可能为英文页面）</a>。</p>
+<h3 id="Mixed">配置混合模式的 SQL Server 身份验证</h3>
+<p>SQL Server 数据库引擎在非域环境下无法使用 Windows 身份验证。若要从其他计算机连接到数据库引擎，请将 SQL Server 的身份验证模式配置为混合。混合模式身份验证同时允许 SQL Server 身份验证和 Windows 身份验证。（如果您已配置了 Windows Azure 虚拟网络，则可能不需要配置混合模式身份验证。有关 Windows Azure 虚拟网络的详细信息，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkId=251117">Windows Azure 虚拟网络概述</a>。）</p>
+<ol>
+<li>
+<p>使用远程桌面连接到虚拟机后，在“开始”菜单上，依次单击“所有程序”、“Microsoft SQL Server <em>版本</em>”和“SQL Server Management Studio”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/18start-ssms.png" alt="启动 SSMS"/></p>
+</li>
+</ol>
+<p>首次打开 Management Studio 时，它必须创建用户 Management Studio 环境。这可能要花几分钟时间。</p>
+<ol>
+<li>
+<p>Management Studio 在打开时将显示“连接到服务器”对话框。在“服务器名称”框中，键入要连接到对象资源管理器中的数据库引擎的虚拟机的名称。（您还可使用“(local)”或一个句点代替虚拟机名称作为“服务器名称”。选择“Windows 身份验证”，然后在“用户名”框中保留“<em>您的 </em>VM<em> 名称</em>\Administrator”。单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/19connect-to-server.png" alt="连接到服务器"/></p>
+</li>
+<li>
+<p>在 SQL Server Management Studio 对象资源管理器中，右键单击 SQL Server 实例的名称（虚拟机名称），然后单击“属性”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/20server-properties.png" alt="服务器属性"/></p>
+</li>
+<li>
+<p>在“安全性”页上的“服务器身份验证”下，选择“SQL Server 和 Windows 身份验证模式”，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/21mixed-mode.png" alt="选择身份验证模式"/></p>
+</li>
+<li>
+<p>在 SQL Server Management Studio 对话框中，单击“确定”以确认重新启动 SQL Server 的要求。</p>
+</li>
+<li>
+<p>在对象资源管理器中，右键单击服务器，然后单击“重新启动”。（如果 SQL Server 代理正在运行，则还必须重新启动它。）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/22restart2.png" alt="重新启动"/></p>
+</li>
+<li>
+<p>在 SQL Server Management Studio 对话框中，单击“是”以同意您要重新启动 SQL Server。</p>
+</li>
+</ol>
+<h3 id="Logins">创建 SQL Server 身份验证登录名</h3>
+<p>若要从其他计算机连接到数据库引擎，您必须创建至少一个 SQL Server 身份验证登录名。</p>
+<ol>
+<li>
+<p>在 SQL Server Management Studio 对象资源管理器中，展开您要在其中创建新登录名的服务器实例所在的文件夹。</p>
+</li>
+<li>
+<p>右键单击“安全性”文件夹，指向“新建”，然后选择“登录名…”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/23new-login.png" alt="新建登录名"/></p>
+</li>
+<li>
+<p>在“登录名 – 新建”对话框的“常规”页上，在“登录名”框中输入新用户的名称。</p>
+</li>
+<li>
+<p>选择“SQL Server 身份验证”。</p>
+</li>
+<li>
+<p>在“密码”框中，输入新用户的密码。在“确认密码”框中再次输入该密码。</p>
+</li>
+<li>
+<p>若要强制采用针对复杂和强制的密码策略选项，请选择“强制密码过期”（推荐）。这是选择 SQL Server 身份验证时的默认选项。</p>
+</li>
+<li>
+<p>若要强制采用针对过期的密码策略选项，请选择“强制密码过期”（推荐）。必须选择强制密码策略才能启用此复选框。这是选择 SQL Server 身份验证时的默认选项。</p>
+</li>
+<li>
+<p>若要强制用户在首次使用登录名之后创建新密码，请选择“用户在下次登录时必须更改密码”（此登录名还要供其他人使用时推荐）。如果登录名是为了自用，请勿选择此选项。）必须选择强制密码过期才能启用此复选框。这是选择 SQL Server 身份验证时的默认选项。</p>
+</li>
+<li>
+<p>从“默认数据库”列表中，选择登录名的默认数据库。<strong>master</strong> 是此选项的默认值。如果您尚未创建用户数据库，请保留此设置为 <strong>master</strong>。</p>
+</li>
+<li>
+<p>在“默认语言”列表中，保留“默认”值。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/24test-login.png" alt="登录名属性"/></p>
+</li>
+<li>
+<p>如果这是您创建的第一个登录名，则可能希望将此登录名指定为 SQL Server 管理员。如果是这样，请在“服务器角色”页上选中 <strong>sysadmin</strong>。</p>
+<p><strong>安全说明：</strong> sysadmin 固定服务器角色的成员对数据库引擎具有完全控制权限。您应慎重限制此角色的成员身份。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/25sysadmin.png" alt="sysadmin"/></p>
+</li>
+<li>
+<p>单击“确定”。</p>
+</li>
+</ol>
+<p>有关 SQL Server 登录名的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/aa337562.aspx">创建登录名（可能为英文页面）</a>。</p>
+<h3 id="DNS">确定虚拟机的 DNS 名称</h3>
+<p>若要从其他计算机连接到 SQL Server 数据库引擎，则您必须知道虚拟机的域名系统 (DNS) 名称。（这是 Internet 用于识别虚拟机的名称）。您可使用 IP 地址，但 IP 地址可能在 Windows Azure 为了冗余或维护而移动资源时发生更改。DNS 名称将不变，因为它可重定向至新的 IP 地址。）</p>
+<ol>
+<li>
+<p>在 Windows Azure 管理门户中（或通过之前的步骤），选择“虚拟机”。</p>
+</li>
+<li>
+<p>在“VM 实例”页的“DNS 名称”列中，查找并复制带有前缀 <strong>http://</strong> 的虚拟机 DNS 名称。（用户界面可能不会显示整个名称，但您可右键单击该名称，然后选择“复制”。）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/32dns-name.png" alt="DNS 名称"/></p>
+</li>
+</ol>
+<h3>从其他计算机连接到数据库引擎</h3>
+<ol>
+<li>
+<p>在连接到 Internet 的计算机上，打开 SQL Server Management Studio。</p>
+</li>
+<li>
+<p>在“连接到服务器”或“连接到数据库引擎”对话框的“服务器名称”框中，输入虚拟机的 DNS 名称（已在之前的任务中确定）。此格式可能类似于 <strong>TESTVM.windowsazure.net</strong>。（请勿包含 http://）如果您选择 1433 之外的端口号作为终结点的公用端口号，请按照 <em>DNSName,portnumber</em> 格式在 DNS 名称后包括一个逗号和终结点，如 <strong>TESTVM.windowsazure.net,55124</strong>）</p>
+</li>
+<li>
+<p>在“身份验证”框中，选择“SQL Server 身份验证”。</p>
+</li>
+<li>
+<p>在“登录名”框中，键入您在之前的任务中创建的登录名的名称。</p>
+</li>
+<li>
+<p>在“密码”框中，键入您在之前的任务中创建的登录名的密码。</p>
+</li>
+<li>
+<p>单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/33connect-ssms.png" alt="使用 SSMS 进行连接"/></p>
+</li>
+</ol>
+<h3>从应用程序连接到数据库引擎</h3>
+<p>如果您可使用 Management Studio 连接到在 Windows Azure 虚拟机上运行的 SQL Server 实例，则应能够使用类似于以下字符串的连接字符串进行连接。</p>
+<pre class="prettyprint">connectionString="Server=&lt;DNS_Name&gt;;Integrated Security=false;User ID=&lt;login_name&gt;;Password=&lt;your_password&gt;;"providerName="System.Data.SqlClient"</pre>
+<p>有关详细信息，请参阅<a href="http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx">如何解决 SQL Server 数据库引擎的连接问题（可能为英文页面）</a>。</p>
+<h2 id="Optional">后续步骤</h2>
+<p>您已了解如何在 Windows Azure 虚拟机上使用平台映像创建和配置 SQL Server。使用 Windows Azure 虚拟机中的 SQL Server 时，建议您将所有业务文件、数据库文件、日志文件和备份文件保存在附加的磁盘中。此外，通过执行本主题中介绍的步骤来确保引用附加的磁盘中的数据、备份和日志文件：<a href="http://msdn.microsoft.com/library/dd206993.aspx">查看或更改数据和日志文件的默认位置（可能为英文页面）</a>。建议您不要将任何永久性数据存储在临时存储驱动器 (D:) 中，因为临时存储驱动器不是永久的。有关在 Windows Azure 中附加磁盘的详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/manage/windows/how-to-guides/attach-a-disk/">如何将数据磁盘附加到虚拟机（可能为英文页面）</a>。</p>
+<p><strong>关闭写入缓存</strong></p>
+<p>默认情况下，磁盘缓存设置处于启用状态，可允许在操作系统磁盘上执行读写操作。在数据磁盘上，默认情况下禁用读写缓存。我们建议您使用数据磁盘，而不要使用操作系统磁盘来存储数据库文件。如果您需要在操作系统磁盘上存储数据库文件，建议您在设置虚拟机后立即禁用写入缓存。有关配置磁盘缓存的说明，请参见以下主题：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj152847.aspx">Set-AzureOSDisk</a>、<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj152851.aspx">Set-AzureDataDisk</a> 和<a href="http://www.windowsazure.cn/zh-cn/develop/training-kit/hol-automatingvmmanagementps/">使用 Windows Azure PowerShell Cmdlet 管理虚拟机</a>。</p>
+<p><strong>创建数据库用户</strong></p>
+<p>若要对用户数据库具有访问权限，不是 sysadmin 固定服务器角色成员的登录名必须映射到数据库用户。为此，您必须创建一个数据库用户。有关数据库用户的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/aa337562.aspx">创建数据库用户（可能为英文页面）</a>。</p>
+<p><strong>添加额外的数据库引擎实例</strong></p>
+<p>如果使用平台提供的 SQL Server 映像创建虚拟机，则可以在虚拟机上的 C:\SqlServer<em>11.0</em> Full 目录中找到 SQL Server 安装程序介质。您可以从此目录运行安装程序，以执行包括添加或删除功能的任何安装操作、添加新实例或修复实例（如果磁盘空间允许）。如果将自己的 SQL Server 映像引入 Windows Azure 并需要安装额外的 SQL Server 功能，请确保虚拟机上有足够的磁盘空间。</p>
+<h3>有关 Windows Azure 虚拟机中 SQL Server 的指南</h3>
+<p>MSDN 库中的 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj823132.aspx">Windows Azure 虚拟机中的 SQL Server</a> 文档包含一系列提供详细指导的文章和教程。该系列内容包含以下章节：</p>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj823133.aspx">有关 Windows Azure 虚拟机中 SQL Server 的连接性教程</a></p>
+<ul>
+<li>教程：在同一云服务中连接到 SQL Server</li>
+<li>教程：在不同云服务中连接到 SQL Server</li>
+<li>教程：通过虚拟网络将 ASP.NET 应用程序连接到 Windows Azure 中的 SQL Server</li>
+</ul>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj870962.aspx">Windows Azure 虚拟机中的 SQL Server 高可用性和灾难恢复</a></p>
+<ul>
+<li>教程：Windows Azure 中的 AlwaysOn 可用性组</li>
+<li>教程：混合 IT 中的 AlwaysOn 可用性组</li>
+<li>教程：Windows Azure 中的高可用性数据库镜像</li>
+<li>教程：Windows Azure 中的灾难恢复数据库镜像</li>
+<li>教程：混合 IT 中的灾难恢复数据库镜像</li>
+<li>教程：混合 IT 中的灾难恢复日志传送</li>
+</ul>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj992719.aspx">Windows Azure 虚拟机中的 SQL Server Business Intelligence</a></p>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj898505.aspx">如何在 Windows Azure 中的虚拟机之间迁移 SQL Server 数据库文件和架构</a></p>
+<h3>另请参阅</h3>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/p/?LinkID=242213">Windows Azure 虚拟机上的 SQL Server 入门</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/jj156165.aspx">迁移到 Windows Azure 虚拟机中的 SQL Server</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/jj823132.aspx">Windows Azure 虚拟机中的 SQL Server</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/jj156143.aspx">Windows Azure 虚拟机概述</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156159">使用 Windows Azure 虚拟机进行迁移</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156154">将以数据为中心的应用程序迁移到 Windows Azure</a></li>
+<li><a href="http://support.microsoft.com/kb/956893">在硬件虚拟化环境中运行的 Microsoft SQL Server 产品的支持策略</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/manage/windows/how-to-guides/">Windows 虚拟机操作方法指南</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>在 Windows Azure 中创建 SQL Server 虚拟机</pageTitle><metaKeywords>有关创建 SQL Server 的 Azure 教程, SQL Server vm, 配置 SQL Server </metaKeywords><metaDescription><![CDATA[指导您在 Windows Azure 上创建和配置 SQL Server 虚拟机的教程。]]></metaDescription><linkid>manage-windows-commontask-install-sql-server</linkid><urlDisplayName>安装 SQL Server</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

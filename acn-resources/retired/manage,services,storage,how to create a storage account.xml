@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18443" parentID="18442" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-05-03T16:23:00" updateDate="2014-08-18T11:29:18" nodeName="how to create a storage account" urlName="how-to-create-a-storage-account" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,18442,18443" isDoc=""><bodyText><![CDATA[<div>
+<h1><a id="createstorageaccount"></a>如何创建存储帐户</h1>
+<p>要在 Windows Azure 中存储 Blob、表和队列服务中的文件和数据，您必须在要存储数据的地理区域创建存储帐户。存储帐户可以容纳高达 100 TB 的 Blob、表和队列数据。您可以为每个 Windows Azure 订阅创建多达 5 个存储帐户。本主题介绍如何在 Windows Azure 管理门户中创建存储帐户。</p>
+<div class="dev-callout">注意
+<p>对于 Windows Azure 虚拟机，如果您在部署位置尚不具有存储帐户，则会在该位置自动创建一个存储帐户。存储帐户名称将基于虚拟机名称。</p>
+</div>
+<h2>目录</h2>
+<ul>
+<li><a href="#create">如何：创建存储帐户</a></li>
+<li><a href="#next">后续步骤</a></li>
+</ul>
+<h2><a id="create"></a>如何：创建存储帐户</h2>
+<ol>
+<li>
+<p>登录到<a href="https://manage.windowsazure.cn">管理门户</a>。</p>
+</li>
+<li>
+<p>依次单击 <strong>“新建”</strong>、<strong>“数据服务”</strong>、<strong>“存储”</strong>和<strong>“快速创建”</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/storage_newstorageaccount.png" alt="新建存储帐户"/></p>
+</li>
+<li>
+<p>在“URL”中，输入要在存储帐户 URL 中使用的子域名称。若要访问存储中的对象，请将该对象的位置附加到终结点。例如，用于访问 Blob 的 URL 可以是 http://<em>myaccount</em>.blob.core.chinacloudapi.cn/<em>mycontainer</em>/<em>myblob</em>。</p>
+</li>
+<li>
+<p>在<strong>“区域/地缘组”</strong>中，为存储选择区域或地缘组。如果您希望存储服务与您所使用的其他 Windows Azure 服务位于同一数据中心，请选择一个地缘组而不是区域。这可以提高性能，且不会对数据传出收费。</p>
+<div class="dev-callout">注意
+<p>若要创建地缘组，请打开管理门户的“网络”区域，单击“地缘组”，然后单击“创建新的地缘组”或“创建”。您也可以使用 Windows Azure 服务管理 API 创建和管理地缘组。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460798.aspx">针对地缘组的操作</a>。</p>
+</div>
+</li>
+<li>
+<p>在<strong>“订阅”</strong>中，输入要使用存储帐户的 Windows Azure 订阅。您可以为一个订阅创建多达 5 个存储帐户。</p>
+</li>
+<li>
+<p>在“复制”中，选择对您的存储帐户所期望的复制级别。</p>
+<p>默认情况下，复制设置为 Geo-Redundant.。使用地域冗余复制，在主要位置中发生重大灾难时，您的存储帐户以及帐户中的所有数据都将故障转移到辅助位置。Windows Azure 在同一区域中分配辅助位置，并且不能更改。在进行故障转移后，辅助位置将成为存储帐户的主要位置，并且会将数据复制到新的辅助位置。</p>
+<p>如果不希望使用地域冗余复制，或者如果贵组织的策略不允许使用它，则可以将“复制”设置为“本地冗余”。此时将使用以优惠价提供的本地冗余存储。请注意，如果您关闭地域冗余复制，但稍后决定重新打开它，那么在您将现有数据复制到辅助位置时，将向您收取一次性费用。</p>
+<p>第三个复制选项“读取访问地域冗余”允许对辅助位置中的已复制数据进行只读访问。通过读取访问地域冗余复制，您可以在一个位置变得不可用时从主位置或辅助位置访问您的数据。</p>
+<p>有关存储帐户复制的定价信息，请参见[存储定价详细信息](http://www.windowsazure.cn/zh-cn/pricing/details/storage/)。</p>
+</li>
+<li>
+<p>单击<strong>“创建存储帐户”</strong>。</p>
+<p>创建存储帐户可能需要一段时间。若要检查状态，您可以监视门户底部的通知。创建存储帐户后，您的新存储帐户将处于<strong>“联机”</strong>状态并且随时可供使用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/storage_storagepage.png" alt="存储页面"/></p>
+</li>
+</ol>
+<h2><a id="next"></a>后续步骤</h2>
+<ul>
+<li>
+<p>若要了解有关 Windows Azure 存储服务的详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/fundamentals/cloud-storage/">了解云存储</a>以及 <a href="http://msdn.microsoft.com/zh-cn/library/gg433040.aspx">Blob、队列和表</a>。</p>
+</li>
+<li>
+<p>请访问 <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure 存储团队博客</a>。</p>
+</li>
+<li>
+<p>配置您的应用程序以使用 Windows Azure Blob、表和队列服务。<a href="http://www.windowsazure.cn/zh-cn/documentation/">Windows Azure 开发人员中心</a>提供了将 Blob、表和队列存储服务与 .NET、Node.js、Java 和 PHP 应用程序结合使用的操作方法指南。有关特定于编程语言的说明，请参阅该语言相应的操作方法指南。</p>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle> Windows Azure 服务管理：如何创建存储帐户</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-how-to-create-a-storage-account</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 管理门户中创建存储帐户。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何创建</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

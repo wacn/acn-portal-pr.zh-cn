@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19149" parentID="19145" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="4" createDate="2013-07-11T11:46:52" updateDate="2014-08-18T11:22:19" nodeName="Web App with Django and MySQL" urlName="web-app-with-django-and-mysql" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19145,19149" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/python" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>Django Hello World - MySQL Windows 版本</h1>
+<p>本教程介绍如何在单个 Windows Azure 虚拟机上结合使用 MySQL 与 Django。本指南假定您以前使用过 Windows Azure 和 Django。有关 Windows Azure 和 Django 的简介，请参阅 <a href="/zh-cn/develop/python/tutorials/web-app-with-django">Django Hello World</a>。本指南还假定您对 MySQL 有一些了解。有关 MySQL 的概述，请参阅 <a href="http://dev.mysql.com/doc/">MySQL 网站</a>。</p>
+<p>在本教程中，您将了解如何：</p>
+<ul>
+<li>设置 Windows Azure 虚拟机以托管 MySQL 和 Django。虽然本教程介绍如何在 Windows Server 2008 R2 下实现此目的，但也可以使用托管在 Windows Azure 中的 Linux VM 实现相同目的。</li>
+<li>为 Python 安装 <a href="http://pypi.python.org/pypi/MySQL-python/1.2.3">MySQL 驱动程序</a>。</li>
+<li>配置现有 Django 应用程序以使用 MySQL 数据库。</li>
+<li>直接从 Python 使用 MySQL。</li>
+<li>承载并运行您的 MySQL Django 应用程序。</li>
+</ul>
+<p>通过利用托管在 Windows Azure VM 中的 MySQL 数据库，您将扩展 <a href="/zh-cn/develop/python/tutorials/web-app-with-django">Django Hello World</a> 示例以查找所需的 <em>World</em> 替换项。将通过支持 MySQL 的 Django <em>counter</em> 应用程序来决定此替换项。如同 Hello World 示例一样，此 Django 应用程序仍将托管在 Windows Azure 门户虚拟机中。</p>
+<p>本教程中的项目文件将存储在 <strong>C:\django\helloworld</strong> 中，并且已完成的应用程序将类似于下图：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mysql_tutorial01.png"/></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-vms-note" macroAlias="AzureChunkDisplayer" ?-->
+<h2>设置虚拟机以托管 MySQL 和 Django</h2>
+<ol>
+<li>
+<p>按照<a href="/zh-cn/manage/windows/tutorials/virtual-machine-from-gallery/">此处</a>提供的说明创建 <em>Windows Server 2008 R2</em> 风格的 Windows Azure 门户虚拟机。</p>
+</li>
+<li>
+<p>在该虚拟机上为 MySQL 事务打开 TCP 端口：</p>
+<ul>
+<li>导航到 Windows Azure 门户中您新创建的虚拟机，然后单击“终结点”选项卡。</li>
+<li>
+<p>单击屏幕底部的“添加终结点”按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mysql_tutorial02-1.png"/></p>
+</li>
+<li>
+<p>打开 <em>TCP</em> 协议的<em>公用端口</em> <strong>3306</strong> 作为<em>专用端口</em> <strong>3306</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mysql_tutorial02-3.png"/></p>
+</li>
+</ul>
+</li>
+<li>
+<p>重复前面的<em>终结点</em> 添加步骤，这次打开 <em>TCP</em> 的<em>公用端口 80</em> 作为<em>专用端口 80</em>。这会将外部 Internet 请求重定向到运行 Django 的端口，即 <em>80</em>。</p>
+</li>
+<li>
+<p>使用 Windows <em>远程桌面</em> 远程登录到新创建的 Windows Azure 虚拟机。</p>
+</li>
+<li>
+<p>打开虚拟机上的 TCP 端口 <strong>80</strong>：</p>
+<ul>
+<li>从“开始”菜单中，选择“管理工具”，然后选择“高级安全 Windows 防火墙”。</li>
+<li>在左窗格中，选择“入站规则”。在右侧的“操作”窗格中，选择“新建规则...”。</li>
+<li>在“新建入站规则向导”中，选择“端口”，然后单击“下一步”。</li>
+<li>选择“TCP”，然后选择“特定本地端口”。指定端口“80”（Django 侦听的端口），然后单击“下一步”。</li>
+<li>选择“允许连接”，然后单击“下一步”。</li>
+<li>再次单击“下一步”。</li>
+<li>为规则指定名称（例如“DjangoPort”），然后单击“完成”。</li>
+</ul>
+</li>
+<li>
+<p>在虚拟机上安装适用于 Windows 的最新版本的 <a href="http://dev.mysql.com/downloads/mysql/">MySQL Community Server</a>：</p>
+<p><strong>注意</strong>：建议将您的数据库安装在与 OS 不同的数据分区中。</p>
+<ul>
+<li>运行<a href="http://dev.mysql.com/downloads/mysql/">此处</a>的 <em>Windows（x86，64 位），MSI 安装程序</em>链接，并从离您最近的下载镜像下载适当的 MSI 安装程序。有帮助的提示是：
+<ul>
+<li>选择“完全”安装类型。</li>
+<li>选择配置向导中的“详细配置”。</li>
+<li><strong>确保您在端口号 3306 上启用了 TCP/IP 网络并为该端口添加了防火墙例外。</strong></li>
+<li>设置根密码并从远程计算机进行根目录访问。</li>
+</ul>
+</li>
+<li>安装<a href="http://dev.mysql.com/doc/index-other.html">“world”数据库</a>示例（MyISAM 版本）：
+<ul>
+<li>将<a href="http://downloads.mysql.com/docs/world.sql.zip">此</a> zip 文件下载到 Windows Azure 虚拟机上。</li>
+<li><strong>将它解压缩到 <em>C:\Users\Administrator\Desktop\world.sql</em>。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>安装 MySQL 之后，单击 Windows“开始”菜单，然后运行刚才安装的“MySQL 5.5 Command Line Client”。发出以下命令：</p>
+<pre class="prettyprint">CREATE DATABASE world;
+USE world;
+SOURCE C:\Users\Administrator\Desktop\world.sql
+CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
+CREATE DATABASE djangoazure;
+GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
+GRANT ALL ON world.* TO 'testazureuser'@'%';
+SELECT name from country LIMIT 1;</pre>
+<p>您现在应该看到与下图类似的响应：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mysql_tutorial01-2.png"/></p>
+</li>
+<li>
+<p>在您开始开发您的 Django 应用程序之前，我们当然需要在虚拟机上安装 Python+Django。为此，请按照 Python“Hello World”应用程序教程中的<a href="/zh-cn/develop/python/common-tasks/install-python">设置开发环境</a>指南操作。</p>
+<p><strong>注意：</strong>您只需从 WebPI 安装 <em>Django</em> 产品即可使用本教程。您<strong>无</strong>需安装 <em>Python Tools for Visual Studio</em> 或 Windows Azure Python SDK 即可实现所需目的。</p>
+</li>
+<li>
+<p>安装 MySQL Python 客户端包。您可以直接<a href="http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&amp;can=2&amp;q=">从此链接</a>安装它。完成后，运行以下命令来验证您的安装：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mysql_tutorial01-1.png"/></p>
+</li>
+</ol>
+<h2>扩展 Django Hello World 应用程序</h2>
+<ol>
+<li>
+<p>按照 <a href="/zh-cn/develop/python/tutorials/web-app-with-django">Django Hello World</a> 教程中提供的说明在 Django 中创建一个简单的“Hello World”Web 应用程序。</p>
+</li>
+<li>
+<p>在您喜欢的文本编辑器中打开 <strong>C:\django\helloworld\helloworld\settings.py</strong>。修改 <strong>DATABASES</strong> 全局字典以读取以下内容：</p>
+<pre class="prettyprint">DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoazure',               
+        'USER': 'testazureuser',  
+        'PASSWORD': 'testazure',
+        'HOST': '127.0.0.1', 
+        'PORT': '3306',
+        },
+    'world': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'world',               
+        'USER': 'testazureuser',  
+        'PASSWORD': 'testazure',
+        'HOST': '127.0.0.1', 
+        'PORT': '3306',
+        }
+    }</pre>
+<p>正如您看到的，我们已为 Django 提供有关在哪里查找我们的 MySQL 数据库的说明。</p>
+<p><strong>注意：</strong>您<strong>必须</strong>更改 <em>HOST</em> 密钥以匹配您的 Windows Azure (MySQL) VM 的<strong>永久</strong> IP 地址。此时，<em>HOST</em> 应设置为 <em>ipconfig</em> Windows 命令为它报告的内容。</p>
+<p>在您修改 <em>HOST</em> 以匹配 MySQL VM 的 IP 地址之后，请保存此文件并关闭它。</p>
+</li>
+<li>
+<p>现在，我们已引用 <em>djangoazure</em> 数据库，让我们使用它执行一些有用的操作！为此，我们将为一个简单的 <em>counter</em> 应用程序创建模型。若要指示 Django 创建该模型，请运行以下命令：</p>
+<pre class="prettyprint">cd C:\django\helloworld
+C:\Python27\python.exe manage.py startapp counter</pre>
+<p>如果 Django 没有从上面最后一个命令报告任何输出，则它成功了。</p>
+</li>
+<li>
+<p>将以下文本附加到 <strong>C:\django\helloworld\counter\models.py</strong> 中：</p>
+<pre class="prettyprint">class Counter(models.Model):
+    count = models.IntegerField()
+    def __unicode__(self):
+        return u'%s' % (self.count)</pre>
+<p>我们在此处只是使用单个整数字段 <em>count</em> 定义 Django 的 <em>Model</em> 类的名为 <em>Counter</em> 的子类。此简单的 counter 模型将最终记录我们的 Django 应用程序的点击数。</p>
+</li>
+<li>
+<p>接下来，我们使 Django 知道 <em>Counter</em> 的存在：</p>
+<ul>
+<li>再次编辑 <strong>C:\django\helloworld\helloworld\settings.py</strong>。将“counter”添加到 <em>INSTALLED_APPS</em> 元组中。</li>
+<li>
+<p>从命令提示符处，请运行：</p>
+<pre class="prettyprint">cd C:\django\helloworld
+C:\Python27\python manage.py sql counter
+C:\Python27\python manage.py syncdb</pre>
+</li>
+</ul>
+<p>这些命令将 <em>Counter</em> 模型存储在实时 Django 数据库中，并且输出结果类似于以下内容：</p>
+<pre class="prettyprint">C:\django\helloworld&gt; C:\Python27\python manage.py sql counter
+BEGIN;
+CREATE TABLE `counter_counter` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `count` integer NOT NULL
+)
+;
+COMMIT;
+
+
+C:\django\helloworld&gt; C:\Python27\python manage.py syncdb
+Creating tables ...
+Creating table auth_permission
+Creating table auth_group_permissions
+Creating table auth_group
+Creating table auth_user_user_permissions
+Creating table auth_user_groups
+Creating table auth_user
+Creating table django_content_type
+Creating table django_session
+Creating table django_site
+Creating table counter_counter
+
+
+You just installed Django's auth system, which means you don't have any superusers defined.
+Would you like to create one now? (yes/no): no
+Installing custom SQL ...
+Installing indexes ...
+Installed 0 object(s) from 0 fixture(s)</pre>
+</li>
+<li>
+<p>替换 <strong>C:\django\helloworld\helloworld\views.py</strong> 的内容。下面新实现的 <em>hello</em> 函数将我们的 <em>Counter</em> 模型与我们以前安装的单独示例数据库 <em>world</em> 结合使用来生成“World”字符串的合适替换项：</p>
+<pre class="prettyprint">from django.http import HttpResponse
+import django.db
+from counter.models import Counter
+
+
+def getCountry(intId):
+    #Connect to the MySQL sample database 'world'
+    cur = django.db.connections['world'].cursor()
+    #Execute a trivial SQL query which returns the name of 
+    #all countries contained in 'world'
+    cur.execute("SELECT name from country")
+    tmp = cur.fetchall()
+    #Clean-up after ourselves
+    cur.close()
+    if intId &gt;= len(tmp):
+        return "countries exhausted"
+    return tmp[intId][0]
+
+
+def hello(request):
+    if len(Counter.objects.all())==0:
+        #when the database corresponding to 'helloworld.counter' is 
+        #initially empty...
+        c = Counter(count=0)
+    else:
+        c = Counter.objects.all()[0]
+        c.count += 1
+    c.save()       
+    world = getCountry(int(c.count))
+    return HttpResponse("&lt;html&gt;&lt;body&gt;Hello &lt;em&gt;" + world + "&lt;/em&gt;&lt;/body&gt;&lt;/html&gt;")</pre>
+</li>
+</ol>
+<h2>部署并运行您的 Django 网站</h2>
+<p>注意：下面演示如何在测试环境中运行 Django。若要在生产环境中运行它，请按照“Django Hello World 教程”中的“设置具有 FastCGI 的 IIS”一节操作。使用 Windows Firewall Client 为 Windows Server 2K8 R2 虚拟机上的 Internet 流量打开端口 80 对 FastCGI 来说不是必需的。</p>
+<ol>
+<li>
+<p>切换回 Windows PowerShell 窗口，并键入以下命令来公开部署您的 Django 网站：</p>
+<pre class="prettyprint">PS C:\django\helloworld&gt; $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
+PS C:\django\helloworld&gt; $ipPort = [string]$ipPort.AddressList[1]
+PS C:\django\helloworld&gt; $ipPort += ":80"
+PS C:\django\helloworld&gt; C:\Python27\python.exe .\manage.py runserver $ipPort</pre>
+<p><strong>runserver</strong> 参数指示 Django 在 TCP 端口 <em>80</em> 上运行我们的 <em>helloworld</em> 网站。此命令的结果应类似于：</p>
+<pre class="prettyprint">PS C:\django\helloworld&gt; C:\Python27\python.exe .\manage.py runserver $ipPort
+Validating models...
+
+
+0 errors found
+Django version 1.4, using settings 'helloworld.settings'
+Development server is running at http://123.34.56.78:80
+Quit the server with CTRL-BREAK.</pre>
+</li>
+<li>
+<p>从您的本地 Web 浏览器中，打开 <strong>http://<em>yourVmName</em>.chinacloudapp.cn</strong>（其中，<em>yourVmName</em> 是您在虚拟机创建步骤中使用的任何名称）。您应看到显示了“Hello ...!" 如下面的屏幕快照所示。这表明 Django 正运行在虚拟机中并能够正常运行。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/mysql_tutorial01.png"/></p>
+<p>刷新 Web 浏览器几次，您应该看到消息从“Hello <strong>&lt;country abc&gt;</strong>”更改为“Hello <strong>&lt;some other country&gt;</strong>”。</p>
+</li>
+<li>
+<p>若要停止 Django 承载网站，只需切换到 PowerShell 窗口并按 <strong>Ctrl-C</strong>。</p>
+</li>
+</ol>
+<h2>关闭您的 Windows Azure 虚拟机</h2>
+<p>在您完成本教程后，关闭并/或删除您新创建的 Windows Azure 虚拟机以为其他教程释放资源并避免产生 Windows Azure 使用费。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>web app with django and mysql</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>web app with django and mysql</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>web app with django and mysql</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19079" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="3" createDate="2013-07-11T11:29:12" updateDate="2014-08-18T11:20:00" nodeName="Queue Service" urlName="queue-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19079" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>如何通过 PHP 使用队列服务</h1>
+<p>本指南将演示如何使用 Windows Azure 队列服务执行常见方案。这些示例通过使用 Windows SDK for PHP 中的类编写。涉及的方案包括<strong>插入</strong>、<strong>查看</strong>、<strong>获取</strong>和<strong>删除</strong>队列消息以及<strong>创建和删除队列</strong>。有关队列的详细信息，请参阅<a href="#NextSteps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是队列存储</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#create-account">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#create-app">创建 PHP 应用程序</a></li>
+<li><a href="#configure-app">针对队列服务配置应用程序</a></li>
+<li><a href="#connection-string">设置 Windows Azure 存储连接</a></li>
+<li><a href="#create-queue">如何：创建队列</a></li>
+<li><a href="#add-message">如何：向队列添加消息</a></li>
+<li><a href="#peek-message">如何：查看下一条消息</a></li>
+<li><a href="#dequeue-message">如何：取消对下一条消息的排队</a></li>
+<li><a href="#change-message">如何：更改已排队消息的内容</a></li>
+<li><a href="#additional-options">用于取消对消息进行排队的其他选项</a></li>
+<li><a href="#get-queue-length">如何：获取队列长度</a></li>
+<li><a href="#delete-queue">如何：删除队列</a></li>
+<li><a href="#next-steps">后续步骤</a></li>
+</ul>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="howto-queue-storage" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="create-account">创建 Windows Azure 存储帐户</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="create-app">创建 PHP 应用程序</h2>
+<p>创建访问 Windows Azure 队列服务的 PHP 应用程序的唯一要求是从代码中引用 Windows Azure SDK for PHP 中的类。您可以使用任何开发工具来创建应用程序，包括记事本。</p>
+<p>在本指南中，您将使用队列服务功能，这些功能可在 PHP 应用程序中本地调用，或在 Windows Azure 的 Web 角色、辅助角色或网站中运行的代码中调用。</p>
+<h2 id="GetClientLibrary">获取 Windows Azure 客户端库</h2>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="get-client-libraries" macroAlias="AzureChunkDisplayer" ?-->
+<h2 id="configure-app">配置您的应用程序以访问队列服务</h2>
+<p>若要使用 Windows Azure 队列服务 API，您需要：</p>
+<ol>
+<li>使用 <a href="http://www.php.net/manual/en/function.require-once.php">require_once</a> 语句引用 autoloader 文件，并</li>
+<li>引用可使用的所有类。</li>
+</ol>
+<p>下面的示例演示如何包含 autoloader 文件并引用 <strong>ServicesBuilder</strong> 类。</p>
+<div class="dev-callout">注意
+<p>本示例（以及本文中的其他示例）假定您已通过 Composer 安装用于 Windows Azure 的 PHP 客户端库。如果您已手动安装这些库或将其作为 PEAR 包安装，则需要引用 <code>WindowsAzure.php</code> autoloader 文件。</p>
+</div>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+use WindowsAzure\Common\ServicesBuilder;</pre>
+<p>在下面的示例中，将始终显示 <code>require_once</code> 语句，但仅引用执行该示例所需的类。</p>
+<h2 id="connection-string">设置 Windows Azure 存储连接</h2>
+<p>若要实例化 Windows Azure 队列服务客户端，您必须先拥有有效的连接字符串。队列服务连接字符串的格式为：</p>
+<p>对于访问实时服务：</p>
+<pre class="prettyprint">DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]</pre>
+<p>对于访问仿真程序存储：</p>
+<pre class="prettyprint">UseDevelopmentStorage=true</pre>
+<p>若要创建任何 Windows Azure 服务客户端，您将需要使用 <strong>ServicesBuilder</strong> 类。您可以：</p>
+<ul>
+<li>将连接字符串直接传递给此类或</li>
+<li>使用 <strong>CloudConfigurationManager (CCM)</strong>检查此连接字符串的多个外部源：
+<ul>
+<li>默认情况下，它附带了对一个外部源的支持 - 环境变量</li>
+<li>可通过扩展 <strong>ConnectionStringSource</strong> 类来添加新源</li>
+</ul>
+</li>
+</ul>
+<p>在此处列出的示例中，将直接传递连接字符串。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);</pre>
+<h2 id="create-queue">如何：创建队列</h2>
+<p>利用 <strong>QueueRestProxy</strong> 对象，可以使用 <strong>createQueue</strong> 方法创建队列。创建队列时，可以在该队列上设置选项，但此操作不是必需的。（下面的示例演示了如何在队列上设置元数据。）</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Queue\Models\CreateQueueOptions;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+// OPTIONAL: Set queue metadata.
+$createQueueOptions = new CreateQueueOptions();
+$createQueueOptions-&gt;addMetaData("key1", "value1");
+$createQueueOptions-&gt;addMetaData("key2", "value2");
+
+try {
+    // Create queue.
+    $queueRestProxy-&gt;createQueue("myqueue", $createQueueOptions);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<div class="dev-callout">注意
+<p>您不应依赖元数据密钥的区分大小写。采用小写形式从服务中读取所有密钥。</p>
+</div>
+<h2 id="add-message">如何：向队列添加消息</h2>
+<p>若要将消息添加到队列，请使用 <strong>QueueRestProxy-&gt;createMessage</strong>。此方法采用队列名称、消息文本和消息选项（这些都是可选的）。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Queue\Models\CreateMessageOptions;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+try {
+    // Create message.
+    $builder = new ServicesBuilder();
+    $queueRestProxy-&gt;createMessage("myqueue", "Hello World!");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="peek-message">如何：查看下一条消息</h2>
+<p>通过调用 <strong>QueueRestProxy-&gt;peekMessages</strong>，可以查看队列前面的消息，而不会从队列中将其删除。默认情况下，<strong>peekMessage</strong> 方法将返回单个消息，但您可以使用 <strong>PeekMessagesOptions-&gt;setNumberOfMessages</strong> 方法更改此值。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Queue\Models\PeekMessagesOptions;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+// OPTIONAL: Set peek message options.
+$message_options = new PeekMessagesOptions();
+$message_options-&gt;setNumberOfMessages(1); // Default value is 1.
+
+try {
+    $peekMessagesResult = $queueRestProxy-&gt;peekMessages("myqueue", $message_options);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}
+
+$messages = $peekMessagesResult-&gt;getQueueMessages();
+
+// View messages.
+$messageCount = count($messages);
+if($messageCount &lt;= 0){
+    echo "There are no messages.&lt;br /&gt;";
+}
+else{
+    foreach($messages as $message)  {
+        echo "Peeked message:&lt;br /&gt;";
+        echo "Message Id: ".$message-&gt;getMessageId()."&lt;br /&gt;";
+        echo "Date: ".date_format($message-&gt;getInsertionDate(), 'Y-m-d')."&lt;br /&gt;";
+        echo "Message text: ".$message-&gt;getMessageText()."&lt;br /&gt;&lt;br /&gt;";
+    }
+}</pre>
+<h2 id="dequeue-message">如何：取消对下一条消息的排队</h2>
+<p>您的代码通过两个步骤从队列中删除消息。首先，调用 <strong>QueueRestProxy-&gt;listMessages</strong>，这将使消息对从该队列读取的任何其他代码不可见。默认情况下，此消息将持续 30 秒不可见（如果在此时段内未删除该消息，则它将变得在队列上再次可见）。若要完全从队列中删除消息，您必须调用 <strong>QueueRestProxy-&gt;deleteMessage</strong>。此删除消息的两步过程可确保当您的代码因硬件或软件故障而无法处理消息时，您的其他代码实例可以获取同一消息并重试。您的代码在处理消息后会立即调用 <strong>deleteMessage</strong>。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+// Get message.
+$listMessagesResult = $queueRestProxy-&gt;listMessages("myqueue");
+$messages = $listMessagesResult-&gt;getQueueMessages();
+$message = $messages[0];
+
+/* ---------------------
+    Process message.
+   --------------------- */
+
+// Get message Id and pop receipt.
+$messageId = $message-&gt;getMessageId();
+$popReceipt = $message-&gt;getPopReceipt();
+
+try {
+    // Delete message.
+    $queueRestProxy-&gt;deleteMessage("myqueue", $messageId, $popReceipt);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="change-message">如何：更改已排队消息的内容</h2>
+<p>可以通过调用 <strong>QueueRestProxy-&gt;updateMessage</strong> 更改队列中已就位消息的内容。如果消息表示工作任务，则可以使用此功能更新工作任务的状态。以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。这将保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。通常，您还可以保留重试计数，如果某条消息的重试次数超过 n 次，您将删除此消息。这可避免消息在每次处理时都触发应用程序错误。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;   
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+// Get message.
+$listMessagesResult = $queueRestProxy-&gt;listMessages("myqueue");
+$messages = $listMessagesResult-&gt;getQueueMessages();
+$message = $messages[0];
+
+// Define new message properties.
+$new_message_text = "New message text.";
+$new_visibility_timeout = 5; // Measured in seconds. 
+
+// Get message Id and pop receipt.
+$messageId = $message-&gt;getMessageId();
+$popReceipt = $message-&gt;getPopReceipt();
+
+try {
+    // Update message.
+    $queueRestProxy-&gt;updateMessage("myqueue", 
+                                $messageId, 
+                                $popReceipt, 
+                                $new_message_text, 
+                                $new_visibility_timeout);
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="additional-options">用于取消对消息进行排队的其他选项</h2>
+<p>您可以通过两种方式自定义队列中的消息检索。首先，您可以获取一批消息（最多 32 个）。其次，您可以设置更长或更短的可见超时，从而允许您的代码使用更多或更少的时间来彻底处理每条消息。以下代码示例使用 <strong>getMessages</strong> 方法通过一次调用获取 16 条消息。然后，它使用 <strong>for</strong> 循环来处理每条消息。它还将每条消息的不可见超时设置为五分钟。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Queue\Models\ListMessagesOptions;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+// Set list message options. 
+$message_options = new ListMessagesOptions();
+$message_options-&gt;setVisibilityTimeoutInSeconds(300); 
+$message_options-&gt;setNumberOfMessages(16);
+
+// Get messages.
+try{
+    $listMessagesResult = $queueRestProxy-&gt;listMessages("myqueue", 
+                                                     $message_options); 
+    $messages = $listMessagesResult-&gt;getQueueMessages(); 
+
+    foreach($messages as $message){
+
+        /* ---------------------
+            Process message.
+        --------------------- */
+
+        // Get message Id and pop receipt.
+        $messageId = $message-&gt;getMessageId();
+        $popReceipt = $message-&gt;getPopReceipt();
+
+        // Delete message.
+        $queueRestProxy-&gt;deleteMessage("myqueue", $messageId, $popReceipt);   
+    }
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="get-queue-length">如何：获取队列长度</h2>
+<p>您可以获得队列中消息的估计数。<strong>QueueRestProxy-&gt;getQueueMetadata</strong> 方法要求队列服务返回有关队列的元数据。对返回的对象调用 <strong>getApproximateMessageCount</strong> 方法将提供队列中消息的计数。此计数仅为近似值，因为只能在队列服务响应您的请求后添加或删除消息。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+try {
+    // Get queue metadata.
+    $queue_metadata = $queueRestProxy-&gt;getQueueMetadata("myqueue");
+    $approx_msg_count = $queue_metadata-&gt;getApproximateMessageCount();
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}
+
+echo $approx_msg_count;</pre>
+<h2 id="delete-queue">如何：删除队列</h2>
+<p>若要删除队列及其包含的所有消息，请调用 <strong>QueueRestProxy-&gt;deleteQueue</strong> 方法。</p>
+<pre class="prettyprint">require_once 'vendor\autoload.php';
+
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+
+// Create queue REST proxy.
+$queueRestProxy = ServicesBuilder::getInstance()-&gt;createQueueService($connectionString);
+
+try {
+    // Delete queue.
+    $queueRestProxy-&gt;deleteQueue("myqueue");
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179446.aspx
+    $code = $e-&gt;getCode();
+    $error_message = $e-&gt;getMessage();
+    echo $code.": ".$error_message."&lt;br /&gt;";
+}</pre>
+<h2 id="next-steps">后续步骤</h2>
+<p>现在，您已了解 Windows Azure 队列服务的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>请参阅 MSDN 参考：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a></li>
+<li>请访问 Windows Azure 存储团队博客：<a href="http://blogs.msdn.com/b/windowsazurestorage/">http://blogs.msdn.com/b/windowsazurestorage/</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>queue service</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>queue service</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>queue service</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

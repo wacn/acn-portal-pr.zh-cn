@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18530" parentID="18528" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-05-10T11:06:04" updateDate="2014-08-18T11:30:06" nodeName="sql server on a vm" urlName="sql-server-on-a-vm" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,17363,18528,18530" isDoc=""><bodyText><![CDATA[<div>
+<h1>Windows Azure 虚拟机上的 SQL Server 入门</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>Windows Azure 虚拟机库可提供 Microsoft Windows Server 2008 R2 Service Pack 1（64 位）和 SQL Server 完整 64 位安装的 Windows Azure 虚拟机映像。此虚拟机版本随 SQL Server 2012 评估版（64 位）提供。本主题介绍从库中安装的虚拟机，并提供指向额外配置任务的链接。分步教程中介绍了许多有关安装虚拟机和连接到 SQL Server 的额外任务。若要查看该教程，请参阅<a href="http://go.microsoft.com/fwlink/p/?LinkId=248281">在 Windows Azure 上设置 SQL Server 虚拟机</a>。有关最新的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj823132.aspx">Windows Azure 虚拟机中的 SQL Server</a>。</p>
+<p>本主题包含以下小节：</p>
+<ul>
+<li><a href="#About">关于此虚拟机映像</a></li>
+<li><a href="#Connect">如何连接到此 SQL Server 实例</a></li>
+<li><a href="#Next">后续步骤</a></li>
+<li><a href="#Links">其他信息的链接</a></li>
+</ul>
+<p> </p>
+<div class="dev-callout"><strong>注意</strong>
+<p>此评估版可用于测试，但不能将其升级到按小时付费的版本。</p>
+</div>
+<h2 id="About">关于此虚拟机映像</h2>
+<h3>Windows Server 2008 R2</h3>
+<ul>
+<li>已为 Administrator 帐户启用远程桌面。</li>
+<li>已启用 Windows Update。</li>
+<li>Windows 本地 Administrator 帐户是虚拟机上的唯一用户，并且是本地 <strong>Administrators</strong> 组的唯一成员。</li>
+<li>此虚拟机是名为 WORKGROUP 的工作组的成员。</li>
+<li>未启用“来宾”帐户。</li>
+<li>“高级安全 Windows 防火墙”(c:\Windows\System32\WF.msc) 已启用。</li>
+<li>已安装 .NET Framework 版本 4。</li>
+<li>在设置期间指定虚拟机的大小。
+<ul>
+<li>“中型”是建议在实现正常工作负载时选择的最小大小。</li>
+<li>当使用 SQL Server 企业版时，请选择“大型”或“特大型”。</li>
+<li>所选定的大小会限制您能够配置的数据磁盘个数。有关可用虚拟机大小以及可附加到虚拟机的数据磁盘数的最新详细信息，请参阅<a href="http://msdn.microsoft.com/library/windowsazure/jj156003.aspx">虚拟机</a>。</li>
+</ul>
+</li>
+</ul>
+<h3>SQL Server</h3>
+<p>此 SQL Server 安装包含以下组件。</p>
+<ul>
+<li>数据库引擎</li>
+<li>分析服务</li>
+<li>集成服务</li>
+<li>报告服务（在本机模式下配置）</li>
+<li>SQL Server 2012 中提供了 AlwaysOn 可用性组，但在可以使用它们之前需对其进行额外配置。有关详细信息，请参阅以下内容。</li>
+<li>复制</li>
+<li>全文和语义提取搜索（仅在 SQL Server 2012 中提供语义提取）</li>
+<li>数据质量服务（仅限 SQL Server 2012）</li>
+<li>主数据服务（仅限 SQL Server 2012），但需要额外配置和组件（包括 IIS）。</li>
+<li>PowerPivot for SharePoint 可供使用（仅限 SQL Server 2012），但需要额外配置和组件（包括 SharePoint）。</li>
+<li>分布式重播客户端可供使用（仅限 SQL Server 2012），但未安装。若要运行设置，请参见本主题后面部分中的<strong>添加数据库引擎的额外实例</strong>。</li>
+<li>全部工具，包括 SQL Server Management Studio、SQL Server 配置管理器和 Business Intelligence Development Studio。</li>
+<li>客户端工具连接、客户端工具 SDK 和 SQL 客户端连接 SDK。</li>
+<li>SQL Server 联机丛书（仅限 SQL Server 2008 R2）</li>
+</ul>
+<h3>数据库引擎配置</h3>
+<ul>
+<li>包含 SQL Server 数据库引擎的默认（未命名）实例，以便仅侦听 Shared Memory 协议。</li>
+<li>数据库引擎配置为仅使用 Windows 身份验证。</li>
+<li>安装虚拟机的 Windows Azure 用户最初是 SQL Server <strong>sysadmin</strong> 固定服务器角色的唯一成员。</li>
+<li>数据库引擎内存设置为动态内存配置。所包含的数据库身份验证已禁用。默认语言为英语。跨数据库所有权链接已禁用。有关更多设置，请检查 SQL Server 的实例。</li>
+<li>SQL Server 的其他安装过程可在虚拟机上进行，但这些过程可能需要 PID（产品 ID 代码）。</li>
+</ul>
+<h2 id="Connect">如何连接到此 SQL Server 实例</h2>
+<h3>从运行在此虚拟机上的 Management Studio 进行连接</h3>
+<p>在 Management Studio“连接到服务器”对话框中，在“服务器名称”框中输入虚拟机的主机名。</p>
+<h3>使用 Management Studio 从 Internet 进行连接</h3>
+<p>在您能够从 Internet 连接到 SQL Server 实例之前，必须先完成以下任务：</p>
+<ul>
+<li>将 SQL Server 配置为侦听 TCP 协议并重新启动数据库引擎。</li>
+<li>在 Windows 防火墙中打开 TCP 端口。</li>
+<li>将 SQL Server 配置为混合模式身份验证。</li>
+<li>创建 SQL Server 身份验证登录名。</li>
+<li>为虚拟机创建 TCP 终结点。</li>
+<li>确定虚拟机的 DNS 名称。</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/sqlvmconnectionsonazure.gif" alt="连接路径"/></p>
+<p>有关详细信息，请参阅<a href="../install-sql-server">在 Windows Azure 上设置 SQL Server 虚拟机</a>。</p>
+<h3>使用 Windows Azure 虚拟网络从运行在另一台计算机上的 Management Studio 进行连接</h3>
+<p>Windows Azure 虚拟网络能够使 Windows Azure 上承载的虚拟机与您的专用网络更轻松地进行交互。正确配置 Windows Azure 虚拟网络设置需要执行多个步骤。有些配置能够创造最佳性能。其余配置可优化成本。有关 Windows Azure 虚拟网络的详细信息，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkId=251117">Windows Azure 虚拟网络概述</a>。</p>
+<ul>
+<li>
+<p>配置 Windows Azure 虚拟网络。</p>
+</li>
+<li>
+<p>通过使用 SQL Server 配置管理器启用 TCP 或命名管道协议来启用远程访问，并重新启动数据库引擎。</p>
+</li>
+<li>
+<p>在 Windows 防火墙中为数据库引擎的默认实例打开 TCP 端口 1433。根据需要为其他组件打开额外的端口。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/cc646023.aspx">配置 Windows 防火墙以允许 SQL Server 访问</a>。</p>
+</li>
+</ul>
+<h3>从运行在另一台计算机上的应用程序进行连接</h3>
+<p>提供类似以下内容的连接字符串</p>
+<pre class="prettyprint">&amp;lt;add name ="connection" connectionString ="Data Source=VM_Name;Integrated Security=true;" providerName ="System.Data.SqlClient"/&amp;gt;</pre>
+<p>其中 VM_Name 是您在设置期间为此虚拟机提供的名称。</p>
+<h3>配置 AlwaysOn 可用性组</h3>
+<p>不带侦听程序的 Windows Azure 虚拟机当前支持 AlwaysOn 可用性组。在 Windows Azure 虚拟机中具有一个或多个副本的可用性组无法使用侦听程序。在将 Windows Azure 虚拟机上的副本添加到本地可用性组之前，请先删除该可用性组侦听程序。如果可用性组具有侦听程序，将故障转移到 Windows Azure 虚拟机上副本的操作将失败。有关配置 AlwaysOn 可用性组的详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj870962.aspx">Windows Azure 虚拟机中的 SQL Server 高可用性和灾难恢复</a>。</p>
+<h2 id="Next">后续步骤</h2>
+<h3>迁移现有数据库</h3>
+<p>您可以使用以下任一方法将现有数据库移动到此数据库引擎的新实例。</p>
+<ul>
+<li>还原数据库备份。</li>
+<li>将 mdf、ldf 和 ndf 文件复制到此虚拟机上的文件夹，然后附加数据库。</li>
+<li>创建源数据库的脚本，并在此 SQL Server 的新实例上执行这些脚本。</li>
+<li>通过使用 Management Studio 中的复制数据库向导。</li>
+</ul>
+<p>有关将数据库迁移到 Windows Azure 虚拟机上的 SQL Server 的详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=249158">将现有应用程序和数据库迁移到 Windows Azure 的指南</a>和<a href="http://msdn.microsoft.com/zh-cn/library/jj156165.aspx">迁移到 Windows Azure 虚拟机中的 SQL Server</a>。</p>
+<h3>关闭写入缓存</h3>
+<p>默认情况下，磁盘缓存设置处于启用状态，可允许在操作系统磁盘上执行读写操作。在数据磁盘上，默认情况下禁用读写缓存。我们建议您使用数据磁盘，而不要使用操作系统磁盘来存储数据库文件。如果您需要在操作系统磁盘上存储数据库文件，建议您在设置虚拟机后立即禁用写入缓存。有关配置磁盘缓存的说明，请参见以下主题：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj152847.aspx">Set-AzureOSDisk</a>、<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj152851.aspx">Set-AzureDataDisk</a> 和<a href="http://www.windowsazure.cn/zh-cn/develop/training-kit/hol-automatingvmmanagementps/">使用 Windows Azure PowerShell Cmdlet 管理虚拟机</a>。</p>
+<h3>新建登录名和用户</h3>
+<p>就像对待任何本地数据库一样，新建 Windows 用户、SQL Server Windows 身份验证登录名和数据库用户。如果您打算使用 SQL Server 身份验证，则必须将数据库引擎配置为混合模式身份验证。sa 帐户当前处于禁用状态。有关如何更改身份验证模式和启用 sa 帐户的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/ms188670.aspx">更改服务器身份验证模式</a>。</p>
+<h3>添加额外的数据库引擎实例</h3>
+<p>如果使用平台提供的 SQL Server 映像创建虚拟机，则可以在虚拟机上的 C:\SqlServer<em>11.0</em> Full 目录中找到 SQL Server 安装程序介质。您可以从此目录运行安装程序，以执行包括添加或删除功能的任何安装操作、添加新实例或修复实例（如果磁盘空间允许）。如果将自己的 SQL Server 映像引入 Windows Azure 并需要安装额外的 SQL Server 功能，请确保虚拟机上有足够的磁盘空间。</p>
+<h3>有关 Windows Azure 虚拟机中 SQL Server 的指南</h3>
+<p>MSDN 库中的 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj823132.aspx">Windows Azure 虚拟机中的 SQL Server</a> 文档包含一系列提供详细指导的文章和教程。该系列内容包含以下章节：</p>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj823133.aspx">有关 Windows Azure 虚拟机中 SQL Server 的连接性教程</a></p>
+<ul>
+<li>教程：在同一云服务中连接到 SQL Server</li>
+<li>教程：在不同云服务中连接到 SQL Server</li>
+<li>教程：通过虚拟网络将 ASP.NET 应用程序连接到 Windows Azure 中的 SQL Server</li>
+</ul>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj870962.aspx">Windows Azure 虚拟机中的 SQL Server 高可用性和灾难恢复</a></p>
+<ul>
+<li>教程：Windows Azure 中的 AlwaysOn 可用性组</li>
+<li>教程：混合 IT 中的 AlwaysOn 可用性组</li>
+<li>教程：Windows Azure 中的高可用性数据库镜像</li>
+<li>教程：Windows Azure 中的灾难恢复数据库镜像</li>
+<li>教程：混合 IT 中的灾难恢复数据库镜像</li>
+<li>教程：混合 IT 中的灾难恢复日志传送</li>
+</ul>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj992719.aspx">Windows Azure 虚拟机中的 SQL Server Business Intelligence</a></p>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj898505.aspx">如何在 Windows Azure 中的虚拟机之间迁移 SQL Server 数据库文件和架构</a></p>
+<h2 id="Links">其他信息的链接</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj823132.aspx">Windows Azure 虚拟机中的 SQL Server</a></li>
+<li><a href="http://go.microsoft.com/fwlink/p/?LinkId=248281">在 Windows Azure 上设置 SQL Server 虚拟机</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156159">使用 Windows Azure 虚拟机进行迁移</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/manage/windows/how-to-guides/attach-a-disk/">如何将数据磁盘附加到虚拟机</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156154">将以数据为中心的应用程序迁移到 Windows Azure</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/manage/windows/how-to-guides/">Windows 虚拟机操作方法指南</a></li>
+<li><a href="http://support.microsoft.com/kb/956893">在硬件虚拟化环境中运行的 Microsoft SQL Server 产品的支持策略</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/pricing/details/">定价详细信息</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/pricing/calculator/?scenario=virtual-machines">定价计算器</a></li>
+<!--<li><a href="http://www.microsoft.com/zh-cn/download/details.aspx?displaylang=en&amp;id=6656">Windows Azure 存储服务级别协议</a></li>--></ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle> Windows Azure 服务管理：虚拟机上的 SQL Server 入门</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-windows-common-tasks-sql-server-on-a-vm</linkid><metaKeywords>Azure 虚拟机, Azure 库, Azure SQL Server 映像, Azure Windows 映像, Azure VM</metaKeywords><metaDescription><![CDATA[了解 Windows Azure 虚拟机，包括 Windows Azure 库中提供的 Windows Server 2008 R2 和 SQL Server 映像。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>SQL Server 入门</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

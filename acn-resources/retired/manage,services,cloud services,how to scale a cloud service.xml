@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18441" parentID="18410" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="6" createDate="2013-05-03T16:16:14" updateDate="2014-08-18T11:26:55" nodeName="how to scale a cloud service" urlName="how-to-scale-a-cloud-service" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,18410,18441" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何缩放应用程序</h1>
+<!--?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" ?-->
+<p>在 Windows Azure 管理门户的“缩放”页上，您可以手动缩放应用程序，也可以设置参数使其自动缩放。您可以缩放运行 Web 角色、辅助角色或虚拟机的应用程序。若要缩放运行 Web 角色或辅助角色实例的应用程序，您需要添加或删除角色实例以适应工作负载。</p>
+<p>当您缩放运行虚拟机的应用程序时，不会创建新的虚拟机，也不会删除虚拟机，但会根据先前创建的虚拟机的可用性集打开或关闭虚拟机。您可以根据 CPU 使用率的平均百分比或基于队列中的消息数指定缩放。</p>
+<p>在配置应用程序的缩放之前，应考虑以下信息：</p>
+<ul>
+<li>您必须将您创建的虚拟机添加到可用性集，才能缩放使用它们的应用程序。您添加的虚拟机最初可能处于打开或关闭状态，但它们在扩展操作中将打开，在缩减操作中将关闭。有关虚拟机和可用性集的更多信息，请参见<a href="http://www.windowsazure.cn/zh-cn/manage/windows/common-tasks/manage-vm-availability/">管理虚拟机的可用性</a>。</li>
+<li>缩放受内核使用情况影响。较大的角色实例或虚拟机使用更多内核。您只能在您的订阅的内核限制内缩放应用程序。例如，如果您的订阅的上限是二十个内核，并且您通过两个中等规模的虚拟机（一共四个内核）运行某个应用程序，则对于订阅中的其他云服务部署，您只能扩展十六个内核。可用性集中用于缩放应用程序的所有虚拟机必须具有相同大小。有关内核使用情况和虚拟机大小的更多信息，请参见 <a href="http://msdn.microsoft.com/zh-cn/library/dn197896.aspx">Windows Azure 的虚拟机和云服务大小</a>。</li>
+<li>您必须先创建队列并使其与角色或可用性集关联，然后才能基于消息阈值缩放应用程序。有关更多信息，请参见<a href="http://www.windowsazure.cn/zh-cn/develop/net/how-to-guides/queue-service">如何使用队列存储服务</a>。</li>
+<li>您可以缩放链接到云服务的资源。有关链接资源的更多信息，请参见<a href="http://www.windowsazure.cn/zh-cn/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources">如何：将资源链接到云服务</a>。</li>
+<li>要启用应用程序的高可用性，您应确保通过两个或更多角色实例或虚拟机来部署它。有关详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/support/legal/sla/">服务级别协议</a>。</li>
+</ul>
+<p>您可以对云服务执行下列缩放操作：</p>
+<ul>
+<li><a href="#manualscale">手动缩放运行 Web 角色或辅助角色的应用程序</a></li>
+<li><a href="#autoscale">自动缩放运行 Web 角色、辅助角色或虚拟机的应用程序</a></li>
+<li><a href="#scalelink">缩放链接的资源</a></li>
+</ul>
+<h2><a id="manualscale"></a>手动缩放运行 Web 角色或辅助角色的应用程序</h2>
+<p>在“缩放”页上，您可以手动增加或减少云服务中正在运行的实例数。</p>
+<ol>
+<li>
+<p>在<a href="https://manage.windowsazure.cn/">管理门户</a>中，单击“云服务”，然后单击云服务名称以打开仪表板。</p>
+</li>
+<li>
+<p>单击“缩放”。默认情况下，对所有角色启用自动缩放，这意味着您可以手动更改应用程序使用的实例数。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_manualscaleroles.png" alt="缩放页面"/></p>
+</li>
+<li>
+<p>云服务中的每个服务角色都具有一个用于更改要使用的实例数的滑块。要添加角色实例，请将竖线向右拖动。要删除实例，请将竖线向左拖动。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_sliderrole.png" alt="缩放角色"/></p>
+<p>仅当有适当的内核数可以支持实例时，才能增加要使用的实例数。滑块的颜色表示订阅中使用的内核数和可用的内核数：</p>
+<ul>
+<li>蓝色表示所选角色使用的内核数</li>
+<li>深灰色表示订阅中的所有角色和虚拟机使用的内核数</li>
+<li>浅灰色表示可用来进行缩放的内核数目</li>
+<li>粉红色表示尚未保存的更改</li>
+</ul>
+</li>
+<li>
+<p>单击“保存”。将基于您的选择添加或删除角色实例。</p>
+</li>
+</ol>
+<h2><a id="autoscale"></a>自动缩放运行 Web 角色、辅助角色或虚拟机的应用程序</h2>
+<p>在“缩放”页上，您可以将云服务配置为自动增加或减少应用程序使用的实例或虚拟机的数目。您可以基于以下参数配置扩展：</p>
+<ul>
+<li><a href="#averagecpu">平均 CPU 使用率</a> – 如果 CPU 使用率的平均百分比高于或低于指定的阈值，则将创建或删除角色实例，或者从可用性集中打开或关闭虚拟机。</li>
+<li><a href="#queuemessages">队列消息数</a> – 如果队列中的消息数高于或低于指定的阈值，则将创建或删除角色实例，或者从可用性集中打开或关闭虚拟机。</li>
+</ul>
+<h3><a id="averagecpu"></a>平均 CPU 使用率</h3>
+<ol>
+<li>在<a href="https://manage.windowsazure.cn/">管理门户</a>中，单击“云服务”，然后单击云服务名称以打开仪表板。</li>
+<li>单击“缩放”。</li>
+<li>
+<p>滚动到角色或可用性集部分，然后单击“CPU”。这样，您就可以根据应用程序使用的 CPU 资源的平均百分比来自动缩放应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_autoscaleon.png" alt="自动缩放打开"/></p>
+</li>
+<li>
+<p>每个角色或可用性集都包含一个滑块，用于更改可以使用的实例数。要设置可以使用的最大实例数，请向右拖动右侧的竖线。要设置可以使用的最小实例数，请向左拖动左侧的竖线。</p>
+<p><strong>注意：</strong>在“缩放”页上，“实例”表示角色实例或虚拟机实例。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_instancerange.png" alt="实例范围"/></p>
+<p>最大实例数量受订阅中可用的内核数目限制。滑块的颜色表示订阅中使用的内核数和可用的内核数：</p>
+<ul>
+<li>蓝色表示角色可以使用的最大内核数目。</li>
+<li>深灰色表示订阅中的所有角色和虚拟机使用的内核数。当此值与角色使用的内核数重叠时，颜色将变为深蓝色。</li>
+<li>浅灰色表示可用来进行缩放的内核数目。</li>
+<li>粉红色表示尚未保存的已进行的更改。</li>
+</ul>
+</li>
+<li>
+<p>滑块用于指定 CPU 使用率的平均百分比范围。当 CPU 使用率的平均百分比高于最大设置时，将创建更多的角色实例或打开更多的虚拟机。当 CPU 使用率的平均百分比低于最小设置时，将删除角色实例或关闭虚拟机。若要设置最大平均 CPU 百分比，请将右侧的竖线向右侧拖动。若要设置最小平均 CPU 百分比，请将左侧的竖线向左侧拖动。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_targetcpurange.png" alt="目标 CPU"/></p>
+</li>
+<li>
+<p>每次扩展应用程序时，您都可以指定要添加或打开的实例数。要在扩展应用程序时增加创建或打开的实例数，则向右拖动竖线。要减少此数目，请将竖线向左拖动。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaleupby.png" alt="扩展 CPU"/></p>
+</li>
+<li>
+<p>设置上一个缩放操作与下一个扩展操作之间等待的分钟数。上一个缩放操作可以是扩展或缩减。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaleupwaittime.png" alt="运行时间"/></p>
+<p>计算 CPU 使用率的平均百分比时将包括所有实例，平均值基于前一个小时的使用情况。根据应用程序使用的实例数，如果等待时间设置为非常低，则等待缩放操作发生的时间可能比指定的等待时间更长。缩放操作之间的最小时间是五分钟。如果任一实例处于过渡状态，则无法执行缩放操作。</p>
+</li>
+<li>
+<p>您还可以指定在缩减应用程序时要删除或关闭的实例数。要在缩减应用程序时增加要删除或关闭的实例数，则向右拖动竖线。要减少此数目，请将竖线向左拖动。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaledownby.png" alt="缩减 CPU"/></p>
+<p>如果应用程序的 CPU 使用率突然增加，必须确保您具有足够的最小实例数目来处理它们。</p>
+</li>
+<li>
+<p>设置上一个缩放操作与下一个缩减操作之间等待的分钟数。上一个缩放操作可以是扩展或缩减。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaledownwaittime.png" alt="中断时间"/></p>
+</li>
+<li>
+<p>单击“保存”。缩放操作可能需要多达五分钟才能完成。</p>
+</li>
+</ol>
+<h3><a id="queuemessages"></a>队列消息数</h3>
+<ol>
+<li>在<a href="https://manage.windowsazure.cn/">管理门户</a>中，单击“云服务”，然后单击云服务名称以打开仪表板。</li>
+<li>单击“缩放”。</li>
+<li>
+<p>滚动到角色或可用性集部分，然后单击“队列”。这样，您就可以根据队列消息的目标数目来自动缩放应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_queuescale.png" alt="缩放队列"/></p>
+</li>
+<li>
+<p>云服务中的每个角色或可用性集都包含一个滑块，用于更改可以使用的实例数。要设置可以使用的最大实例数，请向右拖动右侧的竖线。要设置可以使用的最小实例数，请向左拖动左侧的竖线。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_queuerange.png" alt="队列范围"/></p>
+<p><strong>注意：</strong>在“缩放”页上，“实例”表示角色实例或虚拟机实例。</p>
+<p>最大实例数量受订阅中可用的内核数目限制。滑块的颜色表示订阅中使用的内核数和可用的内核数：</p>
+<ul>
+<li>蓝色表示角色可以使用的最大内核数目。</li>
+<li>深灰色表示订阅中的所有角色和虚拟机使用的内核数。当此值与角色使用的内核数重叠时，颜色将变为深蓝色。</li>
+<li>浅灰色表示可用来进行缩放的内核数目。</li>
+<li>粉红色表示尚未保存的已进行的更改。</li>
+</ul>
+</li>
+<li>
+<p>选择与您要使用的队列关联的存储帐户。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_storageaccountname.png" alt="存储名称"/></p>
+</li>
+<li>
+<p>选择队列。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_queuename.png" alt="队列名称"/></p>
+</li>
+<li>
+<p>指定您希望每个实例支持的消息数。实例将基于总消息数除以每台计算机的目标消息数而进行缩放。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_targetmessagenumber.png" alt="消息数"/></p>
+</li>
+<li>
+<p>每次扩展应用程序时，您都可以指定要添加或打开的实例数。要在扩展应用程序时增加要添加或打开的实例数，则向右拖动竖线。要减少此数目，请将竖线向左拖动。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaleupby.png" alt="扩展 CPU"/></p>
+</li>
+<li>
+<p>设置上一个缩放操作与下一个扩展操作之间等待的分钟数。上一个缩放操作可以是扩展或缩减。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaleupwaittime.png" alt="运行时间"/></p>
+<p>缩放操作之间的最小时间是五分钟。如果任一实例处于过渡状态，则无法执行缩放操作。</p>
+</li>
+<li>
+<p>您还可以指定在缩减应用程序时要删除或不使用的实例数。滑块用于指定缩放增量。要在缩减应用程序时增加要删除或不使用的实例数，则向右拖动竖线。要减少此数目，请将竖线向左拖动。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaledownby.png" alt="缩减 CPU"/></p>
+</li>
+<li>
+<p>设置上一个缩放操作与下一个缩减操作之间等待的分钟数。上一个缩放操作可以是扩展或缩减。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scaledownwaittime.png" alt="中断时间"/></p>
+</li>
+<li>
+<p>单击“保存”。缩放操作可能需要多达五分钟才能完成。</p>
+</li>
+</ol>
+<h2><a id="scalelink"></a>缩放链接的资源</h2>
+<p>通常当您缩放角色时，最好同时缩放应用程序正在使用的数据库。如果将数据库链接到云服务，则可更改 SQL Database 版本并在“缩放”页上调整数据库的大小。</p>
+<ol>
+<li>在<a href="https://manage.windowsazure.cn/">管理门户</a>中，单击“云服务”，然后单击云服务名称以打开仪表板。</li>
+<li>单击“缩放”。</li>
+<li>
+<p>在“链接的资源”部分中，选择用于此数据库的版本。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_scalelinkedresources.png" alt="链接的资源"/></p>
+</li>
+<li>
+<p>选择数据库的大小。</p>
+</li>
+<li>单击“保存”以更新链接的资源。</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle> Windows Azure 服务管理：如何缩放云服务</pageTitle><metaKeywords>Azure 链接资源, 缩放云服务</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中缩放云服务和链接的资源。]]></metaDescription><linkid>manage-services-how-to-scale-a-cloud-service</linkid><urlDisplayName>如何缩放</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage id="19329" parentID="19326" level="3" writerID="52" creatorID="94" nodeType="1059" template="1" sortOrder="3" createDate="2013-08-27T11:20:07" updateDate="2014-08-18T11:34:25" nodeName="Web" urlName="web" writerName="uRest" creatorName="xunfan" path="-1,11978,19326,19329" isDoc="" isResponsive="1">
+    <bodyText>
+      <![CDATA[
+
+        <div class="section-component">
+            <h2 class="oss-title">快速搭建容器集群</h2>
+            <p>ACS Engine 用于将一个容器集群描述文件转化成一组 ARM 模板，通过在 Azure 上部署这些模板，用户可以很方便地在 Azure 上建立一套基于 Docker 的容器服务集群，支持用 Docker 容器进行应用生命周期管理，提供多种应用发布方式和持续交付能力并支持微服务架构。用户可以自由地选择集群编排引擎 DC/OS, Kubernetes 或者是 Swarm Mode。</p>
+            <p>同时 ACS Engine 还会帮助您创建负载均衡，网络管理，安全和存储等相关组件，以及完成可用性集（Availability Set）等相关设置，使您可以在容器集群上方便地部署容器化应用。</p>
+            <p><img style="max-width:800px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/solution-oss-devops-06.png" alt=""/></p>
+            <h3>开始使用:</h3>
+            <a href="https://github.com/Azure/devops-sample-solution-for-azure-china/blob/master-dev/acs-engine/README_CN.md" id="oss-devops_open-source-azure-docs-create-devops-cluster">使用 acs-engine 在 Azure 上快速搭建 Kubernetes 容器集群</a>
+        </div>
+        <div class="section-component">
+            <h2 class="oss-title">创建私有的镜像仓库</h2>
+            <p>镜像仓库可以和容器编排引擎（如 Kubernetes，Swarm, DC/OS）进行集成。比如从镜像仓库中提取一个镜像在 Kubernetes 集群中进行应用部署，此过程可直接写在 Kubernetes 的部署文件中。另外此镜像仓库兼容 Docker 格式的镜像仓库，可以和 Docker 工具进行无缝迁移。</p>
+            <h3>开始使用:</h3>
+            <a href="https://github.com/Azure/devops-sample-solution-for-azure-china/blob/master-dev/private-docker-registry/README_CN.md" id="open-source-devops-sample-solution-for-azure-china">创建私有的镜像仓库</a>   
+        </div>
+        <div class="section-component">
+            <h2 class="oss-title">基于 Jenkins 的持续集成和持续部署（CI/CD）管道实现</h2>
+            <p>使用 ARM 模板创建持续集成和持续部署（CI/CD）管道，主要包括：</p>
+            <ul>
+                <li>从 GitHub 迁出包含 Dockerfile 的代码</li>
+                <li>构建 Docker 镜像</li>
+                <li>推送镜像到上一步创建的私有镜像仓库</li>
+                <li>测试和验证</li>
+                <li>发布到 Kubernetes 容器集群</li>
+            </ul>
+            <h3>开始使用:</h3>
+            <a href="https://github.com/Azure/devops-sample-solution-for-azure-china/blob/master-dev/cicd/README_CN.md" id="open-source-azure-manage-devops-sample-solution-for-azure-china-blob">基于 Jenkins 的 CI/CD 管道实现</a> 
+            <p><img style="max-width:800px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/solution-oss-devops-01.png" alt=""/></p>
+            <p><img style="max-width:800px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/solution-oss-devops-02.png" alt=""/></p>
+        </div>
+        <div class="section-component">
+            <h2 class="oss-title">基于 ELK 和 Grafana 的监控与日志分析实现</h2>
+            <p>使用 ARM 模板在之前步骤创建的容器集群上部署下面的工具链：</p>
+            <ul>
+                <li>Heapster + Influxdb + Grafana（用于集群资源的监控，如对于 Node/Pod 的 CPU，内存，网络等资源的监控）</li>
+                <li>Beats + Logstash + Elasticsearch + Kibana （用于容器/应用的日志收集和分析，以及服务状态的监控）</li>
+            </ul>
+            <h3>开始使用:</h3>
+            <a href="https://github.com/Azure/devops-sample-solution-for-azure-china/blob/master-dev/monitoring/README_CN.md" id="open-source-azure-devops-sample-solution-for-azure-china-blob-master-dev-monitoringk8s">实现基于 ELK 和 Grafana 的监控和分析</a> 
+            <p><img style="max-width:800px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/solution-oss-devops-03.png" alt=""/></p>
+            <p><img style="max-width:800px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/solution-oss-devops-04.png" alt=""/></p> 
+            <p><img style="max-width:800px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/solution-oss-devops-05.png" alt=""/></p> 
+        </div>      
+        <div class="section-component">
+            <h2 class="oss-title">示例代码</h2>
+            <a href="https://github.com/Azure/devops-sample-solution-for-azure-china">基于 Azure 容器技术的 DevOps 开源解决方案</a>
+        </div>                                
+            
+    ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>DevOps 开源解决方案- Azure云计算</pageTitle>
+    <metaKeywords>DevOps 开源解决方案</metaKeywords>
+    <metaDescription><![CDATA[此开源解决方案帮助用户快速搭建基于 Azure 容器技术的微服务和DevOps 容器集群，并提供基于 Jenkins 的持续集成和持续部署管道，以及基于 ELK 和 Grafana 的监控和分析实现。目前容器集群只支持 Kubernetes 编排工具，在后续的版本中会支持 Docker Swarm 和 DC/OS。]]></metaDescription>
+    <linkid>solutions-oss-devops</linkid>
+    <urlDisplayName>DevOps 开源解决方案</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate>solution-template</pageTemplate>
+    <localize>1</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <banner>
+      <![CDATA[
+        <!-- BEGIN: Banner -->
+            <div class="common-banner" data-config="{'backgroundColor':'#0078D7', 'backgroundImage':'http://wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/banner-oss-mongodb.png','imageHeight':'300'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <h1>DevOps 开源解决方案</h1>
+                        <p>此开源解决方案帮助用户快速搭建基于 Azure 容器技术的微服务和DevOps 容器集群，并提供基于 Jenkins 的持续集成和持续部署管道，<br/>以及基于 ELK 和 Grafana 的监控和分析实现。目前容器集群只支持 Kubernetes 编排工具，在后续的版本中会支持 Docker Swarm 和 DC/OS。</p>                        
+                    </div>
+                </div>
+            </div>
+        <!-- End: Banner-->
+    ]]>
+    </banner>
+  </umbTextpage>
+</localize>

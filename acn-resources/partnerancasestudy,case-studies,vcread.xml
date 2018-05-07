@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+            <div class="common-content-bookmark">
+                    <p>随着移动互联网的快速发展，在经历了传统意义的文字出版、广播电视的媒体发展形式后，媒体业快速进入到了移动媒体阶段。数字革命和传播革命带来的移动互联网革命，使得文化本身的形式和传播模式发生了巨大变化，形成了全媒体的全新概念，信息化造成整个信息传播形式模糊化和无边界化。交互化的新媒体和移动互联网的双重作用下，产生了“移动媒体”这一创新的产业。</p>
+                    <p>北京天智通达信息技术有限公司（以下简称“天智通达”）成立于 2009 年，是全国首家移动媒体数字智能出版平台的构建者，致力于为媒体、企业和政府提供移动媒体发展策略、端到端的产品与平台开发，并提供全面的运营服务。天智通达研发了拥有中国自主知识产权、全球领先的多维互动移动媒体格式（ DMM 格式）和移动数字媒体“软出版”平台（ VC 平台）。</p>
+                    <p>基于 VC 平台，天智通达开发了能满足不同群体需要的、功能强大的多种产品，包括 VcRead、VcPublish、VcPapaer 等，构建了一整套成熟的“软出版”生态系统。Vc 平台是一套从内容制作到客户端展示的全方位数字出版系统，是一个聚合内容和用户资源的阅读平台，是一条受众广泛的广告发布渠道，同时是一套联系着媒体、企业、用户和品牌主的移动数字智能生态系统。天智通达研发的 Vc 平台获得了国家知识产权局颁发的发明专利证书，在国内众多移动媒体公司中，天智通达是唯一一家拥有自主知识产权技术，并获得“发明专利”认证的公司。</p>
+                    <p>在 Vc 平台中，最核心的应用就是阅读平台 VcRead。VcRead 是集书报刊等多种媒体形式于一体的，覆盖 IOS、Android、Windows 三大平台的，面向终端用户的移动媒体精品内容聚合平台，是连接内容出版商与读者的窗口。VcRead 为读者倾心打造了一个集图书、杂志、报纸等数字化内容为核心，集媒体、广告、电商、社交等多功能为一体的智能化、多元化的移动媒体内容精品。</p>                   
+                <div class="section-component">
+                    <h2>应用背景</h2>
+                    <p>VcRead 作为覆盖 3 大主流移动操作系统平台的 App，已为 500 多家品牌媒体和企业提供整体化的移动数字战略和移动运营整体服务，整合了上千家杂志、报纸及图书高端品牌，以交互式的阅读体验将包罗万象的读物呈现给用户，包括《看天下》、《瑞丽》、《体坛周报》、《费加罗》、《三联生活周刊》等优质媒体资源。目前，VcRead 平台拥有 2000 万用户，提供超过 5 万本电子书籍下载，内容下载量过亿。</p>
+                    <p>VcRead 是针对移动用户量身定制的移动阅读内容平台，用户可通过 VcRead 订阅、购买、下载所喜好的电子书籍，并加入本地书架，同时，VcRead 对电子书籍内容有清晰的分类和推荐，以便用户快速、精准定位所需要的电子书籍。通过手机、Pad 等设备，VcRead 为用户提供了传统阅读方式的延展性，也为用户呈现了更具有个性化和互动性的电子书籍。VcRead 电子书籍不仅包含了纸刊全部的内容，更添加了许多精彩的增量内容，辅以滑动文字、动态图片、视频嵌入、隐藏信息、元素组切换、图片组幻灯、超链接跳转等多种动态展现方式的结合，为读者提供了丰富的交互内容和流畅的视觉效果，带来焕然一新的阅读体验。</p>
+                    <p>除了核心的 VcRead 移动阅读应用，VcRead 还通过产品门户网站，方便用户通过 Web 的方式了解产品特性、功能，并提供移动 App 的下载入口。同时，VcRead 系统为杂志社提供了独立的 Portal ，供不同的杂志社对电子书籍内容进行管理、定制，上传下载，以及分时段查询不同维度的各类统计数据。</p>
+                </div>
+               
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>考虑到 IDC 托管的成本和风险控制，以及独立运维的人力物力消耗，天智通达决定将IT系统整理迁移到 Azure。</p>
+                    <p>Azure 提供了高可靠性和海量的存储空间，其低廉的存储成本和高可用性，完全满足天智通达的存储需求。Azure 提供的 VM 虚机服务，用户可快速并部署应用，天智通达将 Admin Portal、MCP Portal、ADS Portal、Client Portal 和 VcRead 官方网站全部部署在 Azure 的虚机中，通过 Blob Storage 存储大量 DMM 格式的电子杂志和一些非结构化数据，同时，使用两台虚机构建了 MySQL Cluster ，用于存储关系型数据。</p>
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/_casestudy-VcRead-IT-architecture.PNG"/ style="width:auto;height:auto;">
+                    <p>图. 天智通达 IT 系统架构图</p>
+                    <p>天智通达的业务模式决定了 IT 系统需要对用户请求实现快速响应，将客户端请求时间缩短在1秒以内。天智通达通过在虚机中部署 Tomcat，用于快速处理 App 用户请求。当 Tomcat 服务器接收到客户端请求后，将访问 Memcached 服务器，查找数据，如果缓存中不存在要查询的数据，则访问后台 MySQL 数据库，并更新 Memcached 。 Memcached 处理客户端接口的缓存，极大的提高了用户访问接口的响应速度。</p>
+                    <p>天智通达的业务模式决定了 IT 系统需要对用户请求实现快速响应，将客户端请求时间缩短在1秒以内。天智通达通过在虚机中部署 Tomcat，用于快速处理 App 用户请求。当 Tomcat 服务器接收到客户端请求后，将访问 Memcached 服务器，查找数据，如果缓存中不存在要查询的数据，则访问后台 MySQL 数据库，并更新 Memcached 。 Memcached 处理客户端接口的缓存，极大的提高了用户访问接口的响应速度。</p>
+               
+                </div>
+               
+                <div class="section-component">
+                    <h2>客户收益</h2>
+                    <h3>云+端战略</h3>
+                    <p>智通达除了开发基于 IOS 和 Android 平台的 App ，同时开发了基于 Windows 8 和 Windows Phone 8 这两个较新的系统平台 App 。 Windows 8 和 Windows Phone 8 是较新的移动操作系统平台，作为为所有用户提供更优秀阅读体验的天智通达自然不会抛弃这部分用户，基于 Windows 8 和 Windows Phone 8 的 App 开发，实现了天智通达全平台战略。天智通达为用户提供了全平台的移动媒体 App，用户通过不同的 App Store 下载安装到VcRead应用，VcRead 成为提供用户阅读电子刊物的平台和窗口，但是大量的电子刊物并没有集成在 App 安装包中，用户通过 VcRead 阅读的电子刊物存储在后端的数据中心，用户下载后才可以在本地打开阅读。这样的应用场景成为目前大量移动 App 的主流应用场景，将 App 的数据存储在云端，通过开发部署应用接口，为不同平台的移动应用提供数据和内容服务。</p>
+                    <p>天智通达将内容和数据部署在 Azure，实现了典型的“云+端”的应用场景，微软“移动为先、云为先”（ Moblie-First，Cloud-First ）的整体战略，将移动端应用和云端的支撑平台上升到了战略高度，这个战略与移动端 APP 的应用场景高度吻合，对 Windows/WP APP 开发的支持，同时提供具备弹性和扩展性的 Azure 作为移动 APP 后端平台，将为移动 APP 带来更卓越的移动 APP 开发和运维体验，同时也为最终用户提供更灵活、更快捷的移动互联网应用服务。</p>
+                    <h3>平台开放性</h3>
+                    <p>在 IT 系统中使用开源框架并部署开源软件，已经成为大多数用户的选择，尤其是基于移动互联网的各类应用。同样，天智通达的业务系统中就应用了大量的开源软件，而 Azure 作为微软的产品，如何确保对开源软件的全面支持是有所顾虑的。</p>
+                    <p>天智通达操作系统使用了 Azure 提供的最新版本的 CentOS ，部署 Nginx 运行 Websites ，通过 Nagios 监控系统运行状态，应用MySQL存储关系型数据， Tomcat 提供移动用户 App 请求接口，而具体的业务系统也使用着 Java、Ruby ，可以说大量的开源软件，构建了天智通达的 IT 系统。</p>
+                    <p>在系统的整体迁移中，无论虚机的兼容性和对 CentOS 操作系统的支持，还是在 VM 中部署 Nginx、Nagios、MySQL 等开源软件都没遇到任何障碍，系统迁移后的运行结果显示 Azure 完美兼容 VcRead 平台上的所有开源软件。 Azure 对开源软件的完美支持体现了卓越的平台开放性，也为使用开源软件的企业和开源爱好者将应用部署到 Azure 增加了信心。</p>
+                    <h3>50% 的成本节约</h3>
+                    <p>天智通达过去通过 IDC 托管的方式，租用 IDC 机房和带宽，为用户提供数据和内容服务。从建设初期就投入大量成本，采购硬件，租借带宽，并部署熟练的运维人员，为持续给用户提供服务储备资源并应对不知何时发生的突发状况。这样的运营模式，让用户将大量的精力投入到了 IT 系统的运维上，而并非专注于 IT 架构之上的业务系统。通过将系统迁移到 Azure ，用户只为用量付费而无需考虑硬件成本投入，以及各种复杂的兼容性、稳定性问题，将有限的资源投入到业务的运营中，硬件采购、折旧的成本，以及运维人员的解脱，极大地降低了 IT 系统的拥有成本。</p>
+                    <p>同时， VCread 作为移动端的电子杂志阅读平台，其业务需求和系统的负载在不同的时间段存在很大的差异。通常， VcRead 用户会选择在晚上 8 ~ 11 点之间下载电子书籍阅读，这就形成白天的系统负载比较均衡，而晚上处于下载高峰期，对系统的计算能力和带宽有着更大的需求。这种不同时段对系统能力的差异化需求，使得如果从一开始就按照高峰数段构建 IT 架构，将在业务空闲时段造成 IT 资源的极大浪费。 Azure 按照使用量计费的模式，从成本的角度为用户提供了更好的弹性，而无需从一开始就部署大量服务器，购置大量带宽。天智通达将系统迁移到 Azure ，节约了至少 50% 的成本。</p>
+                    <h3>系统稳定性</h3>
+                    <p>天智通达过去的系统托管在 IDC ，需要专门的 IT 运维人员处理各种硬件可能产生的问题，同时会时常遭遇机房断电、光缆中段等状况。突发状况的产生轻则影响业务持续运营，甚至造成用户的大量流失。对于面向公众提供服务的移动应用，并且拥有大量的用户群体，这样的情况是不允许发生的。但是传统的机房托管方式，由于各 IDC 水平层次不齐，业务能力、管理水准、应急机制存在巨大的差别，使得用户很难在选择 IDC 时就能规避影响系统稳定性的突发状况。云计算的出现使得用户脱离硬件设备而使用 IT 计算资源，而 Azure 更是提供了高达 99.95% 的服务等级协议（ SLA ），确保用户系统的高可靠性和稳定性。</p>
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_VcRead_virtual-machines">虚拟机</a></li> 
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_VcRead_storage">存储</a></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+        ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>天智通达-Azure云计算</pageTitle>
+    <metaKeywords>天智通达 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[通过虚拟机及 Blob 存储服务，降低了 IDC 托管成本。VcRead 作为移动互联网新兴应用运营平台，将数据部署在云端，是典型的云+端应用场景的实践，微软“移动为先，云为先“的整体战略，非常适用于移动 APP 的应用场景。作为云端的 Azure 具有卓越的系统稳定性和高可用性，为 VcRead 提供了理想的云端平台。VcRead 的系统使用了大量的开源软件，Azure给予了完美支持，打消了我们一开始的顾虑。
+]]></metaDescription>
+    <linkid>case-studies-VcRead</linkid>
+    <urlDisplayName>天智通达</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_vcread" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">天智通达</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.vcread.com/" id="case-study-vcreadwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/logo/21.jpg" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>天智通达</h1>
+                            <p>通过虚拟机及 Blob 存储服务，降低了 IDC 托管成本。</p>
+                        </div>
+                        <p class="casestudy-info">
+                           VcRead 作为移动互联网新兴应用运营平台，将数据部署在云端，是典型的云+端应用场景的实践，微软“移动为先，云为先“的整体战略，非常适用于移动 APP 的应用场景。作为云端的 Azure 具有卓越的系统稳定性和高可用性，为 VcRead 提供了理想的云端平台。VcRead 的系统使用了大量的开源软件，Azure给予了完美支持，打消了我们一开始的顾虑。
+                        </p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">王继远 ，VcRead 系统研发部总监</span>
+                        <!--<a href="#" class="video-play-button" id="case-study-video-player"></a>-->
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/wacneditor/ruxin-Finalised.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

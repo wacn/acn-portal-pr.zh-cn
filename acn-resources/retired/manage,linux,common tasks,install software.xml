@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19208" parentID="19201" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="7" createDate="2013-07-11T11:59:50" updateDate="2014-08-18T11:25:22" nodeName="Install software" urlName="install-software" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19201,19208" isDoc=""><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中的 Linux 虚拟机上安装软件</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" macroAlias="AzureChunkDisplayer" chunkname="disclaimer" />
+<p>Linux 分发倾向于使用软件“程序包”安装软件。通常使用一系列命令（例如 <code>apt</code> 或 <code>yum</code>）管理这些程序包。您还可以不使用程序包来安装程序，例如使用源代码的 <em>tarball</em>。</p>
+<p>我们将介绍如何使用程序包管理器完成一些常见的 Linux 分发。相关步骤因您所使用的 Linux 分发而异。</p>
+<p><strong>注意：</strong>根据您的环境的设置方式，可能需要使用根权限（通过 <code>sudo</code>）运行这些命令。</p>
+<h2>CentOS/Red Hat</h2>
+<p>CentOS 附带了用于程序包管理的 <code>yum</code> 。使用此工具，您可以安装、卸载、更新、列出已安装程序包，还可执行更多操作。有关这些命令的语法，请参阅以下内容。</p>
+<h3>安装</h3>
+<p>将安装一个程序包，以及它所依赖的任何程序包。由于存在依赖项，可能会安装多个程序包。</p>
+<pre class="prettyprint">yum install [package name]</pre>
+<h3>卸载</h3>
+<p>将从您的计算机中卸载程序包。请记住，它不会删除任何依赖项。</p>
+<pre class="prettyprint">yum remove [package name]</pre>
+<h3>正在更新…</h3>
+<p>这会将程序包更新至最新版本。</p>
+必须先安装程序包，之后才能更新该程序包。
+<pre class="prettyprint">yum update [package name]</pre>
+<h3>列出已安装程序包</h3>
+<p>将在您的计算机上显示所有已安装程序包的列表。</p>
+<pre class="prettyprint">yum list installed</pre>
+<h2>Ubuntu</h2>
+<p>Ubuntu 附带了用于程序包管理的 <code>apt</code>（高级打包工具）。使用此工具，您可以安装、卸载、更新、列出已安装程序包，还可执行更多操作。有关这些命令的语法，请参阅以下内容。</p>
+<h3>安装</h3>
+<p>将安装一个程序包，以及它所依赖的任何程序包。由于存在依赖项，可能会安装多个程序包。</p>
+<pre class="prettyprint">apt-get install [package name]</pre>
+<h3>卸载</h3>
+<p>将从您的计算机中卸载程序包。请记住，它不会删除任何依赖项。</p>
+<pre class="prettyprint">apt-get remove [package name]</pre>
+<h3>更新/升级</h3>
+<p>若要升级至新版本，您将需要使用两个命令：一个命令用于更新您的程序包索引，另一个用于升级程序包。运行以下命令以更新程序包索引：</p>
+<pre class="prettyprint">apt-get update</pre>
+<p>更新程序包索引后，请运行以下命令升级程序包：</p>
+<pre class="prettyprint">apt-get upgrade</pre>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>在 Linux 虚拟机上安装软件 - Windows Azure</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-commontasks-install-software</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 CentOS/Red Hat 或 Ubuntu 在您的 Linux 虚拟机上安装软件。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>在 VM 上安装软件</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

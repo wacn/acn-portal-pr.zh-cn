@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18822" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="14" createDate="2013-07-11T10:41:30" updateDate="2014-08-18T11:09:33" nodeName="Table Services v1.7" urlName="table-services-v17" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18822" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何使用表存储服务</h1>
+<div class="dev-center-tutorial-selector"><a href="/zh-cn/develop/net/how-to-guides/table-services-v17/" title="1.7 版" class="current">1.7 版</a> <a href="/zh-cn/develop/net/how-to-guides/table-services/" title="2.0 版">2.0 版</a></div>
+<p>本指南将演示如何使用 Windows Azure Blob 表服务执行常见任务。相关示例用 C# 代码编写且使用 .NET API。涉及的任务包括<strong>创建和删除表、在表中插入和查询实体</strong>。有关表的更多信息，请参见<a href="#next-steps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是表服务？</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#create-account">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#setup-connection-string">设置存储连接字符串</a></li>
+<li><a href="#configure-access">如何：以编程方式访问表存储</a></li>
+<li><a href="#create-table">如何：创建表</a></li>
+<li><a href="#add-entity">如何：将实体添加到表</a></li>
+<li><a href="#insert-batch">如何：插入一批实体</a></li>
+<li><a href="#retrieve-all-entities">如何：检索分区中的所有实体</a></li>
+<li><a href="#retrieve-range-entities">如何：检索分区中的一部分实体</a></li>
+<li><a href="#retrieve-single-entity">如何：检索单个实体</a></li>
+<li><a href="#update-entity">如何：更新实体</a></li>
+<li><a href="#query-entity-properties">如何：查询一部分实体属性</a></li>
+<li><a href="#insert-entity">如何：插入或替换实体</a></li>
+<li><a href="#delete-entity">如何：删除实体</a></li>
+<li><a href="#delete-table">如何：删除表</a></li>
+<li><a href="#next-steps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="howto-table-storage" macroAlias="AzureChunkDisplayer" />
+<h2><a name="create-account"></a> <span class="short-header">创建帐户</span>创建 Windows Azure 存储帐户</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" />
+<h2><a name="setup-connection-string"></a> <span class="short-header">设置连接字符串</span>设置存储连接字符串</h2>
+<p>Windows Azure .NET 存储 API 支持使用存储连接字符串配置用于访问存储服务的终结点和凭据。您可以将存储连接字符串置于配置文件中，而不是在代码中对其进行硬编码：</p>
+<ul>
+<li>在使用 Windows Azure 云服务时，建议使用 Windows Azure 服务配置系统（<code>*.csdef</code> 和 <code>*.cscfg</code> 文件）存储连接字符串。</li>
+<li>在使用 Windows Azure 网站或 Windows Azure 虚拟机时，建议使用 .NET 配置系统（如 <code>web.config</code> 文件）存储连接字符串。</li>
+</ul>
+<p>在上述两种情况下，您都可以使用 <code>CloudConfigurationManager.GetSetting</code> 方法检索连接字符串，本指南稍后部分将对此进行介绍。</p>
+<h3>在使用云服务时配置连接字符串</h3>
+<p>该服务配置机制是 Windows Azure 云服务项目特有的，它使您能够从 Windows Azure 管理门户动态更改配置设置，而无需部署您的应用程序。</p>
+<p>在 Windows Azure 服务配置中配置连接字符串：</p>
+<ol>
+<li>
+<p>在 Visual Studio 解决方案资源管理器内 Windows Azure 部署项目的“角色”文件夹中，右键单击 Web 角色或辅助角色，然后单击“属性”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob5.png" alt="Blob5"/></p>
+</li>
+<li>
+<p>单击“设置”选项卡并按“添加设置”按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob6.png" alt="Blob6"/></p>
+<p>新的 <strong>Setting1</strong> 条目稍后将显示在设置网格中。</p>
+</li>
+<li>
+<p>在新的 <strong>Setting1</strong> 条目的“类型”下拉列表中，选择“连接字符串”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob7.png" alt="Blob7"/></p>
+</li>
+<li>
+<p>单击 <strong>Setting1</strong> 条目最右侧的 <strong>...</strong> 按钮。将打开“存储帐户连接字符串”对话框。</p>
+</li>
+<li>
+<p>选择是要定位到存储模拟器（在本地计算机上模拟的 Windows Azure 存储），还是云中的实际存储帐户。本指南中的代码使用其中任一方式。如果您希望使用我们之前在 Windows Azure 中创建的存储帐户存储 Blob 数据，请输入从本教程前面的步骤中复制的“主访问密钥”值。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob8.png" alt="Blob8"/></p>
+</li>
+<li>
+<p>将条目“名称”从 <strong>Setting1</strong> 更改为更友好的名称，例如 <strong>StorageConnectionString</strong>。稍后将在本指南的代码中引用此连接字符串。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob9.png" alt="Blob9"/></p>
+</li>
+</ol>
+<h3>在使用网站或虚拟机时配置连接字符串</h3>
+<p>在使用网站或虚拟机时，建议使用 .NET 配置系统（如 <code>web.config</code>）。您可以使用 <code>&lt;appSettings&gt;</code> 元素存储连接字符串：</p>
+<pre class="prettyprint">&lt;configuration&gt;     &lt;appSettings&gt;         &lt;add key="StorageConnectionString"              value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" /&gt;     &lt;/appSettings&gt; &lt;/configuration&gt;</pre>
+<p>阅读<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758697.aspx">配置连接字符串</a>，了解有关存储连接字符串的详细信息。</p>
+<p>您现在即可准备执行本指南中的操作任务。</p>
+<h2><a name="configure-access"></a> <span class="short-header">以编程方式访问</span>如何：以编程方式访问表存储</h2>
+<p>将以下代码命名空间声明添加到任何 C# 文件的顶部，您希望使用此类文件以编程方式访问 Windows Azure 存储：</p>
+<pre class="prettyprint">using Microsoft.WindowsAzure; using Microsoft.WindowsAzure.StorageClient;</pre>
+<p>您可以使用 <strong>CloudStorageAccount</strong> 类型和 <strong>CloudConfigurationManager</strong> 类型从 Windows Azure 服务配置中检索存储连接字符串和存储帐户信息：</p>
+<pre class="prettyprint">CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));</pre>
+<h2><a name="create-table"></a> <span class="short-header">创建表</span>如何：创建表</h2>
+<p>利用 <strong>CloudTableClient</strong> 对象，您可以获得表和实体的引用对象。以下代码将创建 <strong>CloudTableClient</strong> 对象并使用它创建新表。本指南中的所有代码都使用存储在 Windows Azure 应用程序的服务配置中的存储连接字符串。创建 <strong>CloudStorageAccount</strong> 对象还有其他方法。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Create the table if it doesn't exist string tableName = "people"; tableClient.CreateTableIfNotExist(tableName);</pre>
+<h2><a name="add-entity"></a> <span class="short-header">将实体添加到表</span>如何：将实体添加到表</h2>
+<p>实体将映射到使用派生自 <strong>TableServiceEntity</strong> 的自定义类的 C# 对象。若要将实体添加到表，首先要创建用于定义实体的属性的类。以下代码定义了将客户的名字和姓氏分别用作行键和分区键的实体类。实体的分区键和行键共同唯一地标识表中的实体。查询分区键相同的实体的速度快于查询分区键不同的实体的速度。</p>
+<pre class="prettyprint">public class CustomerEntity : TableServiceEntity {     public CustomerEntity(string lastName, string firstName)     {         this.PartitionKey = lastName;         this.RowKey = firstName;     }      public CustomerEntity() { }      public string Email { get; set; }      public string PhoneNumber { get; set; } }</pre>
+<p>涉及实体的表操作需要 <strong>TableServiceContext</strong> 对象。此对象可跟踪通过客户端代码创建和访问的所有表实体的客户端状态。保留客户端对象意味着每个实体可使写入操作更为有效，因为执行保存操作时只会在表服务中更新发生更改的对象。以下代码通过调用 <strong>GetDataServiceContext</strong> 方法创建 <strong>TableServiceContext</strong> 对象。然后，该代码会创建 <strong>CustomerEntity</strong> 类的实例。该代码会调用 <strong>serviceContext.AddObject</strong> 以将新实体插入表中。这会向 <strong>serviceContext</strong> 中添加实体对象，但不执行任何服务操作。最后，该代码会在调用 <strong>SaveChangesWithRetries</strong> 方法时将新实体发送到表服务。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Create a new customer entity CustomerEntity customer1 = new CustomerEntity("Harp", "Walter"); customer1.Email = "Walter@contoso.com"; customer1.PhoneNumber = "425-555-0101";  // Add the new customer to the people table serviceContext.AddObject("people", customer1);  // Submit the operation to the table service serviceContext.SaveChangesWithRetries();</pre>
+<h2><a name="insert-batch"></a> <span class="short-header">插入一批实体</span>如何：插入一批实体</h2>
+<p>您可以通过一次写入操作将一批实体插入到表服务。以下代码使用 <strong>AddObject</strong> 方法创建三个实体对象并将每个对象都添加到服务上下文中。然后，该代码使用 <strong>SaveChangesOptions.Batch</strong> 参数调用 <strong>SaveChangesWithRetries</strong>。如果您忽略 <strong>SaveChangesOptions.Batch</strong>，将单独调用表服务三次。批处理操作的一些其他注意事项：</p>
+<ol>
+<li>您可以执行批处理更新、删除或插入操作。</li>
+<li>单个批处理操作最多可包含 100 个实体。</li>
+<li>单次批处理操作中的所有实体都必须具有相同的分区键。</li>
+</ol><!-- -->
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient(); string tableName = "people";  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Create a customer entity and add to the table CustomerEntity customer = new CustomerEntity("Smith", "Jeff"); customer.Email = "Jeff@contoso.com"; customer.PhoneNumber = "425-555-0104"; serviceContext.AddObject(tableName, customer);  // Create another customer entity and add to the table CustomerEntity customer2 = new CustomerEntity("Smith", "Ben"); customer2.Email = "Ben@contoso.com"; customer2.PhoneNumber = "425-555-0102"; serviceContext.AddObject(tableName, customer2);  // Create a customer entity and add to the table CustomerEntity customer3 = new CustomerEntity("Smith", "Denise"); customer3.Email = "Denise@contoso.com"; customer3.PhoneNumber = "425-555-0103"; serviceContext.AddObject(tableName, customer3);  // Submit the operation to the table service serviceContext.SaveChangesWithRetries(SaveChangesOptions.Batch);</pre>
+<h2><a name="retrieve-all-entities"></a> <span class="short-header">检索所有实体</span>如何：检索分区中的所有实体</h2>
+<p>若要查询表以获取分区中的所有实体，可以使用 LINQ 查询。调用 <strong>serviceContext.CreateQuery</strong> 以根据您的数据源创建查询。以下代码为其中的分区键是“Smith”的实体指定了筛选器。对 LINQ 查询的结果调用 <strong>AsTableServiceQuery&lt;CustomerEntity&gt;</strong> 以完成创建 <strong>CloudTableQuery</strong> 对象。然后您可以使用在 <strong>foreach</strong> 循环中创建的 <strong>partitionQuery</strong> 对象来使用结果。以下代码会将查询结果中每个实体的字段打印到控制台。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Specify a partition query, using "Smith" as the partition key CloudTableQuery&lt;CustomerEntity&gt; partitionQuery =     (from e in serviceContext.CreateQuery&lt;CustomerEntity&gt;("people")      where e.PartitionKey == "Smith"      select e).AsTableServiceQuery&lt;CustomerEntity&gt;();  // Loop through the results, displaying information about the entity foreach (CustomerEntity entity in partitionQuery) {     Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,         entity.Email, entity.PhoneNumber); }</pre>
+<h2><a name="retrieve-range-entities"></a> <span class="short-header">检索一部分实体</span>如何：检索分区中的一部分实体</h2>
+<p>如果不想查询分区中的所有实体，则可以使用 <strong>CompareTo</strong> 方法，而不是使用常见的大于 (&gt;) 和小于 (&lt;) 运算符来指定一个范围。这是因为后者将导致不适当的查询构造。以下代码使用两个筛选器来获取分区“Smith”中的、行键（名字）以字母“E”及字母“E”前面的字母开头的所有实体。然后，该代码打印了查询结果。如果使用添加到本指南的批量插入部分的表的实体，则此次只返回两个实体（Ben 和 Denise Smith）；不包括 Jeff Smith。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Specify a partition query, using "Smith" as the partition key, // with the row key being up to the letter "E" CloudTableQuery&lt;CustomerEntity&gt; entityRangeQuery =     (from e in serviceContext.CreateQuery&lt;CustomerEntity&gt;("people")      where e.PartitionKey == "Smith" &amp;&amp; e.RowKey.CompareTo("E") &lt; 0      select e).AsTableServiceQuery&lt;CustomerEntity&gt;();  // Loop through the results, displaying information about the entity foreach (CustomerEntity entity in entityRangeQuery) {     Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,         entity.Email, entity.PhoneNumber); }</pre>
+<h2><a name="retrieve-single-entity"></a> <span class="short-header">检索单个实体</span>如何：检索单个实体</h2>
+<p>您可以写入查询以检索单个特定实体。以下代码使用两个筛选器来指定客户“Jeff Smith”。此代码将调用 <strong>FirstOrDefault</strong>，而不是调用 <strong>AsTableServiceQuery</strong>。此方法仅返回一个实体，而不是一个集合，因此代码会将返回值直接分配给 <strong>CustomerEntity</strong> 对象。如果实体都没有完全匹配的分区键和行键，则会返回 null 值。在查询中指定分区键和行键是从表服务中检索单个实体的最快方法。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Return the entity with partition key of "Smith" and row key of "Jeff" CustomerEntity specificEntity =     (from e in serviceContext.CreateQuery&lt;CustomerEntity&gt;("people")      where e.PartitionKey == "Smith" &amp;&amp; e.RowKey == "Jeff"      select e).FirstOrDefault();</pre>
+<h2><a name="update-entity"></a> <span class="short-header">更新实体</span>如何：更新实体</h2>
+<p>若要更新实体，请从表服务中检索它，修改实体对象，然后将更改保存回表服务。以下代码将更改现有客户的电话号码。此代码将调用 <strong>UpdateObject</strong>，而不是像执行插入时那样调用 <strong>AddObject</strong>。<strong>SaveChangesWithRetries</strong> 方法将调用表服务，并更新该实体，除非在此应用程序检索到该实体之后另一个应用程序对它进行了更改。如果出现这种情况，则会引发异常，必须再次检索、修改并保存该实体。此重试模式在分布式存储系统中很常见。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Return the entity with partition key of "Smith" and row key of "Jeff" CustomerEntity specificEntity =     (from e in serviceContext.CreateQuery&lt;CustomerEntity&gt;("people")      where e.PartitionKey == "Smith" &amp;&amp; e.RowKey == "Jeff"      select e).FirstOrDefault();  // Specify a new phone number specificEntity.PhoneNumber = "425-555-0105";  // Update the entity serviceContext.UpdateObject(specificEntity);  // Submit the operation to the table service serviceContext.SaveChangesWithRetries();</pre>
+<h2><a name="query-entity-properties"></a> <span class="short-header">查询一部分属性</span>如何：查询一部分实体属性</h2>
+<p>对表的查询可以只检索实体中的少数几个属性。此方法称为投影，可减少带宽并提高查询性能，尤其适用于大型实体。以下代码中的查询只返回表中实体的电子邮件地址。您可以在此<a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx">博客文章</a>中了解有关投影的详细信息。请注意，本地存储仿真程序不支持投影，因此此代码仅在使用表服务中的帐户时运行。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Define a projection query that retrieves only the Email property var projectionQuery =      from e in serviceContext.CreateQuery&lt;CustomerEntity&gt;("people")     select new     {         Email = e.Email         // You can specify additional fields here     };  // Loop through the results, displaying the Email value foreach (var person in projectionQuery) {     Console.WriteLine(person.Email); }</pre>
+<h2><a name="insert-entity"></a> <span class="short-header">插入或替换实体</span>如何：插入或替换实体</h2>
+<p>您经常需要将实体添加到表，但又不知道实体已存在于表中。利用插入或替换操作，您可以提出一个以下形式的请求：如果实体不存在，则插入一个实体；如果实体存在，则将其替换为现有实体。以下代码基于前面的示例对实体执行了插入或替换（目标实体为“Walter Harp”）。创建新实体后，此代码调用 <strong>serviceContext.AttachTo</strong> 方法。然后，此代码会调用 <strong>UpdateObject</strong>，最后调用带 <strong>SaveChangesOptions.ReplaceOnUpdate</strong> 参数的 <strong>SaveChangesWithRetries</strong>。忽略 <strong>SaveChangesOptions.ReplaceOnUpdate</strong> 参数会导致插入或合并操作。请注意，本地存储仿真程序不支持插入或替换，因此此代码仅在使用表服务中的帐户时运行。您可以在此<a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx">博客文章</a>中了解有关插入或替换和插入或合并的更多信息。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  // Create a new customer entity CustomerEntity customer5 = new CustomerEntity("Harp", "Walter"); customer5.Email = "Walter@contoso.com"; customer5.PhoneNumber = "425-555-0106";  // Attach this customer to the people table serviceContext.AttachTo("people", customer5);  // Insert this customer if new, or replace if exists serviceContext.UpdateObject(customer5);  // Submit the operation the table service, using the ReplaceOnUpdate option serviceContext.SaveChangesWithRetries(SaveChangesOptions.ReplaceOnUpdate);</pre>
+<h2><a name="delete-entity"></a> <span class="short-header">删除实体</span>如何：删除实体</h2>
+<p>您可以在检索到实体后轻松删除它。您还可以使用 <strong>AttachTo</strong> 方法开始跟踪它，而无需从服务器中检索它（请参阅上面的插入或替换）。在使用 <strong>serviceContext</strong> 跟踪实体后，对要删除的实体调用 <strong>DeleteObject</strong>。然后调用 <strong>SaveChangesWithRetries</strong>。以下代码检索并删除了客户实体。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Get the data service context TableServiceContext serviceContext = tableClient.GetDataServiceContext();  CustomerEntity specificEntity =     (from e in serviceContext.CreateQuery&lt;CustomerEntity&gt;("people")      where e.PartitionKey == "Smith" &amp;&amp; e.RowKey == "Jeff"      select e).FirstOrDefault();  // Delete the entity serviceContext.DeleteObject(specificEntity);  // Submit the operation to the table service serviceContext.SaveChangesWithRetries();</pre>
+<h2><a name="delete-table"></a> <span class="short-header">删除表</span>如何：删除表</h2>
+<p>最后，以下代码将从存储帐户中删除一个表。在删除表之后的一段时间内无法重新创建它。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the table client CloudTableClient tableClient = storageAccount.CreateCloudTableClient();  // Delete the table it if exists tableClient.DeleteTableIfExist("people");</pre>
+<h2><a name="next-steps"></a> <span class="short-header">后续步骤</span>后续步骤</h2>
+<p>现在，您已了解有关表存储的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>查看 Blob 服务参考文档，了解有关可用 API 的完整详情：
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/wl_svchosting_mref_reference_home">.NET 客户端库引用</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179355">REST API 参考</a></li>
+</ul>
+</li>
+<li>在以下位置了解有关可以使用 Windows Azure 存储执行的更高级任务：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a>。</li>
+<li>查看更多功能指南，以了解在 Windows Azure 中存储数据的其他方式。
+<ul>
+<li>使用 <a href="/zh-cn/develop/net/how-to-guides/blob-storage-v17/">Blob 存储</a>存储非结构化数据。</li>
+<li>使用 <a href="/zh-cn/develop/net/how-to-guides/sql-database/">SQL Database</a> 存储关系数据。</li>
+</ul>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>如何使用表存储 (.NET) - Windows Azure 功能指南</pageTitle><metaKeywords>Windows Azure 表存储服务, Azure 表服务 .NET, 表存储 .NET, 表服务 C#, 表存储 C#</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用表存储服务。代码示例用 C# 代码编写且使用 .NET API。]]></metaDescription><linkid>dev-net-how-to-table-services</linkid><urlDisplayName>表服务</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

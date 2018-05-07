@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19105" parentID="19098" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="7" createDate="2013-07-11T11:30:39" updateDate="2014-08-18T11:20:36" nodeName="Website w MySQL and FTP" urlName="website-w-mysql-and-ftp" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19098,19105" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>创建 PHP-MySQL Windows Azure 网站并使用 FTP 进行部署</h1>
+<p>本教程演示如何创建 PHP-MySQL Windows Azure 网站以及如何使用 FTP 部署该网站。本教程假定您已在计算机上安装 <a href="http://www.php.net/manual/en/install.php">PHP</a>、<a href="http://dev.mysql.com/doc/refman/5.6/en/installing.html">MySQL</a>、Web 服务器和 FTP 客户端。本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。完成本指南之后，您将拥有一个在 Windows Azure 中运行的 PHP/MySQL 网站。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何使用管理门户创建 Windows Azure 网站和 MySQL 数据库。由于默认情况下已在 Windows Azure 网站中启用 PHP，因此运行 PHP 代码没有任何特殊要求。</li>
+<li>如何使用 FTP 将应用程序发布到 Windows Azure。</li>
+</ul>
+<p>通过按照本教程中的说明进行操作，您将在 PHP 中构建简单的注册 Web 应用程序。应用程序将承载于 Windows Azure 网站中。以下是已完成应用程序的屏幕快照：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/running_app_2.png" alt="Windows Azure PHP 网站"/></p>
+<!--?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-websites-note" macroAlias="AzureChunkDisplayer" ?-->
+<h2>创建 Windows Azure 网站并设置 FTP 发布</h2>
+<p>按照以下步骤创建 Windows Azure 网站和 MySQL 数据库：</p>
+<ol>
+<li>登录到<a href="https://manage.windowsazure.cn">管理门户</a>。</li>
+<li>
+<p>单击该门户左下角的“+ 新建”图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/new_website.jpg" alt="创建新的 Windows Azure 网站"/></p>
+</li>
+<li>
+<p>单击“网站”，然后单击“与数据库一起创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/custom_create.jpg" alt="自定义创建新的网站"/></p>
+<p>输入“URL”的值，从“数据库”下拉列表中选择“新建 MySQL 数据库”，并在“区域”下拉列表中为网站选择数据中心。单击对话框底部的箭头。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/website_details.jpg" alt="填写网站详细信息"/></p>
+</li>
+<li>
+<p>为数据库的“名称”输入一个值，在“区域”下拉列表中为数据库选择数据中心，并选中表明您同意法律条款的框。单击对话框底部的复选标记。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/new_mysql_db.jpg" alt="新建 MySQL 数据库"/></p>
+<p>创建网站后，将显示文本“已成功完成网站‘[SITENAME]’的创建”。现在，您可以启用 FTP 发布。</p>
+</li>
+<li>
+<p>单击网站列表中显示的网站的名称以打开该网站的“快速启动”仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/go_to_dashboard.png" alt="打开网站仪表板"/></p>
+</li>
+<li>
+<p>在“快速启动”页的底部，单击“重置部署凭据”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/reset-deployment-credentials.png" alt="重置部署凭据"/></p>
+</li>
+<li>
+<p>若要启用 FTP 发布，必须提供用户名和密码。记下您创建的用户名和密码。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-deployment-credentials.png" alt="创建发布凭据"/></p>
+</li>
+</ol>
+<h2>本地构建和测试应用程序</h2>
+<p>注册应用程序是一个简单的 PHP 应用程序，它使您能够通过提供您的姓名和电子邮件地址来注册事件。有关以前的注册者的信息将显示在表中。注册信息将存储在 MySQL 数据库中。应用程序由两个文件组成：</p>
+<ul>
+<li><strong>index.php</strong>：将显示注册形式及包含注册者信息的表。</li>
+<li><strong>createtable.php</strong>：创建用于此应用程序的 MySQL 表。该文件只能被使用一次。</li>
+</ul>
+<p>若要本地构建和运行应用程序，请执行下列步骤。请注意，这些步骤假定您已在本地计算机上设置 PHP、MySQL 和 Web 服务器，并且已启用 <a href="http://www.php.net/manual/en/ref.pdo-mysql.php">MySQL 的 PDO 扩展</a>。</p>
+<ol>
+<li>
+<p>创建一个名为 <code>registration</code> 的 MySQL 数据库。您可以在 MySQL 命令提示符中使用此命令执行此操作：</p>
+<pre class="prettyprint">mysql&gt; create database registration;</pre>
+</li>
+<li>
+<p>在 Web 服务器的根目录中，创建一个名为 <code>registration</code> 的文件夹并在其中创建两个文件 - 一个名为 <code>createtable.php</code>，另一个名为 <code>index.php</code>。</p>
+</li>
+<li>
+<p>在文本编辑器或 IDE 中打开 <code>createtable.php</code> 文件并添加以下代码。此代码将用于在 <code>registration</code> 数据库中创建 <code>registration_tbl</code> 表。</p>
+<pre class="prettyprint">&lt;?php
+// DB connection info
+$host = "localhost";
+$user = "user name";
+$pwd = "password";
+$db = "registration";
+try{
+    $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+    $conn-&gt;setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $sql = "CREATE TABLE registration_tbl(
+                id INT NOT NULL AUTO_INCREMENT, 
+                PRIMARY KEY(id),
+                name VARCHAR(30),
+                email VARCHAR(30),
+                date DATE)";
+    $conn-&gt;query($sql);
+}
+catch(Exception $e){
+    die(print_r($e));
+}
+echo "&lt;h3&gt;Table created.&lt;/h3&gt;";
+?&gt;</pre>
+<div class="dev-callout">注意
+<p>您将需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。</p>
+</div>
+</li>
+<li>
+<p>打开 Web 浏览器并浏览到 <a href="http://localhost/tasklist/createtable.php">http://localhost/registration/createtable.php</a>。这将在数据库中创建 <code>registration_tbl</code> 表。</p>
+</li>
+<li>
+<p>在文本编辑器或 IDE 中打开 <strong>index.php</strong> 文件，并为页面添加基本 HTML 和 CSS 代码（将在后续步骤中添加 PHP 代码）。</p>
+<pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;
+&lt;Title&gt;Registration Form&lt;/Title&gt;
+&lt;style type="text/css"&gt;
+    body { background-color: #fff; border-top: solid 10px #000;
+        color: #333; font-size: .85em; margin: 20; padding: 20;
+        font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    }
+    h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.75em; }
+    h3 { font-size: 1.2em; }
+    table { margin-top: 0.75em; }
+    th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+    td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Register here!&lt;/h1&gt;
+&lt;p&gt;Fill in your name and email address, then click &lt;strong&gt;Submit&lt;/strong&gt; to register.&lt;/p&gt;
+&lt;form method="post" action="index.php" enctype="multipart/form-data" &gt;
+      Name  &lt;input type="text" name="name" id="name"/&gt;&lt;/br&gt;
+      Email &lt;input type="text" name="email" id="email"/&gt;&lt;/br&gt;
+      &lt;input type="submit" name="submit" value="Submit" /&gt;
+&lt;/form&gt;
+&lt;?php
+
+
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</li>
+<li>
+<p>在 PHP 标记中，添加用于连接到数据库的 PHP 代码。</p>
+<pre class="prettyprint">// DB connection info
+$host = "localhost";
+$user = "user name";
+$pwd = "password";
+$db = "registration";
+// Connect to database.
+try {
+    $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+    $conn-&gt;setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+}
+catch(Exception $e){
+    die(var_dump($e));
+}</pre>
+<div class="dev-callout">注意
+<p>同样，您将需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。</p>
+</div>
+</li>
+<li>
+<p>在数据库连接代码后面添加用于将注册信息插入数据库的代码。</p>
+<pre class="prettyprint">if(!empty($_POST)) {
+try {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $date = date("Y-m-d");
+    // Insert data
+    $sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+                   VALUES (?,?,?)";
+    $stmt = $conn-&gt;prepare($sql_insert);
+    $stmt-&gt;bindValue(1, $name);
+    $stmt-&gt;bindValue(2, $email);
+    $stmt-&gt;bindValue(3, $date);
+    $stmt-&gt;execute();
+}
+catch(Exception $e) {
+    die(var_dump($e));
+}
+echo "&lt;h3&gt;Your're registered!&lt;/h3&gt;";
+}</pre>
+</li>
+<li>
+<p>最后，在上述代码后面添加从数据库中检索数据的代码。</p>
+<pre class="prettyprint">$sql_select = "SELECT * FROM registration_tbl";
+$stmt = $conn-&gt;query($sql_select);
+$registrants = $stmt-&gt;fetchAll(); 
+if(count($registrants) &gt; 0) {
+    echo "&lt;h2&gt;People who are registered:&lt;/h2&gt;";
+    echo "&lt;table&gt;";
+    echo "&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;";
+    echo "&lt;th&gt;Email&lt;/th&gt;";
+    echo "&lt;th&gt;Date&lt;/th&gt;&lt;/tr&gt;";
+    foreach($registrants as $registrant) {
+        echo "&lt;tr&gt;&lt;td&gt;".$registrant['name']."&lt;/td&gt;";
+        echo "&lt;td&gt;".$registrant['email']."&lt;/td&gt;";
+        echo "&lt;td&gt;".$registrant['date']."&lt;/td&gt;&lt;/tr&gt;";
+    }
+    echo "&lt;/table&gt;";
+} else {
+    echo "&lt;h3&gt;No one is currently registered.&lt;/h3&gt;";
+}</pre>
+</li>
+</ol>
+<p>您现在可以浏览到 <a href="http://localhost/tasklist/index.php">http://localhost/registration/index.php</a> 来测试此应用程序。</p>
+<h2>获取 MySQL 和 FTP 连接信息</h2>
+<p>若要连接到正在 Windows Azure 网站中运行的 MySQL 数据库，您将需要连接信息。若要获取 MySQL 连接信息，请按照以下步骤操作：</p>
+<ol>
+<li>
+<p>从网站的仪表板中，单击页面右侧的“查看连接字符串”链接：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/connection_string_info.png" alt="获取数据库连接信息"/></p>
+</li>
+<li>
+<p>记下 <code>Database</code>、<code>Data Source</code>、<code>User Id</code> 和 <code>Password</code> 的值。</p>
+</li>
+<li>
+<p>从网站的仪表板中，单击页面右下角的“下载发布配置文件”链接：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/download_publish_profile_2.png" alt="下载发布配置文件"/></p>
+</li>
+<li>
+<p>在 XML 编辑器中打开 <code>.publishsettings</code> 文件。</p>
+</li>
+<li>
+<p>查找带有 <code>publishMethod="FTP"</code> 的 <code>&lt;publishProfile &gt;</code> 元素，该元素与以下内容类似：</p>
+<pre class="prettyprint">&lt;publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].chinacloudsites.cn/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
+    ...
+&lt;/publishProfile&gt;</pre>
+</li>
+</ol>
+<p>记下 <code>publishUrl</code>、<code>userName</code> 和 <code>userPWD</code> 属性。</p>
+<h2>发布应用程序</h2>
+<p>本地测试应用程序之后，您可以使用 FTP 将其发布到 Windows Azure 网站。但是，您首先需要更新应用程序中的数据库连接信息。使用之前获取的数据库连接信息（位于<strong>获取 MySQL 和 FTP 连接信息</strong>部分），使用适当的值<strong>同时</strong>更新 <code>createdatabase.php</code> 和 <code>index.php</code> 文件中的下列信息：</p>
+<pre class="prettyprint">// DB connection info
+$host = "value of Data Source";
+$user = "value of User Id";
+$pwd = "value of Password";
+$db = "value of Database";</pre>
+<p>现在您可使用 FTP 发布应用程序。</p>
+<ol>
+<li>
+<p>打开选择的 FTP 客户端。</p>
+</li>
+<li>
+<p>将上文中记下的 <code>publishUrl</code> 属性中的<em>主机名部分</em> 输入 FTP 客户端。</p>
+</li>
+<li>
+<p>将上文中记下的 <code>userName</code> 和 <code>userPWD</code> 属性输入 FTP 客户端。</p>
+</li>
+<li>
+<p>建立连接。</p>
+</li>
+</ol>
+<p>连接后，您将能够根据需要上载和下载文件。确保将文件上载到根目录 <code>/site/wwwroot</code>。</p>
+<p>上载 <code>index.php</code> 和 <code>createtable.php</code> 之后，浏览到 <strong>http://[网站名].chinacloudsites.cn/createtable.php</strong> 以创建用于应用程序的 MySQL 表，然后浏览到 <strong>http://[网站名].chinacloudsites.cn/index.php</strong> 以开始使用应用程序。</p>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>website w mysql and ftp</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>website w mysql and ftp</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>website w mysql and ftp</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

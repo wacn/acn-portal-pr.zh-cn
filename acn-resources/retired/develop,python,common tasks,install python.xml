@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19119" parentID="19118" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="1" createDate="2013-07-11T11:43:21" updateDate="2014-08-18T11:21:18" nodeName="Install Python" urlName="install-python" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,18397,19118,19119" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/python" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>安装 Python 和 SDK</h1>
+<p>在 Windows 上安装 Python 相当简单，并且它可能已预安装在 Mac 和 Linux 上。本指南将指导您完成安装过程，并使您的计算机可随时用于 Azure。本指南将帮助您了解以下信息：</p>
+<ul>
+<li>Python Azure SDK 包含哪些内容？</li>
+<li>要使用哪种 Python 以及哪个版本</li>
+<li>在 Windows 上安装</li>
+<li>在 Mac 和 Linux 上安装</li>
+</ul>
+<h2>Python Azure SDK 包含哪些内容？</h2>
+<p>Windows Azure SDK for Python 包括允许您针对 Windows Azure 开发、部署和管理 Python 应用程序的组件。具体而言，Windows Azure SDK for Python 包括以下组件：</p>
+<ul>
+<li><strong>Windows Azure 的 Python 客户端库</strong>。这些类库提供用于访问 Windows Azure 功能（例如数据管理服务和云服务）的接口。</li>
+<li><strong>适用于 Mac 和 Linux 的 Windows Azure 命令行工具</strong>。这是一组用于部署和管理 Windows Azure 服务（例如 Windows Azure 网站和 Windows Azure 虚拟机）的命令行工具。这些工具可在任何平台（包括 Mac、Linux 和 Windows）上使用。</li>
+<li><strong>PowerShell for Windows Azure（仅限 Windows）</strong>。这是一组用于部署和管理 Windows Azure 服务（例如云服务和虚拟机）的 PowerShell cmdlet。</li>
+<li><strong>Windows Azure 仿真程序（仅限 Windows）</strong>。计算和存储仿真程序是一系列云服务和数据管理服务的本地仿真程序，允许您在本地测试应用程序。Windows Azure 仿真程序仅在 Windows 上运行。</li>
+</ul>
+<p>针对本次发布的核心方案是：</p>
+<ul>
+<li><strong>Windows</strong>：云服务 - 例如使用 Web 角色的 Django 网站</li>
+<li><strong>Mac/Linux</strong>：IaaS - 在 VM 中运行所需内容；通过 Python 使用 Azure 服务</li>
+</ul>
+<h2>要使用哪种 Python 以及哪个版本</h2>
+<p>提供了多种形式的 Python 解释程序 - 示例包括：</p>
+<ul>
+<li>CPython - 最常用的标准 Python 解释程序</li>
+<li>IronPython - 在 .Net/CLR 上运行的 Python 解释程序</li>
+<li>Jython - 在 JVM 上运行的 Python 解释程序</li>
+</ul>
+<p>在本次发布中，仅 <strong>CPython</strong> 经过测试且受支持。还建议至少使用版本 2.7。在不久的将来，还将增加 <strong>IronPython</strong> 支持。</p>
+<h2>从哪里获得 Python？</h2>
+<p>有多种方法可获得 CPython：</p>
+<ul>
+<li>直接从 www.python.org 下载和安装</li>
+<li>从知名发行版本（例如 www.enthought.com 或 www.ActiveState.com）下载和安装</li>
+<li>从源构建！</li>
+</ul>
+<p>除非您有特定需求，否则建议使用前两个选项，如下所述。</p>
+<h2>在 Windows 上安装</h2>
+<p>对于 Windows，您可以使用主 Python 开发人员中心提供的 <a href="http://go.microsoft.com/fwlink/?LinkId=254281&amp;clcid=0x409">WebPI 安装程序</a>来简化安装（它将从 www.python.org 获取 CPython）。</p>
+<p><strong>注意：</strong>在 Windows Server 上，若要下载 WebPI 安装程序，您可能必须配置 IE ESC 设置（“开始”/“管理工具”/“服务器管理器”，然后单击“配置 IE ESC”，设置为“关闭”）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-webpi-1.png" alt="how-to-install-python-webpi-1.png"/></p>
+<p>WebPI 安装程序提供安装 Python Azure 应用程序所需的一切内容，并为 Django 应用程序提供特定支持：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-webpi-2.png" alt="how-to-install-Python-webpi-2.png"/></p>
+<p>完成后，您应该看到确认您的安装选择的以下屏幕：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-webpi-3.png" alt="how-to-install-python-webpi-3.png"/></p>
+<p>在安装完成后，在提示符处键入 python 以确保一切正常。根据您的安装方式，您可能需要设置“path”变量以找到（正确版本的）Python：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-win-run.png" alt="how-to-install-python-win-run.png"/></p>
+<p>虽然本次发布主要关注“使用 Django 构建 Web 应用程序”，但也可以浏览 <a href="http://pypi.python.org/pypi">Python 包索引 (PyPI)</a> 以选择其他更多软件。如果您选择安装发行版本，表明您重点关注的是从 Web 开发到技术计算的各种方案。</p>
+<p>若要查看在 <strong>site-packages</strong> 中安装了哪些 Python 包，请输入以下内容来查找其位置：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-win-site.png" alt="how-to-install-python-win-site.png"/></p>
+<p>这将列出已在您的系统上安装的内容。</p>
+<p>安装后，您应该具有位于默认位置的 Python、Django 和客户端库：</p>
+<pre class="prettyprint">    C:\Python27\Lib\site-packages\windowsazure
+    C:\Python27\Lib\site-packages\django
+  </pre>
+<h3>Python Tools for Visual Studio</h3>
+<p>Python Tools for Visual Studio 是 Microsoft 提供的免费/OSS 插件，可将 VS 转换为完备的 Python IDE：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-ptvs.png" alt="how-to-install-python-ptvs.png"/></p>
+<p>使用 Python Tools for Visual Studio 是可选的，但建议使用，因为它提供 Python 和 Django 项目/解决方案支持、调试、分析、模板编辑和智能感知、到云的部署等等。此加载项使用您的现有 VS2010 安装。如果您没有 VS2010，则 WebPI 将安装免费的集成外壳 + PTVS，这实际上为您提供了<strong>完全免费的</strong>“VS Python Express”IDE。有关详细信息，请参阅 <a href="http://pytools.codeplex.com">CodePlex 上的 Python Tools for Visual Studio</a>。</p>
+<p>注意：虽然 PTVS 插件很小，但集成外壳将增加您的下载时间。集成外壳版本当前还不支持“添加 Windows Azure 部署项目”功能。</p>
+<h2>Windows 卸载</h2>
+<p>一般而言，“Windows Azure SDK for Python – 2012 年 6 月版”WebPI 产品不是应用程序。它实际上是捆绑在一起的不同产品（例如 32 位 Python 2.7、用于 Python 的 Windows Azure 客户端 API、Django 等）的集合。因此它没有自己的常规卸载程序，您将需要从 Windows“控制面板”中逐个删除它所安装的程序。</p>
+<p>如果您希望重新安装“Windows Azure SDK for Python”，只需以管理员身份打开 PowerShell 命令提示符并运行以下命令：</p>
+<pre class="prettyprint">rm -force "HKLM:\SOFTWARE\Microsoft\Windows Azure SDK for Python - June 2012"</pre>
+<p>然后重新运行 WebPI。</p>
+<h2>在 Linux 和 MacOS 上安装</h2>
+<p>Python 很可能已安装在您的开发计算机上。您可以通过输入以下内容来进行检查：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-linux-run.png" alt="how-to-install-python-linux-run.png"/></p>
+<p>在这里，我们看到此 Azure Suse VM 安装了 CPython 2.7.2，它适合运行 Windows Azure 教程和 Django 示例。如果您需要升级，请按照操作系统建议的包升级说明操作。不过请注意，一般来说，最好不要影响系统 Python（其他软件可能依赖该版本）并通过 <a href="http://pypi.python.org/pypi/virtualenv">Virtualenv</a> 安装更新版本。</p>
+<p>若要安装 Python Azure 客户端库，请使用 <strong>pip</strong> 从 <strong>PyPI</strong> 获取它：</p>
+<pre class="prettyprint">curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python</pre>
+<p>以上命令将自动提示输入根密码。键入它，然后按 Enter。接下来：</p>
+<pre class="prettyprint">sudo /usr/local/bin/pip-2.7 install azure</pre>
+<p>您现在应该看到已在 <strong>site-packages</strong> 下安装了这些客户端库。在 MacOS 上：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/python/how-to-install-python-mac-site.png" alt="MacOS site-packages"/></p>
+<p>在从 mac/linux 进行开发时，本次发布支持两个主要方案：</p>
+<ol>
+<li>
+<p>通过使用 Python 的客户端库来使用 Windows Azure 服务</p>
+</li>
+<li>
+<p>在 Linux VM 中运行您的应用程序</p>
+</li>
+</ol>
+<p>第一个方案使您能够通过 Windows Azure REST API 的 Pythonic 包装来创作利用 Windows Azure PaaS 功能（例如 Blob 存储、队列等）的丰富 Web 应用程序。这些应用程序的工作方式与在 Windows、Mac 和 Linux 上相同。请参阅教程和操作方法指南来获取示例。您还可以从 Linux VM 中使用这些客户端库。</p>
+<p>对于 VM 方案，您只需启动所选的 Linux VM（Ubuntu、CentOS、Suse）并运行/管理所需内容。例如，您可以在 Windows/Mac/Linux 计算机上运行 <a href="http://ipython.org">IPython</a> REPL/notebook，并使您的浏览器指向在 Azure 上运行 IPython 引擎的 Linux 或 Windows 多处理器 VM。有关 IPython 安装的详细信息，请参阅其教程。</p>
+<p>有关如何设置 Linux VM 的信息，请参阅 <a href="/zh-cn/manage/linux/">Linux 管理</a>一节。</p>
+<h2>其他软件和资源：</h2>
+<ul>
+<li><a href="http://www.enthought.com">Enthought Python 分发</a></li>
+<li><a href="http://www.activestate.com">ActiveState Python 分发</a></li>
+<li><a href="http://www.scipy.org">SciPy - Scientific Python 库套件</a></li>
+<li><a href="http://www.numpy.org">NumPy - Python 的数字库</a></li>
+<li><a href="http://www.djangoproject.com">Django 项目 - 成熟的 Web 框架/CMS</a></li>
+<li><a href="http://ipython.org">IPython - Python 的高级 REPL/Notebook</a></li>
+<li><a href="/zh-cn/develop/python/tutorials/ipython-notebook/">Azure 上的 IPython</a></li>
+<li><a href="http://pytools.codeplex.com">CodePlex 上的 Python Tools for Visual Studio</a></li>
+<li><a href="http://pypi.python.org/pypi/virtualenv">Virtualenv</a></li>
+</ul>
+</div>
+]]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>install python</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>install python</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>install python</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

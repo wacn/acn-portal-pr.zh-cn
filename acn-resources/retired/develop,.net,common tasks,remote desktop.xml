@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="18805" parentID="18795" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="10" createDate="2013-07-11T10:33:34" updateDate="2014-08-18T11:08:24" nodeName="Remote Desktop" urlName="remote-desktop" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18795,18805" isDoc=""><bodyText><![CDATA[<h1>使用 Visual Studio 在 Windows Azure 中启用远程桌面</h1>
+<p>利用远程桌面，您可以访问 Windows Azure 虚拟机和 Windows Azure 云服务的桌面。您可以使用远程桌面连接配置虚拟机，或者排查应用程序问题。</p>
+<div class="dev-callout-new">
+<div class="dev-callout-content">
+<p>本文适用于 Windows Azure 云服务。</p>
+<p>有关使用远程桌面连接到 Windows Azure 虚拟机的详细信息，请参阅<a href="/zh-cn/manage/windows/how-to-guides/log-on-a-windows-vm/">如何登录到虚拟机</a>。</p>
+<p>不支持访问 Windows Azure 网站的宿主虚拟机。</p>
+</div>
+</div>
+<p><strong>注意：</strong>对 Windows Azure 云服务所做的更改（如操作系统配置和安装软件）并不是永久的。如果重新启动云服务，则这些更改将丢失。</p>
+<p>利用 Windows Azure Tools for Visual Studio，您可以在 Visual Studio 中配置远程桌面服务以便从 Windows Azure 项目连接到云服务虚拟机。</p>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#step1">步骤 1:配置远程桌面连接</a></li>
+<li><a href="#step2">步骤 2:发布应用程序</a></li>
+<li><a href="#step3">步骤 3:连接到角色实例</a></li>
+</ul>
+<h2>步骤 1：配置远程桌面连接</h2>
+<p>在 Visual Studio 中处理 Windows Azure 云服务项目时，您可以选择为应用程序的角色实例配置远程桌面，这将使您能够在发布应用程序后远程连接到角色实例。</p>
+<ol>
+<li>
+<p>在 Visual Studio 中，打开解决方案资源管理器，右键单击项目的名称，然后单击“配置远程桌面”。</p>
+<p>这将显示“远程桌面配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/remote-desktop-01.png"/></p>
+</li>
+<li>
+<p>在“远程桌面配置”对话框中，选中“为所有角色启用连接”复选框。</p>
+</li>
+<li>将证书下拉列表值设置为“自动”，这意味着将自动选择当前证书存储中的适当证书或创建新证书（如果不存在适当的证书）。或者，您可以选取要使用的证书或创建新证书。</li>
+<li>在“用户名”、“密码”和“确认密码”字段中，分别输入要用于远程登录到角色实例的用户名和密码。</li>
+<li>（可选）在“帐户到期日期”字段中，输入用户帐户对于角色实例的到期日期。</li>
+<li>单击“确定”。</li>
+</ol>
+<p>随后，Visual Studio 会将远程桌面设置和证书详细信息插入应用程序的服务配置和服务定义文件。</p>
+<h2>步骤 2：发布应用程序</h2>
+<p>若要将服务配置和服务定义文件中的远程桌面设置移动到 Windows Azure 并上载远程桌面连接所需的证书，则您需要发布应用程序。</p>
+<ol>
+<li>
+<p>在解决方案资源管理器中，右键单击项目的名称，然后单击“发布”。<br />将显示“发布 Windows Azure 应用程序”向导。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/remote-desktop-02.png"/></p>
+</li>
+<li>
+<p>在“Windows Azure 发布登录”页上，选择要使用的已命名身份验证凭据，然后单击“下一步”。</p>
+<div class="dev-callout-new-collapsed"><strong>是否需要设置发布凭据？<span>单击以展开</span></strong>
+<div class="dev-callout-content"><ol>
+<li>在“Windows Azure 发布登录”页上，单击“登录以下载凭据”链接。系统将提示您登录到 Windows Azure 管理门户并下载 .publishsettings 文件。</li>
+<li>本地保存 .publishsettings 文件。</li>
+<li>单击“导入”按钮，然后选择您刚下载的 .publishsettings 文件。</li>
+<li>返回“Windows Azure 发布登录”页，这将选择与您刚导入的 .publishsettings 文件关联的订阅。单击“下一步”以继续。</li>
+</ol></div>
+</div>
+</li>
+<li>
+<p>在“Windows Azure 发布设置”页上，选择要部署到的云服务、生产或过渡环境、生成配置和服务配置。确保选中“为所有角色启用远程桌面”，然后单击“下一步”。</p>
+</li>
+<li>在“Windows Azure 发布摘要”页上，检查设置，然后单击“发布”。</li>
+</ol>
+<p>Visual Studio 将启动发布过程，即，打包应用程序，然后再将其部署到 Windows Azure。几分钟后，部署完成。</p>
+<h2>步骤 3：连接到角色实例</h2>
+<p>部署应用程序后，使用 Windows Azure 管理门户初始化与某个角色实例的连接。</p>
+<ol>
+<li>打开 <a href="http://manage.windowsazure.cn/">Windows Azure 管理门户</a>。</li>
+<li>在该管理门户的下方导航窗格中，单击“托管服务、存储帐户和 CDN”。</li>
+<li>在上方的导航窗格中，单击“托管服务”。新部署的应用程序所运行于的托管服务将显示在订阅下方列出的门户中。</li>
+<li>
+<p>在部署的下方，选择角色实例，然后单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/remote-desktop-03.png"/></p>
+</li>
+<li>
+<p>当系统提示您打开或保存 .rdp 文件时，请单击“打开”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/remote-desktop-04.png"/></p>
+</li>
+<li>
+<p>如果您收到远程桌面连接安全警告，请单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/remote-desktop-05.png"/></p>
+</li>
+<li>
+<p>在“Windows 安全性”对话框中，输入之前在 Visual Studio 中配置远程桌面连接设置时指定的用户名和密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/remote-desktop-06.png"/></p>
+</li>
+</ol>
+<p>“远程桌面连接”会话将在 Windows Azure 角色实例上打开。</p>
+<p>祝贺您！您已为角色实例成功启用远程桌面连接，当您需要在角色实例上管理应用程序时，可以登录该实例。</p>
+<h2>后续步骤</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh124107.aspx">远程访问 Windows Azure 中的角色实例</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg443832.aspx">将远程桌面与 Windows Azure 角色一起使用</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh403987.aspx">上载证书和对远程桌面连接的密码进行加密</a></li>
+</ul>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>remote desktop</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>remote desktop</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>remote desktop</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

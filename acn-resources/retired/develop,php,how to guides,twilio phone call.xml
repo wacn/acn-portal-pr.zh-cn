@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19086" parentID="19076" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="10" createDate="2013-07-11T11:29:13" updateDate="2014-08-18T11:20:12" nodeName="Twilio Phone Call" urlName="twilio-phone-call" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17389,19076,19086" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/php" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>如何使用 Windows Azure 上的 PHP 应用程序中的 Twilio 发起电话呼叫</h1>
+<p>下面的示例演示了如何使用 Twilio 从 Windows Azure 中承载的 PHP 网页发起呼叫。生成的应用程序将提示用户输入电话呼叫值，如以下屏幕快照中所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/wa_twiliophpcallform.jpg" alt="使用 Twilio 和 PHP 的 Windows Azure 呼叫窗体"/></p>
+<p>您将需要执行以下操作来使用本主题中的代码：</p>
+<ol>
+<li>获取 Twilio 帐户和身份验证令牌。若要开始使用 Twilio，请在 <a href="http://www.twilio.com/pricing">http://www.twilio.com/pricing</a> 上计算价格。您可以在 <a href="http://www.twilio.com/try-twilio">https://www.twilio.com/try-twilio</a> 上注册试用帐户。有关 Twilio 提供的 API 的信息，请参阅 <a href="http://www.twilio.com/api">http://www.twilio.com/api</a>。</li>
+<li>使用 Twilio 验证您的电话号码是否为拨出呼叫方 ID。有关如何验证电话号码的信息，请参阅 <a href="https://www.twilio.com/user/account/phone-numbers/verified#">https://www.twilio.com/user/account/phone-numbers/verified#</a>。作为使用现有号码的替代方法，您可以购买 Twilio 电话号码。在本示例中，请将经验证的电话号码用作 <strong>callform.php</strong>（稍后有述）的“呼叫方”值。</li>
+<li>获取用于 PHP 的 Twilio 库。您可以从 Github (<a href="https://github.com/twilio/twilio-php">https://github.com/twilio/twilio-php</a>) 中下载该库，或将其作为 PEAR 包安装。有关详细信息，请参阅 <a href="https://github.com/twilio/twilio-php/blob/master/README.md">https://github.com/twilio/twilio-php/blob/master/README.md</a>。</li>
+<li>安装 Windows Azure SDK for PHP。有关安装该程序的 SDK 和说明的概述，请参阅<a href="http://azurephp.interoperabilitybridges.com/articles/setup-the-windows-azure-sdk-for-php">设置 Windows Azure SDK for PHP</a>。</li>
+</ol>
+<h2>创建用于发起呼叫的 Web 窗体</h2>
+<p>以下 HTML 代码演示了如何构建检索用于发起呼叫的用户数据的网页 (<strong>callform.html</strong>)：</p>
+<pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Automated call form&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Automated Call Form&lt;/h1&gt;
+&lt;p&gt;Fill in all fields and click &lt;b&gt;Make this call&lt;/b&gt;.&lt;/p&gt;
+&lt;form action="makecall.php" method="post"&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;To:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size=50 name="callTo" value=""&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;From:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size=50 name="callFrom" value=""&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Call message:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size=100 name="callText" value="Hello. This is the call text. Good bye." /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td colspan=2&gt;&lt;input type="submit" value="Make this call"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;br/&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<h2>创建用于发起呼叫的代码</h2>
+<p>以下代码演示如何构建在用户提交 <strong>callform.html</strong> 显示的窗体时调用的网页 (<strong>makecall.php</strong>)。下面显示的代码将创建呼叫消息和生成呼叫。（使用 Twilio 帐户和身份验证令牌，而不是分配给下面的代码中的 <strong>$sid</strong> 和 <strong>$token</strong> 的占位符值）。</p>
+<pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Making call...&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Your call is being made.&lt;/p&gt;
+
+&lt;?php
+require_once 'Services/Twilio.php';
+
+$sid = "your_account_sid";
+$token = "your_authentication_token";
+
+$from_number = $_POST['callFrom']; // Calls must be made from a registered Twilio number.
+$to_number = $_POST['callTo'];
+$message = $_POST['callText'];
+
+$client = new Services_Twilio($sid, $token, "2010-04-01");
+
+$call = $client-&gt;account-&gt;calls-&gt;create(
+    $from_number, 
+    $to_number,
+    'http://twimlets.com/message?Message='.urlencode($message)
+);
+
+echo "Call status: ".$call-&gt;status."&lt;br /&gt;";
+echo "URI resource: ".$call-&gt;uri."&lt;br /&gt;";
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>除了发起呼叫外，<strong>makecall.php</strong> 还可显示一些呼叫元数据（如下面的屏幕快照中所示）。有关呼叫元数据的详细信息，请参阅 <a href="https://www.twilio.com/docs/api/rest/call#instance-properties">https://www.twilio.com/docs/api/rest/call#instance-properties</a>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/php/wa_twiliophpmakecall.jpg" alt="使用 Twilio 和 PHP 的 Windows Azure 呼叫响应"/></p>
+<h2>运行应用程序</h2>
+<p>下一步是将应用程序部署到 Windows Azure 网站。下列文章包含创建网站以及使用 Git、FTP 或 WebMatrix 部署代码的信息（尽管并非每篇文章中的所有信息都是相关的）：</p>
+<ul>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/php/tutorials/website-w-mysql-and-git/">创建 PHP-MySQL Windows Azure 网站并使用 Git 进行部署</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/php/tutorials/website-w-mysql-and-ftp/">创建 PHP-MySQL Windows Azure 网站并使用 FTP 进行部署</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/php/tutorials/website-w-mysql-and-webmatrix/">使用 WebMatrix 创建和部署 PHP-MySQL Windows Azure 网站</a></li>
+</ul>
+<h2>后续步骤</h2>
+<p>提供此代码是为了向您演示通过 Windows Azure 上的 PHP 使用 Twilio 的基本功能。在生产中部署到 Windows Azure 之前，您可能希望添加更多错误处理或其他功能。例如：</p>
+<ul>
+<li>您可以使用 Windows Azure 存储 Blob 或 SQL Database 存储电话号码和呼叫文本，而不使用 Web 窗体。有关通过 PHP 使用 Windows Azure 存储 Blob 的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh674502(v=vs.103).aspx">利用 PHP 应用程序使用 Windows Azure 存储</a>。有关通过 PHP 使用 SQL Database 的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh674500(v=vs.103).aspx">利用 PHP 应用程序使用 SQL Database</a>。</li>
+<li><strong>makecall.php</strong> 代码使用 Twilio 提供的 URL (<a href="http://twimlets.com/message">http://twimlets.com/message</a>) 提供了一个 Twilio 标记语言 (TwiML) 响应，指示 Twilio 如何继续进行呼叫。例如，返回的 TwiML 可能包含 <code>&lt;Say&gt;</code> 谓词，该谓词生成了与呼叫接收人的谈话的文本。您可以构建自己的服务来响应 Twilio 的请求，而不使用 Twilio 提供的 URL；有关详细信息，请参阅<a href="/zh-cn/develop/php/how-to-guides/twilio-voice-and-sms-service">如何通过 PHP 使用 Twilio 实现语音和 SMS 功能</a>。有关 TwiML 的详细信息可在 <a href="http://www.twilio.com/docs/api/twiml">http://www.twilio.com/docs/api/twiml</a> 上找到，有关 <code>&lt;Say&gt;</code> 和其他 Twilio 谓词的信息可在 <a href="http://www.twilio.com/docs/api/twiml/say">http://www.twilio.com/docs/api/twiml/say</a> 上找到。</li>
+<li>阅读 <a href="http://www.twilio.com/docs/security">https://www.twilio.com/docs/security</a> 上的 Twilio 安全准则。</li>
+</ul>
+<p>有关 Twilio 的其他信息，请参阅 <a href="http://www.twilio.com/docs">https://www.twilio.com/docs</a>。</p>
+<h2>另请参阅</h2>
+<ul>
+<li><a href="/zh-cn/develop/php/how-to-guides/twilio-voice-and-sms-service">如何通过 PHP 使用 Twilio 实现语音和 SMS 功能</a></li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>twilio phone call</pageTitle><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>twilio phone call</linkid><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>twilio phone call</urlDisplayName><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

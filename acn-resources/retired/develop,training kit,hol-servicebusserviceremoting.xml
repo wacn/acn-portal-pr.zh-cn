@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19169" parentID="19159" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="10" createDate="2013-07-11T11:51:08" updateDate="2014-08-18T11:22:56" nodeName="HOL-ServiceBusServiceRemoting" urlName="hol-servicebusserviceremoting" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,19159,19169" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/trainingkit" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>Windows Azure Service Bus 服务远程处理</h1>
+<h3><a href="http://www.contentinstaller.net/Install/Content/LAB_ServiceBusServiceRemoting">下载实验资产</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-ServiceBusServiceRemoting/fork_select">在 Github 上执行自我复制</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-ServiceBusServiceRemoting/issues">报告问题</a></h3>
+<p> </p>
+<h2>概述</h2>
+<p>由于近期的银行监管，要求将 Fictional Bank 拆分为两个独立的银行实体：Fictional Investment 和 Fictional Retail。IT 部门需要重构现有的客户关系管理 (CRM)，以便即使这两个银行实体不再位于同一企业网络边界内，也可以继续共享客户数据。Fictional Bank 中的现有 CRM Web 服务主要使用 Windows Communication Foundation 编写并托管在本地。</p>
+<p>最初，IT 部门决定在 Fictional Investment 中继续将 CRM Web 服务托管在本地。为实现同时向这两个实体提供服务的目标，他们选择通过使用 Windows Azure Service Bus 在外部发布的第二项服务来公开一部分 CRM 功能，从而使 Fictional Retail 中的客户端能够使用所需功能。此解决方案使他们能够在尽可能减少服务和客户端应用程序更改（大部分限制为 WCF 配置更改）的情况下实现其目标。</p>
+<p>在第二阶段中，Fictional Investment 会外包其应用程序服务托管业务。因此，他们会将与 Fictional Retail 共享的服务重新定位到 Windows Azure 并将其托管在辅助角色中。不管其新位置如何，由于 Service Bus 命名空间允许在其当前位置继续发布服务，因此客户端始终不会察觉到更改。</p>
+<p>本动手实验将向您演练这样一个方案：使用示例应用程序复制（虽然采用简单的方式）Fictional Bank 中的应用程序体系结构。</p>
+<p> </p>
+<h3>目标</h3>
+<p>在本动手实验中，您将了解如何：</p>
+<ul>
+<li>
+<p>设置 Windows Azure 项目和服务命名空间</p>
+</li>
+<li>
+<p>管理 Access Control 服务颁发者和规则以提供服务和客户端身份验证</p>
+</li>
+<li>
+<p>将服务托管在本地并在稍后使用 Service Bus 远程发布它们</p>
+</li>
+<li>
+<p>使用 Service Bus 发布托管在 Windows Azure 中的服务</p>
+</li>
+</ul>
+<p> </p>
+<h3>必备组件</h3>
+<p>完成本动手实验需要以下各项：</p>
+<ul>
+<li>IIS 7（带 ASP.NET、WCF HTTP 激活）</li>
+<li><a href="http://go.microsoft.com/fwlink/?linkid=186916">Microsoft .NET Framework 4.0</a></li>
+<li><a href="http://msdn.microsoft.com/vstudio/products/">Microsoft Visual Studio 2010</a></li>
+<li><a href="http://www.microsoft.com/windowsazure/sdk/">Windows Azure Tools for Visual Studio 1.7</a></li>
+<li><a href="http://www.microsoft.com/windowsazure/sdk/">用于 .Net 1.7 的 Windows Azure 库</a></li>
+</ul>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>本实验设计为使用 Windows 7 操作系统。您必须能够访问 Internet 才能完成本实验。</p>
+</div>
+<p> </p>
+<h3>设置</h3>
+<p>为完成本动手实验中的练习，您需要设置您的环境。</p>
+<ol>
+<li>
+<p>打开 Windows 资源管理器窗口并浏览到本实验的 <strong>Source</strong> 文件夹。</p>
+</li>
+<li>
+<p>使用提升权限执行 <strong>Setup.cmd</strong> 文件，以启动将配置您的环境并安装本实验中的 Visual Studio 代码段的安装过程。</p>
+</li>
+<li>
+<p>如果显示“用户帐户控制”对话框，请确认操作以继续。</p>
+</li>
+</ol>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 确保在运行安装过程之前，您已检查本实验的所有依赖项。</p>
+</div>
+<h3>使用代码段</h3>
+<p>在整个实验文档中，将指示您插入代码块。为方便起见，该代码的大部分以 Visual Studio 代码段形式提供，您可以从 Visual Studio 2010 中使用这些代码段，从而避免手动添加它们。</p>
+<p>如果您不熟悉 Visual Studio 代码段，并且希望了解如何使用它们，可参考培训工具包的 <strong>Assets</strong> 文件夹中的 <strong>Setup.docx</strong> 文档，其中包含一个介绍如何使用它们的章节。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>每个练习均附带位于该练习的 Begin 文件夹中的开始解决方案，它允许您彼此独立地完成每个练习。请注意，这些开始解决方案中缺少在练习期间所添加的代码段，并且在您完成练习之前，这些代码段不一定可用。在练习的源代码中，您还会找到一个 End 文件夹，其中包含的 Visual Studio 解决方案的代码是完成相应练习中的步骤所产生的。如果您在完成本动手实验时需要其他帮助，则可以使用这些解决方案作为指南。</p>
+</div>
+<p> </p>
+<h2>练习</h2>
+<p>本动手实验包括以下练习：</p>
+<ol>
+<li>
+<p><a href="#Exercise1">使用 Service Bus 远程托管服务</a></p>
+</li>
+<li>
+<p><a href="#Exercise2">使用 Service Bus 发布托管在 Windows Azure 中的服务</a></p>
+</li>
+</ol>
+<p>完成本实验的估计时间：<strong>45 分钟</strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>首次启动 Visual Studio 时，必须选择一个预定义的设置集合。每个预定义的集合都设计为与特定的开发风格相匹配，并可确定窗口布局、编辑器行为、IntelliSense 代码段和对话框选项。本实验中的过程描述了使用“常规开发设置”<strong></strong>集合在 Visual Studio 中完成给定任务所需执行的操作。如果您为开发环境选择了其他设置集合，则需要考虑的这些过程可能会有所不同。</p>
+</div>
+<p> </p>
+<h3>练习 1：使用 Service Bus 远程托管服务</h3>
+<p>在此练习中，您将从一个可实现 Fictional Bank 应用程序体系结构的解决方案开始。该解决方案包含 Fictional Investment 托管的两项 Web 服务。第一项服务“CRM 数据服务”为 Fictional Investment 提供应用程序服务。第二项服务“FI 公共服务”利用了第一项服务，并且公开了一部分 CRM 功能以使其可供 Fictional Retail 中的用户使用。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/application-architecture-with-services-and-clients-directly-connected-.png" alt="将服务与客户端直接相连的应用程序体系结构 "/></p>
+<p><em>将服务与客户端直接相连的应用程序体系结构</em></p>
+<p>最初，您需要运行该服务以重现所有服务均托管在本地的场景，并使用 <strong>NetTcpBinding</strong> 类直接与其客户端进行通信。此类方案在所有服务均驻留在同一网络中且传输途中没有干预防火墙或网络地址转换 (NAT) 设备时可行。</p>
+<p>然而，Fictional Retail 客户端并不位于 Fictional Investment 网络中。为使 Fictional Retail 客户端可从外部访问服务，您稍后将使用 <strong>NetTcpRelayBinding</strong> 类和公共终结点地址更新 WCF 配置，以通过 Service Bus 公开 FI 公共服务。这样，即可从任何位置访问服务，并且您将能够实现建议方案中的目标之一。</p>
+<p> </p>
+<p><strong>任务 1 - 在本地运行服务</strong></p>
+<p>在此任务中，您将通过使用 <strong>NetTcpBinding</strong> 复制整个本地方案（在该方案中，服务和客户端位于同一网络边界内），来运行该解决方案并在本地对其进行测试。</p>
+<ol>
+<li>
+<p>从“开始”|“所有程序”|“Microsoft Visual Studio 2010”<strong></strong>打开 Visual Studio。</p>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开项目”<strong></strong><strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到 <strong>\Source\Ex1-ServiceBusRemoting\Begin</strong>，选择 <strong>ServiceRemoting.sln</strong> 并单击“打开”<strong></strong>。</p>
+<p>该解决方案包含以下项目：</p>
+<p>| <strong>Common</strong> | 解决方案中供所有项目共享的一个库项目，包含服务和数据协定以及应用程序中 Web 服务的客户端代理 | | --- | --- | | <strong>FictionalInvestment.Crm.Data</strong> | 为 Fictional Bank 托管 CRM 应用程序服务的控制台应用程序 | | <strong>FictionalInvestment.PublicServices</strong> | 为 Fictional Bank 托管公共服务的控制台应用程序 | | <strong>FictionalRetail.Crm.Client</strong> | 使用 CRM 所提供的公共服务的 Windows 窗体应用程序 |</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/solution-explorer-showing-the-crm-application-components-c.png" alt="显示 CRM 应用程序组件的解决方案资源管理器"/></p>
+<p><em>显示 CRM 应用程序组件的解决方案资源管理器</em></p>
+</li>
+<li>
+<p>配置解决方案以同时启动客户端以及 CRM 数据服务和 FI 公共服务。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>ServiceRemoting</strong> 解决方案并选择“设置启动项目”<strong></strong>。在“解决方案‘ServiceRemoting’属性页”<strong></strong>对话框中，选择标记为“多个启动项目”<strong></strong>的选项，然后为 <strong>Fictional.Investment.Crm.Data</strong>、<strong>Fictional.Investment.PublicServices</strong> 和 <strong>FictionalRetail.Crm.Client</strong> 项目将“操作”<strong></strong>设置为“启动”<em><strong></strong>。</em>请确保项目顺序如下图所示。若要更改启动顺序，请选择列表中的项目并单击向上或向下箭头以移动该项目。按“确定”<strong></strong>以确认更改。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/configuring-the-start-up-order-of-the-projects-in-the-solution.png" alt="配置解决方案中项目的启动顺序"/></p>
+<p><em>配置解决方案中项目的启动顺序</em></p>
+</li>
+<li>
+<p>按 <strong>F5</strong> 来构建解决方案并启动服务和客户端应用程序。</p>
+</li>
+<li>
+<p>请注意，每项服务都会显示它所侦听的 URL，并且 CRM 数据服务和 FI 公共服务这两项服务当前使用 net.tcp 且侦听环回地址 (localhost)。</p>
+</li>
+<li>
+<p>切换到“Fictional Retail CRM 客户端”<strong></strong>应用程序。UI 显示一个客户列表，以及这些客户当前在两个银行实体之一中的分配情况。</p>
+</li>
+<li>
+<p>通过选中每位客户名称旁的复选框并单击“移至 Fictional Retail Bank”<strong></strong>，将一个或多个客户从 Fictional Investment 移至 Fictional Retail。通过观察 CRM 数据服务和 FI 公共服务的控制台窗口中的状态消息，确认操作是否成功。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/testing-the-on-premises-scenario-with-a-nettcpbinding.png" alt="使用 NetTcpBinding 测试本地方案"/></p>
+<p><em>使用 NetTcpBinding 测试本地方案</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>客户端应用程序会对 CRM 服务调用 <strong>ListCustomers</strong> 操作以检索客户列表，并对该服务调用 <strong>MoveCustomersToBankingEntity</strong> 操作以将客户传输到另一实体。</p>
+</div>
+</li>
+<li>
+<p>在两个控制台窗口中按 <strong>Enter</strong> 以终止服务，然后退出客户端应用程序。</p>
+</li>
+</ol>
+<p> </p>
+<p><strong>任务 2 - 设置和配置 Service Bus 命名空间</strong></p>
+<p>在此任务中，您将创建一个新的 Windows Azure Service Bus 命名空间。</p>
+<ol>
+<li>
+<p>导航到 <a href="https://manage.windowsazure.cn/">Windows Azure 门户</a>。如果您尚未登录，系统将提示您输入您的 Microsoft 帐户凭据。</p>
+</li>
+<li>
+<p>若要管理 <strong>Service Bus</strong> 服务，您需要访问以前的管理门户版本。为此，请将鼠标指针悬停于主页标题中的“预览”<strong></strong>上并单击“转到以前的门户”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/navigating-to-the-production-portal.png" alt="导航到以前的门户"/></p>
+<p><em>导航到以前的门户</em></p>
+</li>
+<li>
+<p>在页面加载后，请单击左侧窗格中的“Service Bus、Access Control 和 Caching”<strong></strong>链接，然后选择“服务”<strong></strong>元素下的“Service Bus”<strong></strong>项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/configuring-windows-azure-service-bus.png" alt="配置 Windows Azure Service Bus"/></p>
+<p><em>配置 Windows Azure Service Bus</em></p>
+</li>
+<li>
+<p>添加服务命名空间。服务命名空间为通过 Service Bus 公开的每个应用程序提供应用程序边界，并用于为该应用程序构造 Service Bus 终结点。若要添加服务命名空间，请单击上方功能导航栏上的“新建”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/creating-a-new-namespace.png" alt="创建新的命名空间"/></p>
+<p><em>创建新的命名空间</em></p>
+</li>
+<li>
+<p>为您的服务“命名空间”<strong></strong>输入一个名称，选择要在其中运行您的服务的“区域”<strong></strong>，选择“订阅”<strong></strong>并单击“创建命名空间”<strong></strong>按钮。请确保首先验证名称的可用性。服务名称必须是全局唯一的，因为它们托管在云中并且可供由您决定授予其访问权的任何人访问。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/creating-a-new-service-namespace.png" alt="创建新的服务命名空间"/></p>
+<p><em>创建新的服务命名空间</em></p>
+<p>在激活服务期间，请耐心等待。设置服务时可能需要几分钟时间。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 您可能必须刷新浏览器才能显示服务已激活。</p>
+</div>
+</li>
+<li>
+<p>激活命名空间后，在可用命名空间列表中单击其名称以显示“服务命名空间”信息页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/summary-page-listing-available-service-namespaces.png" alt="列出可用服务命名空间的摘要页"/></p>
+<p><em>列出可用服务命名空间的摘要页</em></p>
+</li>
+<li>
+<p>在“属性”<strong></strong>右窗格中，找到“Service Bus”<strong></strong>部分并单击默认密钥中的“查看”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/namespace-properties-section.png" alt="命名空间属性部分"/></p>
+<p><em>命名空间属性部分</em></p>
+</li>
+<li>
+<p>记录“默认颁发者”<strong></strong>和“默认密钥”<strong></strong>中显示的值，并单击“确定”<strong></strong>。您稍后将需要这些值来使用 Access Control 进行身份验证。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/service-bus-default-keys.png" alt="Service Bus 默认密钥"/></p>
+<p><em>Service Bus 默认密钥</em></p>
+</li>
+</ol>
+<p>现在您已为本动手实验创建了新的命名空间。若要随时登录，只需导航到 <a href="https://manage.windowsazure.cn">Windows Azure 门户</a>，单击“登录”<strong></strong>并提供您的 Microsoft 帐户凭据。</p>
+<p> </p>
+<p><strong>任务 3 - 配置 Access Control 服务以进行身份验证</strong></p>
+<p>Windows Azure Access Control 服务 (ACS) 可控制 Service Bus 身份验证。您可以利用 ACS 对侦听 Service Bus 的主机以及使用总线连接到该服务的客户端进行身份验证。</p>
+<p>Access Control 服务中的颁发者代表一个受信任应用程序。使用 ACS，您可以创建规则以将传入声明从受信任的标识提供者映射到应用程序或服务使用的 ACS 所发布的声明。更具体地说，对于 Service Bus，这些规则会将颁发者的标识映射到 Service Bus 用于确定允许颁发者所执行操作的一系列声明中。例如，AC 发布的<em>侦听</em> 声明允许应用程序在 Service Bus 上公开服务，而<em>发送</em> 声明允许其发送消息。</p>
+<p>管理门户使您能够管理 Access Control 服务资源，包括其受信任的颁发者和转换规则。此外，可用于管理 Access Control 服务资源的命令行工具 (sbaztool.exe) 是 Service Bus 示例的一部分。</p>
+<p>在此任务中，您将使用管理门户创建两个颁发者，一个颁发者用于 Fictional Investment，另一个用于 Fictional Retail。然后，您将创建规则以将 Fictional Investment 颁发者的标识映射到<em>侦听</em> 和<em>发送</em> 声明，使其能够发布服务以及发送消息，然后创建第二条规则来将 Fictional Retail 颁发者的标识映射到<em>发送</em> 声明，使其能够将消息连接和发送到 Service Bus 上发布的服务。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 有关使用命令行工具创建颁发者和 Access Control 服务规则的替代过程，请参阅“附录 1 - 使用 Windows Azure Access Control 管理命令行工具”。</p>
+</div>
+<ol>
+<li>
+<p>导航到 <a href="https://manage.windowsazure.cn/">Windows Azure 门户</a>。如果您尚未登录，系统将提示您输入您的 Microsoft 帐户凭据。</p>
+</li>
+<li>
+<p>若要管理 <strong>Service Bus</strong> 服务，您需要访问以前的管理门户版本。为此，请将鼠标指针悬停于主页标题中的“预览”<strong></strong>上并单击“转到以前的门户”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/navigating-to-the-production-portal.png" alt="导航到以前的门户"/></p>
+<p><em>导航到以前的门户</em></p>
+</li>
+<li>
+<p>请单击左侧窗格中的“Service Bus、Access Control 和 Caching”<strong></strong>链接，然后选择“服务”<strong></strong>元素下的“Service Bus”<strong></strong>项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/windows-azure-servicebus-namespaces.png" alt="Windows Azure ServiceBus 命名空间"/></p>
+<p><em>Windows Azure ServiceBus 命名空间</em></p>
+</li>
+<li>
+<p>选择您的命名空间并在上方功能区中单击“Access Control 服务”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/accessing-access-control-service.png" alt="访问 Access Control 服务"/></p>
+<p><em>访问 Access Control 服务</em></p>
+</li>
+<li>
+<p>在 Access Control 服务门户中，从左窗格菜单中选择“服务标识”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/access-control-service-portal.png" alt="Access Control 服务门户"/></p>
+<p><em>Access Control 服务门户</em></p>
+</li>
+<li>
+<p>单击“添加”<strong></strong>链接以添加新标识。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/service-identities-page.png" alt="“服务标识”页"/></p>
+<p><em>“服务标识”页</em></p>
+</li>
+<li>
+<p>在“添加服务标识”<strong></strong>页中，在“服务标识设置”<strong></strong>下的“名称”<strong></strong>字段中输入“fictionalInvestment”。在“凭据设置”<strong></strong>下，选择“对称密钥”作为类型并单击“生成”<strong></strong>按钮以为此凭据生成对称密钥。记下此密钥，因为在下一步中您将需要它。最后，将“到期日期”<strong></strong>更改为“12/31/9999”，然后单击“保存”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-a-service-identity.png" alt="添加服务标识"/></p>
+<p><em>添加服务标识</em></p>
+</li>
+<li>
+<p>现在，单击“添加”<strong></strong>链接以向“fictionalInvestment”标识中添加新凭据。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/edit-service-identity.png" alt="编辑服务标识"/></p>
+<p><em>编辑服务标识</em></p>
+</li>
+<li>
+<p>在“添加凭据”<strong></strong>页中，选择“密码”作为“凭据类型”<strong></strong>。然后，在“密码”<strong></strong>字段中输入您在上一步中生成的对称密钥。最后，将“到期日期”<strong></strong>更改为“12/31/9999”，然后单击“保存”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/add-credential.png" alt="添加凭据"/></p>
+<p><em>添加凭据</em></p>
+</li>
+<li>
+<p>在“编辑服务标识”<strong></strong>页中，单击“保存”<strong></strong>按钮以保存目前为止您所做的全部更改。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/saving-service-identity-information.png" alt="保存服务标识信息"/></p>
+<p><em>保存服务标识信息</em></p>
+</li>
+<li>
+<p>现在，创建名为“fictionalRetail”的新标识。为此，重复步骤 5 到 9，但请使用“fictionalRetail”作为“标识名称”<strong></strong>。</p>
+</li>
+<li>
+<p>现在，您将创建可将颁发者的标识映射到 Service Bus 用于确定颁发者可执行操作的一系列声明中。为此，请单击左窗格菜单中的“规则组”<strong></strong>链接。您首先将为“fictionalInvestment”标识创建“发送”规则。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-rule-groups.png" alt="添加规则组"/></p>
+<p><em>添加规则组</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>规则描述当收到特定颁发者为获取特定资源的令牌而发出的请求时所执行的逻辑。对于传入声明类型和值，规则指定 Windows Azure AC 为进行响应而颁发的令牌中所包含的声明类型和值。传出声明的值指定服务是否允许访问资源或者请求操作（如果访问被拒绝，将不会有传出声明）。<br />在本例中，规则会将 Fictional Investment 的颁发者 ID 映射到<em>侦听</em> Service Bus 操作。</p>
+</div>
+</li>
+<li>
+<p>在“规则组”<strong></strong>页中，请单击“规则组”<strong></strong>下的“Default Rule Group for ServiceBus”<strong></strong>组名称以对其进行编辑。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/editing-the-default-rule-group-for-servicebus.png" alt="编辑 Default Rule Group for ServiceBus"/></p>
+<p><em>编辑 Default Rule Group for ServiceBus</em></p>
+</li>
+<li>
+<p>在“编辑规则组”<strong></strong>页中，单击“添加”<strong></strong>以添加一条新规则。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-editing-rule-group.png" alt="添加编辑规则组"/></p>
+<p><em>添加编辑规则组</em></p>
+</li>
+<li>
+<p>在“添加声明规则”<strong></strong>页中，在“If”<strong></strong>下选择“Access Control 服务”作为“输入声明颁发者”<strong></strong>。在“输入声明类型”<strong></strong>下，选中“选择类型”并保留组合框的默认值。在“输入声明值”<strong></strong>下选择“输入值”<strong></strong>并输入“fictionalInvestment”。在“Then”<strong></strong>下选择“输入类型”<strong></strong>作为“输出声明类型”<strong></strong>并输入“net.windows.servicebus.action”。选择“输入值”<strong></strong>作为“输出声明值”<strong></strong>并输入“侦听”。然后单击“保存”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-a-listen-claim-rule.png" alt="添加侦听声明规则"/></p>
+<p><em>添加侦听声明规则</em></p>
+</li>
+<li>
+<p>现在，您将向 fictionalInvestment 标识中添加一条“发送”规则。在“编辑规则组”<strong></strong><strong>页中，单击“添加”</strong>以添加一条新规则。然后在“添加声明规则”<strong></strong><strong>页中，在“If”</strong><strong>下选择“Access Control 服务”作为“输入声明颁发者”</strong>。在“输入声明类型”<strong></strong>下，选中“选择类型”并保留组合框的默认值。在“输入声明值”<strong></strong>下选择“输入值”<strong></strong>并输入“fictionalInvestment”。在“Then”<strong></strong>下选择“输入类型”<strong></strong>作为“输出声明类型”<strong></strong>并输入“net.windows.servicebus.action”。选择“输入值”<strong></strong>作为“输出声明值”<strong></strong>并输入“发送”。然后单击“保存”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-a-send-claim-rule2.png" alt="添加发送声明规则"/></p>
+<p><em>添加发送声明规则</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>向 <em>fictionalInvestment</em> 颁发者授予<em>发送</em> 权限是为练习 2 做准备，以便在将 FI 公共服务重新定位到 Windows Azure 并在 Service Bus 上发布 CRM 数据服务后允许第一项服务对其进行访问。</p>
+</div>
+</li>
+<li>
+<p>最后，为 <em>fictionalRetail</em> 颁发者添加“发送”规则。在“编辑规则组”<strong></strong><strong>页中，单击“添加”</strong>以添加一条新规则。然后在“添加声明规则”<strong></strong><strong>页中，在“If”</strong><strong>下选择“Access Control 服务”作为“输入声明颁发者”</strong>。在“输入声明类型”<strong></strong>下，选中“选择类型”并保留组合框的默认值。在“输入声明值”<strong></strong>下选择“输入值”<strong></strong>并输入“fictionalRetail”。在“Then”<strong></strong>下选择“输入类型”<strong></strong>作为“输出声明类型”<strong></strong>并输入“net.windows.servicebus.action”。选择“输入值”<strong></strong>作为“输出声明值”<strong></strong>并输入“发送”。然后单击“保存”<strong></strong>按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-a-send-claim-rule.png" alt="添加发送声明规则"/></p>
+<p><em>添加发送声明规则</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>您现在已为服务和客户端应用程序创建了颁发者，并为服务颁发者设置了规则，以便为其授予<em>侦听</em> 和<em>发送</em> 权限并为客户端应用程序授予<em>发送</em> 权限。</p>
+</div>
+</li>
+<li>
+<p>在“编辑规则组”<strong></strong>页中，单击“保存”<strong></strong>以保存全部更改。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/saving-rule-group-changes.png" alt="保存规则组更改"/></p>
+<p><em>保存规则组更改</em></p>
+</li>
+</ol>
+<p> </p>
+<p><strong>任务 4 - 将服务配置为在 Windows Azure Service Bus 上进行侦听</strong></p>
+<p>FI 公共服务向 Service Bus 注册其终结点，以便通过可发现的特定 URI 公开该服务并使其可供位于任何位置的任何人使用，即使当该服务位于防火墙之后亦如此。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/application-architecture-with-services-and-clients-connected-via-the-service-bus.png" alt="通过 Service Bus 连接了服务和客户端的应用程序体系结构"/></p>
+<p><em>通过 Service Bus 连接了服务和客户端的应用程序体系结构</em></p>
+<p>在 Service Bus 上发布 FI 公共服务非常简单。只需添加对 Service Bus 程序集的引用，将服务使用的绑定从 <strong>NetTcpBinding</strong> 更改为 <strong>NetTcpRelayBinding</strong>，并将服务的终结点地址更新为其在云中的新位置。</p>
+<p>在此任务中，您将更新 Fictional Bank 应用程序以发布和使用它通过 Service Bus 提供的服务。</p>
+<ol>
+<li>
+<p>如果尚未打开 Visual Studio，请从“开始”|“所有程序”|“Microsoft Visual Studio 2010”<strong></strong>启动 Visual Studio。</p>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开项目”<strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到 <strong>\Source\Ex1-ServiceBusRemoting\Begin</strong>，选择 <strong>Begin.sln</strong> 并单击“打开”<strong></strong>。</p>
+</li>
+<li>
+<p>在 FI 公共服务项目中添加对 Service Bus 程序集的引用。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalInvestment.PublicServices</strong> 项目并选择“添加引用”<strong></strong>。在“.NET”<strong></strong>选项卡中，选择“Microsoft.ServiceBus”<strong></strong>程序集并单击“确定”<strong></strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>确认您选择了 <strong>Microsoft.ServiceBus</strong> 程序集的 1.7.0.0 版本。如果您在“.NET”<strong></strong>选项卡中未能找到“Microsoft.ServiceBus”<strong></strong>程序集，请使用“浏览”<strong></strong>选项卡在 <em>*%Program Files%\Microsoft SDKs\Windows Azure.NET SDK\2012-06\ref*</em> 文件夹中查找此程序集。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/locating-the-microsoft.servicebus-assembly-in-the-sdk-assemblies-folder.png" alt="在 SDK 程序集文件夹中查找 Microsoft.ServiceBus 程序集"/></p>
+<p><em>在 SDK 程序集文件夹中查找 Microsoft.ServiceBus 程序集</em></p>
+</li>
+<li>
+<p>打开 <strong>FictionalInvestment.PublicServices</strong> 项目的 <strong>App.config</strong> 文件。</p>
+</li>
+<li>
+<p>在 <strong>system.ServiceModel</strong> 的 <strong>services</strong> 部分，查找名为 <strong>FictionalInvestment.PublicServices.CrmPublicService</strong> 的服务的 <strong>endpoint</strong> 元素。</p>
+</li>
+<li>
+<p>对于此终结点，将 <strong>address</strong> 属性值更新为 <em><strong>sb://[YOUR-NAMESPACE].servicebus.chinacloudapi.cn/CrmPublicService</strong></em>，其中 [<strong>YOUR_NAMESPACE</strong>] 是您为您的项目所定义的 Service Bus 命名空间。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 服务命名空间为通过 Service Bus 公开的每个应用程序提供一个应用程序边界。您可在 Windows Azure 门户中定义命名空间。</p>
+</div>
+</li>
+<li>
+<p>接下来，将此终结点的 <strong>binding</strong> 属性值从 <strong>netTcpBinding</strong> 更改为 <strong>netTcpRelayBinding</strong>。</p>
+</li>
+<li>
+<p>最后，向 endpoint 元素中添加一个新的 <strong>behaviorConfiguration</strong> 属性并将其值设置为 <strong>serviceBusCredentialBehavior</strong>。您将在下一步中定义此行为。已更新的 endpoint 元素应该如下图所示，除了命名空间应与您自己的相符。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/configuring-the-endpoint-used-to-publish-the-service-on-the-service-bus.png" alt="配置用于在 Service Bus 上发布服务的终结点"/></p>
+<p><em>配置用于在 Service Bus 上发布服务的终结点</em></p>
+</li>
+<li>
+<p>在 <strong>system.serviceModel</strong> 中，提供您在上一步中为终结点指定的行为配置。此行为向 Service Bus 提供对服务发布者进行身份验证所需的凭据。若要提供凭据，请插入以下（突出显示的）配置片段中所示的 <strong>behaviors</strong> 元素。将 <strong>issuerSecret</strong> 属性值替换为您在上一任务中创建 <em>fictionalInvestment</em> 颁发者时所记录的该颁发者的“当前密钥”<strong></strong>。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex01 CredentialsBehavior</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   &lt;system.serviceModel&gt;     &lt;services&gt;       ...     &lt;/services&gt;  &amp;lt;client&amp;gt;   ... &amp;lt;/client&amp;gt;  &amp;lt;behaviors&amp;gt;   &amp;lt;endpointBehaviors&amp;gt;     &amp;lt;behavior name="serviceBusCredentialBehavior"&amp;gt;       &amp;lt;transportClientEndpointBehavior credentialType="SharedSecret"&amp;gt;         &amp;lt;clientCredentials&amp;gt;           &amp;lt;sharedSecret issuerName="fictionalInvestment"                          issuerSecret="[YOUR_FI_ISSUER_KEY]"/&amp;gt;         &amp;lt;/clientCredentials&amp;gt;       &amp;lt;/transportClientEndpointBehavior&amp;gt;     &amp;lt;/behavior&amp;gt;   &amp;lt;/endpointBehaviors&amp;gt; &amp;lt;/behaviors&amp;gt;     &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+</li>
+<li>
+<p>将以下（突出显示的）块插入 <strong>system.serviceModel</strong> 部分以启用行为和绑定扩展。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex01 BehaviorExtensions</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   ...   &lt;system.serviceModel&gt;     ...     &lt;extensions&gt;       &lt;behaviorExtensions&gt;         &lt;add name="transportClientEndpointBehavior"              type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;       &lt;/behaviorExtensions&gt;       &lt;bindingExtensions&gt;         &lt;add name="netTcpRelayBinding"              type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;       &lt;/bindingExtensions&gt;     &lt;/extensions&gt;   &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+</li>
+<li>
+<p>若要完成在 Service Bus 上发布服务所需的更改，请配置服务的连接模式。打开 <strong>FictionalInvestment.PublicServices</strong> 项目中的 <strong>Program.cs</strong> 文件，并在方法 <strong>Main</strong> 的开头插入以下（突出显示的）代码。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex01 ConnectivityMode</em>）</p>
+<pre class="prettyprint">internal static void Main() {   // Tcp: All communication to the Service Bus is performed using outbound TCP connections.   // Http: All communication to Service Bus is performed using outbound HTTP connections.   // AutoDetect: The Service bus client automatically selects between TCP and HTTP connectivity.   Microsoft.ServiceBus.ServiceBusEnvironment.SystemConnectivity.Mode =                              Microsoft.ServiceBus.ConnectivityMode.AutoDetect;    using (ServiceHost serviceHost = new ServiceHost(typeof(CrmPublicService)))   {     ...   } }</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>侦听器服务与 Windows Azure Service Bus 之间的默认连接模式为 TCP。但是，如果网络环境不允许 HTTP 之外的出站 TCP 连接（例如，由于 Fictional Investment 的 IT 策略发生更改），则您可以配置相应绑定以使用 HTTP 连接与 Service Bus 进行通信。对于多数方案，建议您将模式设置为 AutoDetect。这表明您的应用程序将尝试使用 TCP 连接到 Service Bus，但如果无法执行此操作，将使用 HTTP。</p>
+</div>
+</li>
+</ol>
+<p> </p>
+<p><strong>任务 5 - 配置客户端应用程序以连接到 Windows Azure Service Bus 上的服务</strong></p>
+<p>在上一任务中，您已将服务配置为在 Service Bus 上进行侦听。在此任务中，您将以类似方式设置客户端应用程序以使其能够连接到服务。</p>
+<ol>
+<li>
+<p>在客户端应用程序项目中添加对 Service Bus 程序集的引用。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalRetail.Crm.Client</strong> 项目并选择“添加引用”<strong></strong>。在“.NET”<strong></strong>选项卡中，选择“Microsoft.ServiceBus”<strong></strong>程序集并单击“确定”<strong></strong>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>确认您选择了 <strong>Microsoft.ServiceBus</strong> 程序集的 1.7.0.0 版本。如果您在“.NET”<strong></strong>选项卡中未能找到“Microsoft.ServiceBus”<strong></strong>程序集，请使用“浏览”<strong></strong>选项卡在 <strong>%ProgramFiles%\Microsoft SDKs\Windows Azure.NET SDK\2012-06\ref</strong> 文件夹中查找此程序集。</p>
+</div>
+</li>
+<li>
+<p>打开 <strong>FictionalRetail.Crm.Client</strong> 项目中的 <strong>App.config</strong> 文件。</p>
+</li>
+<li>
+<p>在 <strong>system.serviceModel</strong> 的 <strong>client</strong> 部分查找单个 <strong>endpoint</strong> 元素。</p>
+</li>
+<li>
+<p>将终结点的 <strong>address</strong> 值更改为 <em><strong>sb://[YOUR-NAMESPACE].servicebus.chinacloudapi.cn/CrmPublicService</strong></em>，其中 [<strong>YOUR_NAMESPACE</strong>] 是您为您的项目所定义的 Service Bus 命名空间。</p>
+</li>
+<li>
+<p>接下来，将 <strong>binding</strong> 属性值从 <strong>netTcpBinding</strong> 更改为 <strong>netTcpRelayBinding</strong>。</p>
+</li>
+<li>
+<p>若要完成终结点配置，请向 endpoint 元素中添加一个新的 <strong>behaviorConfiguration</strong> 属性并将其值设置为 <strong>serviceBusCredentialBehavior</strong>。</p>
+<p>请注意，您在此处对客户端应用的更改基本上与对服务配置所做的更改相同。已更新的 service 元素应该如下图所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/configuring-the-client-to-consume-a-service-on-the-service-bus.png" alt="配置客户端以使用 Service Bus 上的服务"/></p>
+<p><em>配置客户端以使用 Service Bus 上的服务</em></p>
+</li>
+<li>
+<p>最后，如下所示向 <strong>system.serviceModel</strong> 部分添加一个 <strong>behaviors</strong> 元素，以定义您在上一步中为终结点指定的行为配置。此行为向 Service Bus 提供对客户端应用程序进行身份验证所需的凭据。将 <strong>issuerSecret</strong> 属性值替换为您在上一任务中创建 <em>fictionalRetail</em> 颁发者时所记录的该颁发者的“当前密钥”<strong></strong>。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex01 CredentialsBehaviorClient</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   &lt;system.serviceModel&gt;     &lt;client&gt;       ...     &lt;/client&gt;  &amp;lt;behaviors&amp;gt;   &amp;lt;endpointBehaviors&amp;gt;     &amp;lt;behavior name="serviceBusCredentialBehavior"&amp;gt;       &amp;lt;transportClientEndpointBehavior credentialType="SharedSecret"&amp;gt;         &amp;lt;clientCredentials&amp;gt;           &amp;lt;sharedSecret issuerName="fictionalRetail"                          issuerSecret="[YOUR_FR_ISSUER_KEY]"/&amp;gt;         &amp;lt;/clientCredentials&amp;gt;       &amp;lt;/transportClientEndpointBehavior&amp;gt;     &amp;lt;/behavior&amp;gt;   &amp;lt;/endpointBehaviors&amp;gt; &amp;lt;/behaviors&amp;gt;     &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+</li>
+<li>
+<p>将以下（突出显示的）块插入 <strong>system.serviceModel</strong> 部分以启用行为和绑定扩展。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex02 BehaviorExtensions</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   ...   &lt;system.serviceModel&gt;     ...     &lt;extensions&gt;       &lt;behaviorExtensions&gt;         &lt;add name="transportClientEndpointBehavior"              type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;       &lt;/behaviorExtensions&gt;       &lt;bindingExtensions&gt;         &lt;add name="netTcpRelayBinding"              type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;       &lt;/bindingExtensions&gt;     &lt;/extensions&gt;   &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+</li>
+<li>
+<p>设置客户端应用程序的连接模式。右键单击 <strong>FictionalRetail.Crm.Client</strong> 项目中的 <strong>Main.cs</strong> 文件并选择“查看代码”<strong></strong>，然后在 <strong>Main</strong> 类的构造函数开头插入以下（突出显示的）代码。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex01 ConnectivityModeClient</em>）</p>
+<pre class="prettyprint">public Main() {   // Tcp: All communication to the Service Bus is performed using outbound TCP connections.   // Http: All communication to Service Bus is performed using outbound HTTP connections.   // AutoDetect: The Service bus client automatically selects between TCP and HTTP connectivity.   Microsoft.ServiceBus.ServiceBusEnvironment.SystemConnectivity.Mode =                              Microsoft.ServiceBus.ConnectivityMode.AutoDetect;    this.client = new PublicServiceClient();   this.InitializeComponent(); }</pre>
+</li>
+</ol>
+<p> </p>
+<p><strong>验证</strong></p>
+<p>您现在可以使用 Service Bus 测试应用程序。</p>
+<ol>
+<li>
+<p>配置解决方案以同时启动 CRM 数据服务和 FI 公共服务。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>ServiceRemoting</strong> 解决方案并选择“设置启动项目”<strong></strong>。在“解决方案‘ServiceRemoting’属性页”<strong></strong>对话框中，选择“多个启动项目”<strong></strong>选项，然后为 <strong>Fictional.Investment.Crm.Data</strong> 和 <strong>Fictional.Investment.PublicServices</strong> 项目将“操作”<strong></strong>设置为“启动”<em></em>，并采用相同的启动顺序，将其余项目设置为“无”<em></em>。若要更改启动顺序，请选择列表中的项目并单击向上或向下箭头以移动该项目。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 由于托管在 Service Bus 上的服务可能需要较长的时间来开始侦听，因此您将手动启动客户端应用程序以确保已启动服务。</p>
+</div>
+</li>
+<li>
+<p>按 <strong>F5</strong> 生成并运行应用程序。这将同时启动 CRM 数据服务和 FI 公共服务。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>您可能会发现一个 Windows 防火墙警告，指明防火墙已阻止程序的某些功能并提示是否允许访问。单击“取消”<strong></strong>。您无需进行任何进一步访问。</p>
+</div>
+</li>
+<li>
+<p>等待这两项服务启动并在其各自的控制台窗口中显示其状态。请注意 FI 公共服务侦听的 URL 且其命名结构现在是“<em>sb:</em>”并且 URI 包含您的服务命名空间。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>在两项服务成功启动之前，不要继续执行下一步。在启动时，每项服务都会在其控制台窗口中显示它所侦听的 URL。</p>
+</div>
+</li>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalRetail.Crm.Client</strong>，指向“调试”<strong></strong>并选择“启动新实例”<strong></strong>以启动客户端应用程序。</p>
+</li>
+<li>
+<p>请注意，客户端应用程序会显示从服务中检索到的客户的列表，表明它成功访问了 Service Bus 上发布的服务。</p>
+</li>
+<li>
+<p>从列表中选择一个或多个客户，并单击“移动至 Fictional Retail Bank”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/crm-application-working-against-the-service-published-by-the-service-bus.png" alt="CRM 应用程序正在访问 Service Bus 所发布的服务"/></p>
+<p><em>CRM 应用程序正在访问 Service Bus 所发布的服务</em></p>
+</li>
+<li>
+<p>请注意，客户端应用程序将继续像以前服务在本地进行侦听时那样工作。这表明位于 Financial Investment 网络之外的客户端仍能通过 Service Bus 连接到服务。</p>
+</li>
+<li>
+<p>在两个控制台窗口中按 <strong>Enter</strong> 以终止服务，然后退出客户端应用程序。</p>
+</li>
+</ol>
+<p> </p>
+<h3>练习 2：使用 Service Bus 发布托管在 Windows Azure 中的服务</h3>
+<p>Azure 云服务还可使用 Service Bus 发布其终结点。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/listening-on-the-service-bus.png" alt="将服务部署到 Windows Azure 并侦听 Service Bus 的应用程序体系结构"/></p>
+<p><em>将服务部署到 Windows Azure 并侦听 Service Bus 的应用程序体系结构</em></p>
+<p>在此练习中，您将更新 FI 公共服务项目并将其转换为辅助角色。这使您能够在 Windows Azure 中托管该服务。由于该服务始终通过 Service Bus 进行侦听，因此，客户端仍然无法察觉更改并继续在不更改其代码或配置的情况下运行。然而，在此方案中，CRM 数据服务仍位于本地，并且您现在需要将其配置为在 Service Bus 上进行侦听，以便现在托管在 Windows Azure 中的 FI 公共服务能够访问它。</p>
+<p> </p>
+<p><strong>任务 1 - 在 Windows Azure 辅助角色中托管服务</strong></p>
+<p>在此任务中，您将更新 FI 公共服务项目（当前是一个 Windows 控制台应用程序）并将其转换为辅助角色。</p>
+<ol>
+<li>
+<p><strong></strong><strong></strong>在“开始”|“所有程序”|“Microsoft Visual Studio 2010”<strong></strong>中，通过右键单击“Microsoft Visual Studio 2010”快捷方式并选择“以管理员身份运行”，以提升的管理员模式打开 Visual Studio。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 以提升的管理员模式运行是在计算模拟器中运行 Windows Azure 项目所必需的。</p>
+</div>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开项目”<strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到本实验的 <strong>Source\Ex2-AzureServices\Begin</strong> 文件夹，选择 <strong>ServiceRemoting.sln</strong> 并单击“打开”<strong></strong>。或者，您也可以继续使用在完成上一练习后获得的解决方案。</p>
+</li>
+<li>
+<p>向 FI CrmData 项目中添加对 <strong>Microsoft.ServiceBus</strong> 的引用。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalInvestment.Crm.Data</strong> 项目并选择“添加引用”<strong></strong>。在“.NET”<strong></strong>选项卡中，选择“Microsoft.ServiceBus”<strong></strong>引用并单击“确定”<strong></strong>。</p>
+</li>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalInvestment.PublicServices</strong> 项目并选择“添加引用”<strong></strong>。在“.NET”<strong></strong>选项卡中，选择“Microsoft.WindowsAzure.Diagnostics”<strong></strong>、“Microsoft.WindowsAzure.ServiceRuntime”<strong></strong>和“Microsoft.WindowsAzure.StorageClient”<strong></strong>组件并单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-a-reference-to-the-windows-azure-assemblies.png" alt="添加对 Windows Azure 程序集的引用"/></p>
+<p><em>添加对 Windows Azure 程序集的引用</em></p>
+</li>
+<li>
+<p>Windows Azure VM 中通常并不存在服务所需的某些程序集；因此，您必须随服务包提供这些程序集以确保它们可用。可通过配置相应程序集引用的“复制本地”属性来实现此目的。若要配置引用，请在“解决方案资源管理器”<strong></strong>中展开 <strong>FictionalInvestment.PublicServices</strong> 项目的“引用”<strong></strong>节点，右键单击“引用”<strong></strong>列表中的相应引用，并选择“属性”<strong></strong>。</p>
+<p>若要将程序集添加到服务包中，请在程序集的“属性”<strong></strong>窗口中，将“复制本地”<strong></strong>设置的值更改为 <em>True</em>。</p>
+<p>使用此过程将 <strong>Microsoft.ServiceBus</strong> 程序集包含在 Windows Azure 服务包中，并确保 <strong>Microsoft.WindowsAzure.Diagnostics</strong> 和 <strong>Microsoft.WindowsAzure.StorageClient</strong> 也部署在本地。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/including-an-assembly-in-the-windows-azure-service-package.png" alt="将程序集包含在 Windows Azure 服务包中"/></p>
+<p><em>将程序集包含在 Windows Azure 服务包中</em></p>
+</li>
+<li>
+<p>接下来，创建一个新的云服务项目并将其添加到解决方案中。为此，请在“文件”<strong></strong>菜单中，指向“添加”<strong></strong>，然后选择“新建项目”<strong></strong>。在“新建项目”<strong></strong>对话框中，展开“已安装的模板”<strong></strong>列表中的 Visual C# 语言并选择“云”<strong></strong>。选择“Windows Azure 项目”<strong></strong>模板，将项目的“名称”<strong></strong>设置为 <strong>CloudService</strong> 并接受解决方案文件夹中的建议位置。单击“确定”<strong></strong>以创建项目。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/creating-a-new-windows-azure-cloud-service-project.png" alt="创建新的 Windows Azure 云服务项目"/></p>
+<p><em>创建新的 Windows Azure 云服务项目</em></p>
+</li>
+<li>
+<p>在“新建 Windows Azure 项目”<strong></strong>对话框中，单击“确定”<strong></strong>而不添加任何新角色。您将重新使用现有服务项目并将其用作辅助角色。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/no-additional-roles-are-required.png" alt="无需任何其他角色"/></p>
+<p><em>无需任何其他角色</em></p>
+</li>
+<li>
+<p>在该云服务项目中将 FI 公共服务项目添加为辅助角色。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>CloudService</strong> 项目中的“角色”<strong></strong>节点，指向“添加”<strong></strong>，然后选择“解决方案中的辅助角色项目”<strong></strong>。在“与角色项目关联”<strong></strong>对话框中，选择“FictionalInvestment.PublicServices”<strong></strong>项目并单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/adding-the-fi-public-service-project-as-a-worker-role.png" alt="将 FI 公共服务项目添加为辅助角色"/></p>
+<p><em>将 FI 公共服务项目添加为辅助角色</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>FictionalInvestment.PublicServices</strong> 项目是一个标准的 Windows 控制台应用程序项目。通常，不应将此类型的应用程序用作辅助角色的起点。为了使 Visual Studio 能够将该服务识别为备选辅助角色并允许其名称显示在“与角色项目关联”<strong></strong>对话框中，必须修改项目 (.csproj) 文件以添加 <strong>RoleType</strong> 元素并将其值设置为 <em>Worker</em>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/roletype.png" alt="Roletype"/></p>
+</div>
+</li>
+<li>
+<p>为了能够将现有服务项目用作辅助角色，您需要在项目中包含角色入口点。若要插入预构建的入口点类，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalInvestment.PublicServices</strong> 项目，指向“添加”<strong></strong>并选择“现有项”<strong></strong>。在“添加现有项”<strong></strong><strong></strong>对话框中，导航到本实验的 <strong>Source</strong> 文件夹中的 <strong>Assets</strong> 文件夹，选择 <strong>WorkerRole.cs</strong> 文件并单击“添加”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/solution-explorer-showing-the-new-worker-role-entry-point-class-c.png" alt="显示新辅助角色入口点类的解决方案资源管理器"/></p>
+<p><em>显示新辅助角色入口点类的解决方案资源管理器</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong><strong>WorkerRole</strong> 类是 <strong>RoleEntryPoint</strong> 派生的类，可对其进行修改以托管服务。它包含 Windows Azure 在角色生存期内各个阶段调用的方法。</p>
+<p>Windows Azure 会在角色启动时调用 <strong>OnStart</strong> 方法。您可以使用此方法初始化角色。在提供的类中，<strong>OnStart</strong> 方法包含设置诊断设置的代码，这些诊断设置可安排将辅助角色日志自动传输到 Windows Azure 中您可在其中检索这些日志的存储帐户。请注意，该代码会通过当前设置为使用存储模拟器的服务配置文件 (<strong>ServiceConfiguration.cscfg</strong>) 中的连接字符串来初始化 Windows Azure 诊断配置。如果将服务部署到 Windows Azure，则需要使用您自己的存储帐户设置更新此配置。</p>
+<p><strong>WorkerRole</strong> 类的 <strong>Run</strong> 方法包含角色为提供其功能而执行的代码。在本例中，它为 FI 公共服务设置 WCF <strong>ServiceHost</strong> 并开始侦听 Service Bus 上的请求。<br />最后，Windows Azure 会在关闭辅助角色之前调用 <strong>OnStop</strong> 方法。此处，该方法用于关闭 WCF 服务。</p>
+</div>
+</li>
+<li>
+<p>打开 <strong>FictionalInvestment.PublicServices</strong> 项目中的 <strong>App.config</strong> 文件，并将现有侦听器（名为 <strong>configConsoleListener</strong>）的条目替换为以下配置片段中突出显示的条目。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex02 AzureDiagnosticsConfig</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   ...   &lt;system.diagnostics&gt;     &lt;trace&gt;       &lt;listeners&gt;         &lt;add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener, Microsoft.WindowsAzure.Diagnostics, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" name="AzureDiagnostics"&gt;           &lt;filter type="" /&gt;         &lt;/add&gt;       &lt;/listeners&gt;     &lt;/trace&gt;   &lt;/system.diagnostics&gt; &lt;/configuration&gt;</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>为了提供诊断信息，该服务使用 <strong>System.Diagnostics</strong> 中的 <strong>Trace</strong> 类将信息事件和状态消息写入日志中。以前，服务使用 <strong>ConsoleTraceListener</strong> 将此信息显示在其控制台窗口中。现在，当托管在 Windows Azure 中时，服务需要将此信息写入您可在其中查看该信息的位置。它使用特定于可将跟踪数据写入 Azure 应用程序日志中的 Windows Azure 环境的 <strong>TraceListener</strong>。</p>
+</div>
+</li>
+<li>
+<p>Service Bus 需要“完全信任”才能在 Windows Azure 中运行。若要启用“完全信任”级别，请在“解决方案资源管理器”<strong></strong>中，展开 <strong>CloudService</strong> 项目中的“角色”<strong></strong>节点，然后双击 <strong>FictionalInvestment.PublicServices</strong> 角色。在角色属性页中，选择“配置”<strong></strong>选项卡并确保“.NET 信任级别”<strong></strong>设置为“完全信任”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/configuring-the-trust-level-of-the-worker-role.png" alt="配置辅助角色的信任级别"/></p>
+<p><em>配置辅助角色的信任级别</em></p>
+</li>
+</ol>
+<p> </p>
+<p><strong>任务 2 - （可选）将 CRM 数据服务配置为在 Windows Azure Service Bus 上进行侦听</strong></p>
+<p>由于 FI 公共服务现在运行在 Windows Azure 中且依赖于 CRM 数据服务（继续托管在本地），因此必须更新后者以在 Service Bus 上进行侦听。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>完成此操作所需的过程与您在练习 1 中通过 Service Bus 发布 FI 公共服务本身时所执行的过程并无不同。如果您从完成练习 1 后获得的解决方案开始当前练习，则需要完成此任务；如果您使用为当前练习提供的开始解决方案，则可放心地跳过此任务。开始解决方案中已包含所有必要更改。</p>
+<p>在任一情况下，您<strong>都</strong>仍然需要在 <strong>FictionalInvestment.Crm.Data</strong> 项目的 <strong>App.config</strong> 文件中更新服务的终结点地址和凭据，以及在 <strong>FictionalInvestment.PublicServices</strong> 和 <strong>FictionalClient.Crm.Client</strong> 项目的 <strong>App.config</strong> 文件中更新客户端的终结点地址和凭据。这仅仅是因为这些值特定于您的 Service Bus 项目。可在此练习的“验证”<strong></strong>部分找到有关如何执行此操作的说明。</p>
+</div>
+<ol>
+<li>
+<p>打开 <strong>FictionalInvestment.Crm.Data</strong> 项目的 <strong>App.config</strong> 文件。</p>
+</li>
+<li>
+<p>在 <strong>system.ServiceModel</strong> 的 <strong>services</strong> 部分，查找名为 <strong>FictionalInvestment.Crm.Data.CrmDataService</strong> 的服务的 <strong>endpoint</strong> 元素。</p>
+</li>
+<li>
+<p>对于此终结点，将 <strong>address</strong> 属性值更新为 <em><strong>sb://[YOUR-NAMESPACE].servicebus.chinacloudapi.cn/CrmDataService</strong></em>，其中 [<strong>YOUR-NAMESPACE</strong>] 是您为您的项目所定义的 Service Bus 命名空间。</p>
+</li>
+<li>
+<p>endpoint 元素应该如下图所示，除了命名空间应与您自己的相符。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/configuring-the-endpoint-used-to-publish-the-service-on-the-service-bus.png" alt="配置用于在 Service Bus 上发布服务的终结点"/> <br /><em>配置用于在 Service Bus 上发布 CRM 数据服务的终结点</em></p>
+</li>
+<li>
+<p>在 <strong>system.serviceModel</strong> 中，对于 <strong>behaviors</strong> 元素，请将 <strong>issuerSecret</strong> 属性值替换为您在上一练习中获取的 <em>fictionalInvestment</em> 颁发者的颁发者<strong>密钥</strong>。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex02 CredentialsBehaviorACS</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   &lt;system.serviceModel&gt;     ...     &lt;behaviors&gt;       &lt;endpointBehaviors&gt;         &lt;behavior name="serviceBusCredentialBehavior"&gt;           &lt;transportClientEndpointBehavior credentialType="SharedSecret"&gt;             &lt;clientCredentials&gt;               &lt;sharedSecret issuerName="fictionalInvestment"                              issuerSecret="[YOUR_FI_ISSUER_KEY]"/&gt;             &lt;/clientCredentials&gt;           &lt;/transportClientEndpointBehavior&gt;         &lt;/behavior&gt;       &lt;/endpointBehaviors&gt;     &lt;/behaviors&gt;   &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+<p>`</p>
+</li>
+<li>
+<p>将以下（突出显示的）块插入 <strong>system.serviceModel</strong> 部分以启用行为和绑定扩展。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex02 CrmDataBehaviorExtensions</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   ...   &lt;system.serviceModel&gt;     ...     &lt;extensions&gt;       &lt;behaviorExtensions&gt;         &lt;add name="transportClientEndpointBehavior"              type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;       &lt;/behaviorExtensions&gt;       &lt;bindingExtensions&gt;         &lt;add name="netTcpRelayBinding"              type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/&gt;       &lt;/bindingExtensions&gt;     &lt;/extensions&gt;   &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+<p>`</p>
+</li>
+<li>
+<p>FI 公共服务利用了 RM 数据服务，后者现在同样需要在 Service Bus 上进行发布。若要完成服务的准备工作，请打开 <strong>FictionalInvestment.PublicServices</strong> 项目的 <strong>App.config</strong> 文件，并在 <strong>system.serviceModel</strong> 中配置现有 <strong>client</strong> 部分，将 [YOUR-NAMESPACE] 替换为您为此项目创建的服务命名空间。</p>
+<p>（代码段 - <em>Service Bus 服务远程处理实验 - Ex02 ClientEndpoint</em>）</p>
+<pre class="prettyprint">&lt;configuration&gt;   &lt;system.serviceModel&gt;     ...     &lt;client&gt;       &lt;endpoint address="sb://[YOUR-NAMESPACE].servicebus.chinacloudapi.cn/CrmDataService"                 binding="netTcpRelayBinding"                 contract="Common.Contracts.ICrmDataService"                 behaviorConfiguration="serviceBusCredentialBehavior"/&gt;     &lt;/client&gt;     ...   &lt;/system.serviceModel&gt; &lt;/configuration&gt;</pre>
+<p>`</p>
+</li>
+</ol>
+<p><strong>验证</strong></p>
+<p>在开始之前，您需要确保已正确配置服务终结点和颁发者凭据。根据您获得当前解决方案的不同方式，其中某些值可能已设置。请注意，这是必需的，因为这些设置特定于您的 Service Bus 项目。之后，您将在计算模拟器中运行 Windows Azure 项目并使用客户端应用程序测试它。</p>
+<ol>
+<li>
+<p>打开 <strong>FictionalInvestment.PublicServices</strong> 项目的 <strong>App.config</strong> 文件。在 <strong>system.ServiceModel</strong> 的 <strong>services</strong> 部分中查找单个 <strong>endpoint</strong> 元素，并将终结点的 <strong>address</strong> 属性中标识为 [<strong>YOUR_NAMESPACE</strong>] 的占位符替换为您为您的项目所定义的 Service Bus 命名空间。</p>
+</li>
+<li>
+<p>对 <strong>system.ServiceModel</strong> 的 <strong>client</strong> 部分所定义的现有终结点执行相同操作。</p>
+</li>
+<li>
+<p>在 <strong>behaviors</strong> 部分，查找 <strong>transportClientEndpointBehavior</strong> 中的 <strong>sharedSecret</strong> 元素，并将 <strong>isssuerSecret</strong> 属性更新为 <em>fictionalInvestment</em> 的颁发者密钥。回想一下，您在练习 1 中为每个颁发者注册了密钥。</p>
+</li>
+<li>
+<p>接下来，打开 <strong>FictionalInvestment.Crm.Data</strong> 项目的 <strong>App.config</strong> 文件，重复前面的步骤以使用相同值更新 <strong>services</strong> 部分中终结点的命名空间以及 <strong>behaviors</strong> 部分中的凭据。</p>
+</li>
+<li>
+<p>最后，打开 <strong>FictionalRetail.Crm.Client</strong> 项目的 <strong>App.config</strong> 文件。同样，使用您的服务命名空间更新 <strong>system.serviceModel</strong> 的 <strong>client</strong> 部分中的命名空间。然后，更新 <strong>behaviors</strong> 部分中的凭据，但这次改用 <em>fictionalRetail</em> 的颁发者密钥。</p>
+</li>
+<li>
+<p>您现在可以测试解决方案了。若要在计算模拟器中启动云服务项目，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>CloudService</strong>，指向“调试”<strong></strong>并选择“启动新实例”<strong></strong>。辅助角色将启动，创建服务主机，并开始在 Service Bus 终结点上进行侦听。</p>
+</li>
+<li>
+<p>若要确认服务正在运行，请右键单击位于系统任务栏中的“计算模拟器”图标并选择“显示计算模拟器用户界面”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/showing-the-compute-emulator-ui.png" alt="显示计算模拟器用户界面"/></p>
+<p><em>显示计算模拟器用户界面</em></p>
+</li>
+<li>
+<p>在“服务部署”<strong></strong>树视图中，展开正在运行的部署并选择 <strong>FictionalInvestment.PublicServices</strong> 节点以显示其诊断日志。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/fi-public-service-hosted-in-the-compute-emulator.png" alt="托管在计算模拟器中的 FI 公共服务"/></p>
+<p><em>托管在计算模拟器中的 FI 公共服务</em></p>
+</li>
+<li>
+<p>接下来，启动 CRM 数据服务。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalInvestment.Crm.Data</strong> 项目，指向“调试”<strong></strong>并选择“启动新实例”<strong></strong>。等待服务开始在 Service Bus 上其已配置的终结点上进行侦听。请注意控制台窗口中显示的、服务当前侦听的 URL。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/crm-data-service-listening-on-the-service-bus.png" alt="在 Service Bus 上进行侦听的 CRM 数据服务"/></p>
+<p><em>在 Service Bus 上进行侦听的 CRM 数据服务</em></p>
+</li>
+<li>
+<p>现在，启动客户端应用程序。同样，在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>FictionalRetail.Crm.Client</strong>，指向“调试”<strong></strong>并选择“启动新实例”<strong></strong>。正如您前面看到的，用户界面显示了客户的列表及其当前分配到的实体，这将确认客户端能够与服务进行通信。</p>
+</li>
+<li>
+<p>选择列表中的一个或多个客户，并单击“移动至 Fictional Retail Bank”<strong></strong>。通过观察 CRM 数据服务的控制台窗口中的状态消息和计算模拟器中辅助角色的事件日志来确认调用成功。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/using-the-fi-public-service-hosted-in-the-compute-emulator.png" alt="使用托管在计算模拟器中的 FI 公共服务"/></p>
+<p><em>使用托管在计算模拟器中的 FI 公共服务</em></p>
+</li>
+</ol>
+<h2>摘要</h2>
+<p>通过完成本动手实验，您了解到如何在尽可能减少代码和配置更改的情况下，利用现有服务以及使用 Service Bus 从任何位置访问该服务。在本实验中，您了解了如何设置 Service Bus 帐户以及为您的服务配置命名空间。您利用了 Windows Azure Access Control 服务来提供基于声明的身份验证，同时创建可将标识映射到确定允许颁发者所执行操作的声明中的规则。最后，您将服务重新定位到 Windows Azure，并了解到无论该服务托管在本地还是托管在云中，其客户端均不会受更改的影响，因为该服务将继续侦听同一 URL。</p>
+<h2>附录 - 使用 SBaZTool 命令行工具</h2>
+<p>以下过程介绍使用 SBaZTool 命令行工具创建颁发者和规则所需执行的步骤。有关使用 Access Control 服务管理门户的替代方法，请参阅<a href="#Exercise1">练习 1 中的<strong>任务 3</strong>：使用 Service Bus 远程托管服务</a>。请注意，如果您已使用 Access Control 服务管理门户创建了颁发者并设置了 Access Control 服务规则，则无需完成此过程。</p>
+<ol>
+<li>
+<p>从 <a href="http://code.msdn.microsoft.com/windowsazure/site/search?f%5B0%5D.Type=Technology&amp;f%5B0%5D.Value=Service%20Bus">Windows Azure 示例站点</a>下载 SBaZTool，然后将其中内容解压缩到您的硬盘上的任何文件夹中。</p>
+</li>
+<li>
+<p>使用提升的权限打开 Visual Studio 并打开位于 C# 文件夹中的授权解决方案。从 Visual Studio 菜单中选择“生成”<strong></strong>，然后选择“重新生成解决方案”<strong></strong>。</p>
+</li>
+<li>
+<p>打开命令提示符窗口并将当前目录更改为您在其中解压缩示例的文件夹下的 C# 文件夹。要为 Fictional Investment 实体创建颁发者，请输入以下命令，然后按 <strong>Enter</strong>。将 [YOUR-SB-NAMESPACE] 替换为您的 ServiceBus 命名空间的名称，并将 [YOUR-SB-NAMESAPECE-DEFAULTKEY] 替换为您的 ServiceBus 命名空间的默认密钥。SBaZTool 将返回新创建的颁发者的密钥。记录此值，因为稍后您将需要它。</p>
+<pre class="prettyprint">sbaztool.exe -n [YOUR-SB-NAMESPACE] -k [YOUR-SB-NAMESPACE-DEFAULT-KEY] makeid FictionalInvestment</pre>
+<p>`<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/create-a-new-issuer.png" alt="创建新颁发者"/><br /><em>创建新颁发者</em></p>
+</li>
+<li>
+<p>现在通过重复上一步但输入“fictionalRetail”作为颁发者名称来为 Fictional Retail 实体创建颁发者。同样，SBaZTool 将返回新创建的颁发者的密钥。记录此值，因为稍后您将需要它</p>
+</li>
+<li>
+<p>通过执行以下命令来创建向 <em>fictionalInvestment</em> 颁发者授予<em>侦听</em> 权限的规则。将 [YOUR-SB-NAMESPACE] 替换为您的 ServiceBus 命名空间的名称，并将 [YOUR-SB-NAMESAPECE-DEFAULTKEY] 替换为您的 ServiceBus 命名空间的默认密钥。</p>
+<pre class="prettyprint">sbaztool.exe -n [YOUR-SB-NAMESPACE] -k [YOUR-SB-NAMESPACE-DEFAULT-KEY] grant Listen / fictionalInvestment</pre>
+<p>`</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/granting-listen-permissions-to-the-fictionalinvestemt-issuer.png" alt="向 fictionalInvestemt 颁发者授予“侦听”权限"/></p>
+<p><em>向 fictionalInvestemt 颁发者授予“侦听”权限</em></p>
+</li>
+<li>
+<p>现在，通过执行以下命令来创建向 <em>fictionalInvestment</em> 颁发者授予<em>发送</em> 权限的规则。将 [YOUR-SB-NAMESPACE] 替换为您的 ServiceBus 命名空间的名称，并将 [YOUR-SB-NAMESAPECE-DEFAULTKEY] 替换为您的 ServiceBus 命名空间的默认密钥。</p>
+<pre class="prettyprint">sbaztool.exe -n [YOUR-SB-NAMESPACE] -k [YOUR-SB-NAMESPACE-DEFAULT-KEY] grant Send / fictionalInvestment</pre>
+<p>`</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/image-0.png" alt="向 fictionalInvestemt 颁发者授予“侦听”权限"/></p>
+<p><em>向 fictionalInvestment 颁发者授予“发送”权限</em></p>
+</li>
+<li>
+<p>现在，通过执行以下命令来创建向 <em>fictionalRetail</em> 颁发者授予权限的规则。将 [YOUR-SB-NAMESPACE] 替换为您的 ServiceBus 命名空间的名称，并将 [YOUR-SB-NAMESAPECE-DEFAULTKEY] 替换为您的 ServiceBus 命名空间的默认密钥。</p>
+<pre class="prettyprint">sbaztool.exe -n [YOUR-SB-NAMESPACE] -k [YOUR-SB-NAMESPACE-DEFAULT-KEY] grant Send / fictionalRetail</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-servicebusserviceremoting/images/granting-listen-permissions-to-the-fictionalretail-issuer.png" alt="向 fictionalRetail 颁发者授予“侦听”权限"/></p>
+<p><em>向 fictionalRetail 颁发者授予“侦听”权限</em></p>
+</li>
+</ol>
+<p>您现在已为服务和客户端应用程序创建了颁发者，为服务颁发者设置了为其授予<em>侦听</em> 和<em>发送</em> 权限的规则，并为客户端应用程序授予<em>发送</em> 权限。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure Service Bus 远程处理 (VS2012) – Windows Azure HOL</pageTitle><metaKeywords>Windows Azure Service Bus, Windows Azure, Service Bus, 远程处理</metaKeywords><metaDescription><![CDATA[本实验演示了一个使用应用程序示例通过采用简单的方式复制 Fictional Bank 中的应用程序体系结构的方案。]]></metaDescription><linkid>Devlop-trainingkit-HOL-ServiceBusServiceRemoting</linkid><urlDisplayName>Windows Azure Service Bus 远程处理 (VS2012)</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

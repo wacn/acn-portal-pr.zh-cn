@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18817" parentID="18423" level="5" writerID="106" creatorID="94" nodeType="1059" template="1052" sortOrder="9" createDate="2013-07-11T10:40:19" updateDate="2014-09-03T05:56:59" nodeName="access control" urlName="access-control" writerName="content" creatorName="xunfan" path="-1,11978,13431,17371,18423,18817" isDoc=""><bodyText><![CDATA[<div><!--?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" ?-->
+<h1>如何使用 Windows Azure Active Directory Access Control 对 Web 用户进行身份验证</h1>
+<p>本指南演示如何使用 Windows Azure Active Directory Access Control（也称为 Access Control 服务或 ACS）在用户尝试获取对 Web 应用程序的访问权时通过标识提供者（例如，Windows Live、Google 或 Facebook）对其进行身份验证。</p>
+<h2><span class="short-header">目录</span>目录</h2>
+<ul>
+<li><a href="#what-is">什么是 ACS？</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#pre">先决条件</a></li>
+<li><a href="#create-web-app">创建 ASP.NET Web 应用程序</a></li>
+<li><a href="#create-namespace">创建 Access Control 命名空间</a></li>
+<li><a href="#add-IP">添加标识提供者</a></li>
+<li><a href="#add-RP">添加信赖方应用程序</a></li>
+<li><a href="#create-rules">创建规则</a></li>
+<li><a href="#review-app-int">查看“应用程序集成”页</a></li>
+<li><a href="#config-trust">配置 ACS 和 ASP.NET Web 应用程序之间的信任关系</a></li>
+<li><a href="#test">测试 ACS 和 ASP.NET Web 应用程序之间的集成</a></li>
+<li><a href="#whats-next">后续步骤</a></li>
+</ul>
+<h2><span class="short-header">什么是 ACS？</span>什么是 ACS？</h2>
+<p>大多数开发人员都不是标识专家，他们通常都不想花时间开发针对其应用程序和服务的身份验证和授权机制。ACS 是一项 Windows Azure 服务，可用于轻松对需要访问您的 Web 应用程序和服务的用户进行身份验证，而不必将复杂的身份验证逻辑注入代码中。</p>
+<p>ACS 具有以下可用功能：</p>
+<ul>
+<li>与 Windows Identity Foundation (WIF) 集成。</li>
+<li>支持常用 Web 标识提供者 (IP)，包括 Windows Live ID、Google、Yahoo 和 Facebook。</li>
+<li>支持 Active Directory 联合身份验证服务 (AD FS) 2.0。</li>
+<li>一项基于开放数据协议 (OData) 的管理服务，该服务提供对 ACS 设置的编程访问。</li>
+<li>一个允许对 ACS 设置进行管理访问的管理门户。</li>
+</ul>
+<p>有关 ACS 的更多信息，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkID=212360">Access Control 服务 2.0（可能为英文页面）</a>。</p>
+<h2><span class="short-header">概念</span>概念</h2>
+<p>Windows Azure Active Directory Access Control (ACS) 在基于声明的标识的主体的基础上构建，它是一种创建针对本地运行或在云中运行的应用程序的身份验证机制的一致性方法。通常，应用程序和服务可使用基于声明的标识来获取所需的有关其组织内、其他组织内以及 Internet 上的用户的标识信息。</p>
+<p>若要完成本指南中的任务，您应了解以下概念：</p>
+<p><strong>客户端</strong> - 在本操作方法指南的上下文中，这是一个尝试获取对您的 Web 应用程序的访问权的浏览器。</p>
+<p><strong>信赖方 (RP) 应用程序</strong> - RP 应用程序是一个将身份验证外包给外部权威机构的网站或服务。用标识行话来说，RP 信任该权威机构。本指南说明如何将您的应用程序配置为信任 ACS。</p>
+<p><strong>令牌</strong> - 令牌是一个安全数据集合，它通常会在对用户进行身份验证成功后颁发。它包含一组<em>声明</em>（经过身份验证的用户的属性）。声明可表示用户名、用户所属角色的标识符、用户年龄等。令牌通常已进行数字签名，这意味着始终能够找到令牌的颁发者，并且其内容无法篡改。用户可通过提供由 RP 应用程序信任的颁发机构颁发的有效令牌来获取对 RP 应用程序的访问权限。</p>
+<p><strong>标识提供者 (IP)</strong> - IP 是指验证用户标识和颁发安全令牌的权威机构。实际上，令牌颁发工作是通过一项称作“安全令牌服务 (STS)”的特殊服务完成的。IP 的典型示例包括 Windows Live ID、Facebook、业务用户存储库（如 Active Directory）等。在将 ACS 配置为信任某个 IP 后，系统将接受并验证由该 IP 颁发的令牌。ACS 可一次性信任多个 IP，这意味着，如果您的应用程序信任 ACS，则您可立即将您的应用程序提供给 ACS 代表您信任的全部 IP 中的所有经过身份验证的用户。</p>
+<p><strong>联合提供者 (FP)</strong> - IP 直接了解用户，使用用户凭据对用户进行身份验证并发布其了解的用户相关信息。联合提供者 (FP) 是一种不同类型的权威机构：它不会直接对用户进行身份验证，而是充当一个 RP 与一个或多个 IP 之间的中介和代理身份验证。IP 和 FP 都颁发安全令牌，因此它们都将使用安全令牌服务 (STS)。ACS 是一个 FP。</p>
+<p><strong>ACS 规则引擎</strong> - 将以简单声明转换规则的形式整理用于将来自受信任 IP 的传入令牌转换为将由 RP 使用的令牌的逻辑。ACS 包含一个规则引擎，该引擎负责应用您为 RP 指定的任何转换逻辑。</p>
+<p><strong>Access Control 命名空间</strong> - 命名空间是 ACS 中的一个顶级分区，用于整理您的设置。命名空间包含一系列您信任的 IP、要为之服务的 RP 应用程序、希望规则引擎在处理传入令牌时使用的规则等。命名空间公开了各种终结点，可供应用程序和开发人员用来实现 ACS 的功能。</p>
+<p>下图演示 ACS 身份验证如何使用 Web 应用程序：</p>
+<p><img src="/media/devcenter/dotnet/acs-01.png"/></p>
+<ol>
+<li>客户端（在此示例中为浏览器）从 RP 请求页面。</li>
+<li>由于尚未对请求进行身份验证，因此 RP 会将用户重定向到它信任的权威机构（即 ACS）。ACS 让用户选择已为此 RP 指定的 IP。用户选择适当的 IP。</li>
+<li>客户端浏览到该 IP 的身份验证页，并提示用户登录。</li>
+<li>在对客户端进行身份验证（例如，输入标识凭据）后，IP 将颁发一个安全令牌。</li>
+<li>颁发安全令牌后，IP 会将客户端重定向到 ACS，并且客户端会向 ACS 发送 IP 所颁发的安全令牌。</li>
+<li>ACS 验证 IP 所颁发的安全令牌，将此令牌中的标识声明输入 ACS 规则引擎，计算输出标识声明，并颁发包含这些输出声明的新安全令牌。</li>
+<li>ACS 将客户端重定向到 RP。客户端会向 RP 发送 ACS 所颁发的新安全令牌。RP 将验证 ACS 所颁发的安全令牌上的签名，验证此令牌中的声明，并返回最初请求的页面。</li>
+</ol>
+<h2><span class="short-header">先决条件</span>先决条件</h2>
+<p>若要完成本指南中的任务，您将需要：</p>
+<ul>
+<li>Microsoft Visual Studio 2010</li>
+<li><a href="http://www.microsoft.com/download/en/details.aspx?id=17331">Windows Identity Foundation</a></li>
+<li><a href="http://www.microsoft.com/download/en/details.aspx?id=4451">Windows Identity Foundation SDK</a></li>
+<li>一个有效的 <a href="http://www.windowsazure.cn/zh-cn/pricing/1rmb-trial/" title="免费试用">Windows Azure 帐户</a></li>
+</ul>
+<h2><span class="short-header">创建 ASP.NET Web 应用程序</span>创建 ASP.NET Web 应用程序</h2>
+<p>若要阐释 ACS 进行身份验证的方式，请创建一个简单的 ASP.NET Web 应用程序，稍后您会将它设置为信赖方 (RP) 应用程序。</p>
+<ol>
+<li>启动 Visual Studio 2010。</li>
+<li>在 Visual Studio 中，单击“文件”，然后单击“新建项目”。</li>
+<li>在“新建项目”窗口中，选择“Visual C#/Web”模板，然后选择“ASP.NET 空 Web 应用程序”。</li>
+<li>在“名称”中，键入应用程序的名称，然后单击“确定”。</li>
+<li>在解决方案资源管理器中，右键单击应用程序名称，然后选择“属性”。</li>
+<li>在应用程序属性窗口中，选择“Web”选项卡。</li>
+<li>在“使用 Visual Studio 开发服务器”的下方，单击“特定端口”，然后将值更改为 7777。</li>
+<li>按 F5 运行和调试刚创建的应用程序。空 ASP.NET Web 应用程序将显示在 Web 浏览器中。</li>
+</ol>
+<p>此时您已创建在端口 7777 上本地运行的 ASP.NET Web 应用程序。完成本指南中的剩余任务后，请将 Visual Studio 保持打开状态。接下来，创建 Access Control 命名空间。</p>
+<h2><span class="short-header">创建 Access Control 命名空间</span>创建 Access Control 命名空间</h2>
+<p>若要在 Windows Azure 中使用 Active Directory Access Control，请创建 Access Control 命名空间。该命名空间提供了一个唯一范围，用于在应用程序中对 ACS 资源进行寻址。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a> (https://manage.windowsazure.cn)。</p>
+</li>
+<li>
+<p>单击“Active Directory”。</p>
+</li>
+<li>
+<p>若要创建新的 Access Control 命名空间，请依次单击“新建”、“应用服务”、“Access Control”和“快速创建”。</p>
+</li>
+<li>
+<p>输入该命名空间的名称。Windows Azure 将验证该名称是否是唯一的。</p>
+</li>
+<li>
+<p>选择在其中使用该命名空间的区域。若要获得最佳性能，请使用要在其中部署应用程序的区域，然后单击“创建”。</p>
+</li>
+</ol>
+<p>Windows Azure 将创建并激活该命名空间。请等到新命名空间的状态变为“活动”，然后再继续操作。</p>
+<h2><span class="short-header">添加标识提供者</span>添加标识提供者</h2>
+<p>在此任务中，您将添加标识提供者 (IP) 来针对信赖方 (RP) 应用程序对用户进行身份验证。出于演示目的，此任务将说明如何将 Google 作为 IP 添加，但您可使用 ACS 管理门户中列出的任何 IP。</p>
+<ol>
+<li>
+<p>在 Windows Azure 管理门户中，单击“Active Directory”，选择一个 Access Control 命名空间，然后单击“管理”。（或者，单击“Active Directory”，单击“Access Control 命名空间”，再选择一个 Access Control 命名空间，然后单击“管理”。）</p>
+</li>
+<li>
+<p>单击“标识提供程序”，单击“添加”，再选择“Google”，然后单击“下一步”。</p>
+</li>
+<li>
+<p>“添加 Google 标识提供程序”页将提示您输入登录链接文本（默认值为 Google）和图像 URL。您可以更改此信息，但在本练习中，请使用默认值，然后单击“保存”。</p>
+</li>
+</ol>
+<p>Google 现已作为您的 Access Control 命名空间的 IP 添加。ACS 还将添加 Windows Live ID（Microsoft 帐户），它是默认 IP 且无法删除。</p>
+<p>接下来，将 ASP.NET Web 应用程序指定为 RP。</p>
+<h2><span class="short-header">添加信赖方应用程序</span>添加信赖方应用程序</h2>
+<p>在此任务中，您将 ACS 配置为将 ASP.NET Web 应用程序识别为有效的 RP 应用程序。</p>
+<ol>
+<li>在 ACS 管理门户中，单击“信赖方应用程序”，然后单击“添加”。</li>
+<li>
+<p>在“添加信赖方应用程序”页上，输入以下信息，然后单击“保存”。</p>
+<ul>
+<li>在“名称”中，键入 RP 的名称。例如，键入 <strong>Azure Web App</strong>。</li>
+<li>在“模式”中，选择“手动输入设置”。</li>
+<li>在“领域”中，键入 ACS 所颁发的安全令牌将应用于的 URI。对于此任务，请键入 <strong>http://localhost:7777/</strong></li>
+<li>在“返回 URL”中，键入 ACS 将安全令牌返回到的 URL。对于此任务，请键入 <strong>http://localhost:7777/</strong></li>
+<li>接受其余字段中的默认值。</li>
+</ul>
+</li>
+</ol>
+<p>您现在已将 ASP.NET Web 应用程序（位于 http://localhost:7777/ 上）配置为 Access Control 命名空间中的 RP。</p>
+<p>接下来，创建 ACS 用于处理 RP 的声明的规则。</p>
+<h2><span class="short-header">创建规则</span>创建规则</h2>
+<p>在此任务中，您将定义用于决定将声明从 IP 传递到 RP 的方式的规则。在本指南中，我们将 ACS 配置为直接将输入声明类型和值复制到输出令牌，而不筛选或更改它们。</p>
+<ol>
+<li>在 ACS 管理门户中，单击“规则组”。</li>
+<li>单击“RPName 的默认规则组”，其中 <strong>RPName</strong> 是 RP 应用程序的名称。</li>
+<li>单击“生成”。</li>
+<li>单击以选择将为其创建规则的 IP。在本演练中，请选择 Google 和 Windows Live ID。然后，单击“生成”。</li>
+</ol>
+<p>接下来，查看“应用程序集成”页上的信息并复制将 ASP.NET Web 应用程序配置为使用 ACS 所需的 URI。</p>
+<h2><span class="short-header">查看应用程序集成页</span>查看应用程序集成页</h2>
+<p>您可在 ACS 管理门户的“应用程序集成”页上找到将 ASP.NET Web 应用程序（RP 应用程序）配置为使用 ACS 所需的所有信息和代码。您需要此信息才能配置 ASP.NET Web 应用程序以进行联合身份验证。</p>
+<ol>
+<li>在 ACS 管理门户中，单击“应用程序集成”。<br /> “应用程序集成”页上显示的 ACS URI 对于您的 ACS 命名空间是唯一的。</li>
+<li>复制“WS 联合身份验证元数据”字段中的 URI。在下一个任务中，您在添加安全令牌服务 (STS) 引用时将使用它。其应类似于以下形式：<br /> <a href="https://ACSnamespace.accesscontrol.chinacloudapi.cn/FederationMetadata/2007-06/FederationMetadata.xml"><strong>https://ACSnamespace.accesscontrol.chinacloudapi.cn/FederationMetadata/2007-06/FederationMetadata.xml</strong></a>，其中 <strong>ACSnamespace</strong> 是 ACS 命名空间的名称。</li>
+</ol>
+<p>接下来，返回 Visual Studio 并将应用程序配置为使用 ACS。</p>
+<h2><span class="short-header">配置 ACS 和 ASP.NET Web 应用程序之间的信任关系</span>配置 ACS 和 ASP.NET Web 应用程序之间的信任关系</h2>
+<p>此任务介绍如何使用 Windows Identity Foundation SDK 将 ACS 与 ASP.NET Web 应用程序集成。</p>
+<ol>
+<li>在 Visual Studio 2010 中，在解决方案资源管理器中右键单击应用程序名称，然后选择“添加 STS 引用”。</li>
+<li>
+<p>在联合身份验证实用工具向导中，执行下列操作：</p>
+<ol>
+<li>在“欢迎使用联合身份验证实用工具向导”页上的“应用程序 URI”中，输入应用程序 URI，然后单击“下一步”。在本演练中，请使用 <strong>http://localhost:7777/</strong><br />
+<div class="dev-callout-new"><strong>注意 <span>单击以折叠</span></strong>
+<div class="dev-callout-content">
+<p>尾随反斜杠很重要，因为它与您在 ACS 管理门户中为 RP 输入的值匹配。</p>
+</div>
+</div>
+</li>
+<li>将弹出一个警告：ID 1007:应用程序未托管在安全 https 连接上。是否要继续?在本演练中，请单击“是”。<br />
+<div class="dev-callout-new"><strong>注意 <span>单击以折叠</span></strong>
+<div class="dev-callout-content">
+<p>在生产环境中，此有关使用 SSL 的警告是有效的，您应先解决问题，然后再继续操作。</p>
+</div>
+</div>
+</li>
+<li>在“安全令牌服务”页上，选择“使用现有 STS”，粘贴从 ACS 管理门户的“应用程序集成”页中复制的 WS 联合身份验证元数据 URI（见上面的<a href="#review-app-int">查看应用程序集成页</a>），然后单击“下一步”。</li>
+<li>在“STS 签名证书链验证错误”页上，单击“下一步”。</li>
+<li>在“安全令牌加密”页上，单击“下一步”。</li>
+<li>在“提供的声明”页上，单击“下一步”。</li>
+<li>在“摘要”页上，单击“完成”。
+<p> </p>
+</li>
+</ol></li>
+<li>
+<p>在运行联合身份验证实用工具向导时，该向导会添加对 Microsoft.IdentityModel.dll 程序集的引用，并将值写入用于在 ASP.NET Web 应用程序中配置 Windows Identity Foundation (WIF) 的 Web.config 文件。</p>
+</li>
+<li>
+<p>打开 Web.config 并找到主要 <strong>system.web</strong> 元素。该元素可能与下面类似：</p>
+<pre class="prettyprint">&lt;system.web&gt;
+    &lt;authorization&gt;
+       &lt;deny users="?" /&gt;
+    &lt;/authorization&gt;</pre>
+</li>
+<li>
+<p>通过添加以下代码来修改 <strong>system.web</strong> 元素以启用请求验证：</p>
+<pre class="prettyprint">&lt;!--set this value--&gt;
+&lt;httpRuntime requestValidationMode="2.0"/&gt;</pre>
+<p>执行更新后，<strong>system.web</strong> 元素必须类似于以下代码：</p>
+<pre class="prettyprint">&lt;system.web&gt;
+&lt;!--set this value--&gt;
+&lt;httpRuntime requestValidationMode="2.0"/&gt;
+   &lt;authorization&gt;
+      &lt;deny users="?" /&gt;
+   &lt;/authorization&gt;</pre>
+</li>
+<li>
+<p>在解决方案资源管理器中，右键单击 <strong>References</strong> 文件夹，单击“添加引用”，选择“.NET”选项卡，在列表中找到并选择 Microsoft.IdentityModel 程序集，然后单击“确定”。</p>
+</li>
+<li>右键单击应用程序名称，依次单击“添加”、“新建项”和“Web 窗体”，然后将其命名为 <strong>default.aspx</strong>。</li>
+<li>选择“default.aspx”，然后按 F7。</li>
+<li>
+<p>添加以下 using 声明：</p>
+<pre class="prettyprint">using Microsoft.IdentityModel.Claims; 
+using System.Threading;</pre>
+</li>
+<li>
+<p>在 <strong>Page_Load</strong> 事件处理程序中添加以下代码：</p>
+<pre class="prettyprint">Response.Write("Claims Received from ACS:"); 
+ClaimsIdentity ci = Thread.CurrentPrincipal.Identity as ClaimsIdentity; foreach (Claim c in ci.Claims) 
+{
+   Response.Write("Type: " + c.ClaimType + "- Value: " + c.Value + "");
+}</pre>
+</li>
+<li>
+<p>按 Ctrl+S 保存您的更改。</p>
+</li>
+</ol>
+<h2><span class="short-header">测试 ACS 和 ASP.NET Web 应用程序之间的集成</span>测试 ACS 和 ASP.NET Web 应用程序之间的集成</h2>
+<p>此任务介绍如何测试 RP 应用程序和 ACS 之间的集成。</p>
+<ol>
+<li>
+<p>在 Visual Studio 2010 中，按 F5 开始调试 ASP.NET Web 应用程序。<br /> 您的浏览器将重定向到由 ACS 承载的“主领域发现”页（该页会提示您选择 IP），而不是打开默认 ASP.NET Web 应用程序。您的屏幕应与下面类似：</p>
+<p><img src="/media/devcenter/dotnet/acs-07.png"/></p>
+</li>
+<li>
+<p>单击“Google”或“Windows Live ID”。<br /> 随后，浏览器将加载 Google 或 Windows Live 登录页。</p>
+</li>
+<li>
+<p>输入 Google 或 Windows Live ID 凭据。</p>
+<p>之后，浏览器会发布回 ACS，ACS 会颁发一个令牌，然后将令牌发布到您的应用程序网站。您的屏幕应与下面类似：</p>
+<p><img src="/media/devcenter/dotnet/acs-08.png"/></p>
+</li>
+</ol>
+<div class="dev-callout-new"><strong>注意 <span>单击以折叠</span></strong>
+<div class="dev-callout-content">
+<p>如果您使用 Windows Live ID 凭据，则您的名称将不会显示在 ASP.NET Web 应用程序的欢迎页上。</p>
+</div>
+</div>
+<p>祝贺您！您已成功将 ACS 与 ASP.NET Web 应用程序集成。ACS 现在正在使用 Windows Live ID 和 Google 凭据处理对用户的身份验证。</p>
+<p>您也可以在此方案的基础上进行扩展。例如，您可以为此 RP 指定多个 IP（通过 ACS 管理门户，请参阅<a href="#add-IP">添加标识提供者</a>一节），这将允许其他 Web 标识（如 Yahoo! 或 Facebook 用户）或在企业目录（如 Active Directory 域服务）中注册的用户访问此 ASP.NET Web 应用程序。</p>
+<h2><span class="short-header">后续步骤</span>后续步骤</h2>
+<p>若要进一步了解 ACS 的功能并尝试将其用于更复杂的方案，请参阅 <a href="http://go.microsoft.com/fwlink/?LinkID=212360">Access Control 服务 2.0（可能为英文页面）</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>access control</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>access control</linkid><urlDisplayName>access control</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

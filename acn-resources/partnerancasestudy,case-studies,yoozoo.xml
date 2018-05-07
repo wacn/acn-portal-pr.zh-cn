@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+
+                <div class="section-component">
+
+                    <p><b>* 此案例基于在全球其他地区由微软运营的 Microsoft Azure 云平台实施，仅供由世纪互联运营的 Microsoft Azure 客户参考。</b></p>
+                    <h2>业务背景</h2>
+                    <p>游族网络股份有限公司（以下简称游族网络）成立于 2009 年，是全球领先的互动娱乐供应商。经过多年探索，游族网络在海外积累 1000 多个合作伙伴，成功发行超过 30 款产品，发行版图不仅覆盖了欧洲、北美、东南亚等成熟市场，还着力拓展俄罗斯、南美、印度、中东等新兴市场，在全球累积超过 8 亿用户。2014 年 6 月，游族网络正式登陆 A 股主板。目前，海外业务体量与国内地区持平，游戏品质和出海实力也获得了业界和市场的认可，获得“Google 顶级开发者”称号，2017 年入选 BrandZ <sup>TM</sup> 中国出海品牌 30 强。</p>
+                    <p>《Legacy of Discord – Furious Wings》（国内名为《狂暴之翼》）于 2016 年 11 月 11 日全球发布，上线两个月后迅速跻身中国移动游戏海外收入 TOP10，成为海外收入第一的 ARPG 手游并保持至今。截至 2017 年 11 月，游戏先后登顶 53 个国家地区的 Google Play 及 APP Store 游戏畅销榜，被视为中国手游出海的典型成功案例。</p>
+                    <p>《League of Angels》（国内名为《女神联盟》）系列页游凭借恢弘的故事背景、惊艳的角色形象与丰富的即时战斗玩法打动了海外亿万玩家，深度辐射华语区、英语区两大市场，同时也成为俄罗斯、土耳其等新兴市场的畅销游戏，被评为“2014 年 Facebook 最佳新游戏” “2016 年 Facebook 最佳网页游戏”。</p>
+                    <p>随着游族网络海外游戏产品及覆盖地域的不断增多，玩家对于沟通和交流的需求也日益增长。为了满足不同语种的海外玩家互相沟通的需求，经过技术水平、服务可靠性、价格、本地支持等多种评估，游族网络选择使用微软认知服务里的翻译工具文本 API ( Translator Text API ) 和 Microsoft Azure 进行游戏实时翻译服务的开发，提供游戏内实时语言翻译服务。</p>
+                </div>
+                        
+                <div class="section-component">
+
+					<h2>解决方案</h2>
+
+					<p>经过初期的 Microsoft Azure 智能云服务订阅、微软认知服务中的文本翻译 API（Translator Text API）接口调试及后期的部署调试环节，在保证游戏稳定运行的基础上，游族网络的技术团队与微软技术专家一起共同探讨和构建翻译服务系统，游族网络与微软合作完成了 Azure 翻译部署服务。</p>
+
+                    <h3>翻译服务流程</h3>
+					
+					<p>用户请求 ->负载均衡器 ->缓存服务器 ->web 服务器 ->Microsoft Translate ->web 服务器 ->缓存服务器 ->用户；当缓存服务器有数据时则直接将数据返回给用户。</p>
+					
+                    <h3>项目中需要实现的功能点</h3>
+
+                    <ul>
+                        <li>通过微软翻译工具实现游族网络目前多款游戏翻译系统的接入，实现不同地区国家用户之间的无障碍交流。</li>
+                        <li>通过缓存系统优化翻译系统的使用。</li>
+                        <li>底层代码的设计和优化：接口格式及请求方式、接口返回数据、错误定义、目标语言代码。</li>
+                    </ul>
+
+                    <h3>平台翻译架构</h3>
+
+                    <ul>
+                        <li>负载均衡器：负载平衡器通常是一个软体程序，这个程序侦听一个外部端口，互联网用户可以通过这个端口来访问服务，而作为负载平衡器的软体会将用户的请求转发给后台内网服务器，内网服务器将请求的响应返回给负载平衡器，负载平衡器再将响应发送到用户，这样就向互联网用户隐藏了内网结构，阻止了用户直接访问后台（内网）服务器，使得服务器更加安全，可以阻止对核心网络栈和运行在其它端口服务的攻击。</li>
+                        <li>缓存服务器： Web 缓存服务器的应用模式主要是正向代理和反向代理。我们主要是应用反向代理模式，该模式是针对 Web 服务器加速功能的，在该模式中，缓存服务器放置在 web 应用服务器的前面，当用户访问 web 应用服务器的时候，首先经过缓存服务器，并将用户的请求和应用服务器应答的内容写入缓存服务器中，从而为后续用户的访问提供更快的响应。</li>
+                        <li>Web 服务器：和微软翻译接口交互所在的服务器，提供给游戏调用。</li>
+                        <li>DB 存储服务器：对于经常访问的翻译结果可以选择性的长久保存到 DB 存储服务器中。</li>
+                        <li>IPSEC VPN 服务器：VPN 是为了实现远程应用而提供的低成本，安全稳定的解决方案。</li>
+                        <li>压缩和加密所有数据传输，使数据更安全，应用更快捷。避免数据被窃取，包括明文密码。</li>
+                        <li>保障服务器的安全和稳定，将服务器严格保护在内网，避免其暴漏在互联网的攻击之下。实现稳定的 IP 地址访问，避免域名更新带来的不稳定和风险。</li>
+                    </ul>
+
+                    <p><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/yoozoo-content-img-01.png" alt=""/></p>
+                    
+				</div>  
+
+                <div class="section-component">
+                    <h2>客户收益</h2>
+
+                    <h3>大幅提升玩家体验，增强游戏竞争实力</h3>
+
+                    <p>游族网络在 2016 年下半年正式推出了游戏即时翻译服务，面向海外市场接入了《狂暴之翼》、《女神联盟》系列手游和页游平台，实现了对欧美、东南亚等多个地区的覆盖，提供超过 20 种语言的实时翻译，月均翻译超过 70 亿个字符，总覆盖玩家超过 2 亿，提升了游戏体验。</p>
+
+                    <h3>降低开发难度与成本，将新服务快速推向市场</h3>
+
+                    <p>游族网络游戏内即时翻译服务推出后稳健运行，满足了不同语种玩家的即时沟通需求，节省了人力物力，降低了运维技术难度。游族网络未来还将利用微软认知服务中的翻译服务实现游戏 UI 的自动化翻译，以智能云替代传统的人工游戏界面本地化工作，加快游戏推向市场的速度。</p>
+
+                    <h3>促进玩家数量增长和留存，为企业创造更多价值</h3>
+
+                    <p>游族网络在海外积累了庞大的玩家群，即时翻译服务在游戏内将使用不同语言的玩家连接在一起，提升了用户粘性和活跃度，推动游戏生态健康发展，助力游族网络深耕海外游戏市场。</p>
+                </div>
+
+                <div class="section-component">
+
+                    <h2>合作前景</h2>
+
+                    <p>游族网络与微软的语音即时翻译合作已经进入测试阶段，将成为第一家将语音翻译代入游戏场景的公司。目前，游族网络发行版图已扩至 190 多个国家和地区，旗下 Legacy of Discord – Furious Wings，League of Angels 系列等多款游戏成为中国游戏出海标杆。未来游族网络将与微软在 Azure、人工智能等方面深化合作，打造经典娱乐文化产品，进一步拓展海外业务版图。</p>
+                </div>
+
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_yoozoo_vm">虚拟机</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_yoozoo_storage">存储</a></li>
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_sql.png"><a target="_blank" href="/home/features/sql-database/" id="case-study_yoozoo_sql-database">SQL 数据库</a></li>
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_web.png"><a target="_blank" href="/home/features/app-service/web-apps/" id="case-study_yoozoo_web-apps">Web 应用</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/industry-solution-icon-4.png"><a target="_blank" href="/home/features/cloud-services/" id="case-study_yoozoo_cloud-services">云服务</a></li>
+                            <li><img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_cdn.png"><a target="_blank" href="/home/features/cdn/" id="case-study_yoozoo_cdn">CDN</a></li>
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_load-balancer-blue.png"><a target="_blank" href="/home/features/load-balancer/" id="case-study_yoozoo_load-balancer">负载均衡</a></li>
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_redis.png"><a target="_blank" href="/home/features/redis-cache/" id="case-study_yoozoo_redis-cache">Redis 缓存</a></li>
+                        </ul>							
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>游族网络案例 | Azure</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription><![CDATA[借助微软认知服务，游族网络让各国玩家在游戏中实现顺畅交流。]]></metaDescription>
+    <linkid>case-studies-yoozoo</linkid>
+    <urlDisplayName>游族网络案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_yoozoo" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">游族网络</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.yoozoo.com/" id="case-study-yoozoowebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/yoozoo-logo-80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>游族网络</h1>
+                            <p>借助微软认知服务，游族网络让各国玩家在游戏中实现顺畅交流。</p>
+                        </div>
+                        <!-- <p class="casestudy-info">
+                        </p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips"></span> -->
+                        <!-- <a href="#" class="video-play-button" id="case-study-video-player"></a>-->
+                    </div> 
+                          
+                    <!-- <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_yoozoo.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>  --> 
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

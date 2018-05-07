@@ -1,0 +1,1957 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2015032714" parentID="19326" level="3" writerID="52" creatorID="94" nodeType="1059" template="302" sortOrder="2"  createDate="2015-03-04T13:16:52" updateDate="2015-03-27T13:16:52" nodeName="solutions-mobile" urlName="solutions-mobile" writerName="content" creatorName="Brad" path="-1,11978,11979,13946,2015032714" isDoc="">
+    <bodyText>
+      <![CDATA[
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".link-btn").on("click", function (evt) {
+            evt.preventDefault();
+            var url = $(this).data("href");
+            if (url == "") return;
+            var win = window.open(url, '_blank');
+            win.focus();
+        })
+        //选择框
+        $(document).on("click", ".right-content-tab li a", selectChoose);
+        function selectChoose() {
+            //清除选中类
+            clearChoose();
+            $('.all-right').removeClass("fixed-style").removeClass("absolute-style");
+            var strID = $(this).attr('id');
+            if (strID.indexOf("-") > 0)
+                strID = strID.split("-")[1];
+            if ($(this).parent().hasClass("tab-choose")) {
+                $(this).parent().removeClass("tab-choose").addClass("tabchoose");solutions,mobile
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($(this).parent().hasClass("adchoose")) {
+                $(this).parent().removeClass("adchoose").addClass("sel-adchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($(this).parent().hasClass("dmpchoose")) {
+                $(this).parent().removeClass("dmpchoose").addClass("sel-dmpchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($(this).parent().hasClass("dspchoose")) {
+                $(this).parent().removeClass("dspchoose").addClass("sel-dspchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+        };
+        //其他链接
+        $(".apply-bottom-linkcontent a").click(function () {
+            clearChoose();
+            $('html, body').animate({
+                scrollTop: $(".right-content-select").offset().top
+            }, 0);
+            $('.secshow .all-right').removeClass("fixed-style").removeClass("absolute-style");
+            var strID = $(this).attr('id');
+            if (strID.indexOf("-") > 0)
+                strID = strID.split("-")[1];
+            if ($("#tab-" + strID).parent().hasClass("tab-choose")) {
+                $("#tab-" + strID).parent().removeClass("tab-choose").addClass("tabchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($("#tab-" + strID).parent().hasClass("adchoose")) {
+                $("#tab-" + strID).parent().removeClass("adchoose").addClass("sel-adchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($("#tab-" + strID).parent().hasClass("dmpchoose")) {
+                $("#tab-" + strID).parent().removeClass("dmpchoose").addClass("sel-dmpchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($("#tab-" + strID).parent().hasClass("dspchoose")) {
+                $("#tab-" + strID).parent().removeClass("dspchoose").addClass("sel-dspchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+
+        });
+        //内容加载
+        function selectSection(str) {
+            $(".right-section section").removeClass("secshow").addClass("hide");
+            $(".right-section section").each(function () {
+                if ($(this).attr('data-value') == str) {
+                    $(this).removeClass("hide").addClass("secshow");
+                }
+            });
+        }
+        //右侧导航加载
+        function selectnav(str) {
+            $(".navshow").removeClass("navshow").addClass("hide");
+            $(".sel-nav .right-section-nav").each(function () {
+                var strnav = $(this).attr('data-value');
+                if (strnav.indexOf("-") > 0)
+                    strnav = strnav.split("-")[1];
+                if (strnav == str) {
+                    $(this).removeClass("hide").addClass("navshow");
+                }
+            });
+        }
+
+        //滚动条处理
+        var previousScrollTop = 0;
+        $(window).on('scroll', onscroll);
+        $(window).on('resize', function (evt) {
+            var width = 0.16 * $('.content').width();
+            $('.left_content').css({
+                'width': width,
+            })
+        });
+        function onscroll(evt) {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var top = $(window).scrollTop();
+
+            if (Math.abs(top - previousScrollTop) < 20) return; // ie
+            var width = 0.16 * $('.content').width();
+            var leftHeigth = $('.left-content').height();
+            var headerHeight = $('.page-header').height() + 3;
+            var ftHeigth = $('footer').height();
+            //左侧导航
+            if ((scrollTop + leftHeigth + headerHeight + $("footer").height()) >= (scrollHeight)) {
+                // footer show up
+                $('.left-content').css({
+                    'position': 'absolute',
+                    'bottom': 0,
+                    'top': 'auto',
+                })
+            }
+            else if($(window).scrollTop() > 50){
+                    $('.left-content').css({
+                   'position': 'fixed',
+                    'top': '8px',
+                    'bottom': 'auto',
+                    'width': width,
+                    })
+            }
+           else if($(window).scrollTop() == 0){
+           $('.left-content').css({
+                   'position': 'fixed',
+                    'top': '108px',
+                    'bottom': 'auto',
+                    'width': width,
+                    })
+           
+           }
+            previousScrollTop = top;
+
+
+            //右侧滚动导航
+            var title_top = $(".right-content .secadv-title").offset().top;
+            var unique_top = $(".secshow .secadv-unique").offset().top;
+            var schema_top = $(".secshow .secadv-schema").offset().top;
+            var case_top = $(".secshow   .secadv-secase").offset().top;
+            var apply_top = $(".secshow .secadv-apply").offset().top;
+            var help_top = $(".secshow .secadv-help").offset().top;
+            if (scrollTop >= help_top - $(".navshow  .all-right").height()) {
+                $('.navshow  .all-right').removeClass("fixed-style").addClass("absolute-style");
+                $(".navshow  .all-right a").removeClass("selected");
+                $(".navshow  a[data-value='secadv-help']").addClass("selected");
+            }
+            else if (scrollTop >= apply_top - $(".navshow .all-right").height()) {
+                selectli("secadv-apply");
+            }
+            else if (scrollTop >= case_top - $(".navshow .all-right").height()) {
+                selectli("secadv-secase");
+            }
+            else if (scrollTop >= unique_top - $(".navshow .all-right").height()) {
+                selectli("secadv-unique");
+            }
+            else if (scrollTop >= schema_top - $(".navshow .all-right").height()) {
+                selectli("secadv-schema");
+            }
+            else if (scrollTop >= title_top - $(".navshow .all-right").height()) {
+                selectli("secadv-title");
+            }
+            else {
+                $('.navshow .all-right').removeClass("fixed-style").removeClass("absolute-style");
+            }
+        }
+        function selectli(sel) {
+            $('.navshow  .all-right').removeClass("absolute-style").addClass("fixed-style");
+            $(".navshow  .all-right a").removeClass("selected");
+            $(".navshow  a[data-value='" + sel + "']").addClass("selected");
+        }
+        $(document).on("click", ".navshow  .all-right a", allRightClick);
+        function allRightClick(e) {
+            var el = $(this).attr('data-value');
+            if (el == "secadv-ques" || el == "secadv-learn")
+                el = "secadv-help";
+            if (el == "secadv-index" || el == "secadv-guide")
+                el = "secadv-apply";
+            var scrdistop = 0;
+            if (el == "secadv-title")
+                scrdistop = 250;
+            else
+                var scrdistop = $(".secshow ." + el).offset().top - $("header").height() - 10;
+            //var scrdistop = $(this).offset().top - $(".navshow .all-right").height() - 150;
+            $('html, body').animate({
+                scrollTop: scrdistop
+            }, 300);
+            $(".navshow  .all-right a").removeClass("selected");
+            $(".navshow .all-right a[data-value='" + el + "']").addClass("selected");
+        }
+    });
+</script>
+<style>
+    a.applya1:hover .apply-guide-left {
+        background-color: #b7dcf9;
+    }
+
+    a.applya1:hover .apply-guide-right {
+        background-color: #d1f0fa;
+    }
+
+    a.applya2:hover .apply-index-left {
+        background-color: #b7dcf9;
+    }
+
+    a.applya2:hover .apply-index-right {
+        background-color: #d1f0fa;
+    }
+    /*共用*/
+    .zh-cn p {
+        line-height: normal;
+        margin: 5px 0px;
+    }
+
+    footer {
+        border-top: medium solid #ccc;
+    }
+
+    .right-section section {
+        height: 0px;
+        clear: both;
+        width: 100%;
+    }
+    /*整体背景*/
+    #serviceCenter {
+        width: 100%;
+        position: relative;
+        background-color: #f8f8f8;
+    }
+    /*白色背景*/
+    .white-background {
+        position: absolute;
+        background: white;
+        top: 0;
+        left: 16%;
+        right: calc(50% - 50vw + 9px);
+        bottom: 0;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .secshow {
+        display: block;
+    }
+
+    .navshow {
+    }
+
+    img {
+        background-repeat: no-repeat;
+    }
+    /*导航移动*/
+    .fixed-style {
+        position: fixed;
+        top: 160px;
+    }
+
+    .absolute-style {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+    }
+    /*content 内容*/
+    .content {
+        width: 100%;
+        min-width: 960px;
+        max-width: 1250px;
+        margin: 0 auto;
+        position: relative;
+    }
+    /*left-content 左侧导航*/
+    .left-content {
+        position: absolute;
+        width: 16%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #f8f8f8;
+        overflow: hidden;
+    }
+
+    .left-ul-content {
+        list-style: none;
+        padding: 0px;
+        border: none;
+        margin: 0;
+        margin-left: 20px;
+        width: 100%;
+    }
+
+        .left-ul-content > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 3px 0px 3px 16%;
+            margin-left: -16%;
+            text-transform: capitalize;
+            font-size: 14px;
+            line-height: 21px;
+            color: #555555;
+        }
+
+            .left-ul-content > li > a:hover {
+                background-color: #dbdbdb;
+            }
+
+    .nav-li-submenu {
+        font-size: 20px;
+        color: #5c5c5c;
+        margin-top: 25px;
+        margin-bottom: 3px;
+        height: 28px;
+        line-height: 28px;
+    }
+    /*右侧导航*/
+    ul.all-right {
+        padding: 0;
+        border-left: 3px solid #eeeeee;
+        list-style: none;
+        width: 95px;
+        margin-left: 45px;
+        margin-top: 60px;
+        z-index: 10;
+    }
+
+        ul.all-right li a {
+            display: block;
+            padding-left: 15px;
+            font-size: 14px;
+            color: #555555;
+            margin: 5px 0 5px 0px;
+        }
+
+            ul.all-right li a.selected {
+                border-left: 3px #88c402 solid;
+                margin-left: -3px;
+            }
+
+    /*背景 banner*/
+    .right-content-header {
+        position: absolute;
+        top: 0;
+        left: 16%;
+        min-width: 805px;
+        right: calc(50% - 50vw + 9px);
+        height: 293px;
+        background-repeat: no-repeat;
+        background-color: #43d37e;
+        background-image: none;
+        overflow: hidden;
+    }
+        /*banner-content部分*/
+        .right-content-header .right-content-dis {
+            padding-top: 55px;
+            margin-left: 5.6%;
+            max-width: 740px;
+        }
+
+    .rigth-content-title {
+        font-size: 32px;
+        color: #ffffff;
+    }
+
+    .banner-title {
+        font-size: 18px;
+        color: #fff;
+        width: 650px;
+        margin-top: 20px;
+        line-height: 24px;
+    }
+
+        .banner-title span {
+            color: #ffe98c;
+        }
+
+
+    .btn-style {
+        margin-top: 30px;
+        display: block;
+        font-size: 14px;
+        width: 142px;
+        height: 38px;
+        background-color: #ff3d00;
+        text-align: center;
+        padding: 7px;
+        box-sizing: border-box;
+        margin-right: 25px;
+    }
+
+        .btn-style:hover {
+            background-color: #fa6434;
+        }
+    /*四块集合*/
+    .right-content-frame, .right-content-case, .right-content-apply, .right-content-help {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 50px;
+        clear: both;
+        width: 60.96%;
+    }
+
+    .right-content-advantage {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 40px;
+        clear: both;
+        width: 60.96%;
+    }
+
+    .right-content-tab {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 0px;
+        clear: both;
+    }
+
+    .right-content-title {
+        font-size: 24px;
+        color: #000000;
+        display: block;
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    .con-distance {
+        width: 35%;
+        margin-right: 4%;
+        display: block;
+        float: left;
+        margin-bottom: 20px;
+    }
+    /*独到之处*/
+    .right-content-summarize {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 60px;
+        clear: both;
+        width: 84%;
+        float: left;
+    }
+
+        .right-content-summarize ul.summarize-left {
+            margin-top: 25px;
+            padding: 0;
+            list-style: none;
+        }
+
+            .right-content-summarize ul.summarize-left li {
+                width: 35%;
+                display: inline-block;
+                padding-left: 25px;
+                margin-right: 4%;
+                vertical-align: top;
+                background-repeat: no-repeat;
+                background-image: url('//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/checkmark_.png');
+            }
+
+                .right-content-summarize ul.summarize-left li span {
+                    font-size: 18px;
+                    color: #404040;
+                    margin-top: -5px;
+                    display: block;
+                }
+
+                .right-content-summarize ul.summarize-left li p {
+                    width: 100%;
+                    font-size: 13px;
+                    color: #404040;
+                    margin: 0px;
+                    padding-top: 10px;
+                    padding-bottom: 25px;
+                }
+
+    .right-content-top {
+        height: 530px;
+        clear: none;
+        max-width: 1050px;
+    }
+    /*独到之处*/
+    .right-content {
+        margin-left: 16%;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 293px;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+        width: 84%;
+    }
+
+    .right-content-content {
+        margin-right: calc(59% - 50vw+9px);
+        height: 100%;
+        background-color: white;
+    }
+
+    /*选择框*/
+    .nav-select {
+        color: #5c5c5c;
+        background-color: #DBDBDB;
+    }
+
+    .right-content-select {
+        position: absolute;
+        top: 0;
+        min-width: 805px;
+        left: 16%;
+        <!-- right: calc(50% - 50vw + 9px); -->
+        background-repeat: no-repeat;
+        overflow: hidden;
+        margin-top: 760px;
+    }
+
+    .right-content-center {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .right-content-tab {
+        padding-top: 0px;
+        margin: 0;
+        overflow: hidden;
+        list-style: none;
+        margin-bottom: -1px;
+    }
+
+        .right-content-tab li {
+            height: 105px;
+            float: left;
+            width: 15.04%;
+            margin-right: 0.24%;
+            position: relative;
+        }
+
+            .right-content-tab li a {
+                font-size: 18px;
+                display: table-cell;
+                width: inherit;
+                color: #555555;
+                vertical-align: middle;
+                text-align: center;
+                height: 105px;
+            }
+
+        .right-content-tab .tab-choose {
+            background-color: #e7f2f9;
+        }
+
+    .tabchoose {
+        background-color: #c5e6f9;
+    }
+
+    .tab-choose:hover {
+        background-color: #c5e6f9;
+    }
+    /*ad */
+
+    .adchoose {
+        background-color: #EDF9F9;
+    }
+
+    .sel-adchoose {
+        background-color: #D8F6E6;
+    }
+
+    .adchoose:hover {
+        background-color: #D8F6E6;
+    }
+    /*dsp 业务*/
+
+    .dspchoose {
+        background-color: #EDF9F3;
+    }
+
+    .sel-dspchoose {
+        background-color: #D1F9E6;
+    }
+
+    .dspchoose:hover {
+        background-color: #D1F9E6;
+    }
+    /*dmp 业务*/
+    .dmpchoose {
+        background-color: #EFF8EF;
+    }
+
+    .sel-dmpchoose {
+        background-color: #D8F5D9;
+    }
+
+    .dmpchoose:hover {
+        background-color: #D8F5D9;
+    }
+    /**/
+    .right-content-tab .tab-change {
+        background-color: #EDF9F9;
+    }
+
+    .tabchange {
+        background-color: #D8F6E6;
+    }
+
+    .tab-change:hover {
+        background-color: #D8F6E6;
+    }
+
+    .triangle {
+        position: absolute;
+        display: none;
+        height: 12px;
+        width: 24px;
+        bottom: 0px;
+        left: 50%;
+        margin-left: -15px;
+        background-repeat: no-repeat;
+        background-image: url('//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle_.png');
+    }
+
+    .right-content-tab li.tabchoose .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.tabchange .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.sel-adchoose .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.sel-dmpchoose .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.sel-dspchoose .triangle {
+        display: block;
+    }
+    /*section 内容区域*/
+    .right-section {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+        .right-section .right-section-content {
+            float: left;
+            width: 100%;
+        }
+
+    .right-section-nav {
+        float: left;
+        display: none;
+    }
+    /*方案概述*/
+    .advantage-left p {
+        font-size: 13px;
+        padding-left: 15px;
+        color: #404040;
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+
+    section .section-title {
+        font-size: 18px;
+        color: #000;
+    }
+    /*架构部分*/
+    .right-content-frame {
+        color: #404040;
+        font-size: 14px;
+    }
+
+        .right-content-frame .adexchange {
+            height: 23px;
+            padding: 3px 5px;
+            background-color: #c9e5fb;
+            color: #404040;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+    .adexchange:hover {
+        background-color: #e1effa;
+    }
+
+    .right-content-frame .dsp {
+        background-color: #d2fef3;
+        height: 23px;
+        padding: 3px 5px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .dsp:hover {
+        background-color: #ebfbf7;
+    }
+
+    .right-content-frame .dmp {
+        background-color: #d8fbd9;
+        height: 23px;
+        padding: 3px 5px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .dmp:hover {
+        background-color: #f2fdf3;
+    }
+
+    .right-content-frame .last {
+        background-color: #e6ffd9;
+        height: 23px;
+        padding: 5px 0px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .last:hover {
+        background-color: #f7fdf3;
+    }
+    /*应用方案部分*/
+    .apply-content {
+        height: 120px;
+        width: 100%;
+        font-size: 13px;
+        color: #33a4fb;
+    }
+
+    .apply-bottom a {
+        color: #33a4fb;
+    }
+
+    .apply-guide {
+        background-color: #dff5fc;
+        height: 120px;
+        width: 49%;
+        float: left;
+    }
+
+    .apply-guide-left {
+        background-color: #c1e2fc;
+        width: 30%;
+        height: 120px;
+        float: left;
+    }
+
+    .apply-guide-right {
+        width: 70%;
+        float: left;
+        height: 120px;
+    }
+
+    .apply-guide-left img {
+        margin: 25px 31px;
+        width: 26px;
+        height: 33px;
+    }
+
+
+    .apply-index {
+        background-color: #dff5fc;
+        height: 120px;
+        width: 49%;
+        float: left;
+    }
+
+    .apply-index-left {
+        background-color: #c1e2fc;
+        width: 30%;
+        height: 120px;
+        float: left;
+    }
+
+        .apply-index-left img {
+            margin: 25px;
+            width: 40px;
+            height: 33px;
+        }
+
+    .apply-border {
+        border-bottom: 2px solid #33a4fb;
+    }
+
+        .apply-border span {
+            font-size: 18px;
+        }
+
+    .apply-bottom a {
+        display: block;
+        height: 25px;
+    }
+
+    .apply-bottom span {
+        display: block;
+        float: left;
+    }
+
+    .apply-bottom img {
+        width: 5px;
+        height: 5px;
+        margin-top: 13px;
+        margin-left: 5px;
+    }
+
+    .apply-distance {
+        margin-right: 2%;
+    }
+
+
+    .apply-index-right {
+        width: 70%;
+        height: 120px;
+        float: left;
+    }
+
+    .apply-right-content {
+        padding: 25px 2% 0px 2%;
+    }
+    /*案例部分*/
+    .img-case ul {
+        list-style-type: none;
+        padding: 0px;
+        width: 100%;
+    }
+
+        .img-case ul li {
+            float: left;
+            width: 25%;
+        }
+
+    .img-case img {
+        width: 100%;
+        /*height:23px;*/
+    }
+    /*帮助中心*/
+    .help-left a {
+        font-size: 14px;
+        color: #404040;
+    }
+
+    .help-left span {
+        display: block;
+        float: left;
+    }
+
+        .help-left span:hover {
+            opacity: 0.8;
+        }
+
+    .help-left img {
+        padding-top: 7px;
+        padding-left: 5px;
+        width: 5px;
+        height: 10px;
+    }
+
+        .help-left img:hover {
+            opacity: 0.8;
+        }
+    /*AD 业务*/
+    .summary {
+        margin-bottom: 50px;
+    }
+
+        .summary span {
+            font-size: 13px;
+            color: #404040;
+            font-weight: 600;
+        }
+
+        .summary .ad-distance {
+            float: left;
+        }
+
+    .ad-distance p {
+        line-height: 24px;
+    }
+
+    .ad-btn {
+        height: 20px;
+        padding: 5px 8px;
+        background-color: #eaeaea;
+        color: #404040;
+        margin: 0 3px;
+        font-weight: normal;
+    }
+
+        .ad-btn:hover {
+            opacity: 0.8;
+        }
+
+    .ad-title {
+        font-size: 16px;
+        color: #404040;
+        font-weight: 600;
+    }
+
+    .ad-content {
+        font-size: 14px;
+        color: #404040;
+    }
+
+    .span-style {
+        font-size: 14px;
+        color: #404040;
+        font-weight: 600;
+    }
+
+    .ul-details li {
+        margin-bottom: 15px;
+        list-style: none;
+        font-weight: 600;
+        padding-left: 0;
+    }
+
+    @media(min-width:1250px) {
+        /*banner-content部分*/
+        .right-content-header {
+            background-image: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/mobile-dev.png);
+        }
+
+        .right-content-dis {
+            margin-left: 70px;
+        }
+        /*选择块*/
+        .right-content-frame, .right-content-advantage, .right-content-case, .right-content-apply, .right-content-help {
+            padding-left: 75px;
+            width: 762px;
+        }
+
+        .right-content-tab {
+            padding-left: 75px;
+        }
+            /*选择框*/
+            .right-content-tab li {
+                width: 188px;
+                margin-right: 3px;
+            }
+        /*导航*/
+        .right-section-nav {
+            display: block;
+        }
+
+        /*独到之处*/
+        .right-content-summarize {
+            /*padding-left: 75px;*/
+            width: 820px;
+        }
+
+            .right-content-summarize ul.summarize-left li {
+                width: 320px;
+                margin-right: 50px;
+            }
+
+                .right-content-summarize ul.summarize-left li p {
+                    width: 335px;
+                }
+
+        .con-distance {
+            width: 360px;
+            margin-right: 50px;
+        }
+        /*内容区域*/
+        .right-section .right-section-content {
+            width: 836px;
+        }
+
+        .ul-details {
+            font-size: 13px;
+            color: #404040;
+            clear: both;
+            margin-bottom: 20px;
+        }
+
+
+        /*应用方案部分*/
+        .apply-guide {
+            width: 368px;
+        }
+
+        .apply-guide-left {
+            width: 88px;
+        }
+
+        .apply-guide-right {
+            width: 280px;
+        }
+
+        .apply-index {
+            width: 368px;
+        }
+
+        .apply-index-left {
+            width: 88px;
+        }
+
+        .apply-guide-left img {
+            margin: 25px 40%;
+        }
+
+        .apply-index-right {
+            width: 280px;
+        }
+
+        .apply-right-content {
+            padding: 25px 25px 0px 25px;
+        }
+
+        .apply-distance {
+            margin-right: 25px;
+        }
+        /*案例部分*/
+        .img-case img {
+            width: 190px;
+        }
+    }
+
+    @media(max-width:960px) {
+        /*测试*/
+        .content {
+            min-width: 960px;
+        }
+
+        .left-content {
+            min-width: 154px;
+        }
+
+        .right-content {
+            min-width: 805px;
+        }
+
+        .right-content-select {
+            min-width: 805px;
+        }
+    }
+</style>
+
+<div class="main-content" id='serviceCenter'>
+    <div class="content">
+        <div class="white-background"></div>
+        <!--left 左侧导航-->
+        <div class="left-content">
+            <ul style="border:none;" class="left-ul-content">
+                <li class="nav-li-submenu li-general">
+                    解决方案
+                </li>
+                <li><a id="site_nav_mobile_game" href="/solutions/game/">云端游戏开发</a></li>
+                <li><a id="site_nav_mobile_moible" href="/solutions/mobile/" class="nav-select">云端移动开发</a></li>
+                <li><a id="site_nav_mobile_ad" href="/solutions/advertising/">广告数字营销</a></li>
+                <li><a id="site_nav_mobile_line" href="/solutions/online/">在线数字营销</a></li>
+                <li class="nav-li-submenu" style="height:0px;">
+                </li>
+                <li><a id="site_nav_mobile_base" href="/solutions/infrastructure/">基础结构服务</a></li>
+                <li><a id="site_nav_mobile_data" href="/solutions/data-management/">数据管理</a></li>
+                <li><a id="site_nav_mobile_Web" href="/solutions/web/">Web 应用程序</a></li>
+                <li><a id="site_nav_mobile_develop" href="/solutions/dev-test/">开发与测试</a></li>
+                <li><a id="site_nav_mobile_save" href="/solutions/storage-backup-recovery/">存储、备份和修改</a></li>
+                <li><a id="site_nav_mobile_soft" href="/solutions/OSS/">开源软件</a></li>
+                <li>
+                    <a id="site_nav_mobile_storsimple" style="margin-bottom:43px;" href="/solutions/storsimple/">Storsimple</a>
+                </li>
+            </ul>
+        </div>
+        <!--banner 背景-->
+        <div class="right-content-header">
+            <div class="right-content-dis">
+                <h1 class="rigth-content-title">云端移动开发解决方案</h1>
+                <div>
+                    <div class="banner-title">
+                        <div>您还在头疼跨平台应用开发和后端搭建工作吗？</div>
+                        <div>我们为您提供了<span> 一站式解决方案</span>;</div>
+                        <div>帮您用一套开发工具，九种不同<span> 选择，简单、高效率 </span>地开发跨平台应用。</div>
+                    </div>
+                    <div>
+                        <a id="sou_mob_trial" class="btn-style" href="/pricing/1rmb-trial/" style="color:white;" target="_blank">我要试用</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--独到之处-->
+        <div class="right-content">
+            <div class="right-content-content">
+                <div class="right-content-top">
+                    <div class="right-content-summarize">
+                        <h1 class="right-content-title secadv-title">
+                            <a id="cloudmobile-advantages" class="anchor"></a>我们的独到之处
+                        </h1>
+                        <div style="font-size:18px;">
+                            <span class="con-distance">
+                                与众不同的后端云环境
+                            </span>
+                            <span class="con-distance">
+                                独一无二的前端开发工具
+                            </span>
+                        </div>
+                        <div style="clear:both;">
+                            <ul class="summarize-left">
+                                <li>
+                                    <span>跨平台</span>
+                                    <p>通过支持不同开发语言的后端平台为 iOS、Android，以及 Windows 设备上运行的前端应用提供支持。</p>
+                                </li>
+                                <li>
+                                    <span>跨平台</span>
+                                    <p>使用惯用的编程语言和工具为 iOS、Android、Windows 开发应用。</p>
+                                </li>
+                                <li>
+                                    <span>混合云</span>
+                                    <p>将多平台应用与企业内部或第三方服务集成，将内部数据中心扩展至云中。</p>
+                                </li>
+                                <li>
+                                    <span>更一致</span>
+                                    <p>借助统一的开发工具，横跨主流平台，通过高效率开发打造一致的应用体验。</p>
+                                </li>
+                                <li>
+                                    <span>速度快</span>
+                                    <p>适用于跨平台应用，具备完善功能的专有后端开发模型。</p>
+                                </li>
+                                <li>
+                                    <span>可共享</span>
+                                    <p>一套代码通过简单修改即可在不同平台上运行，并提供出色的用户体验。</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sel-nav">
+                        <div class="right-section-nav navshow" data-value="nav-secmov">
+                            <ul class="all-right">
+                                <li><a id="secad_fra_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secad_fra_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <li><a id="secad_fra_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>
+                                <li><a id="secad_fra_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="secad_fra_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secad_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/Windowsazuresolutiondownload01.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secad_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/Windowsazuresolutiondownload01.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secad_fra_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secad_fra_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secad_fra_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="right-section-nav hide" data-value="nav-secmoa">
+                            <ul class="all-right">
+                                <li><a id="secad_mob_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secad_mob_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="secad_mo_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <li><a id="secad_mob_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="secad_mob_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secad_mob_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secad_mob_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secad_mob_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secad_mob_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secad_mob_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="right-section-nav hide" data-value="nav-secmodsp">
+                            <ul class="all-right">
+                                <li><a id="secad_mob_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secdsp_mob_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="secdsp_ad_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <li><a id="secdsp_mob_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="secadsp_mob_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secdsp_mob_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secdsp_mob_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secdsp_mob_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secdsp_mob_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secdsp_mob_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="right-section-nav hide" data-value="nav-secmodmp">
+                            <ul class="all-right">
+                                <li><a id="secad_mob_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secdmp_mob_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="secdmp_mo_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <li><a id="secdmp_mob_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="secdmp_mob_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secdmp_mob_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secdmp_mob_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secdmp_mob_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secdmp_mob_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secdmp_mob_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--选择框详细内容-->
+                <div class="right-section">
+                    <!--方案概述-->
+                    <section data-value="secmov" class="secshow">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secadv-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-overview-framework" class="anchor"></a>架构</h1>
+                                <div>
+                                    <div class="apply-bottom-linkcontent">
+                                        移动开发解决方案主要涵盖移动应用的
+                                        <a id="mobile-secmoa" href="#secmoa" class="adexchange">快速交付</a>、
+                                        <a id="mobile-secmodsp" href="#secmodsp" class="dsp">定制开发</a> 、以及
+                                        <a id="mobile-secmodmp" href="#secmodmp" class="dmp">集成</a>
+                                        三大领域。在该解决方案中，前端部分可选择 Universal App、Xamarin，或 Cordova+ HTML5 之一作为开发技术；后端部分可根据实际需求，从应用服务层、数据服务层，以及基础 IT 服务层的诸多 Azure 服务中选择所需服务，搭建最能满足应用需求的后端。为了简化后端的搭建工作，Azure 还提供了打包式的“移动服务”，其中包含跨平台移动应用程序中最常用的 Azure 服务，可以帮助开发者用最简单的操作，快速建立一整套后端系统。
+                                    </div>
+                                    <div style="margin-top:25px;margin-bottom:50px;">
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/Windowsazuresolutionmobile1.png" alt="云端移动开发架构图" />
+                                    </div>
+                                    <div>
+                                        <div>
+                                            三种前端开发技术，三种后端 Azure 方案，前端与后端分别三选一，共可获得九种排列组合，充分满足不同移动应用的开发需求。
+                                        </div>
+                                        <div style="margin-top:25px;margin-bottom:50px;">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-mobile-2.jpg" alt="前端与后端 Azure 开发方案架构图" />
+                                        </div>
+                                        <p>架构图涉及 Azure 服务的详细描述：</p>
+                                        <h2 class="ad-title"><a id="cloudmobile-overview-clientAccess" class="anchor"></a>客户端访问</h2>
+                                        <p class="ad-content">
+                                            功能概述：承载移动应用的对外网站，具备自动缩放能力，可以横向或纵向伸缩，应对高并发负载。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用<a id="sou_mob_weba" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>结合<a id="aou_mob_sera" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>构建，站点的静态资源通过 Azure <a id="sou_mob_cacha" href="/home/features/cdn/" class="ad-btn" style="color:#404040;" target="_blank">CDN </a>进行分发。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title"><a id="cloudmobile-overview-appService" class="anchor"></a>应用服务</h2>
+                                        <p class="ad-content">
+                                            功能概述：承载移动应用的后端服务，具备自动缩放能力，应对高并发负载，支持向不同移动平台的所有或细分用户推送可定制的个性化营销消息。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用<a id="sou_mob_serb" href="/home/features/mobile-services/" class="ad-btn" style="color:#404040;" target="_blank">移动服务</a>或<a id="aou_mob_webb" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>或<a id="sou_mob_clob" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>构建，结合<a id="sou_mob_hubsb" href="/home/features/notification-hubs/" class="ad-btn" style="color:#404040;" target="_blank">通知中心</a>服务推送消息。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title"><a id="cloudmobile-overview-dataStorage" class="anchor"></a>数据存储</h2>
+                                        <p class="ad-content">
+                                            功能概述：使用大容量存储选项，更安全地管理应用运营过程中需要持久化存储的数据，提供跨地域冗余存储，支持管理 PB 级别的存储量，数据均可通过 REST API 进行访问。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Azure Storage 服务的<a id="sou_mob_storc" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Blob 存储</a>和 Azure<a id="aou_mob_sqlc" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank"> SQL 数据库</a>。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title"><a id="cloudmobile-overview-dataAnalysis" class="anchor"></a>数据分析</h2>
+                                        <p class="ad-content">
+                                            功能概述：对应用程序运营过程中产生的海量日志数据进行处理、分析并生成报表，可监测及预测数据，提供日志数据收集、在线实时计算/分析、离线计算/分析等功能。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用<a id="sou_mob_hdd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank"> HDInsight </a>服务构建，并可在<a id="aou_mob_vmd" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建集群。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title"><a id="cloudmobile-overview-integration" class="anchor"></a>集成服务</h2>
+                                        <p class="ad-content">
+                                            功能概述：将移动应用跨越私有云和公有云环境进行连接，用于在应用程序间传递消息，管理云中消息的传递，或将本地部署的应用程序连接到云环境。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Azure <a id="sou_mob_messd" href="/home/features/service-bus/" class="ad-btn" style="color:#404040;" target="_blank">服务总线</a>构建。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title"><a id="cloudmobile-overview-highPerform" class="anchor"></a>高性能连通</h2>
+                                        <p class="ad-content">
+                                            功能概述：使用 Azure<a id="sou_mob_nete" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>提供的 VNet 将云与企业内部 IT 基础结构连接，与企业内部的计算/分析服务和数据库集群相集成。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用<a id="sou_mob_netf" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>的点到站点或站点到站点 VPN 功能。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--我们能带给您的企业什么-->
+                            <div class="right-content-advantage">
+                                <h1 id="secadv-unique" class="secadv-unique" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="cloudmobile-overview-benefit" class="anchor"></a>
+                                    我们能带给您的企业什么
+                                </h1>
+                                <div class="advantage-left">
+                                    <ul style="list-style-type: decimal;">
+                                        <li>基于微软云技术，提供完善的跨平台移动应用后端解决方案</li>
+                                        <li>通过一致的开发方式打造平滑流畅的跨平台应用体验</li>
+                                        <li>与内部部署环境和云环境，以及第三方系统无缝集成</li>
+                                        <li>跨平台，支持 iOS、Android、Windows 等主流移动平台</li>
+                                        <li>借助 Xamarin 为不同平台开发高性能原生应用</li>
+                                        <li>借助 Cordova 和 HTML5 以共享代码方式为多种平台开发多设备混合应用</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secadv-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-overview-case" class="anchor"></a>案例</h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="mob_adv_img1" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8874" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo1.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="mob_adv_img2" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11869" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo2.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="mob_adv_img3" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11707" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo3.png">
+                                            </a>
+                                        </li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="mob_adv_apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-overview-use_solutions" class="anchor"></a>如何开始应用本方案</h1>
+                                <div id="mob_adv_guide" class="apply-content" style="height:150px;">
+                                    <div class="apply-guide apply-distance" style="height:150px;">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" id="mobile_project_architectureGuide" class="applya1" target="_blank" style="display:block;height:100%;min-height:150px;">
+                                            <div class="apply-guide-left" style="height:150px;">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                            </div>
+                                            <div class="apply-guide-right" style="height:150px;">
+                                                <div class="apply-right-content" style="height:150px;">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-guide">架构指南</span>
+                                                        <div style="margin-bottom:5px;">全程帮助您应用解决方案</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_project_architectureGuide_btn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载架构指南</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index" style="height:150px;">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" id="mobile_project_sample_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:150px;">
+                                            <div class="apply-index-left" style="height:150px;">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                            </div>
+                                            <div class="apply-index-right" style="height:150px;">
+                                                <div class="apply-right-content" style="height:150px;">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                        <div style="margin-bottom:5px;" class="secadv-index">提供代码的模板</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_project_sample_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_project_all_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/strosimple/MobileScenarioPublic.rar" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载完整代码</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secadv-help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-overview-support" class="anchor"></a>帮助中心</h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="mob_adv_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile3.pdf" class="secadv-ques" target="_blank">
+                                            <span>该解决方案的常见问题Q&A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="mob_adv_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile4.pdf" class="secadv-learn" target="_blank">
+                                            <span>深入学习类的资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--最快交付 -->
+                    <section data-value="secmoa" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secad-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-delivery-framework" class="anchor"></a>架构</h1>
+                                <div class="apply-bottom-content">
+                                    Azure 移动服务提供了为应用程序创建后端系统所需的诸多能力，包括数据存储、（使用社交网络或企业身份验证系统进行的）用户身份验证、推送通知，以及脱机工作等能力。只需要注册并开通 Azure 移动服务，即可获得一套适用于跨平台应用，具备完善功能的后端环境，并能享受到按需创建，按用量付费、灵活缩放等云服务所能提供的收益。
+                                </div>
+                                <div style=" margin-top:25px;">
+                                    <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-mobile-0330-002_updated.jpg" alt="最快交付架构图" />
+                                </div>
+                                <div style="margin-top:50px;">
+                                    <div class="ul-details">
+                                        架构图涉及 Azure 服务的精简描述
+                                        <ul style="padding:0px;">
+                                            <li>API 调用：<a id="mob_mob_ser" href="/home/features/mobile-services/" class="ad-btn" style="color:#404040;" target="_blank">移动服务</a></li>
+                                            <li>客户端交互：<a id="mob_mob_ser1" href="/home/features/mobile-services/" class="ad-btn" style="color:#404040;" target="_blank">移动服务</a>、<a id="mob_mob_not" href="/home/features/notification-hubs/" class="ad-btn" style="color:#404040;" target="_blank">推送通知</a></li>
+                                            <li>
+                                                身份认证：<a id="mob_mob_iden" href="/home/features/active-directory/" class="ad-btn" style="color:#404040;" target="_blank">Azure Active Directory</a>、<a id="mob_mob_niden" href="https://docs.azure.cn/" class="ad-btn" style="color:#404040;" target="_blank"> 其他第三方身份验证服务</a>
+                                            </li>
+                                            <li>消息传递：<a id="mob_mob_hubs" href="/home/features/active-directory/" class="ad-btn" style="color:#404040;" target="_blank">服务总线</a></li>
+                                            <li>数据存储：<a id="mob_mob_sql" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">Azure SQL 数据库</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                            </div>
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secad-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-delivery-case" class="anchor"></a>案例</h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="mob_ad_img1" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8874" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo1.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="mob_ad_img2" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11869" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo2.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="mob_ad_img3" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11707" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo3.png">
+                                            </a>
+                                        </li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="mob_ad_apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-delivery-use_solutions" class="anchor"></a>如何开始应用本方案</h1>
+                                <div id="mob_ad_guide" class="apply-content" style="height:150px;">
+                                    <div class="apply-guide apply-distance" style="height:150px;">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" id="mobile_delivery_architecture_guide" class="applya1" target="_blank" style="display:block;height:100%;min-height:150px;">
+                                            <div class="apply-guide-left" style="height:150px;">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                            </div>
+                                            <div class="apply-guide-right" style="height:150px;">
+                                                <div class="apply-right-content" style="height:150px;">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-guide">架构指南</span>
+                                                        <div style="margin-bottom:5px;">全程帮助您应用解决方案</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_delivery_architecture_guideBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载架构指南</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index" style="height:150px;">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" id="mobile_delivery_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:150px;">
+                                            <div class="apply-index-left" style="height:150px;">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                            </div>
+                                            <div class="apply-index-right" style="height:150px;">
+                                                <div class="apply-right-content">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                        <div style="margin-bottom:5px;" class="secadv-index">提供代码的模板</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_delivery_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="apply-bottom">
+                                                        <button id="mobile_delivery_all" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/strosimple/MobileScenarioPublic.rar" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载完整代码</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secad_help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-delivery-support" class="anchor"></a>帮助中心</h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="mob_ad_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile3.pdf" target="_blank">
+                                            <span class="secadv-ques">常见问题Q&A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="mob_ad_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile4.pdf" target="_blank">
+                                            <span class="secadv-learn">深入学习资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--定制开发环境-->
+                    <section data-value="secmodsp" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secad-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-customized-framework" class="anchor"></a>架构</h1>
+                                <div class="apply-bottom-content">
+                                    这三种后端 Azure 云服务方案都可以帮助开发者使用自己惯用的编程语言和工具，例如 Node.js、PHP、Java、Ruby、Python，以及其他工具、语言和运行时，以此为基础为 iOS、Android、Windows 等主流移动平台开发跨平台应用。
+                                </div>
+                                <div class="apply-bottom-content">
+                                    开发者可根据实际需要，结合自己的喜好、习惯，以及专注的领域，选择不同的开发框架和编程语言。可以利用 Azure 提供的预配置虚拟机映像部署所需应用，或者上传自定义的虚拟机映像，在 Azure 中运行自己的虚拟机环境，以此为基础运行应用。不仅如此，开发者还可以选择将虚拟机中运行的应用与其他 Azure 服务配合使用，在云环境丰富强大的功能协助下开发自己的应用。
+                                </div>
+                                <div class="apply-bottom-content">
+                                    随着 Azure 技术的继续演进，以后当新的服务或功能上线后，这些新增的特性也能让开发者获益，通过云环境获得更多功能，借此进一步完善自己的应用，为用户提供更精彩的跨平台体验。
+                                </div>
+                                <div class="apply-bottom-content">
+                                    借助<span>统一的开发工具</span>，<span>横跨各大主流平台</span>，以<span>高效率的开发</span>工作提供统一的应用体验。
+                                </div>
+                                <div style=" margin-top:25px;">
+                                    <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-mobile-0330-003.jpg" alt="定制开发环境架构图" />
+                                </div>
+                                <div style="margin-top:50px;">
+                                    <div class="ul-details">
+                                        架构图涉及 Azure 服务的精简描述
+                                        <ul style="padding:0px;">
+                                            <li>
+                                                开发环境：<a id="mob_mob_vs" href="https://docs.azure.cn/app-service-web/web-sites-dotnet-troubleshoot-visual-studio/" class="ad-btn" style="color:#404040;" target="_blank">Visual Studio</a>、<a id="mob_mob_vm1" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>、<a id="mob_mob_linux" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">Windows Server/Linux</a>、<a id="mob_mob_kai" href="/solutions/OSS/" class="ad-btn" style="color:#404040;" target="_blank">开源软件</a>
+                                            </li>
+                                            <li>
+                                                数据存储：<a id="mob_mob_ator1" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Azure 存储</a>、<a id="mob_mob_sql1" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">SQL 数据库</a>
+                                            </li>
+                                            <li>身份认证：<a id="mob_mob_iden1" href="/home/features/active-directory/" class="ad-btn" style="color:#404040;" target="_blank">Azure Active Directory</a></li>
+                                            <li>数据分析：<a id="mob_mob_hd1" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a></li>
+                                            <li>客户端交互：<a id="mob_mob_hubs1" href="/home/features/notification-hubs/" class="ad-btn" style="color:#404040;" target="_blank">通知中心</a>、<a id="mob_mob_mob3" href="/home/features/mobile-services/" class="ad-btn" style="color:#404040;" target="_blank">移动服务</a>、<a id="mob_mob_sql1" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                            </div>
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secad-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-customized-case" class="anchor"></a>案例</h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="mob_dsp_img1" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8874" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo1.png">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="mob_dsp_img2" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11869" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo2.png">
+                                            </a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="mob_dmp_apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-customized-use_solutions" class="anchor"></a>如何开始应用本方案</h1>
+                                <div id="mob_dmp_guide" class="apply-content">
+                                    <div class="apply-guide apply-distance">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" id="mobile_apply_architecture_guide" class="applya1" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                            <div class="apply-guide-left">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                            </div>
+                                            <div class="apply-guide-right">
+                                                <div class="apply-right-content">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-guide">架构指南</span>
+                                                        <div style="margin-bottom:5px;">全程帮助您应用解决方案</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_apply_architecture_guideBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400">下载架构指南</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" id="mobile_apply_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                            <div class="apply-index-left">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                            </div>
+                                            <div class="apply-index-right">
+                                                <div class="apply-right-content">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                        <div style="margin-bottom:5px;" class="secadv-index">提供代码的模板</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_apply_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400">下载示例代码</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secdsp_help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-customized-support" class="anchor"></a>帮助中心</h1>
+                                <div class="help-left">
+                                    <div class="help-left">
+                                        <div>
+                                            <a id="mob_dsp_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile3.pdf" target="_blank">
+                                                <span class="secadv-ques">常见问题Q&A</span>
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a id="mob_dsp_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile4.pdf" target="_blank">
+                                                <span class="secadv-learn">深入学习资源</span>
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--集成环境-->
+                    <section data-value="secmodmp" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+
+                                <h1 id="mob_dmp_schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-integrated-framework" class="anchor"></a>架构</h1>
+                                <div class="apply-bottom-content">
+                                    借助虚拟网络将 Azure 服务连接至企业内部环境，即可创建完善的混合基础结构。借此可对身份验证服务进行集成，实现单一登录，AD 集成、SaaS 应用集成等目标；并可将应用程序与企业内部或第三方集成服务进行集成；此外还可通过混合网络将客户内部环境的数据中心扩展至云中。
+                                </div>
+                                <div style=" margin-top:25px;">
+                                    <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-mobile-0330-004.jpg" alt="集成环境架构图" />
+                                </div>
+                                <div style="margin-top:50px;">
+                                    <div class="ul-details">
+                                        架构图涉及 Azure 服务的精简描述：
+                                        <ul style="padding:0px;">
+                                            <li>
+                                                客户端访问：<a id="mob_mob_amb" href="/home/features/mobile-services/" class="ad-btn" style="color:#404040;" target="_blank">移动服务</a>、<a id="mob_mob_aweb" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>
+                                            </li>
+                                            <li>
+                                                应用服务：<a id="mob_mob_ator1" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>、<a id="mob_mob_aweb" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>、<a id="mob_mob_aser" href="/home/features/mobile-services/" class="ad-btn" style="color:#404040;" target="_blank">移动服务</a>
+                                            </li>
+                                            <li>
+                                                数据存储：<a id="mob_mob_blob1" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Blob 存储</a>、<a id="mob_mob_bsql" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">SQL 数据库</a>
+                                            </li>
+                                            <li>
+                                                数据分析：<a id="mob_mob_hd1" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a>
+                                            </li>
+                                            <li>
+                                                身份验证：<a id="mob_mob_aad" href="/home/features/active-directory/" class="ad-btn" style="color:#404040;" target="_blank">Azure Active Directory</a>
+                                            </li>
+                                            <li>
+                                                集成服务：<a id="mob_mob_mess1" href="/home/features/service-bus/" class="ad-btn" style="color:#404040;" target="_blank">服务总线</a>
+                                            </li>
+                                            <li>
+                                                高性能连通：<a id="mob_mob_anet" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                            </div>
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secad-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-integrated-case" class="anchor"></a>案例</h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="mob_dmp_img1" href="https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8874" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-game-logo1.png">
+                                            </a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="dsp_apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-integrated-use_solutions" class="anchor"></a>如何开始应用本方案</h1>
+                                <div id="mob_dmp_guide" class="apply-content">
+                                    <div class="apply-guide apply-distance">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" id="mobile_environment_architecture_guide" class="applya1" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                            <div class="apply-guide-left">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                            </div>
+                                            <div class="apply-guide-right">
+                                                <div class="apply-right-content">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-guide">架构指南</span>
+                                                        <div style="margin-bottom:5px;">全程帮助您应用解决方案</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_environment_architecture_guideBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400">下载架构指南</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index">
+                                        <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" id="mobile_environment_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                            <div class="apply-index-left">
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                            </div>
+                                            <div class="apply-index-right">
+                                                <div class="apply-right-content">
+                                                    <div class="apply-border">
+                                                        <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                        <div style="margin-bottom:5px;" class="secadv-index">提供代码的模板</div>
+                                                    </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="mobile_environment_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile2.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400">下载示例代码</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secdmp_help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;"><a id="cloudmobile-integrated-support" class="anchor"></a>帮助中心</h1>
+                                <div class="help-left">
+                                    <div class="help-left">
+                                        <div>
+                                            <a id="mob_dmp_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile3.pdf" target="_blank">
+                                                <span class="secadv-ques">常见问题Q&A</span>
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a id="mob_dmp_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_mobile4.pdf" target="_blank">
+                                                <span class="secadv-learn">深入学习资源</span>
+                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--选择框-->
+        <div class="right-content-select">
+            <div class="right-content-center">
+                <ul class="right-content-tab" style="clear:none; max-width:980px;">
+                    <li class="tabchoose"><a id="tab-secmov" href="#secmov">方案概述<span class="triangle"></span></a></li>
+                    <li class="adchoose"><a id="tab-secmoa" href="#secmoa">最快交付<span class="triangle"></span></a></li>
+                    <li class="dspchoose"><a id="tab-secmodsp" href="#secmodsp">定制开发环境<span class="triangle"></span></a></li>
+                    <li class="dmpchoose"><a id="tab-secmodmp" href="#secmodmp">集成环境<span class="triangle"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--选择框详细内容-->
+    </div>
+    <script>
+        function onload() {
+            var strUrl = window.location.href;
+            if (strUrl.indexOf("#") > 0) {
+                var secID = strUrl.split("#")[1];
+                //显示内容
+                $(".right-content-tab li a").each(function () {
+                    var strhref = $(this).attr('id');
+                    if (strhref.indexOf(secID) > 0) {
+                        clearChoose();
+                        $(".right-section section").removeClass("secshow").addClass("hide");
+                        if ($(this).parent().hasClass("tab-choose")) {
+                            $(this).parent().removeClass("tab-choose").addClass("tabchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                        else if ($(this).parent().hasClass("adchoose")) {
+                            $(this).parent().removeClass("adchoose").addClass("sel-adchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                        else if ($(this).parent().hasClass("dmpchoose")) {
+                            $(this).parent().removeClass("dmpchoose").addClass("sel-dmpchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                        else if ($(this).parent().hasClass("dspchoose")) {
+                            $(this).parent().removeClass("dspchoose").addClass("sel-dspchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                    }
+                });
+            };
+        };
+        onload();
+        //清除选中
+        function clearChoose() {
+            $(".tabchoose").removeClass("tabchoose").addClass("tab-choose");
+            $(".sel-adchoose").removeClass("sel-adchoose").addClass("adchoose");
+            $(".sel-dmpchoose").removeClass("sel-dmpchoose").addClass("dmpchoose");
+            $(".sel-dspchoose").removeClass("sel-dspchoose").addClass("dspchoose");
+            $(".secshow").removeClass("secshow").addClass("hide");
+            $(".navshow").removeClass("navshow").addClass("hide");
+        }
+    </script>
+</div>
+            ]]>
+    </bodyText>
+    <redirectURL>solutions/mobile-services/</redirectURL>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>云端移动开发 | Azure</pageTitle>
+    <metaKeywords>Azure, 微软云, 解决方案, 架构, 方案, 产品应用, 云应用, 手机应用开发, 定制化开发, 快速交付, 集成环境, 跨平台, 代码共享</metaKeywords>
+    <metaDescription><![CDATA[移动应用程序开发提供了一套端到端解决方案，通过跨设备共享代码，适应不同需求并让您继续沿用现有的技能，将适合移动应用程序的强大后端服务直接与业务相集成，可让您获得最大化开发效率。为您提供了从多设备原生应用程序开发，到移动 Web 和多设备混合应用等一系列灵活的开发选项。]]></metaDescription>
+    <linkid>solutions-mobile</linkid>
+    <urlDisplayName>云端移动开发</urlDisplayName>
+    <headerExpose />
+    <footerExpose />
+    <disqusComments>0</disqusComments>
+    <metaCanonical />
+    <isHeader>0</isHeader>
+    <pageTemplate />
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

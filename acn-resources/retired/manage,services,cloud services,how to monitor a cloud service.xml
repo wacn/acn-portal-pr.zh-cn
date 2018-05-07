@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18440" parentID="18410" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-05-03T16:15:50" updateDate="2014-08-18T11:26:53" nodeName="how to monitor a cloud service" urlName="how-to-monitor-a-cloud-service" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,18410,18440" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何监视云服务</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>您可以在 Windows Azure 管理门户中监视您的云服务的关键性能指标。您可以针对每个服务角色(Service Role)将监视级别设置为“最少监视”和“详细监视”，并且可以自定义监视显示信息。详细监视数据存储在存储帐户中，您可以在门户外部访问该存储帐户。</p>
+<p>管理门户中的监视显示信息是高度可配置的。您可以在“监视”页上的度量值列表中选择要监视的度量值，并且可以选择要在“监视”页和仪表板上的度量值图表中显示的度量值。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#verbose">如何：为云服务配置监视</a></li>
+<li><a href="#endpointstatus">如何：监视 Web 端点状态</a></li>
+<li><a href="#addmetrics">如何：向度量值表中添加度量值</a></li>
+<li><a href="#customizechart">如何：自定义度量值图表</a></li>
+<li><a href="#accessverbose">如何：在管理门户外部访问详细监视数据</a></li>
+</ul>
+<h2><a id="concepts"></a>概念</h2>
+<p>默认情况下，将使用从角色实例（虚拟机）的主机操作系统收集到的性能计数器数据对新的云服务进行最少监视。最少监视度量值限于“CPU 百分比”、“输入数据量”、“输出数据量”、“磁盘读取吞吐量”以及“磁盘写入吞吐量”。通过配置详细监视，您可以根据虚拟机（角色实例）中的性能数据设定其他度量值。详细监视度量值可对应用程序运行期间出现的问题进行进一步分析。</p>
+<div class="dev-callout">注意
+<p>如果您使用详细监视，则可通过诊断配置文件，或者远程使用 Windows Azure 诊断 API，在角色实例启动时添加更多性能计数器。为了能够在管理门户中监视这些度量值，您必须在配置详细监视之前添加性能计数器。有关详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/hh411552.aspx">Windows Azure 诊断概述</a>和<a href="http://msdn.microsoft.com/zh-cn/library/hh411520.aspx">在 Windows Azure 应用程序中创建和使用性能计数器的概述</a>。</p>
+</div>
+<p>默认情况下，将每隔 3 分钟从角色实例中收集和传输一次性能计数器数据。当您启用详细监视时，将每隔 5 分钟、1 小时和 12 小时为每个角色实例，以及每个角色的所有角色实例汇总一次原始性能计数器数据。该汇总数据将在 10 天之后清除。</p>
+<p>在启用详细监视后，汇总后的监视数据存储在您的存储帐户中的相应表中。若要为某个角色启用详细监视，必须配置链接到该存储帐户的诊断连接字符串。您可以对不同的角色使用不同的存储帐户。</p>
+<p>请注意，启用详细监视将增加与数据存储、数据传输和存储事务相关的存储成本。最少监视不需要存储帐户。即使您将监视级别设置为“详细监视”，在最少监视级别公开的度量值数据也不会存储在您的存储帐户中。</p>
+<h2><a id="verbose"></a>如何：为云服务配置监视</h2>
+<p>可使用以下过程在管理门户中配置详细监视或最少监视。在启用 Windows Azure 诊断，以及配置支持 Windows Azure 诊断访问用于存储详细监视数据的存储帐户的诊断连接字符串之前，您无法启用详细监视。</p>
+<h3>开始之前</h3>
+<ul>
+<li>
+<p>创建用于存储监视数据的存储帐户。您可以对不同的角色使用不同的存储帐户。有关详细信息，请参阅“存储帐户”帮助，或者参阅<a href="/zh-cn/manage/services/storage/how-to-create-a-storage-account/">如何创建存储帐户</a>。</p>
+</li>
+<li>
+<p>为您的云服务角色(cloud service role)启用 Windows Azure 诊断。<br /><br />您必须更新云服务定义文件 (.csdef) 和云服务配置文件 (.cscfg)。<!--有关详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/common-tasks/diagnostics/">在 Windows Azure 中启用诊断</a>。--></p>
+</li>
+</ul>
+<p>在管理门户中，您可以添加或修改 Windows Azure 诊断用于访问存储详细监视数据的存储帐户的诊断连接字符串，您还可以将监视级别设置为“详细监视”或“最少监视”。由于详细监视将数据存储在存储帐户中，因此您必须首先配置诊断连接字符串，然后才能将监视级别设置为“详细监视”。</p>
+<h3>为详细监视配置诊断连接字符串</h3>
+<ol>
+<li>
+<p>复制您将用于存储详细监视数据的存储帐户的存储访问密钥。在 <a href="https://manage.windowsazure.cn/">Windows Azure 管理门户</a>中，您可以使用“存储帐户”页上的“管理密钥”。有关详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/manage/services/cloud-services/how-to-manage-a-cloud-service/">如何管理云服务</a>或者参阅“存储帐户”页上的帮助。</p>
+</li>
+<li>
+<p>打开“云服务”。随后，若要打开仪表板，请单击要配置的云服务的名称。</p>
+</li>
+<li>
+<p>单击“生产”或“过渡”以显示要配置的部署。</p>
+</li>
+<li>
+<p>单击“配置”。</p>
+<p>您将在“配置”页的顶部编辑“监视”设置，如下所示。如果您没有为云服务启用 Windows Azure 诊断，则“级别”选项不可用。您无法更改数据保留策略。云服务的详细监视数据将存储 10 天。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_monitoringoptions.png" alt="监视选项"/></p>
+</li>
+<li>
+<p>在“诊断连接字符串”中，为您要进行详细监视的每个角色完成诊断连接字符串。</p>
+<p>连接字符串具有以下格式。（该示例针对使用默认端点的云服务。）若要更新连接字符串，请输入要使用的存储帐户的有效存储帐户名称和存储访问密钥。</p>
+<p>DefaultEndpointsProtocol=https;AccountName=StorageAccountName;AccountKey=StorageAccountKey</p>
+</li>
+<li>
+<p>单击“保存”。</p>
+</li>
+</ol>
+<p>如果您要启用详细监视，请在为服务角色(service role)配置诊断连接字符串之后执行下一步。</p>
+<h3>将监视级别更改为详细监视或最少监视</h3>
+<ol>
+<li>
+<p>在<a href="https://manage.windowsazure.cn/">管理门户</a>中，打开云服务部署的“配置”页。</p>
+</li>
+<li>
+<p>在“级别”中，单击“详细”或“最少”。</p>
+</li>
+<li>
+<p>单击“保存”。</p>
+</li>
+</ol>
+<p>在打开详细监视后，您应开始在管理门户中看到一小时内的监视数据。</p>
+<p>原始性能计数器数据和汇总监视数据存储在存储帐户中由角色的部署 ID 限定的表中。</p>
+<h2><a id="endpointstatus"></a>如何：监视 Web 端点状态</h2>
+<p>可使用以下过程为您的云服务配置 Web 端点监视。</p>
+<div class="dev-callout">注意
+<p>此功能仅在“生产”部署中可用。您最多可从 3 个地理位置最多监视 2 个端点。</p>
+</div>
+<p>端点监视可从测试 Web URL 的响应时间和运行时间的分布式地理位置配置 Web 测试。该测试可对 Web URL 执行 ping 操作，以从每个位置确定响应时间和运行时间。每个已配置位置每 5 分钟运行一次测试。</p>
+<p>将使用 HTTP 响应代码监视运行时间，并且以毫秒为单位计算响应时间。当响应时间不到 30 秒且 HTTP 状态代码小于 400 时，可将运行时间视为 100%。当响应时间超过 30 秒或 HTTP 状态代码大于 400 时，运行时间为 0%。</p>
+<p>在配置端点监视后，您可逐层展开到各个端点以从每个测试位置查看详监视时间间隔内响应时间和运行时间状态的详细信息。</p>
+<p><strong>配置端点监视：</strong></p>
+<ol>
+<li>
+<p>打开“云服务”。随后，若要打开仪表板，请单击要配置的云服务的名称。</p>
+</li>
+<li>
+<p>单击“生产”。</p>
+</li>
+<li>
+<p>单击“配置”。</p>
+<p>可在“监视”部分编辑“端点”设置。</p>
+</li>
+<li>
+<p>输入端点的名称。</p>
+</li>
+<li>
+<p>输入要监视的服务的 URL。例如，http://contoso.chinacloudapp.cn。</p>
+</li>
+<li>
+<p>从列表中选择一个或多个地理位置。</p>
+</li>
+<li>
+<p>对第二个端点重复前 3 步。</p>
+</li>
+<li>
+<p>单击“保存”。</p>
+</li>
+</ol>
+<h2><a id="addmetrics"></a>如何：向度量值表中添加度量值</h2>
+<ol>
+<li>
+<p>在<a href="http://manage.windowsazure.cn/">管理门户</a>中，打开云服务的“监视”页。</p>
+<p>默认情况下，度量值表显示可用度量值的子集。下图中显示云服务的默认详细监视度量值，该度量值仅由 Memory\Available MBytes 性能计数器提供，并且数据在角色级别汇总。使用“添加度量值”可选择要在管理门户中监视的其他汇总和角色级别的度量值。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_defaultverbosedisplay.png" alt="详细监视屏幕"/></p>
+</li>
+<li>
+<p>向度量值表中添加度量值：</p>
+<p>a. 单击“添加度量值”打开“选择度量值”，如下所示。将展开第一个可用度量值以显示可用选项。对于每个度量值，最上面的选项显示所有角色的汇总监视数据。此外，您还可以选择要为其显示数据的各个角色。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_addmetrics.png" alt="添加度量值"/></p>
+<p>b. 选择要显示的度量值：</p>
+<ul>
+<li>单击度量值旁边的向下箭头，以展开监视选项。</li>
+<li>选中要显示的每个监视选项对应的复选框。</li>
+</ul>
+<p>可以在度量值表中显示多达 50 个度量值。</p>
+<div class="dev-callout">提示
+<p>在详细监视中，度量值列表可以包含几十个度量值。要显示滚动条，请将鼠标指针悬停于对话框右侧。要筛选列表，请单击搜索图标，并在搜索框中输入文本，如下所示。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_addmetrics_search.png" alt="添加度量值搜索"/></p>
+</li>
+<li>
+<p>在选择度量值后，请单击“确定”（复选标记）。</p>
+<p>所选度量值将添加到度量值表中，如下所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_monitor_updatedmetrics.png" alt="监视度量值"/></p>
+</li>
+<li>
+<p>要从度量值表中删除某个度量值，请单击该度量值以选中它，然后单击“删除度量值”。（在选择度量值后，您只会看到“删除度量值”。）</p>
+</li>
+</ol>
+<h2><a id="customizechart"></a>如何：自定义度量值图表</h2>
+<ol>
+<li>
+<p>在度量值表中，最多可选择 6 个要显示在度量值图表上的度量值。要选择度量值，请单击其左侧的复选框。要从度量值图表中删除度量值，请在度量值表中清除其复选框。</p>
+<p>当您选择度量值表中的度量值时，这些度量值将添加到度量值图表中。在收缩视图中，“更多(n 个)”下拉列表包含该视图中无法显示的度量值标题。</p>
+</li>
+<li>
+<p>若要切换显示相对值（仅显示每个度量值的最终值）和绝对值（显示 Y 轴），请在图表顶部选择“相对”或“绝对”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_monitor_relativeabsolute.png" alt="相对或绝对"/></p>
+</li>
+<li>
+<p>若要更改度量值图表显示的时间范围，请在图表顶部选择 1 小时、24 小时或者 7 天。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_monitor_displayperiod.png" alt="监视器显示期间"/></p>
+</li>
+</ol>
+<p>在仪表板度量值图表中，显示度量值的方式是不同的。将显示一组标准度量值，并且可通过选择度量值标题来添加或删除度量值。</p>
+<h3>在仪表板上自定义度量值图表</h3>
+<ol>
+<li>
+<p>打开云服务的仪表板。</p>
+</li>
+<li>
+<p>从图表中添加或删除度量值：</p>
+<ul>
+<li>
+<p>要显示新的度量值，请在图表标题中选择该度量值对应的复选框。在收缩视图中，单击“<em>n</em> 个度量值”旁的向下箭头将显示图表标题区域无法显示的度量值。</p>
+</li>
+<li>
+<p>要删除显示在图表上的某个度量值，请清除其标题旁的复选框。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>在“相对”和“绝对”视图之间切换。</p>
+</li>
+<li>
+<p>选择要显示 1 小时、24 小时还是 7 天的数据。</p>
+</li>
+</ol>
+<h2><a id="accessverbose"></a>如何：在管理门户外部访问详细监视数据</h2>
+<p>详细监视数据存储在您为每个角色指定的存储帐户中的相应表中。对于每个云服务部署，将为角色创建 6 个表。即，将为每 5 分钟、1 小时和 12 小时的数据创建 2 个表。其中一个表存储角色级别的汇总数据；其他表存储角色实例的汇总数据。</p>
+<p>表名称采用以下格式：</p>
+<pre class="prettyprint">WAD*deploymentID*PT*aggregation_interval*[R|RI]Table</pre>
+<p>其中：</p>
+<ul>
+<li>
+<p><em>DeploymentID</em> 是分配给云服务部署的 GUID</p>
+</li>
+<li>
+<p><em>aggregation_interval</em> = 5 分钟、1 小时或 12 小时</p>
+</li>
+<li>
+<p>R = 角色级别的汇总</p>
+</li>
+<li>
+<p>RI = 角色实例的汇总</p>
+</li>
+</ul>
+<p>例如，下表将存储在 1 小时时间间隔内汇总的详细监视数据。</p>
+<pre class="prettyprint">WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)  WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)</pre>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle> Windows Azure 服务管理：如何监视云服务</pageTitle><metaKeywords>Azure 监视云服务, Azure 管理门户云服务</metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Azure 管理门户监视云服务。]]></metaDescription><linkid>manage-services-how-to-monitor-a-cloud-service</linkid><urlDisplayName>如何监视</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

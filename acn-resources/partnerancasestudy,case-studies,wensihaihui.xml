@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                    <p>文思海辉技术有限公司（ Pactera Technology International Ltd ）是咨询与科技服务提供商，拥有全球运营能力、严格的质量标准和高效的交付流程。自 1995 年以来，一直致力于为全球客户提供世界领先的商业 /IT 咨询、解决方案以及外包服务，在金融服务、高科技、电信、旅游交通、能源、生命科学、制造、零售与分销等领域积累了丰富的行业经验，主要客户涵盖众多财富 500 强企业及大中型中国企业。</p>
+                    <p>文思海辉的前身分别是文思信息技术有限公司和海辉软件（ 国际 ）集团公司，这两家公司都是中国领先的软件外包服务提供商。2012 年 8 月 11 日文思信息与海辉软件宣布合并成立文思海辉技术有限公司，合并后的文思海辉人员规模成为中国软件外包行业之最，通过资源、业务的优势互补，为商业客户提供更优质的服务。</p>
+                    <p>文思海辉通过将战略总部设在中国，并在北美、亚太地区、欧洲设立地区总部，文思海辉为客户提供零障碍沟通的个性化定制与最佳经济收益完美结合的优质服务。通过位于美国、欧洲、澳大利亚、日本、新加坡、马来西亚和中国的交付中心，为客户提供企业应用服务、商业智能、应用开发与维护、移动解决方案、云计算、基础设施管理、软件开发与全球化、业务流程外包的一站式服务，满足客户对全球范围无缝交付和技术支持的需求，同时支持客户的业务发展战略，帮助客户赢得成功。</p>
+                    					
+                <div class="section-component">
+                    <h2>背景</h2>
+                    <p>文思海辉基于多年的本地化业务和 BPO 业务经验积累，面向众包行业推出了一套完整的云计算解决方案。目前，该方案主要应用于语言翻译和本地化领域，以远程协同工作和全球范围内资源共享为目标，支持文本、图片、音频、视频等多种媒体资源，结合完善的众包业务流程管理体系，为众包行业客户量身打造灵活、高效、先进、可扩展、低成本的业务支撑平台。在立足语言翻译和本地化业务的同时，该平台正在向人工图像识别、纸质文档电子化、众测等领域进行拓展。</p>
+                    <p>众包是一项资源密集型业务，而且随着其业务形态的不断演进，对跨地域资源管理和协作提出了越来越高的要求。因此，建设一个可以在全球范围内实现资源共享与协作的众包云平台将会极大的增强其业务竞争力和业务价值。</p>
+					<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/_casestudy-wensihaihui-background.png"/ style="width:auto;height:auto;">
+                </div>
+               
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>文思海辉的众包云平台的前身是由众多零散的组件（ 工具软件 ）组成，各个组件之间相对独立，仅通过共享数据库的形式实现不同组件之间的协同工作。由于成本限制，其中大量使用了开源产品和组件，包括： MongoDB ， MySQL ， Linux 等。由于历史原因，各个组件由不同的开发团队负责开发和维护，采用的技术架构也是五花八门，包括 Windows Form ，WPF，ASP.NET MVC，Web Service，WCF，Linux Shell 等。</p>
+					<p>上述一系列组件均为本地部署，公司自建机房的稳定性和性能都存在一些限制。例如：网络的“南北互通”，国外用户访问缓慢，基础设施可用性相对较低等。而作为一个面向全球的众包业务支撑平台，对基础设施和系统本身的高可用，扩展性和维护成本提出了更高的要求，传统的自建机房和本地部署模式无法满足其需求。</p>
+					<p>伴随着 Azure 进入中国市场，国内 IT 行业对云计算应用的热情日益高涨。作为业界前沿的科技服务供应商，我们决定基于 Azure 平台构建全新的众包云平台解决方案，深度探索和试水面向行业的云计算应用。</p>
+					<p>经过全面的分析和评估，我们根据以下原则对迁移和整合方案进行设计：</p>
+					<p>1.充分利用 Azure PaaS 服务，降低开发和维护成本，提高开发效率，提升可用性，扩展性和灵活性。</p>
+					<p>2.Azure 提供了云计算中各个层面的服务与支持。在整个的迁移过程，我们需要对迁移的层面进行选择与评估，由于本案例中需要整合各种零散的组件，在评估 IaaS 和 PaaS 层面上的各种方案后，我们决定将现有的系统迁移的 Azure PaaS 层面上。采用 PaaS 模式进行迁移，虽然在前期的迁移成本较高，需要重构一部分代码并且需要调整部分架构，但是可以利用 PaaS 天生的高稳定性和高扩展性，后期可以减轻运营压力和成本。</p>
+					<p>3.Azure是一个开放的云计算平台，并非是  技术开发者所专享。 Azure 对于开源技术提供了完美的支持。本地应用迁移到 Azure 平台，并不意味着要放弃或更换原有的开发技术而全面转向  技术领域。</p>
+                
+                </div>
+               
+                <div class="section-component">
+                    <h2>技术架构</h2>
+					<p>以下是本案例的迁移路线图：</p>
+					<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/_casestudy-wensihaihui-techarch.png"/ style="width:auto;height:auto;">
+					<ul>
+                    <li>Azure 中，云服务可以替代传统的 IIS 。除了用于部署 Web Apps 以外，还可以作为 WCF Service 的 host 使用。由于云服务属于 PaaS 服务，可以提供很多 PaaS 服务的典型优势，例如：集群，负载均衡，动态扩展等。云服务并非仅支持  .NET 技术，其对于 Java，Python，Ruby，Node.js 和 PHP 也提供了完善支持，这就意味着基于开源技术构建的应用系统，也可以通过重新打包或者迁移改造而享用到 Azure 提供的全部服务。</li>
+                    <li>本案例中的原有系统使用 MySQL 作为关系型数据存储，但并没有用到太多 MySQL 专属的功能，因此，我们使用 Azure SQL Database 替代 MySQL 。在迁移过程中，由于 MySQL 中表和存储过程的数量不多，大致在 100 个左右，因此我们没有使用任何第三方迁移工具，整个过程均靠手工完成。整个数据库迁移过程大约耗时一个周，其中包括测试和验证。</li>
+                    <li>由于本案例中涉及到大量的非结构化数据存储，例如音频，视频，图片等。因此在原有系统中使用了 MongoDB 作为非结构化数据存储方案。我们使用 Azure SQL Database+ Blob Storage 方案代替 MongoDB。即：将多媒体文件（音频，视频，图片等）存储在 Blob Storage 中，而将多媒体文件多对应的元数据（文件 ID，存储路径，名称，类型，大小等）存储在 Azure SQL Database 中。使用时，先从 Azure SQL Database 中读取文件元数据，然后再根据文件元数据在 Blob Storage 中检索相应的文件。</li>
+                    </ul>
+					<p>迁移完成后，整体架构如下图所示：</p>
+					<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/_casestudy-wensihaihui-techarch-complete.png"/ style="width:auto;height:auto;">
+					<p>其中 Presentation layer 中的 Web Apps 是利用 Azure Web 应用构建的，WCF 则是作为 Azure 中的 Cloud Service 进行的发布。数据存储上，我们利用了 Azure 上提供的 SQL Database（原 SQL Azure ）和 Blob Storage 。</p>
+  
+                </div>
+                
+				<div class="section-component">
+                    <h2>优势</h2>
+					<p>整个基于 Azure 的众包云平台迁移耗时 6 个人月，其中包括：方案调研与评估、功能设计和优化、系统功能开发和测试。众包云平台上线后：</p>
+                    <h3>系统整体效率提升 40% 左右</h3>
+                    <p>此系统采用任务分派模式运营，系统创建任务包，用户领取任务包验证修改文本内容，完成后提交到管理员，管理员审核是否通过，如果不通过，打回到用户，重新作业。</p>
+					<p>原有系统由于主机放在中国的本地机房，访问速度没有保证，特别是国外用户，单个任务包耗费的时间过久。</p>
+					<p>现有系统因为部署到 Azure，访问速度可以得到保证，只要使用者本地网络速度有保证，用户可以随时进入系统处理任务。</p>
+					<p>举例来说，原有系统中每个任务包的处理时间大约在 5 小时左右，其中包括用户下载或上传任务包时间、管理员审核任务包时间以及系统处理所需时间等。其中由于服务器位置的问题，导致用户下载或上传任务包的时间在整个任务处理过程中占到了主要部分，据我们的数据显示，有时因为网络的原因用户下载或上传任务包的时间在 2 小时左右，严重的拖慢了系统的整体效率。同时原有系统的任务处理是一个 Windows Form 程序，这就要求用户必须安装这个程序才能进行任务处理。在新系统中我们通过将这个 windows Form 程序迁移为一个 Azure 上的网站，利用 HTML5 技术，让用户可以边下载边操作，从而进一步提高系统效率。经过一段时间的数据统计计算，在新系统上每个任务包的处理时间缩短到 3 小时左右，整体系统性能的提示大约在 40% 左右。</p>
+					<h3>系统扩展性和弹性得到了很大的提升</h3>
+					<table border="0">
+                    <thead>
+                    <tr><th class="left_align">原有系统</th><th>现有系统</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td class="left_align">系统部署在本地机房，如果业务量增加，需要增加主机，并给系统做分布式部署升级，业务量下降后，减少主机还是占用本地机房的资源</td>
+                    <td class="left_align">主业务系统 b/s 模式 Web 站点部署在 Azure 的 Web Apps ，系统管理员可以根据网站的访问压力灵活的增加/减少实例数量，保证系统的稳定运行和减少运营成本。管理员平台 c/s 模式 WCF 服务程序部署在云服务，和 Web 站点一样，可以根据系统压力，灵活的调整服务的实例数量，由 Azure 负责平行扩展的实现。</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <br/>
+					<h3>系统总体 SLA 可以达到 99.95%</h3>
+					<p>因为系统各部分都是使用多实例负载运行，可以得到 Azure 的 SLA 99.95% 高可用保证。</p>	
+                    <h3>系统运维成本大幅降低</h3>
+                    <p>众包系统具有礼品行业的淡旺季特征，可能在某一个时间段业务量非常庞大，需要采购新的服务器，购买更多的带宽才能够满足系统正常运行。过了这个时间段后，业务量减少，原来购买的服务器和带宽就会闲置，产生不必要的成本。</p>
+					<p>采用 Azure 后，如果业务量变大，系统管理员可以提前扩展 Web Apps 和云服务的实例数量，支撑业务的正常运行。在业务量减少后，系统管理员可以减少 Web Apps 和云服务的实例数量。</p>
+					<p>下表给出一个在原有系统与迁移到 Azure 后的运维成本对比 （价格以现在租赁服务器的平均价格和 Azure 公开报价为准）。</p>
+					<table border="0" style="word-break:break-all;">
+                    <thead>
+                    <tr><th class="left_align"> </th><th>系统配置</th><th>一年运行成本</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td class="left_align">原有系统</td>
+                    <td class="left_align">Web服务器 17000RMB *  2WCF 服务器 17000RMB * 2MySQL 服务器 17000RMB * 2MongoDB 服务器 17000RMB * 216U 机柜费用 8500*8=68000</td>
+                    <td class="left_align">预估服务器最佳运行时间为 3 年 156000/3+68000=120000</td>
+                    </tr>
+                    <tr>
+                    <td class="left_align">现有系统（ Azure 平台）</td>
+                    <td class="left_align">Web Apps ( Medium Instance ) 894*2*12WCF ( Medium Instance ) 720*2*12SQL Database 100GB 1054*12Storage 1TB 614*12</td>
+                    <td class="left_align">58752 （业务量较小时，还可以减少 Web Apps 和 WCF 的实例数量）</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <br/>
+                    <p>概况统计图如下</p>
+					<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/_casestudy-wensihaihui-statistics.png"/ style="width:auto;height:auto;">
+					<p>通过本例的实践，我们认为基于 Azure 构建企业级核心应用是明智的选择。对任何行业来说，只要合理、充分的使用 Azure 所提供的服务，将 Azure 所提供的服务与业务场景进行紧密结合，一定可以构建出高效、稳定、弹性的企业级应用。对于本例中的系统迁移场景来说，在将系统迁移到 Azure 平台上之前，需要对迁移方案进行详细的选择与评估。并且 Azure 不是 Windows 开发者的专属平台，开源技术同样可以在 Azure 平台上创造辉煌。</p>
+                </div>
+				
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>				
+                        <ul class="link-group-icon">
+						    <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/industry-solution-icon-4.png"><a target="_blank" href="/home/features/cloud-services/" id="case-study_wensihaihui_cloud-services">云服务</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_web.png"><a target="_blank" href="/home/features/web-site/" id="case-study_wensihaihui_web-site">Web 应用</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_wensihaihui_storage">存储</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_sql.png"><a target="_blank" href="/home/features/sql-database/" id="case-study_wensihaihui_sql-database">SQL 数据库</a></li>                           
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>文思海辉-Azure云计算</pageTitle>
+    <metaKeywords>文思海辉 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[借助 Web 应用及 SQL 数据库等服务，系统扩展性和灵活性大幅提升。Azure 是一个先进和可靠的公有云平台, 提供了云计算中各个层面的服务与支持。通过充分利用 Azure PaaS 服务，我们降低开发和维护成本，提高开发效率，提升可用性，扩展性和灵活性。
+]]></metaDescription>
+    <linkid>wensihaihui</linkid>
+    <urlDisplayName>文思海辉</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_wensihaihui" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">文思海辉众包云平台</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.pactera.com/" id="case-study-wensihaihuiwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/logo/31.jpg" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>文思海辉众包云平台</h1>
+                            <p>借助 Web 应用及 SQL 数据库等服务，系统扩展性和灵活性大幅提升。</p>
+                        </div>
+						
+                        <p class="casestudy-info">
+                           Azure 是一个先进和可靠的公有云平台, 提供了云计算中各个层面的服务与支持。
+						   通过充分利用 Azure PaaS 服务，我们降低开发和维护成本，提高开发效率，提升可用性，扩展性和灵活性。
+
+                        </p>
+						<!--
+                        <div class="casestudy-line"></div>
+                        <span class="tips">张伦恺 ，商务平台方案副总裁</span>
+                        <a href="#" class="video-play-button" id="case-study-video-player"></a>
+						-->
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/wacneditor/ruxin-Finalised.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

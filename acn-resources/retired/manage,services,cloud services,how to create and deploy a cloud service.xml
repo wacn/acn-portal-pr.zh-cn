@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18438" parentID="18410" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="3" createDate="2013-05-03T16:14:41" updateDate="2014-08-18T11:26:49" nodeName="how to create and deploy a cloud service" urlName="how-to-create-and-deploy-a-cloud-service" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,18410,18438" isDoc=""><bodyText><![CDATA[<div>
+<h1>如何创建和部署云服务</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>Windows Azure 管理门户为您提供两种创建和部署云服务的方法：“快速创建”和“自定义创建”。</p>
+<p>本主题介绍如何使用“快速创建”方法创建新的云服务，然后使用“上载”功能在 Windows Azure 中上载和部署云服务包。使用此方法时，Windows Azure 管理门户可提供方便的链接来根据您的需要完成所有要求。如果您在创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。</p>
+<p><strong>注意</strong>：如果您计划从 Windows Team Foundation Services (TFS) 发布云服务，请使用“快速创建”，然后从“快速启动”或仪表板设置 TFS 发布。有关详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkID=251796&amp;clcid=0x409">使用 Team Foundation Service 向 Windows Azure 持续交付</a>，或查看“快速启动”页中的帮助。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#prepare">准备应用程序</a></li>
+<li><a href="#begin">开始之前</a></li>
+<li><a href="#quick">如何：使用“快速创建”创建云服务</a></li>
+<li><a href="#uploadcertificate">如何：为云服务上载证书</a></li>
+<li><a href="#deploy">如何：部署云服务</a></li>
+</ul>
+<h2><a id="concepts"></a>概念</h2>
+<p>要在 Windows Azure 中将应用程序部署为云服务，需要以下三个部分：</p>
+<blockquote>
+<ul>
+<li>
+<p><strong>服务定义文件</strong>：云服务定义文件 (.csdef) 可定义服务模型，包括角色数量。</p>
+</li>
+<li>
+<p><strong>服务配置文件</strong>：云服务配置文件 (.cscfg) 提供云服务和各个角色的配置设置，包括角色实例的数量。</p>
+</li>
+<li>
+<p><strong>服务包</strong>：服务包 (.cspkg) 包含应用程序代码和服务定义文件。</p>
+</li>
+</ul>
+</blockquote>
+<h2><a id="prepare"></a>准备应用程序</h2>
+<p>在可以部署云服务之前，必须根据您的应用程序代码创建云服务包 (.cspkg)，并创建云服务配置文件 (.cscfg)。每个云服务包都包含应用程序文件和配置。服务配置文件提供了配置设置。</p>
+<p>Windows Azure SDK 提供了用于准备这些必需的部署文件的工具。<!-- 您可以从 <a href="http://www.windowsazure.cn/zh-cn/develop/downloads/">Windows Azure 下载</a>页安装您选择用于开发应用程序代码的相应语言的 SDK。--></p>
+<p>如果您是初次接触云服务，可从 <a href="http://code.msdn.microsoft.com/windowsazure/">Windows Azure 代码示例</a>下载云服务包 (.cspkg) 和服务配置文件 (.cscfg) 示例。</p>
+<p>在您导出服务包之前，三种云服务功能需要特殊的配置：</p>
+<ul>
+<li>
+<p>如果您要部署使用安全套接层 (SSL) 进行数据加密的云服务，请为您的应用程序配置 SSL。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff795779.aspx">如何在 HTTPS 终结点上配置 SSL 证书</a>。</p>
+</li>
+<li>
+<p>如果要配置与角色实例的远程桌面连接，请为这些角色配置远程桌面。有关为远程访问准备服务定义文件的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433010.aspx">为角色设置远程桌面连接概述</a>。</p>
+</li>
+<li>
+<p>如果要为云服务配置详细监视，请为云服务启用 Windows Azure 诊断。“最少监视”（默认监视级别）使用从角色实例（虚拟机）的主机操作系统中收集到的性能计数器数据。“详细监视”根据角色实例中的性能数据收集其他度量信息，以便对处理应用程序期间出现的问题进行进一步分析。<!--若要了解如何启用 Windows Azure 诊断，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/common-tasks/diagnostics/">在 Windows Azure 中启用诊断</a>。--></p>
+</li>
+</ul>
+<h2><a id="begin"></a>开始之前</h2>
+<ul><!--<li>
+<p>如果您尚未安装 Windows Azure SDK，请单击<strong></strong>“安装 Azure SDK”以打开 <a href="http://www.windowsazure.cn/zh-cn/develop/downloads/">Windows Azure 下载页</a>，然后下载您选择用于开发代码的相应语言的 SDK。（您也可以稍后执行此操作。）</p>
+</li>
+
+-->
+<li>
+<p>如果任何角色实例需要证书，请创建这些证书。云服务需要带有私钥的 .pfx 文件。您可以在创建和部署云服务时将这些证书上载到 Windows Azure。有关创建证书的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff795779.aspx">如何在 HTTPS 终结点上配置 SSL 证书</a>。</p>
+</li>
+<li>
+<p>如果您计划将云服务部署到地缘组，请创建地缘组。可以使用地缘组将您的云服务和其他 Windows Azure 服务部署到某个区域中的同一位置。您可以在管理门户的“网络”区域中的“地缘组”页上创建地缘组。有关详细信息，请参阅“地缘组”页上的帮助。</p>
+</li>
+</ul>
+<h2><a id="quick"></a>如何：使用“快速创建”创建云服务</h2>
+<ol>
+<li>
+<p>在<a href="http://manage.windowsazure.cn/">管理门户</a>中，依次单击“新建”、“云服务”和“快速创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_quickcreate.png" alt="云服务_快速创建"/></p>
+</li>
+<li>
+<p>在“URL”中，输入要在公用 URL 中使用的子域名称，以便在生产部署中访问您的云服务。生产部署的 URL 格式为：<a href="http://myURL.chinacloudapp.cn">http://<em>myURL</em>.chinacloudapp.cn</a>。</p>
+</li>
+<li>
+<p>在“区域/地缘组”中，选择要在其中部署云服务的地理区域或地缘组。如果要将云服务和其他 Windows Azure 服务部署到某个区域中的同一位置，请选择一个地缘组。</p>
+<p><strong>注意</strong>：若要创建地缘组，请打开管理门户的“网络”区域，单击“地缘组”，然后单击“创建新的地缘组”或“创建”。可以使用您在前面的 Windows Azure 管理门户中创建的地缘组，也可以使用 Windows Azure 服务管理 API 创建和管理地缘组。有关详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460798.aspx">针对地缘组的操作</a>。</p>
+</li>
+<li>
+<p>单击“创建云服务”。</p>
+</li>
+</ol>
+<p>可以在窗口底部的消息区域监视此过程的状态。</p>
+<p>“云服务”区域随即打开，并显示新的云服务。当状态更改为“已创建”时，云服务创建即成功完成。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_cloudservicespage.png" alt="云服务_云服务页"/></p>
+<p>如果云服务中的任何角色需要安全套接字层 (SSL) 数据加密证书，并且该证书尚未上载到 Windows Azure，则您必须先上载该证书才能部署云服务。上载证书后，在角色实例中运行的任何 Windows 应用程序都可以访问该证书。</p>
+<h2><a id="uploadcertificate"></a>如何：为云服务上载证书</h2>
+<ol>
+<li>
+<p>在<a href="http://manage.windowsazure.cn/">管理门户</a>中，单击“云服务”。然后单击云服务的名称以打开仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_emptydashboard.png" alt="云服务_空仪表板"/></p>
+</li>
+<li>
+<p>单击“证书”以打开“证书”页，如下所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_certificatespage.png" alt="云服务_证书页"/></p>
+</li>
+<li>
+<p>单击“添加新证书”或“上载”。“添加证书”随即打开。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_addacertificate.png" alt="云服务_添加证书"/></p>
+</li>
+<li>
+<p>在“证书文件”中，使用“浏览”选择要使用的证书（.pfx 文件）。</p>
+</li>
+<li>
+<p>在“密码”中，输入证书的密码。</p>
+</li>
+<li>
+<p>单击“确定”（复选标记）。</p>
+</li>
+</ol>
+<p>可以在消息区域中查看上载进度，如下所示。上载完成时，证书即添加到表中。在消息区域中，单击向下箭头以关闭消息，或单击 X 删除消息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_certificateprogress.png" alt="云服务_证书进度"/></p>
+<p>可以从仪表板或从“快速启动”部署您的云服务。</p>
+<h2><a id="deploy"></a>如何：部署云服务</h2>
+<ol>
+<li>
+<p>在<a href="http://manage.windowsazure.cn/">管理门户</a>中，单击“云服务”。然后单击云服务的名称以打开仪表板。</p>
+</li>
+<li>
+<p>单击“快速启动”（“仪表板”左侧的图标）打开“快速启动”页，如下所示。（也可以使用仪表板上的“上载”部署您的云服务。）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_quickstartpage.png" alt="云服务_快速启动页"/></p>
+</li>
+<!--
+<li>
+<p>如果您尚未安装 Windows Azure SDK，请单击<strong></strong>“安装 Azure SDK”以打开 <a href="http://www.windowsazure.cn/zh-cn/develop/downloads/">Windows Azure 下载页</a>，然后下载您选择用于开发代码的相应语言的 SDK。</p>
+<p>在下载页上，您还可以安装客户端库和源代码，以使用 Node.js、Java、PHP 和其他语言开发可部署为可缩放的 Windows Azure 云服务的 Web 应用程序。</p>
+<p><strong>注意</strong>：对于以前创建的云服务（以前称为<em>托管服务</em>），您将需要确保虚拟机（角色实例）上的来宾操作系统与所安装的 Windows Azure SDK 版本兼容。有关详细信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh552718.aspx">Windows Azure SDK 发行说明</a>。</p>
+</li>
+
+-->
+<li>
+<p>单击“新建生产部署”或“新建过渡部署”。</p>
+<p>如果您希望在将云服务部署到生产环境之前先在 Windows Azure 中测试该云服务，则可以将其部署到过渡环境。在过渡环境中，使用云服务的全局唯一标识符 (GUID) 在 URL 中标识该云服务 (<em>GUID</em>.chinacloudapp.cn)。在生产环境中，将使用您所分配的更加友好的 DNS 前缀（例如，<em>myservice</em>.chinacloudapp.cn）。在准备好将处于过渡环境的云服务升级到生产环境时，可使用“交换”将客户端请求重定向到该部署。</p>
+<p>当您选择部署环境时，会打开“上载包”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_uploadapackage.png" alt="云服务_上载包"/></p>
+</li>
+<li>
+<p>在“部署名称”中，输入新部署的名称 - 例如，MyCloudServicev1。</p>
+</li>
+<li>
+<p>在“程序包”中，使用“浏览”选择要使用的服务包文件 (.cspkg)。</p>
+</li>
+<li>
+<p>在“配置”中，使用“浏览”选择要使用的服务配置文件 (.cscfg)。</p>
+</li>
+<li>
+<p>如果云服务将包括只具有一个实例的任何角色，请选中“即使一个或多个角色包含单个实例也进行部署”复选框以使部署继续进行。</p>
+<!--<p>如果每个角色至少具有两个实例，那么 Windows Azure 在维护和服务更新期间只能保证他人可访问云服务的概率是 99.95%。如果需要，您可以在部署云服务后，在“缩放”<strong></strong>页上添加其他角色实例。有关详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/support/legal/sla/">服务级别协议</a>。</p>--></li>
+<li>
+<p>单击“确定”（复选标记）以开始云服务部署。</p>
+<p>可以在消息区域中监视部署状态。单击向下箭头可隐藏消息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_uploadprogress.png" alt="云服务_上载过程"/></p>
+</li>
+</ol>
+<h3>验证您的部署是否已成功完成</h3>
+<ol>
+<li>
+<p>单击“仪表板”。</p>
+</li>
+<li>
+<p>在“速览”下，单击网站 URL 以在 Web 浏览器中打开您的云服务。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/services/cloudservices_quickglance.png" alt="云服务_速览"/></p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle> Windows Azure 服务管理：如何创建和部署云服务</pageTitle><metaKeywords>Azure 创建云服务, 删除云服务</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用“快速创建”方法创建和部署云服务。]]></metaDescription><linkid>manage-services-how-to-create-and-deploy-a-cloud-service</linkid><urlDisplayName>如何创建和部署</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

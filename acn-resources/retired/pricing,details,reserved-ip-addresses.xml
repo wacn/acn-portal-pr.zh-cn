@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="302" createDate="2014-08-05T07:49:24" updateDate="2015-07-07T09:41:59" urlName="ip-addresses" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <style>
+                .ip_tit_font{
+                    font-size:16px;
+                }
+            </style>
+           <div>
+                    <!-- BEGIN: Table1-Content-->
+                    <!--<h1>实例层级公共 IP <span>Instance-level public IP</span></h1>
+                    <p>通过将其分配到实例层级公共 IP 地址 (PIP) 直接连接到虚拟机。<a id="pricing_ip_virtual-networks-instance-level-public-ip" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/" style="color: #00a8d9;">了解工作原理</a></p>
+                    <p>实例层级公共 IP 地址按每个 IP ¥0.035/小时收费（基于每个月 744 小时的使用量，每个 IP ¥26.04/月）。 您可以对每份订阅分配最多 5 个实例层级公共 IP 地址。</p>
+                    
+                    <h1>负载均衡的 IP 地址 (VIP)</h1>
+                    <p>每个虚拟机或云服务都可以免费获取一个公共 VIP ，但如果您想要为虚拟机或云服务附加 VIP，则需要为附加的地址支付一定费用。</p>
+                    <p>附加的 VIP 收费机制与实例层级的公共 IP 地址收费相同，每个 IP ¥0.035/小时（基于每个月 744 小时的使用量，每个 IP ¥26.04/月）。可以最多注册 5 个附加 IP。</p>
+                    
+                    <h1>保留的 IP <span>Reserved IP Address</span></h1>
+                    <p>Azure 为每个部署提供一个公共 IP 地址，称为虚拟 IP (VIP)。保留的 IP 地址是针对您的部署的静态公共 IP 地址。目前，保留的 IP 地址只能用于 VIP。<a id="pricing_ip_virtual-networks-instance-level-public-ip-2" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/" style="color: #00a8d9;">了解工作原理</a></p>-->
+					
+                    <h1>IP 地址 <span class="ip_tit_font">IP Address</span></h1>
+                    <p>Azure 中的公共 IP 地址一般按每个 IP ￥0.026/小时（每个 IP ¥19.344/月）收费。Azure 提供了一些免费 IP 地址，但这些地址基于它们所关联的资源和所使用的部署模型类型。下表列出了这些免费资源。</p>
+                    <p>Azure 具有两种不同的部署模型，用于创建和处理资源：<a id="pricing_ip_virtual-networks-instance-level-public-ip" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/">Azure 资源管理器(ARM) 和 Azure 经典（ASM）</a>。</p>
+		   </div>
+		   <div class="pricing-page-section">                    
+                    <h2>定价详细信息</h2>
+					<!-- BEGIN: Table1-Content-->
+                    <!--<h3>保留的 IP 地址</h3>-->					
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>					
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <th align="left"><strong>部署模型</strong></th>
+                                <th align="left"><strong>类型</strong></th>
+                                <th align="left"><strong>价格</strong></th>
+                            </tr>
+                            <tr>
+                                <td>ARM</td>
+                                <td><a id="pricing_ip_virtual-network-ip-addresses-overview-arm" href="https://docs.azure.cn/virtual-network/virtual-network-ip-addresses-overview-arm/">公共 IP 地址 - 动态</a></td>
+                                <td>所有与运行中的虚拟机的<a id="pricing_ip_virtual-network-network-interface" href="https://docs.azure.cn/virtual-network/virtual-network-network-interface/">网络接口</a>相关联的动态 IP 地址，按每个 IP ¥0.026/小时（每个 IP ¥19.344/月）收费。</td>
+                            </tr>
+							<tr>
+                                <td>ARM</td>
+                                <td><a id="pricing_ip_virtual-network-ip-addresses-overview-arm-2" href="https://docs.azure.cn/virtual-network/virtual-network-ip-addresses-overview-arm/">公共 IP 地址 - 静态</a></td>
+                                <td>对于前 5 个静态公共 IP 地址，无论其与运行的虚拟机网络接口相连或与 Azure 负载均衡相连，均不收取保留费，但会收取使用费，使用费按每个 IP ¥0.026/小时（每个 IP ¥19.344/月）收取。 从第 6 个静态公共 IP 地址开始，其使用费与保留费均按每个 IP ¥0.026/小时，即每小时收取 ¥0.052。</td>
+                            </tr>
+                            <tr>
+                                <td>ASM/经典</td>
+                                <td><a id="pricing_ip_load-balancer-multivip" href="https://docs.azure.cn/load-balancer/load-balancer-multivip/">云服务 VIP</a></td>
+                                <td>每个云服务都可以获得一个免费公共 VIP。 其他 VIP 按每个 IP ¥0.026/小时（每个 IP ¥19.344/月）收费。</td>
+                            </tr>
+                            <tr>
+                                <td>ASM/经典</td>
+                                <td><a id="pricing_ip_virtual-networks-reserved-public-ip-3" href="https://docs.azure.cn/virtual-network/virtual-networks-reserved-public-ip/">保留 IP 地址</a></td>
+                                <td>前 5 个以及正在使用与云服务关联的保留 IP 地址免费。 所有其他地址按每个 IP ¥0.026/小时（每个 IP ¥19.344/月）收费。</td>
+                            </tr>
+                            <tr>
+                                <td>ASM/经典</td>
+                                <td><a id="pricing_ip_virtual-networks-reserved-public-ip-4" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/">实例层级公共 IP (ILPIP)</a></td>
+                                <td>实例层级公共 IP 地址按每个 IP ¥0.026/小时收费（每个 IP ¥19.344/月）。 <!--您可以对每份订阅分配最多 5 个实例层级公共 IP 地址。--></td>
+                            </tr>
+                    </table> 
+                    <div class="tags-date">
+                        <div class="ms-date">* 适用每个订阅 20 个保留 IP 地址这一限额。如果您有与由世纪互联运营的 Microsoft Azure 的企业协议，则可以保留最多 100 个 IP 地址。如果您需要增加此限额，请 <a id="public_IP_us" style="color: #00a8d9;" href="/zh-cn/support/contact/"> 联系我们</a>。</div>
+                        <!-- <div class="ms-date">*注：前 5 个保留的 IP 如果在使用中则为免费，如果只保留了 IP 而没有使用则将被计费。详情请见<a id="public_IP_QA" style="color: #00a8d9;" href="/support/faq/"> 常见问题</a>。</div> -->
+                    </div>
+                    <!-- END: Table1-Content-->
+                    <!-- BEGIN: Table2-Content-->
+                    <h3>IP 地址重新映射</h3>
+                    <!--<p>即日起，IP 地址重新映射价格下调 24%，以下是下调后的新价格：</p>-->
+					<p>每当保留 IP 地址与新的云服务关联时，均认为它是一个重映射。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*仅适用于 ASM/经典部署模型中的部署。</div><br />
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th> </th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>每个月前 100 个 IP 地址重新映射</td>
+                            <td>免费</td>
+                        </tr>
+                        <tr>
+                            <td>所有其他 IP 地址重新映射</td>
+                            <td>每个重新映射 ¥0.456/月</td>
+                        </tr>
+                    </table>                    
+                    <!-- END: Table2-Content-->
+            </div>  
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question8">虚拟机处于“已停止解除分配”状态时，是否会向我收取公共 IP 地址的费用？</a>
+                                <section>
+                                    <p>在 ARM 部署模型中，相关 VM 处于“已停止解除分配”时，不对“动态”公共 IP 地址收费。但是无论相关资源为何，都会向“静态”公共 IP 地址收费（除非它是该区域中前 5 个“静态”公共 IP 地址之一）。有关静态与动态分配方法的详细信息，请查看<a id="public_IP_us2" style="color: #00a8d9;" href="https://docs.azure.cn/virtual-network/virtual-network-ip-addresses-overview-arm/">Azure 中的 IP 地址</a>。</p>
+									<p>在 ASM 部署模型中，VM 处于“已停止解除分配”时，不对实例层级公共 IP (ILPIP) 地址收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+						<!--
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question1">我可以保留多少个 IP 地址？</a>
+                                <section>
+                                    <p>Azure 的企业协议，则可以保留最多 100 个 IP 地址。如果您需要增加此限额，请<a id="public_IP_us2" style="color: #00a8d9;" href="/zh-cn/support/contact/">联系我们</a>。</p>
+                                </section>
+
+                            </div>
+                        </li>
+						-->
+						
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question2">针对公共 IP 地址的计费时钟何时开始和停止？</a>
+                                <section>
+                                    <p>对于 ARM 部署模型中的“静态”公共 IP 地址和 ASM 部署模型中的“保留” IP 地址，计费时钟将从您创建 IP 地址后的第 2 个小时开始，以便留出时间来相应分配 IP 地址。在您删除 IP 地址后计费时钟将停止。</p>
+									<p>对于所有其他公共 IP 地址，时钟在启动相关资源时开始，在删除或停止解除分配相关资源时停止。 </p>	
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question3">是否不足 1 小时按 1 小时计费？</a>
+                                <section>
+                                    <p>是的。不足 1 小时按 1 小时计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question4">什么是未使用的保留 IP 地址？</a>
+                                <section>
+                                    <p>保留 IP 地址不能用于运行的部署中，未使用的保留 IP 地址正常收费（请参考上面的价目表）。</p>
+                                </section>
+
+                            </div>
+                        </li>
+						
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question5">在我的虚拟机处于“已停止取消分配”状态时对于保留的 IP 地址是否将向我收费？</a>
+                                <section>
+                                    <p>只要部署中有一台虚拟机处于运行状态，且该保留 IP 属于 5 个使用中的保留 IP 地址，则无需收费。但是，如果部署中的所有虚拟机都处于“已停止取消分配”状态，将会对保留 IP 地址收费。注意：这仅适用于虚拟机 (IaaS)，因为云服务中的 VM 实例不能转换到“已停止取消分配”状态。</p>
+                                </section>
+
+                            </div>
+                        </li>
+						
+						<!--
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question6">保留 IP 和实例层级公共 IP 之间的差别是什么？</a>
+                                <section>
+                                    <p>一个部署中可能有多个虚拟机实例。 保留的IP是分配给整个部署的公共IP地址，可以被保留不变。实例层级公共 IP 是分配到一个虚拟机级别的公共IP地址，是临时的（非保留，会发生变化）。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question7">我是否可以保留实例层级公共 IP 地址？</a>
+                                <section>
+                                    <p>不可以。目前，您只能保留 VIP。</p>
+                                </section>
+                            </div>
+                        </li>
+						-->
+                    </ul>
+                </div>
+			</div>
+			<div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="ip-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>IP 地址服务不提供服务级别协议。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/legal/sla/" id="pricing_ip-address_sla">服务级别协议</a>页。</p>
+                </div>
+                <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
+                <!--END: Support and service code chunk-->
+              
+            <!--BEGIN: Support and service code chunk-->
+            <!--<?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" /> -->                                                                      
+            <!--END: Support and service code chunk-->      
+                                                                             
+    ]]>
+    </bodyText>
+    <redirectURL>pricing/details/ip-addresses/</redirectURL>
+    <pageTitle>价格详情 - IP Addresses | Azure</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-ip-addresses</linkid>
+    <metaKeywords>Azure, IP-Addresses, 价格, 常见问题</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure IP Addresses价格详情。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
+    <urlDisplayName>价格详情 - IP Addresses</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

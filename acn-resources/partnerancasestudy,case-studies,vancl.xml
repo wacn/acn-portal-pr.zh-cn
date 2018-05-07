@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2015-05-13T15:16:30" updateDate="2015-05-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+            <div class="common-content-bookmark">
+			
+                    <p>专注于服装 B2C 网站凡客诚品 ( Vancl ) 于 2007 年 10 月 18 日正式上线，成立之初主要以 Vancl 男士衬衫的线上零售业务为主，后初步扩展至全服装领域。2010 年 5 月凡客诚品旗下 VJIA 上线，在自有品牌之外建立了自己的服装销售平台，代理国内外众多品牌服装。从 2007 年 10 月上线以来，凡客诚品以每年超过 200% 的速度增长，2008 年全年销售额 2.8 亿人民币，2010 年已经达到了 20 亿的销售额。凡客诚品以平价快时尚为使命，先后获得联创策源、IDGVC、软银赛富、启明创投、老虎基金、淡马锡等多轮投资。</p>
+                    <p>凡客诚品成立以来，业务迅速发展，产品种类也由 2008 年的男装衬衫、POLO 衫两大类几十款，发展到现在的男装、女装、童装、鞋、家居、配饰、化妆品等七大类。凡客诚品创始人、董事长兼 CEO 陈年坚持以“用户体验造就的品牌认同才是最好的品牌实践”为理念，从创立以来，凡客诚品用心关注用户需求，不断以微创新方式提升客户体验，推出了当面验货，无条件试穿、30 天内无条件退换货、pos 机刷卡等服务，极大提升了用户体验与品牌美誉度，积累了大量的忠实用户和良好的口碑效应。</p>					<p>随着产品种类的不断丰富，以及对用户体验的关注，凡客诚品在中国服装电子商务领域品牌影响力与日俱增，已经成为中国网民购买服饰的第一选择。全球著名会计师事务所德勤审计后认为：过去三年，凡客诚品是亚太地区成长最快的品牌。艾瑞咨询最新报告显示，凡客诚品在自主销售式服装 B2C 网站中排名第一。</p>    
+                <div class="section-component">
+                    <h2>应用背景</h2>
+                    <p>作为一家标准的 B2C 电商网站，从业务形态而言，凡客诚品网站无论从用户浏览到购物下单，还是仓储调拨到物流配送，整个过程中都会产生大量的业务数据。这些数据是凡客诚品整个公司业务运营的基础，也是整个 B2C 平台稳定运行的根本。因此对这些数据提出了极高的安全性要求，包括时效性、有效性、和完整性。</p>
+                    <p>从网站整体架构来看，必然存在将应用、服务、数据进行分层处理，并且按照不同业务进行资源分割。在每一个业务模块的每一个层面，都会产生不同类型的数据。尽管每个层面，每个模块都会有自己的数据处理机制，但是仍然需要一套完整数据处理系统。</p>
+					<p>无论是业务形态还是网站整体架构，数据产生与数据处理都是其网站运行的关键。而数据备份作为数据处理系统中的最后一个环节，显得格外重要。它保证了所有业务数据在离线状态的完整性，并且保证在发生数据丢失的时候，能够从备份中将数据恢复出来。</p>
+					<p>凡客诚品的数据备份系统是通过使用存储和磁带机的方式，构建的一套独立的备份管理系统。随着业务量的上升，网站架构越来越复杂，原有的备份系统受到自身的扩展性和结构限制，无法满足长期的需求。最终将备份系统分割多个备份服务组，每组备份服务器支撑一部分业务系统，以此来解决扩展性问题。但随之而来的，是管理复杂度的升高，以及运行成本和管理成本的升高。凡客诚品急需一套完善的数据备份解决方案，能对数据进行更有限的管控。</p>
+                </div>
+               
+                <div class="section-component">
+                     <h2>解决方案</h2>
+                    <p>通过使用 StorSimple，凡客诚品形成了一整套的数据备份解决方案，同时提供常规性和偶发性的备份需求。以 StorSimple 为核心，省略了存储设备和磁带机设备，极大的简化了部署和维护工作的复杂度。</p>
+					<p>下图的结构说明了凡客诚品是如何应对不同的备份需求的：</p>
+					<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/Vancl.png"/ style="width:auto;height:auto;">
+					<p>图.凡客诚品数据备份系统架构图</p>
+                    <p>右边部分，是凡客诚品应对常规性备份需求的解决方案。通过启用一组备份服务器来集中管理日常的备份数据，包括数据库备份、网站访问日志等。备份服务器中直接接入 Storsimple 分配的 Volume，并根据不同的业务需求，分配不同的存储目录，直接映射成可访问的共享地址，需要备份的应用系统，无论是 DB 的数据还是 Web 产生的数据，均通过备份后产生备份数据，并传输到共享目录即可。这样，常规备份数据以共享方式为线上业务提供服务，既可以确保备份数据的实时在线，又可以随时取用，并且还可以将使用率低的数据放在成本最低的 Azure 存储中。</p>
+					<p>左边部分，是凡客诚品针对一些临时性和特殊性的备份需求，通过更为简化的方式来实现。这里列举了两个例子，凡客诚品的 BI 服务器保存着大量的网站历史数据，而图片服务器则存储着大量的归档数据。针对这类使用价值相对独立的数据，凡客诚品会依据数据量的增长速度，不定时的将数据离线备份出来。这个时候，通过 Storsimple ，直接为业务服务器分配 Volume ，用于这些数据的备份存储，并在 Storsimple 统一管控，利用 Storsimple 高效的去重功能，压缩存储空间，并根据数据的使用率优化存储介质的选择，这简化了存储结构，同时优化了存储管理。</p>
+                </div>
+               
+                <div class="section-component">
+                    <h2>客户收益</h2>
+                    <h3>颠覆传统结构</h3>
+                    <p>在之前，凡客诚品数据中心的数据备份系统采用“本地+网络存储+磁带机”的三层架构。无论是作为备份客户端的 DB、Web 服务器，还是作为备份服务端的 PC 服务器、存储设备，由于存在技术性的限制，架构上需要做得比较严谨，缺乏灵活性。而 StorSimple 在技术性上的先天优势，使得可以让备份系统的架构做到足够的简化。凡客诚品既可以构建一种集中式架构的备份系统满足重要和关键的长期备份需求，也可以同时采用创建 Volume 的方式直接为一些临时性性、突发性的备份需求提供保障。更重要的是，在做到满足不同需求和灵活性的同时，它仍然是一套完整的系统，便于管理和维护。</p>                                        <p>这种简化，从另一个方面，甚至可以说是对传统数据备份系统在架构上的一种颠覆。一方面，打破备份层级的概念，无所谓三级备份、四级备份。另一方面无需过多的关心备份系统的后端架构，不需要时刻关注备份系统的稳定性，不需要对存储设备、磁带等等进行长期重复性维护工作。在这种情况下，用户只要把关注点集中在业务上的需求就可以了，而数据本身可以做到随用随取，后端的事情完全交给 StorSimple 处理。</p>
+                    <h3>自动化冷热分离</h3>
+                    <p>在传统的备份技术当中，无论架构如何设计，无论硬件如何配置，有一个无法绕开的问题，就是必须由人工来判断和设计数据备份的冷热分离，并且维护这套逻辑在整个生命周期里的有效性，而 StorSimple 的自动化冷热分离功能则是一个重大的技术性突破。</p>
+					<p>StorSimple 本身在架构上使用的是“ SSD + SSD + HDD + AzureStorage ”的架构，很明显的就能看出来，冷热数据分离是 StorSimple 天生就具备的功能。通过测试发现，其自身的算法能够有效的保证冷热数据的分离，并且是自动进行处理。</p>
+					<p>这样使得凡客诚品在规划备份逻辑的时候，只需要关注容量、性能、稳定性等方面。淡化前端的冷热数据需求，这也是前面提到的备份结构能够做到极简化的关键之一。</p>
+					<h3>提升易用性 减少开发</h3>
+                    <p>凡客诚品在考虑使用公有云存储解决方案以后，遇到的第一个问题就是系统如何对接。目前绝大部分公有云存储厂商，包括 Azure 在内，无论是 Key-Value 类型还是 Block 类型，在使用时都需要通过 API 调用的方式来实现系统的对接。那么对于凡客诚品而言，如果需要使用这类云存储作为数据备份系统的后端架构，那么就必须自己开发一套数据传输系统，来负责调用公有云上的存储空间，以及承担数据上传的调度任务。虽然系统的开发难度不大，但是在使用过程中的维护、以及备份需求如果发生变更、甚至是公有云端的架构变更，都需要投入持续的人力和精力，无形中增加了不少成本。</p>
+					<p>而 StorSimple 是把一个把公有云存储空间作为设备内部存储资源的一部分，在设备的系统内部，直接内置了公有云数据接口。从而完全省略了接口的开发，可以直接把公有云的存储空间，打包成若干个 Volume，被 DB、Web 等服务器作为一个磁盘分区来使用，这极大的提供了便利性，减少了开发的投入，提供了卓越的易用性。</p>
+					<h3>极具性价比</h3>
+                    <p>凡客诚品考虑使用公有云存储解决方案以后的第二个挑战，就是要想尽办法减少落在云中的数据量，因为将直接决定了每月的支出费用。目前，主流的技术是压缩和排重。但是压缩面临的问题是，现有的压缩技术只能基于现有的成熟产品或者开源技术之上来实现，总体压缩比相对较低。而数据排重方面，大部分技术是针对文件级别，对于数据备份这种会有大量新文件产生的应用场景，效率很低。</p>
+					<p>而 StorSimple 使用“ SSD + SSD + HDD + AzureStorage ”的四层结构，即保证了数据落地时的高效性，又通过两层 SSD 来对数据进行 Block 级的排重，极大的提高了排重率。从我们前期的测试数据来看，内容主要是日志和 DB 备份文件，约 15 T 的数据在经过 StorSimple 自动处理之后大约只有不到 4 T。这意味着仅数据存量这一项，每月成本就可以减少 70% - 75% 。</p>
+					<h3>确保数据安全性</h3>
+                    <p>对于凡客诚品，使用公有云存储的第三个挑战，来自对数据安全性的担忧。凡客诚品作为 B2C 的电商网站，存储着大量用户的数据，涉及用户的隐私，因而这部分数据的安全性是首要考虑的问题。如果将这些数据直接使用公有云存储，这些数据都将是以明文或者是可识别的文件类型存入云中。即便与云服务供应商签订保密协议，作为用户仍然会担心这些数据是否会被秘密窃取或者泄露。</p>
+					<p>而在 StorSimple 中，任何文件类型的数据经过处理以后，是以文件块的形式存入云中的，是一种无法识别的数据。即便是我们自己的云账户登录以后，看到的依然只是数据块文件，而无法在云中直接读取出信息。如果要使用数据，必须借助从 StorSimple 端取出才能恢复成之前可用的文件格式。</p>
+					<p>同时，StorSimple 在数据的传输过程中，以及在云端的数据存储中均通过 AES - 256 加密算法，对数据进行加密。 AES ( Advanced Encryption Standard ) 是密码学中的高级加密标准，通过 256 的密钥长度加密数据，实现了数据全方位云安全的可能性。通过这一系列的技术手段，StorSimple 从根本上解决了数据放在云端的安全问题，用户不再担心数据会在云端或在传输过程中被秘密窃取。</p>
+					<h3>云快照成就异地容灾</h3>
+                    <p>StorSimple 支持本地快照和云快照两种模式对已存入的数据进行镜像方式的数据备份，并且支持计划任务。这使得无论是数据完整性本身，还是在进行备份或者恢复的操作都能得到很好的保障。特别是云快照模式，会在快照执行的那一时刻，无论数据是在云中，还是在 StorSimple 本地没有来得及传入云中，都能成功的进行快照，并以高优先级将本地数据传入云中进行保存。</p>
+					<p>当用户创建云快照时将瞬时完成，StorSimple 会把云快照传输到云端进行保存，第一次可能耗费时间较长，但是在后面的云快照创建中，StorSimple 将采用增量的方式，并提供高效的去重能力，大大缩短云快照在传输中的时间消耗。Azure 默认会保存 3 个快照的拷贝，而当用户启用异地复制的功能后，将达到 6 个拷贝的备份，覆盖了 Azure 在不同地点的两个数据中心，提供了完善的异地容灾能力。</p>
+					<p>同时，用户需要恢复云快照时，并不需要下载完整的云快照镜像，而只需要下载 StorSimple 生成的数据地图，这就避免了在数据恢复时，需要耗费大量的时间进行数据传输，而只需要恢复数据地图的方式实现了数据的快速恢复目的。通过数据地图的分级存储机制，用户所有请求数据将通过数据地图的地址进行云端访问，并在访问的过程中完成数据的同步与恢复。</p>
+                </div>
+
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_backup.png"><a target="_blank" href="/home/features/back-up/" id="case-study_vancl_back-up">备份</a></li>
+                        </ul>
+                    </p>
+                </div>
+
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>凡客诚品-Azure云计算</pageTitle>
+    <metaKeywords>凡客诚品 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[StorSimple 为凡客诚品打造了一整套的数据备份解决方案。StorSimple 的使用，为我们形成了一套完整的数据备份解决方案，从系统架构层面来看，颠覆了我们过去的传统做法，在简化架构的同时做到了更好的易用性。而其卓越的去重和压缩能力，将为我们节省 70% 以上的云存储成本，在数据安全性与数据的恢复方面，StorSimple 展现出了它极佳的创新思路，和优秀的技术水准，让人印象深刻。
+]]></metaDescription>
+    <linkid>case-studies-Vancl</linkid>
+    <urlDisplayName>凡客诚品</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_vancl" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">凡客诚品</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.vancl.com/" id="case-study-vanclwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/logo/11.jpg" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>凡客诚品</h1>
+                            <p>StorSimple 为凡客诚品打造了一整套的数据备份解决方案。</p>
+                        </div>
+                        <p class="casestudy-info">
+                            StorSimple 的使用，为我们形成了一套完整的数据备份解决方案，从系统架构层面来看，颠覆了我们过去的传统做法，在简化架构的同时做到了更好的易用性。而其卓越的去重和压缩能力，将为我们节省 70% 以上的云存储成本，在数据安全性与数据的恢复方面，StorSimple 展现出了它极佳的创新思路，和优秀的技术水准，让人印象深刻。
+                        </p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">胡毕胜 ，凡客诚品 ( Vancl ) IDC 数据中心运维助理总监 </span>
+                        <!--<a href="#" class="video-play-button" id="case-study-video-player"></a>-->
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/wacneditor/ruxin-Finalised.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

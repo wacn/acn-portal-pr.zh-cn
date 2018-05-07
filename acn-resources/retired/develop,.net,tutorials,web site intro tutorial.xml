@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18848" parentID="18433" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="4" createDate="2013-07-11T10:48:05" updateDate="2014-08-18T11:10:39" nodeName="Web Site Intro Tutorial" urlName="web-site-intro-tutorial" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18848" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO modalpopup="0" chunkurl="" hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" modaltrigger="" macroAlias="AzureChunkDisplayer" />
+<h1>将 ASP.NET 网站部署到 Windows Azure 网站</h1>
+<p>本教程演示如何使用 Visual Studio 2012 RC 或 Visual Studio 2012 for Web Express RC 中的“发布 Web”向导将 ASP.NET Web 应用程序部署到 Windows Azure 网站。如果您愿意，可以使用 Visual Studio 2010 或 Visual Web Developer Express 2010 按照教程中的步骤进行操作。</p>
+<p>您可以免费注册一个 Windows Azure 帐户，而且，如果您还没有 Visual Studio 2012，则此 SDK 会自动安装 Visual Studio 2012 for Web Express。这样您就能够完全免费地开始针对 Windows Azure 进行开发。</p>
+<p>本教程假定您之前未使用过 Windows Azure。学完本教程之后，您将使 Web 应用程序在云中正常运行。</p>
+<p>您将了解到以下内容：</p>
+<ul>
+<li>如何通过安装 Windows Azure SDK 来让您的计算机可以进行 Windows Azure 开发。</li>
+<li>如何创建 Visual Studio ASP.NET MVC 4 项目并将其发布到 Windows Azure 网站。</li>
+<li>如何将应用程序更新发布到 Windows Azure。</li>
+</ul>
+<p>您将生成一个以 ASP.NET MVC 4 为基础的简单 Web 应用程序。下图完整显示这个应用程序：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-17.png" alt="网站屏幕快照"/></p>
+<?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="create-account-and-websites-note" macroAlias="AzureChunkDisplayer" />
+<h2>教程章节</h2>
+<ol>
+<li><a href="#setupdevenv">设置开发环境</a></li>
+<li><a href="#setupwindowsazure">在 Windows Azure 中创建网站</a></li>
+<li><a href="#createmvc4app">创建 ASP.NET MVC 4 应用程序</a></li>
+<li><a href="#deploytowindowsazure">将应用程序部署到 Windows Azure</a></li>
+<li><a href="#aspnetwindowsazureinfo">有关 Windows Azure 网站中的 ASP.NET 的重要信息</a></li>
+<li><a href="#nextsteps">后续步骤</a></li>
+</ol>
+<h2><a name="setupdevenv"></a>设置开发环境</h2>
+<p>首先，通过安装适用于 .NET Framework 的 Windows Azure SDK 来设置开发环境。（如果您已经安装了 Visual Studio 或 Visual Web Developer，则本教程不需要此 SDK。如果您按照本教程结尾的建议进行进一步的学习，则将需要此 SDK。）</p>
+<ol>
+<li>若要安装 Windows Azure SDK for .NET，请单击与您所使用的 Visual Studio 版本对应的链接。如果尚未安装 Visual Studio，则使用 Visual Studio 2012 链接。<br /><a href="http://go.microsoft.com/fwlink/?LinkID=254364">Windows Azure SDK for Visual Studio 2010</a><br /><a href="http://go.microsoft.com/fwlink/?LinkId=254269">Windows Azure SDK for Visual Studio 2012 RC</a></li>
+<li>当提示您运行或保存 VWDOrVs11AzurePack_RC.3f.3f.3fnew.exe 时，单击“运行”<strong></strong>。</li>
+<li>在“Web 平台安装程序”窗口中，单击“安装”<strong></strong>并继续安装过程。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-003.png" alt="Web 平台安装程序 - Windows Azure SDK for .NET"/></li>
+<li>如果您正在使用 Visual Studio 2010 或 Visual Web Developer 2010 Express，则安装 <a href="http://www.asp.net/mvc/mvc4">MVC 4</a>。</li>
+</ol>
+<p>安装完成后，您便做好了开发准备工作。</p>
+<h2><a name="setupwindowsazure"></a>在 Windows Azure 中创建网站</h2>
+<p>下一步是创建您的应用程序将使用的 Windows Azure 网站和 SQL 数据库。</p>
+<ol>
+<li>在 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>中，单击“新建”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-011.png" alt="管理门户中的“新建”按钮"/></li>
+<li>单击“网站”<strong></strong>，然后单击“快速创建”<strong></strong>。</li>
+<li>在“URL”<strong></strong>框中输入将用作应用程序唯一 URL 的字符串。<br />完整的 URL 将由在此处输入的内容以及在文本框下方看到的后缀构成。图中显示的是“windowsazurewebsite”，但如果某人已经使用了该 URL，则您必须另外选择一个。</li>
+<li>在“区域”<strong></strong>下拉列表中，选择离您最近的区域。<br />此设置指定将在哪个数据中心内运行您的 VM。</li>
+<li>单击框底部的复选标记以指示您已完成操作。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-01.png" alt="管理门户中的“快速创建”链接"/><br />随后管理门户返回“网站”页，其中的“状态”<strong></strong>列显示正在创建该网站。稍后（通常不到一分钟），“状态”<strong></strong>列会显示已成功创建网站。在左侧的导航栏中，在“网站”<strong></strong>图标旁显示您帐户中拥有的网站数。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-02.png" alt="管理门户的“网站”页，已创建网站"/></li>
+</ol>
+<h2><a name="createmvc4app"></a>创建 ASP.NET MVC 4 应用程序</h2>
+<p>您已经创建了一个 Windows Azure 网站，但其中还没有内容。下一步将创建要发布到 Windows Azure 的 Visual Studio Web 应用程序。</p>
+<h3>创建项目</h3>
+<ol>
+<li>启动 Visual Studio 2012 或 Visual Studio 2012 for Web Express。</li>
+<li>从“文件”<strong></strong>菜单中选择“新建项目”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-020.png" alt="“文件”菜单中的“新建项目”"/></li>
+<li>在“新建项目”<strong></strong>对话框中，展开“C#”<strong></strong>并在“已安装的模板”<strong></strong>下选择“Web”<strong></strong>，然后选择“ASP.NET MVC 4 Web 应用程序<strong></strong>。</li>
+<li>将“.NET Framework”<strong></strong>下拉列表从“.NET Framework 4.5”<strong></strong>更改为“.NET Framework 4”<strong></strong>。（在编写本教程时，Windows Azure 网站不支持 ASP.NET 4.5。）</li>
+<li>将应用程序命名为 <strong>WindowsAzureWebSite</strong>，然后单击“确定”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-03.png" alt="“新建项目”对话框"/></li>
+<li>在“新建 ASP.NET MVC 4 项目”<strong></strong>对话框中，选择“Internet 应用程序”<strong></strong>模板。</li>
+<li>在“视图引擎”<strong></strong>下拉列表中，确保选择“Razor”<strong></strong>，然后单击“确定”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-04.png" alt="“新建 ASP.NET MVC 4 项目”对话框"/></li>
+</ol>
+<h3>设置页眉和页脚</h3>
+<ol>
+<li>在“解决方案资源管理器”<strong></strong>中，展开 Views\Shared 文件夹并打开 _Layout.cshtml 文件。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-023.png" alt="解决方案资源管理器中的 _Layout.cshtml"/></li>
+<li>在 <strong>&lt;title&gt;</strong> 元素中，将“我的 ASP.NET MVC 应用程序”更改为“My Windows Azure Web Site”。</li>
+<li>在 <strong>&lt;header&gt;</strong> 元素中，将“将你的徽标放置在此处”更改为“My Windows Azure Web Site”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-05.png" alt="_Layout.cshtml 中的标题和页眉"/></li>
+<li>在 <strong>&lt;footer&gt;</strong> 元素中，将“我的 ASP.NET MVC 应用程序”更改为“My Windows Azure Web Site”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-06.png" alt="_Layout.cshtml 中的页脚"/></li>
+</ol>
+<h3>在本地运行应用程序</h3>
+<ol>
+<li>按 Ctrl+F5 运行应用程序。应用程序主页将显示在默认浏览器中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-07.png" alt="“待办事项列表”主页"/></li>
+</ol>
+<p>这就是您创建将要部署到 Windows Azure 的应用程序目前所需的全部操作。</p>
+<h2><a name="deploytowindowsazure"></a>将应用程序部署到 Windows Azure</h2>
+<ol>
+<li>在浏览器中打开 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</li>
+<li>在“网站”<strong></strong>选项卡中，单击先前创建的网站的名称。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-02.png" alt="管理门户的“网站”选项卡中的 todolistapp"/></li>
+<li>在“仪表板”<strong></strong>选项卡中的“速览”<strong></strong>下面，单击“下载发布配置文件”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-08.png" alt="“下载发布配置文件”链接"/><br />此步骤下载一个文件，其中含有将应用程序部署到网站所需的全部设置。您将此文件导入到 Visual Studio 中，这样您就不必手动输入此信息。</li>
+<li>将 .publishsettings 文件保存到一个您可以从 Visual Studio 访问的文件夹中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-09.png" alt="保存 .publishsettings 文件"/></li>
+<li>在 Visual Studio 中，在“解决方案资源管理器”中右键单击项目<strong></strong>，然后从上下文菜单中选择“发布”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-10.png" alt="项目上下文菜单中的“发布”"/><br />“发布 Web”<strong></strong>向导将会打开。</li>
+<li>在“发布 Web”<strong></strong>向导的“配置文件”<strong></strong>选项卡中，单击“导入”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-034.png" alt="“发布 Web”向导中的“导入”按钮"/></li>
+<li>选择您先前下载的 .publishsettings 文件，然后单击“打开”<strong></strong>。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-11.png" alt="“导入发布设置”对话框"/></li>
+<li>在“连接”<strong></strong>选项卡中，单击“验证连接”<strong></strong>确保设置正确。连接通过验证后，“验证连接”<strong></strong>按钮旁将出现一个绿色复选标记。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-12.png" alt="“发布 Web”向导中的“连接”选项卡"/></li>
+<li>单击“下一步”<strong></strong>。</li>
+<li>在“设置”<strong></strong>选项卡中，单击“下一步”<strong></strong>。<br />您可以接受此页上的所有默认设置。您将部署“发布”生成配置，因此不需要在目前服务器上删除文件。“数据库”<strong></strong>下面的 <strong>DefaultConnection</strong> 条目是针对内置到默认的 MVC 4 项目模板中的 ASP.NET 成员（登录）功能的。您在本教程中没有使用该成员功能，因此您不需要为 <strong>DefaultConnection</strong> 输入任何设置。<br /><br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-13.png" alt="“发布 Web”向导中的“设置”选项卡"/></li>
+<li>在“预览”<strong></strong>选项卡中，单击“开始预览”<strong></strong>。<br />该选项卡会显示将复制到服务器的文件的列表。显示预览并不是发布应用程序所必需的，但它是一个需要了解的很有用的功能。在本例中，您不需要对显示的文件列表执行任何操作。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-14.png" alt="“预览”选项卡中的“开始预览”按钮"/></li>
+<li>单击“发布”<strong></strong>。<br />随后 Visual Studio 开始执行将文件复制到 Windows Azure 服务器的过程。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-15.png" alt="“预览”选项卡中的“发布”按钮"/></li>
+<li>“输出”<strong></strong>窗口将显示已执行的部署操作并报告已成功完成部署。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-16.png" alt="报告部署成功的“输出”窗口"/></li>
+<li>默认浏览器会自动打开，并指向所部署网站的 URL。<br />您创建的应用程序现在正运行在云中。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/dev-net-getting-started-nodb-17.png" alt="正在 Windows Azure 中运行的 Windows Azure 网站主页"/></li>
+</ol>
+<h2><a name="aspnetwindowsazureinfo"></a>有关 Windows Azure 网站中的 ASP.NET 的重要信息</h2>
+<p>下面是您在规划和部署适用于 Windows Azure 网站的 ASP.NET 应用程序时需要知晓的一些事项：</p>
+<ul>
+<li>应用程序必须针对 ASP.NET 4.0 或早期版本（而不是 ASP.NET 4.5）。</li>
+<li>应用程序以集成模式（而非经典模式）运行。</li>
+<li>应用程序不应使用 Windows 身份验证。Windows 身份验证通常不用作基于 Internet 的应用程序的身份验证机制。</li>
+<li>若要使用基于提供程序的功能（例如成员资格、配置文件、角色管理器和会话状态），应用程序必须使用 ASP.Net 通用提供程序（<a href="http://nuget.org/packages/System.Web.Providers">System.Web.Providers</a> NuGet 程序包）。</li>
+<li>如果应用程序写入文件，则这些文件应位于应用程序的内容文件夹或其某个子文件夹中。</li>
+</ul>
+<h2><a name="nextsteps"></a>后续步骤</h2>
+<p>您已经了解如何将 Web 应用程序部署到 Windows Azure 网站。若要了解有关如何配置、管理和缩放 Windows Azure 网站的更多信息，请参见<a href="http://www.windowsazure.cn/zh-cn/develop/net/common-tasks/">常见任务</a>页中的操作方法主题。</p>
+<p>Windows Azure 提供多种数据存储的选项，可与您的网站紧密集成。例如，使用 Windows Azure 服务存储数据，请参阅以下文章：</p>
+<ul>
+<li><a href="/zh-cn/develop/net/tutorials/web-site-with-sql-database/">将 ASP.NET Web 应用程序部署到 Windows Azure 网站和 SQL Database</a> - 创建使用 Code First 和使用 Entity Framework 连接到 SQL Database 实例的 ASP.NET MVC 4 网站。</li>
+<li><a href="/zh-cn/develop/net/how-to-guides/blob-storage/">如何使用 Blob 存储服务</a> - 使用 Blob 存储以存储非结构化数据。</li>
+<li><a href="/zh-cn/develop/net/how-to-guides/table-services/">如何使用表存储服务</a> - 使用表存储以存储大量结构化非关系数据。</li>
+</ul>
+<p>若要了解如何将应用程序部署到 Windows Azure 云服务，请参见<a href="http://www.windowsazure.cn/zh-cn/develop/net/tutorials/cloud-service-with-sql-database/">本教程中的云服务版本</a>和<a href="http://msdn.microsoft.com/zh-cn/library/Hh674484">使用 Windows Azure 开发 Web 应用程序</a>。选择在 Windows Azure 云服务中而不是在 Windows Azure 网站中运行 ASP.NET Web 应用程序有以下一些原因：</p>
+<ul>
+<li>您想要运行应用程序的 Web 服务器上的管理员权限。</li>
+<li>您想要使用远程桌面连接来访问运行应用程序的 Web 服务器。</li>
+<li>您的应用程序是多层的，并且您想要在多个虚拟服务器（Web 服务器和辅助服务器）上分布工作。</li>
+</ul>
+<p>您可能想要在 Windows Azure 中使用 ASP.NET 成员系统。有关如何对成员数据库使用 Windows Azure 存储或 SQL Database 的信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh508993.aspx">现实世界：Windows Azure 的基于 ASP.NET 窗体的身份验证模型</a>。</p>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure .NET 开发人员中心 - 教程 - Windows Azure 网站简介</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[了解如何创建 ASP.NET MVC 4 网站和将其部署到 Windows Azure 网站。可使用 Windows Azure 托管 ASP.NET。]]></metaDescription><linkid>dev-net-tutorials-web-site-intro-tutorial</linkid><urlDisplayName>网站简介教程</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+    <bodyText>
+    <![CDATA[
+        <p><tags ms.service="what-is-new_archives" ms.date="" wacn.date="" wacn.lang="cn"/></p>
+        <h1>Azure 公告</h1>
+
+        <h2>2017年6月时事通讯</h2>
+
+        <h3>公告</h3>
+        <h3>2017年6月27日 关于 Azure 媒体服务宣布支持 AAD 身份验证并将终止支持 ACS 身份验证的通知</h3>
+        <p>基于 Azure Active Directory (AAD) 的身份验证在安全性和对资源的精细访问控制方面有着优于 ACS 验证模式的性能，我们推荐您在 2018 年 6 月 22 日 前将 Azure 媒体服务 SDKs 和 APIs 的相关代码，更新为使用 AAD 的验证模式。我们将于 2018 年 6 月 22 日终止对 Azure 媒体服务 SDKs 和 APIs 基于访问控制身份验证 (ACS) 的支持。关于此次从 ACS 迁移至 AAD 身份验证的更多讯息，请参考博客<a href="/blog/2017/06/26/AzureMediaServicesAnnouncesSupportforAADandDeprecationofACSAuthentication/" id="service-fabric_year_2017-june_aad_blog">Azure 媒体服务宣布支持 AAD 身份验证并将终止支持 ACS 身份验证</a>。</p>
+        <h3>2017年6月15日 Azure China CDN 用户上传 HTTPS 自有证书正式发布及价格调整通知</h3>
+        <p>为了满足客户对 HTTPS 加密访问日益增长的需求, 我们很高兴地通知您，Azure China CDN 正式开放 HTTPS 自有证书的自助化配置，并且将于 2017 年 7 月 1 日起使用标准版 CDN 服务价格。通过该功能，用户可以上传已有的加速域名证书和私钥，将证书和域名绑定，实现自助化部署。证书为PEM格式，且支持泛域名证书。同时，2017 年 7 月 1 日起，价格 GUID 将从高级版变为标准版，为企业提供安全、快速的用户体验的同时降低成本。请参考<a href="https://docs.azure.cn/zh-cn/cdn/cdn-https-customer-supplied-cert/" id="service-fabric_year_2017-june_cdn_documentation">Azure CDN HTTPS 加速服务-用户自有证书</a>了解更多详情。如需了解定价详请，请访问<a href="/pricing/details/cdn/" id="service-fabric_year_2017-june_cdn_pricing">CDN 服务价格详情</a>页面。</p> 
+        <h3>2017年6月1日 Azure 磁盘加密预览版现已在中国发布</h3>
+        <p>今天，我们宣布 Azure 磁盘加密预览版现已对 Azure 中国地区的 Windows 和 Linux IaaS 虚拟机发布。至此，Windows 和 Linux IaaS 标准级虚拟机（标准 A、D、DS、F 等系列）的 Azure 磁盘加密预览版已在所有 Azure 中国区发布，客户现可使用行业标准的加密技术保护静态操作系统和数据磁盘。</p>
+        <p>Azure 磁盘加密功能允许您对 Windows 和 Linux IaaS 虚拟机磁盘进行加密。Azure 磁盘加密利用 Windows 的行业标准<a href="https://technet.microsoft.com/zh-cn/library/cc732774.aspx" id="service-fabric_year_2017-june_ade_BitLocker" target="_blank" rel="nofollow">BitLocker</a>功能和 Linux 的 DM-Crypt 功能提供操作系统和数据磁盘加密，保护您的数据。它还可以帮助您实现组织的安全和合规性承诺。此解决方案与<a href="/documentation/services/key-vault/" id="service-fabric_year_2017-june_ade_documentation-key-vault">Azure密钥保管库</a>相集成，帮助您保护、控制和管理密钥保管库订阅中的磁盘加密密钥，同时确保虚拟机磁盘中的所有数据均在您的 Azure 存储中静态加密。</p>
+        <p>有关详细信息，请查看文档<a href="https://docs.azure.cn/zh-cn/security/azure-security-disk-encryption/" id="service-fabric_year_2017-june_ade_documentation">适用于 Windows 和 Linux IaaS VM 的 Azure 磁盘加密</a>页面。</p> 
+
+        <h2>2017年5月时事通讯</h2>
+
+        <h3>公告</h3>
+        <h3>2017年5月2日 Azure CDN 高级版服务自 2017 年 5 月 1 日起降价</h3>
+        <p>为了满足客户对 HTTPS 加密访问日益增长的需求, 我们很高兴地通知您，自 2017 年 5 月 1 日起 Azure CDN 高级版服务（HTTPS 加速）进行降价，降幅高达 33%。如需了解定价详细信息，请访问 <a href="/home/features/cdn/" id="service-fabric_year_2017-may_homefeature-cdn">CDN 服务功能</a>页面和<a href="/pricing/details/cdn/" id="service-fabric_year_2017-may_pricing-cdn">CDN 价格详情</a>页面。除了降价，我们也对 HTTPS SSL 证书申请方式做了改进，除了现有的 Azure CDN 代为申请证书外，您还可以自行上传证书。目前自行上传证书的方式需要向我们开工单提交证书，自动上传证书正在开发中，敬请期待。</p> 
+        <h3>2017年5月2日 MySQL Database 高级版本（MP1 和 MP2）正式发布</h3>
+        <p>MySQL Database on Azure 高级版本（MP1 和 MP2）基于 Azure 高级存储，IO 性能大幅提升，同时连接数从 MS6 的 2000 提高到 4000 和 6000，计算性能比 MS6 有大幅提升，每日备份周期从标准版本（MS1 - MS6）的 30 天延长到 35 天，PITR回滚周期从标准版本的 7 天延长到 35 天。其他功能和管理与标准版本基本相同——无论是 PowerShell、CLI 命令行方式，还是通过管理门户操作的使用体验是一致的。有关各版本的详细信息，请参阅<a href="/home/features/mysql/" id="service-fabric_year_2017-may_homefeature-mysql">MySQL Database 服务功能</a>页面和<a href="/pricing/details/mysql/" id="service-fabric_year_2017-may_pricing-mysql">MySQL Database 价格详情</a>页面。</p>  
+        <h3>2017年5月2日 MySQL Database 新增启用可读备用库功能</h3>
+        <p>我们很高兴地通知您，现已在<a href="/home/features/mysql/" id="service-fabric_year_2017-may_homefeature-mysql01">MySQL </a>中添加了启用可读备用库功能。该功能可以帮助用户进一步增强 MySQL 数据库实例的可用性。 当您为 MySQL 数据库实例启用该功能后，Azure 会自动创建一个备用实例。 主备实例之间通过复制技术同步数据。您可以把备用库配置成只读。当主实例发生故障，Azure 会自动提升备用实例为新的主实例，并且创建新的备用实例。启用可读备用库实例功能后，故障恢复时间通常在分钟级（60 秒内）。故障转移后无数据丢失。如果您手头已经有了 MySQL 数据库实例，请阅读<a href="https://docs.azure.cn/mysql/mysql-database-enable-secondary/" id="service-fabric_year_2017-may_mysql-database-enable-secondary">这篇技术文章</a>，了解如何启用可读备用库实例。</p>  
+
+        <h2>2017年4月时事通讯</h2>
+        <h3>公告</h3>
+        <h3>2017年4月27日 新版 Azure China CDN 管理门户开放公共预览版</h3>
+        <p>新版管理门户经过全新的设计，对功能模块进行归类，采用可扩展的信息视觉展示，提供更全面的操作提示，在概览页面提供更多常用信息，如新手指南、常见问题和常用功能模块等信息。除了易用性、视觉展示效果等方面有所提升外，还添加了新的功能模块“安全管理”，用户可以在此管理新上线的 Azure China CDN Restful API 中验证和授权方式的接口密钥。后续会在新版管理门户中上线其他的功能，敬请期待。</p>
+        <p>更多详情，请参考博文<a href="/blog/2017/04/21/cdn-azureportal-preview" id="service-fabric_year_2017-apr_cdn-azureportal-preview">新版 Azure China CDN 管理门户公共预览版正式开放</a>，或<a href="https://docs.azure.cn/cdn/cdn-management-v2-portal-how-to-use/" id="service-fabric_year_2017-apr_cdn-management-v2-portal-how-to-use">Azure China CDN 新版管理门户使用指南</a>。</p>    
+        <h3>2017年4月27日 Azure China CDN 图片处理功能开放公共预览版</h3>
+        <p>Azure China CDN 的图片处理功能向广大用户开放公共预览版，满足对图片的尺寸、裁剪、质量等处理需求的用户。该功能作为 Azure China CDN 的增值服务免费开放，用户需要创建一个“图片处理”加速类型的 CDN 加速节点。通过 Azure China CDN 的图片处理功能，可以实现缩放、裁剪、旋转、锐化、模糊、管道、水印亮度对比、图片格式转换、获取图片信息等功能，灵活适配各种终端大小、不同页面的图片展示样式和水印防盗等需求。</p>
+        <p>该服务没有图形化管理界面，CDN 节点创建好之后，所有的图片处理请求都是通过 Restful API 的形式提供给用户，直接引用 CDN 加速域名加上控制图片尺寸、裁剪模式以及质量等图片处理参数，即可访问经过处理的图片版本。</p>
+        <p>更多详情，请参考博客<a href="/blog/2017/04/21/cdn-image-processing-preview" id="service-fabric_year_2017-apr_cdn-image-processing-preview">Azure China CDN 图片处理功能公共预览版正式开放</a>，或<a href="https://docs.azure.cn/cdn/cdn-image-processing/" id="service-fabric_year_2017-apr_cdn-image-processing">Azure CDN 图片服务 RESTful API 文档</a>。</p>  
+        <h3>2017年4月27日 Azure China CDN Restful API 正式上线</h3>
+        <p>Azure China CDN 团队正式上线 CDN API 接口供用户对 CDN 资源进行管理。用户只需按照接口说明在 API 请求中加入请求参数即可获得相应结果。通过 Azure China CDN API 可以进行节点管理，比如 在指定 Azure 订阅下创建、删除、启用、禁用 CDN 节点，查询、更新 CDN 节点信息，设定缓存规则；按月、天、小时、分钟，根据订阅或者单个域名查看流量信息；缓存刷新、预加载等内容管理。后续还会上线其他功能，敬请期待。</p>
+        <p>更多详情，请参考博客<a href="/blog/2017/04/21/cdn-restfulapi" id="service-fabric_year_2017-apr_cdn-restfulapi">Azure China CDN Restful API 正式上线</a>，或<a href="https://docs.azure.cn/cdn/cdn-api/" id="service-fabric_year_2017-apr_cdn-api">Azure China CDN Restful API文档</a>。</p>
+        <h3>2017年4月25日 Azure 应用程序网关中的 WAF 层正式发布</h3>
+        <p>作为新推出的 WAF 层的一部分，Azure 应用程序网关中的 Web 应用程序防火墙功能现已正式发布。有关定价的详细信息，请访问<a href="/pricing/details/application-gateway/" id="fabric_what_new_2017-apr-web-application-firewall_pricing">应用程序网关价格详情</a>页面。Web 应用程序防火墙可保护 Web 应用程序远离常见的网络攻击，例如 SQL 注入、跨站点脚本攻击和会话劫持。如需了解此服务的详细信息，请访问<a href="/home/features/application-gateway/" id="fabric_what_new_2017-apr-web-application-firewall_production">应用程序网关服务功能</a>页面。</p> 
+        <h3>2017年4月17日 Linux 上的 Azure Service Fabric 公共预览版正式发布</h3>
+        <p>Linux 上的 Azure Service Fabric 公共预览版现已正式发布。您可以在Linux 上的 Service Fabric 预览版上构建、部署和管理可高度伸缩的高可用性应用程序，就像在 Windows 上一样。除了 C# (.NET Core)， Service Fabric 框架（Reliable Services 和 Reliable Actors）还支持Linux上的Java。您也可以使用任何语言或框架构建<a id="fabric_what_new_2017-apr_sql-database_pricing" href="https://docs.azure.cn/service-fabric/service-fabric-deploy-existing-app">来宾可执行服务</a>。此外，预览版还支持安排 Docker 容器。Linux 上的 Service Fabric 的概念与 Windows 上的 Service Fabric 相同（除了操作系统细节和编程语言支持以外）。有关详细信息，请访问<a href="/home/features/service-fabric/" id="what_new_2017-apr-fabric">Service Fabric 服务功能</a>页面、<a href="/pricing/details/service-fabric/" id="what_new_2017-apr-fabric-pricing">Service Fabric 价格详情</a>页面和<a id="what_new_2017-apr-fabric_document" href="/documentation/services/service-fabric/">Service Fabric 文档</a>页面。</p> 
+
+        <h2>2017年3月时事通讯</h2>
+        <h3>公告</h3>              
+        <h3>2017年3月17日 SQL 数据库高级 RS 层预览上线</h3>
+        <p>Azure SQL Database Premium RS 现已发布公共预览版，它专为可接受有限持久性保证和较低服务级别协议 (SLA) 的 IO 密集型工作负荷设计。有关定价的详细信息，请访问<a id="fabric_what_new_2017-mar_sql-database_pricing" href="/pricing/details/sql-database/">SQL 数据库价格详情</a>页面。Premium RS 的目标方案包括使用内存中技术进行开发、测试高性能工作负荷以及生产分析工作负荷。</p> 
+        <h3>2017年3月14日 Azure HDInsight 运行在 Linux 的 Apache Hadoop 正式发布</h3>  
+        <p>Apache Hadoop 现已正式发布，在部署工作负荷时可以选择 Linux 群集。现在，您可以更轻松地将现有 Hadoop 工作负荷转移到一组扩展的、在 Azure 中拥有托管 Hadoop 的开源大数据组件的云端。</p>
+        <p>Azure 会更新、监控和运营 HDInsight 中托管 Hadoop 的 Linux 群集，因此，您可以专注于查询和数据，而不必关注计算机管理或 Hadoop 修补。作为正式公布的服务，HDInsight 会遵循 Azure 服务级别协议（SLA），并保证 99.9% 达标率。这意味着我们会时刻保持全天候监控和确保您群集的运行时间。运行 HDInsight 的 Linux 群集是在 Ubuntu 和 Hortonworks 数据平台（HDP）上创建的，您可以现在就进行部署。有关详细信息，请访问<a id="fabric_what_new_2017-mar_hdinsight_production" href="/home/features/hdinsight/">HDInsight 服务功能</a>页面和<a id="fabric_what_new_2017-mar_hdinsight_pricing" href="/pricing/details/hdinsight/">HDInsight 价格详情</a>页面。</p>  
+        <h3>2017年3月1日 Azure ExpressRoute 的超高性能网关层现已正式发布</h3>
+        <p>超高性能网关将虚拟网络和 Azure ExpressRoute 线路连接起来，所提供的网络吞吐量是高性能网关的五倍。现在您可以在其虚拟网络中部署更多网络密集型工作负荷。ExpressRoute 超高性能网关现已正式发布，可以将其连接至 ExpressRoute 线路。有关详细信息，请访问<a id="fabric_what_new_2017-mar_vpn-gateway_documentation" href="https://docs.azure.cn/expressroute/expressroute-about-virtual-network-gateways/">关于 ExpressRoute 的虚拟网络网关</a>、<a id="fabric_what_new_2017-mar_vpn-gateway_production" href="/home/features/vpn-gateway/">VPN 网关服务功能</a>页面和<a id="fabric_what_new_2017-mar_vpn-gateway_pricing" href="/pricing/details/vpn-gateway/">VPN 网关价格详情</a>页面。</p>   
+        <h3>2017年3月1日 Azure IoT 套件预测性维护预配置解决方案现已正式发布</h3>
+        <p>预测性维护预配置解决方案是 Azure IoT 套件预配置解决方案之一。此解决方案结合实时设备收集遥测数据与 R Server ，创建预测模型。使用 Azure IoT 套件，企业可以快速方便地连接和监视资产，实时分析数据。预测性维护预配置解决方案会利用该数据及丰富的仪表板与可视化效果，为您提供新的信息，提升其效率及增加收入来源。除了在 Azure 中部署和运行解决方案，您还可以下载完整的源代码，然后自定义并扩展解决方案以满足特定的 IoT 要求。</p>
+        <ul>
+        <li>使用 Azure.cn 帐户凭据登录<a href="http://www.azureiotsuite.cn/" id="service-fabric_year_2017-mar-azureiotsuite">Azure IoT 套件</a>，然后单击“+”创建解决方案。</li>
+        <li>单击“选择预测维护”磁贴。</li>
+        <li>为预见性维护预配置解决方案输入解决方案名称。</li>
+        <li>选择要用于预配解决方案的“区域”和“订阅”。</li>
+        <li>单击 “创建解决方案” 开始预配过程。此过程通常需要数分钟的运行时间。</li>                            
+        </ul>             
+        <p>有关详细信息，请访问<a id="fabric_what_new_2017-feb_documentation-articles-iot-suite-predictive-overview" href="https://docs.azure.cn/iot-suite/iot-suite-predictive-overview/">预见性维护预配置解决方案概述</a>和<a id="fabric_what_new_2017-feb_documentation-articles-iot-suite-predictive-walkthrough" href="https://docs.azure.cn/iot-suite/iot-suite-predictive-walkthrough/">预见性维护预配置解决方案演练</a>。</p>
+
+        <h2>2017年2月时事通讯</h2>
+        <h3>2017年2月27日 运行在 Linux 虚拟机上的 R Server 现已正式发布</h3>
+        <p>R Server 是目前面向 R 的最广泛可部署的企业级分析平台。由于具备各种大数据功能，包括统计、预测建模以及机器学习，R Server 支持基于开源 R 的全系列分析：探索、分析、可视化和建模。通过使用和扩展开源 R，R Server 与 R 脚本、函数以及 CRAN 软件包完全兼容，并可以分析企业级数据。我们还通过在 R Server 中添加并行和块数据处理功能消除了开源 R 的内存限制，使您可以运行分析远大于适合主内存的数据。</p>
+        <p>R Server 为基于 R 的应用程序提供企业级的性能和可伸缩性，同时还提供各种类库。无论是在本地还是云端，这些类库使您可以写入一次即可轻松部署在多个平台上。有关详细信息，请访问<a id="fabric_what_new_2017-feb_virtual-machines_production" href="/home/features/virtual-machines/">虚拟机服务功能</a>页面和<a id="fabric_what_new_2017-feb_virtual-machines_pricing" href="/pricing/details/virtual-machines/">虚拟机价格详情</a>页面。</p>
+        <h3>2017年2月16日 Power BI 工作区集合现已正式发布</h3>
+        <p>Power BI 工作区集合现已正式发布。Power BI 工作区集合是 Azure 的一种服务，它支持应用程序开发人员在面向用户的应用中嵌入极好的完全交互式报告和可视化效果，用户无需花费时间和经费重新创建自定义控件。服务的新功能包括但不限于在嵌入式报告中执行高级筛选，实现行级别安全性，从而支持多租户 SaaS 应用场景。有关详细信息，请访问<a id="fabric_what_new_2017-feb_power-bi-embedded_production" href="/home/features/power-bi-embedded/">Power BI 工作区集合服务功能</a>页面和<a id="fabric_what_new_2017-feb_power-bi-embedded_pricing" href="/pricing/details/power-bi-embedded/">Power BI 工作区集合价格详情</a>页面。</p>
+        <h3>2017年2月6日 Azure SQL 数据仓库正式发布</h3>
+        <p>Azure SQL 数据仓库现已正式发布，它引入了更高的新计算选项 – 3000 DWU（Data Warehouse Unit，数据仓库单位）和 6000 DWU，可满足要求更为严苛的分析工作负荷。SQL 数据仓库是现成的基于 SQL 的跨数据视图，提供快速、全面托管的 PB 级云解决方案。SQL 数据仓库将计算与存储分离，您可以自由地扩展和确定合适的环境。您仅在需要时为所用存储和所需计算付费。如需了解详情，请访问<a id="fabric_what_new_2017-feb_sql-data-warehouse_pricing" href="/pricing/details/sql-data-warehouse/">SQL 数据仓库价格详情</a>页面。</p>
+        <h3>2017年2月4日 Azure 虚拟机服务和云服务降价通知</h3>       
+        <p>为了以更优化的市场价格提供 Azure 创新服务，自 2 月 1 日起，世纪互联运营的 Microsoft Azure 服务会在所有数据中心进一步降低某些计算资源服务价格。此次我们对虚拟机服务和云服务进行了降价，让您获得更多收益，具体详情请参考<a id="fabric_what_new_2017-feb_vm-cloud_pricing-vm" href="/pricing/details/virtual-machines/">虚拟机价格详情</a>页面和<a id="fabric_what_new_2017-feb_vm-cloud_pricing-cloud" href="/pricing/details/cloud-services/">云服务价格详情</a>页面。</p>         
+    ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>历史公告 2017 | Azure</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription>
+        <![CDATA[
+            历史公告 2017
+        ]]>    
+    </metaDescription>
+    <linkid>0</linkid>
+    <urlDisplayName></urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate>0</pageTemplate>
+    <localize>1</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <banner>
+    </banner>
+  </umbTextpage>
+</localize>

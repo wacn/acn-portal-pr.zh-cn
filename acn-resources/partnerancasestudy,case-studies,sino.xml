@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2017-03-13T15:16:30" updateDate="2017-03-13T15:16:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+                    
+					<h2>业务背景</h2>
+					<p>江苏斯诺物联科技有限公司成立于 2013 年 10 月，坐落于江苏镇江。目前以现代化级物流卓越企业丹阳飓风物流股份有限公司为依托，专业致力于物联网技术的产业化实践，立足高新技术，发展智慧应用，为企业包装全新的信息化咨询模式，打造成熟的技术型服务品牌。斯诺物联由一批有信息技术背景的物流人做精细化管理，年轻的创业团队勇于创新，勇于改变。斯诺物联希望融合中国有 78 万家中小物流企业，共同打造一个基于诚信的物流体系。团队以拼搏实干，不断超越的热忱为客户提供供应链服务支持、诚信服务支持和信息技术支持。一直以来，斯诺始终秉承“物联网成就企业”的理念服务客户，成就企业的效率突破与自身的社会效益。</p>
+				</div>	
+                <div class="section-component">
+                    <h2>解决方案</h2>
+                    <p>斯诺物联前期采用自建机房的方案，由于自身业务在不断发展对技术的要求逐渐增加，考虑到机房的扩建以及人员等成本因素，斯诺物联科技选择采用公有云服务来应对当前业务的快速变化以更好的服务客户。经过对市场上主流公有云服务的评估，当时 Azure 是首个在华正式商用的国际品牌公有云服务，覆盖了从 IaaS 到 Paas 的完善服务，加之斯诺物联本身技术体系的优势，从而选择了 Azure 云作为公有云服务提供商。</p>
+                    
+					<p>在技术架构的不断发展中，Azure 公有云为斯诺物联提供了强有力的技术支持，以下是斯诺物联在 Azure 公有云上利用其提供的各类服务不断演化的过程：</p>
+					
+					<h3>Web 应用 + SQL 数据库</h3>
+					
+                    <p>当时的核心业务均以 ASP.NET 网站为主，为了能够快速的迁移到云上，斯诺物联使用了 Web 应用。借助 Azure 提供的 Git 自动部署功能，在最短时间内搭建了一套 CI/CD，使开发能够专注业务开发和迭代，无需关注具体的发布流程。在数据存储方面由于斯诺物联当时的数据为 SQL Server，因此选择 SQL 数据库，通过 Azure 自带工具即可快速的进行数据迁移。</p>
+					
+					<h3>Web 应用 + SQL 数据库 + 服务总线 + MySQL Database on Azure</h3>
+					
+					<p>随着斯诺物联的业务发展，以及战略发展方向的需求，该公司剥离出了三个独立的产品。从业务上三者之间需要配合，其要求不仅仅只是传统的请求响应模式，还需要有完善的订阅发布的机制。得益于 Azure 的服务总线，斯诺物联使用了基于此开发的开源组件实现以上的功能需求，在实际的运作中，服务总线为斯诺物联提供了高性能、高可用的服务的同时，也使企业的成本得到降低。</p>
+					
+					<p>随着微软的步伐转变，Azure 也提供了 MySQL Database on Azure，为了拥抱开源斯诺物联其中的一个独立产品避免了自建 MySQL 数据库的烦恼，直接采用其服务，并且 Azure 也提供了全自动的读写分离，保障斯诺物联的产品稳定运行。</p>
+					
+					<h3>虚拟机 + Azure Cosmos DB</h3>
+					
+					<p>在微软提出 .Net Core 后，斯诺物联作为一个重技术的公司，开始了新的尝试。利用虚拟机搭建了多个容器环境，实现了仅用一台虚拟机就可以完全运行原本利用 Web 应用搭建的测试服环境，，极大的降低了成本，这也体现了 Azure 的真材实料。在随后的一年中斯诺物联将现有业务利用 .Net Core 迁移到基于 Ubuntu 的虚拟机环境上，可以随时根据客户的请求量随时添加机器或提升现有机器。</p>
+					
+					<p>业务发展中需要大量的第三方服务提供商进行支持，斯诺物联原本采用的是 MySQL 的数据库进行记录，随着时间的推移，所消耗的存储空间不断增加，检索的速度也直线下降，考虑到这些记录都是单表结构，斯诺物联将这些记录改用 NoSQL 进行存储，而当时 Azure 推出了新产品 DocumentDB，重点是其保留了兼容 MongoDB 的协议，加快了这部分数据迁移的工作，在完成迁移后斯诺物联请求的响应速度至今都保持在 60ms 内，并且其也对存储空间没有限制。</p>
+                </div>
+               
+                <div class="section-component">
+                    <h2>客户效益</h2>
+					
+					<h3>成本降低，费用按需计算</h3>
+					
+					<p>依靠 Azure 云平台提供的费用计算模式，在出现需要临时进行测试等情况出现时，可以随时申请资源，并且在测试完毕后将资源回收，加快了斯诺物联在新技术调研上的成本和时间周期。在生产业务上也可以依靠该优势，在高峰时期临时将机器配置提高以渡过这段周期，而不需要持续使用高性能的机器。</p>
+					
+					<h3>同门技术，问题解决更快捷</h3>
+					
+					<p>斯诺物联科技的主要技术以 C# + ASP.Net Core 为主，和 Azure 是同属一家。所以在进行技术迁移和调研的过程中，遇到对应的技术问题，依靠该优势使 Azure 的技术支持快速的定位问题，共同宣传并解决技术问题。</p>
+					
+					<h3>稳定可靠的云服务提升客户信任</h3>
+					
+					<p>Azure 云服务提供商为客户提供了经过 IOS/IEC 27001:2005 的国际认证，在国内也通过了工业和信息化部门的“可信云服务认证”。提升了斯诺物联科技旗下的产品在客户心目中的信任度。</p>
+                </div>
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_sino_vm">虚拟机</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_sql.png"><a target="_blank" href="/home/features/sql-database/" id="case-study_sino_sql-database">SQL 数据库</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_web.png"><a target="_blank" href="/home/features/app-service/web-apps/" id="case-study_sino_web-apps">Web 应用</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_azure-iot-hub.png"><a target="_blank" href="/home/features/iot-hub/" id="case-study_sino_iot-hub">Azure IoT 中心</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_messaging.png"><a target="_blank" href="/home/features/service-bus/" id="case-study_sino_service-bus">服务总线</a></li>
+							<li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_hdinsight.png"><a target="_blank" href="/home/features/hdinsight/" id="case-study_sino_hdinsight">HDInsight</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_mysql.png"><a target="_blank" href="/home/features/mysql/" id="case-study_sino_mysql">MySQL Database on Azure</a></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>斯诺物联-Azure云计算</pageTitle>
+    <metaKeywords>斯诺物联 Azure 合作案例</metaKeywords>
+    <metaDescription><![CDATA[Azure Web应用的Git自动部署和SQL数据库，使斯诺物联短时间内搭建了CI/CD，并可快速的进行数据迁移。]]></metaDescription>
+    <linkid>case-studies-sino</linkid>
+    <urlDisplayName>斯诺物联 案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-default-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_sino" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">斯诺物联</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.vip56.cn/" id="case-study-sinowebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/sino-logo-80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>斯诺物联</h1>
+                            <p>Azure Web 应用的 Git 自动部署和 SQL 数据库，使斯诺物联短时间内搭建了 CI/CD，并可快速的进行数据迁移。</p>
+                        </div>
+                        <!--
+						<p class="casestudy-info" >通过使用 Azure 通知中心，我们取得了极大的成效，仅需创建一个通知中心，现在我们只需要为各种平台保持一个通知中心。我们选择 Azure 证明是非常成功的。我们希望尽快将突发新闻快讯送达我们数以百万计的用户。这就是我们使用 Azure 的原因。
+                        </p>
+                        <div class="casestudy-line"></div>
+                       <span class="tips">Andrew Locke 移动和设备副总裁</span>
+					   -->
+                        <!-- <a href="#" class="video-play-button" id="case-study-video-player"></a> -->
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_sino.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>  
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

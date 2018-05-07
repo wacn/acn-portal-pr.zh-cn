@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18833" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="25" createDate="2013-07-11T10:44:15" updateDate="2014-08-18T11:09:14" nodeName="Queue Service" urlName="queue-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18833" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/dotnet" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何使用队列存储服务</h1>
+<div class="dev-center-tutorial-selector"><a href="/zh-cn/develop/net/how-to-guides/queue-service-v17/" title="1.7 版">1.7 版</a> <a href="/zh-cn/develop/net/how-to-guides/queue-service/" title="2.0 版" class="current">2.0 版</a></div>
+<p>本指南将演示如何使用 Windows Azure 队列存储服务执行常见任务。相关示例用 C# 代码编写并使用 Windows Azure Storage Client Library for .NET（2.0 版）。涉及的任务包括<strong>插入</strong>、<strong>扫视</strong>、<strong>获取</strong>和<strong>删除</strong>队列消息以及<strong>创建和删除队列</strong>。有关队列的详细信息，请参阅<a href="#next-steps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#what-is">什么是队列存储</a></li>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#create-account">创建 Windows Azure 存储帐户</a></li>
+<li><a href="#setup-connection-string">设置 Windows Azure 存储连接字符串</a></li>
+<li><a href="#access">如何：使用 .NET 以编程方式访问队列</a></li>
+<li><a href="#create-queue">如何：创建队列</a></li>
+<li><a href="#insert-message">如何：在队列中插入消息</a></li>
+<li><a href="#peek-message">如何：查看下一条消息</a></li>
+<li><a href="#change-contents">如何：更改已排队消息的内容</a></li>
+<li><a href="#get-message">如何：取消对下一条消息的排队</a></li>
+<li><a href="#advanced-get">如何：使用其他方法取消对消息的排队</a></li>
+<li><a href="#get-queue-length">如何：获取队列长度</a></li>
+<li><a href="#delete-queue">如何：删除队列</a></li>
+<li><a href="#next-steps">后续步骤</a></li>
+</ul>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="howto-queue-storage" macroAlias="AzureChunkDisplayer" />
+<h2><a name="create-account"></a> <span class="short-header">创建帐户</span>创建 Windows Azure 存储帐户</h2>
+<?UMBRACO_MACRO hide="0" chunkpath="devcenter/shared" chunkname="create-storage-account" macroAlias="AzureChunkDisplayer" />
+<h2><a name="setup-connection-string"></a> <span class="short-header">设置连接字符串</span>设置 Windows Azure 存储连接字符串</h2>
+<p>Windows Azure .NET 存储客户端库支持使用存储连接字符串来配置终结点和用于访问存储服务的凭据。您可以将存储连接字符串置于配置文件中，而不是在代码中对其进行硬编码：</p>
+<ul>
+<li>当使用 Windows Azure 云服务时，建议您使用 Windows Azure 服务配置系统（<code>*.csdef</code> 和 <code>*.cscfg</code> 文件）来存储连接字符串。</li>
+<li>当使用 Windows Azure 网站、Windows Azure 虚拟机或构建准备在 Windows Azure 外部运行的 .NET 应用程序时，建议您使用 .NET 配置系统（如 <code>web.config</code> 或 <code>app.config</code> 文件）来存储连接字符串。</li>
+</ul>
+<p>在上述两种情况下，您可以使用 <code>CloudConfigurationManager.GetSetting</code> 方法检索连接字符串，本指南稍后部分将对此进行介绍。</p>
+<h3>在使用云服务时配置连接字符串</h3>
+<p>该服务配置机制是 Windows Azure 云服务项目特有的，它使您能够从 Windows Azure 管理门户动态更改配置设置，而无需部署您的应用程序。</p>
+<p>在 Windows Azure 服务配置中配置连接字符串：</p>
+<ol>
+<li>
+<p>在 Visual Studio 解决方案资源管理器内 Windows Azure 部署项目的“角色”文件夹中，右键单击 Web 角色或辅助角色，然后单击“属性”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob5.png" alt="Blob5"/></p>
+</li>
+<li>
+<p>单击“设置”选项卡并按“添加设置”按钮。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob6.png" alt="Blob6"/></p>
+<p>新的 <strong>Setting1</strong> 条目稍后将显示在设置网格中。</p>
+</li>
+<li>
+<p>在新的 <strong>Setting1</strong> 条目的“类型”下拉列表中，选择“连接字符串”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob7.png" alt="Blob7"/></p>
+</li>
+<li>
+<p>单击 <strong>Setting1</strong> 条目最右侧的 <strong>...</strong> 按钮。将打开“存储帐户连接字符串”对话框。</p>
+</li>
+<li>
+<p>选择是要定位到存储模拟器（在本地计算机上模拟的 Windows Azure 存储），还是云中的实际存储帐户。本指南中的代码使用其中任一方式。如果您希望使用我们之前在 Windows Azure 中创建的存储帐户存储队列数据，请输入从本教程前面的步骤中复制的“主访问密钥”值。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob8.png" alt="Blob8"/></p>
+</li>
+<li>
+<p>将条目“名称”从 <strong>Setting1</strong> 更改为更友好的名称，例如 <strong>StorageConnectionString</strong>。稍后将在本指南的代码中引用此连接字符串。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/blob9.png" alt="Blob9"/></p>
+</li>
+</ol>
+<h3>使用 .NET 配置来配置连接字符串</h3>
+<p>除非您使用的是 Windows Azure 云服务（请参见上一节），否则建议您使用 .NET 配置系统（如 <code>web.config</code> 或 <code>app.config</code>）。这包括 Windows Azure 网站或 Windows Azure 虚拟机，以及设计为在 Windows Azure 外部运行的应用程序。您可以使用 <code>&lt;connectionStrings&gt;</code> 元素存储连接字符串，如下所示：</p>
+<pre class="prettyprint">&lt;configuration&gt;     &lt;connectionStrings&gt;         &lt;add name="StorageConnectionString"              connectionString="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" /&gt;     &lt;/connectionStrings&gt; &lt;/configuration&gt;</pre>
+<p>有关存储连接字符串的更多信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758697.aspx">配置连接字符串</a>。</p>
+<p>您现在即可准备执行本指南中的操作任务。</p>
+<h2><a name="access"></a> <span class="short-header">以编程方式访问</span>如何：使用 .NET 以编程方式访问队列</h2>
+<h3>获得程序集</h3>
+<p>您可以使用 NuGet 获得 <code>Microsoft.WindowsAzure.Storage.dll</code> 程序集。在“解决方案资源管理器”中，右键单击您的项目并选择“管理 NuGet 包”。在线搜索“WindowsAzure.Storage”，然后单击“安装”以安装 Windows Azure 存储包和依赖项。</p>
+<p><code>Microsoft.WindowsAzure.Storage.dll</code> 还包含在 2012 年 10 月版的 Windows Azure SDK for .NET 中，可从 <a href="http://www.windowsazure.cn/zh-cn/develop/net/#">.NET 开发人员中心</a>下载该版本。程序集安装在 <code>%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref\</code> 目录中。</p>
+<h3>命名空间声明</h3>
+<p>将以下代码命名空间声明添加到任何 C# 文件的顶部，您希望使用此类文件以编程方式访问 Windows Azure 存储：</p>
+<pre class="prettyprint">using Microsoft.WindowsAzure.Storage; using Microsoft.WindowsAzure.Storage.Auth; using Microsoft.WindowsAzure.Storage.Queue;</pre>
+<p>确保您引用 <code>Microsoft.WindowsAzure.Storage.dll</code> 程序集。</p>
+<h3>检索连接字符串</h3>
+<p>可以使用 <strong>CloudStorageAccount</strong> 类型来表示您的存储帐户信息。如果您使用的是 Windows Azure 项目模板并且/或者引用 Microsoft.WindowsAzure.CloudConfigurationManager，则可以使用 <strong>CloudConfigurationManager</strong> 类型从 Windows Azure 服务配置中检索存储连接字符串和存储帐户信息：</p>
+<pre class="prettyprint">CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));</pre>
+<p>如果您要创建应用程序而不引用 Microsoft.WindowsAzure.CloudConfigurationManager，并且您的连接字符串位于前面显示的 <code>web.config</code> 或 <code>app.config</code> 中，那么您可以使用 <strong>ConfigurationManager</strong> 来检索连接字符串。您需要将对 System.Configuration.dll 的引用添加到您的项目中，并为其添加另一个命名空间声明：</p>
+<pre class="prettyprint">using System.Configuration; ... CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);</pre>
+<h3>ODataLib 依赖项</h3>
+<p>.NET 存储客户端库中的 ODataLib 依赖项可通过在 NuGet （而非 WCF 数据服务）上获得的 ODataLib（5.0.2 版）包来解析。ODataLib 库可直接下载或者通过 NuGet 由代码项目引用。特定的 ODataLib 包为 <a href="http://nuget.org/packages/Microsoft.Data.OData/5.0.2">OData</a>、<a href="http://nuget.org/packages/Microsoft.Data.Edm/5.0.2">Edm</a> 和 <a href="http://nuget.org/packages/System.Spatial/5.0.2">Spatial</a>。</p>
+<h2><a name="create-queue"></a> <span class="short-header">创建队列</span>如何：创建队列</h2>
+<p>利用 <strong>CloudQueueClient</strong> 对象，可以获得队列的引用对象。以下代码将创建 <strong>CloudQueueClient</strong> 对象。本指南中的所有代码都使用存储在 Windows Azure 应用程序的服务配置中的存储连接字符串。还可采用其他方法创建 <strong>CloudStorageAccount</strong> 对象。有关更多信息，请参见 <a href="http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx">CloudStorageAccount</a> 文档。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();</pre>
+<p>使用 <strong>queueClient</strong> 对象获取对要使用的队列的引用。如果该队列不存在，您可以创建它。</p>
+<pre class="prettyprint">// Retrieve a reference to a queue CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Create the queue if it doesn't already exist queue.CreateIfNotExists();</pre>
+<h2><a name="insert-message"></a> <span class="short-header">插入消息</span>如何：在队列中插入消息</h2>
+<p>若要将消息插入现有队列，请先创建一条新的 <strong>CloudQueueMessage</strong>。然后调用 <strong>AddMessage</strong> 方法。可从字符串（UTF-8 格式）或“字节”数组创建 <strong>CloudQueueMessage</strong>。以下代码将创建队列（如果该队列不存在）并插入消息“Hello, World”：</p>
+<pre class="prettyprint">// Retrieve storage account from connection string. CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client. CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue. CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Create the queue if it doesn't already exist. queue.CreateIfNotExists();  // Create a message and add it to the queue. CloudQueueMessage message = new CloudQueueMessage("Hello, World"); queue.AddMessage(message);</pre>
+<h2><a name="peek-message"></a> <span class="short-header">扫视下一条消息</span>如何：扫视下一条消息</h2>
+<p>通过调用 <strong>PeekMessage</strong> 方法，您可以扫视队列前面的消息，而不从队列中删除它。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Peek at the next message CloudQueueMessage peekedMessage = queue.PeekMessage();  // Display message. Console.WriteLine(peekedMessage.AsString);</pre>
+<h2><a name="change-contents"></a> <span class="short-header">更改消息内容</span>如何：更改已排队消息的内容</h2>
+<p>您可以更改队列中现有消息的内容。如果消息表示工作任务，则可以使用此功能更新工作任务的状态。以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。这将保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。通常，您还可以保留重试计数，如果某条消息的重试次数超过 <em>n</em> 次，可删除此消息。这可避免消息在每次处理时都触发应用程序错误。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string. CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client. CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue. CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Get the message from the queue and update the message contents. CloudQueueMessage message = queue.GetMessage(); message.SetMessageContent("Updated contents.") ; queue.UpdateMessage(message,      TimeSpan.FromSeconds(0.0),  // Make it visible immediately.     MessageUpdateFields.Content | MessageUpdateFields.Visibility);</pre>
+<h2><a name="get-message"></a> <span class="short-header">取消对下一条消息的排队</span>如何：取消对下一条消息的排队</h2>
+<p>您的代码通过两个步骤来取消对队列中某消息的排队。在调用 <strong>GetMessage</strong> 时，您将获得队列中的下一条消息。对于从此队列中读取消息的任何其他代码，从 <strong>GetMessage</strong> 返回的消息将变得不可见。默认情况下，此消息将持续 30 秒不可见。若要从队列中删除消息，您还必须调用 <strong>DeleteMessage</strong>。此删除消息的两步过程可确保当您的代码因硬件或软件故障而无法处理消息时，代码的其他实例可以获取同一消息并重试。您的代码在处理消息后会立即调用 <strong>DeleteMessage</strong>。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Get the next message CloudQueueMessage retrievedMessage = queue.GetMessage();  //Process the message in less than 30 seconds, and then delete the message queue.DeleteMessage(retrievedMessage);</pre>
+<h2><a name="advanced-get"></a> <span class="short-header">更多取消排队方法</span>如何：使用其他方法取消对消息的排队</h2>
+<p>您可以采用两种方法来自定义从队列中检索消息的过程。首先，您可以获取一批消息（最多 32 个）。其次，您可以设置更长或更短的不可见超时时间，从而允许您的代码使用更多或更少时间来完全处理每个消息。以下代码示例使用 <strong>GetMessages</strong> 方法通过一次调用获取 20 条消息。然后，它使用 <strong>foreach</strong> 循环来处理每条消息。它还将每条消息的不可见超时时间设置为 5 分钟。请注意，5 分钟超时时间对于所有消息都是同时开始的，因此在调用 <strong>GetMessages</strong> 5 分钟后，尚未删除的任何消息都将再次变得可见。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string. CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client. CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue. CloudQueue queue = queueClient.GetQueueReference("myqueue");  foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5))) {     // Process all messages in less than 5 minutes, deleting each message after processing.     queue.DeleteMessage(message); }</pre>
+<h2><a name="get-queue-length"></a> <span class="short-header">获取队列长度</span>如何：获取队列长度</h2>
+<p>您可以获得队列中消息的估计数。使用 <strong>FetchAttributes</strong> 方法可请求队列服务检索队列属性，包括消息计数。<strong>ApproximateMethodCount</strong> 属性返回 <strong>FetchAttributes</strong> 方法检索到的最后一个值，而不会调用队列服务。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string. CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client. CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue. CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Fetch the queue attributes. queue.FetchAttributes();  // Retrieve the cached approximate message count. int? cachedMessageCount = queue.ApproximateMessageCount;  // Display number of messages. Console.WriteLine("Number of messages in queue: " + cachedMessageCount);</pre>
+<h2><a name="delete-queue"></a> <span class="short-header">删除队列</span>如何：删除队列</h2>
+<p>若要删除队列及其中包含的所有消息，请对队列对象调用 <strong>Delete</strong> 方法。</p>
+<pre class="prettyprint">// Retrieve storage account from connection string. CloudStorageAccount storageAccount = CloudStorageAccount.Parse(     CloudConfigurationManager.GetSetting("StorageConnectionString"));  // Create the queue client. CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  // Retrieve a reference to a queue. CloudQueue queue = queueClient.GetQueueReference("myqueue");  // Delete the queue. queue.Delete();</pre>
+<h2><a name="next-steps"></a>后续步骤</h2>
+<p>现在，您已了解有关队列存储的基础知识，单击下面的链接可了解如何执行更复杂的存储任务。</p>
+<ul>
+<li>查看队列服务参考文档，了解有关可用 API 的完整详情：
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/wa_storage_api_ref_reference_home.aspx">.NET 存储客户端库参考</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179355">REST API 参考</a></li>
+</ul>
+</li>
+<li>在以下位置了解有关可以使用 Windows Azure 存储执行的更高级任务：<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433040.aspx">在 Windows Azure 中存储和访问数据</a>。</li>
+<li>查看更多功能指南，以了解在 Windows Azure 中存储数据的其他方式。
+<ul>
+<li>使用<a href="/zh-cn/develop/net/how-to-guides/table-services/">表存储</a>存储结构化数据。</li>
+<li>使用 <a href="/zh-cn/develop/net/how-to-guides/blob-storage-v17/">Blob 存储</a>存储非结构化数据。</li>
+<li>使用 <a href="/zh-cn/develop/net/how-to-guides/sql-database/">SQL Database</a> 存储关系数据。</li>
+</ul>
+</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何使用队列存储服务 - Windows Azure</pageTitle><metaKeywords>Azure 队列入门   Azure 异步处理   Azure 队列   Azure 队列存储   Azure 队列 .NET   Azure 队列存储 .NET   Azure 队列 C#   Azure 队列存储 C#</metaKeywords><metaDescription><![CDATA[了解如何使用 Windows Azure 队列存储服务创建和删除队列，以及插入、扫视、获取和删除队列消息。]]></metaDescription><linkid>dev-net-2-how-to-queue-service</linkid><urlDisplayName>队列服务 (2.0)</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

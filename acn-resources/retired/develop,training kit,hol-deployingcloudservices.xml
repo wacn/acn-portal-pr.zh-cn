@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19163" parentID="19159" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="4" createDate="2013-07-11T11:51:07" updateDate="2014-08-18T11:22:45" nodeName="HOL-DeployingCloudServices" urlName="hol-deployingcloudservices" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,19159,19163" isDoc=""><bodyText><![CDATA[<p> </p>
+<h1 id="Deploying_Cloud_Services_in_Windows_Azure">在 Windows Azure 中部署云服务</h1>
+<p> </p>
+<h2 id="Overview">概述</h2>
+<p>在本动手实验中，您将了解如何在 Windows Azure 中部署您的第一个应用程序。本实验使用 myTODO 演练此过程，myTODO 是一个使用 ASP.NET MVC 构建的简单列表创建和管理应用程序。本实验演示设置 Windows Azure 管理门户中所需的组件、上载服务包和配置服务所需执行的步骤。您将了解如何在过渡环境中测试应用程序，然后在该应用程序能够按预期运行后将其升级到生产环境。</p>
+<p><img src="images/mytodo.png?raw=true" alt="在 Windows Azure 中运行的 myTODO 应用程序"/></p>
+<p><em>在 Windows Azure 中运行的 myTODO 应用程序</em></p>
+<p>在本实验中，您还将了解如何使用服务管理 API 以编程方式部署、升级和配置 Windows Azure 应用程序。您将使用可包装管理 API 的 Windows Azure 服务管理工具执行用于执行这些操作的 Windows PowerShell 脚本。为了完成对部署选择的检查，您将使用 Windows Azure Tools 直接从 Visual Studio 部署该应用程序。</p>
+<p>在本实验中，您还将了解如何向 Windows Azure 服务提供 SSL 连接。</p>
+<p> </p>
+<h3 id="Objectives">目标</h3>
+<p>在本动手实验中，您将了解如何：</p>
+<ul>
+<li>使用 Windows Azure 管理门户创建存储帐户和云服务</li>
+<li>使用 Windows Azure 管理门户用户界面部署服务组件包</li>
+<li>更改已部署应用程序的配置设置</li>
+<li>在部署到最终生产环境前，在单独过渡环境中测试部署</li>
+<li>使用 Windows PowerShell 以编程方式部署、升级和配置 Windows Azure 服务</li>
+<li>使用 Windows Azure Tools 从 Visual Studio 进行发布</li>
+<li>使用 SSL 保护您的 Windows Azure 应用程序</li>
+</ul>
+<p> </p>
+<h3 id="Prerequisites">必备组件</h3>
+<p>完成本动手实验需要以下项：</p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?linkid=186916">Microsoft .NET Framework 4.0</a></li>
+<li><a href="http://msdn.microsoft.com/vstudio/products/">Microsoft Visual Studio 2010</a></li>
+<li><a href="http://www.asp.net/mvc/mvc4">ASP.NET MVC 4</a></li>
+<li><a href="http://www.microsoft.com/windowsazure/sdk/">Windows Azure Tools for Microsoft Visual Studio 1.7</a></li>
+<li>IIS 7（带 ASP.NET、WCF HTTP 激活）</li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055">Windows Azure PowerShell CmdLet</a></li>
+<li>Windows Azure 订阅 - <a href="http://aka.ms/WATK-FreeTrial">注册以获取免费试用版</a></li>
+</ul>
+<blockquote>
+<p><strong>注意：</strong> 本实验设计为使用 Windows 7 操作系统。</p>
+</blockquote>
+<p> </p>
+<h3 id="Setup">设置</h3>
+<p>为了完成本动手实验中的练习，您需要对环境进行设置。</p>
+<ol>
+<li>打开 Windows 资源管理器并浏览到本实验的 <strong>Source</strong> 文件夹。</li>
+<li>使用管理员权限执行 <strong>Setup.cmd</strong> 文件以启动将配置您的环境的设置过程。</li>
+<li>如果显示“用户帐户控制”对话框，请确认操作以继续。</li>
+</ol>
+<blockquote>
+<p><strong>注意：</strong>首次启动 Visual Studio 时，必须选择一个预定义的设置集合。每个预定义的集合都设计为与特定的开发风格相匹配，并可确定窗口布局、编辑器行为、IntelliSense 代码段和对话框选项。本实验中的过程描述了使用“常规开发设置”<strong></strong>集合在 Visual Studio 中完成给定任务所需执行的操作。如果您为开发环境选择了其他设置集合，则需要考虑的这些过程可能会有所不同。</p>
+</blockquote>
+<hr />
+<p> </p>
+<h2 id="Exercises">练习</h2>
+<p>本动手实验包括以下练习：</p>
+<ol>
+<li>
+<p><a href="#Exercise1">使用 Windows Azure 管理门户部署应用程序</a></p>
+</li>
+<li>
+<p><a href="#Exercise2">使用 PowerShell 管理 Windows Azure 应用程序</a></p>
+</li>
+<li>
+<p><a href="#Exercise3">使用 Visual Studio 发布应用程序</a></p>
+</li>
+<li>
+<p><a href="#Exercise4">使用 SSL 保护 Windows Azure</a></p>
+</li>
+</ol>
+<p>完成本实验的估计时间：<strong>90 分钟</strong>。</p>
+<blockquote>
+<p><strong>注意：</strong>每个练习均附带位于该练习的 Begin 文件夹中的开始解决方案，它允许您彼此独立地完成每个练习。请注意，这些开始解决方案中缺少在练习期间所添加的代码段，并且在您完成练习之前，这些代码段不一定可用。在练习的源代码中，您还会找到一个 End 文件夹，其中所含 Visual Studio 解决方案的代码是完成相应练习中的步骤后生成的。如果您在演练本动手实验时需要其他帮助，则可以使用这些解决方案作为指南。</p>
+</blockquote>
+<hr />
+<p> </p>
+<h3 id="Exercise_1_Deploying_an_application_using_the_Windows_Azure_Management_Portal">练习 1：使用 Windows Azure 管理门户部署应用程序</h3>
+<p>在此练习中，您将使用 Windows Azure 管理门户将 myTODO 应用程序部署到 Windows Azure。为此，您将在管理门户中设置所需服务组件，将应用程序上载到过渡环境并对其进行配置。然后，您将在此测试环境中执行应用程序以验证其操作。在确定应用程序能够按预期运行后，可将其升级到生产环境。</p>
+<p> </p>
+<h4 id="Task_1__Creating_a_Storage_Account_and_a_Cloud_Service">任务 1 -创建存储帐户和云服务</h4>
+<p>在此练习中部署的应用程序需要云服务和存储帐户。在此任务中，您将创建一个新存储帐户，以允许该应用程序保存其数据。另外，您需要定义一项云服务来托管您的 Web 应用程序。</p>
+<ol>
+<li>
+<p>使用 Web 浏览器导航到 <a href="http://manage.windowsazure.cn/">http://manage.windowsazure.cn/</a>，并使用与您的 Windows Azure 帐户关联的 Microsoft 帐户登录。</p>
+<p><img src="images/signing-in-to-the-windows-azure-platform-mana.png?raw=true" alt="登录到 Windows Azure 管理门户"/></p>
+<p><em>登录到 Windows Azure 管理门户</em></p>
+</li>
+<li>
+<p>首先，创建一个将在其中部署服务的<strong>地缘组</strong>。在 Windows Azure 菜单中，单击“网络”<strong></strong>。</p>
+<p><img src="images/networks.png?raw=true" alt="网络"/></p>
+<p><em>选择网络</em></p>
+</li>
+<li>
+<p>在“网络”<strong></strong> 页中，单击“地缘组”<strong></strong>。</p>
+<p><img src="images/affinity-groups.png?raw=true" alt="“网络”页"/></p>
+<p><em>“网络”页</em></p>
+</li>
+<li>
+<p>单击“创建”<strong></strong>新建<strong>地缘组</strong>。</p>
+<p><img src="images/create-affinity-group.png?raw=true" alt="创建地缘组"/></p>
+<p><em>创建地缘组</em></p>
+</li>
+<li>
+<p>在“创建地缘组”<strong></strong>对话框中，为您的新组输入“名称”<strong></strong>（即 <em>MyAffinityGroup</em>）、“描述”<strong></strong>和“区域”<strong></strong>。然后单击<strong>对勾</strong>继续。</p>
+<p><img src="images/affinity-group-details.png?raw=true" alt="地缘组详细信息"/></p>
+<p><em>地缘组详细信息</em></p>
+<blockquote>
+<p><strong>注意：</strong> 新建地缘组是为了将云服务和存储帐户部署到同一位置，从而确保在应用程序和其所依赖的数据之间实现高带宽和低延迟。</p>
+</blockquote>
+</li>
+<li>
+<p>现在，您将创建应用程序将用于存储其数据的<strong>存储帐户</strong>。在 Windows Azure 管理门户中，单击“新建”<strong></strong>|“存储帐户”<strong></strong>|“快速创建”<strong></strong>。</p>
+</li>
+<li>
+<p>设置唯一的 <strong>URL</strong>（如 <em>yournamemytodo</em>），选择前面创建的<em>地缘组</em>并单击<strong>对勾</strong>继续。</p>
+<p><img src="images/creating-a-new-storage-account.png?raw=true" alt="新建存储帐户"/></p>
+<p><em>新建存储帐户</em></p>
+<blockquote>
+<p><strong>注意：</strong>对存储帐户使用的 URL 需与 DNS 名称相对应，并且遵守标准 DNS 命名规则。而且，该名称公开可见，因此必须是唯一的。门户可通过验证该名称是否符合命名规则以及当前是否可用来确保该名称有效。如果您输入的名称不满足规则，则会显示验证错误。</p>
+<p><img src="images/url-validation.png?raw=true" alt="URL 验证"/></p>
+</blockquote>
+</li>
+<li>
+<p>等到存储帐户创建完成。单击存储帐户的名称，以便转到其<strong>仪表板</strong>。</p>
+<p><img src="images/storage-accounts-page.png?raw=true" alt="“存储帐户”页"/></p>
+<p><em>“存储帐户”页</em></p>
+</li>
+<li>
+<p>在“仪表板”<strong></strong>页中，您会看到分配给存储帐户中的每项服务的 <strong>URL</strong>。记录公共存储帐户名称，它是分配给您的终结点的 URL 的第一段。</p>
+<p><img src="images/storage-account-dashboard-page.png?raw=true" alt="存储帐户“仪表板”页"/></p>
+<p><em>存储帐户“仪表板”页</em></p>
+</li>
+<li>
+<p>单击页面底部的“管理密钥”<strong></strong>，以显示存储帐户的访问密钥。</p>
+<p><img src="images/manage-storage-account-keys.png?raw=true" alt="管理存储帐户密钥"/></p>
+<p><em>管理存储帐户密钥</em></p>
+</li>
+<li>
+<p>复制<strong>主访问密钥</strong>值。稍后您将使用此值来配置应用程序。</p>
+<p><img src="images/retrieving-the-storage-access-keys.png?raw=true" alt="检索存储访问密钥"/></p>
+<p><em>检索存储访问密钥</em></p>
+<blockquote>
+<p><strong>注意：</strong><strong>主访问密钥</strong>和<strong>辅助</strong>访问<strong>密钥</strong>均提供可用于访问存储的共享密钥。辅助密钥可提供与主密钥相同的访问权限，并可用于备份目的。如果任何一个密钥损坏，可独立重新生成每个密钥。</p>
+</blockquote>
+</li>
+<li>
+<p>接下来，创建执行应用程序代码的<strong>云服务</strong>。单击“新建”<strong></strong>|“云服务”<strong></strong>|“快速创建”<strong></strong>。</p>
+</li>
+<li>
+<p>为您的云服务选择 <strong>URL</strong>（如 <em>yournamemytodo</em>）并选择在其中创建了存储帐户的<strong>地缘组</strong>。单击<strong>对勾</strong>继续。Windows Azure 将使用此 URL 值生成云服务的终结点 URL。</p>
+<p><img src="images/creating-a-new-cloud-service.png?raw=true" alt="新建云服务"/></p>
+<p><em>新建云服务</em></p>
+<blockquote>
+<p><strong>注意：</strong>如果可能，请为存储帐户和云服务选择相同的名称。但是，如果您选择的名称不可用，则可能需要选择其他名称。</p>
+<p>门户可通过验证该名称是否符合命名规则以及当前是否可用来确保该名称有效。如果您输入的名称不满足规则，则会显示验证错误。</p>
+<p><img src="images/url-prefix-validation.png?raw=true" alt="URL 前缀验证"/></p>
+<p>选择了用于存储帐户的同一地缘组后，应确保将云服务部署到同一数据中心。</p>
+</blockquote>
+</li>
+<li>
+<p>等到云服务创建完成，然后继续。不要关闭浏览器窗口，您将在下一任务中使用门户。</p>
+<p><img src="images/cloud-service-created.png?raw=true" alt="云服务创建完成"/></p>
+<p><em>云服务创建完成</em></p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_2__Publishing_the_Application_to_the_Windows_Azure_Management_Portal">任务 2 -将应用程序发布到 Windows Azure 管理门户</h4>
+<p>云服务是在 Windows Azure 环境中托管您的代码的服务。它具有两个单独的部署槽：过渡环境和生产环境。过渡部署槽允许您在将服务部署到生产环境前在 Windows Azure 环境中对其进行测试。</p>
+<p>在此任务中，您将为 myTODO 应用程序创建一个服务包，然后使用 Windows Azure 管理门户将其部署到过渡环境。</p>
+<ol>
+<li>
+<p>使用提升的管理员模式打开 <strong>Microsoft Visual Studio 2010</strong>。</p>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开”<strong></strong>，然后选择“项目/解决方案”<strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到该实验的 <strong>Source</strong> 文件夹中的 <strong>Ex1-DeployingWithWAZPortal\Begin</strong>，选择 <strong>MyTodo.sln</strong> 并单击“打开”。</p>
+<p>该解决方案包含以下项目：</p>
+<table border="0">
+<thead></thead>
+<tbody>
+<tr>
+<td>MyTodo</td>
+<td>配置用于支持名为 <strong>MyTodo.WebUx</strong> 的单个 Web 角色的标准云服务项目</td>
+</tr>
+<tr>
+<td>MyTodo.Data.WindowsAzure</td>
+<td>包含表存储的 <strong>MyTodo.WebUx</strong> 应用程序的数据协定的类库项目</td>
+</tr>
+<tr>
+<td>AspProviders</td>
+<td>Windows Azure 中用于存储的 ASP.NET 成员资格、角色和 SessionState 提供程序的实现</td>
+</tr>
+<tr>
+<td>MyTodo.WebUx</td>
+<td>在 Windows Azure 中托管 MyTODO ASP.NET MVC 应用程序的 Web 角色</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>确保 <strong>System.Web.Mvc</strong> 程序集包含在您部署到 Windows Azure 的服务包中。为此，请在 <strong>MyTodo.WebUx</strong> 项目的“解决方案资源管理器”<strong></strong>中展开“引用”<strong></strong>节点，右键单击 <strong>System.Web.Mvc</strong> 程序集并选择“属性”<strong></strong>。在“项目属性”<strong></strong>窗口中，切换到“引用”<strong></strong>选项卡，选择 <strong>System.Web.Mvc</strong> 程序集，然后按 <strong>F4</strong>。</p>
+<p>若要将该程序集添加到服务包中，请在 <strong>System.Web.Mvc</strong> 程序集的“属性”<strong></strong>窗口中，将“复制本地”<strong></strong>设置更改为 <em>True</em>（如果其设置为 <em>False</em>）。</p>
+<p><img src="images/including-assemblies-in-the-service-package-d.png?raw=true" alt="包含部署到 Windows Azure 的服务包中的程序集"/></p>
+<p><em>包含部署到 Windows Azure 的服务包中的程序集</em></p>
+<blockquote>
+<p><strong>注意：</strong>通常情况下，需要在 Windows Azure VM 中为默认情况下未安装的任何程序集设置 <strong>Copy Local = True</strong>，以确保该程序集与您的应用程序一起部署。</p>
+</blockquote>
+</li>
+<li>
+<p>接下来，更改将托管应用程序的虚拟机的大小。为此，请在“解决方案资源管理器”<strong></strong>中，展开 <strong>MyTodo</strong> 项目的“角色”<strong></strong>节点，然后双击 <strong>MyTodo.WebUX</strong> 角色打开其属性窗口。在“配置”<strong></strong>页中，在“实例”<strong></strong>类别下找到 <strong>VM</strong> 大小设置，并从下拉列表中选择“特小型”<strong></strong>大小。</p>
+<p><img src="images/configuring-vm-depl-size.png?raw=true" alt="为部署配置虚拟机的大小"/></p>
+<p><em>为部署配置虚拟机 (VM) 的大小</em></p>
+<blockquote>
+<p><strong>注意：</strong>在创建服务模型时，可以指定要将角色实例部署到的虚拟机 (VM) 的大小，具体取决于其资源要求。VM 的大小将决定 CPU 内核数、内存容量以及分配给正在运行的实例的本地文件系统的大小和网络吞吐量。</p>
+</blockquote>
+</li>
+<li>
+<p>若要在部署服务前配置存储，请打开位于 <strong>MyTodo</strong> 服务中的 <strong>ServiceConfiguration.cscfg</strong> 文件。将标记为 [YOUR_ACCOUNT_NAME] 的占位符替换为您在任务 1 中配置存储帐户时选择的<strong>存储帐户名称</strong>。如果按照建议操作，该名称应采用 <strong>&lt;yourname&gt;mytodo</strong> 模式，其中 &lt; <em>yourname</em>&gt; 是唯一名称。确保替换占位符的两个实例，一个代表 <em>DataConnectionString</em>，另一个代表 <em>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</em>。</p>
+</li>
+<li>
+<p>接下来，将标记为 [YOUR_ACCOUNT_KEY] 的占位符替换为您之前在任务 1 中创建存储帐户时记录的<strong>主访问密钥</strong>值。再次替换占位符的两个实例，每个实例均代表一个连接字符。</p>
+<p><img src="images/configuring-storage-account-connection.png?raw=true" alt="配置存储帐户连接字符串"/></p>
+<p><em>配置存储帐户连接字符串</em></p>
+</li>
+<li>
+<p>现在，在虚拟机中定义应运行您的服务的 Windows Azure 来宾操作系统的版本。为此，请将 <strong>osVersion</strong> 属性添加到 <strong>ServiceConfiguration</strong> 根元素，并将其值设置为 <em>WA-GUEST-OS-1.20_201208-02</em>，如下图所示。</p>
+<blockquote>
+<p><strong>注意：</strong>此处 <strong>osVersion</strong> 使用的值指明您可以选择使用哪个版本的来宾 OS 运行您的应用程序。您可使用更高版本。</p>
+</blockquote>
+<p><img src="images/configuring-guestOS.png?raw=true" alt="在 VM 中配置哪个版本的来宾操作系统运行应用程序"/></p>
+<p><em>在 VM 中配置哪个版本的来宾操作系统运行应用程序</em></p>
+<blockquote>
+<p><strong>注意：</strong> Windows Azure 可运行将在其中部署您的服务应用程序的来宾操作系统。此来宾操作系统定期进行更新。更新的来宾操作系统版本可能会为您的应用程序带来重大更改，但这种可能性很小。通过设置 <strong>osVersion</strong> 属性，您可确保应用程序在与用于开发的 Windows Azure SDK 版本兼容的 Windows Azure 来宾操作系统版本中运行。您可以花时间测试每个新 <strong>osVersion</strong>，然后再在您的生产部署中运行它。</p>
+<p>若要配置操作系统版本，您需要直接编辑服务定义文件，因为 Windows Azure Tools for Microsoft Visual Studio 的当前版本不支持通过其用户界面设置此属性。</p>
+<p>Windows Azure 提供了自动升级功能，以自动将您的服务升级为使用最新 OS 版本（只要该版本可用），从而确保您的服务运行在具有最新安全修补的环境中。如果在部署服务时忽略 <strong>osVersion</strong>，则自动升级模式就是默认模式。若要将现有服务更改为自动升级模式，请将 <strong>osVersion</strong> 属性设置为值 "*"。</p>
+<p>有关 Windows Azure 来宾操作系统的可用版本的信息，请参阅 <a href="http://msdn.microsoft.com/zh-cn/library/ee924680(v=MSDN.10).aspx">Windows Azure 来宾操作系统版本和 SDK 兼容性矩阵</a>。</p>
+</blockquote>
+</li>
+<li>
+<p>按 <strong>Ctrl + S</strong> 将更改保存到服务模型。</p>
+</li>
+<li>
+<p>若要创建服务包，请右键单击云服务项目并选择“打包”<strong></strong>。</p>
+</li>
+<li>
+<p>在“打包 Windows Azure 应用程序”<strong></strong>对话框中，单击“打包”<strong></strong>，然后等到 Visual Studio 创建服务包。创建服务包后，Visual Studio 会打开一个窗口，其中显示包含生成的文件的文件夹。不要关闭此窗口，稍后您将在此任务中使用该服务包。</p>
+<p><img src="images/creating-a-service-package.png?raw=true" alt="在 Visual Studio 中创建服务包"/></p>
+<p><em>在 Visual Studio 中创建服务包</em></p>
+</li>
+<li>
+<p>在门户中，找到之前创建的云服务，并单击其名称以转到“仪表板”<strong></strong>页。</p>
+</li>
+<li>
+<p>确保选择了“过渡”<strong></strong>选项卡，然后单击“上载新过渡部署”<strong></strong>。</p>
+<p><img src="images/uploading-the-application-to-windows-azure.png?raw=true" alt="将应用程序上载到 Windows Azure"/></p>
+<p><em>将应用程序上载到 Windows Azure</em></p>
+<blockquote>
+<p><strong>注意：</strong>云服务是在 Windows Azure 环境中运行您的代码的服务。它具有两个单独的部署槽：过渡环境和生产环境。过渡部署槽允许您在将服务部署到生产环境前在 Windows Azure 环境中对其进行测试。</p>
+</blockquote>
+</li>
+<li>
+<p>在“云服务 - 上载服务包”<strong></strong>对话框中，单击“浏览”<strong></strong>以选择“包位置”<strong></strong>，并导航到 Visual Studio 在前面的步骤中生成服务包的文件夹，然后选择 <strong>MyTodo.cspkg</strong>。</p>
+<blockquote>
+<p><strong>注意：</strong><em>.cspkg</em> 文件是包含运行服务所需的二进制文件和相关文件的存档文件 - 在本例中为 Notification App Server ASP.NET MVC 应用程序。我们通过对 Windows Azure 项目使用“生成|发布”<strong></strong>来使用 Visual Studio 为您创建服务包。</p>
+</blockquote>
+</li>
+<li>
+<p>现在，若要选择<strong>配置文件</strong>，请单击“浏览”<strong></strong>并在同一文件夹中选择 <strong>ServiceConfiguration.cscfg</strong> 文件。</p>
+<blockquote>
+<p><strong>注意：</strong>该 <em>.cscfg</em> 文件包含应用程序的配置设置，其中包括 <strong>WNS</strong> 的实例计数和配置，以及您在上一练习中执行的存储帐户。</p>
+</blockquote>
+</li>
+<li>
+<p>对于“部署名称”<strong></strong>，请输入一个标签以标识部署；例如使用 <em>MyTodo-v1</em>。</p>
+<blockquote>
+<p><strong>注意：</strong> 管理门户在其用户界面中显示过渡和生产部署标签，这样您便可确定当前在每个环境中部署的版本。</p>
+</blockquote>
+</li>
+<li>
+<p>最后，选中“即使一个或多个角色包含单个实例也部署”<strong></strong>。然后单击<strong>对勾</strong>开始部署。</p>
+<p><img src="images/configuring-service-package-deployment.png?raw=true" alt="配置服务包部署"/></p>
+<p><em>配置服务包部署</em></p>
+</li>
+<li>
+<p>注意，会开始上载服务包，并且门户会显示部署状态，以指示其进度。</p>
+<p><img src="images/uploading-a-service-package-to-the-windows-az.png?raw=true" alt="将服务包上载到 Windows Azure 管理门户"/></p>
+<p><em>将服务包上载到 Windows Azure 管理门户</em></p>
+</li>
+<li>
+<p>等到部署过程完成，这可能需要几分钟的时间。此时，您应已上载了服务包，并且它处于“就绪”<strong></strong>状态。注意，门户向部署分配了一个包含唯一标识符的 <strong>DNS 名称</strong>。您很快将访问此 URL 来测试应用程序，并确定该应用程序在 Windows Azure 环境中能否正常运行，但您需要先对其进行配置。</p>
+<blockquote>
+<p><strong>注意：</strong>在部署期间，Windows Azure 会分析配置文件，将服务复制到正确数目的计算机上，并启动所有实例。此时还会配置负载平衡器、网络设备和监视。</p>
+</blockquote>
+<p><img src="images/package-successfully-deployed.png?raw=true" alt="服务包部署成功"/></p>
+<p><em>服务包部署成功</em></p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_3__Configuring_the_Application_to_Increase_Number_of_Instances">任务 3 -配置应用程序以增加实例数目</h4>
+<p>您需要先对已部署应用程序进行配置，然后才能对其进行测试。在此任务中，您可更改已部署的服务配置，以增加实例的数目。</p>
+<ol>
+<li>
+<p>在“Windows Azure 管理门户”<strong></strong>中，转到“云服务”<strong></strong>页并单击您的 <strong>MyTodo</strong> 服务名称，以打开该服务的<strong>仪表板</strong>。</p>
+<p><img src="images/configuring-app-settings.png?raw=true" alt="配置应用程序设置"/></p>
+<p><em>配置应用程序设置</em></p>
+</li>
+<li>
+<p>单击“扩展”<strong></strong>增加您的应用程序所具有的角色数。</p>
+</li>
+<li>
+<p>在“扩展”<strong></strong>页中，确保选择了“过渡”<strong></strong>选项卡，并将角色数更新为 <em>2</em>。</p>
+<p><img src="images/scaling-cloud-service.png?raw=true" alt="扩展云服务"/></p>
+<p><em>扩展云服务</em></p>
+<blockquote>
+<p><strong>注意：</strong>初始数目或角色数取决于您之前在任务 2 中部署服务包时上载的 <strong>ServiceConfiguration.cscfg</strong> 文件。</p>
+<p><strong>注意：</strong>“实例”<strong></strong>设置控制 Windows Azure 启动的角色数，并用于扩展服务。对于基于令牌的订阅（当前仅在未设置为计费的国家/地区可用），此数目被限制为最多两个实例。但在商业产品/服务中，可将其更改为您愿意为之付款的任意数目。</p>
+</blockquote>
+</li>
+<li>
+<p>单击“保存”<strong></strong>更新配置并等待<strong>云服务</strong>应用新设置。</p>
+<p><img src="images/updating-number-role-instances.png?raw=true" alt="更新角色实例数"/></p>
+<p><em>更新角色实例数</em></p>
+<blockquote>
+<p><strong>注意：</strong> 在应用设置时，门户会显示“正在进行扩展...”图例。</p>
+</blockquote>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_4__Testing_the_Application_in_the_Staging_Environment">任务 4 -在过渡环境中测试应用程序</h4>
+<p>在此任务中，您将在过渡环境中运行应用程序并访问其网站 URL，以测试它能否正常运行。</p>
+<ol>
+<li>
+<p>在“云服务”<strong></strong>页中，转到您的 MyTodo 服务的“仪表板”<strong></strong>，然后单击“网站 URL”<strong></strong>链接。</p>
+<p><img src="images/running-app-staging.png?raw=true" alt="在过渡环境中运行应用程序"/></p>
+<p><em>在过渡环境中运行应用程序</em></p>
+<blockquote>
+<p><strong>注意：</strong>该地址 URL 显示为 <em>&lt;guid&gt;.chinacloudsites.cn</em>，其中 &lt;<em>guid</em>&gt; 是某个随机标识符。它与将用于运行处于生产环境的应用程序的地址不同。尽管应用程序在与生产环境隔离的过渡区域执行，但过渡环境和生产环境没有实际的物理差异 - 只是负载平衡器的连接位置不同而已。</p>
+<p><strong>注意：</strong> 将来，您将能够拥有多个“虚拟”区域来进行测试、QA、预生产等。</p>
+</blockquote>
+</li>
+<li>
+<p>单击“启动”<strong></strong>准备首次使用应用程序，这需要您新建帐户。为此，请导航到注册菜单。</p>
+<p><img src="images/application-running-staging.png?raw=true" alt="在过渡环境中运行的应用程序"/></p>
+<p><em>在过渡环境中运行的应用程序</em></p>
+</li>
+<li>
+<p>通过输入用户名、电子邮件地址和密码来填写帐户详细信息，然后单击“注册”<strong></strong>。</p>
+<blockquote>
+<p><strong>注意：</strong>帐户信息存储在您在前面创建的存储帐户中。待办事项列表之间未共享数据。</p>
+</blockquote>
+<p><img src="images/application-new-account.png?raw=true" alt="可供使用的应用程序"/></p>
+<p><em>新建帐户</em></p>
+</li>
+<li>
+<p>接下来，应用程序会枚举您当前已定义的列表。由于这是您首次使用，因此应无列表显示。</p>
+<p><img src="images/application-ready.png?raw=true" alt="可供使用的应用程序"/></p>
+<p><em>可供使用的应用程序</em></p>
+</li>
+<li>
+<p>如果要浏览应用程序，请新建 TODO 列表并输入一些项。</p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_5__Promoting_the_Application_to_Production">任务 5 -将应用程序提升到生产环境</h4>
+<p>现在，您已验证服务能够在过渡环境中正常运行，可以将其提升到最终的生产环境中。将应用程序部署到生产环境后，Windows Azure 会重新配置应用程序的负载平衡器，以便可通过其生产 URL 使用该应用程序。</p>
+<ol>
+<li>
+<p>在“云服务”<strong></strong>页中，单击您的 MyTodo 服务<strong>名称</strong>以打开<strong>仪表板</strong>。然后单击底部菜单中的“交换”<strong></strong>。</p>
+<p><img src="images/promoting-app-prod.png?raw=true" alt="将应用程序提升到生产槽"/></p>
+<p><em>将应用程序提升到生产槽</em></p>
+</li>
+<li>
+<p>在“VIP 交换”<strong></strong>对话框中，单击“是”<strong></strong>在过渡环境和生产环境之间交换部署。</p>
+<p><img src="images/promoting-app-deploy.png?raw=true" alt="将应用程序提升到生产部署"/></p>
+<p><em>将应用程序提升到生产部署</em></p>
+</li>
+<li>
+<p>转换完成后，切换到“生产”<strong></strong>选项卡，单击“站点 URL”<strong></strong>链接，在浏览器窗口中打开生产站点，注意地址栏中的 URL。</p>
+<p><img src="images/application-running-production.png?raw=true" alt="在生产环境中运行的应用程序"/></p>
+<p><em>在生产环境中运行的应用程序</em></p>
+<blockquote>
+<p><strong>注意：</strong>如果在提升后不久访问生产站点，则 DNS 名称可能尚不可用。如果遇到 DNS 错误 (404)，请等待几分钟，然后再试。请记住，Windows Azure 可动态创建 DNS 名称项，并且可能需要几分钟来传播更改。</p>
+<p><strong>注意：</strong>即使部署处于挂起状态，Windows Azure 仍需要为每个实例分配虚拟机 (VM)，并为此向您收费。测试应用程序后，需要从 Windows Azure 中删除部署以避免不必要的费用。若要删除运行中的部署，请转到您的云服务的“仪表板”<strong></strong>页，选择当前在其中托管服务的部署槽（过渡或生产），然后单击底部菜单上的“停止”。<strong></strong>。服务停止后，单击“删除”<strong></strong>将其删除。</p>
+</blockquote>
+</li>
+</ol><hr />
+<p> </p>
+<h3 id="Exercise_2_Using_PowerShell_to_manage_Windows_Azure_Applications">练习 2：使用 PowerShell 管理 Windows Azure 应用程序</h3>
+<p>通常情况下，会在应用程序的生存期内对其进行必要的更改以进行重新部署。在上一练习中，您了解了如何使用 Windows Azure 管理门户部署应用程序。作为替代方法，服务管理 API 可以编程方式访问通过管理门户提供的众多功能。使用服务管理 API 可以管理您的存储帐户和云服务、服务部署以及地缘组。</p>
+<p>Windows Azure 服务管理 PowerShell Cmdlets 可封装 Windows Azure 服务管理 API。这些 cmdlet 简化了自动部署、升级和扩展您的 Windows Azure 应用程序的操作。通过借助管道传输命令，您可以撰写使用一个命令的输出作为另一命令的输入的复杂脚本。</p>
+<p>在此练习中，您将了解如何使用 Azure 服务管理 Cmdlet 部署和升级 Windows Azure 应用程序。</p>
+<p> </p>
+<h4 id="Task_1_-_Downloading_and_Importing_a_Publish-settings_File">任务 1 - 下载和导入发布设置文件</h4>
+<p>在此任务中，您将登录到 Windows Azure 管理门户并下载发布设置文件。此文件包含安全凭据以及有关要在您的开发环境中使用的您的 Windows Azure 订阅的其他信息。然后，您将使用 Windows Azure Cmdlet 导入此文件，以便安装证书和获取帐户信息。</p>
+<ol>
+<li>
+<p>打开 Internet Explorer 浏览器并转到 <a href="https://manage.windowsazure.cn/download/publishprofile.aspx">https://manage.windowsazure.cn/download/publishprofile.aspx</a>。</p>
+</li>
+<li>
+<p>使用与您的 Windows Azure 帐户关联的 Microsoft 帐户登录。</p>
+</li>
+<li>
+<p>将发布设置文件<strong>保存</strong>到本地计算机。</p>
+<p><img src="images/downloading-publish-settings-file.png?raw=true" alt="下载发布设置文件"/></p>
+<p><em>下载发布设置文件</em></p>
+<blockquote>
+<p><strong>注意：</strong>下载页将演示如何使用 Visual Studio“发布”框导入发布设置文件。本实验将向您演示两种方法，即，如何使用 Windows Azure PowerShell Cmdlet 或 Visual Studio“发布”框导入此文件。</p>
+</blockquote>
+</li>
+<li>
+<p>在“开始”|“所有程序”|“Windows Azure”|“Windows Azure PowerShell”<strong></strong>下的“开始”菜单中，右键单击“Windows Azure Powershell”<strong></strong>并选择“以管理员身份运行”<strong></strong>。</p>
+</li>
+<li>
+<p>将 PowerShell 执行策略更改为 <strong>RemoteSigned</strong>。要求确认时，请按 <strong>Y</strong>，然后按 <strong>Enter</strong>。</p>
+<!-- mark:1 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">Set-ExecutionPolicy RemoteSigned </pre>
+<blockquote>
+<p><strong>注意：</strong>Set-ExecutionPolicy cmdlet 使您能够确定将允许哪些 Windows PowerShell 脚本（如果有）在您的计算机上运行。Windows PowerShell 具有 4 种不同的执行策略：</p>
+<ul>
+<li><em>Restricted</em> - 不能运行脚本。只能在交互模式下运行 Windows PowerShell。</li>
+<li><em>AllSigned</em> - 只能运行由受信任的发布者签发的脚本。</li>
+<li><em>RemoteSigned</em> - 下载的脚本必须由受信任的发布者进行签名，然后才能使用。</li>
+<li><em>Unrestricted</em> - 没有限制；可运行所有 Windows PowerShell 脚本。</li>
+</ul>
+<p>有关执行策略的更多信息，请参考以下 TechNet 文章：<a href="http://technet.microsoft.com/zh-cn/library/ee176961.aspx">http://technet.microsoft.com/zh-cn/library/ee176961.aspx</a></p>
+</blockquote>
+</li>
+<li>
+<p>以下脚本可导入您的发布设置文件并保留此信息以供将来使用。您将在实验中使用这些值来管理 Windows Azure 订阅。将占位符替换为您的发布设置文件的路径并执行该脚本。</p>
+<!-- mark:1 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">Import-AzurePublishSettingsFile '[YOUR-PUBLISH-SETTINGS-PATH]' </pre>
+</li>
+<li>
+<p>执行以下命令以确定您的订阅和存储帐户名称。</p>
+<!-- mark:1-2 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">Get-AzureSubscription | select SubscriptionName Get-AzureStorageAccount | select StorageAccountName  </pre>
+</li>
+<li>
+<p>执行以下命令以设置您的订阅的当前存储帐户。</p>
+<!-- mark:1 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">Set-AzureSubscription -SubscriptionName '[YOUR-SUBSCRIPTION-NAME]' -CurrentStorageAccount '[YOUR-STORAGE-ACCOUNT]'  </pre>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_2__Configuring_the_Application">任务 2 -配置应用程序</h4>
+<p>在此任务中，您将使用存储帐户信息配置应用程序，并生成一个程序包以便使用 Windows Azure PowerShell CmdLet 发布它。</p>
+<ol>
+<li>
+<p>如果尚未打开 Microsoft Visual Studio 2010，请以管理员的身份启动它。为此，请在“开始”|“所有程序”|“Microsoft Visual Studio 2010”<strong></strong>中，右键单击“Microsoft Visual Studio 2010”<strong></strong>快捷方式并选择“以管理员身份运行”<strong></strong>。</p>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开”<strong></strong>，然后选择“项目/解决方案”<strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到本实验的 <strong>Source</strong> 文件夹中的 <strong>Ex2-DeployingWithPowerShell\Begin</strong>，选择 <strong>MyTodo.sln</strong> 并单击“打开”。</p>
+</li>
+<li>
+<p>配置存储帐户连接字符串。为此，请展开 <strong>MyTodo</strong> 项目中的“角色”<strong></strong>节点，双击 <strong>MyTodo.WebUX</strong> 角色。在角色属性窗口中，选择“设置”<strong></strong>选项卡，选择 <em>DataConnectionString</em> 设置，确保将“类型”<strong></strong>设置为“连接字符串”，然后单击带省略号标记的按钮。</p>
+<p><img src="images/defining-connection-settings.png?raw=true" alt="定义存储帐户连接设置"/></p>
+<p><em>定义存储帐户连接设置</em></p>
+</li>
+<li>
+<p>在“存储连接字符串”<strong></strong>对话框中，选择“输入存储凭据”<strong></strong>选项。填写存储“帐户名称”<strong></strong>和存储“帐户密钥”<strong></strong>，并单击“确定”<strong></strong>。</p>
+<p><img src="images/defining-connection-settings-2.png?raw=true" alt="配置存储帐户名称和帐户密钥"/></p>
+<p><em>配置存储帐户名称和帐户密钥</em></p>
+<blockquote>
+<p><strong>注意：</strong>此信息位于 Windows Azure 管理门户中您的存储帐户的“仪表板”<strong></strong>部分。需使用在练习 1 中部署和配置应用程序时所使用的相同设置。在该实例中，由于您是在 Windows Azure 中运行应用程序，因此需在管理门户中更新相关配置。</p>
+</blockquote>
+</li>
+<li>
+<p>重复上面的步骤，以使用同一帐户信息配置 <em>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</em> 设置。</p>
+</li>
+<li>
+<p>若要创建服务包，请右键单击云服务项目并选择“打包”<strong></strong>。在“打包 Windows Azure 应用程序”<strong></strong>对话框中，单击“打包”<strong></strong>，然后等到 Visual Studio 创建服务包。创建服务包后，Visual Studio 会打开一个窗口，其中显示包含生成的文件的文件夹。当您看到服务包后关闭该窗口。</p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_3__Uploading_a_Service_Package_Using_Windows_PowerShell">任务 3 -使用 Windows PowerShell 上载服务包</h4>
+<p>在上一练习中，您使用 Windows Azure 管理门户上载了 myTODO 应用程序的服务包。在此任务中，您将改用 Windows Azure PowerShell cmdlet 部署该服务包。</p>
+<ol>
+<li>
+<p>如果尚未打开 Windows Azure PowerShell 命令提示符，请从“开始”|“所有程序”|“Windows Azure”|“Windows Azure PowerShell”<strong></strong>中打开它。</p>
+</li>
+<li>
+<p>将当前目录更改为在上一任务中为 myTODO 应用程序生成服务包的位置。</p>
+</li>
+<li>
+<p>接下来，输入下面显示的命令。使用以下命令行参数，以确保将参数占位符替换为适用于您的服务帐户的设置。</p>
+<!-- mark:1-5 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">$serviceName = '[YOUR-SERVICE-NAME-LOWER-CASE]' $packageLocation = '[PACKAGE-LOCATION]' $configurationLocation = '[CONFIGURATION-LOCATION]' $deploymentLabel = 'MyTodo-v2' New-AzureDeployment -ServiceName $serviceName -Package $packageLocation -Configuration $configurationLocation -Slot 'Staging' -Label $deploymentLabel -DoNotStart  </pre>
+<table border="0">
+<thead></thead>
+<tbody>
+<tr>
+<td>[YOUR-SERVICE-NAME-LOWER-CASE]</td>
+<td>在练习 1 中配置云服务 URL 时选择的服务名称，而非其服务标签</td>
+</tr>
+<tr>
+<td>[PACKAGE-LOCATION]</td>
+<td>本地文件的路径，或您的存储帐户中包含服务包的 Blob 的 URL。</td>
+</tr>
+<tr>
+<td>[CONFIGURATION-LOCATION]</td>
+<td>本地文件的路径，或包含服务配置文件的 Blob 的公共 URL。</td>
+</tr>
+<tr>
+<td>[YOUR-DEPLOYMENT-LABEL]</td>
+<td>部署标签。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意：</strong>上面显示的命令使用 <strong>New-AzureDeployment</strong> cmdlet 来上载服务包并在过渡环境中新建部署。它分配一个“MyTodo-v2”标签来标识此部署。</p>
+<p><strong>重要说明：</strong><strong>New-AzureDeployment</strong> cmdlet 假定计算服务和存储服务名称相同。如果不是这样，请指定另一个参数 -<strong>StorageServicename &lt;YOUR_SERVICE_NAME_LOWER_CASE&gt;</strong>，以便将占位符替换为存储服务的名称。</p>
+</blockquote>
+<p><img src="images/new-azure-deployment-command-line.png?raw=true" alt="新 Azure 部署命令行"/></p>
+<p><em>新 Azure 部署命令行</em></p>
+</li>
+<li>
+<p>按 <strong>Enter</strong> 执行该命令，等到 <strong>New-AzureDeployment</strong> 命令完成。</p>
+<p><img src="images/command-line-deploying-powershell.png?raw=true" alt="使用 PowerShell 将新服务包部署到 Windows Azure"/></p>
+<p><em>使用 PowerShell 将新服务包部署到 Windows Azure</em></p>
+</li>
+<li>
+<p>在 Windows Azure 管理门户中，打开云服务的“仪表板”<strong></strong>页，注意过渡环境中的部署如何使用 UI 中的“正在更新部署...”<strong></strong>消息显示其状态。刷新服务状态可能需要几秒钟的时间。等到部署操作完成并且状态显示为“已停止”<strong></strong>。</p>
+<p><img src="images/deployment-stopped.png?raw=true" alt="部署已停止"/></p>
+<p><em>部署已停止</em></p>
+<blockquote>
+<p><strong>注意：</strong>通常，您无需使用管理门户来查看状态和确定部署操作的结果。在此处显示它的目的是强调以下事实：您可以使用管理 API 来执行可在管理门户中执行的相同操作。在下一任务中，您将了解如何使用 cmdlet 等待操作完成并检索其状态。</p>
+</blockquote>
+</li>
+<li>
+<p>将 Microsoft Visual Studio 和 PowerShell 控制台保持为打开状态。您将在下一任务中需要使用它们。</p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_4__Upgrading_a_Deployment_Using_Windows_PowerShell">任务 4 -使用 Windows PowerShell 升级部署</h4>
+<p>在此任务中，您将使用 Windows Azure PowerShell cmdlet 升级现有部署。首先，您将通过对原始解决方案的源代码进行少量更改来更改此解决方案，从而生成更新版本的应用程序。然后，您将生成应用程序并创建包含更新的二进制文件的新服务包。最后，您将使用管理 cmdlet 将该服务包重新部署到 Windows Azure。</p>
+<ol>
+<li>
+<p>返回到 Microsoft Visual Studio。</p>
+</li>
+<li>
+<p>打开应用程序的布局视图进行编辑。为此，请在“解决方案资源管理器”<strong></strong>中，双击 <strong>MyTodo.WebUx</strong> 项目 <strong>Views\Shared</strong> 文件夹中的 <strong>_Layout.cshtml</strong>。切换到源模式。</p>
+</li>
+<li>
+<p>在页面的页脚区域中插入新标题。转到布局视图的底部，使用文本“(<em>Deployed with the PowerShell CmdLets</em>)”更新版权声明，如下所示。</p>
+<!-- mark:6 --> <span class="codelanguage">HTML</span>
+<pre class="prettyprint">...    &lt;/div&gt;    &lt;div id="footer"&gt;        &lt;hr /&gt;        &lt;p class="copyright"&gt;            &amp;copy; 2012 Microsoft Corporation. All rights reserved. (Deployed with the PowerShell CmdLets)&lt;/p&gt;     &lt;/div&gt;       @RenderSection("ScriptsContent", required: false)     &lt;/div&gt; &lt;/body&gt; &lt;/html&gt; </pre>
+</li>
+<li>
+<p>生成新服务包。为此，请在“解决方案资源管理器”<strong></strong>中，右键单击云服务项目并选择“打包”<strong></strong>。在“打包 Windows Azure 应用程序”<strong></strong>对话框中，单击“打包”<strong></strong>，然后等到 Visual Studio 创建服务包。创建服务包后，Visual Studio 会打开一个窗口，其中显示包含生成的文件的文件夹。</p>
+</li>
+<li>
+<p>切换到 PowerShell 控制台，输入下面显示的命令，以便在占位符参数指示的位置处指定适用于您的服务帐户的设置。请<strong>先不要</strong>执行该命令。</p>
+<!-- mark:1-4 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">$packageLocation = '[PACKAGE-LOCATION]' $configurationLocation = '[CONFIGURATION-LOCATION]' $deploymentLabel = 'MyTodo-v21' Get-AzureService -ServiceName $serviceName | Get-AzureDeployment -Slot staging | Set-AzureDeployment -Package $packageLocation -Configuration $configurationLocation -Upgrade -Label $deploymentLabel  </pre>
+<blockquote>
+<p><strong>注意：</strong>上面显示的命令行连接了一系列 cmdlet。首先，它使用 <strong>Get-AzureService</strong> 获取对云服务的引用，然后使用 <strong>Get-AzureDeployment</strong> 检索其<em>过渡</em>环境，最后使用 <strong>Set-AzureDeployment</strong> 上载服务包。执行此操作的目的是演示如何使用 PowerShell 管道撰写复杂命令。事实上，在此特定事例中，您可以改为将所有必需信息提供给 <strong>Set-AzureDeployment</strong>，以实现同一结果。例如：</p>
+<p>Set-AzureDeployment -Upgrade -ServiceName $serviceName -Package $packageLocation -Configuration $configurationLocation -Slot 'Staging' -Label $deploymentLabel</p>
+</blockquote>
+</li>
+<li>
+<p>按 <strong>Enter</strong> 执行该命令。等到部署过程完成，这可能需要几分钟的时间。操作结束后，会显示该操作的结果消息；如果部署完成且没有错误，那么您会看到消息“已成功”。</p>
+<p><img src="images/command-line-powershell-status.png?raw=true" alt="显示服务包部署操作的状态的 PowerShell 控制台"/></p>
+<p><em>显示服务包部署操作的状态的 PowerShell 控制台</em></p>
+<blockquote>
+<p><strong>注意：</strong>使用上面介绍的步骤部署服务包不会更改其状态。如果在部署前服务未运行，那么服务仍保持该状态。若要启动服务，需要使用 <strong>Set-AzureDeployment</strong> cmdlet 更新其部署状态。</p>
+</blockquote>
+</li>
+<li>
+<p>若要将服务的状态更改为“正在运行”，请在 <strong>PowerShell</strong> 控制台中输入以下命令。PowerShell 控制台</p>
+<!-- mark:1 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">Set-AzureDeployment -Status -ServiceName $serviceName -NewStatus 'Running' -Slot 'Staging' </pre>
+</li>
+<li>
+<p>最后，在过渡和生产环境中交换部署。为此，请在 <strong>PowerShell</strong> 控制台中，使用 <strong>Get-Deployment</strong> 和 <strong>Move-Deployment</strong> cmdlet，如下所示。</p>
+<!-- mark:1 --> <span class="codelanguage">PowerShell</span>
+<pre class="prettyprint">Get-AzureService -ServiceName $serviceName | Get-AzureDeployment -Slot staging | Move-AzureDeployment </pre>
+</li>
+</ol>
+<p> </p>
+<p><strong>验证</strong></p>
+<p>现在，您已将更新的解决方案部署到 Windows Azure，接下来可准备对其进行测试。您将启动应用程序以确定部署是否成功，以及确保服务运行正常并可通过其生产 URL 使用它。</p>
+<ol>
+<li>
+<p>在管理门户中的云服务“仪表板”<strong></strong>页中，单击“网站 URL”<strong></strong>链接，以便在浏览器窗口中打开生产站点。注意页面的页脚。它应反映您在上一任务中输入的更新的文本。</p>
+<p><img src="images/new-deployment.png?raw=true" alt="显示更新的页脚文本的新部署"/></p>
+<p><em>显示更新的页脚文本的新部署</em></p>
+<blockquote>
+<p><strong>注意：</strong>如果在提升后不久访问生产站点，则 DNS 名称可能尚不可用。如果遇到 DNS 错误 (404)，请等待几分钟，然后再试。请记住，Windows Azure 可动态创建 DNS 名称项，并且可能需要几分钟来传播更改。</p>
+</blockquote>
+</li>
+</ol><hr />
+<p> </p>
+<h3 id="Exercise_3_Using_Visual_Studio_to_Publish_Applications">练习 3：使用 Visual Studio 发布应用程序</h3>
+<p>您已了解如何使用管理门户和一组 PowerShell cmdlet 将应用程序部署到 Windows Azure。如果您是开发人员，则可能会发现在开发周期中直接从 Visual Studio 部署应用程序会更方便。</p>
+<p>首次使用 Visual Studio 将服务发布到 Windows Azure 时，需要创建必要的凭据来访问您的帐户。为此，您将使用在前一练习中下载的 PublishSettings 文件。</p>
+<p>在 Visual Studio 中设置帐户信息后，仅需单击几下鼠标即可在后台发布您当前的解决方案。</p>
+<p>在此练习中，您将设置凭据来向 Windows Azure 管理服务进行身份验证，然后从 Visual Studio 发布 MyTodo 应用程序。</p>
+<p> </p>
+<p><strong>任务 1 -准备要发布的解决方案</strong></p>
+<p>使用 Visual Studio 发布服务时，Windows Azure Tools 会上载服务包，然后自动启动它。在服务启动前，您将无法更新配置设置。因此，必须在发布服务前配置所有必需设置。</p>
+<p>在此任务中，您将更新存储连接字符串，以指向您的存储帐户。</p>
+<ol>
+<li>
+<p>以管理员的身份打开 Microsoft Visual Studio 2010。为此，请在“开始”|“所有程序”|“Microsoft Visual Studio 2010”<strong></strong>中，右键单击“Microsoft Visual Studio 2010”<strong></strong>快捷方式并选择“以管理员身份运行”<strong></strong>。</p>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开”<strong></strong>，然后选择“项目/解决方案”<strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到本实验的 <strong>Source</strong> 文件夹中的 <strong>Ex3-DeployingWithVisualStudio\Begin</strong>，选择 <strong>MyTodo.sln</strong> 并单击“打开”<strong></strong>。</p>
+<blockquote>
+<p><strong>注意：</strong>该解决方案与之前部署的解决方案相同，只是其页脚区域中有一个图例用于指示它是使用 <strong>Visual Studio</strong> 部署的。</p>
+</blockquote>
+</li>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，展开 <strong>MyTodo</strong> 云项目中的“角色”<strong></strong>节点，然后双击 <strong>MyTodo.WebUx</strong> 角色。</p>
+</li>
+<li>
+<p>在 <strong>MyTodo.WebUx [Role]</strong> 窗口中，切换到“设置”<strong></strong>选项卡并配置必要的存储帐户详细信息，以便将 [YOUR_ACCOUNT_NAME] 替换为您的存储帐户的名称，并将 [YOUR_ACCOUNT_KEY] 替换为共享密钥。同时对 <em>DataConnectionString</em> 和 <em>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</em> 设置执行此操作。这些值与您在上一练习中用来配置应用程序的值相同。</p>
+</li>
+<li>
+<p>按 <strong>Ctrl + S</strong> 保存所做更改。</p>
+</li>
+</ol>
+<p> </p>
+<p><strong>任务 2 -使用 Windows Azure Tools 发布服务</strong></p>
+<p>在此任务中，您将配置一组能够访问您的 Windows Azure 帐户的凭据。Visual Studio 会保存此信息，并允许您在需要发布服务时随时重用这些凭据，而无需再次输入它们。</p>
+<p>然后，您将使用这些凭据直接从 Visual Studio 发布 MyTODO 应用程序。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 <strong>MyTodo</strong> 云项目并选择“发布”<strong></strong>。</p>
+</li>
+<li>
+<p>在“发布 Windows Azure 应用程序”<strong></strong>对话框中，单击“导入”<strong></strong>。</p>
+</li>
+<li>
+<p>浏览到您在上一练习中下载的 PublishSettings 文件，选择它，然后单击“打开”<strong></strong>。</p>
+</li>
+<li>
+<p>返回“发布 Windows Azure 应用程序”<strong></strong>对话框，选择从 <em>PublishSettings</em> 文件创建的订阅，然后单击“下一步”<strong></strong>。</p>
+<p><img src="images/waz-sign-in.png?raw=true" alt="登录"/></p>
+<p><em>登录</em></p>
+</li>
+<li>
+<p>在“通用设置”<strong></strong>选项卡中，注意该对话框会使用在您的 Windows Azure 帐户中配置的所有服务的相关信息填充带“云服务”<strong></strong>标记的下拉列表。在该列表中选择要在其中部署应用程序的云服务。</p>
+</li>
+<li>
+<p>确保将“环境”<strong></strong>设置为“生产”<em></em>，并将“生成配置”<strong></strong>设置为“释放”<em></em>。此外，使用<em>默认</em>值设置“服务配置”<strong></strong>。</p>
+<p><img src="images/deployment-common-settings.png?raw=true" alt="部署通用设置"/></p>
+<p><em>部署通用设置</em></p>
+</li>
+<li>
+<p>单击“高级设置”<strong></strong>选项卡。将“部署标签”<strong></strong>更新为 <em>MyTodo</em>，并选中带“追加日期和时间”<strong></strong>标记的复选框，以在开发人员门户 UI 中标识部署。</p>
+</li>
+<li>
+<p>与云服务一样，该对话框会使用在您的 Windows Azure 帐户中配置的所有存储服务填充带“存储帐户”<strong></strong>标记的下拉列表。为了发布服务，Visual Studio 会先将服务包上载到 Windows Azure 中的存储，然后从那里发布服务。选择要用于此目的的存储服务，并单击“下一步”<strong></strong>。</p>
+<p><img src="images/deployment-advanced-settings.png?raw=true" alt="部署高级设置"/></p>
+<p><em>部署高级设置</em></p>
+<blockquote>
+<p><strong>注意：</strong>尽管本实验中并未涉及此方面的内容，但凭借 IntelliTrace 选项，您可以捕获云中运行的服务的详细跟踪日志，并将它们下载到您的桌面，以便执行历史记录调试。这对于解决在角色启动时发生的问题可能非常有用。请注意，IntelliTrace 需要 .NET Framework 4，并且它仅适用于 Visual Studio Ultimate 版本。</p>
+</blockquote>
+</li>
+<li>
+<p>检索“摘要”信息。如果一切就绪，请单击“发布”<strong></strong>启动部署过程。</p>
+<p><img src="images/start-deployment.png?raw=true" alt="启动部署"/></p>
+<p><em>启动部署</em></p>
+<blockquote>
+<p><strong>注意：</strong>在对话框的顶部，您会找到一个“目标配置文件”下拉列表。在配置部署设置后，可将这些设置另存为新的配置文件并在将来使用它，从而无需再次填写所有字段。</p>
+</blockquote>
+</li>
+<li>
+<p>如果您选择的槽已由以前的部署占用，那么 Visual Studio 会向您发出警告，并要求您在替换它之前进行确认。如果您确定不再需要当前部署，可以覆盖，请单击“替换”<strong></strong>。否则，请单击“取消”<strong></strong>，重复操作，选择其他部署槽。</p>
+<p><img src="images/overwrite-existing-deployment.png?raw=true" alt="覆盖现有部署"/></p>
+<p><em>覆盖现有部署</em></p>
+</li>
+<li>
+<p>启动部署后，可检查 Windows Azure 活动日志窗口，以便确定操作的状态。如果此窗口不可见，请在“视图”<strong></strong>菜单中，指向“其他窗口”<strong></strong>，然后选择“Windows Azure 活动日志”<strong></strong>。</p>
+</li>
+<li>
+<p>默认情况下，该日志显示一则描述性消息以及一个指示部署操作的状态的进度栏。</p>
+<p><img src="images/waz-activity-summary.png?raw=true" alt="查看 Windows Azure 活动日志中的摘要信息"/></p>
+<p><em>查看 Windows Azure 活动日志中的摘要信息</em></p>
+</li>
+<li>
+<p>若要查看有关进行中的部署操作的详细信息，请双击活动日志项左侧的绿色箭头。请注意，提供的其他信息包括部署槽（<strong>生产</strong>或<strong>过渡</strong>）、<strong>网站 URL</strong>、<strong>部署 ID</strong> 以及显示状态更改的<strong>历史记录</strong>日志（包括每次更改发生的时间）。</p>
+<p><img src="images/detailed-deployment-information.png?raw=true" alt="查看有关部署操作的详细信息"/></p>
+<p><em>查看有关部署操作的详细信息</em></p>
+</li>
+<li>
+<p>等待部署操作完成，这可能需要几分钟的时间。在此期间，您可检查右侧的“历史记录”<strong></strong>面板，以确定部署的状态。对于成功的部署，它应类似于下面的序列。</p>
+<p><img src="images/deployment-operation-log.png?raw=true" alt="部署操作历史记录日志"/></p>
+<p><em>部署操作历史记录日志</em></p>
+</li>
+<li>
+<p>部署操作完成后，请在“Windows Azure 活动日志”<strong></strong>中，单击已完成操作的“网站 URL”<strong></strong>链接，以在您的浏览器中打开应用程序，并确保它运行正常。注意页面底部的版权声明中的图例，它指示这是使用 Visual Studio 部署的版本。</p>
+<p><img src="images/running-deployment.png?raw=true" alt="运行使用 Visual Studio 部署的应用程序"/></p>
+<p><em>运行使用 Visual Studio 部署的应用程序</em></p>
+</li>
+</ol><hr />
+<p> </p>
+<h3 id="Exercise_4_Securing_Windows_Azure_with_SSL">练习 4：使用 SSL 保护 Windows Azure</h3>
+<p>在此练习中，您将启用 SSL 以保护 myTODO 应用程序。这涉及创建用于服务器身份验证的自签名证书以及将该证书上载到 Windows Azure 门户。创建证书后，您将向服务模型中添加新 HTTPS 终结点，并将该证书分配给此终结点。为完成此练习，您将再次将应用程序部署到 Windows Azure，然后使用其 HTTPS 终结点访问它。</p>
+<p> </p>
+<p><strong>任务 1 -将 HTTPS 终结点添加到应用程序中</strong></p>
+<p>在此任务中，您将更新 MyTODO 的服务模型以添加 HTTPS 终结点，然后在计算模拟器中测试应用程序。</p>
+<ol>
+<li>
+<p>如果尚未打开 Microsoft Visual Studio 2010，请在提升的管理员模式下启动它。为此，请在“开始”|“所有程序”|“Microsoft Visual Studio 2010”<strong></strong>中，右键单击“Microsoft Visual Studio 2010”<strong></strong>快捷方式并选择“以管理员身份运行”<strong></strong>。</p>
+</li>
+<li>
+<p>在“文件”<strong></strong>菜单中，选择“打开”<strong></strong>，然后选择“项目/解决方案”<strong></strong>。在“打开项目”<strong></strong>对话框中，浏览到本实验的 <strong>Source</strong> 文件夹中的 <strong>Ex4-SecuringAppWithSSL\Begin</strong>，选择 <strong>MyTodo.sln</strong> 并单击“打开”<strong></strong>。</p>
+</li>
+<li>
+<p>展开 <strong>MyTodo</strong> 项目中的“角色”<strong></strong>节点，然后双击 <strong>MyTodo.WebUx</strong> 角色打开其属性窗口。</p>
+</li>
+<li>
+<p>在 <strong>MyTodo.WebUx [Role]</strong> 窗口中，切换到“设置”<strong></strong>选项卡并配置必要的存储帐户详细信息，以便将 [YOUR_ACCOUNT_NAME] 替换为您的存储帐户的名称，并将 [YOUR_ACCOUNT_KEY] 替换为共享密钥。同时对 <em>DataConnectionString</em> 和 <em>Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</em> 设置执行此操作。这些值与您在上一练习中用来配置应用程序的值相同。记得在离开此屏幕后将这两项设置的“类型”设为“连接字符串”。</p>
+</li>
+<li>
+<p>接下来，切换到“终结点”<strong></strong>选项卡并选择“HTTPS”<strong></strong>选项，使用值 443 填写“公用端口”，并保留“名称”<strong></strong>字段不变。此时不要选择 SSL 证书，您将在此练习后面执行此操作。</p>
+<p><img src="images/adding-http-endpoint.png?raw=true" alt="将 HTTPS 终结点添加到应用程序中"/></p>
+<p><em>将 HTTPS 终结点添加到应用程序中</em></p>
+</li>
+<li>
+<p>现在，选择当您在浏览器中启动应用程序时，用于调试该应用程序的 HTTPS 终结点。为此，请右键单击 <strong>MyTodo</strong> 项目中的 <strong>MyTodo.WebUx</strong> 角色，指向“在浏览器中启动”<strong></strong>，然后确保仅选择了“HTTPS”<strong></strong>。</p>
+<p><img src="images/choosing-debug-endpoint.png?raw=true" alt="选择用于调试应用程序的终结点"/></p>
+<p><em>选择用于调试应用程序的终结点</em></p>
+</li>
+<li>
+<p>现在，您可以在本地测试应用程序。按 <strong>F5</strong> 在计算模拟器中生成和启动应用程序。请注意，浏览器指示证书存在问题。忽略该警告，单击“继续浏览此网站”<strong></strong>。</p>
+<p><img src="images/certificate-error-computer-emulator.png?raw=true" alt="在计算模拟器中测试时出现证书错误"/></p>
+<p><em>在计算模拟器中测试时出现证书错误</em></p>
+<blockquote>
+<p><strong>注意：</strong>使用 SSL 在本地开发环境中测试应用程序时，不需要配置证书。相反，计算模拟器会使用自己的证书处理此要求。但是，它所使用的证书的证书颁发机构不受信任，因此会出现该警告。在本地测试应用程序时，可放心忽略该警告。</p>
+<p>如果您愿意，可通过安装“受信任的根证书颁发机构”<strong></strong>证书存储的证书来消除该警告。但请注意，在继续操作前，您必须评估其中的安全含义。</p>
+<p>若要消除该警告，请打开“Microsoft 管理控制台”<strong></strong>，添加“证书”<strong></strong>管理单元的实例，并将其配置为管理“计算机”<strong></strong>帐户的证书。展开 <strong>Personal\Certificates</strong> 存储，找到颁发给 127.0.0.1 的证书。为了确保您拥有正确的证书，请查看其属性，以验证“使用者”<strong></strong>和“颁布者”<strong></strong>字段将该证书标识为属于计算模拟器。若要信任该证书，只需将该证书从“个人”<strong></strong>证书存储拖放到“受信任的根证书颁发机构”<strong></strong>证书存储中。</p>
+<p><img src="images/computer-emulator-certificate.png?raw=true" alt="计算模拟器用于实现 SSL 的证书"/></p>
+<p><em>计算模拟器用于实现 SSL 的证书</em></p>
+</blockquote>
+</li>
+<li>
+<p>访问主页后，请注意地址栏显示您正在访问 HTTPS 终结点。</p>
+<p><img src="images/accessing-endpoints.png?raw=true" alt="访问计算模拟器中的 HTTPS 终结点"/></p>
+<p><em>访问计算模拟器中的 HTTPS 终结点</em></p>
+</li>
+<li>
+<p>关闭浏览器窗口。现在您将创建自签名证书，并将应用程序部署到 Windows Azure。</p>
+</li>
+<li>
+<p>不要关闭 Visual Studio 中的项目。稍后您将需要它。</p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_2__Creating_a_Self-Signed_Certificate">任务 2 -创建自签名证书</h4>
+<p>在此任务中，您将创建一个自签名证书，并其上载到 Windows Azure 开发人员门户，以便为应用程序配置 SSL 终结点。</p>
+<blockquote>
+<p><strong>注意：</strong>如果无法在您的环境中使用 Internet Information Services (IIS) 管理器，可跳过此任务。可在本实验的资源中查找可使用的自签名证书。</p>
+<p>若要安装该证书，请打开 Windows 资源管理器，浏览到本实验的 <strong>Source</strong> 文件夹中的 <strong>Assets</strong>，然后双击 <strong>YourNameToDo.pfx</strong> 文件，使用“证书导入向导”<strong></strong>安装该证书。使用“password1”（不含引号）作为密码。对所有其他选项使用默认值。</p>
+<p><strong>重要说明：</strong>只应使用该证书完成练习中的步骤。不要在生产部署中使用该证书。</p>
+</blockquote>
+<ol>
+<li>
+<p>启动 Internet Information Services 管理器。为此，请单击“开始”<strong></strong>按钮，并在搜索框中键入“iis”，然后单击已安装程序列表中的“Internet Information Services (IIS)管理器”<strong></strong>。</p>
+<p><img src="images/iis-manager-launch.png?raw=true" alt="启动 Internet Information Services (IIS) 管理器"/></p>
+<p><em>启动 Internet Information Services (IIS) 管理器</em></p>
+</li>
+<li>
+<p>在 Internet Information Services (IIS) 管理器控制台的“连接”<strong></strong>窗格中，选择与您的计算机对应的顶级节点。然后，在中间窗格中找到 <strong>IIS</strong> 类别，双击“服务器证书”<strong></strong>。</p>
+<p><img src="images/iis-managing-certificates.png?raw=true" alt="使用 Internet Information Services (IIS) 管理器管理证书"/></p>
+<p><em>使用 Internet Information Services (IIS) 管理器管理证书</em></p>
+</li>
+<li>
+<p>在“服务器证书”<strong></strong>页中，单击“操作”<strong></strong>窗格中的“创建自签名证书”<strong></strong>。</p>
+<p><img src="images/iis-creating-self-signed-certificate.png?raw=true" alt="在 Internet Information Services (IIS) 管理器中创建自签名证书"/></p>
+<p><em>在 Internet Information Services (IIS) 管理器中创建自签名证书</em></p>
+</li>
+<li>
+<p>在“创建自签名证书”<strong></strong>向导的“指定友好名称”<strong></strong>页中，输入一个标识您的证书的名称（可以是任何名称，如 <strong>&lt;yourname&gt;MyToDo</strong>，您可将其中的占位符替换为所需名称），然后单击“确定”<strong></strong>。</p>
+<p><img src="images/iis-specifying-certificate-name.png?raw=true" alt="为证书指定名称"/></p>
+<p><em>为证书指定名称</em></p>
+</li>
+<li>
+<p>现在，右键单击新创建的证书，然后选择“导出”<strong></strong>将证书存储到文件。</p>
+<p><img src="images/iis-server-certificates.png?raw=true" alt="显示新自签名证书的“服务器证书”页"/></p>
+<p><em>显示新自签名证书的“服务器证书”页</em></p>
+</li>
+<li>
+<p>在“导出证书”<strong></strong>对话框中，输入要在其中存储要导出的证书的文件的名称，键入密码并进行确认，然后单击“确定”<strong></strong>。记录密码。稍后将证书上载到门户时，您将需要该密码。</p>
+<p><img src="images/iis-exporting-certificate.png?raw=true" alt="将证书导出到文件"/></p>
+<p><em>将证书导出到文件</em></p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_3__Adding_the_Certificate_to_the_Service_Model_of_the_Application">任务 3 -将证书添加到应用程序的服务模型中</h4>
+<p>以前，在您的本地环境中测试对应用程序的 SSL 访问时，如果不通过利用计算模拟器管理的证书来指定证书，则无法执行此操作。在此任务中，您将配置应用程序，使其使用在 Internet Information Services (ISS) 管理器中创建的自签名证书。</p>
+<ol>
+<li>
+<p>切换回 Visual Studio。如果您关闭了项目，则需要从本实验的 <strong>Source</strong> 文件夹中的 <strong>Ex4-SecuringAppWithSSL\Begin</strong> 将其重新打开。</p>
+</li>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，展开 <strong>MyTodo</strong> 项目的“角色”<strong></strong>节点，双击 <strong>MyTodo.WebUx</strong> 角色打开其属性窗口，然后切换到“证书”<strong></strong>选项卡。</p>
+</li>
+<li>
+<p>在“证书”<strong></strong>页中，单击“添加证书”<strong></strong>。使用可标识您要添加的证书的值填写“名称”<strong></strong>字段，例如使用 <em>SSL</em>。确保将“存储位置”<strong></strong>设置为 <em>LocalMachine</em>，并将“存储名称”<strong></strong>设置为 <em>My</em>，然后单击“指纹”<strong></strong>列右侧带省略号标记的按钮。</p>
+</li>
+<li>
+<p>在“选择证书”<strong></strong>对话框中，选择前面创建的自签名证书，然后单击“确定”<strong></strong>。</p>
+<p><img src="images/selecting-certificate.png?raw=true" alt="为服务选择证书"/></p>
+<p><em>为服务选择证书</em></p>
+</li>
+<li>
+<p>请注意，该对话框会使用证书中的相应值填充“指纹”<strong></strong>列。</p>
+<p><img src="images/adding-certificate-service-model.png?raw=true" alt="将证书添加到应用程序的服务模型中"/></p>
+<p><em>将证书添加到应用程序的服务模型中</em></p>
+</li>
+<li>
+<p>现在，切换到“终结点”<strong></strong>选项卡，在 <strong>HTTPS</strong> 输入终结点部分，展开“SSL 证书名称”<strong></strong>下拉列表，并选择在上一步中添加到服务中的证书。</p>
+<p><img src="images/choosing-certificate-https-endpoint.png?raw=true" alt="选择要用于 HTTPS 终结点的证书"/></p>
+<p><em>选择要用于 HTTPS 终结点的证书</em></p>
+</li>
+<li>
+<p>按 <strong>Ctrl+S</strong> 将更改保存到配置。</p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_4__Uploading_the_Certificate_to_the_Windows_Azure_Management_Portal">任务 4 -将证书上载到 Windows Azure 管理门户</h4>
+<p>在此任务中，您需将在上一步中创建的自签名证书上载到 Windows Azure 管理门户。</p>
+<ol>
+<li>
+<p>使用 Web 浏览器导航到 <a href="http://manage.windowsazure.cn/">http://manage.windowsazure.cn/</a>，然后使用您的 Microsoft 帐户登录。</p>
+</li>
+<li>
+<p>在“云服务”<strong></strong>页中，单击您的云服务的<strong>名称</strong>，转到该服务的<strong>仪表板</strong>。</p>
+</li>
+<li>
+<p>单击“证书”<strong></strong>，然后单击“上载证书”<strong></strong>。</p>
+<p><img src="images/adding-a-new-certificate.png?raw=true" alt="添加新证书"/></p>
+<p><em>添加新证书</em></p>
+</li>
+<li>
+<p>在“上载证书”<strong></strong>对话框中，单击“浏览”<strong></strong>，然后导航到存储在上一任务中导出的证书的位置。输入在导出证书时指定的密码，确认密码，然后单击<strong>对勾</strong>。</p>
+<p><img src="images/creating-certificate-service.png?raw=true" alt="为服务创建证书"/></p>
+<p><em>为服务创建证书</em></p>
+</li>
+</ol>
+<p> </p>
+<h4 id="Verification">验证</h4>
+<p>在此任务中，您需将应用程序部署到 Windows Azure，然后访问其 HTTPS 终结点，以便验证您是否已成功启用 SSL。</p>
+<ol>
+<li>
+<p>使用您在 Windows Azure 开发人员门户、Windows Azure 服务管理 PowerShell Cmdlet 或 Windows Azure Tools for Visual Studio 之间选择的首选方法再次将应用程序发布和部署到 Windows Azure 环境。参考练习 1、2 和 3 以获取有关如何使用这些方法之一来执行部署的说明。</p>
+<blockquote>
+<p><strong>注意：</strong>服务配置现在为 HTTPS 指定了其他终结点，因此，您不能只升级当前部署，您还必须重新部署应用程序。只要您更改服务拓扑，则必须这么做。</p>
+</blockquote>
+</li>
+<li>
+<p>部署应用程序后，启动它，等到其状态显示为“就绪”<strong></strong>或部署显示为“已完成”<strong></strong>（如果使用 Visual Studio 进行部署）。</p>
+</li>
+<li>
+<p>现在浏览到 HTTPS 终结点（如 <em><a href="https://yournametodo.chinacloudsites.cn">https://yournametodo.chinacloudsites.cn</a></em>）。您将再次看到证书错误，因为自签名证书的证书颁发机构不受信任。您可以忽略此错误。</p>
+<p><img src="images/accessing-https-endpoint.png?raw=true" alt="在 Windows Azure 中访问 HTTPS 终结点"/></p>
+<p><em>在 Windows Azure 中访问 HTTPS 终结点</em></p>
+<blockquote>
+<p><strong>注意：</strong> 对于生产部署，可从受信任的颁发机构那里为您的应用程序购买证书，并改用该证书。</p>
+</blockquote>
+</li>
+</ol>
+<p> </p>
+<h4 id="Task_5__Configuring_a_CNAME_Entry_for_DNS_Resolution_Optional">任务 5 -为 DNS 解析配置 CNAME 项（可选）</h4>
+<p>在部署应用程序时，Windows Azure 结构会为其分配一个采用 <em>http://[yournametodo].chinacloudsites.cn</em> 形式的 URL，其中 [<em>yournametodo</em>] 是在创建时您为您的云服务选择的公共名称。尽管此 URL 完全可用，但由于许多原因，您可能宁愿使用您自己的域中的 URL 来访问服务。换句话说，即，使用您自己组织的域名（如 <em><a href="http://yournametodo.fabrikam.com">http://yournametodo.fabrikam.com</a></em>），而不是使用 <em><a href="http://yournametodo.chinacloudsites.cn">http://yournametodo.chinacloudsites.cn</a></em> 访问应用程序。</p>
+<p>将应用程序映射到您自己的域的一种方法是在您自己的 DNS 系统中设置 CNAME 记录，使其指向 Azure 中的主机名。CNAME 可为任意主机记录（包括其他域中的主机）提供别名。因此，为了将应用程序映射到 <em>fabrikam.com</em> 域，您可在 DNS 中创建以下记录。</p>
+<table border="0">
+<thead>
+<tr>
+<td><strong>组织的域</strong></td>
+<td><strong>别名</strong></td>
+<td><strong>应用程序的域</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yournametodo.fabrikam.com</td>
+<td>CNAME</td>
+<td>yournametodo.chinacloudsites.cn</td>
+</tr>
+</tbody>
+</table>
+<p>根据您的 DNS 基础架构的详细信息，执行此操作的过程会有所不同。对于外部域注册机构，您可查阅其文档，以查找设置 CHAME 的正确过程。有关此主题的更多信息，请参见 <a href="http://blog.smarx.com/posts/custom-domain-names-in-windows-azure">Windows Azure 中的自定义域名（可能为英文页面）</a>。例如，此任务大致演示了如何使用 Microsoft DNS 在 Windows Server 2008 上设置别名。</p>
+<blockquote>
+<p><strong>注意：</strong> 应在 Windows Server 2008 上安装 Windows DNS 服务器。您可在服务器管理器上启用 DNS 服务器。</p>
+</blockquote>
+<ol>
+<li>
+<p>从“开始”|“管理工具”|“DNS”<strong></strong>打开 DNS 管理器。</p>
+</li>
+<li>
+<p>在 DNS 管理器中，展开“正向查找区域”<strong></strong>节点，然后右键单击要在其中设置别名的区域并选择“新建别名(CNAME)”<strong></strong>。注意，如果您没有任何区域，则必须在创建别名前创建一个区域。</p>
+<p><img src="images/creating-alias.png?raw=true" alt="更新查找区域以创建别名"/></p>
+<p><em>更新查找区域以创建别名</em></p>
+</li>
+<li>
+<p>在“新建资源记录”<strong></strong>对话框中，输入要用于访问在 Azure 中托管的应用程序的别名，如 <em>yournametodo</em>。然后，键入 Azure 分配给您的应用程序的完全限定域名，例如 <em>[yournametodo].chinacloudsites.cn</em>。单击“确定”<strong></strong>创建记录。</p>
+<p><img src="images/creating-alias-app.png?raw=true" alt="在 Azure 中为 myTODO 应用程序创建别名"/></p>
+<p><em>在 Azure 中为 myTODO 应用程序创建别名</em></p>
+</li>
+<li>
+<p>在 DNS 管理器控制台中，查看更新区域的内容，以便查找新创建的 CNAME 记录。</p>
+<p><img src="images/lookup-zone-alias.png?raw=true" alt="显示应用程序的新别名的已更新查找区域"/></p>
+<p><em>显示应用程序的新别名的已更新查找区域</em></p>
+</li>
+<li>
+<p>现在，打开命令提示符，键入以下命令来验证别名是否设置正确，以及是否映射到 Windows Azure 中的应用程序的地址。</p>
+<!--mark:1--> <span class="codelanguage">命令提示符</span>
+<pre class="prettyprint">nslookup &lt;youralias&gt; </pre>
+<p><img src="images/command-prompt-alias-verification.png?raw=true" alt="验证域别名"/></p>
+<p><em>验证域别名</em></p>
+<p>现在，您将能够使用别名访问应用程序。</p>
+</li>
+</ol><hr />
+<p> </p>
+<h2 id="Summary">摘要</h2>
+<p>通过完成本动手实验，您了解到如何在 Windows Azure 管理门户中创建存储帐户和云服务。您使用管理门户部署了一个包含应用程序二进制文件的服务包，配置了服务包存储并定义了要运行的实例数。</p>
+<p>您还了解到如何使用服务管理 API 以编程方式实现此目的，尤其是如何通过 Windows PowerShell 使用 Windows Azure 服务管理 cmdlet 部署、更新和管理应用程序。</p>
+<p>作为开发人员，您了解到如何在继续执行开发任务的同时，在 Visual Studio 中使用 Windows Azure Tools 在后台发布解决方案。最后，您了解到如何使用管理门户上载证书以及使用 SSL 保护您的 Windows Azure 应用程序。</p>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>部署云服务</pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>develop-training-kit-HOL-DeployingCloudServices</linkid><urlDisplayName>部署云服务</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

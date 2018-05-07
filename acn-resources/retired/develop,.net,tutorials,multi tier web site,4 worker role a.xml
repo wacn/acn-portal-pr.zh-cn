@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18860" parentID="18853" level="6" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="4" createDate="2013-07-11T10:51:44" updateDate="2014-08-18T11:10:28" nodeName="4 Worker Role A" urlName="4-worker-role-a" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18433,18853,18860" isDoc=""><bodyText><![CDATA[<div>
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/zh-cn/develop/net/compute/">计算</a></li>
+<li class="menu-nodejs-data"><a href="/zh-cn/develop/net/data/">数据服务</a></li>
+<li class="menu-nodejs-appservices"><a href="/zh-cn/develop/net/app-services/">应用服务</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/zh-cn/support/forums/">论坛</a></li>
+</ul>
+<ul>
+<li>本系列中的内容</li>
+<li><a href="../1-overview/">1. 概述</a></li>
+<li><a href="../2-download-and-run/">2. 下载并运行</a></li>
+<li><a href="../3-web-role/">3. Web 角色</a></li>
+<li><strong>4. 辅助角色 A</strong></li>
+<li><a href="../5-worker-role-b/">5. 辅助角色 B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>在此页上（跳转到）：</li>
+</ul>
+</div>
+</div>
+</div>
+<h1>为 Windows Azure Email Service 应用程序生成辅助角色 A（电子邮件计划程序） - 第 4 部分，共 5 部分。</h1>
+<p>这是五个系列教程中的第四个教程，此系列教程演示如何生成和部署 Windows Azure Email Service 示例应用程序。有关应用程序和本系列教程的信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">本系列中的第一个教程</a>。</p>
+<p>在本教程中，您将学习：</p>
+<ul>
+<li>如何查询和更新 Windows Azure 存储表。</li>
+<li>如何将工作项添加到队列以供另一个辅助角色进行处理。</li>
+<li>如何通过重写 <code>OnStop</code> 方法，处理计划内关闭。</li>
+<li>如何通过确保未缺少电子邮件和未发送重复的电子邮件，处理计划外关闭。</li>
+<li>如何使用 Azure Storage Explorer 测试使用 Windows Azure 存储表的辅助角色。</li>
+</ul>
+<p>在您创建云服务项目时，即已创建辅助角色 A 项目。因此，现在只需对辅助角色进行编程，并配置它以使用 Windows Azure 存储帐户。</p>
+<h2><a name="addref"></a> <span class="short-header">添加项目引用</span>添加对 Web 项目的引用</h2>
+<p>您需要对 Web 项目的引用，因为要在此处定义实体类。将在辅助角色 B 中使用这些实体类以在应用程序使用的 Windows Azure 表中读写数据。</p>
+<p><strong>注意：</strong>在生产应用程序中，不要从辅助角色项目中设置对 Web 项目的引用，因为这会导致引用大量在辅助角色中不需要的依赖程序集。正常情况下，将共享模型类存放在某个类库项目中，而 Web 项目和辅助角色项目都将引用该类库项目。为了使解决方案结构简单明了，本教程将模型类存储在 Web 项目中。</p>
+<ol>
+<li>
+<p>右键单击 WorkerRoleA 项目，然后选择“添加引用”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-add-reference-menu.png" alt="在 WorkerRoleA 项目中添加引用"/></p>
+</li>
+<li>
+<p>在“引用管理器”<strong></strong>中，添加对 MvcWebRole 项目的引用（如果在 Windows Azure 网站中运行 Web UI，则添加对 Web 应用程序项目的引用），然后单击“确定”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-reference-manager.png" alt="添加对 MvcWebRole 的引用"/></p>
+</li>
+</ol>
+<h2><a name="addref2"></a> <span class="short-header">添加 SCL 1.7 引用</span>添加对 SCL 1.7 程序集的引用</h2>
+<p>存储客户端库 (SCL) 的 2.0 版缺少进行诊断所需的一部分内容，因此必须添加对某个 1.7 程序集的引用。如果已执行上一教程中的步骤，则已添加了引用，但此处加入说明以防错过这一步。</p>
+<ol>
+<li>
+<p>右键单击 WorkerRoleA 项目，然后选择“添加引用”<strong></strong>。</p>
+</li>
+<li>
+<p>单击对话框底部的“浏览...”<strong></strong>按钮。</p>
+</li>
+<li>
+<p>导航到以下文件夹：</p>
+<pre class="prettyprint">C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref</pre>
+</li>
+<li>
+<p>选择“Microsoft.WindowsAzure.StorageClient.dll”<em></em>，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>在“引用管理器”<strong></strong>对话框中，单击“确定”<strong></strong>。</p>
+</li>
+</ol>
+<h2><a name="addmodel"></a> <span class="short-header">添加 SendEmail 模型</span>添加 SendEmail 模型</h2>
+<p>辅助角色 A 在 <code>Message</code> 表中创建 <code>SendEmail</code> 行，而辅助角色 B 读取这些行以获取其发送电子邮件所需的信息。下图显示 <code>Message</code> 表中两个 <code>Message</code> 行和三个 <code>SendEmail</code> 行的一部分属性。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-sendmailtbl.png" alt="含 sendmail 的 message 表"/></p>
+<p><code>Message</code> 表中的这些行有多种用途：</p>
+<ul>
+<li>它们提供辅助角色 B 发送一封电子邮件所需的所有信息。</li>
+<li>它们跟踪是否已发送电子邮件，以防在发生故障后辅助角色重新启动时重复发送。</li>
+<li>它们使辅助角色 A 可决定何时已发送一封邮件的所有电子邮件，从而可将这封邮件标为 <code>Complete</code>。</li>
+</ul>
+<p>读写 <code>SendEmail</code> 行需要一个模型类。由于必须辅助角色 A 和辅助角色 B 均可访问该模型类，并且由于在 Web 项目中定义所有其他模型类，因此也在 Web 项目中定义该模型类即合情合理。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”<strong></strong>中，右键单击 Web 项目中的 Models 文件夹，然后选择“添加现有项”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-add-existing-for-sendemail-model.png" alt="向 Web 项目中的 Models 文件夹添加现有项"/></p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 Web 项目 Models 文件夹中的 <em>SendEmail.cs</em> 文件，然后单击“添加”。</p>
+</li>
+<li>
+<p>打开 <em>SendEmail.cs</em> 并检查代码。</p>
+<pre class="prettyprint">public class SendEmail : TableEntity {     public long MessageRef { get; set; }     public string EmailAddress { get; set; }     public DateTime? ScheduledDate { get; set; }     public String FromEmailAddress { get; set; }     public string SubjectLine { get; set; }     public bool? EmailSent { get; set; }     public string SubscriberGUID { get; set; }     public string ListName { get; set; } }</pre>
+<p>此处的代码与其他模型类相似，但不包括 DataAnnotations 特性，因为没有 UI 与此模型关联 - 不在 MVC 控制器中使用这段代码。</p>
+</li>
+</ol>
+<h2><a name="addcode"></a> <span class="short-header">添加辅助角色代码</span>添加在辅助角色启动时运行的代码</h2>
+<ol>
+<li>
+<p>在 WorkerRoleA 项目中，打开 <em>WorkerRole.cs</em> 并检查代码。</p>
+<pre class="prettyprint">public class WorkerRole : RoleEntryPoint {     public override void Run()     {         // This is a sample worker implementation. Replace with your logic.         Trace.WriteLine("WorkerRole1 entry point called", "Information");       while (true)     {         Thread.Sleep(10000);         Trace.WriteLine("Working", "Information");     } }   public override bool OnStart() {     // Set the maximum number of concurrent connections      ServicePointManager.DefaultConnectionLimit = 12;       // For information on handling configuration changes     // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.       return base.OnStart(); }   }</pre>
+<p>这是辅助角色的默认模板代码。有一个 <code>OnStart</code> 方法，从中可放置仅在有辅助角色实例启动时运行的初始化代码，还有一个在 <code>OnStart</code> 方法完成后调用的 <code>Run</code> 方法。将用您自己的初始化和运行代码替换此代码。</p>
+</li>
+<li>
+<p>删除 <em>WorkerRole.cs</em>，然后右键单击 WorkerRoleA 项目，再选择“添加现有项”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-add-existing.png" alt="向辅助角色 A 添加现有项"/></p>
+</li>
+<li>
+<p>导航到下载示例应用程序的文件夹，选择 WorkerRoleA 项目中的 <em>WorkerRoleA.cs</em> 文件，然后单击“添加”<strong></strong>。</p>
+</li>
+<li>
+<p>打开 <em>WorkerRoleA.cs</em> 并检查代码。</p>
+<p><code>OnStart</code> 方法初始化使用 Windows Azure 存储实体所需的上下文对象。该方法还确保存在将在 <code>Run</code> 方法中使用的表、队列和 Blob 容器。执行这些任务的代码与先前在 MVC 控制器构造函数中看到的类似。稍后您将配置此方法使用的连接字符串。</p>
+<pre class="prettyprint">public override bool OnStart() {     ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount;   ConfigureDiagnostics(); Trace.TraceInformation("Initializing storage account in WorkerA"); var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));   CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();  sendEmailQueue = queueClient.GetQueueReference("azuremailqueue");  var tableClient = storageAccount.CreateCloudTableClient();  mailingListTable = tableClient.GetTableReference("mailinglist");  messageTable = tableClient.GetTableReference("message");  messagearchiveTable = tableClient.GetTableReference("messagearchive");    // Create if not exists for queue, blob container, SentEmail table.  sendEmailQueue.CreateIfNotExists();  messageTable.CreateIfNotExists();  mailingListTable.CreateIfNotExists();  messagearchiveTable.CreateIfNotExists();    return base.OnStart();   }</pre>
+<p>您可能已看过先前有关使用 Windows Azure 存储的文档，其中演示一个用于检查是否有传输错误的循环中的初始化代码。这段代码不再是必需的，因为 API 现在内置了一个重试机制，可承受最多 3 次额外尝试的临时网络故障。</p>
+<p><code>OnStart</code> 方法调用的 <code>ConfigureDiagnostics</code> 方法设置跟踪，以使您可看到 <code>Trace.Information</code> 和 <code>Trace.Error</code> 方法的输出。此方法在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/2-download-and-run/">第二个教程</a>中有述。</p>
+<p><code>OnStop</code> 方法将全局变量 <code>onStopCalled</code> 设置为 true，然后等待 <code>Run</code> 方法将全局变量 <code>returnedFromRunMethod</code> 设置为 true，这样表示它已准备好进行正常关闭。</p>
+<pre class="prettyprint">public override void OnStop() {     onStopCalled = true;     while (returnedFromRunMethod == false)     {         System.Threading.Thread.Sleep(1000);     } }</pre>
+<p>因以下某种原因关闭辅助角色时，将调用 <code>OnStop</code> 方法：</p>
+<ul>
+<li>Windows Azure 需要重新引导虚拟机（Web 角色或辅助角色实例）或托管虚拟机的物理计算机。</li>
+<li>使用 Windows Azure 管理门户上的“停止”<strong></strong>按钮停止了云服务。</li>
+<li>向云服务项目部署了更新。</li>
+</ul>
+<p><code>Run</code> 方法监视变量 <code>onStopCalled</code>，并在该变量变为 <code>true</code> 时停止抽取任何新工作项进行处理。<code>OnStop</code> 与 <code>Run</code> 方法之间的这种协调行为使辅助进程可正常关闭。</p>
+<p>Windows Azure 定期安装操作系统更新以确保平台安全、可靠和运行正常。这些更新通常需要托管云服务的计算机关机再重新引导。有关详细信息，请参阅<a href="http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx">因操作系统升级而重新启动角色实例</a>。</p>
+<p><code>Run</code> 方法执行两项功能：</p>
+<ul>
+<li>
+<p>扫描 <code>message</code> 表以查找安排在当日或更早发送的邮件（尚未创建这些邮件的队列工作项）。</p>
+</li>
+<li>
+<p>扫描 <code>message</code> 表以查找一些邮件，这些邮件的状态指示创建了所有队列工作项，但尚未发送所有电子邮件。如果该方法找到此类邮件，则它扫描这封邮件的 <code>SendEmail</code> 行以查看是否发送了所有电子邮件，如果是，则它将状态更新为 <code>Completed</code>，然后将该 <code>message</code> 行存档。</p>
+</li>
+</ul>
+<p>该方法还检查全局变量 <code>onStopCalled</code>。当该变量为 <code>true</code> 时，该方法停止抽取新工作项进行处理，并在完成已启动的任务后返回。</p>
+<pre class="prettyprint">public override void Run() {     Trace.TraceInformation("WorkerRoleA entering Run()");     while (true)     {         try         {             var tomorrow = DateTime.Today.AddDays(1.0).ToString("yyyy-MM-dd");             // If OnStop has been called, return to do a graceful shutdown.             if (onStopCalled == true)             {                 Trace.TraceInformation("onStopCalled WorkerRoleB");                 returnedFromRunMethod = true;                 return;             }             // Retrieve all messages that are scheduled for tomorrow or earlier             // and are in Pending or Queuing status.             string typeAndDateFilter = TableQuery.CombineFilters(                 TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, "message"),                 TableOperators.And,                 TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.LessThan, tomorrow));             var query = (new TableQuery&lt;Message&gt;().Where(typeAndDateFilter));             var messagesToProcess = messageTable.ExecuteQuery(query).ToList();             TableOperation replaceOperation;             // Process each message (queue emails to be sent).             foreach (Message messageToProcess in messagesToProcess)             {                 string restartFlag = "0";                 // If the message is already in Queuing status,                 // set flag to indicate this is a restart.                 if (messageToProcess.Status == "Queuing")                 {                     restartFlag = "1";                 }               // If the message is in Pending status, change             // it to Queuing.             if (messageToProcess.Status == "Pending")             {                 messageToProcess.Status = "Queuing";                 replaceOperation = TableOperation.Replace(messageToProcess);                 messageTable.Execute(replaceOperation);             }               // If the message is in Queuing status,              // process it and change it to Processing status;             // otherwise it's already in processing status, and              // in that case check if processing is complete.             if (messageToProcess.Status == "Queuing")             {                 ProcessMessage(messageToProcess, restartFlag);                   messageToProcess.Status = "Processing";                 replaceOperation = TableOperation.Replace(messageToProcess);                 messageTable.Execute(replaceOperation);             }             else             {                 CheckAndArchiveIfComplete(messageToProcess);             }         }           // Sleep for one minute to minimize query costs.          System.Threading.Thread.Sleep(1000 * 60);     }     catch (Exception ex)     {         string err = ex.Message;         if (ex.InnerException != null)         {             err += " Inner Exception: " + ex.InnerException.Message;         }         Trace.TraceError(err);         // Don't fill up Trace storage if we have a bug in queue process loop.         System.Threading.Thread.Sleep(1000 * 60);     } }   }</pre>
+<p>注意，所有工作在一个 <code>while</code> 块的无限循环中完成，而该 <code>while</code> 块中的所有代码被包装在一个 <code>try</code>-<code>catch</code> 块中，以防发生未处理的异常。如果发生未处理的异常，则 Windows Azure 将引发 <a href="http://msdn.microsoft.com/zh-cn/library/system.appdomain.unhandledexception.aspx">UnhandledException</a> 事件，将终止辅助进程，并将使角色脱机。Windows Azure 将重新启动辅助角色，但此过程耗时几分钟。该 <code>try</code> 块调用 <code>TraceError</code> 以记录错误，然后睡眠 60 秒，以便如果仍有错误，将不会重复出现错误消息太多次。在生产应用程序中，可在该 <code>try</code> 块中向管理员发送电子邮件。</p>
+<p><code>Run</code> 方法处理计划日期在明天之前的对 <code>message</code> 表中 <code>message</code> 行的查询：</p>
+<pre class="prettyprint">// Retrieve all messages that are scheduled for tomorrow or earlier             // and are in Pending or Queuing status.             string typeAndDateFilter = TableQuery.CombineFilters(                 TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, "message"),                 TableOperators.And,                 TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.LessThan, tomorrow));             var query = (new TableQuery&lt;Message&gt;().Where(typeAndDateFilter));             var messagesToProcess = messageTable.ExecuteQuery(query).ToList();</pre>
+<p><strong>注意：</strong>在处理消息行之后将其移至 <code>messagearchive</code> 表的一个好处是此查询仅需指定 <code>PartitionKey</code> 和 <code>RowKey</code> 作为搜索条件。如果未将经过处理的行存档，则此查询还必须指定一个非键字段 (<code>Status</code>)，并且必须在更多行中进行搜索。这样，表大小将增大，查询将耗时更长并可能会开始收到继续标记。</p>
+<p>如果邮件处于 <code>Pending</code> 状态，则尚未开始处理；如果处于 <code>Queuing</code> 状态，则早先已开始处理，但在创建所有队列邮件之前中断了处理。在这种情况下，当辅助角色 B 发送每封电子邮件时，必须从中额外进行一项检查以确保尚未发送该电子邮件。这正是 <code>restartFlag</code> 变量的用途。</p>
+<pre class="prettyprint">string restartFlag = "0";                 if (messageToProcess.Status == "Queuing")                 {                     restartFlag = "1";                 }</pre>
+<p>接下来，这段代码将处于 <code>Pending</code> 状态的 <code>message</code> 行设置为 <code>Queuing</code>。然后，对于这些和任何已处于 <code>Queuing</code> 状态的行，这段代码调用 <code>ProcessMessage</code> 方法以创建队列工作项，用于发送该邮件的电子邮件。</p>
+<pre class="prettyprint">if (messageToProcess.Status == "Pending")                 {                     messageToProcess.Status = "Queuing";                     replaceOperation = TableOperation.Replace(messageToProcess);                     messageTable.Execute(replaceOperation);                 }               if (messageToProcess.Status == "Queuing")             {                 ProcessMessage(messageToProcess, restartFlag);                   messageToProcess.Status = "Processing";                 replaceOperation = TableOperation.Replace(messageToProcess);                 messageTable.Execute(replaceOperation);             }             else             {                 CheckAndArchiveIfComplete(messageToProcess);             }</pre>
+<p>在处理处于 <code>Queuing</code> 状态的邮件后，这段代码将 <code>Message</code> 行状态设置为 <code>Processing</code>。<code>message</code> 表中不处于 <code>Pending</code> 或 <code>Queuing</code> 状态的行已处于 <code>Processing</code> 状态，并且对于这些行，这段代码调用一个方法，检查是否发送了该消息的所有电子邮件。如果已发送所有电子邮件，则将 <code>message</code> 行存档。</p>
+<p>处理查询检索的所有记录后，这段代码将睡眠一分钟。</p>
+<pre class="prettyprint">// Sleep for one minute to minimize query costs.         System.Threading.Thread.Sleep(1000*60);</pre>
+<p>每个 Windows Azure 存储查询都有最低收费，即使它未返回任何数据也是如此，因此持续重新扫描将不必要地增加 Windows Azure 费用。在撰写本教程时，此项收费为每 100 万个事务 $0.10（一个查询计为一个事务），因此可使睡眠时间远远少于一分钟，而扫描表中要发送的邮件仍可保持最低的成本。有关定价的详细信息，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/1-overview/">第一个教程</a>。</p>
+<p><strong>有关线程处理和最佳 CPU 利用率的说明：</strong><code>Run</code> 方法中有两个任务（将电子邮件排队和检查是否有完成的邮件），并且这两个任务在一个线程中顺序运行。小型虚拟机 (VM) 有 1.75 GB RAM，并仅有一个 CPU，因此用单线程顺序运行这些任务可能比较合适。假定您的应用程序需要比小型 VM 提供的更多内存才能高效运行。中型 VM 提供 3.5 GB RAM 和 2 个 CPU，但此应用程序仅使用一个 CPU，因为它是单线程的。若要充分利用所有 CPU，需要为每个 CPU 创建一个辅助线程。即便如此，一个线程也无法完全利用一个 CPU。当某个线程进行网络或 I/O 调用时，该线程必须等待 I/O 或网络调用完成，并且它在等待时无法执行有用的工作。如果使用两个线程实现 <code>Run</code> 方法，则当一个线程等待网络或 I/O 操作完成时，另一个线程可执行有用的工作。</p>
+<p><code>ProcessMessage</code> 方法获取目标电子邮件列表的所有电子邮件地址，并为每个电子邮件地址创建一个队列工作项。当它创建队列工作项时，还会在 <code>Message</code> 表中创建 <code>SendEmail</code> 行。这些行向辅助角色 B 提供其发送电子邮件所需的信息，并且这些行包括一个 <code>EmailSent</code> 属性，用于跟踪是否已发送每封电子邮件。</p>
+<pre class="prettyprint">private void ProcessMessage(Message messageToProcess, string restartFlag) {     // Get Mailing List info to get the "From" email address.     var retrieveOperation = TableOperation.Retrieve&lt;MailingList&gt;(messageToProcess.ListName, "mailinglist");     var retrievedResult = mailingListTable.Execute(retrieveOperation);     var mailingList = retrievedResult.Result as MailingList;     if (mailingList == null)     {         Trace.TraceError("Mailing list not found: " + messageToProcess.ListName + " for message: " + messageToProcess.MessageRef);         return;     }     // Get email addresses for this Mailing List.     string filter = TableQuery.CombineFilters(        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, messageToProcess.ListName),        TableOperators.And,        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.NotEqual, "mailinglist"));     var query = new TableQuery&lt;Subscriber&gt;().Where(filter);     var subscribers = mailingListTable.ExecuteQuery(query).ToList();   foreach (Subscriber subscriber in subscribers) {     // Verify that the subscriber email address has been verified.     if (subscriber.Verified == false)     {         Trace.TraceInformation("Subscriber " + subscriber.EmailAddress + " not Verified, so not queuing ");         continue;     }       // Create a SendEmail entity for this email.                   var sendEmailRow = new SendEmail     {         PartitionKey = messageToProcess.PartitionKey,         RowKey = messageToProcess.MessageRef.ToString() + subscriber.EmailAddress,         EmailAddress = subscriber.EmailAddress,         EmailSent = false,         MessageRef = messageToProcess.MessageRef,         ScheduledDate = messageToProcess.ScheduledDate,         FromEmailAddress = mailingList.FromEmailAddress,         SubjectLine = messageToProcess.SubjectLine,         SubscriberGUID = subscriber.SubscriberGUID,         ListName = mailingList.ListName     };       // When we try to add the entity to the SendEmail table,      // an exception might happen if this worker role went      // down after processing some of the email addresses and then restarted.     // In that case the row might already be present, so we do an Upsert operation.     try     {         var upsertOperation = TableOperation.InsertOrReplace(sendEmailRow);         messageTable.Execute(upsertOperation);     }     catch (Exception ex)     {         string err = "Error creating SendEmail row:  " + ex.Message;         if (ex.InnerException != null)         {             err += " Inner Exception: " + ex.InnerException;         }         Trace.TraceError(err);     }       // Create the queue message.     string queueMessageString =         sendEmailRow.PartitionKey + "," +         sendEmailRow.RowKey + "," +         restartFlag;     var queueMessage = new CloudQueueMessage(queueMessageString);     sendEmailQueue.AddMessage(queueMessage); }   Trace.TraceInformation("ProcessMessage end PK: "     + messageToProcess.PartitionKey);   }</pre>
+<p>这段代码首先从 <code>mailinglist</code> 表中获取目标邮件列表的邮件列表行。此行具有需要提供给辅助角色 B 以发送电子邮件的“发件人”电子邮件地址。</p>
+<pre class="prettyprint">// Get Mailing List info to get the "From" email address.     var retrieveOperation = TableOperation.Retrieve&lt;MailingList&gt;(messageToProcess.ListName, "mailinglist");     var retrievedResult = mailingListTable.Execute(retrieveOperation);     var mailingList = retrievedResult.Result as MailingList;     if (mailingList == null)     {         Trace.TraceError("Mailing list not found: " + messageToProcess.ListName + " for message: " + messageToProcess.MessageRef);         return;     }</pre>
+<p>然后，这段代码向 <code>mailinglist</code> 表查询目标邮件列表的所有订户行。</p>
+<pre class="prettyprint">// Get email addresses for this Mailing List.     string filter = TableQuery.CombineFilters(        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, messageToProcess.ListName),        TableOperators.And,        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.NotEqual, "mailinglist"));     var query = new TableQuery&lt;Subscriber&gt;().Where(filter);     var subscribers = mailingListTable.ExecuteQuery(query).ToList();</pre>
+<p>在处理查询结果的循环中，这段代码首先检查订户电子邮件地址是否经过验证，如果未经过验证，则不将任何电子邮件排队。</p>
+<pre class="prettyprint">// Verify that the subscriber email address has been verified.         if (subscriber.Verified == false)         {             Trace.TraceInformation("Subscriber " + subscriber.EmailAddress + " not Verified, so not queuing ");             continue;         }</pre>
+<p>接下来，这段代码在 <code>message</code> 表中创建一个 <code>SendEmail</code> 行。此行包含辅助角色 B 将用于发送电子邮件的信息。创建此行时，将 <code>EmailSent</code> 属性设置为 <code>false</code>。</p>
+<pre class="prettyprint">// Create a SendEmail entity for this email.                       var sendEmailRow = new SendEmail         {             PartitionKey = messageToProcess.PartitionKey,             RowKey = messageToProcess.MessageRef.ToString() + subscriber.EmailAddress,             EmailAddress = subscriber.EmailAddress,             EmailSent = false,             MessageRef = messageToProcess.MessageRef,             ScheduledDate = messageToProcess.ScheduledDate,             FromEmailAddress = mailingList.FromEmailAddress,             SubjectLine = messageToProcess.SubjectLine,             SubscriberGUID = subscriber.SubscriberGUID,             ListName = mailingList.ListName         };         try         {             var upsertOperation = TableOperation.InsertOrReplace(sendEmailRow);             messageTable.Execute(upsertOperation);         }         catch (Exception ex)         {             string err = "Error creating SendEmail row:  " + ex.Message;             if (ex.InnerException != null)             {                 err += " Inner Exception: " + ex.InnerException;             }             Trace.TraceError(err);         }</pre>
+<p>这段代码使用“upsert”操作，因为如果辅助角色 A 在发生故障后重新启动，则该行可能已存在。</p>
+<p>对于每个电子邮件地址要执行的最后一个任务是创建将触发辅助角色 B 以发送电子邮件的队列工作项。该队列工作项包含刚刚创建的 <code>SendEmail</code> 行的分区键和行键值，以及先前设置的重新启动标志。<code>SendEmail</code> 行包含辅助角色 B 发送电子邮件所需的所有信息。</p>
+<pre class="prettyprint">// Create the queue message.         string queueMessageString =             sendEmailRow.PartitionKey + "," +             sendEmailRow.RowKey + "," +             restartFlag;         var queueMessage = new CloudQueueMessage(queueMessageString);         sendEmailQueue.AddMessage(queueMessage);</pre>
+<p><code>CheckAndUpdateStatusIfComplete</code> 方法检查处于 Processing 状态的邮件以查看是否已发送所有电子邮件。如果该方法发现没有未发送的电子邮件，则它将行状态更新为 <code>Completed</code>，并将该行存档。</p>
+<pre class="prettyprint">private void CheckAndArchiveIfComplete(Message messageToCheck) {     // Get the list of emails to be sent for this message: all SendEmail rows     // for this message.       string pkrkFilter = TableQuery.CombineFilters(         TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, messageToCheck.PartitionKey),         TableOperators.And,         TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "message"));     var query = new TableQuery&lt;SendEmail&gt;().Where(pkrkFilter);     var emailToBeSent = messageTable.ExecuteQuery(query).FirstOrDefault();   if (emailToBeSent != null) {     return; }   // All emails have been sent; copy the message row to the archive table.   // Insert the message row in the messagearchive table var messageToDelete = new Message { PartitionKey = messageToCheck.PartitionKey, RowKey = messageToCheck.RowKey, ETag = "*" }; messageToCheck.Status = "Complete"; var insertOrReplaceOperation = TableOperation.InsertOrReplace(messageToCheck); messagearchiveTable.Execute(insertOrReplaceOperation);   // Delete the message row from the message table. var deleteOperation = TableOperation.Delete(messageToDelete); messageTable.Execute(deleteOperation);   }</pre>
+</li>
+</ol>
+<h2><a name="configure"></a> <span class="short-header">配置存储</span>配置存储连接字符串</h2>
+<p>如果在为 Web 角色配置存储帐户凭据时尚未对辅助角色 A 这样做，则现在这样做。</p>
+<ol>
+<li>
+<p>在“解决方案资源管理器”中，右键单击 <strong>AzureEmailService</strong> 云项目中“角色”<strong></strong>下的 <strong>WorkerRoleA</strong>，然后选择“属性”<strong></strong>。</p>
+</li>
+<li>
+<p>确保在“服务配置”<strong></strong>下拉列表中选择“所有配置”<strong></strong>。</p>
+</li>
+<li>
+<p>选择“设置”<strong></strong>选项卡，然后单击“添加设置”<strong></strong>。</p>
+</li>
+<li>
+<p>在“名称”<strong></strong>列中输入 <em>StorageConnectionString</em>。</p>
+</li>
+<li>
+<p>在“类型”<strong></strong>下拉列表中选择“连接字符串”<strong></strong>。</p>
+</li>
+<li>
+<p>单击该行右端的省略号 (<strong>...</strong>) 以创建新的连接字符串。</p>
+</li>
+<li>
+<p>在“创建存储帐户连接字符串”<strong></strong>对话框中，单击“您的订阅”<strong></strong>。</p>
+</li>
+<li>
+<p>选择正确的“订阅”<strong></strong>和“帐户名称”<strong></strong>，然后单击“确定”<strong></strong>。</p>
+</li>
+<li>
+<p>设置诊断连接字符串。可对诊断连接字符串使用同一存储帐户，但最佳做法是对跟踪（诊断）信息使用不同的存储帐户。</p>
+</li>
+</ol>
+<h2><a name="testing"></a> <span class="short-header">测试</span>测试辅助角色 A</h2>
+<ol>
+<li>
+<p>按 F5 运行应用程序。</p>
+</li>
+<li>
+<p>使用管理员网页创建一个邮件列表，然后创建该邮件列表的订户。将至少一个订户的 <code>Verified</code> 属性设置为 <code>true</code>，然后将电子邮件地址设置为一个可接收邮件的地址。</p>
+<p>直到实现辅助角色 B 后，才会发送电子邮件，但将使用相同的测试数据测试辅助角色 B。</p>
+</li>
+<li>
+<p>创建一封邮件以发送到您创建的邮件列表，然后将计划日期设置为当日或过去的某个日期。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-test-pending.png" alt="处于 Pending 状态的新邮件"/></p>
+</li>
+<li>
+<p>稍稍超过一分钟后（由于 Run 方法中的一分钟睡眠时间），刷新 Messages 网页，然后将看到状态变为 Processing。（可能会看到状态先变为 Queuing，但也有可能状态从 Queuing 变为 Processing 很迅速，以致看不到 Queuing。）</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-test-processing.png" alt="处于 Processing 状态的新消息"/></p>
+</li>
+<li>
+<p>打开 Azure Storage Explorer，然后选择测试存储帐户。</p>
+</li>
+<li>
+<p>在 Azure Storage Explorer 中的“Storage Type”<strong></strong>（存储类型）下，选择“Queues”<strong></strong>（队列），然后选择“azuremailqueue”<strong></strong>。</p>
+<p>随后将在目标电子邮件列表中看到每个已验证的订户都有一封队列邮件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-test-ase-queue.png" alt="ASE 中的队列邮件"/></p>
+</li>
+<li>
+<p>双击某封队列邮件，然后在“Message Detail”<strong></strong>（邮件详细信息）对话框中，选择“Message”<strong></strong>（邮件）选项卡。</p>
+<p>随后将看到该队列邮件的内容：分区键（日期 2012-12-14）、行键（MessageRef 值和电子邮件地址）和重新启动标志，三者以逗号分隔。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-test-ase-queue-detail.png" alt="ASE 中的队列邮件内容"/></p>
+</li>
+<li>
+<p>关闭“Message Detail”<strong></strong>（消息详细信息）对话框。</p>
+</li>
+<li>
+<p>在“Storage Type”<strong></strong>（存储类型）下，选择“Tables”<strong></strong>（表），然后选择 <strong>Message</strong> 表。</p>
+</li>
+<li>
+<p>单击“Query”<strong></strong>（查询）以查看表中的所有行。</p>
+<p>随后可看到所安排的邮件，行键中有“Message”，后跟每个经过验证的订户对应的行，行键中有电子邮件地址。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-test-ase-message-table.png" alt="ASE 中的邮件表行"/></p>
+</li>
+<li>
+<p>双击行键中有电子邮件地址的行，以查看辅助角色 A 创建的 <code>SendEmail</code> 行的内容。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/mtas-worker-a-test-ase-sendemail-row.png" alt="Message 表中的 SendEmail 行"/></p>
+</li>
+</ol>
+<h2><a name="nextsteps"></a> <span class="short-header">后续步骤</span>后续步骤</h2>
+<p>现已生成辅助角色 A，并确认它创建辅助角色 B 发送电子邮件所需的队列邮件和表行。在<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">下一教程</a>中，您将生成并测试辅助角色 B。</p>
+<p>有关使用 Windows Azure 存储表、队列和 Blob 的其他资源的链接，请参阅<a href="/zh-cn/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">本系列中最后一个教程</a>的结尾。</p>
+<div><a href="../5-worker-role-b/" class="site-arrowboxcta download-cta">教程 5</a></div>
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>多层网站教程 - 第 4 步：辅助角色 A</pageTitle><metaKeywords>Windows Azure 教程, .NET 多层应用程序, 多层体系结构</metaKeywords><metaDescription><![CDATA[本系列中的第四个教程，向您传授如何配置计算机以进行 Windows Azure 开发和部署 Email Service 应用程序。]]></metaDescription><linkid>develop-net-tutorials-multi-tier-web-site-4-worker-role-a</linkid><urlDisplayName>develop-net-tutorials-multi-tier-web-site-4-worker-role-a</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

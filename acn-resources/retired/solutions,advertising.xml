@@ -1,0 +1,2348 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2015032712" parentID="19326" level="3" writerID="52" creatorID="94" nodeType="1059" template="302" sortOrder="2"  createDate="2015-03-04T13:16:52" updateDate="2015-03-27T13:16:52" nodeName="solutions-advertising" urlName="solutions-advertising" writerName="content" creatorName="Brad" path="-1,11978,11979,13946,2015032712" isDoc="">
+    <bodyText>
+      <![CDATA[
+<script type="text/javascript">
+    $(document).ready(function () {
+    $(".link-btn").on("click", function (evt) {
+            evt.preventDefault();
+            var url = $(this).data("href");
+            if (url == "") return;
+            var win = window.open(url, '_blank');
+            win.focus();
+        })
+        //选择框
+        $(document).on("click", ".right-content-tab li a", selectChoose);
+        function selectChoose() {
+            //清除选中类
+            clearChoose();
+            $('.all-right').removeClass("fixed-style").removeClass("absolute-style");
+            var strID = $(this).attr('id');
+            if (strID.indexOf("-") > 0)
+                strID = strID.split("-")[1];
+            if ($(this).parent().hasClass("tab-choose")) {
+                $(this).parent().removeClass("tab-choose").addClass("tabchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($(this).parent().hasClass("adchoose")) {
+                $(this).parent().removeClass("adchoose").addClass("sel-adchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($(this).parent().hasClass("dmpchoose")) {
+                $(this).parent().removeClass("dmpchoose").addClass("sel-dmpchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($(this).parent().hasClass("dspchoose")) {
+                $(this).parent().removeClass("dspchoose").addClass("sel-dspchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+        };
+        //其他链接
+        $(".apply-bottom-linkcontent a").click(function () {
+            clearChoose();
+            $('html, body').animate({
+                scrollTop: $(".right-content-select").offset().top
+            }, 0);
+            $('.secshow .all-right').removeClass("fixed-style").removeClass("absolute-style");
+            var strID = $(this).attr('id');
+            if (strID.indexOf("-") > 0)
+                strID = strID.split("-")[1];
+            if ($("#tab-" + strID).parent().hasClass("tab-choose")) {
+                $("#tab-" + strID).parent().removeClass("tab-choose").addClass("tabchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($("#tab-" + strID).parent().hasClass("adchoose")) {
+                $("#tab-" + strID).parent().removeClass("adchoose").addClass("sel-adchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($("#tab-" + strID).parent().hasClass("dmpchoose")) {
+                $("#tab-" + strID).parent().removeClass("dmpchoose").addClass("sel-dmpchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+            else if ($("#tab-" + strID).parent().hasClass("dspchoose")) {
+                $("#tab-" + strID).parent().removeClass("dspchoose").addClass("sel-dspchoose");
+                selectSection(strID);
+                selectnav(strID);
+            }
+
+        });
+        //内容加载
+        function selectSection(str) {
+            $(".right-section section").removeClass("secshow").addClass("hide");
+            $(".right-section section").each(function () {
+                if ($(this).attr('data-value') == str) {
+                    $(this).removeClass("hide").addClass("secshow");
+                }
+            });
+        }
+        //右侧导航加载
+        function selectnav(str) {
+            $(".navshow").removeClass("navshow").addClass("hide");
+            $(".sel-nav .right-section-nav").each(function () {
+                var strnav = $(this).attr('data-value');
+                if (strnav.indexOf("-") > 0)
+                    strnav = strnav.split("-")[1];
+                if (strnav == str) {
+                    $(this).removeClass("hide").addClass("navshow");
+                }
+            });
+        }
+
+        //滚动条处理
+        var previousScrollTop = 0;
+        $(window).on('scroll', onscroll);
+        $(window).on('resize', function (evt) {
+            var width = 0.16 * $('.content').width();
+            $('.left_content').css({
+                'width': width,
+            })
+        });
+        function onscroll(evt) {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var top = $(window).scrollTop();
+
+            if (Math.abs(top - previousScrollTop) < 20) return; // ie
+            var width = 0.16 * $('.content').width();
+            var leftHeigth = $('.left-content').height();
+            var headerHeight = $('.page-header').height() + 3;
+            var ftHeigth = $('footer').height();
+            //左侧导航
+            if ((scrollTop + leftHeigth + headerHeight + $("footer").height()) >= (scrollHeight)) {
+                // footer show up
+                $('.left-content').css({
+                    'position': 'absolute',
+                    'bottom': 0,
+                    'top': 'auto',
+                })
+            }
+            else if($(window).scrollTop() > 50){
+                    $('.left-content').css({
+                   'position': 'fixed',
+                    'top': '8px',
+                    'bottom': 'auto',
+                    'width': width,
+                    })
+            }
+           else if($(window).scrollTop() == 0){
+           $('.left-content').css({
+                   'position': 'fixed',
+                    'top': '108px',
+                    'bottom': 'auto',
+                    'width': width,
+                    })
+           
+           }
+            previousScrollTop = top;
+
+
+            //右侧滚动导航
+            var title_top = $(".right-content .secadv-title").offset().top;
+            var unique_top = $(".secshow .secadv-unique").offset().top;
+            var schema_top = $(".secshow .secadv-schema").offset().top;
+            var case_top = $(".secshow   .secadv-secase").offset().top;
+            var apply_top = $(".secshow .secadv-apply").offset().top;
+            var help_top = $(".secshow .secadv-help").offset().top;
+            if (scrollTop >= help_top - $(".navshow  .all-right").height()) {
+                $('.navshow  .all-right').removeClass("fixed-style").addClass("absolute-style");
+                $(".navshow  .all-right a").removeClass("selected");
+                $(".navshow  a[data-value='secadv-help']").addClass("selected");
+            }
+            else if (scrollTop >= apply_top - $(".navshow .all-right").height()) {
+                selectli("secadv-apply");
+            }
+            else if (scrollTop >= case_top - $(".navshow .all-right").height()) {
+                selectli("secadv-secase");
+            }
+            else if (scrollTop >= unique_top - $(".navshow .all-right").height()) {
+                selectli("secadv-unique");
+            }
+            else if (scrollTop >= schema_top - $(".navshow .all-right").height()) {
+                selectli("secadv-schema");
+            }
+            else if (scrollTop >= title_top - $(".navshow .all-right").height()) {
+                selectli("secadv-title");
+            }
+            else {
+                $('.navshow .all-right').removeClass("fixed-style").removeClass("absolute-style");
+            }
+        }
+        function selectli(sel) {
+            $('.navshow  .all-right').removeClass("absolute-style").addClass("fixed-style");
+            $(".navshow  .all-right a").removeClass("selected");
+            $(".navshow  a[data-value='" + sel + "']").addClass("selected");
+        }
+        $(document).on("click", ".navshow  .all-right a", allRightClick);
+        function allRightClick(e) {
+        var scrollHeight = $(document).height();
+            var el = $(this).attr('data-value');
+            if (el == "secadv-ques" || el == "secadv-learn")
+                el = "secadv-help";
+            if (el == "secadv-index" || el == "secadv-guide")
+                el = "secadv-apply";
+            var scrdistop = 0;
+            if (el == "secadv-title")
+                scrdistop = 250;
+            else
+                var scrdistop = $(".secshow ." + el).offset().top - $("header").height() - 10;
+                if(scrdistop+250 >= (scrollHeight-$("footer").height())){
+                    $('.navshow  .all-right').removeClass("fixed-style").addClass("absolute-style");
+                }
+            //var scrdistop = $(this).offset().top - $(".navshow .all-right").height() - 150;
+            $('html, body').animate({
+                scrollTop: scrdistop
+            }, 300);
+            $(".navshow  .all-right a").removeClass("selected");
+            $(".navshow .all-right a[data-value='" + el + "']").addClass("selected");
+        }
+    });
+</script>
+<style>
+a.applya1:hover .apply-guide-left{
+      background-color:#b7dcf9;
+  }
+  a.applya1:hover .apply-guide-right{
+      background-color:#d1f0fa;
+  }
+   a.applya2:hover .apply-index-left{
+      background-color:#b7dcf9;
+  }
+  a.applya2:hover .apply-index-right{
+      background-color:#d1f0fa;
+  }
+    /*共用*/
+    .zh-cn p {
+        line-height: normal;
+        margin: 5px 0px;
+    }
+
+    footer {
+        border-top: medium solid #ccc;
+    }
+
+    .right-section section {
+        height: 0px;
+        clear: both;
+        width: 100%;
+    }
+    /*整体背景*/
+    #serviceCenter {
+        width: 100%;
+        position: relative;
+        background-color: #f8f8f8;
+    }
+    /*白色背景*/
+    .white-background {
+        position: absolute;
+        background: white;
+        top: 0;
+        left: 16%;
+        right: calc(50% - 50vw + 9px);
+        bottom: 0;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .secshow {
+        display: block;
+    }
+
+    .navshow {
+    }
+
+    img {
+        background-repeat: no-repeat;
+    }
+    /*导航移动*/
+    .fixed-style {
+        position: fixed;
+        top:165px;
+    }
+
+    .absolute-style {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+    }
+    /*content 内容*/
+    .content {
+        width: 100%;
+        min-width: 960px;
+        max-width: 1250px;
+        margin: 0 auto;
+        position: relative;
+    }
+    /*left-content 左侧导航*/
+    .left-content {
+        position: absolute;
+        width: 16%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #f8f8f8;
+        overflow: hidden;
+    }
+
+    .left-ul-content {
+        list-style: none;
+        padding: 0px;
+        border: none;
+        margin: 0;
+        margin-left: 20px;
+        width: 100%;
+    }
+
+        .left-ul-content > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 3px 0px 3px 16%;
+            margin-left: -16%;
+            text-transform: capitalize;
+            font-size: 14px;
+            line-height: 21px;
+            color: #555555;
+        }
+
+            .left-ul-content > li > a:hover {
+                background-color: #dbdbdb;
+            }
+
+    .nav-li-submenu {
+        font-size: 20px;
+        color: #5c5c5c;
+        margin-top: 25px;
+        margin-bottom: 3px;
+        height: 28px;
+        line-height: 28px;
+    }
+    /*右侧导航*/
+    ul.all-right {
+        padding: 0;
+        border-left: 3px solid #eeeeee;
+        list-style: none;
+        width: 95px;
+        margin-left: 45px;
+        margin-top: 60px;
+        z-index: 10;
+    }
+
+        ul.all-right li a {
+            display: block;
+            padding-left: 15px;
+            font-size: 14px;
+            color: #555555;
+            margin: 5px 0 5px 0px;
+        }
+
+            ul.all-right li a.selected {
+                border-left: 3px #88c402 solid;
+                margin-left: -3px;
+            }
+
+    /*背景 banner*/
+    .right-content-header {
+        position: absolute;
+        top: 0;
+        left: 16%;
+        min-width: 805px;
+        right: calc(50% - 50vw + 9px);
+        height: 293px;
+        background-repeat: no-repeat;
+        background-color: #f19e10;
+        background-image: none;
+        overflow: hidden;
+    }
+        /*banner-content部分*/
+        .right-content-header .right-content-dis {
+            padding-top: 55px;
+            margin-left: 5.6%;
+            max-width: 740px;
+        }
+
+    .rigth-content-title {
+        font-size: 32px;
+        color: #ffffff;
+    }
+
+    .banner-title {
+        font-size: 18px;
+        color: #fff;
+        width: 650px;
+        margin-top: 20px;
+        line-height: 24px;
+    }
+
+        .banner-title span {
+            color: #ffe98c;
+        }
+
+
+    .btn-style {
+        margin-top: 30px;
+        display: block;
+        font-size: 14px;
+        width: 142px;
+        height: 38px;
+        background-color: #ff3d00;
+        text-align: center;
+        padding: 7px;
+        box-sizing: border-box;
+        margin-right: 25px;
+    }
+
+        .btn-style:hover {
+            background-color: #fa6434;
+        }
+    /*四块集合*/
+    .right-content-frame, .right-content-case, .right-content-apply, .right-content-help {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 50px;
+        clear: both;
+        width: 60.96%;
+    }
+
+    .right-content-advantage {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 40px;
+        clear: both;
+        width: 60.96%;
+    }
+
+    .right-content-tab {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 0px;
+        clear: both;
+    }
+
+    .right-content-title {
+        font-size: 24px;
+        color: #000000;
+        display: block;
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    .con-distance {
+        width: 35%;
+        margin-right: 4%;
+        display: block;
+        float: left;
+        margin-bottom: 20px;
+    }
+    /*独到之处*/
+    .right-content-summarize {
+        padding-left: 5.6%;
+        position: relative;
+        padding-top: 60px;
+        clear: both;
+        width: 84%;
+        float: left;
+    }
+
+        .right-content-summarize ul.summarize-left {
+            margin-top: 25px;
+            padding: 0;
+            list-style: none;
+        }
+
+            .right-content-summarize ul.summarize-left li {
+                width: 35%;
+                display: inline-block;
+                padding-left: 25px;
+                margin-right: 4%;
+                vertical-align: top;
+                background-repeat: no-repeat;
+                background-image: url('//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/checkmark_.png');
+            }
+
+                .right-content-summarize ul.summarize-left li span {
+                    font-size: 18px;
+                    color: #404040;
+                    margin-top: -5px;
+                    display: block;
+                }
+
+                .right-content-summarize ul.summarize-left li p {
+                    width: 100%;
+                    font-size: 13px;
+                    color: #404040;
+                    margin: 0px;
+                    padding-top: 10px;
+                    padding-bottom: 25px;
+                }
+
+    .right-content-top {
+        height: 530px;
+        clear: none;
+        max-width: 1050px;
+    }
+    /*独到之处*/
+    .right-content {
+        margin-left: 16%;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 293px;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+        width: 84%;
+    }
+
+    .right-content-content {
+        margin-right: calc(59% - 50vw+9px);
+        height: 100%;
+        background-color: white;
+    }
+
+    /*选择框*/
+    .nav-select {
+        color: #5c5c5c;
+        background-color: #DBDBDB;
+    }
+
+    .right-content-select {
+        position: absolute;
+        top: 0;
+        min-width: 805px;
+        left: 16%;
+        
+        background-repeat: no-repeat;
+        overflow: hidden;
+        margin-top: 710px;
+    }
+
+    .right-content-center {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .right-content-tab {
+        padding-top: 0px;
+        margin: 0;
+        overflow: hidden;
+        list-style: none;
+        margin-bottom: -1px;
+    }
+
+        .right-content-tab li {
+            height: 105px;
+            float: left;
+            width:15%;
+            margin-right: 0.24%;
+            position: relative;
+        }
+
+            .right-content-tab li a {
+                font-size: 18px;
+                display: table-cell;
+                width: inherit;
+                color: #555555;
+                vertical-align: middle;
+                text-align: center;
+                height: 105px;
+            }
+
+        .right-content-tab .tab-choose {
+            background-color: #e7f2f9;
+        }
+
+    .tabchoose {
+        background-color: #c5e6f9;
+    }
+
+    .tab-choose:hover {
+        background-color: #c5e6f9;
+    }
+    /*ad */
+
+    .adchoose {
+        background-color: #EDF9F9;
+    }
+
+    .sel-adchoose {
+        background-color: #D8F6E6;
+    }
+
+    .adchoose:hover {
+        background-color: #D8F6E6;
+    }
+    /*dsp 业务*/
+
+    .dspchoose {
+        background-color: #EDF9F3;
+    }
+
+    .sel-dspchoose {
+        background-color: #D1F9E6;
+    }
+
+    .dspchoose:hover {
+        background-color: #D1F9E6;
+    }
+    /*dmp 业务*/
+    .dmpchoose {
+        background-color: #EFF8EF;
+    }
+
+    .sel-dmpchoose {
+        background-color: #D8F5D9;
+    }
+
+    .dmpchoose:hover {
+        background-color: #D8F5D9;
+    }
+    /**/
+    .right-content-tab .tab-change {
+        background-color: #EDF9F9;
+    }
+
+    .tabchange {
+        background-color: #D8F6E6;
+    }
+
+    .tab-change:hover {
+        background-color: #D8F6E6;
+    }
+
+    .triangle {
+        position: absolute;
+        display: none;
+        height: 12px;
+        width: 24px;
+        bottom: 0px;
+        left: 50%;
+        margin-left: -15px;
+        background-repeat: no-repeat;
+        background-image: url('//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle_.png');
+    }
+
+    .right-content-tab li.tabchoose .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.tabchange .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.sel-adchoose .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.sel-dmpchoose .triangle {
+        display: block;
+    }
+
+    .right-content-tab li.sel-dspchoose .triangle {
+        display: block;
+    }
+    /*section 内容区域*/
+    .right-section {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+        .right-section .right-section-content {
+            float: left;
+            width: 100%;
+        }
+
+    .right-section-nav {
+        float: left;
+        display: none;
+    }
+    /*方案概述*/
+    .advantage-left p {
+        font-size: 13px;
+        padding-left: 15px;
+        color: #404040;
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+
+    section .section-title {
+        font-size: 18px;
+        color: #000;
+    }
+    /*架构部分*/
+    .right-content-frame {
+        color: #404040;
+        font-size: 14px;
+    }
+
+        .right-content-frame .adexchange {
+            height: 23px;
+            padding: 3px 5px;
+            background-color: #c9e5fb;
+            color: #404040;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+    .adexchange:hover {
+        background-color: #e1effa;
+    }
+
+    .right-content-frame .dsp {
+        background-color: #d2fef3;
+        height: 23px;
+        padding: 3px 5px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .dsp:hover {
+        background-color: #ebfbf7;
+    }
+
+    .right-content-frame .dmp {
+        background-color: #d8fbd9;
+        height: 23px;
+        padding: 3px 5px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .dmp:hover {
+        background-color: #f2fdf3;
+    }
+
+    .right-content-frame .last {
+        background-color: #e6ffd9;
+        height: 23px;
+        padding: 5px 0px;
+        color: #404040;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .last:hover {
+        background-color: #f7fdf3;
+    }
+    /*应用方案部分*/
+    .apply-content {
+        height: 140px;
+        width: 100%;
+        font-size: 13px;
+        color: #33a4fb;
+    }
+
+    .apply-bottom a {
+        color: #33a4fb;
+    }
+
+    .apply-guide {
+        background-color: #dff5fc;
+        height: 140px;
+        width: 49%;
+        float: left;
+    }
+
+    .apply-guide-left {
+        background-color: #c1e2fc;
+        width: 30%;
+        height: 140px;
+        float: left;
+    }
+
+    .apply-guide-right {
+        width: 70%;
+        float: left;
+        height: 140px;
+    }
+
+    .apply-guide-left img {
+        margin: 25px 31px;
+        width: 26px;
+        height: 33px;
+    }
+
+
+    .apply-index {
+        background-color: #dff5fc;
+        height: 140px;
+        width: 49%;
+        float: left;
+    }
+
+    .apply-index-left {
+        background-color: #c1e2fc;
+        width: 30%;
+        height: 140px;
+        float: left;
+    }
+
+        .apply-index-left img {
+            margin: 25px;
+            width: 40px;
+            height: 33px;
+        }
+
+    .apply-border {
+        border-bottom: 2px solid #33a4fb;
+    }
+
+        .apply-border span {
+            font-size: 18px;
+        }
+
+    .apply-bottom a {
+        display: block;
+        height: 25px;
+    }
+
+    .apply-bottom span {
+        display: block;
+        float: left;
+    }
+
+    .apply-bottom img {
+        width: 5px;
+        height: 5px;
+        margin-top: 13px;
+        margin-left: 5px;
+    }
+
+    .apply-distance {
+        margin-right: 2%;
+    }
+
+
+    .apply-index-right {
+        width: 70%;
+        height: 140px;
+        float: left;
+    }
+
+    .apply-right-content {
+        padding: 25px 2% 0px 2%;
+    }
+    /*案例部分*/
+    .img-case ul {
+        list-style-type: none;
+        padding: 0px;
+        width: 100%;
+    }
+
+        .img-case ul li {
+            float: left;
+            width: 25%;
+        }
+
+    .img-case img {
+        width: 100%;
+        /*height:23px;*/
+    }
+    /*帮助中心*/
+    .help-left a {
+        font-size: 14px;
+        color: #404040;
+    }
+
+    .help-left span {
+        display: block;
+        float: left;
+    }
+
+        .help-left span:hover {
+            opacity: 0.8;
+        }
+
+    .help-left img {
+        padding-top: 7px;
+        padding-left: 5px;
+        width: 5px;
+        height: 10px;
+    }
+
+        .help-left img:hover {
+            opacity: 0.8;
+        }
+    /*AD 业务*/
+    .summary {
+        margin-bottom: 50px;
+    }
+
+        .summary span {
+            font-size: 13px;
+            color: #404040;
+            font-weight: 600;
+        }
+
+        .summary .ad-distance {
+            float: left;
+        }
+
+    .ad-distance p {
+        line-height: 24px;
+    }
+
+    .ad-btn {
+        height: 20px;
+        padding: 5px 8px;
+        background-color: #eaeaea;
+        color: #404040;
+        margin: 0 3px;
+        font-weight: normal;
+    }
+
+        .ad-btn:hover {
+            opacity: 0.8;
+        }
+
+    .ad-title {
+        font-size: 16px;
+        color: #404040;
+        font-weight: 600;
+    }
+
+    .ad-content {
+        font-size: 14px;
+        color: #404040;
+    }
+
+    .span-style {
+        font-size: 14px;
+        color: #404040;
+        font-weight: 600;
+    }
+
+    .ul-details li {
+        margin-bottom: 15px;
+        list-style: none;
+        font-weight: 600;
+        padding-left: 0;
+    }
+
+    @media(min-width:1250px) {
+        /*banner-content部分*/
+        .right-content-header {
+            background-image: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/banner.png);
+        }
+
+        .right-content-dis {
+            margin-left: 70px;
+        }
+        /*选择块*/
+        .right-content-frame, .right-content-advantage, .right-content-case, .right-content-apply, .right-content-help {
+            padding-left: 75px;
+            width: 762px;
+        }
+
+        .right-content-tab {
+            padding-left: 75px;
+        }
+            /*选择框*/
+            .right-content-tab li {
+                width: 150px;
+                margin-right: 3px;
+            }
+        /*导航*/
+        .right-section-nav {
+            display: block;
+        }
+
+        /*独到之处*/
+        .right-content-summarize {
+            /*padding-left: 75px;*/
+            width: 820px;
+        }
+
+            .right-content-summarize ul.summarize-left li {
+                width: 320px;
+                margin-right: 50px;
+            }
+
+                .right-content-summarize ul.summarize-left li p {
+                    width: 335px;
+                }
+
+        .con-distance {
+            width: 360px;
+            margin-right: 50px;
+        }
+        /*内容区域*/
+        .right-section .right-section-content {
+            width: 836px;
+        }
+
+        .ul-details {
+            font-size: 13px;
+            color: #404040;
+            clear: both;
+            margin-bottom: 20px;
+        }
+
+
+        /*应用方案部分*/
+        .apply-guide {
+            width: 368px;
+        }
+
+        .apply-guide-left {
+            width: 88px;
+        }
+
+        .apply-guide-right {
+            width: 280px;
+        }
+
+        .apply-index {
+            width: 368px;
+        }
+
+        .apply-index-left {
+            width: 88px;
+        }
+
+        .apply-guide-left img {
+            margin: 25px 40%;
+        }
+
+        .apply-index-right {
+            width: 280px;
+        }
+
+        .apply-right-content {
+            padding: 25px 25px 0px 25px;
+        }
+
+        .apply-distance {
+            margin-right: 25px;
+        }
+        /*案例部分*/
+        .img-case img {
+            width: 190px;
+        }
+    }
+
+    @media(max-width:960px) {
+        /*测试*/
+        .content {
+            min-width: 960px;
+        }
+
+        .left-content {
+            min-width: 154px;
+        }
+
+        .right-content {
+            min-width: 805px;
+        }
+
+        .right-content-select {
+            min-width: 805px;
+        }
+    }
+</style>
+<div class="main-content" id="serviceCenter">
+    <div class="content">
+        <div class="white-background"></div>
+        <!--left 左侧导航-->
+        <div class="left-content">
+            <ul style="border:none;" class="left-ul-content">
+                <li class="nav-li-submenu li-general"> 解决方案 </li>
+                <li>
+                    <a id="site_nav_advertising_game" href="/solutions/game/">云端游戏开发</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_moible" href="/solutions/mobile/">云端移动开发</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_ad" href="/solutions/advertising/" class="nav-select">广告数字营销</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_line" href="/solutions/online/">在线数字营销</a>
+                </li>
+                <li class="nav-li-submenu" style="height:0px;"> </li>
+                <li>
+                    <a id="site_nav_advertising_base" href="/solutions/infrastructure/">基础结构服务</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_data" href="/solutions/data-management/">数据管理</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_Web" href="/solutions/web/">Web 应用程序</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_develop" href="/solutions/dev-test/">开发与测试</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_save" href="/solutions/storage-backup-recovery/">存储、备份和修改</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_soft" href="/solutions/OSS/">开源软件</a>
+                </li>
+                <li>
+                    <a id="site_nav_advertising_storsimple" style="margin-bottom:43px;" href="/solutions/storsimple/">Storsimple</a>
+                </li>
+            </ul>
+        </div>
+        <!--banner 背景-->
+        <div class="right-content-header">
+            <div class="right-content-dis">
+                <h1 class="rigth-content-title">广告数字营销解决方案</h1>
+                <div>
+                    <div class="banner-title">
+                        <div>
+                            您还在为网络接入速度、大数据分析、信息安全性、软件兼容性担心吗？
+                        </div>
+                        <div>
+                            我们为您提供带有详尽的技术架构文档和开发示例的
+                            <span> 一站式解决方案</span>;
+                        </div>
+                        <div>
+                            帮您构建
+                            <span> 快速、安全、稳定、低成本、全面兼容开源软件 </span>的广告数字营销平台。
+                        </div>
+                    </div>
+                    <div>
+                        <a id="sou_advertising_trial" class="btn-style" href="/pricing/1rmb-trial/" style="color:white;" target="_blank">我要试用</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="right-content-content">
+                <div class="right-content-top">
+                    <!--独到之处-->
+                    <div class="right-content-summarize">
+                        <h1 class="right-content-title secadv-title">
+                            <a id="adMarketing-advantages" class="seclast_schert"></a>我们的独到之处
+                        </h1>
+                        <ul class="summarize-left">
+                            <li class="li-distance">
+                                <span>广覆盖</span>
+                                <p>覆盖全球的数据中心、优质的网络带宽和三线 BGP，就近快速对接合作方广告交易平台</p>
+                            </li>
+                            <li class="li-distance">
+                                <span>大数据</span>
+                                <p>大数据分析与处理服务，提供按需扩展的 Hadoop 集群服务，方便构建竞价广告和海量受众数据分析系统 </p>
+                            </li>
+                            <li>
+                                <span>开放性</span>
+                                <p>全面开放的平台，轻松将基于众多开源软件构建的广告平台迁移和部署到 Azure </p>
+                            </li>
+                            <li>
+                                <span>混合云</span>
+                                <p>虚拟网络 VPN，支持混合云部署模式，可将广告数字营销企业的已有 IT 资源与云连接，最大程度复用 </p>
+                            </li>
+                            <li>
+                                <span>高安全</span>
+                                <p>安全物理设施、加密网络通信以及品牌承诺的平台中立和隐私协议，保护平台的广告业务和广告主数据安全 </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sel-nav">
+                        <!--方案-->
+                        <div class="right-section-nav navshow" data-value="nav-secadv">
+                            <ul class="all-right">
+                                <li><a id="seccase_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="seccase_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <li><a id="seccase_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>
+                                <li><a id="seccase_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="seccase_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="seccase_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/Windowsazuresolutiondownload01.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="seccase_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/Windowsazuresolutiondownload01.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="seccse_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="seccase_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="seccase_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+                        <!--ad-->
+                        <div class="right-section-nav hide" data-value="nav-secad">
+                            <ul class="all-right">
+                                <li><a id="secad_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secad_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="secad_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <!--<li><a id="secad_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>-->
+                                <li><a id="secad_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secad_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secad_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secad_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secad_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secad_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+                        <!--dsp-->
+                        <div class="right-section-nav hide" data-value="nav-secdsp">
+                            <ul class="all-right">
+                                <li><a id="secdsp_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secdsp_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="secdsp_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <li><a id="secdsp_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="secadsp_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secdsp_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secdsp_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secdsp_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secdsp_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secdsp_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+                        <!--dmp-->
+                        <div class="right-section-nav hide" data-value="nav-secdmp">
+                            <ul class="all-right">
+                                <li><a id="secdmp_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="secdmp_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="secdmp_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <li><a id="secdmp_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="secdmp_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="secdmp_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="secdmp_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="secdmp_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="secdmp_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="secdmp_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+                        <!--第三方-->
+                        <div class="right-section-nav hide" data-value="nav-seclast">
+                            <ul class="all-right">
+                                <li><a id="seclast_title" href="javascript:void(0)" class="selected" data-value="secadv-title">特点</a></li>
+                                <li><a id="seclast_schema" href="javascript:void(0)" data-value="secadv-schema">架构</a></li>
+                                <!--<li><a id="seclast_unique" href="javascript:void(0)" data-value="secadv-unique">优势</a></li>-->
+                                <li><a id="seclast_secase" href="javascript:void(0)" data-value="secadv-secase">案例</a></li>
+                                <li><a id="seclast_apply" href="javascript:void(0)" data-value="secadv-apply">开始使用</a></li>
+                                <li>
+                                    <a id="seclast_guide" href="javascript:void(0)" data-value="secadv-guide" style="font-size:12px;text-indent:10px;">
+                                        架构指南
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="seclast_index" href="javascript:void(0)" data-value="secadv-index" style="font-size:12px;text-indent:10px;">
+                                        示例代码
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/UGIcons/download.png" alt="" style="width:8px;height:12px;margin-bottom:0px;margin-right:7px;">
+                                    </a>
+                                </li>
+                                <li><a id="seclast_help" href="javascript:void(0)" data-value="secadv-help">帮助中心</a></li>
+                                <li><a id="seclast_ques" href="javascript:void(0)" data-value="secadv-ques" style="font-size:12px;text-indent:10px;">常见问题</a></li>
+                                <li><a id="seclast_learn" href="javascript:void(0)" data-value="secadv-learn" style="font-size:12px;text-indent:10px;">深入学习</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--选择框详细内容-->
+                <div class="right-section" style="clear:both;">
+                    <!--方案概述-->
+                    <section data-value="secadv" class="secshow">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secadv-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-overview-framework" class="anchor"></a>架构
+                                </h1>
+                                <div>
+                                    <p style="margin-bottom:5px;">程序化购买广告数字营销系统主要包括:</p>
+                                    <div class="apply-bottom-linkcontent">
+                                        <a id="frame-secad" href="#secad" class="adexchange">Ad Exchange 广告交易平台</a>、
+                                        <a id="frame-secdsp" href="#secdsp" class="dsp">DSP 需求端平台</a> 、
+                                        <a id="frame-secdmp" href="#secdmp" class="dmp">DMP 数据管理平台</a>、
+                                        <a id="frame-seclast" href="#seclast" class="last">第三方服务</a>（包括第三方追踪、流量统计、数据提供商、社交网络监控）、供应端平台、涉及 Web 和移动平台的广告竞拍展示等业务，本解决方案以广告交易平台、需求端平台、数据管理平台、第三方广告社交效果追踪系统为例详述其业务逻辑架构及各功能模块在 Azure 中的构建方案。
+                                    </div>
+                                    <div style="margin-top:25px;">
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-all.jpg" alt="广告数字营销架构图" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--我们能带给您的企业什么-->
+                            <div class="right-content-advantage">
+                                <h1 id="secadv-unique" class="secadv-unique" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-overview-advantages" class="anchor"></a>我们能带给您的企业什么
+                                </h1>
+                                <div class="advantage-left">
+                                    <div class="section-title">
+                                        1.国内数据中心、优质网络带宽和三线 BGP，降低与合作方广告交易平台的数据延迟
+                                    </div>
+                                    <p>Azure 数据中心位于中国大陆，提供优质网络带宽和三线 BGP，能够帮助广告平台就近快速对接合作方平台。</p>
+                                    <div class="section-title">
+                                        2.大数据分析处理服务，方便构建竞价广告和海量受众数据分析系统
+                                    </div>
+                                    <p>HDInsight 基于 Apache Hadoop，支持 HBase、Hive、MapReduce 等，可以按需扩展并处理数 PB 的广告交易或受众数据，还能够集成企业本地 Hadoop 集群。</p>
+                                    <div class="section-title">
+                                        3.混合云部署，最大限度利用现有 IT 资源
+                                    </div>
+                                    <p>多数广告数字营销企业已经购置大量计算或存储设备，而虚拟网络的 VPN 功能支持点到站点、站点到站点的混合云部署模式，可将企业已购设备或自建数据中心与云连接，最大程度复用。</p>
+                                    <div class="section-title">
+                                        4.高性能虚拟机，提升竞价实时运算速度
+                                    </div>
+                                    <p>高性能虚拟机具备超大内存和本地 SSD，提供强大的实时计算能力以应对竞价业务中的高性能需求；同时又可以按需改变规模，只为所用部分付费。</p>
+                                    <div class="section-title">
+                                        5.自动缩放且具备负载均衡的网站或云服务
+                                    </div>
+                                    <p>按需横向和纵向扩展以轻松应对实际广告平台业务中突发的高并发 Web 请求和持续的重负载，确保服务连续性，提升广告主或其他目标客户体验。</p>
+                                    <div class="section-title">
+                                        6.更优质的 CDN 服务质量
+                                    </div>
+                                    <p>使用低延时且高度可伸缩的 CDN 投放广告素材，改善广告展示的用户体验，得益于全球分布式规模部署，Azure CDN 能够处理突发性流量高峰和重负载。</p>
+                                    <div class="section-title">
+                                        7.高 SLA 承诺，全面满足客户对广告数字营销平台服务可靠性的严苛需求
+                                    </div>
+                                    <p>高 SLA 承诺帮助广告平台更具信心地满足高端广告客户对服务可靠性的需求，提升客户的满意度。</p>
+                                </div>
+                            </div>
+
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secadv-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-overview-case" class="anchor"></a>案例
+                                </h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="adv_img1" href="/partnerancasestudy/case-studies/Admaster/" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaoAdmsster.png" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="adv_img2" href="http://www.ipinyou.com.cn/" target="_blank" rel="nofollow">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaopinyou.png" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="adv_img3" href="http://www.yoyi.com.cn/" target="_blank" rel="nofollow">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaoyouyi.png" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="adv_img4" href="http://www.zamplus.com/" target="_blank" rel="nofollow">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaojingzan.png" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="secadv-apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-overview-use_solutions" class="anchor"></a>如何开始应用本方案
+                                </h1>
+                                <div id="adv-guide" class="apply-content">
+                                    <div class="apply-guide apply-distance">
+                                      <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows%20Azure%20whole%20Solution%20advertising.rar" id="advertising_project_architecture_guide" class="applya1" target="_blank" style="display:block;height:100%;min-height:140px;">
+                                        <div class="apply-guide-left">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                        </div>
+                                        <div class="apply-guide-right">
+                                            <div class="apply-right-content">
+                                                  <div class="apply-border">
+                                                      <span class="secadv-guide">架构指南</span>
+                                                      <div style="margin-bottom:5px;">
+                                                          全程帮助您应用解决方案
+                                                      </div>
+                                                  </div>
+                                                    <div class="apply-bottom-content">
+                                                          <div class="apply-bottom">
+                                                              <button id="advertising_project_architecture_guideBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows%20Azure%20whole%20Solution%20advertising.rar" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                  <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载完整架构指南</span>
+                                                                  <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                              </button>
+                                                          </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index">
+                                      <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" id="advertising_project_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:140px;">
+                                        <div class="apply-index-left">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                        </div>
+                                        <div class="apply-index-right">
+                                              <div class="apply-right-content">
+                                                      <div class="apply-border">
+                                                          <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                          <div style="margin-bottom:5px;" class="secadv-index">
+                                                              提供代码的模板
+                                                          </div>
+                                                      </div>
+                                                      <div class="apply-bottom-content">
+                                                          <div class="apply-bottom">
+                                                              <button id="advertising_project_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                  <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                                  <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                              </button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secadv-help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-overview-support" class="anchor"></a>帮助中心
+                                </h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="adv_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising6.pdf" class="secadv-ques" target="_blank">
+                                            <span>该解决方案的常见问题Q&amp;A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="adv_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising7.pdf" class="secadv-learn" target="_blank">
+                                            <span>深入学习类的资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--AD 业务-->
+                    <section data-value="secad" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secad-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-ad-advantages" class="anchor"></a>架构
+                                </h1>
+                                <div>
+                                    <div class="apply-bottom-content">
+                                        基于 Azure 服务和相关开放技术构建实时竞价广告交易平台，处理来自其他平台的实时竞价请求，并对请求进行监测和分析。
+                                    </div>
+                                    <div style="margin-top:25px;">
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-AdExchange.jpg" alt="Ad Exchange 业务系统架构图" />
+                                    </div>
+                                    <div style="margin-top:50px;">
+                                        <div style="font-size:13px;color:#404040; clear:both;margin-bottom:20px;">
+                                            架构图涉及 Azure 服务的详细描述：
+                                        </div>
+                                        <h2 class="ad-title">
+                                            <a id="adMarketing-balance" class="anchor"></a>负载均衡
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：为后端服务器进行流量分发，避免单点故障，将请求按照四层或七层转发给后端（如 RTB 相关 API 服务）进行处理，支持调度算法并通过热备切换结合分布式确保高可用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用终结点端点<a id="sou_ad_bal" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">负载均衡</a>和/或<a id="sou_ad_tra" href="/home/features/traffic-manager/" class="ad-btn" style="color:#404040;" target="_blank">流量管理器</a>构建。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-RTB" class="anchor"></a>RTB 相关 API 服务
+                                        </h2>
+                                        <p class="ad-content">功能概述：承载实时竞价系统供外部 DSP 和 SSP 平台连接的 SOAP/REST 接口，具备高可用且可弹性、灵活地横向与纵向扩展。</p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Cloud Service <a id="sou_ad_col" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>或使用<a id="sou_ad_avm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Web 服务集群。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-foreign" class="anchor"></a>对外业务层和业务系统层
+                                        </h2>
+                                        <p class="ad-content">
+                                            功能概述：承载竞价服务相关的多个业务管理系统，在<a id="sou_ad_bvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建，需要能对服务器进行完全控制，自由组网，并根据业务需求缩放和维护服务器，并且支持使用自定义镜像快速迁移部署。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用<a id="sou_ad_cvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>结合<a id="aou_ad_anet" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>构建，可使用多种 Linux 和 Windows 镜像，以及可用性集、地缘组等功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-log" class="anchor"></a>日志及报表数据处理层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：负责对竞价业务过程中产生的大量日志数据进行处理、分析并生成报表或监测数据，包括在线实时处理和离线处理，通常使用 Storm 进行实时流式计算， MapReduce 或 YARN 进行分布式离线计算和数据挖掘。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 <a id="sou_ad_ahd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a> 服务构建，包括 Storm、MapReduce、YARN、HBase 等功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-dataCache" class="anchor"></a>数据缓存层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用高速缓存存储竞价相关业务数据中频繁读写的部分以降低后端数据库的读写压力，或用于存储消息队列数据。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>在<a id="sou_ad_dvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>服务构建，集群中构建大容量低延时的分布式 Redis 服务。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-storageSQL" class="anchor"></a>数据存储层数据库
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：通常使用 MySQL/Oracle/SQL Server 等关系型数据库存储核心业务数据、报表数据，使用 MongoDB 等 NoSQL 数据库存储操作日志数据，使用 HBase 存储日志报表计算数据。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>可以使用 Azure <a id="sou_ad_asql" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">SQL 数据库</a>或<a id="sou_ad_evm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 SQL Server 数据库；在<a id="sou_ad_fvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 MySQL/Oracle 等关系型数据库，Azure 提供集成 Oracle的镜像；在<a id="sou_ad_jvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建分布式 MongoDB 集群；使用 <a id="sou_ad_chd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a> 服务提供 HBase 功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-persistence" class="anchor"></a>持久化数据存储
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用大量存储选项更安全地管理竞价业务中需持久化存储的数据，提供跨地域冗余存储，支持管理PB级别的存储，数据均可通过 REST API 进行访问。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 Azure Storage 服务的 <a id="sou_ad_ablog" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Blob 存储</a>。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                                <span class="secadv-secase"></span>
+                            </div>
+                            <!--案例-->
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="secad-apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-ad-use_solutions" class="anchor"></a>如何开始应用本方案
+                                </h1>
+                                <div id="ad_guide" class="apply-content">
+                                    <div class="apply-guide apply-distance" style="height:140px;">
+                                     <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising2.pdf" id="advertising_ad_framework" class="applya1" target="_blank" style="display:block;height:100%;min-height:140px;">
+                                        <div class="apply-guide-left" style="height:140px;">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                        </div>
+                                        <div class="apply-guide-right" style="height:140px;">
+                                            <div class="apply-right-content">
+                                                  <div class="apply-border">
+                                                      <span class="secadv-guide">架构指南</span>
+                                                      <div style="margin-bottom:5px;">
+                                                          全程帮助您应用 Ad Exchange 解决方案
+                                                      </div>
+                                                  </div>
+                                                    <div class="apply-bottom-content">
+                                                        <div class="apply-bottom">
+                                                            <button id="advertising_ad_frameworkBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising2.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                                <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载架构指南</span>
+                                                                <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index" style="height:140px;">
+                                    <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" id="advertising_ad_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:140px;">
+                                        <div class="apply-index-left" style="height:140px;">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                        </div>
+                                        <div class="apply-index-right" style="height:140px;">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                    <div style="margin-bottom:5px;" class="secadv-index">
+                                                        提供代码的模板
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_ad_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secad_help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-ad-support" class="anchor"></a>帮助中心
+                                </h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="ad_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising6.pdf" target="_blank">
+                                            <span class="secadv-ques">常见问题Q&amp;A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="ad_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising7.pdf" target="_blank">
+                                            <span class="secadv-learn">深入学习资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--DSP 业务-->
+                    <section data-value="secdsp" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secdsp-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dsp-advantages" class="anchor"></a>架构
+                                </h1>
+                                <div>
+                                    <div class="apply-bottom-content">
+                                        基于 Azure 服务和相关开放技术构建实时竞价需求端平台，接受广告主的投放需求，对数据进行整合分析以查找定向受众数据，并响应广告交易平台的广告资源竞价要求。
+                                    </div>
+                                    <div style="margin-top:25px;">
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-DSP.jpg" alt="DSP 业务系统架构图" />
+                                    </div>
+                                    <div style="margin-top:50px;">
+                                        <div style="font-size:13px;color:#404040; clear:both;margin-bottom:20px;">
+                                            架构图涉及 Azure 服务的详细描述
+                                        </div>
+                                        <h2 class="ad-title">
+                                            <a id="adMarketing-DSP-balance" class="anchor"></a>负载均衡
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：为后端服务器进行流量分发，避免单点故障，将请求按照四层或七层转发给后端（如竞价相关 API 服务和 Web 自助式服务）进行处理，支持调度算法并通过热备切换结合分布式确保高可用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用端点<a id="sou_dsp_ban" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">负载均衡</a>和/或<a id="sou_dsp_tra" href="/home/features/traffic-manager/" class="ad-btn" style="color:#404040;" target="_blank">流量管理器</a>构建。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-bidding" class="anchor"></a>竞价相关 API 服务
+                                        </h2>
+                                        <p class="ad-content">功能概述：承载实时竞价服务供 Ad Exchange 平台连接的 HTTP 接口，具备高可用且可弹性、灵活地横向与纵向扩展。</p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Cloud Service <a id="sou_dsp_clo" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>或使用<a id="sou_dsp_avm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Web 服务集群。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-self" class="anchor"></a>Web 自助式服务
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：承载对外服务的 Web 自助式网站供用户访问使用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Web Apps <a id="sou_dsp_web" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>或 Cloud Service <a id="sou_dsp_bclo" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>构建，站点的静态资源通过 Azure <a id="sou_dsp_acdn" href="/home/features/cdn/" class="ad-btn" style="color:#404040;" target="_blank">CDN</a> 进行分发。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-advertising" class="anchor"></a>竞价广告相关业务和内部业务
+                                        </h2>
+                                        <p class="ad-content">
+                                            功能概述：承载竞价广告相关业务和内部业务等多个业务管理系统，在<a id="sou_dsp_bvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建，需要能对服务器进行完全控制，自由组网，并根据业务需求缩放和维护服务器，并且支持使用自定义镜像快速迁移部署。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用<a id="sou_dsp_cvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>结合<a id="sou_dsp_anet" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>构建，可使用多种 Linux 和 Windows 镜像，以及可用性集、地缘组等功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-dataCollect" class="anchor"></a>数据收集处理层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：负责对竞价业务过程中产生的大量日志数据进行处理、分析并生成报表、监测及预测数据，包括日志数据收集、在线实时计算/分析、离线计算/分析，通常使用 Kafka 分布式消息系统进行日志数据收集处理，Storm 进行实时流式计算，MapReduce 或 YARN 进行分布式离线计算，Mahout 进行机器学习，Spark 进行实时快速准确的数据分析。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 <a id="sou_dsp_bhd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a> 服务构建，包括 Storm、MapReduce、YARN、Mahout、HBase 等功能；在<a id="sou_dsp_dvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Kafka 分布式消息系统和 Spark 集群。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-rapidCache" class="anchor"></a>高速缓存
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用高速缓存存储竞价相关业务数据中频繁读写的部分以降低后端数据库的读写压力，或用于存储消息队列数据。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>在<a id="sou_dsp_evm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建大容量低延时的分布式 Redis 服务。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-stoSQL" class="anchor"></a>数据存取层数据库
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：通常使用 MySQL/Oracle/SQL Server 等关系型数据库存储广告业务数据、人群/行为/报表数据、用户信息。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>可以使用 Azure <a id="sou_dap_bsql" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">SQL 数据库</a>或<a id="sou_dap_fvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建的 SQL Server 数据库；在<a id="sou_dap_jvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 MySQL/Oracle 等关系型数据库，Azure 提供集成 Oracle 的镜像。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-persistent" class="anchor"></a>持久化数据存储
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用大量存储选项更安全地管理竞价业务中需持久化存储的数据，提供跨地域冗余存储，支持管理PB级别的存储，数据均可通过 REST API 进行访问。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span> 使用 Azure Storage 服务的 <a id="sou_dap_bblog" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Blob 存储</a>。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DSP-inEnterprise" class="anchor"></a>企业内部服务
+                                        </h2>
+                                        <p class="ad-content">
+                                            功能概述：使用 Azure <a id="sou_dap_bnet" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>提供的 VPN 将云与企业内部 IT 基础结构连接，集成企业内部的计算/分析服务和数据库集群。
+                                        </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span> 使用<a id="sou_dap_vnet" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>的点到站点或站点到站点 VPN 功能。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                            </div>
+                            <div class="right-content-case">
+                                <h1 id="secad-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dsp-case" class="anchor"></a>案例
+                                </h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="dsp_img2" href="http://www.ipinyou.com.cn/" target="_blank" rel="nofollow">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaopinyou.png" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="dsp_img3" href="http://www.yoyi.com.cn/" target="_blank" rel="nofollow">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaoyouyi.png" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="dsp_img4&quot;" href="http://www.zamplus.com/" target="_blank" rel="nofollow">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaojingzan.png" />
+                                            </a>
+                                        </li>
+                                        <li> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="secdsp_apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dsp-use_solutions" class="anchor"></a>如何开始应用本方案
+                                </h1>
+                                <div id="dsp_guide" class="apply-content">
+                                    <div class="apply-guide apply-distance">
+                                      <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising3.pdf" id="advertising_DSP_framework" class="applya1" target="_blank" style="display:block;height:100%;min-height:140px;">
+                                        <div class="apply-guide-left">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                        </div>
+                                        <div class="apply-guide-right">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-guide">架构指南</span>
+                                                    <div style="margin-bottom:5px;">
+                                                        全程帮助您应用 DSP 解决方案
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_DSP_frameworkBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising3.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载架构指南</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index">
+                                    <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" id="advertising_DSP_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                        <div class="apply-index-left">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                        </div>
+                                        <div class="apply-index-right">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                    <div style="margin-bottom:5px;" class="secadv-index">
+                                                        提供代码的模板
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_DSP_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secad-help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dsp-support" class="anchor"></a>帮助中心
+                                </h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="dsp_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising6.pdf" target="_blank">
+                                            <span class="secadv-ques">常见问题Q&amp;A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="dsp_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising7.pdf" target="_blank">
+                                            <span class="secadv-learn">深入学习资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--DMP 业务-->
+                    <section data-value="secdmp" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                              
+                                <h1 id="secdsp-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dmp-advantages" class="anchor"></a>架构
+                                </h1>
+                                <div>
+                                    <div class="apply-bottom-content">
+                                        基于 Azure 服务和相关开放技术构建数据管理平台，将数据按不同属性进行粒度细分，进行数据汇集并按需要与 DSP 进行数据交换、提供数据决策支持。
+                                    </div>
+                                    <div style="margin-top:25px;">
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-DMP.jpg" alt="DMP 业务系统架构图" />
+                                    </div>
+                                    <div style="margin-top:50px;">
+                                        <div style="font-size:13px;color:#404040;margin-bottom:20px;">
+                                            架构图涉及 Azure 服务的详细描述
+                                        </div>
+                                        <h2 class="ad-title">
+                                            <a id="adMarketing-DMP-balance" class="anchor"></a>负载均衡
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：为后端服务器进行流量分发，避免单点故障，将请求按照四层或七层转发给后端（如多维数据查询 API服务和 Web 自助式服务）进行处理，支持调度算法并通过热备切换结合分布式确保高可用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用端点<a id="sou_dmp_balance" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">负载均衡</a>和/或<a id="sou_dmp_tra" href="/home/features/traffic-manager/" class="ad-btn" style="color:#404040;" target="_blank">流量管理器</a>构建。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DMP-queryAPI" class="anchor"></a>多维数据查询 API 服务
+                                        </h2>
+                                        <p class="ad-content">功能概述：承载 DMP 供 DSP、Ad Exchange、广告主、代理商等外部平台连接的HTTP接口，具备高可用且可弹性、灵活地横向与纵向扩展。</p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Cloud Service <a id="sou_dmp_clo" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>或使用<a id="sou_dmp_vm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Web 服务集群。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DMP-WEBself" class="anchor"></a>Web 自助式服务
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：承载对外服务的 Web 自助式网站供用户访问使用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 Web Apps <a id="sou_dmp_web" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>或<a id="sou_dmp_net" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>构建，可使用多种 Linux 和 Windows 镜像，以及可用性集、地缘组等功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DMP-dataCache" class="anchor"></a>数据缓存层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用高速缓存存储数据管理业务数据中频繁读写的部分以降低后端数据库的读写压力。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用<a id="sou_dmp_bvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>结合， 集群中构建大容量低延时的分布式 Redis 服务。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DMP-dataCollect" class="anchor"></a>数据收集处理层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：通常使用 MySQL/Oracle/SQL Server 等关系型数据库存储业务数据、用户信息。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>可以使用 Azure <a id="sou_dmp_sql" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">SQL 数据库</a>在<a id="sou_dmp_avm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建的 SQL Server 数据库；在<a id="sou_dmp_cvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 MySQL/Oracle 等关系型数据库，Azure提供集成 Oracle 的镜像。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DMP-persistent" class="anchor"></a>持久化数据存储
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用大量存储选项更安全地管理数据管理业务中需持久化存储的数据，提供跨地域冗余存储，支持管理PB级别的存储，数据均可通过REST API进行访问。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用A zure Storage 服务的在 <a id="sou_dmp_blob" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Blob 存储</a>。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-DMP-dataProcess" class="anchor"></a>数据处理层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：负责数据收集流程中获取的大量日志等数据进行处理并生成细粒度用户数据、决策数据，包括数据收集、实时数据收集/处理/分析，离线数据收集/处理/分析，通常使用 Kafka 分布式消息系统进行日志数据收集处理，Storm 进行实时流式计算，MapReduce 或 YARN 进行分布式离线计算，Mahout 进行机器学习，Spark 进行实时快速准确的数据分析。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 <a id="sou_dmp_hd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a> 服务构建，包括 Storm、MapReduce、YARN、Mahout、HBase 等功能；在<a id="sou_dmp_dvm" href="/home/features/virtual-machines/" class=" ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Kafka 分布式消息系统和 Spark 集群。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                            </div>
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secad-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dmp-case" class="anchor"></a>案例
+                                </h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="dmp_img1" href="/partnerancasestudy/case-studies/Admaster/" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaoAdmsster.png" />
+                                            </a>
+                                        </li>
+                                        <li> </li>
+                                        <li> </li>
+                                        <li> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="secdmp_apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dmp-use_solutions" class="anchor"></a>如何开始应用本方案
+                                </h1>
+                                <div id="dmp_guide" class="apply-content">
+                                    <div class="apply-guide apply-distance">
+                                    <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising4.pdf" id="advertising_DMP_framework" class="applya1" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                        <div class="apply-guide-left">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                        </div>
+                                        <div class="apply-guide-right">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-guide">架构指南</span>
+                                                    <div style="margin-bottom:5px;">
+                                                        全程帮助您应用 DMP 解决方案
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_DMP_frameworkBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising4.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载架构指南</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index">
+                                    <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" id="advertising_DMP_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                        <div class="apply-index-left">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                        </div>
+                                        <div class="apply-index-right">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                    <div style="margin-bottom:5px;" class="secadv-index">
+                                                        提供代码的模板
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_DMP_Btn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secad-help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-dmp-support" class="anchor"></a>帮助中心
+                                </h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="dmp_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising6.pdf" target="_blank">
+                                            <span class="secadv-ques">常见问题Q&amp;A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="dmp_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising7.pdf" target="_blank">
+                                            <span class="secadv-learn">深入学习资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--第三方-->
+                    <section data-value="seclast" class="hide">
+                        <div class="right-section-content">
+                            <!--架构-->
+                            <div class="right-content-frame">
+                                <h1 id="secdsp-schema" class="secadv-schema" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-tracking-framework" class="anchor"></a>架构
+                                </h1>
+                                <div>
+                                    <div class="apply-bottom-content">
+                                        基于 Azure 服务和相关开放技术构建第三方广告社交效果追踪系统，实时地监控大量广告位的最新动态，对趋势、效果、舆情等监测并给出数据洞察和分析报告。
+                                    </div>
+                                    <div style="margin-top:25px;">
+                                        <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/solution-three.jpg" alt="第三方广告社交效果追踪系统架构图" />
+                                    </div>
+                                    <div style="margin-top:50px;">
+                                        <div style="font-size:13px;color:#404040;margin-bottom:20px;">
+                                            架构图涉及 Azure 服务的详细描述
+                                        </div>
+                                        <h2 class="ad-title">
+                                            <a id="adMarketing-tracking-balance" class="anchor"></a>负载均衡
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：为后端服务器进行流量分发，避免单点故障，将请求按照四层或七层转发给后端（如数据收集API服务）进行处理，支持调度算法并通过热备切换结合分布式确保高可用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用端点<a id="sou_last_balance" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">负载均衡</a>和/或<a id="sou_last_tra" href="/home/features/traffic-manager/" class="ad-btn" style="color:#404040;" target="_blank">流量管理器</a>构建。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-spread" class="anchor"></a>分布式消息队列
+                                        </h2>
+                                        <p class="ad-content">功能概述：通常使用 Kafka 分布式消息系统进行日志数据收集处理。</p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>在<a id="sou_last_vm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>集群中构建 Kafka 分布式消息系统，结合<a id="sou_last_net" href="/home/features/virtual-network/" class="ad-btn" style="color:#404040;" target="_blank">虚拟网络</a>以及可用性集、地缘组等功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-datalog" class="anchor"></a>数据(日志)处理层和数据(报表)计算层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：负责数据收集流程中获取的大量日志等数据进行处理并生成业务逻辑层需要的数据和报表，通常使用Storm进行实时流式计算，MapReduce 或 YARN 进行分布式离线计算，Mahout 进行机器学习，Spark 进行实时快速准确的数据分析，ElasticSearch 作为分布式数据检索引擎。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 的构建方案：</span>使用 <a id="sou_last_ahd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a> 服务构建，包括 Storm、MapReduce、YARN、Mahout、HBase 等功能；在<a id="sou_last_net" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Spark 集群和 ElasticSearch 服务。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-dataStorage" class="anchor"></a>数据(日志)存储层
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：通常使用 MySQL 进行关系型结构化存储、使用 Redis 作为高速缓存、使用 MongoDB 进行非结构化存储、使用 HDFS 和 HBase 进行用于大数据处理的分布式存储。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>可以在<a id="sou_last_bvm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 MySQL 数据库、Redis 集群、MongoDB 集群；使用 <a id="sou_last_bhd" href="/home/features/hdinsight/" class="ad-btn" style="color:#404040;" target="_blank">HDInsight</a> 服务提供 HDFS、HBase 功能。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-report" class="anchor"></a>报表/业务数据存储层数据库
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：通常使用 MySQL/Oracle/SQL Server 等关系型数据库存储报表、业务数据。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>可以使用 Azure <a id="sou_lst_sql" href="/home/features/sql-database/" class="ad-btn" style="color:#404040;" target="_blank">SQL 数据库</a>在<a id="sou_last_avm" href="/home/features/virtual-machines/" class="ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 MySQL/Oracle 等关系型数据库，Azure 提供集成 Oracle 的镜像。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-long" class="anchor"></a>持久化数据存储
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：使用大量存储选项更安全地管理业务中需持久化存储的数据，提供跨地域冗余存储，支持管理PB级别的存储，数据均可通过 REST API 进行访问。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 Azure Storage 服务的 在 <a id="sou_last_blob" href="/home/features/storage/" class="ad-btn" style="color:#404040;" target="_blank">Blob 存储</a>。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-quaryAPI" class="anchor"></a>多维数据查询 API 服务
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：承载对外服务的 HTTP 接口，具备高可用且可弹性、灵活地横向与纵向扩展。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 Cloud Service <a id="sou_last_vhd" href="/home/features/cloud-services/" class="ad-btn" style="color:#404040;" target="_blank">云服务</a>或使用<a id="sou_last_evm" href="/home/features/virtual-machines/" class=" ad-btn" style="color:#404040;" target="_blank">虚拟机</a>中构建 Web 服务集群。
+                                            </p>
+                                        </div>
+                                        <h2 class="ad-title" style="clear:both;margin-top:30px;">
+                                            <a id="adMarketing-tracking-selfSvevice" class="anchor"></a>Web 自助式服务
+                                        </h2>
+                                        <p class="ad-content"> 功能概述：承载对外服务的 Web 自助式网站供用户访问使用。 </p>
+                                        <div class="ad-distance">
+                                            <p>
+                                                <span class="span-style">Azure 中的构建方案：</span>使用 Web Apps <a id="sou_last_web" href="/home/features/web-site/" class="ad-btn" style="color:#404040;" target="_blank">Web 应用</a>或 Cloud Service <a id="sou_last_eclo" href="/home/features/cloud-services/" class=" ad-btn" style="color:#404040;" target="_blank">云服务</a>构建，站点的静态资源通过 Azure <a id="sou_last_ecach" href="/home/features/cdn/" class=" ad-btn" style="color:#404040;" target="_blank">CDN</a> 进行分发。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="secadv-unique"></span>
+                            </div>
+                            <!--案例-->
+                            <div class="right-content-case">
+                                <h1 id="secad-secase" class="secadv-secase" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-tracking-case" class="anchor"></a>案例
+                                </h1>
+                                <div class="img-case">
+                                    <ul>
+                                        <li>
+                                            <a id="last_img1" href="/partnerancasestudy/case-studies/Admaster/" target="_blank">
+                                                <img class="logo" src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guanggaoshuziyingxiaoAdmsster.png" />
+                                            </a>
+                                        </li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--应用方案-->
+                            <div class="right-content-apply">
+                                <h1 id="secad-apply" class="secadv-apply" style=" font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-tracking-use_solutions" class="anchor"></a>如何开始应用本方案
+                                </h1>
+                                <div id="dmp_guide" class="apply-content">
+                                    <div class="apply-guide apply-distance" style="height:150px;">
+                                     <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising5.pdf" id="advertising_third_framework" class="applya1" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                        <div class="apply-guide-left" style="height:150px;">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/guildline_.png" alt="" />
+                                        </div>
+                                        <div class="apply-guide-right" style="height:150px;">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-guide">架构指南</span>
+                                                    <div style="margin-bottom:5px;">
+                                                        全程帮助您应用第三方广告社交效果追踪系统解决方案
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_third_frameworkBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising5.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">
+                                                                下载架构指南 <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="apply-index" style="height:150px;">
+                                     <a href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" id="advertising_third_code" class="applya2" target="_blank" style="display:block;height:100%;min-height:120px;">
+                                        <div class="apply-index-left" style="height:150px;">
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/code-sample_.png" alt="" />
+                                        </div>
+                                        <div class="apply-index-right" style="height:150px;">
+                                            <div class="apply-right-content">
+                                                <div class="apply-border">
+                                                    <span class="secadv-index" style="font-size:18px;">示例代码索引</span>
+                                                    <div style="margin-bottom:5px;" class="secadv-index">
+                                                        提供代码的模板
+                                                    </div>
+                                                </div>
+                                                <div class="apply-bottom-content">
+                                                    <div class="apply-bottom">
+                                                        <button id="advertising_third_codeBtn" data-href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising1.pdf" style="border:none;background-color:transparent;line-heihgt:24px;height:30px;margin-top:5px;" class="link-btn">
+                                                            <span style="float:left;line-height:31px;color:#33a4fb;font-weight:400;">下载示例代码</span>
+                                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_.png" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--帮助中心-->
+                            <div class="right-content-help" style="margin-bottom:60px;">
+                                <h1 id="secad-help" class="secadv-help" style="font-size: 24px; color: #000000; display: block; margin-bottom: 25px; font-weight: 600;">
+                                    <a id="adMarketing-tracking-support" class="anchor"></a>帮助中心
+                                </h1>
+                                <div class="help-left">
+                                    <div>
+                                        <a id="last_ques" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising6.pdf" target="_blank">
+                                            <span class="secadv-ques">常见问题Q&amp;A</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a id="last_learn" href="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_solution_advertising7.pdf" target="_blank">
+                                            <span class="secadv-learn">深入学习资源</span>
+                                            <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/triangle-to-right_black_.png" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--选择框-->
+        <div class="right-content-select">
+            <div class="right-content-center">
+                <ul class="right-content-tab" style="clear:none; max-width:980px;">
+                    <li class="tabchoose">
+                        <a id="tab-secadv" href="#secadv">
+                            方案概述<span class="triangle"></span>
+                        </a>
+                    </li>
+                    <li class="adchoose">
+                        <a id="tab-secad" href="#secad">
+                            <div style="padding:0 15px;">
+                                Ad Exchange 业务系统
+                            </div>
+                            <span class="triangle"></span>
+                        </a>
+                    </li>
+                    <li class="dspchoose">
+                        <a id="tab-secdsp" href="#secdsp">
+                            DSP 业务系统<span class="triangle"></span>
+                        </a>
+                    </li>
+                    <li class="dmpchoose">
+                        <a id="tab-secdmp" href="#secdmp">
+                            DMP 业务系统<span class="triangle"></span>
+                        </a>
+                    </li>
+                    <li class="tab-choose">
+                        <a id="tab-seclast" href="#seclast">
+                            <div style="padding:0 15px;">
+                                第三方广告社交效果追踪系统
+                            </div>
+                            <span class="triangle"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--选择框详细内容-->
+    </div>
+    <script>
+        function onload() {
+            var strUrl = window.location.href;
+            if (strUrl.indexOf("#") > 0) {
+                var secID = strUrl.split("#")[1];
+                //显示内容
+                $(".right-content-tab li a").each(function () {
+                    var strhref = $(this).attr('id');
+                    if (strhref.indexOf(secID) > 0) {
+                        clearChoose();
+                        $(".right-section section").removeClass("secshow").addClass("hide");
+                        if ($(this).parent().hasClass("tab-choose")) {
+                            $(this).parent().removeClass("tab-choose").addClass("tabchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                        else if ($(this).parent().hasClass("adchoose")) {
+                            $(this).parent().removeClass("adchoose").addClass("sel-adchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                        else if ($(this).parent().hasClass("dmpchoose")) {
+                            $(this).parent().removeClass("dmpchoose").addClass("sel-dmpchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                        else if ($(this).parent().hasClass("dspchoose")) {
+                            $(this).parent().removeClass("dspchoose").addClass("sel-dspchoose");
+                            $(".right-section section").each(function () {
+                                if ($(this).attr('data-value') == secID) {
+                                    $(this).removeClass("hide").addClass("secshow");
+                                    var strel = "nav-" + secID;
+                                    $(".right-section-nav[data-value='" + strel + "']").removeClass("hide").addClass("navshow");
+                                }
+                            });
+                        }
+                    }
+                });
+            };
+        };
+        onload();
+        //清除选中
+        function clearChoose() {
+            $(".tabchoose").removeClass("tabchoose").addClass("tab-choose");
+            $(".sel-adchoose").removeClass("sel-adchoose").addClass("adchoose");
+            $(".sel-dmpchoose").removeClass("sel-dmpchoose").addClass("dmpchoose");
+            $(".sel-dspchoose").removeClass("sel-dspchoose").addClass("dspchoose");
+            $(".secshow").removeClass("secshow").addClass("hide");
+            $(".navshow").removeClass("navshow").addClass("hide");
+        }
+    </script>
+</div>
+]]>
+    </bodyText>
+    <redirectURL>solutions/industry-precisionmarketing/</redirectURL>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>广告数字营销 | Azure</pageTitle>
+    <metaKeywords>Azure, 微软云, 解决方案, 架构, 方案, 产品应用, 实时竞价, 数字营销, DSP, DMP, 广告效果, 大数据, 高性能, 混合云</metaKeywords>
+    <metaDescription><![CDATA[广告数字营销能提供带有详尽的技术架构文档和开发示例的一站式解决方案，帮您构建快速、安全、稳定、低成本、全面兼容开源软件的广告数字营销平台。基于Windows Azure产品和服务构建实时竞价广告数字营销的DSP、DMP、SSP、ADX及第三方平台的业务系统。]]></metaDescription>
+    <linkid>solutions-advertising</linkid>
+    <urlDisplayName>广告数字营销</urlDisplayName>
+    <headerExpose />
+    <footerExpose />
+    <disqusComments>0</disqusComments>
+    <metaCanonical />
+    <isHeader>0</isHeader>
+    <pageTemplate />
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>

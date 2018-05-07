@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="18819" parentID="18423" level="5" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="11" createDate="2013-07-11T10:40:48" updateDate="2014-08-18T11:09:38" nodeName="Twilio Voice and SMS Service" urlName="twilio-voice-and-sms-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,17371,18423,18819" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/dotnet" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>如何在 Windows Azure 中使用 Twilio 实现语音和短信功能</h1>
+<p>本指南演示如何在 Windows Azure 中使用 Twilio API 服务执行常见编程任务。所涉及的任务包括发起电话呼叫和发送短信服务 (SMS) 消息。有关 Twilio 以及在应用程序中使用语音和短信的更多信息，请参见<a href="#NextSteps">后续步骤</a>一节。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#WhatIs">什么是 Twilio？</a></li>
+<li><a href="#Pricing">Twilio 定价</a></li>
+<li><a href="#Concepts">概念</a></li>
+<li><a href="#CreateAccount">创建 Twilio 帐户</a></li>
+<li><a href="#VerifyPhoneNumbers">验证电话号码</a></li>
+<li><a href="#create_app">创建 Windows Azure 应用程序</a></li>
+<li><a href="#configure_app">将应用程序配置为使用 Twilio 库</a></li>
+<li><a href="#howto_make_call">如何：发起传出呼叫</a></li>
+<li><a href="#howto_send_sms">如何：发送 SMS 消息</a></li>
+<li><a href="#howto_provide_twiml_responses">如何：从您自己的网站提供 TwiML 响应</a></li>
+<li><a href="#AdditionalServices">如何：使用其他 Twilio 服务</a></li>
+<li><a href="#NextSteps">后续步骤</a></li>
+</ul>
+<h2><a id="WhatIs"></a> <span class="short-header">什么是 Twilio？</span>什么是 Twilio？</h2>
+<p>Twilio 是一种电话 Web 服务 API，它使您能够使用现有 Web 语言和技术构建语音和 SMS 应用程序。Twilio 是一项第三方服务（而非 Windows Azure 功能和 Microsoft 产品）。</p>
+<p>利用 <strong>Twilio 语音</strong>，您的应用程序可以发起和接收电话呼叫。利用 <strong>Twilio SMS</strong>，您的应用程序可以发出和接收 SMS 消息。利用 <strong>Twilio 客户端</strong>，您的应用程序可以使用现有 Internet 连接（包括移动连接）启用语音通信。</p>
+<h2><a id="Pricing"></a> <span class="short-header">Twilio 定价和优惠</span>Twilio 定价和特别优惠</h2>
+<p><a href="http://www.twilio.com/pricing">Twilio 定价（可能为英文页面）</a>中提供了有关 Twilio 定价的信息。Windows Azure 客户可享受<a href="http://ahoy.twilio.com/azure">特别优惠</a>：免费获得 1000 条信息和 1000 分钟拨入通话时间。若要注册此优惠或了解更多信息，请访问 <a href="http://ahoy.twilio.com/azure">http://ahoy.twilio.com/azure</a>。</p>
+<h2><a id="Concepts"></a> <span class="short-header">概念</span>概念</h2>
+<p>Twilio API 是一个为应用程序提供语音和短信功能的 RESTful API。提供了多种语言版本的客户端库；有关列表，请参阅 <a href="https://www.twilio.com/docs/libraries">Twilio API 库（可能为英文页面）</a>。</p>
+<p>Twilio API 的关键方面是 Twilio 谓词和 Twilio 标记语言 (TwiML)。</p>
+<h3><a id="Verbs"></a>Twilio 谓词</h3>
+<p>API 利用了 Twilio 谓词；例如，<strong>&lt;Say&gt;</strong> 谓词指示 Twilio 在呼叫时传递语音消息。</p>
+<p>下面是 Twilio 谓词的列表。</p>
+<ul>
+<li><strong>&lt;Dial&gt;</strong>：将呼叫方连接到其他电话。</li>
+<li><strong>&lt;Gather&gt;</strong>：收集通过电话按键输入的数字。</li>
+<li><strong>&lt;Hangup&gt;</strong>：结束呼叫。</li>
+<li><strong>&lt;Play&gt;</strong>：播放音频文件。</li>
+<li><strong>&lt;Pause&gt;</strong>：安静地等待指定时间（以秒为单位）。</li>
+<li><strong>&lt;Record&gt;</strong>：录制呼叫方的声音并返回包含该录音的文件的 URL。</li>
+<li><strong>&lt;Redirect&gt;</strong>：将对呼叫或 SMS 的控制转移到其他 URL 上的 TwiML。</li>
+<li><strong>&lt;Reject&gt;</strong>：拒绝对 Twilio 号码的传入呼叫而不向您收费</li>
+<li><strong>&lt;Say&gt;</strong>：将文本转换为呼叫中生成的语音。</li>
+<li><strong>&lt;Sms&gt;</strong>：发送 SMS 消息。</li>
+</ul>
+<h3><a id="TwiML"></a>TwiML</h3>
+<p>TwiML 是一组基于 XML 的指令，这些指令以用于指示 Twilio 如何处理呼叫或 SMS 的 Twilio 谓词为基础。</p>
+<p>例如，以下 TwiML 会将文本 <strong>Hello World</strong> 转换为语音。</p>
+<pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" ?&gt; &lt;Response&gt;    &lt;Say&gt;Hello World&lt;/Say&gt; &lt;/Response&gt;</pre>
+<p>当应用程序调用 Twilio API 时，某个 API 参数将为返回 TwiML 响应的 URL。在开发过程中，可以使用 Twilio 提供的 URL 来提供应用程序所使用的 TwiML 响应。还可以承载您自己的 URL 来生成 TwiML 响应，也可以选择使用 <strong>TwiMLResponse</strong> 对象。</p>
+<p>有关 Twilio 谓词、其属性和 TwiML 的详细信息，请参阅 <a href="http://www.twilio.com/docs/api/twiml">TwiML</a>。有关 Twilio API 的其他信息，请参阅 <a href="http://www.twilio.com/api">Twilio API</a>。</p>
+<h2><a id="CreateAccount"></a> <span class="short-header">创建帐户</span>创建 Twilio 帐户</h2>
+<p>准备好获取 Twilio 帐户后，请在<a href="https://www.twilio.com/try-twilio">试用 Twilio（可能为英文页面）</a> 上注册。可以先使用免费帐户，以后再升级您的帐户。</p>
+<p>注册 Twilio 帐户时，您将收到帐户 ID 和身份验证令牌。需要二者才能发起 Twilio API 呼叫。为了防止对您的帐户进行未经授权的访问，请保护身份验证令牌。您的帐户 ID 和身份验证令牌会分别显示在 <a href="https://www.twilio.com/user/account">Twilio 帐户页（可能为英文页面）</a>上标记为“帐户 SID”<strong></strong>和“身份验证令牌”<strong></strong>的字段中。</p>
+<h2><a id="VerifyPhoneNumbers"></a> <span class="short-header">验证电话号码</span>验证电话号码</h2>
+<p>需要使用 Twilio 为您的帐户验证各个电话号码。例如，若要发起出站电话呼叫，必须使用 Twilio 验证电话号码是否为出站呼叫方 ID。同样，若要使电话号码接收 SMS 消息，则必须使用 Twilio 验证接收电话号码。有关如何验证电话号码的信息，请参阅<a href="https://www.twilio.com/user/account/phone-numbers/verified#">管理号码（可能为英文页面）</a>。下面的一些代码依赖于需要使用 Twilio 进行验证的电话号码。</p>
+<p>作为对应用程序使用现有号码的替代方法，您可以购买 Twilio 电话号码。有关购买 Twilio 电话号码的信息，请参阅 <a href="https://www.twilio.com/help/faq/phone-numbers">Twilio 电话号码帮助（可能为英文页面）</a>。</p>
+<h2><a id="create_app"></a> <span class="short-header">创建应用程序</span>创建 Windows Azure 应用程序</h2>
+<p>承载启用 Twilio 的应用程序的 Windows Azure 应用程序与其他任何 Windows Azure 应用程序没有区别。您只需添加 Twilio .NET 库并将角色配置为使用 Twilio .NET 库。有关创建初始 Windows Azure 项目的信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee405487.aspx">使用 Visual Studio 创建 Windows Azure 项目</a>。</p>
+<h2><a id="configure_app"></a> <span class="short-header">为 Twilio 配置应用程序</span>将应用程序配置为使用 Twilio 库</h2>
+<p>Twilio 提供了一系列可包装 Twilio 各个方面的 .NET 帮助程序库，使您能够以简单且轻松地方式与 Twilio REST API 和 Twilio 客户端进行交互，从而生成 TwiML 响应。</p>
+<p>Twilio 为 .NET 开发人员提供了 5 个库：</p>
+<table border="1">
+<tbody>
+<tr><th>库</th><th>说明</th></tr>
+<tr>
+<td>Twilio.API</td>
+<td>可在友好的 .NET 库中包装 Twilio REST API 的核心 Twilio 库。此库可用于 .NET、Silverlight 和 Windows Phone 7。</td>
+</tr>
+<tr>
+<td>Twilio.TwiML</td>
+<td>可提供一种 .NET 友好方式来生成 TwiML 标记。</td>
+</tr>
+<tr>
+<td>Twilio.MVC</td>
+<td>对于使用 ASP.NET MVC 的开发人员，此库包括 TwilioController 和 TwiML ActionResult 以及请求验证属性。</td>
+</tr>
+<tr>
+<td>Twilio.WebMatrix</td>
+<td>对于使用 Microsoft 免费 WebMatrix 开发工具的开发人员，此库包含适用于各种 Twilio 操作的 Razor 语法帮助程序。</td>
+</tr>
+<tr>
+<td>Twilio.Client.Capability</td>
+<td>包含可用于 Twilio 客户端 JavaScript SDK 的 Capability 令牌生成器。</td>
+</tr>
+</tbody>
+</table>
+<p>请注意，所有库都需要 .NET 3.5、Silverlight 4 或者 Windows Phone 7 或更高版本。</p>
+<p>本指南中提供的示例使用 Twilio.API 库。</p>
+<p>这些库在 GithHub 上以二进制形式提供，并且可以使用适用于 Visual Studio 2010 的 NuGet 程序包管理器扩展进行安装。<a href="https://github.com/twilio/twilio-csharp">GitHub 存储库（可能为英文页面）</a>站点还包括一个包含有关使用这些库的完整文档的 Wiki。</p>
+<p>默认情况下，Microsoft Visual Studio 2010 安装 1.2 版的 NuGet。安装 Twilio 库需要 1.6 或更高版本的 NuGet。有关安装或更新 NuGet 的信息，请参阅 <a href="http://nuget.org/">http://nuget.org/</a>。</p>
+<div class="dev-callout">注意
+<p>若要安装 NuGet 的最新版本，必须首先使用 Visual Studio Extension Manager 卸载已加载的版本。为此，您必须以管理员的身份运行 Visual Studio。否则，“卸载”按钮将处于禁用状态。</p>
+</div>
+<h3><a id="use_nuget"></a>向您的 Visual Studio 项目添加 Twilio 库：</h3>
+<ol>
+<li>在 Visual Studio 中打开您的解决方案。</li>
+<li>右键单击“引用”<strong></strong>。</li>
+<li>单击“管理 NuGet 程序包...”<strong></strong>。</li>
+<li>单击“联机”<strong></strong>。</li>
+<li>在“联机搜索”框中，键入 <em>twilio</em>。</li>
+<li>单击 Twilio 程序包中的“安装”<strong></strong>。</li>
+</ol>
+<h2><a id="howto_make_call"></a> <span class="short-header">发起呼叫</span>如何：发起传出呼叫</h2>
+<p>以下屏幕快照演示如何使用 <strong>TwilioRestClient</strong> 类发起传出呼叫。此代码还使用 Twilio 提供的网站返回 Twilio 标记语言 (TwiML) 响应。用您的值替换“呼叫方”<strong></strong>和“被叫方”<strong></strong>电话号码，并确保在运行代码之前验证您的 Twilio 帐户的“呼叫方”<strong></strong>电话号码。</p>
+<pre class="prettyprint">// Use your account SID and authentication token instead // of the placeholders shown here. string accountSID = "your_twilio_account"; string authToken = "your_twilio_authentication_token";  // Create an instance of the Twilio client. TwilioRestClient client; client = new TwilioRestClient(accountSID, authToken);  // Use the Twilio-provided site for the TwiML response. String Url="http://twimlets.com/message"; Url = Url + "?Message%5B0%5D=Hello%20World";  // Instantiate the call options that are passed // to the outbound call CallOptions options = new CallOptions();   // Set the call From, To, and URL values to use for the call. // This sample uses the sandbox number provided by // Twilio to make the call. options.From = "+NNNNNNNNNN"; options.To = "NNNNNNNNNN"; options.Url = Url;  // Make the call. var call = client.InitiateOutboundCall(options);</pre>
+<p>有关传入 <strong>client.InitiateOutboundCall</strong> 方法的参数的更多信息，请参见 <a href="http://www.twilio.com/docs/api/rest/making-calls">http://www.twilio.com/docs/api/rest/making-calls</a>。</p>
+<p>如前所述，此代码使用 Twilio 提供的网站返回 TwiML 响应。可以改用您自己的站点来提供 TwiML 响应。有关更多信息，请参见<a href="#howto_provide_twiml_responses">如何：从您自己的网站提供 TwiML 响应</a>。</p>
+<h2><a id="howto_send_sms"></a> <span class="short-header">发送 SMS 消息</span>如何：发送 SMS 消息</h2>
+<p>以下屏幕快照演示如何使用 <strong>TwilioRestClient</strong> 类发送 SMS 消息。“呼叫方”<strong></strong>号码 <strong>4155992671</strong> 由 Twilio 提供，供试用帐户用来发送 SMS 消息。在运行代码前，必须验证您的 Twilio 帐户的“被叫方”<strong></strong>号码。</p>
+<pre class="prettyprint">// Use your account SID and authentication token instead     // of the placeholders shown here.     string accountSID = "your_twilio_account";     string authToken = "your_twilio_authentication_token";      // Create an instance of the Twilio client.     TwilioRestClient client;     client = new TwilioRestClient(accountSID, authToken);      // Retrieve the account, used later to create an instance     // of the client.     Twilio.Account account = client.GetAccount();      // Send an SMS message.     SMSMessage result = client.SendSmsMessage(         "+14155992671", "+12069419717", "This is my SMS message.");      if (result.RestException != null)     {         //an exception occurred making the REST call         string message = result.RestException.Message;     }</pre>
+<h2><a id="howto_provide_twiml_responses"></a> <span class="short-header">从您自己的站点提供 TwiML 响应</span>如何：从您自己的网站提供 TwiML 响应</h2>
+<p>当您的应用程序开始调用 Twilio API 时（例如通过 <strong>client.InitiateOutboundCall</strong> 方法），Twilio 会将您的请求发送到预期返回 TwiML 响应的 URL。<a href="#howto_make_call">如何：发起传出呼叫</a>中的示例使用 Twilio 提供的 URL <a href="http://twimlets.com/message">http://twimlets.com/message</a> 返回该响应。</p>
+<div class="dev-callout">注意
+<p>虽然 TwiML 设计为供 Web 服务使用，但您可以在浏览器中查看 TwiML。例如，单击 [http://twimlets.com/message][twimlet_message_url] 可查看空 &lt;Response&gt; 元素；又如，单击 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 可查看包含 &lt;Say&gt; 元素的 &lt;Response&gt; 元素。</p>
+</div>
+<p>您可以创建自己的返回 HTTP 响应的 URL 网站，而不用依赖 Twilio 提供的 URL。您可以使用任何语言创建返回 HTTP 响应的站点。本主题假定您将从 ASP.NET 一般处理程序承载该 URL。</p>
+<p>以下 ashx 页面将生成在呼叫时表述 <strong>Hello World</strong> 的 TwiML 响应。</p>
+<pre class="prettyprint">using System; using System.Collections.Generic; using System.Linq; using System.Web;  namespace WebRole1 {     /// &lt;summary&gt;     /// Summary description for Handler1     /// &lt;/summary&gt;     public class Handler1 : IHttpHandler     {          public void ProcessRequest(HttpContext context)         {             context.Response.Clear();             context.Response.ContentType = "text/xml";             context.Response.ContentEncoding = System.Text.Encoding.UTF8;             string twiMLResponse = "&lt;Response&gt;&lt;Say&gt;Hello World&lt;/Say&gt;&lt;/Response&gt;";             context.Response.Write(twiMLResponse);             context.Response.End();         }          public bool IsReusable         {             get             {                 return false;             }         }     } }</pre>
+<p>以下 ashx 页面将生成一个 TwiML 响应，念出一些文字，中间停顿几次，然后报告 Twilio API 版本。</p>
+<pre class="prettyprint">using System; using System.Collections.Generic; using System.Linq; using System.Web;  namespace WebRole1 {     /// &lt;summary&gt;     /// Summary description for Handler1     /// &lt;/summary&gt;     public class Handler1 : IHttpHandler     {          public void ProcessRequest(HttpContext context)         {             // Instantiate an instance of the Twilio client.             string accountSID = "ACNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";             string authToken =  "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";             var client = new Twilio.TwilioRestClient(accountSID, authToken);              var twiml = new Twilio.TwiML.TwilioResponse();             twiml.BeginGather()                 .Say("Hello from Windows Azure")                 .Pause()                 .Say("The Twilio API version is " + client.ApiVersion + ".")                 .Pause()                 .Say("Good bye.");             twiml.EndGather();              context.Response.Clear();             context.Response.ContentType = "text/xml";             context.Response.Write(twiml.ToString());             context.Response.End();         }          public bool IsReusable         {             get             {                 return false;             }         }     } }</pre>
+<p>若要查看适用于 Twilio 语音和 SMS 请求的请求参数，请分别参阅 <a href="https://www.twilio.com/docs/api/twiml/twilio_request">https://www.twilio.com/docs/api/twiml/twilio_request</a> 和 <a href="https://www.twilio.com/docs/api/twiml/sms/twilio_request">https://www.twilio.com/docs/api/twiml/sms/twilio_request</a>。</p>
+<p>在将您的处理程序设置为提供 TwiML 响应后，可使用该页面的 URL 作为传入 <strong>client.InitiateOutboundCall</strong> 方法的 URL。例如，如果将名为 MyTwiML 的 Web 应用程序部署到 Windows Azure 云服务，则 cshtml 页面的名称将为 mytwiml.ashx，并且可将 URL 传递到 <strong>client.InitiateOutboundCall</strong>，如以下代码示例中所示：</p>
+<pre class="prettyprint">// Place the call From, To, and URL values into a hash map. // This sample uses the sandbox number provided by Twilio to make the call. options.From = "NNNNNNNNNN"; options.To = "NNNNNNNNNN"; options.Url = "http://&lt;your_hosted_service&gt;.chinacloudapp.cn/MyTwiML/mytwiml.ashx";  // Place the call. var call = client.InitiateOutboundCall(options);</pre>
+<p>有关通过 ASP.NET 在 Windows Azure 中使用 Twilio 的其他信息，请参阅<a href="../twilio-phone-call/">如何在 Windows Azure 的 Web 角色中使用 Twilio 发起电话呼叫</a>。</p>
+<?UMBRACO_MACRO chunkpath="devcenter/shared" hide="0" chunkname="twilio_additional_services_and_next_steps" macroAlias="AzureChunkDisplayer" />
+</div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何使用 Twilio 实现语音和短信功能 (.NET) - Windows Azure</pageTitle><metaKeywords>Windows Azure Twilio, Windows Azure 电话呼叫, Azure 电话呼叫, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure 语音呼叫, azure 语音呼叫, Windows Azure 短信, Azure 短信</metaKeywords><metaDescription><![CDATA[了解如何在 Windows Azure 中使用 Twilio API 服务发起电话呼叫和发送 SMS 消息。代码示例用 .NET 编写。]]></metaDescription><linkid>develop-net-how-to-twilio-sms-service</linkid><urlDisplayName>Twilio 语音/SMS 服务</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

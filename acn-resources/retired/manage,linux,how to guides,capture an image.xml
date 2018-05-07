@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19188" parentID="19185" level="5" writerID="52" creatorID="94" nodeType="1137" template="1052" sortOrder="3" createDate="2013-07-11T11:59:47" updateDate="2014-08-18T11:25:51" nodeName="Capture an Image" urlName="capture-an-image" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,19174,19185,19188" isDoc=""><bodyText><![CDATA[<div style="margin-top: 55px;">
+<h1>如何捕获运行 Linux 的虚拟机的映像</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>您可以使用映像库中的映像轻松创建虚拟机，也可以捕获和使用自己的映像来创建自定义虚拟机。映像是用作创建虚拟机的模板的虚拟硬盘 (VHD) 文件。映像是一个模板，因为它不具有类似于配置的虚拟机这样的特定设置，例如计算机名称和用户帐户设置。如果您想要创建以相同方式设置的多台虚拟机，则可以捕获已配置虚拟机的映像并使用该映像作为模板。</p>
+<ol>
+<li>
+<p>使用<a href="/zh-cn/manage/linux/how-to-guides/log-on-a-linux-vm">如何登录到运行 Linux 的虚拟机</a>中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令，然后输入在虚拟机上创建的帐户的密码：</p>
+<p><code>sudo waagent –deprovision</code></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxdeprovision.png" alt="取消设置虚拟机"/></p>
+</li>
+<li>
+<p>键入<strong> y</strong> 以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/linuxdeprovision2.png" alt="成功地取消设置虚拟机"/></p>
+</li>
+<li>
+<p>键入<strong> Exit</strong> 以关闭 SSH 客户端。</p>
+</li>
+<li>
+<p>在<a href="http://manage.windowsazure.cn">管理门户</a>中，选择虚拟机，然后单击“关机”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/shutdownvm.png" alt="关闭虚拟机"/></p>
+</li>
+<li>
+<p>单击“是”，同意在虚拟机停止运行后继续支付相关付费。</p>
+</li>
+<li>
+<p>在虚拟机停止后，在命令栏中，单击“捕获”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/capturevm.png" alt="捕获虚拟机的映像"/></p>
+<p>将出现“捕获虚拟机”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/capturelinux.png" alt="输入捕获的详细信息"/></p>
+</li>
+<li>
+<p>在“映像名称”中，输入新映像的名称。</p>
+</li>
+<li>
+<p>必须通过运行带 –deprovision 选项的 waagent 命令来取消设置所有 Linux 映像。单击“已在虚拟机上运行取消设置命令”以指示操作系统准备就绪，可随时将其用作映像。</p>
+</li>
+<li>
+<p>单击复选标记以捕获映像。</p>
+<p>新映像现在显示在“映像”下。捕获映像后，将删除虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/windows/capturesuccess.png" alt="成功捕获映像"/></p>
+<p>当您使用“从库中”方法创建虚拟机时，可以使用通过单击“虚拟机操作系统选择”页面上“我的映像”捕获的映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/linux/myimageslinux.png" alt="使用捕获的映像"/></p>
+</li>
+</ol>
+<h2><a id="nextsteps"></a>后续步骤</h2>
+<p>现在，您已了解有关创建虚拟机的基础知识，单击下面的链接可了解如何执行更复杂的任务。</p>
+<ul>
+<li>将虚拟机部署到虚拟网络或子网</li>
+<li>使用本地 DNS/AD 将虚拟机添加到本地域</li>
+</ul>
+</div>]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle>捕获运行 Linux 的虚拟机的映像</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-linux-howto-capture-an-image</linkid><metaKeywords>Azure Linux vm, Linux vm</metaKeywords><metaDescription><![CDATA[了解如何捕获运行 Linux 的 Windows Azure 虚拟机 (VM) 的映像。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>捕获映像</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>

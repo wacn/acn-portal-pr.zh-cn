@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><umbTextpage id="19166" parentID="19159" level="4" writerID="52" creatorID="94" nodeType="1059" template="1052" sortOrder="7" createDate="2013-07-11T11:51:08" updateDate="2014-08-18T11:22:50" nodeName="HOL-IntroToWindowsAzureVirtualMachinesLinux" urlName="hol-introtowindowsazurevirtualmachineslinux" writerName="uRest" creatorName="xunfan" path="-1,11978,13431,19159,19166" isDoc=""><bodyText><![CDATA[<div>
+<?UMBRACO_MACRO chunkpath="devcenter/trainingkit" hide="0" chunkname="article-left-menu" macroAlias="AzureChunkDisplayer" />
+<h1>Windows Azure 虚拟机 (Linux) 简介</h1>
+<h3><a href="http://www.contentinstaller.net/Install/Content/LAB_IaaSDeployLinux">下载实验资产</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-IntroToWindowsAzureVirtualMachinesLinux/fork_select">在 Github 上执行自我复制</a>/<a href="https://github.com/WindowsAzure-TrainingKit/HOL-IntroToWindowsAzureVirtualMachinesLinux/issues">报告问题</a></h3>
+<a name="Overview"></a>
+<h2>概述</h2>
+<p>将 Windows Azure 用作您的 IaaS 平台将使您能够快速创建和管理您的基础结构，从而能够在任何地方设置和访问任何主机。通过基于云的基础结构来拓展业务，从而降低许可、设置和备份成本。</p>
+<p>在本动手实验中，您将了解如何使用 Windows Azure IaaS 平台在云中设置基于 Linux 的 VM 以及对其进行远程管理。</p>
+<a name="Objectives"></a>
+<h3>目标</h3>
+<p>在本动手实验中，您将了解如何：</p>
+<ul>
+<li>在 Windows Azure 中创建 Linux 虚拟机</li>
+<li>使用 MySql 安装并配置 Apache Web 服务器</li>
+<li>安装并配置 Drupal CMS</li>
+</ul>
+<a name="Prerequisites"></a>
+<h3>必备组件</h3>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>本实验设计为在 Windows Azure 中创建新虚拟机时使用 <strong>OpenSUSE</strong> linux 分发。</p>
+</div>
+<a name="Exercises"></a>
+<h2>练习</h2>
+<p>本动手实验包括以下练习：</p>
+<ol>
+<li>
+<p><a href="#Exercise1">在 Windows Azure 中创建 Linux VM</a></p>
+</li>
+<li>
+<p><a href="#Exercise2">安装并配置 VM</a></p>
+</li>
+<li>
+<p><a href="#Exercise3">安装并配置 Drupal</a></p>
+</li>
+</ol>
+<p>完成本实验的估计时间：<strong>45 分钟</strong>。</p>
+<a name="Exercise1"></a>
+<h3>练习 1：在 Windows Azure 中创建 Linux VM</h3>
+<p>在此练习中，您将了解如何在 Azure 门户中设置 Linux 虚拟机。</p>
+<a name="Ex1Task1"></a>
+<p><strong>任务 1 - 新建 Linux 虚拟机</strong></p>
+<ol>
+<li>打开 Internet Explorer 并浏览 <a href="https://manage.windowsazure.cn">https://manage.windowsazure.cn</a> 以进入 Windows Azure 门户。然后，使用您的凭据进行登录。</li>
+<li>
+<p>在位于底部的菜单中，选择“新建”|“虚拟机”|“从库中”<strong></strong>来开始新建虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-a-new-virtual-machine.png" alt="新建虚拟机"/></p>
+<p><em>新建虚拟机</em></p>
+<ol>
+<li>
+<p>在“虚拟机操作系统选择”<strong></strong>页中，单击左侧菜单上的“平台映像”<strong></strong>，然后从列表中选择“OpenSUSE”<strong></strong>操作系统映像。单击箭头以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-a-vm-suse.png" alt="从映像列表中选择 OpenSUSE"/></p>
+<p><em>从映像列表中选择 OpenSUSE</em></p>
+</li>
+<li>
+<p>在“虚拟机配置”<strong></strong>页中，输入<strong>虚拟机名称</strong>，将“新用户名”<strong></strong>设置为“管理员”<strong></strong>，并设置“密码”<strong></strong>和 VM 的“大小”<strong></strong>。单击<strong>右箭头</strong>以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-a-vm-configuration.png" alt="配置自定义 VM"/></p>
+<p><em>创建 VM - 配置</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 建议对管理员用户使用安全密码，因为可从仅知道其 DNS 的 Internet 访问 Windows Azure 虚拟机。</p>
+<p>您也可以阅读 Microsoft 安全网站上的以下文档，它将帮助您选择安全密码：<a href="http://www.microsoft.com/security/online-privacy/passwords-create.aspx">http://www.microsoft.com/security/online-privacy/passwords-create.aspx</a></p>
+</div>
+</li>
+<li>
+<p>在“虚拟机模式”<strong></strong>页中，选择“独立虚拟机”<strong></strong>，输入“DNS 名称”<strong></strong>，您可以自动生成新的存储帐户或选择您已拥有的存储帐户。然后，选择“区域/地缘组/虚拟网络”<strong></strong>值（默认情况下，为“美国西部”），然后选择“订阅”<strong></strong>。单击<strong>右箭头</strong>以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-a-vm-vm-mode.png" alt="配置自定义 VM，VM 模式"/></p>
+<p><em>创建 VM - VM 模式</em></p>
+</li>
+<li>
+<p>在“VM 选项”<strong></strong>页中，单击用于创建新 VM 的按钮。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-a-vm--vm-options.png" alt="创建 VM - VM 选项"/></p>
+<p><em>创建 VM - VM 选项</em></p>
+</li>
+</ol></li>
+<li>
+<p>在“虚拟机”<strong></strong>部分，您将看到您创建的处于“正在配置”<em></em>状态的 VM。等待其状态更改为“正在运行”<em></em>，然后继续以下步骤。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-linux-vm.png" alt="创建 Linux VM"/></p>
+<p><em>创建 Linux VM</em></p>
+</li>
+<li>
+<p>现在，您将创建管理 VM 所需的终结点。为此，请选择 VM 以转到“仪表板”<strong></strong>页，然后单击“终结点”<strong></strong>。</p>
+</li>
+<li>
+<p>单击“添加终结点”<strong></strong>，选择“添加终结点”<strong></strong>选项，然后单击<strong>右箭头</strong>以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/adding-a-new-endpoint.png" alt="添加新终结点"/></p>
+<p><em>添加新终结点</em></p>
+</li>
+<li>
+<p>在“指定终结点详细信息”<strong></strong>页中，将“名称”<strong></strong>设置为“web”<em></em>，将“协议”<strong></strong>设置为“TCP”<em></em>，并将“公用端口”<strong></strong>和“专用端口”<strong></strong>设置为“80”<em></em>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/new-endpoint-details.png" alt="新终结点详细信息"/></p>
+<p><em>指定终结点详细信息</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 此终结点启用端口 80，在以下任务中，Apache Server 将使用该端口。</p>
+</div>
+</li>
+</ol><a name="Ex1Task2"></a>
+<p><strong>任务 2 - 验证：使用 SSH 客户端连接到虚拟机</strong></p>
+<p>现在，您已设置并配置了 Linux 虚拟机，您将通过使用 SSH 客户端来进行连接。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>您可以在此处下载 Putty，这是 Windows 的免费 SSH 客户端：<a href="http://www.putty.org/">http://www.putty.org/</a></p>
+</div>
+<ol>
+<li>
+<p>在 Windows Azure 门户中，从列表中选择“Linux VM”以进入<strong>仪表板</strong>。记下“速览”部分中的“SSH 详细信息”<strong></strong>字段，这是您将用于通过 SSH 客户端访问和连接到虚拟机的公用地址。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/ssh-endpoint.png" alt="SSH 终结点"/></p>
+<p><em>SSH 终结点</em></p>
+</li>
+<li>
+<p>打开 Putty 客户端（或任何其他 SSH 客户端），然后使用上一步中的地址和端口创建到 VM 的新连接。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/connecting-to-the-linux-vm-via-putty-client.png" alt="通过 Putty 客户端连接到 Linux VM"/></p>
+<p><em>通过 Putty 客户端连接到 Linux VM</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>您可以验证 VM 的“终结点”<strong></strong>部分中的 SSH 连接的公用端口。</p>
+</div>
+</li>
+<li>
+<p>使用 VM 凭据进行登录。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/logging-in-to-the-linux-virtual-machine.png" alt="登录到 Linux 虚拟机"/></p>
+<p><em>登录到 Linux 虚拟机</em></p>
+</li>
+<li>
+<p>执行以下命令来使用“管理员”<strong></strong>权限进行模拟。</p>
+<pre class="prettyprint">sudo su -</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/logging-in-with-administrator-rights.png" alt="使用管理员权限登录"/></p>
+<p><em>使用管理员权限登录</em></p>
+</li>
+</ol><a name="Exercise2"></a>
+<h3>练习 2：安装并配置 VM</h3>
+<p>在此练习中，您将了解如何使用 SSH 客户端在 Linux VM 中安装并配置 Web 服务器。首先，您将通过使用 Yast2 应用程序来安装 Apache Web 服务器和 MySQL 数据库服务器。然后，您将配置 VM 并创建数据库示例。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 如果您尚未运行练习 1，请确保您已准备好以下各项，然后才能继续运行练习 2：</p>
+</div>
+<a name="Ex2Task1"></a>
+<p><strong>任务 1 - 安装并配置 Apache 和 MySQL</strong></p>
+<p>在此任务中，您将安装并配置 Apache HTTP Server 和 MySQL Database Management System。</p>
+<ol>
+<li>
+<p>安装 <strong>Yast2</strong>。在终端，执行以下命令来安装所需包。</p>
+<pre class="prettyprint">zypper install yast2 zypper install yast2-ncurses zypper install yast2-ncurses-pkg zypper install yast2-qt zypper install yast2-gtk zypper install yast2-packager zypper install yast2-network zypper install yast2-http-server</pre>
+</li>
+<li>
+<p>若要安装 Drupal 的必备组件，您将使用 <strong>Yast2</strong> 来自动安装 Apache 和 MySQL 及其依赖项。在终端，执行 <strong>Yast2</strong>。这会打开 <strong>Yast2</strong> 应用程序。</p>
+<pre class="prettyprint">yast2</pre>
+</li>
+<li>
+<p>使用您的键盘上的箭头键选择“Software”（软件）<strong></strong>，按右箭头并选择“Software Management”（软件管理）<strong></strong>，然后按 <strong>Enter</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/yast2-control-center.png" alt="YaST2 控制中心"/></p>
+<p><em>YaST2 中的“Software Management”</em></p>
+</li>
+<li>
+<p>按 <strong>Alt+F</strong> 来更改筛选器类型并选择“Patterns”（模式）<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/selecting-the-patterns-filter.png" alt="选择“Patterns”筛选器"/></p>
+<p><em>选择“Patterns”筛选器</em></p>
+</li>
+<li>
+<p>向下滚动选项，直至找到“Web and LAMP Server”（Web 和 LAMP Server）<strong></strong>。按 <strong>Enter</strong> 来选择它，然后按 <strong>Alt+T</strong>，选择“All listed packages...”（所有列出的包）<strong></strong>和“Install All”（全部安装）<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/installing-web-and-lamp-server.png" alt="安装 Web 和 LAMP Server"/></p>
+<p><em>安装 Web 和 LAMP Server</em></p>
+</li>
+<li>
+<p>按 <strong>Alt+A</strong> 来开始安装。在出现确认提示时，按 <strong>Enter</strong>。</p>
+</li>
+<li>
+<p>安装完成后，程序将返回到主菜单。再次进入“Software Management”（软件管理）<strong></strong>。键入 <strong>php5-json</strong> 来搜索此包并按 <strong>Enter</strong> 来选择它。按 <strong>Alt+A</strong> 来开始安装。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/installing-php-extensions.png" alt="安装 PHP 扩展"/></p>
+<p><em>安装 PHP 扩展</em></p>
+</li>
+<li>
+<p>返回到主菜单，按左箭头键并选择“Network Services”（网络服务）<strong></strong>。按右箭头键，选择“HTTP Server”<strong></strong>，然后按 <strong>Enter</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/configuring-http-server.png" alt="配置 HTTP Server"/></p>
+<p><em>配置 HTTP Server</em></p>
+</li>
+<li>
+<p>按照向导中的步骤操作，对每个步骤按 <strong>F10</strong> 以使用默认值完成配置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/http-service-setup-wizard.png" alt="HTTP 服务设置向导"/></p>
+<p><em>HTTP 服务设置向导</em></p>
+</li>
+<li>
+<p>再次选择“Network Services”（网络服务）<strong></strong>并选择“HTTP Server”<strong></strong>。按 <strong>Alt+E</strong> 启用 HTTP 服务，然后按 <strong>Alt+F</strong> 确认更改。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/enabling-http-service.png" alt="启用 HTTP 服务"/></p>
+<p><em>启用 HTTP 服务</em></p>
+</li>
+<li>
+<p>返回到主菜单，按左箭头键并从菜单选项中选择“System”（系统）<strong></strong>。按右箭头并选择“System Services (Runlevel)”（系统服务(Runlevel））<strong></strong>，然后按 <strong>Enter</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/configuring-system-services.png" alt="配置系统服务"/></p>
+<p><em>配置系统服务</em></p>
+</li>
+<li>
+<p>向下滚动，直至找到“mysql”<strong></strong>，然后按 <strong>Alt+E</strong> 启用该服务。等到该服务运行后，对确认消息按 <strong>Enter</strong>。按 <strong>F10</strong> 保存设置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/enabling-mysql-service.png" alt="启用 MySQL 服务"/></p>
+<p><em>启用 MySQL 服务</em></p>
+</li>
+<li>
+<p>按 <strong>Alt+Q</strong> 退出 <strong>YaST2</strong>。</p>
+</li>
+</ol><a name="Exercise3"></a>
+<h3>练习 3 - 安装并配置 Drupal</h3>
+<p>在此练习中，您将在 Linux 虚拟机中安装并配置 Drupal CMS。在此练习结束后，您将能够托管 Drupal CMS 网站。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong> 在开始此练习之前，请确保您已完成练习 2。</p>
+</div>
+<a name="Ex3Task1"></a>
+<p><strong>任务 1 - 安装并配置 Drupal</strong></p>
+<p>在此任务中，您将在 Windows Azure Linux 虚拟机上安装并配置 Drupal 门户。另外，您将创建 Drupal CMS 将使用的空数据库。</p>
+<ol>
+<li>
+<p>通过执行以下命令来打开根网站文件夹并创建一个名为 <strong>drupal</strong> 的文件夹。</p>
+<pre class="prettyprint">cd /srv/www/htdocs mkdir drupal cd drupal</pre>
+</li>
+<li>
+<p>执行以下命令来安装 <strong>wget</strong>。</p>
+<pre class="prettyprint">zypper install wget</pre>
+</li>
+<li>
+<p>下载并提取 <strong>Drupal</strong>。</p>
+<pre class="prettyprint">wget http://drupal.org/files/projects/drupal-7.10.tar.gz tar -xzf drupal-7.10.tar.gz --strip-components=1</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/downloading-drupal.png" alt="下载 Drupal"/></p>
+<p><em>下载 Drupal</em></p>
+</li>
+<li>
+<p>复制位于 <strong>sites/default</strong> 目录中的 <strong>default.settings.php</strong> 文件，并将复制的文件重命名为 <strong>settings.php</strong>。另外，为 Web 服务器提供对配置文件的写入权限。</p>
+<pre class="prettyprint">cp sites/default/default.settings.php sites/default/settings.php chmod a+w sites/default/settings.php chmod a+w sites/default</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/creating-the-configuration-file-and-granting.png" alt="创建配置文件并授予权限"/></p>
+<p><em>创建配置文件并授予权限</em></p>
+</li>
+<li>
+<p>若要完成安装，请在 <strong>MySQL</strong> 中为 <strong>Drupal</strong> 创建空数据库。执行以下命令：</p>
+<pre class="prettyprint">mysqladmin create drupaldb</pre>
+</li>
+<li>
+<p>执行 <strong>mysql</strong>。在 MySQL 提示符处，执行以下查询。使用您的用户帐户替换 <strong>username</strong> 和 <strong>password</strong>。</p>
+<pre class="prettyprint">GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES   ON drupaldb.* TO 'username'@'localhost' IDENTIFIED BY 'password';</pre>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/granting-permissions-in-mysql.png" alt="在 MySQL 中授予权限"/></p>
+<p><em>在 MySQL 中授予权限</em></p>
+</li>
+<li>
+<p>打开 Internet Explorer 并找到虚拟机 DNS 名称。浏览到 <em>https://[YOUR-DNS-URL]/drupal</em> 来完成 Drupal 安装。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/opening-drupal-for-the-first-time.png" alt="第一次打开 Drupal"/></p>
+<p><em>第一次打开 Drupal</em></p>
+<div class="dev-callout"><strong>注意</strong>
+<p><strong>注意：</strong>您可以在官方文档 (<a href="http://drupal.org/documentation/install/run-script">http://drupal.org/documentation/install/run-script</a>) 中找到有关 Drupal 配置的更多详细信息。</p>
+</div>
+</li>
+<li>
+<p>在“Set up Database”（设置数据库）页中，输入您在任务 1 中创建的数据库的名称（“drupaldb”）以及“用户名”<strong></strong>和“密码”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/opening-drupal-for-the-first-time2.png" alt="第一次打开 Drupal (2)"/></p>
+<p><em>第一次打开 Drupal</em></p>
+</li>
+<li>
+<p>在“Configure site”（配置站点）<strong></strong>网站中，输入用户名、电子邮件地址和密码以创建新的<strong>网站维护帐户</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/configuring-a-drupal-account.png" alt="配置 Drupal 帐户"/></p>
+<p><em>配置 Drupal 帐户</em></p>
+</li>
+<li>
+<p>单击“Visit your Web site”（访问网站）<strong></strong>链接来验证 Drupal 主页是否已加载。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/training-kit/hol-introtowindowsazurevirtualmachineslinux/images/drupal-cms-home-page.png" alt="Drupal CMS 主页"/></p>
+<p><em>Drupal CMS 主页</em></p>
+</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>Windows Azure 虚拟机 Linux – Windows Azure HOL</pageTitle><metaKeywords>Linux, Windows Azure Linux, 虚拟机, Linux 虚拟机</metaKeywords><metaDescription><![CDATA[在本动手实验中，您将了解如何使用 Windows Azure IaaS 平台在云中设置基于 Linux 的 VM 以及对其进行远程管理。]]></metaDescription><linkid>Devlop-trainingkit-HOL-IntroToWindowsAzureVirtualMachinesLinux</linkid><urlDisplayName>Windows Azure 虚拟机 Linux</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate>dynamic-leftnav</pageTemplate><localize>1</localize><localizePartial>0</localizePartial><sitemapHide></sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>

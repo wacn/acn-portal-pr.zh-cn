@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><TextpageLeftNav id="19286" parentID="19282" level="5" writerID="52" creatorID="94" nodeType="1137" template="1136" sortOrder="4" createDate="2013-07-11T12:16:37" updateDate="2014-08-18T11:29:32" nodeName="How to Monitor Websites" urlName="how-to-monitor-websites" writerName="uRest" creatorName="xunfan" path="-1,11978,12083,18409,19282,19286" isDoc=""><bodyText><![CDATA[<div>
+<h1><a name="howtomonitor"></a>如何监视网站</h1>
+<?UMBRACO_MACRO hide="0" chunkpath="shared" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>网站通过“监视”管理页提供监视功能。“监视”管理页提供了网站的性能统计信息，如下所述。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#websitemetrics">如何：添加网站度量值</a></li>
+<li><a href="#howtoviewusage">如何：查看网站的使用率配额</a></li>
+<li><a href="#resourceusage">如何：减少资源使用率</a></li>
+<li><a href="#exceeded">超出使用率配额时出现的情况</a></li>
+<li><a href="#howtoconfigdiagnostics">如何：为网站配置诊断和下载日志</a></li>
+<li><a href="#webendpointstatus">如何：监视 Web 端点状态</a></li>
+</ul>
+<h2><a name="websitemetrics"></a>如何：添加网站度量值</h2>
+<ol>
+<li>
+<p>在 <a href="http://manage.windowsazure.cn/">Windows Azure管理门户</a>中，从网站的“管理”页面中，单击“监视”选项卡以显示“监视”管理页。默认情况下，“监视”页面上的图表显示的度量值与“仪表板”页面上的图表显示的度量值相同。</p>
+</li>
+<li>
+<p>若要查看网站的其他度量值，请单击页面底部的“添加度量值”以显示“选择度量值”对话框。</p>
+</li>
+<li>
+<p>单击以选择要在“监视”页上显示的其他度量值。</p>
+</li>
+<li>
+<p>选择要添加到“监视”页面的度量值后，单击“确定”。</p>
+</li>
+<li>
+<p>将度量值添加到“监视”页后，单击以启用/禁用每个度量值旁边的选项框以在页面顶部的图表中添加/删除度量值。</p>
+</li>
+<li>
+<p>若要从“监视”页中删除度量值，请选择要删除的度量值，然后单击页面底部的“删除度量值”图标。</p>
+</li>
+</ol>
+<p>下面的列表描述了可以在“监视”页上的图表中查看的度量值：</p>
+<ul>
+<li><strong>CPU 时间</strong> – 对网站的 CPU 使用率的度量。</li>
+<li><strong>请求数</strong> – 对客户端向网站发出的请求的计数。</li>
+<li><strong>输出数据量</strong> – 对网站已发送到客户端的数据的度量。</li>
+<li><strong>输入数据量</strong> – 对网站从客户端处接收的数据的度量。</li>
+<li><strong>HTTP 客户端错误</strong> – 已发送的 Http“4xx 客户端错误”消息的数目。</li>
+<li><strong>HTTP 服务器错误</strong> – 已发送的 Http“5xx 服务器错误”消息的数目。</li>
+<li><strong>HTTP 成功</strong> – 已发送的 Http“2xx 成功”消息的数目。</li>
+<li><strong>HTTP 重定向</strong> – 已发送的 Http“3xx 重定向”消息的数目。</li>
+<li><strong>HTTP 401 错误</strong> – 已发送的 Http“401 未授权”消息的数目。</li>
+<li><strong>HTTP 403 错误</strong> – 已发送的 Http“403 已禁止”消息的数目。</li>
+<li><strong>HTTP 404 错误</strong> – 已发送的 Http“404 未找到”消息的数目。</li>
+<li><strong>HTTP 406 错误</strong> – 已发送的 Http“406 不可接受”消息的数目。</li>
+</ul>
+<h2><a name="howtoviewusage"></a>如何：查看网站的使用率配额</h2>
+<p>可以从网站的“缩放”管理页中将网站配置为在“共享”或“专属”网站模式中运行。每个 Azure 订阅均有权访问为在“共享”网站模式中运行最多 10 个网站所提供的一组资源。对于为此目的而向每个网站订阅提供的该组资源可由同一地理区域中配置为在“共享”网站模式中运行的其他网站共享。由于共享这些资源是为了供其他网站使用，因此所有订阅对这些资源的使用是受限的。适用于订阅对这些资源的使用的限制表示为每个网站的“仪表板”管理页的“使用概览”一节的下方列出的使用率配额。</p>
+<p><strong>注意</strong> <br /> 当网站配置为在“专属”模式中运行时，为该网站分配的专用资源等同于针对<a href="http://go.microsoft.com/fwlink/?LinkID=236449">如何配置虚拟机大小</a>上的表中的“小”（默认值）、“中”或“大”虚拟机大小分配的专用资源。对于可供订阅用于在“专属”模式中运行网站的资源没有限制，但是，可为每个订阅创建的“专属”模式网站的数量不能超过 <strong>100</strong>。</p>
+<h3>查看为“共享”网站模式配置的网站的使用率配额</h3>
+<p>若要确定网站对资源使用率配额的影响程度，请执行下列步骤：</p>
+<ol>
+<li>打开网站的“仪表板”管理页。</li>
+<li>“使用概览”部分的下方将显示“输出数据量”、“CPU 时间”和“文件系统存储”的使用率配额。为每个资源显示的绿色条指示当前网站占用了订阅的资源使用率配额的量，为每个资源显示的灰色条指示与您的网站订阅关联的所有其他“共享”模式网站占用了订阅的资源使用率配额的量。</li>
+</ol>
+<p>资源使用率配额可帮助阻止过度使用下列资源：</p>
+<ul>
+<li><strong>输出数据量</strong> – 对当前配额时间间隔（24 小时）内从在“共享”模式中运行的网站发送到其客户端的数据量的度量。</li>
+<li><strong>CPU 时间</strong> – 当前配额时间间隔内由在“共享”模式中运行的网站使用的 CPU 时间量。</li>
+<li><strong>文件系统存储</strong> – 由在“共享”模式中运行的网站使用的文件系统存储量。</li>
+</ul>
+<p>如果超出了订阅的使用率配额，则 Windows Azure 会采取措施以停止对资源的过度使用。这样做是为了阻止任何订户耗尽资源而对其他订户造成损害。</p>
+<h2><a name="resourceusage"></a>如何：减少资源使用率</h2>
+<p>由于 Windows Azure 会通过度量订阅的“共享”模式网站在 24 小时配额时间间隔内使用的资源量来计算资源使用率配额，因此请考虑以下几点：</p>
+<ul>
+<li>由于配置为在“共享”模式中运行的网站的数量已增加，因此可能会超出“共享”模式资源使用率配额。如果超出了资源使用率配额，请考虑减少配置为在“共享”模式中运行的网站的数目。</li>
+<li>同样，由于在“共享”模式中运行的任何网站的实例数已增加，因此可能会超出“共享”模式资源使用率配额。如果超出了资源使用率配额，请考虑减少“共享”模式网站的附加实例数。</li>
+</ul>
+<h2><a name="exceeded"></a>超出使用率配额时出现的情况</h2>
+<p>如果在配额时间间隔（24 小时）内超出了订阅的资源使用率配额，则 Windows Azure 将采取下列措施：</p>
+<ul>
+<li>
+<p><strong>输出数据量</strong> – 如果超出此配额，则 Windows Azure 将在当前配额时间间隔的剩余时间内停止订阅的配置为在“共享”模式中运行的所有网站。Windows Azure 将在下一个配额时间间隔开始时启动网站。</p>
+</li>
+<li>
+<p><strong>CPU 时间</strong> – 如果超出此配额，则 Windows Azure 将在当前配额时间间隔的剩余时间内停止订阅的配置为在“共享”模式中运行的所有网站。Windows Azure 将在下一个配额时间间隔开始时启动网站。</p>
+</li>
+<li>
+<p><strong>文件系统存储</strong> – 如果部署将导致超出文件系统存储使用率配额，则 Windows Azure 将阻止部署订阅的配置为在“共享”模式中运行的所有网站。如果文件系统存储资源已增加到其配额允许的最大大小，则仍可访问文件系统存储来进行读取操作，但会阻止任何写入操作，包括常规网站活动所需的操作。在出现此情况时，您可以将一个或多个在“共享”网站模式中运行的网站配置为在“专属”网站模式中运行，并减少文件系统存储的使用率，使其低于文件系统存储使用率配额。</p>
+</li>
+</ul>
+<h2><a name="howtoconfigdiagnostics"></a>如何：为网站配置诊断和下载日志</h2>
+<p>可将网站配置为从其“配置”管理页中捕获和记录诊断信息。本主题介绍如何捕获诊断数据以记录文件，将日志文件下载到本地计算机并读取日志文件。</p>
+<h3>配置网站的诊断</h3>
+<p>在网站的“配置”管理页上为该网站启用诊断。在“配置”管理页的“诊断”部分下，可启用或禁用以下日志记录或跟踪选项：</p>
+<ul>
+<li><strong>详细错误日志记录</strong> - 启用“详细错误日志记录”可捕获网站所生成的所有错误。</li>
+<li><strong>未能请求跟踪</strong> - 启用“未能请求跟踪”可捕获失败的客户端请求的信息。</li>
+<li><strong>Web 服务器日志记录</strong> - 启用“Web 服务器日志记录”可使用 W3C 扩展日志文件格式保存网站日志。</li>
+</ul>
+<p>为网站启用诊断功能后，单击“配置”管理页底部的“保存”图标可应用已设置的选项。</p>
+<div class="dev-callout">重要说明
+<p>记录和跟踪会对网站提出诸多要求。建议您在重现所排查的问题后关闭日志记录和跟踪功能。</p>
+</div>
+<h3>下载网站的日志文件</h3>
+<p>执行下列步骤可下载网站的日志文件：</p>
+<ol>
+<li>打开网站的“仪表板”管理页，然后记下在“诊断日志”下方列出的 FTP 站点以及在“部署用户”下方列出的帐户。FTP 站点是日志文件所在的位置，而“部署用户”下方列出的帐户可用于对 FTP 站点进行身份验证。</li>
+<li>如果尚未创建部署凭据，则“部署用户”下方列出的帐户将列为“未设置”。在此情况下，您必须创建部署凭据（如“仪表板”的“重置部署凭据”一节中所述），因为必须使用这些凭据对存储日志文件的 FTP 站点进行身份验证。Windows Azure 不支持使用 Live ID 凭据对此 FTP 站点进行身份验证。</li>
+<li>考虑使用 FTP 客户端（如 <a href="http://go.microsoft.com/fwlink/?LinkId=247914">FileZilla</a>）连接到 FTP 站点。与使用浏览器相比，使用 FTP 客户端指定凭据和查看 FTP 站点上的文件夹通常会轻松得多。</li>
+<li>将 FTP 站点中的日志文件复制到本地计算机。</li>
+</ol>
+<h2>读取网站中的日志文件</h2>
+<p>为网站启用日志记录和/或跟踪功能后生成的日志文件是不同的，具体取决于在网站的“配置”管理页上设置的日志记录/跟踪的级别。以下是日志文件的位置以及可用于分析日志文件的方法：</p>
+<h3>日志文件类型：失败请求跟踪</h3>
+<ul>
+<li>
+<p>位置：/LogFiles/W3SVC#########/。此文件夹包含一个 XSL 文件和一个或多个 XML 文件。请确保将 XSL 文件下载到 XML 文件所在的目录中，因为 XSL 文件提供了在 Internet Explorer 中查看 XML 文件时格式化和筛选这些文件的内容的功能。</p>
+</li>
+<li>
+<p>用于读取文件的工具：Internet Explorer</p>
+</li>
+</ul>
+<h3>日志文件类型：详细错误日志记录</h3>
+<ul>
+<li>
+<p>位置：/LogFiles/DetailedErrors/。/LogFiles/DetailedErrors/ 文件夹包含一个或多个 .htm 文件，这些文件提供了已出现的所有 HTTP 错误的丰富信息。</p>
+</li>
+<li>
+<p>用于读取文件的工具：Internet Explorer</p>
+</li>
+</ul>
+<p>.htm 文件包括以下各部分：</p>
+<ul>
+<li>
+<p><strong>详细错误信息：</strong>包括有关错误的信息，如“模块”、“处理程序”、“错误代码”和“请求的 URL”。</p>
+</li>
+<li>
+<p><strong>最可能的原因：</strong> 列出导致错误的多个可能的原因。</p>
+</li>
+<li>
+<p><strong>可以尝试的操作：</strong> 列出用于解决错误所报告的问题的可能的解决方案。</p>
+</li>
+<li>
+<p><strong>链接和更多信息</strong>：提供有关错误的其他摘要信息，并且还包括指向其他资源（如 Microsoft 知识库文章）的链接。</p>
+</li>
+</ul>
+<h3>日志文件类型：Web 服务器日志记录</h3>
+<ul>
+<li>
+<p>位置：/LogFiles/http/RawLogs</p>
+</li>
+<li>
+<p>用于读取文件的工具：日志分析程序。用于分析和查询 IIS 日志文件。可从 Microsoft 下载中心获得 Log Parser 2.2，网址为 <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>。</p>
+</li>
+</ul>
+<h2><a name="webendpointstatus"></a>如何：监视 Web 端点状态</h2>
+<p>可使用以下过程为您的网站配置 Web 端点监视。</p>
+<div class="dev-callout">注意
+<p>此功能仅在“专属”模式下可用。您最多可从 3 个地理位置最多监视 2 个端点。</p>
+</div>
+<p>端点监视可从测试 Web URL 的响应时间和运行时间的分布式地理位置配置 Web 测试。该测试可对 Web URL 执行 HTTP get 操作，以从每个位置确定响应时间和运行时间。每个已配置位置每 5 分钟运行一次测试。</p>
+<p>将使用 HTTP 响应代码监视运行时间，并且以毫秒为单位计算响应时间。当响应时间不到 30 秒且 HTTP 状态代码小于 400 时，可将运行时间视为 100%。当响应时间超过 30 秒或 HTTP 状态代码大于 400 时，运行时间为 0%。</p>
+<p>在配置端点监视后，您可逐层展开到各个端点以从每个测试位置查看详监视时间间隔内响应时间和运行时间状态的详细信息。</p>
+<p><strong>配置端点监视：</strong></p>
+<ol>
+<li>打开“网站”。随后，若要打开仪表板，请单击要配置的网站的名称。</li>
+<li>
+<p>单击“配置”。</p>
+<p>可在“监视”部分编辑“端点”设置。</p>
+</li>
+<li>输入终结点的名称。</li>
+<li>输入要监视的服务的 URL。例如，<a href="http://contoso.chinacloudapp.cn">http://contoso.chinacloudapp.cn</a>。</li>
+<li>从列表中选择一个或多个地理位置。</li>
+<li>（可选）对第二个终结点重复前 3 步。</li>
+<li>单击“保存”。Web 端点监视数据可能需要一段时间后才在仪表板和“监视”选项卡上可用。</li>
+</ol></div>]]></bodyText><umbracoNaviHide>1</umbracoNaviHide><pageTitle>如何监视网站 - Windows Azure 服务管理</pageTitle><localize>1</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><linkid>manage-services-how-to-monitor-websites</linkid><metaKeywords>Azure 监视网站, Azure 管理门户监视器, Azure 监视</metaKeywords><metaDescription><![CDATA[了解如何使用管理门户中的“监视”页来监视 Windows Azure 网站。]]></metaDescription><headerExpose></headerExpose><footerExpose></footerExpose><urlDisplayName>如何监视</urlDisplayName><disqusComments>1</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate></TextpageLeftNav></localize>
