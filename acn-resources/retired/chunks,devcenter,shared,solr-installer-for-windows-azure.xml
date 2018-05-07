@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="19338" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="60" createDate="2013-09-05T12:55:45" updateDate="2014-08-18T11:04:10" nodeName="solr-installer-for-windows-azure" urlName="solr-installer-for-windows-azure" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,19338" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>适用于 Windows Azure 的 Solr 安装包</h1>
+<p><em>作者：<a href="http://msopentech.com">Microsoft Open Technologies Inc. </a> 公司的 Nick Ghinazzi</em></p>
+<p>(原 文 ：<a href="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/solr-installer-for-windows-azure/">http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/solr-installer-for-windows-azure/</a> )</p>
+<h2>目录</h2>
+<p>Solr for Windows Azure 仅可用于“平台即 服务”(PaaS) 配置。当您完成本 教程后，您将能够使用 Solr 仪表板将数据导入 您的副本集。</p>
+<p>本文档介绍如何使用该安装程序。</p>
+<h2>Solr 安装程序</h2>
+<p>Solr 安装程序可在您的 部署中放置 Solr 应用程序，并提供一个使您能够将数据导入 副本集并配置复制环境的仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-architecture_499x305.jpg" alt="solr-architecture"/></p>
+<h2>安装程序必备组件</h2>
+<ol>
+<li>
+<p>Windows 计算机：Windows 7（64 位）或 Windows Server 2008 R2（64 位）或以上版本</p>
+</li>
+<li>
+<p>需要启用包括 Web 角色 ASP.Net、跟踪、记录和 CGI 服务的 IIS。</p>
+<ul>
+<li><a href="http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/">http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/</a></li>
+</ul>
+</li>
+<li>
+<p>.Net Framework 4.5 及以上完整版本</p>
+</li>
+<li>
+<p>从 <a href="http://www.java.com/en/download/manual.jsp">http://www.java.com/en/download/manual.jsp</a> 中下载 Sun Microsystems, Inc. 公司所有的适用于 Windows 64 位的 JRE。您需要阅读并接受许可条款。</p>
+</li>
+<li>
+<p>请注意，如果您从初始状态的计算机开始：必须先禁用 IE 的增强安全配置，然后才能下载 publishSettings 文件。转到“服务器管理器”-&gt;“配置 IE ESC”-&gt;“对管理员禁用”。</p>
+</li>
+<li>
+<p>需要 Powershell 3.0 才能运行该安装程序。请按照 <a href="http://technet.microsoft.com/zh-cn/library/hh847837.aspx">http://technet.microsoft.com/zh-cn/library/hh847837.aspx</a> 中提供的说明安装 Powershell 3.0。</p>
+</li>
+</ol>
+<h2>复制二进制文件</h2>
+<ol>
+<li>
+<p>在您的本地计算机上从 <a href="http://msopentechrelease.blob.core.windows.net/windows-azure-solr/SolrInstWR.zip">http://msopentechrelease.blob.core.windows.net/windows-azure-solr/SolrInstWR.zip</a> 中下载并提取最新版本。</p>
+</li>
+<li>
+<p>请确保按照 <a href="http://msdn.microsoft.com/zh-cn/library/ee890038(VS.100).aspx">http://msdn.microsoft.com/zh-cn/library/ee890038(VS.100).aspx</a> 中的说明取消阻止所有 dll 和配置文件。 <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-1.jpg"/></p>
+</li>
+<li>
+<p>为您的 Azure 订阅下载 publishSettings 文件。您既可以在 powershell 窗口中运行 Get-AzurePublishSettingsFile –e AzureChinaCloud  <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-2.png"/></p>
+</li>
+<li>
+<p>也可以访问以下链接：<a href="https://windows.azure.com/download/publishprofile.aspx">https://windows.azure.com/download/publishprofile.aspx</a></p>
+</li>
+<li>
+<p>将解压缩后的程序包文件夹中的 Azure.publishSettings 文件替换为您自己的 publishSettings 文件。或者，只需删除您在其中解压缩程序包的文件夹中的 Azure.publishsettings 文件并运行安装程序。这将启动浏览器，询问您是否下载 publishsettings 文件。</p>
+</li>
+<li>
+<p>以管理员身份启动命令提示符 (cmd.exe)，并导航到在上面选择的解压缩后的本地文件夹。</p>
+</li>
+</ol>
+<h2>运行该安装程序：</h2>
+<pre class="prettyprint">Inst4WA.exe -XmlConfigPath "&lt;yourpath&gt;/SolrInstWR.xml" -DomainName "&lt;YourUniqueName&gt;" -Subscription "&lt;YourSubscriptionName&gt;" -Location "&lt;DatacenterLocation&gt;"</pre>
+<p>请注意，我们目前支持 Solr 3.x 和 4.x。SolrInstWR.xml 文件的名称指明将使用该配置文件安装的 Solr 版本。</p>
+<p><strong>&lt;yourpath&gt;</strong> 是 SolrInstaller 文件夹的路径名。请注意，如果您按照前面的说明操作，该路径将为当前文件夹并且您可以使用 . 别名来表示 <strong>&lt;yourpath&gt;</strong>。您可能还要修改”SolrInstWR.XML”文件使其指向所需要的版本。</p>
+<p><strong>&lt;YourUniqueName&gt;</strong> 是您已发布的 Solr 应用程序的 DNS 名称。请注意，DNS 名称在所有 Windows Azure 部署中必须是唯一的 (*.chinacloudapp.cn)。如果您输入的 DNS 名称已被使用，安装程序将返回一条错误消息。</p>
+<p><strong>&lt;YourSubscriptionName&gt;</strong> 是您的订阅的友好名称。如果不知道此名称，可以在发布设置文件中找到它。</p>
+<p><strong>&lt;DatacenterLocation&gt;</strong> 是您希望进行有效部署的数据中心位置的友好名称。例如：“China North”</p>
+<p>例如 (命令行运行后的界面如下)：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-3.png"/></p>
+<p>&lt;Your Path&gt;: “C:/Users/v-leonch/Desktop/Installer 4 MC _Nov 2013/SolrInstWR/” 这是解压后文件包所在的本地文件夹的位置</p>
+<p>“SolrInstWR_V4.4-CN.XML”: 这是文件包中适合中国的Solr4.版本</p>
+<p> </p>
+<p> </p>
+<h2>Solr 应用程序</h2>
+<p>Solr 应用程序是一个仪表板，您可以在其中监控系统 状态，将外部数据导入您的副本集，以及在您的整个安装中配置 数据复制。</p>
+<p>从对某些内容进行爬网开始</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-crawl_500x310.jpg" alt="solr-crawl"/></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-4.png"/></p>
+<p>您还可以从 Windows Azure Blob 导入数据（选择“Import”（导入）， 然后选择“Import Wikipedia Data from Blob”（从 Blob 导入 Wikipedia 数据））</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-blob_500x273.jpg" alt="solr-blob"/></p>
+<p>(主页）选项卡，并了解 Solr 主服务器和辅助服务器如何 使用基于已爬网数据或 Windows Azure 中的 Wikipedia 示例数据创建的 新索引更新状态 Blob</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-index_496x280.jpg" alt="solr-index"/></p>
+<p>转到“搜索”键入关键字“微软”后，您可以看到以下结果： <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/solr-5.png"/></p>]]></bodyText></Chunk></localize>

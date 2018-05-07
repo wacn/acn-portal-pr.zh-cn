@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18662" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="11" createDate="2013-06-04T14:46:07" updateDate="2014-08-18T11:04:12" nodeName="staging-deployment" urlName="staging-deployment" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18662" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中暂存应用程序</h1>
+<p>可以先将要测试的已打包应用程序部署到 Windows Azure 中的过渡环境，然后再将该应用程序移动到用户可通过 Internet 对其进行访问的生产环境。过渡环境与生产环境完全一样，只不过访问暂存应用程序必须通过由 Windows Azure 生成的经过模糊处理的（基于 GUID 的）URL。在验证您的应用程序能够正常运行后，可以通过执行虚拟 IP (VIP) 交换将其部署到生产环境。</p>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#step1">步骤 1：使用管理门户暂存应用程序</a></li>
+<li><a href="#step1a">步骤 1（备选）：使用 Visual Studio 暂存应用程序</a></li>
+<li><a href="#step2">步骤 2：通过交换 VIP 将应用程序部署到生产环境</a></li>
+</ul>
+<p> </p>
+<h2><span class="short-header">使用管理门户暂存</span>步骤 1：使用管理门户暂存应用程序</h2>
+<p>此任务包括如何使用 Windows Azure 管理门户暂存应用程序。也可以<a href="#step1a">使用 Visual Studio 暂存应用程序</a>。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在“管理门户”中，依次单击“新建”、“计算”、“云服务”，然后单击“自定义创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-new-custom-create.png" alt="“云服务”对话框"/></p>
+</li>
+<li>
+<p>指定要用于云服务的“URL”、“区域/地缘组”和“订阅”。确保选中了“立即部署云服务包”<strong>并单击“下一步”。</strong></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-custom-create.png" alt="自定义创建云服务"/></p>
+</li>
+<li>
+<p>在“发布云服务”对话框中，填写所需信息，对于“环境”，选择“过渡”。（如果您的任何角色包含单个实例，请确保选中“即使一个或多个角色包含单个实例也进行部署”。）单击“完成”以创建云服务。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-custom-create-package.png" alt="发布云服务"/></p>
+</li>
+<li>
+<p>在创建云服务并且过渡状态已更新为“运行”后，选择“仪表板”，然后选择“过渡”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-dashboard-staging.png" alt="云服务仪表板"/></p>
+</li>
+<li>
+<p>注意右侧“网站 URL”条目中的值。DNS 名称是由 Windows Azure 生成的经过模糊处理的基于 GUID 的名称。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-staging-url.png" alt="网站 url"/></p>
+</li>
+</ol>
+<p>单击“网站 URL”下所列的值。现在，您可以使用此过渡网站 URL 验证应用程序能否在过渡环境中正常运行。</p>
+<p>对于升级方案，即暂存应用程序是已部署到生产环境的应用程序的升级版本，您可以<a href="#step2"></a>通过交换 VIP 在生产环境中升级应用程序。</p>
+<p> </p>
+<h2><span class="short-header">使用 Visual Studio 暂存</span>步骤 1（备选）：使用 Visual Studio 暂存应用程序</h2>
+<p>此任务包括如何使用 Visual Studio 暂存应用程序。也可以<a href="#step1">使用管理门户暂存应用程序</a>。</p>
+<div class="dev-callout">注意
+<p>此步骤需要 Visual Studio 2012 和 Windows Azure SDK for .NET。</p>
+</div>
+<ol>
+<li>
+<p>启动 Visual Studio 2012 并打开一个待部署的云项目。</p>
+</li>
+<li>
+<p>在“解决方案资源管理器”中，右键单击项目名称，单击“发布”。将显示“发布 Windows Azure 应用程序”向导。</p>
+</li>
+<li>
+<p>在“Windows Azure 发布登录”对话框中，选择要使用的命名身份验证凭据，然后单击“下一步”。有关更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff683676.aspx">设置命名的身份验证凭据</a>。</p>
+</li>
+<li>
+<p>在“Windows Azure 发布设置”中，选择要在其中发布应用程序的云服务，然后对于“环境”，选择“过渡”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/staging-04.png"/></p>
+</li>
+<li>
+<p>其余设置均采用默认值，单击“下一步”。</p>
+</li>
+<li>
+<p>在“Windows Azure 发布摘要”中，查看设置，确保“环境”设置为“过渡”，然后单击“发布”。</p>
+</li>
+</ol>
+<p>Visual Studio 将启动发布过程，即，打包应用程序，然后再将其部署到 Windows Azure。几分钟后，部署完成。</p>
+<p>现在，您可以验证应用程序能否在过渡环境中正常运行。</p>
+<p>对于升级方案，即暂存应用程序是已部署到生产环境的应用程序的升级版本，您可以<a href="#step2">通过交换 VIP 在生产环境中升级应用程序。</a></p>
+<p> </p>
+<h2><span class="short-header">通过交换 VIP 进行部署</span>步骤 2：通过交换 VIP 将应用程序部署到生产环境</h2>
+<p>在过渡环境中验证应用程序的升级版本后，您可以通过交换过渡和生产环境的虚拟 PI (VIP) 来快速使应用程序可用于生产环境。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>此步骤假定您已将应用程序部署到生产环境，并且暂存了它的升级版本。</p>
+</div>
+<ol>
+<li>
+<p>登录“Windows Azure 管理门户”<a href="http://manage.windowsazure.cn"></a>，单击“云服务”，然后选择云服务名称。</p>
+</li>
+<li>
+<p>从“仪表板”中选择“过渡”，然后单击页面底部的“交换”。将打开“VIP 交换”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/vip-swap-dialog.png" alt="“VIP 交换”对话框"/></p>
+</li>
+<li>
+<p>检查信息，然后单击“是”。当过渡部署切换到生产部署，而生产部署切换到过渡部署时，两个部署将开始更新。</p>
+</li>
+</ol>
+<p>通过与过渡环境中的部署交换 VIP，您成功地暂存了部署并升级了生产部署。</p>
+<p> </p>
+<h2><span class="short-header">其他资源</span>其他资源</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee517253.aspx">在 Windows Azure 中如何通过交换 VIP 将服务升级部署到生产环境</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh386336.aspx">在 Windows Azure 中管理部署概述</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460772.aspx">通过 Visual Studio 将应用程序发布到 Windows Azure</a></li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18779" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="10" createDate="2013-07-11T10:15:53" updateDate="2014-08-18T11:06:50" nodeName="website-from-gallery" urlName="website-from-gallery" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18779" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<p>库中提供了众多由 Microsoft、第三方公司和开源软件计划开发的流行 Web 应用程序。从库中创建 Web 应用程序不要求安装任何软件，只需通过浏览器连接到 Windows Azure 管理门户即可。在本教程中，您将学习：</p>
+<ul>
+<li>
+<p>如何通过库创建新网站。</p>
+</li>
+<li>
+<p>如何通过 Windows Azure 门户部署该网站。</p>
+</li>
+</ul>
+<p>您将构建一个使用默认模板的 WordPress 博客。下图演示了完整的应用程序：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-09.png" alt="WordPress 博客"/></p>
+<div class="dev-callout"><strong>注意</strong>
+<p>若要完成本教程，您需要一个启用了 Windows Azure 网站功能的 Windows Azure 帐户。有关详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">创建 Windows Azure 帐户并启用预览功能</a>。</p>
+</div>
+<p> </p>
+<h2>在门户中创建网站</h2>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>单击仪表板左下角的“新建”<strong></strong>图标。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-01.png" alt="新建"/></p>
+</li>
+<li>
+<p>单击“网站”<strong></strong>图标，然后单击“从库中”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-02.png" alt="从库创建"/></p>
+</li>
+<li>
+<p>在列表中找到并单击 WordPress 图标，然后单击“下一步”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-03.png" alt="列表中的 WordPress"/></p>
+</li>
+<li>
+<p>在“配置应用”<strong></strong>页面上，为所有字段输入或选择值：</p>
+<ul>
+<li>输入所选的 URL 名称</li>
+<li>在“数据库”<strong></strong>字段中使“新建 MySQL 数据库”<strong></strong>保持选中</li>
+<li>选择距离您最近的区域</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-04.png" alt="配置应用"/></p>
+</li>
+<li>
+<p>然后，单击“下一步”<strong></strong>。</p>
+</li>
+<li>
+<p>在“创建新的数据库”<strong></strong>页上，可为新的 MySQL 数据库指定名称，也可使用默认名称。选择距离您最近的区域作为托管位置。选中屏幕底部的框以同意您托管的 MySQL 数据库遵守 ClearDB 的使用条款。然后，单击复选标记以完成网站创建。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-05.png" alt="创建数据库"/></p>
+</li>
+</ol>
+<p>单击“完成”<strong></strong>后，Windows Azure 将发起构建和部署操作。在构建和部署网站的同时，“网站”页面的底部会显示这些操作的状态。所有操作执行完毕并且网站成功部署后，将显示一条最终状态消息。</p>
+<h2>启动和管理 WordPress 网站</h2>
+<ol>
+<li>
+<p>在“网站”<strong></strong>页上单击您的新网站以打开该网站的仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-06.png" alt="启动仪表板"/></p>
+</li>
+<li>
+<p>在“仪表板”<strong></strong>管理页上，向下滚动并单击位于左侧“网站 URL”<strong></strong>下的链接以打开网站的欢迎页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-07.png" alt="网站 URL"/></p>
+</li>
+<li>
+<p>输入 WordPress 所需的相应配置信息，然后单击“安装 WordPress”<strong></strong>以完成配置并打开网站的登录页。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-08.png" alt="登录 WordPress"/></p>
+</li>
+<li>
+<p>通过输入“欢迎”<strong></strong>页上指定的用户名和密码，登录这个新 WordPress 网站。</p>
+</li>
+<li>
+<p>您的新 WordPress 网站将与下面的网站类似。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/wordpressgallery-09.png" alt="您的 WordPress 网站"/></p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

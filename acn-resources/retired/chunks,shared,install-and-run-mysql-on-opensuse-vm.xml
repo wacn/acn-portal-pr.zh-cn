@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18781" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="12" createDate="2013-07-11T10:16:18" updateDate="2014-08-18T11:06:47" nodeName="install-and-run-mysql-on-opensuse-vm" urlName="install-and-run-mysql-on-opensuse-vm" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18781" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div><ol>
+<li>
+<p>若要提升权限，请运行：</p>
+<pre class="prettyprint">sudo -s</pre>
+<p>输入您的密码。</p>
+</li>
+<li>
+<p>运行以下命令以安装 MySQL Community Server 版本：</p>
+<pre class="prettyprint"># zypper install mysql-community-server</pre>
+<p>下载和安装 MySQL 时，请等待。</p>
+</li>
+<li>
+<p>若要将 MySQL 设置为在系统启动时启动，请执行以下命令：</p>
+<pre class="prettyprint"># insserv mysql</pre>
+</li>
+<li>
+<p>现在，您可以通过以下命令手动启动 MySQL daemon (mysqld)：</p>
+<pre class="prettyprint"># rcmysql start</pre>
+<p>若要检查 MySQL daemon 的状态，请运行：</p>
+<pre class="prettyprint"># rcmysql status</pre>
+<p>若要停止 MySQL daemon，请运行：</p>
+<pre class="prettyprint"># rcmysql stop</pre>
+</li>
+<li>
+<p>警告！在安装后，MySQL 根密码默认为空。建议您运行 <strong>mysql_secure_installation</strong>，这是一个可帮助保护 MySQL 的脚本。运行 <strong>mysql_secure_installation</strong> 时，系统将提示您更改 MySQL 根密码、删除匿名用户帐户、禁用远程根登录、删除测试数据库以及重新加载权限表。建议您对所有这些选项回答“是”并更改根密码。运行以下命令以执行脚本：</p>
+<pre class="prettyprint">$ mysql_secure_installation</pre>
+</li>
+<li>
+<p>在运行后，您可登录到 MySQL：</p>
+<pre class="prettyprint">$ mysql -u root -p</pre>
+<p>输入在上一步中所更改的 MySQL 根密码，将显示一条可发出 SQL 语句以与数据库进行交互的位置提示。</p>
+</li>
+<li>
+<p>若要创建新的 MySQL 用户，请在 <strong>mysql&gt;</strong> 提示符处运行以下命令：</p>
+<pre class="prettyprint">mysql&gt; CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';</pre>
+<p>请注意，行尾的分号 (;) 对于结束命令至关重要。</p>
+</li>
+<li>
+<p>若要创建数据库并对其授予 <code>mysqluser</code> 用户权限，请发出以下命令：</p>
+<pre class="prettyprint">mysql&gt; CREATE DATABASE testdatabase; mysql&gt; GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';</pre>
+<p>请注意，脚本只会使用数据库用户名和密码连接到数据库。数据库用户帐户名称不一定表示系统上的实际用户帐户。</p>
+</li>
+<li>
+<p>若要从其他计算机登录，请执行以下命令：</p>
+<pre class="prettyprint">mysql&gt; GRANT ALL ON testdatabase.* TO 'mysqluser'@'&lt;ip-address&gt;' IDENTIFIED BY 'password';</pre>
+<p>其中 <code>ip-address</code> 是您将从中连接到 MySQL 的计算机的 IP 地址。</p>
+</li>
+<li>
+<p>若要退出 MySQL 数据库管理实用程序，请发出以下命令：</p>
+<pre class="prettyprint">quit</pre>
+</li>
+<li>
+<p>在安装 MySQL 后，您必须配置终结点才能远程访问 MySQL。登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。在 Windows Azure 门户中，依次单击“虚拟机”<strong></strong>、您的新 VM 的名称和“终结点”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/linuxvmaddendpoint.png" alt="终结点"/></p>
+</li>
+<li>
+<p>单击页面底部的“添加终结点”<strong></strong>。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/linuxvmaddendpoint2.png" alt="终结点"/></p>
+</li>
+<li>
+<p>添加名为“MySQL”的终结点、协议 <strong>TCP</strong>，并将“公用”<strong></strong>和“专用”<strong></strong>端口均设置为“3306”。这将允许对 MySQL 进行远程访问。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/linuxvmaddendpointmysql.png" alt="终结点"/></p>
+</li>
+<li>
+<p>若要在 Windows Azure 中远程连接到在您的 OpenSUSE 虚拟机上运行的 MySQL，请在您的本地计算机上运行以下命令：</p>
+<pre class="prettyprint">mysql -u mysqluser -p -h &lt;yourservicename&gt;.chinacloudapp.cn</pre>
+<p>例如，使用我们在本教程中创建的虚拟机时该命令应为：</p>
+<pre class="prettyprint">mysql -u mysqluser -p -h testlinuxvm.chinacloudapp.cn</pre>
+</li>
+<li>
+<p>您已成功配置 MySQL、创建数据库和新用户。有关 MySQL 的更多信息，请参见 <a href="http://dev.mysql.com/doc/">MySQL 文档（可能为英文页面）</a>。</p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

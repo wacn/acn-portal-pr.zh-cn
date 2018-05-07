@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18653" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="1" createDate="2013-06-04T14:42:53" updateDate="2014-08-18T11:06:48" nodeName="securityrx" urlName="securityrx" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18653" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>Windows Azure 安全指南</h1>
+<h2>摘要</h2>
+<p>在开发 Windows Azure 应用程序时，身份识别和访问控制是您必须关注的主要安全问题。本主题说明与云中的身份识别和访问控制相关的重要安全问题，以及您如何可以更好地保护您的云应用程序。</p>
+<h2>概述</h2>
+<p>应用程序的安全性是其一项外围应用功能。应用程序公开的外围应用越多，安全问题就越大。例如，从安全角度看，作为无人参与批处理过程运行的应用程序的公开面比对外发布的网站要少。</p>
+<p>在移动到云时，您在一定程度上可以对基础结构和网络放心，因为我们采用世界一流的安全实践、工具和技术在数据中心中管理它们。另一方面，云平台本身会公开您的应用程序中可能被攻击者利用的许多外围应用。这是因为在公开许多云技术和服务时，采用终结点与内存中组件的形式。对于 Windows Azure 存储、Service Bus、SQL Database（以前称为 SQL Azure）以及许多其他服务，需通过其终结点在线访问它们。</p>
+<p>在云应用程序中，更多责任落在了应用程序开发人员的肩膀上，他们按照高安全性标准设计、开发和维护其云应用程序以阻止攻击者靠近。请参考以下图表（摘自 J.D. Meier 的 <a href="http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx">Windows Azure 安全说明 PDF</a>）：请注意云提供程序（在本例中为 Windows Azure）如何处理基础结构部分的问题，以便将更多安全工作留给应用程序开发人员：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/01_securingtheapplication.gif" alt="保护应用程序"/></p>
+<p>好消息是在开发云应用程序时，您已熟知的所有安全开发做法、原则和技术仍适用。请考虑以下必须处理的重要事项：</p>
+<ul>
+<li>验证所有输入的类型、长度、范围和字符串模式以避免注入攻击，并且应适当净化应用程序回显的所有数据。</li>
+<li>应以静态和在线方式保护敏感数据，以减少信息泄露和数据篡改威胁。</li>
+<li>必须适当进行审核和记录以减少不可否认性威胁。</li>
+<li>应使用平台提供的经验证机制实施身份验证和授权，以防止身份欺骗和特权提升威胁。</li>
+</ul>
+<p>要查看威胁、攻击、漏洞和对策的完整列表，请参见“模式和实践”中的<a href="http://msdn.microsoft.com/zh-cn/library/ff649461.aspx">备忘单：Web 应用程序安全框架</a>和<a href="http://msdn.microsoft.com/zh-cn/library/ff650760.aspx">应用程序安全指南索引</a>。</p>
+<p>在云中，身份验证和访问控制机制与可用于本地应用程序的大不相同。为云应用程序提供了更多身份验证和访问选项，这可能导致混乱，并因此导致实施中出现问题。在定义云应用程序的含义时，可能导致更多混乱。例如，可以将应用程序部署到云，而其身份验证机制却可以由 Active Directory 提供。另一方面，可以在本地部署应用程序，但使用云中的身份验证机制（例如，通过 Windows Azure Active Directory Access Control（以前称为 Access Control 服务或 ACS））。</p>
+<h2>威胁、漏洞和攻击</h2>
+<p>威胁是您要避免的潜在坏结果，例如敏感信息泄露或服务变得不可用。使用首字母缩写词“STRIDE”对威胁进行分类是常见做法：</p>
+<ul>
+<li><strong>S</strong>，表示欺骗或身份盗用</li>
+<li><strong>T</strong>，表示篡改数据</li>
+<li><strong>R</strong>，表示拒绝操作</li>
+<li><strong>I</strong>，表示信息泄露</li>
+<li><strong>D</strong>，表示拒绝服务</li>
+<li><strong>E</strong>，表示特权提升</li>
+</ul>
+<p>漏洞是开发人员引入代码中的、使应用程序可被攻击者利用的错误。例如，以明文形式发送敏感数据可能使攻击者发起流量探查攻击，从而导致信息泄露威胁。</p>
+<p>攻击是指利用这些漏洞给应用程序带来危害。例如，跨站点脚本（或 XSS）是一种利用未净化输出的攻击。另一个示例是在线窃听以捕获以明文形式发送的凭据。这些攻击可导致身份欺骗威胁。为简单起见，我们将威胁、漏洞和攻击视为坏事情。以下图表提供了与部署到 Windows Azure 的 Web 应用程序相关的坏事情的全局视图（摘自 J.D. Meier 的 <a href="http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx">Windows Azure 安全说明 PDF</a>）：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/02_threatsvulnerabilitiesandattacks.gif" alt="威胁、漏洞和攻击"/></p>
+<p>作为一名开发人员，您可以控制漏洞。您引入的漏洞越少，留给攻击者利用的选项就越少。</p>
+<p>与身份识别和访问控制相关的漏洞使您易受到 STRIDE 模型中所有威胁的攻击。例如，实施不当的身份验证机制可能导致身份欺骗，并因此导致信息泄露、数据篡改、提升特权操作或甚至完全关闭服务。请考虑以下问题，它们可能指向您的云应用程序的身份识别和访问控制实现中的潜在漏洞：</p>
+<ul>
+<li>您是否以明文形式在线将凭据发送到您的 Windows Azure 服务？</li>
+<li>您是否以明文形式存储 Windows Azure 服务凭据？</li>
+<li>您的 Windows Azure 服务凭据是否遵循强密码策略？</li>
+<li>您是依赖 Windows Azure 来验证凭据还是使用自定义验证机制？</li>
+<li>您是否将 Windows Azure 服务身份验证会话或令牌生存期限制为合理的时间段？</li>
+<li>您是否验证您的分布式云应用程序的每个 Windows Azure 入口点的权限？</li>
+<li>您的授权机制是否不安全，而您没有公开敏感信息或没有允许无限访问？</li>
+</ul>
+<h2>对策</h2>
+<p>抵御攻击的最好方法是使用平台提供的身份识别和访问控制机制，而不要实施您自己的机制。可考虑采用以下出色的身份识别和访问技术：</p>
+<p><strong>Windows Identity Foundation (WIF)。</strong>WIF 是 .NET Framework 4.5 附带的 .NET 运行库（它也可以作为 .NET 3.5/4.0 的单独下载来提供）。WIF 可完成处理协议（例如 WS 联合身份验证和 WS-Trust）和处理令牌（例如安全声明标记语言 (SAML)）的繁重工作，因此您无需在您的应用程序中编写非常复杂的与安全性相关的代码。以下资源提供了有关 WIF 的详细信息：</p>
+<ul>
+<li>MSDN 代码库上的 <a href="http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&amp;f%5B0%5D.Value=wif&amp;f%5B1%5D.Type=Topic&amp;f%5B1%5D.Value=claims-based%20authentication">Windows Identity Foundation 4.5 示例</a>。</li>
+<li>MSDN 代码库上的<a href="http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e">适用于 Visual Studio 11 Beta 的 Windows Identity Foundation 4.5 工具</a>。</li>
+<li>MSDN 上的 <a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=17331">Windows Identity Foundation 运行时 (.Net 3.5/4.0)</a>。</li>
+<li>MSDN 上的 <a href="http://www.microsoft.com/zh-cn/download/details.aspx?displaylang=en&amp;id=4451">Windows Identity Foundation 3.5/4.0 示例和 Visual Studio 2008/2010 模板</a>。</li>
+</ul>
+<p><strong>Windows Azure AD Access Control（以前称为 ACS）</strong>。Windows Azure AD Access Control 是一项云服务，用于提供安全令牌服务 (STS) 并允许与不同的标识提供者 (IdP)（如企业 Active Directory）或 Internet IdP（如 Windows Live ID/Microsoft 帐户、Facebook、Google、Yahoo! 和 Open ID 2.0 标识提供者）进行联合。以下资源提供有关 Windows Azure AD Access Control 的详细信息：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/library/gg429786.aspx">Access Control 服务 2.0</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185920.aspx">使用 ACS 的方案和解决方案</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg185939.aspx">ACS 操作说明</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/ff423674.aspx">基于声明的身份识别和访问控制指南</a></li>
+<li><a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=14347">标识开发人员培训工具包</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/IdentityTrainingCourse">MSDN 托管的标识开发人员培训课程</a></li>
+</ul>
+<p><strong>Active Directory 联合身份验证服务 (AD FS)。</strong>Active Directory 联合身份验证服务 (AD FS) 2.0 为采用 Windows Server® 和 Active Directory 技术的声明感知标识解决方案提供支持。AD FS 2.0 支持 WS-Trust、WS 联合身份验证和 SAML 协议。以下资源提供了有关 AD FS 的详细信息：</p>
+<ul>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx">AD FS 2.0 内容映射</a></li>
+<li><a href="http://technet.microsoft.com/zh-cn/library/dd807033(WS.10).aspx">Web SSO 设计</a></li>
+<li><a href="http://technet.microsoft.com/zh-cn/library/dd807050(WS.10).aspx">联合 Web SSO 设计</a></li>
+</ul>
+<p><strong>Windows Azure 共享访问签名。</strong>利用共享访问签名，您可以微调对 blob 或容器资源的访问。以下资源提供有关共享访问签名的详细信息。</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/ee393343.aspx">管理对 Blob 和容器的访问</a></li>
+<li><a href="http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures">新存储功能：共享访问签名</a></li>
+<li><a href="http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days">共享访问签名现在很容易实现</a></li>
+</ul>
+<h2>方案地图</h2>
+<p>本节简要概述了该主题中涵盖的关键方案。可将它作为指引来确定适合您的应用程序的标识解决方案。</p>
+<ul>
+<li><strong>使用联合身份验证的 ASP.NET Web 表单应用程序。</strong> 在此方案中，可使用 Internet 标识（例如 Live ID/Microsoft 帐户）或 Windows Server Active Directory 中托管的企业标识来控制对您的 ASP.NET Web 表单应用程序的访问。</li>
+<li><strong>使用联合身份验证的 WCF (SOAP) 服务。</strong>在此方案中，可使用由 Windows Azure AD Access Control 管理的服务标识来控制对您的 WCF (SOAP) 服务的访问。</li>
+<li><strong>使用联合身份验证、Active Directory 中标识的 WCF (SOAP) 服务。</strong> 在此方案中，可使用由企业 Windows Server Active Directory 管理的标识来控制对您的 WCF (SOAP) Web 服务的访问。</li>
+<li><strong>使用联合身份验证的 WCF (REST) 服务。</strong>在此方案中，可使用由 Windows Azure AD Access Control 管理的服务标识来控制对您的 WCF (REST) 服务的访问。</li>
+<li><strong>使用 Live ID/Microsoft 帐户、Facebook、Google、Yahoo! 和 Open ID 的 WCF (REST) 服务。</strong> 在此方案中，可使用 Internet 标识（例如 Live ID/Microsoft 帐户）来控制对您的 WCF (REST) 服务的访问。</li>
+<li><strong>在 ASP.NET Web 应用程序和 REST WCF 服务之间使用共享 SWT 令牌。</strong> 在此方案中，您具有包含前端 ASP.NET Web 应用程序和下游 REST 服务的分布式应用程序，并且您需要通过物理层传送最终用户的上下文。</li>
+<li><strong>在声明感知应用程序和服务中实现基于角色的访问控制 (RBAC) 授权。</strong> 在此方案中，您需要在应用程序中基于角色实施授权逻辑。</li>
+<li><strong>在声明感知应用程序和服务中实现基于声明的授权。</strong> 在此方案中，您需要在应用程序中基于复杂的授权规则实施授权逻辑。</li>
+<li><strong>Windows Azure 存储服务身份识别和访问控制方案。</strong>在此方案中，您需要安全地共享对 Windows Azure 存储 blob 和容器的访问权限。</li>
+<li><strong>Windows Azure SQL Database 身份识别和访问控制方案。</strong>SQL Database 仅支持 SQL Server 身份验证。不支持 Windows 身份验证（集成安全性）。用户在每次连接到 SQL Database 时都必须提供凭据（登录名和密码）。</li>
+<li><strong>Windows Azure Service Bus 身份识别和访问控制方案。</strong>在此方案中，您需要安全地访问 Windows Azure Service Bus 队列。</li>
+<li><strong>内存中缓存身份识别和访问控制方案。</strong>在此方案中，您需要安全地访问内存中缓存所管理的数据。</li>
+<li><strong>Windows Azure Marketplace 身份识别和访问控制方案。</strong>在此方案中，您需要安全地访问 Windows Azure Marketplace 数据集。</li>
+</ul>
+<h2>Windows Azure 身份识别和访问控制方案</h2>
+<p>本节概述了适用于不同应用程序体系结构的常见身份识别和访问控制方案。可使用方案地图进行快速定位。</p>
+<h3>使用联合身份验证的 ASP.NET Web 表单应用程序</h3>
+<p>在此应用程序体系结构方案中，可以将您的 Web 应用程序部署到 Windows Azure 或本地。该应用程序需要企业 Active Directory 或 Internet 标识提供者对其用户的身份进行验证。</p>
+<p>要解决此问题，可使用 Windows Azure AD Access Control 和 Windows Identity Foundation。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/03_windowsazureadaccesscontrol.gif" alt="Windows Azure Active Directory Access Control"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg429779.aspx">如何：使用 ACS 创建我的第一个声明感知 ASP.NET 应用程序</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185926.aspx">如何：在 ASP.NET Web 应用程序中托管登录页面</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185907.aspx">如何：使用 WIF 和 ACS 在声明感知 ASP.NET 应用程序中实现声明授权</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185914.aspx">如何：使用 WIF 和 ACS 在声明感知 ASP.NET 应用程序中实现基于角色的访问控制 (RBAC)</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185947.aspx">如何：使用 X.509 证书配置 ACS 和 ASP.NET Web 应用程序之间的信任</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185938.aspx">代码示例：ASP.NET 简单表单</a></li>
+</ul>
+<h3>使用服务标识的 WCF (SOAP) 服务</h3>
+<p>在此应用程序体系结构方案中，可以将您的 WCF (SOAP) 服务部署到 Windows Azure 或本地。此服务将作为下游服务供 Web 应用程序或其他 Web 服务访问，您需要使用应用程序特定标识来控制对它的访问。可根据您在 IIS 中使用的应用程序池帐户的类型来考虑要使用的标识 – 虽然技术不同，但方法类似，因为访问此服务时使用的是应用程序作用域帐户与最终用户帐户。</p>
+<p>使用 Windows Azure AD Access Control 中的服务标识功能。这类似于您在将应用程序部署到 Windows Server 和 IIS 时所使用的 IIS 应用程序池帐户。配置 Windows Azure AD Access Control 以颁发将由 WCF (SOAP) 服务中上的 WIF 处理的 SAML 令牌。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/04_wcf(soap)service.gif" alt="WCF (SOAP) 服务"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185924.aspx">如何：添加具有 X.509 证书、密码或对称密钥的服务标识</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh289316.aspx">如何：使用客户端证书进行身份验证以访问受 ACS 保护的 WCF 服务</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185954.aspx">如何：使用用户名和密码进行身份验证以访问受 ACS 保护的 WCF 服务</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185952.aspx">代码示例：WCF 证书身份验证</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185927.aspx">代码示例：WCF 用户名身份验证</a></li>
+</ul>
+<h3>使用联合身份验证、Active Directory 中标识的 WCF (SOAP) 服务</h3>
+<p>在此应用程序体系结构方案中，可以将您的 WCF (SOAP) 服务部署到 Windows Azure 或本地。您需要使用由企业 Windows Server Active Directory (AD) 管理的标识来控制对此服务的访问。</p>
+<p>可使用配置为与 Windows Server AD FS 联合的 Windows Azure AD Access Control。在此例中，您无需使用 Windows Azure AD Access Control 来配置服务标识。需要访问 WCF (SOAP) 服务的代理将凭据提供给 AD FS，在成功验证身份后，AD FS 会为此代理颁发令牌。然后，会将此令牌提交给 Windows Azure AD Access Control 并将其重新颁发给代理。代理使用令牌向 WCF (SOAP) 服务提交请求。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/05_azureadaccesscontrol.gif" alt="使用 AD 的 WCF (SOAP) 服务"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185924.aspx">如何：添加具有 X.509 证书、密码或对称密钥的服务标识</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185961.aspx">如何：将 AD FS 2.0 配置为标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185905.aspx">如何：使用管理服务将 AD FS 2.0 配置为企业标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh127796.aspx">代码示例：带有 AD FS 2.0 的 WCF 联合身份验证</a></li>
+</ul>
+<h3>使用服务标识的 WCF (REST) 服务</h3>
+<p>在此方案中，可以将您的 WCF (REST) 服务部署到 Windows Azure 或本地。此服务将作为下游服务供 Web 应用程序或其他 Web 服务访问，您需要使用应用程序特定标识来控制对它的访问。可根据您在 IIS 中使用的应用程序池帐户的类型来考虑要使用的标识 – 虽然技术不同，但方法类似，因为访问此服务时使用的是应用程序作用域帐户与最终用户帐户。</p>
+<p>使用 Windows Azure AD Access Control 中的服务标识功能。配置 Windows Azure AD Access Control 以颁发简单 Web 标记 (SWT) 令牌。若要在 REST 服务端处理 SWT 令牌，您可以实施自定义令牌处理程序并将它插入 WIF 管道中，也可以“手动”分析它而不使用 WIF 基础结构。</p>
+<p>请参考以下图表（WIF 是可选项）：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/06_restservice.gif" alt="REST 服务"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185958.aspx">如何：使用对称密钥配置 ACS 和 WCF 服务之间的信任</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh289317.aspx">如何：对使用 ACS 部署到 Windows Azure 的 REST WCF 服务进行身份验证</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg983271.aspx">代码示例：ASP.NET Web 服务</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg983271.aspx">代码示例：Windows Phone 7 应用程序</a></li>
+<li><a href="http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0">使用由 Windows Azure Access Control 服务 (ACS) 颁发的 SWT 令牌保护 REST WCF</a></li>
+</ul>
+<h3>使用 Live ID/Microsoft 帐户、Facebook、Google、Yahoo! 和 Open ID 的 WCF (REST) 服务</h3>
+<p>在此方案中，可以将您的 WCF (REST) 服务部署到 Windows Azure 或本地。您需要使用公共 Internet 标识（例如 Live ID/Microsoft 帐户或 Facebook）来控制对此服务的访问。</p>
+<p>可使用 Windows Azure AD Access Control 来颁发 SWT 令牌。若要在 REST 服务端处理 SWT 令牌，您可以实施自定义令牌处理程序并将它插入 WIF 管道中，也可以“手动”分析它而不使用 WIF 基础结构。</p>
+<p>应特别注意，若要实施此方案，应用程序需要使用 Web 浏览器控件来收集最终用户凭据。因此，如果从 ASP.NET Web 应用程序访问 REST 服务，则不适合采用此方案。此方案只适合通过用户的客户端应用程序（例如 Windows Phone 7 应用程序或丰富桌面客户端）访问 REST 服务的情况。弹出 Web 浏览器控件的关键原因是 Internet 标识本身不支持活动配置文件方案（Web 服务方案）。Internet 标识主要支持依赖浏览器重定向的被动配置文件方案（Web 应用程序）：这时 Web 浏览器控件就会派上用场。</p>
+<p>请参考以下图表（WIF 是可选项，因而未显示）：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/07_wifisoptional.gif" alt="WIF 是可选项"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh289317.aspx">如何：对使用 ACS 部署到 Windows Azure 的 REST WCF 服务进行身份验证</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185976.aspx">如何：将 Google 配置为标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185919.aspx">如何：将 Facebook 配置为标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185977.aspx">如何：将 Yahoo! 配置为标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg983271.aspx">代码示例：Windows Phone 7 应用程序</a></li>
+<li><a href="http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0">使用由 Windows Azure Access Control 服务 (ACS) 颁发的 SWT 令牌保护 REST WCF</a></li>
+</ul>
+<h3>在 ASP.NET Web 应用程序和 REST WCF 服务之间使用共享 SWT 令牌</h3>
+<p>在此方案中，您具有包含前端 ASP.NET Web 应用程序和下游 REST 服务的分布式应用程序，并且您需要跨物理层维护最终用户的上下文。在基于下游 REST 服务中的最终用户标识实施授权逻辑或日志记录时，需要这么做。</p>
+<p>可配置 Windows Azure AD Access Control 来颁发 SWT 令牌。SWT 令牌将颁发给前端 ASP.NET Web 应用程序，然后与下游 REST 服务共享。在此例中，只在 Windows Azure AD Access Control 中配置了一个依赖方。不过，有几条说明：</p>
+<ul>
+<li>由于 WIF 不提供现成的 SWT 令牌处理程序，您需要实施要与 ASP.NET Web 应用程序结合使用的自定义令牌处理程序。您应依赖 WIF 完成的众多工作来支持依赖浏览器重定向的 WS 联合身份验证协议，而不是自己实施该协议。</li>
+<li>在实施 SWT 自定义令牌处理程序时，请确保将对启动令牌进行寻址以确保保留它。否则，您将无法共享它并将它发送到下游 REST 服务。</li>
+<li>您不必在 REST 服务中使用 WIF；您可以“手动”分析令牌，因为在此例中无需处理重定向。</li>
+</ul>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/08_aspnetwebapptorest.gif" alt="ASP.NET Web 应用程序"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185976.aspx">如何：将 Google 配置为标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185919.aspx">如何：将 Facebook 配置为标识提供者</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185977.aspx">如何：将 Yahoo! 配置为标识提供者</a></li>
+<li><a href="http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82">使用共享 SWT 令牌实现 ASP.NET Web 应用程序到 REST WCF 服务的委派</a></li>
+</ul>
+<h3>在声明感知应用程序和服务中实现基于角色的访问控制 (RBAC)</h3>
+<p>在此方案中，您需要在 Web 应用程序或服务中基于用户角色实施授权：具有所需角色的用户将获得访问权限，而那些没有所需角色的用户会被拒绝。简单地说，您的应用程序需要回答一个简单问题 – 是否为具有角色 X 的用户？</p>
+<p>有多种方法可解决此问题。您可以使用 Windows Azure AD Access Control、WIF 声明身份验证管理器、samlSecurityTokenRequirement 映射或客户角色管理器。</p>
+<p>WIF 可在所有情况下使用。WIF 支持 IPrincipal.IsInRole(“MyRole”) 方法。在大多数情况下，关键是确保令牌中有 URI 为 http://schemas.microsoft.com/ws/2008/06/identity/claims/role 的角色类型声明，以便在调用 IsInRole 方法时，WIF 可以成功地验证角色的成员身份。</p>
+<p><strong>Windows Azure AD Access Control</strong>。在此实现中，使用 Windows Azure AD Access Control 声明转换规则引擎。使用声明转换规则引擎规则时，您可以将任何传入声明转换为角色类型声明，以便在令牌到达应用程序或服务时，WIF 可以分析此角色声明以确保成功调用 IsInRole 方法。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/09_rbac.gif"/></p>
+<p><strong>WIF ClaimsAuthenticationManager</strong>。在此实现中，使用 ClaimsAuthenticationManager 作为 WIF 的扩展点。使用此方法时，您可在应用程序中将任何传入声明转换为角色声明类型。转换的复杂度仅受您编写的代码的限制。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/10_wifclaimsauthenticationmanager.gif"/></p>
+<p><strong>samlSecurityTokenRequriement 映射</strong>。在此实现中，可使用 web.config 中的 samlSecurityTokenRequirement 配置来告知 WIF 哪些声明类型的行为与角色声明类型类似。例如，如果令牌带有组类型的声明，则您可以将它映射到角色声明类型。使用此方法，您只能实现简单的映射。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/11_securitytokenrequriementmapping.gif"/></p>
+<p><strong>自定义 RoleManager。</strong>在此实现中，可实施自定义 RoleManager。WIF 用于在实施自定义 RoleManager 接口方法（如 GetAllRoles()）时检查传入声明。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/12_customrolemanager.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185914.aspx">如何：使用 WIF 和 ACS 在声明感知 ASP.NET 应用程序中实现基于角色的访问控制 (RBAC)</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185955.aspx">如何：使用规则实现令牌转换逻辑</a></li>
+<li><a href="http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx">使用 RoleManager 对声明感知 (WIF) ASP.NET Web 应用程序进行授权</a></li>
+<li>代码示例：使用 <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504">Windows Identity Foundation SDK</a> 中 IsInRole 中的声明</li>
+</ul>
+<h3>在声明感知应用程序和服务中实现基于声明的授权</h3>
+<p>在此方案中，您需要在 Web 应用程序或服务中实施复杂的授权逻辑，并且 IsInRole() 方法无法满足您的授权需要。如果您的授权方法依赖角色，请考虑实施上一节中概述的基于角色的访问控制。</p>
+<p>可使用 ClaimsAuthorizationManager 作为 WIF 扩展点。ClaimsAuthorizationManager 允许进行外部访问权限检查调用，以便您的应用程序代码看起来比在应用程序的代码中实施访问权限检查时更干净且更可维护。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/13_claimsauthorizationmanager.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185955.aspx">如何：使用规则实现令牌转换逻辑</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg185907.aspx">如何：使用 WIF 和 ACS 在声明感知 ASP.NET 应用程序中实现声明授权</a></li>
+<li>代码示例：<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504">Windows Identity Foundation SDK</a> 中基于声明的授权</li>
+</ul>
+<h2>Windows Azure 存储服务身份识别和访问控制方案</h2>
+<p>在此方案中，您需要安全地共享对 Windows Azure 存储 blob 和容器的访问权限。</p>
+<p>可使用共享访问签名。若要从您自己的应用程序访问您的存储服务帐户，请在配置和管理您的存储服务帐户时使用通过 Windows Azure 门户提供的共享哈希。当您希望为其他人提供对您的存储服务帐户中的 blob 和容器的访问权限时，请使用共享访问签名 URL。</p>
+<p>应特别注意安全管理信息以避免其公开；还应特别注意共享访问签名的生存期。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/14_windowsazurestorage.gif"/></p>
+<p>请参见以下资源来实施此方案</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/ee393343.aspx">管理对 Blob 和容器的访问</a></li>
+<li><a href="http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures">新存储功能：共享访问签名</a></li>
+<li><a href="http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days">共享访问签名现在很容易实现</a></li>
+</ul>
+<h2>Windows Azure SQL Database 身份识别和访问控制方案</h2>
+<p>SQL Database 仅支持 SQL Server 身份验证。不支持 Windows 身份验证（集成安全性）。用户在每次连接到 SQL Database 时都必须提供凭据（登录名和密码）。在管理您的用户名和密码时应特别注意避免信息泄露。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/15_sqlazureidentityandaccessscenarios.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff394108.aspx#authentication">安全指导原则和限制 (SQL Database)</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee336280.aspx">如何：使用 sqlcmd 连接到 SQL Database</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee336243.aspx">如何：使用 ADO.NET 连接到 SQL Database</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee621781.aspx">如何：通过 ASP.NET 连接到 SQL Database</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee621789.aspx">如何：通过 WCF Data Services 连接 SQL Database</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff394110.aspx">如何使用 PHP 连接到 SQL Database</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg715284.aspx">如何：使用 JDBC 连接到 SQL Database</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff951633.aspx">如何：使用 ADO.NET 实体框架连接到 SQL Database</a></li>
+</ul>
+<h2>Windows Azure Service Bus 身份识别和访问控制方案</h2>
+<p>Service Bus 和 Windows Azure AD Access Control 具有特殊关系，因为每个 Service Bus 服务命名空间可与后缀为“–sb”的相同名称的匹配 Access Control 服务命名空间相配对。存在此特殊关系的原因在于 Service Bus 和 Access Control 管理它们之间的互相信任关系和相关加密密码的方式。有关更多详细信息，请参见下面列出的资源。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/16_windowsazureservicebusidentity.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS">使用 ACS 保护 Service Bus</a>（视频）</li>
+<li><a href="https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&amp;resid=123CCD2A7AB10107%211849">使用 ACS 保护 Service Bus</a>（幻灯片）</li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/hh403962.aspx">使用 Access Control 服务进行 Service Bus 身份验证和授权</a></li>
+</ul>
+<h2>内存中缓存身份识别和访问控制方案</h2>
+<p>内存中缓存（以前称为 Windows Azure 缓存）依赖 Windows Azure AD Access Control 来进行身份验证。它使用通过管理门户提供的共享密钥。在访问缓存时，可在您的代码或配置文件中使用密钥。确保安全存储密钥以避免信息泄露。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/17_windowsazurecacheidentity.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg618003.aspx">如何：以编程方式为 Windows Azure Caching 配置缓存客户端</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg278346.aspx">如何：使用应用程序配置文件为 Windows Azure Caching 配置缓存客户端</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/ee706741.aspx">Windows Azure Service Bus 和 Caching 示例</a>（“Caching 示例”一节）</li>
+</ul>
+<h2>Windows Azure Marketplace 身份识别和访问控制方案</h2>
+<p>在用户每次访问 Windows Azure Marketplace 数据集时（无论是免费还是收费），都必须验证用户的身份，然后才能授予其访问权限。在您创建应用程序时，您的代码中必须包括身份验证过程。请考虑以下常见方案：</p>
+<h3>我访问我的数据集</h3>
+<p>在此方案中，您构建了一个使用您的 Marketplace 订阅中的数据集的应用程序。您是该应用程序的用户。可将该应用程序部署到 Windows Azure、本地或 Marketplace。</p>
+<p>需使用通过您的 Marketplace 订阅提供的共享密钥。您可以通过 Marketplace 门户来获取该共享密钥。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/18_iaccessmydataset.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/gg193417.aspx">在 Marketplace 应用程序中使用 HTTP 基本身份验证</a></li>
+</ul>
+<h3>用户访问我的数据集</h3>
+<p>在此方案中，您构建了一个允许用户访问您的数据集的应用程序。可将该应用程序部署到 Windows Azure、本地或 Marketplace。</p>
+<p>若要实施此方案，请使用 OAuth 委派。将提示用户提供其 Live ID/Microsoft 帐户凭据，然后他们需要同意相关条款。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/19_usersaccessmydatasets.gif"/></p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=219162">OAuth Web 客户端示例</a></li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=219163">OAuth 富客户端示例</a></li>
+</ul>
+<h3>应用程序访问 Marketplace API</h3>
+<p>在此方案中，您构建了一个访问 Marketplace API 的应用程序。Marketplace API 需要进行身份验证才能成功实现对该应用程序的调用。可将该应用程序部署到 Windows Azure Marketplace。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/20_applicationaccessmarketplaceapi.gif"/></p>
+<p>有关身份验证实现的更多信息，请参见 Marketplace 发布工具包。</p>
+<p>请参见以下资源来实施此方案：</p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=221323">下载应用程序发布工具包</a></li>
+<li>[面向应用程序的 Windows Azure Marketplace 简介。](https://datamarket.azure.com/ http:/msdn.microsoft.com/zh-cn/hh328543)</li>
+</ul>
+<h2>安全设置</h2>
+<p>本节概述 Windows Identity Foundation 和 Windows Azure AD Access Control 的安全设置。在设计并部署您的应用程序时，可使用它作为这些技术的基本安全检查单。</p>
+<h3>Windows Identity Foundation</h3>
+<p>下面是 WIF 的关键安全设置。以下信息摘自 <a href="http://msdn.microsoft.com/zh-cn/library/ee517298.aspx">WIF 设计注意事项</a>和 <a href="http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx">ASP.NET Web 应用程序的 Windows Identity Foundation (WIF) 安全性 – 威胁和对策</a>。</p>
+<ul>
+<li><strong>IssuerNameRegistry</strong>。指定受信任的安全令牌服务 (STS)。确保仅列出了受信任的 STS。</li>
+<li><strong>cookieHandler requireSsl=“true”</strong>。指定是否通过 SSL 协议传输会话 cookie。</li>
+<li><strong>wsFederation’s requireHttps=“true”</strong>。指定是否通过 SSL 协议执行与标识提供者的联合身份验证协议通信。</li>
+<li><strong>tokenReplayDetection enabled="true”</strong>。指定是否启用令牌重放检测功能。请注意，此功能在管理已用令牌的本地副本时会创建服务器关联。</li>
+<li><strong>audienceUris</strong>。指定令牌的目标受众。如果您的应用程序收到的令牌不适用于您的应用程序，则它会被 WIF 拒绝。</li>
+<li><strong>requestValidation</strong> 和 <strong>httpRuntime requestValidationType</strong>。启用/禁用 ASP.NET 验证功能。请参见 <a href="http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx">Windows Identity Foundation (WIF)：从客户端检测到潜在危险值 Request.Form</a> 中的指南概述</li>
+</ul>
+<h3>Windows Azure AD Access Control</h3>
+<p>请考虑 Windows Azure AD Access Control 部署中的以下安全设置。以下信息摘自 <a href="http://msdn.microsoft.com/zh-cn/library/gg185962.aspx">ACS 安全指南</a>和<a href="http://msdn.microsoft.com/zh-cn/library/hh204521.aspx">证书和密钥管理准则</a>。</p>
+<ul>
+<li><strong>STS 令牌有效期</strong>。使用 Windows Azure AD Access Control 管理门户来设置活动令牌有效期。</li>
+<li><strong>使用“错误 URL”功能时的数据验证</strong>。Windows Azure AD Access Control“错误 URL”功能需要匿名访问它向其发送错误消息的应用程序的页面。假定发送到此页面的所有数据都是来自不受信任源的危险数据。</li>
+<li><strong>为高度敏感方案加密令牌</strong>。若要减少令牌中存在的信息泄露威胁，请考虑加密令牌。</li>
+<li><strong>在部署到 Windows Azure 时，可使用 RSA 加密 Cookie</strong>。默认情况下，WIF 使用 DPAPI 加密 Cookie。在部署到 Web 场和 Windows Azure 环境时，它会创建服务器关联并可能导致异常。在 Web 场和 Windows Azure 方案中可改用 RSA。</li>
+<li><strong>令牌签名证书</strong>。定期续订令牌签名证书以避免拒绝服务。Windows Azure AD Access Control 为它颁发的所有安全令牌签名。在您构建使用 ACS 颁发的 SAML 令牌的应用程序时，将使用 X.509 证书进行签名。在签名证书过期后，如果您尝试请求令牌，将收到错误。</li>
+<li><strong>令牌签名密钥</strong>。定期续订令牌签名密钥以避免拒绝服务。Windows Azure AD Access Control 为它颁发的所有安全令牌签名。在您构建使用 ACS 颁发的 SWT 令牌的应用程序时，将使用 256 位对称签名密钥。在签名密钥过期后，如果您尝试请求令牌，将收到错误。</li>
+<li><strong>令牌加密证书</strong>。定期续订令牌加密证书以避免拒绝服务。如果依赖方应用程序是通过 WS-Trust 协议使用所有权确认令牌的 Web 服务，则令牌加密是必需的，在其他情况下，令牌加密是可选的。在加密证书过期后，如果您尝试请求令牌，将收到错误。</li>
+<li><strong>令牌解密证书</strong>。定期续订令牌解密证书以避免拒绝服务。Windows Azure AD Access Control 可以接受来自 WS 联合身份验证标识提供者（例如，AD FS 2.0）的加密令牌。将使用 Windows Azure AD Access Control 中托管的 X.509 证书进行解密。在解密证书过期后，如果您尝试请求令牌，将收到错误。</li>
+<li><strong>服务标识凭据</strong>。定期续订服务标识凭据以避免拒绝服务。服务标识使用为您的 Windows Azure AD Access Control 命名空间全局配置的凭据，这些凭据允许应用程序或客户端使用 Windows Azure AD Access Control 直接进行身份验证并接收令牌。Windows Azure AD Access Control 服务标识可以与三种凭据类型相关联：对称密钥、密码和 X.509 证书。在凭据过期后，您将开始收到异常。</li>
+<li><strong>Windows Azure AD Access Control 管理服务帐户凭据</strong>。定期续订管理服务凭据以避免拒绝服务。Windows Azure AD Access Control 管理服务是允许您以编程方式管理和配置您的 Windows Azure AD Access Control 命名空间设置的关键组件。管理服务帐户可以与三种凭据类型相关联：对称密钥、密码和 X.509 证书。在凭据过期后，您将开始收到异常。</li>
+<li><strong>WS 联合身份验证标识提供者签名和加密证书</strong>。查询 WS 联合身份验证标识提供者的证书有效性以避免拒绝服务。WS 联合身份验证标识提供者证书可通过其元数据获得。在配置 WS 联合身份验证标识提供者（例如 AD FS）时，将使用通过 URL 或以文件形式提供的 WS 联合身份验证元数据来配置 WS 联合身份验证签名证书。在配置 WS 联合身份验证标识提供者后，可使用 Windows Azure AD Access Control 管理服务来查询它的证书有效性。在证书过期后，您将开始收到异常。</li>
+</ul>
+<h2>使用 Windows Azure 网站的共享宿主</h2>
+<p>当应用程序托管在 Windows Azure 网站上时，本主题中概述的所有方案和解决方案都有效。</p>
+<h2>Windows Azure 虚拟机</h2>
+<p>当应用程序托管在 Windows Azure 虚拟机上时，本主题中概述的所有方案和解决方案都有效。</p>
+<h2>资源</h2>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=214555">标识开发人员培训工具包</a></li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=214561">MSDN 托管的标识开发人员培训课程</a></li>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=214562">基于声明的身份识别和访问控制指南</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg429786.aspx">Access Control 服务</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg185939.aspx">ACS 操作说明</a></li>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx">使用 Access Control 服务 v2.0 保护 Windows Azure Web 角色 ASP.NET Web 应用程序</a></li>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx">Windows Azure AD Access Control 服务 (ACS) 学会视频</a></li>
+<li><a href="http://www.microsoft.com/security/sdl/default.aspx">Microsoft 安全开发生命周期</a></li>
+<li><a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=2955">SDL Threat Modeling Tool 3.1.8</a></li>
+<li><a href="http://www.microsoft.com/about/twc/en/us/blogs.aspx">安全性和隐私博客</a></li>
+<li><a href="http://www.microsoft.com/security/msrc/default.aspx">安全响应中心</a></li>
+<li><a href="http://www.microsoft.com/security/sir/">安全智能报告</a></li>
+<li><a href="http://www.microsoft.com/security/sdl/default.aspx">安全开发生命周期</a></li>
+<li><a href="http://msdn.microsoft.com/security/">安全性开发人员中心 (MSDN)</a></li>
+</ul>]]></bodyText></Chunk></localize>

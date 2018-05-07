@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="16975" parentID="16964" level="4" writerID="52" creatorID="96" nodeType="9257" template="0" sortOrder="11" createDate="2013-01-08T21:55:44" updateDate="2014-08-18T11:06:23" nodeName="PDCCaching" urlName="pdccaching" writerName="uRest" creatorName="aaron" path="-1,11978,13607,16964,16975" isDoc=""><hideAll>0</hideAll><localize></localize><localizePartial></localizePartial><bodyText><![CDATA[<h2 id="header-9">Caching</h2>
+<h3 id="cdn">CDN</h3>
+<p>内容传送网络 (CDN) 费用按照 CDN 收到的数据请求或 CDN 为了满足这些请求而传出的数据的分级费率计算。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>CDN 出站</th><th>区域 1</th><th>区域 2</th></tr>
+<tr>
+<td>前 10 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".120">0.12 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".190">0.19 美元</span></td>
+</tr>
+<tr>
+<td>后 40 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".080">0.08 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".140">0.14 美元</span></td>
+</tr>
+<tr>
+<td>后 100 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".06">0.06 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".12">0.12 美元</span></td>
+</tr>
+<tr>
+<td>后 350 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".04">0.04 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".1">0.1 美元</span></td>
+</tr>
+<tr>
+<td>后 524 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".03">0.03 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".08">0.08 美元</span></td>
+</tr>
+<tr>
+<td>后 4096 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".025">0.025 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".07">0.07 美元</span></td>
+</tr>
+<tr>
+<td>超过 5,120 TB / 月</td>
+<td><a href="mailto:winazinqr@microsoft.com">联系我们</a></td>
+<td><a href="mailto:winazinqr@microsoft.com">联系我们</a></td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>CDN 事务</th><th>价格</th></tr>
+<tr>
+<td>100,000 个事务</td>
+<td>每 100,000 个 <span class="price-data" data-amount=".01">0.01 美元</span></td>
+</tr>
+</tbody>
+</table>
+<p>上面显示的 CDN 费用不包含与将此数据从 Windows Azure 存储传输到 CDN 所产生的相关费用。对于任何从 Windows Azure 存储获取数据到 CDN 所产生的数据传输和存储事务费用，我们将分别按照通常的数据传输和存储事务费率收费。</p>
+<p>Windows Azure CDN 数据传输费用将基于发送流量的数据中心的位置，而不是基于最终用户的位置。下表列出了数据中心位置与其所属的相应计费区域的映射关系。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>计费区域</th><th>地理位置</th></tr>
+<tr>
+<td rowspan="2">区域 1</td>
+<td>北美</td>
+</tr>
+<tr>
+<td>欧洲</td>
+</tr>
+<tr style="border-top: 1px solid darkgrey;">
+<td rowspan="3">区域 2</td>
+<td>亚太</td>
+</tr>
+<tr>
+<td>拉丁美洲</td>
+</tr>
+<tr>
+<td>中东/非洲</td>
+</tr>
+</tbody>
+</table>
+<p>开发人员无法控制用于传送内容的位置，因此，帐单可能会反映任何 Windows Azure CDN 计费区域的传送费用。根据用户的 Internet 服务提供商的路由表以及网络条件将用户请求定向到 CDN 节点。可将用户路由到其 ISP 首选的位置和/或从逻辑上判断“更近”（不一定是物理接近）的节点。例如，如果开发人员在 CDN 上部署内容，而最终用户位于欧洲和亚太地区，则开发人员可能会看到地区 1 和地区 2 的交付费用。但是，如果无法到达亚太地区 CDN 节点，则可能会基于路由表和网络状态从我们的其他某个地理位置（如北美）为一些用户提供服务。在此示例中，将按照区域 1 的费率针对这些用户的数据传输向开发者收费。</p>
+<p>当 Windows Azure CDN 收到针对在边缘位置不存在的对象的请求时，它将发出 Windows Azure 存储标准请求以获取数据。CDN 费用不包含与将此数据从 Windows Azure 存储传输到 CDN 所产生的相关费用。按我们的正常 Windows Azure 存储费率对获取从 Windows Azure 存储到 CDN 的数据所产生的任何数据传输和存储事务收费。我们将对 CDN 接收的数据请求及其为满足这些请求而传出的数据收费。</p>
+<p>Windows Azure CDN 本地缓存中的内容的可用性（通常称为“缓存功效”或“卸载”）是不确定的，它受到许多因素的影响，其中包括：</p>
+<ul>
+<li>有效期（“最大有效期”）标头值</li>
+<li>开发人员的内容库的总大小（可以缓存的数量）</li>
+<li>活动的工作集（当前缓存的数量）</li>
+<li>流量（提供的数量）</li>
+<li>缓存改动（将对象添加到缓存的频率，或老化的频率）</li>
+</ul>
+<p>例如，具有改动率和流量较高的大型（“范围大的”）库的开发人员的缓存功效将低于其他用户，因为缓存流动率更高，因此换入和换出对象的频率将更高。此开发人员的整体 Windows Azure 存储数据传输费用在比例上更高，因为需要的原始请求更多。在此示例中，总体最终用户体验平均也会稍慢一些，因为从缓存中处理的请求更少。开发人员可用于影响缓存功效的主要成本控制为“最大有效期”HTTP 标头。“最大有效期”越长，CDN 可保留对象的时间就越长，从而降低了对发出原始请求的需求。</p>
+<p><a href="../../home/features/caching/">有关 CDN 的更多信息</a></p>
+<h3>Caching</h3>
+<p>Windows Azure Caching 可交付更符合应用程序逻辑的数据。当用户的负载增加时，缓存服务可帮助应用程序更快地响应，同时允许应用程序缩放。在两个部署选项间选择：托管多租户共享缓存 (Shared Caching) 或使用现有或专用 Web/辅助角色的缓存 - 称为“Caching”。利用共享缓存，可从一个共享池（跨所有订阅该服务的租户）使用缓存资源。利用 Caching，缓存使用专门为单个租户调配的计算资源（Web 角色或辅助角色）中的内存。您可以使用现有计算资源或创建仅供缓存使用的专用资源。</p>
+<h3 id="managed-service">Shared Caching（托管服务）</h3>
+<p>按每月的缓存大小对 Shared Caching 定价，无论您实际使用多少缓存。除了提到的 Caching 费用之外，您还要为关联的数据传输（从服务设置的数据中心进行传入和传出）付费。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>缓存大小</th><th>价格</th></tr>
+<tr>
+<td>128 MB</td>
+<td><span class="price-data" data-amount="45">$45</span></td>
+</tr>
+<tr>
+<td>256 MB</td>
+<td><span class="price-data" data-amount="55">$55</span></td>
+</tr>
+<tr>
+<td>512 MB</td>
+<td><span class="price-data" data-amount="75">$75</span></td>
+</tr>
+<tr>
+<td>1 GB</td>
+<td><span class="price-data" data-amount="110">$110</span></td>
+</tr>
+<tr>
+<td>2 GB</td>
+<td><span class="price-data" data-amount="180">$180</span></td>
+</tr>
+<tr>
+<td>4 GB</td>
+<td><span class="price-data" data-amount="325">$325</span></td>
+</tr>
+</tbody>
+</table>
+<p>在您配置某个大小的缓存之后，该服务会将您放入到缓存中的数据量限制为该大小。您的应用程序在缓存中具有的数据量可能暂时超过了注册的缓存大小，但系统将很快采取纠正措施，并从缓存中删除数据以将缓存大小保持在设定大小内。</p>
+<p>为了确保公平使用资源，该服务可能会强制实施基于对缓存设定的事务数量、要使用的数据传输总量或要使用的并发连接数的限制。如果您超出了该服务强制实施的限制，则将通过向您的应用程序发送一条指示您已达到特定配额限制的异常来告知其此情况。</p>
+<p>下表提供的一般准则可帮助您规划对该服务的使用。此准则是一项高级评估，并且以后会发生更改。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>缓存大小</th><th>事务数/小时</th><th>数据传输/小时 (MB)</th><th>并发连接</th></tr>
+<tr>
+<td>128MB</td>
+<td>400,000</td>
+<td>1,400</td>
+<td>10</td>
+</tr>
+<tr>
+<td>256MB</td>
+<td>800,000</td>
+<td>2,800</td>
+<td>10</td>
+</tr>
+<tr>
+<td>512MB</td>
+<td>1,600,000</td>
+<td>5,600</td>
+<td>20</td>
+</tr>
+<tr>
+<td>1GB</td>
+<td>3,200,000</td>
+<td>11,200</td>
+<td>40</td>
+</tr>
+<tr>
+<td>2GB</td>
+<td>6,400,000</td>
+<td>22,400</td>
+<td>80</td>
+</tr>
+<tr>
+<td>4GB</td>
+<td>12,800,000</td>
+<td>44,800</td>
+<td>160</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dedicated-cache">Caching</h3>
+<p>Windows Azure Caching 可以作为服务随您的 Web 或辅助角色中的其他应用程序代码一起部署，或者您也可以选择辅助角色专门用于该缓存。缓存跨您选择的计算资源分布，并且集成到 Windows Azure SDK 中。在 Web 角色或辅助角色中部署之后，将不会对超过正常云服务费率（因角色类型和角色大小而异）的缓存额外收费。</p>
+<p><a href="../../home/features/caching/">有关 Caching 的更多信息</a></p>]]></bodyText></Chunk></localize>

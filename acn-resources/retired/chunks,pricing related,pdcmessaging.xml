@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="16974" parentID="16964" level="4" writerID="52" creatorID="96" nodeType="9257" template="0" sortOrder="10" createDate="2013-01-08T21:55:43" updateDate="2014-08-18T11:06:30" nodeName="PDCMessaging" urlName="pdcmessaging" writerName="uRest" creatorName="aaron" path="-1,11978,13607,16964,16974" isDoc=""><hideAll>0</hideAll><localize></localize><localizePartial></localizePartial><bodyText><![CDATA[<h2 id="header-8">消息传递</h2>
+<h3 id="service-bus">Service Bus</h3>
+<p>将按以下费率对 Service Bus 进行收费：</p>
+<ul>
+<li>每 10,000 条消息 <span class="price-data" data-amount=".01">0.01 美元</span></li>
+<li>每 100 个中继小时 <span class="price-data" data-amount=".10">0.10 美元</span>（这仅在使用 Service Bus 中继功能时适用）</li>
+</ul>
+<p>按帐单月份内发送到 Service Bus 或由 Service Bus 发送的消息数对消息收费。这包括为响应接收针对空队列/订阅的请求而传送“Null”消息。对于大小超过 64KB 的消息，将对超出的每 64KB 的数据（取整）按额外的一条消息收费。</p>
+<p>中继小时将按从创建到删除之间的时间（从终结点上的第一个侦听器打开到最后一个侦听器关闭）收费并向上取整到下一个完整小时。如果您仅使用 Service Bus 队列和主题，则不会产生中继小时费用。</p>
+<p>除上面提及的 Service Bus 的价格之外，您还需要为配置您的服务的数据中心的外部出口所关联的数据传输付费。</p>
+<h3>Windows Azure Service Bus 通知中心（预览版）</h3>
+<p>在使用预览版期间，通知中心免费为最多 10,000 名用户提供客户推送通知服务。公开上市期间的价格将基于接收推送通知的用户（活动注册）的数量而定且将具有一定的竞争力，使用户只需支付较低的月费即可接收大量多平台推送通知。</p>
+<p>在使用预览版期间，将强制实施每用户每天最多 100 次操作的限制。操作包括发送和接收通知以及查询、更新和删除注册。</p>
+<p><a href="http://msdn.microsoft.com/library/hh667438.aspx#BKMK_SBv2FAQ2_1">了解有关 Service Bus 定价的详细信息</a></p>
+<p><a href="../../home/features/messaging/">有关 Service Bus 的更多信息</a></p>]]></bodyText></Chunk></localize>

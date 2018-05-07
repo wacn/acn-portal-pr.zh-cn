@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18710" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="23" createDate="2013-07-11T09:56:00" updateDate="2014-08-18T11:03:21" nodeName="blitline-main" urlName="blitline-main" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18710" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>如何将 Blitline 与 Windows Azure 和 Windows Azure 存储一起使用</h1>
+<p><em>作者：Jason Malcolm，<a href="http://www.blitline.com">Blitline</a></em></p>
+<p>Blitline 是一项基于云的图像处理服务，此服务提供了企业级图像处理，其成本仅为客户自行进行图像处理所产生的成本的一小部分。本指南说明如何访问 Blitline 服务以及如何将作业提交到 Blitline。</p>
+<p><a href="#nextsteps">后续步骤</a>一节。</p>
+<h2><a name="toc"></a>目录</h2>
+<p><a href="#whatis">什么是 Blitline？</a> <br /><a href="#whatisnot">Blitline 无法实现的操作</a> <br /><a href="#createaccount">创建 Blitline 帐户</a> <br /><a href="#createjob">如何创建 Blitline 作业</a> <br /><a href="#saveazure">如何将图像保存到 Windows Azure 存储</a> <br /><a href="#nextsteps">后续步骤</a></p>
+<h2><a name="whatis"></a><span class="short-header">什么是 Blitline？</span>什么是 Blitline？</h2>
+<p>实际上，我们已反复地执行过图像处理，对于所有网站，通常是从头开始重新执行此操作。我们之所以认识到这一点，是因为我们也已执行此操作上百万次。于是我们认为也许该让所有人都了解这一点了。我们知道如何快速而高效地进行图像处理，同时为每个人节省时间。</p>
+<p>有关更多信息，请参阅 <a>http://www.blitline.com</a>。</p>
+<h2><a name="whatisnot"></a><span class="short-header">Blitline 无法实现的操作...</span>Blitline 无法实现的操作...</h2>
+<p>为了阐明 Blitline 的用处，不妨先介绍 Blitline 无法实现的操作。</p>
+<ul>
+<li>
+<p>Blitline 没有用于上载图像的 HTML 小组件。您必须公开图像或具有 Blitline 可获得的受限权限。</p>
+</li>
+<li>
+<p>Blitline 不会像 Aviary.com 一样进行实时图像处理</p>
+</li>
+<li>
+<p>Blitline 不接受图像上载，您无法将图像直接推送到 Blitline。您必须将图像推送到 Windows Azure 存储或 Blitline 支持的其他位置，然后告知 Blitline 可获取该图像的位置。</p>
+</li>
+<li>
+<p>Blitline 会执行高度并行处理，而不执行任何同步处理。这意味着，您必须向我们提供 postback_url，并且我们会告诉您何时处理完毕。</p>
+</li>
+</ul>
+<h2><a name="createaccount"></a><span class="short-header">创建 Blitline 帐户</span>创建 Blitline 帐户</h2>
+<h3>注册 Blitline 帐户</h3>
+<ol>
+<li>
+<p>登录到 [Windows Azure 管理门户][]。</p>
+</li>
+<li>
+<p>在该管理门户的下方窗格中，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blitline_bar_new.png" alt="command-bar-new"/></p>
+</li>
+<li>
+<p>单击“存储”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blitline_offerings_store.png" alt="blitline-store"/></p>
+</li>
+<li>
+<p>在“选择外接程序”对话框中，选择“Blitline”，然后单击右箭头。</p>
+</li>
+<li>
+<p>在“个性化外接程序”对话框中，选择要注册的 <strong>Blitline</strong> 计划。</p>
+</li>
+<li>
+<p>输入一个名称以标识 Windows Azure 设置中的 <strong>Blitline</strong> 服务，或使用 <strong>Blitline</strong> 的默认值。名称的长度必须介于 1 到 100 个字符之间，并且只能包含字母字符、短划线、点和下划线。名称在订阅的 Windows Azure 应用商店项目的列表中必须是唯一的。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blitline_purchase.jpg" alt="store-screen-1"/></p>
+</li>
+<li>
+<p>选择区域的值；例如，美国西部。</p>
+</li>
+<li>
+<p>单击右箭头。</p>
+</li>
+<li>
+<p>在“查看购买”选项卡上，查看计划和定价信息以及法律条款。如果您同意这些条款，请单击复选标记。单击复选标记后，您的 Blitline 帐户将开始设置过程。</p>
+</li>
+</ol>
+<p>若要使用 Blitline，您需要拥有应用程序 ID。</p>
+<h3>查找您的 Blitline 应用程序 ID</h3>
+<ol>
+<li>
+<p>单击“连接信息”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blitline_connection_info_button.png" alt="blitline-connection-info-button"/></p>
+</li>
+<li>
+<p>在“连接信息”对话框中，将显示您的应用程序 ID</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blitline_connection_info_screen.jpeg" alt="blitline-connection-info"/></p>
+</li>
+</ol>
+<h2><a name="createjob"></a><span class="short-header">创建 Blitline 作业</span>如何：创建 Blitline 作业</h2>
+<p>Blitline 使用 JSON 定义要对图像执行的操作。此 JSON 由几个简单的字段构成。</p>
+<p>最简单的示例如下所示：</p>
+<pre class="prettyprint">json : '{ 
+   "application_id": "MY_APP_ID",
+   "src" : "http://cdn.blitline.com/filters/boys.jpeg", 
+   "functions" : [ {
+       "name": "resize_to_fit", 
+       "params" : { "width": 240, "height": 140 }, 
+       "save" : { "image_identifier" : "external_sample_1" }
+   } ]
+}'</pre>
+<p>此处的 JSON 将采用“src”图像“...boys.jpeg”，然后将图像的大小调整为 240x140。</p>
+<p>可以在 Windows Azure 上的“连接信息”或“管理”选项卡中查找应用程序 ID。此 ID 是可供您用来在 Blitline 上运行作业的机密标识符。</p>
+<p>“save”参数标识有关您在我们处理图像后要将图像放置到的位置的信息。在此常见示例中，我们没有定义该位置。如果未定义位置，Blitline 会将图像本地（临时）存储在一个唯一的云位置。您将能够在创建 Blitline 时从 Blitline 返回的 JSON 中获取该位置。“image”标识符是必需的，在标识此特定的保持图像时将返回此标识符。</p>
+<p>可以在以下位置查找有关我们支持的函数的更多信息：<a href="http://www.blitline.com/docs/functions">http://www.blitline.com/docs/functions</a></p>
+<p>还可以在以下位置查找有关作业选项的文档：<a href="http://www.blitline.com/docs/api">http://www.blitline.com/docs/api</a></p>
+<p>获得 JSON 后，您只需将其发布到 <a href="http://api.blitline.com/jobs">http://api.blitline.com/jobs</a></p>
+<p>您将找回与下面类似的 JSON：</p>
+<pre class="prettyprint">{ 
+ "results":
+     {"images":
+        [{
+          "image_identifier":"external_sample_1",
+          "s3_url":"https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg"
+        }],
+      "job_id":"4eb8c9f72a50ee2a9900002f"
+     }
+}</pre>
+<p>这意味着，Blitline 已接收您的请求，它已将该请求置于处理队列中，可在图像完成后在以下位置找到该图像：<strong>https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg</strong></p>
+<h2><a name="saveazure"></a><span class="short-header">如何将图像保存到 Windows Azure 存储</span>如何将图像保存到 Windows Azure 存储</h2>
+<p>如果您拥有 Windows Azure 存储帐户，则可轻松让 Blitline 将处理后的图像推送到您的容器中。通过添加“azure_destination”，可定义 Blitline 将推送到的位置和相关权限。</p>
+<p>下面是一个示例：</p>
+<pre class="prettyprint">job : '{
+  "application_id": "YOUR_APP_ID",
+  "src" : "http://www.google.com/logos/2011/houdini11-hp.jpg",
+     "functions" : [{
+     "name": "blur",
+     "save" : {
+         "image_identifier" : "YOUR_IMAGE_IDENTIFIER",
+         "azure_destination" : {
+             "application_name" : "YOUR_AZURE_APP",
+             "container" : "YOUR_AZURE_STORAGE_CONTAINER",
+             "key" : "KEY_VALUE_TO_SAVE_IMAGE_AS",
+             "shared_access_signature" : "SAS_THAT_GIVES_BLITLINE_PERMISSION_TO_WRITE_TO_CONTAINER",
+           }
+       }
+     }]
+   }'</pre>
+<p>通过自行填写大写的值，可以将此 JSON 提交到 http://api.blitline.com/job，并且将使用模糊滤镜处理“src”图像，然后将该图像推送到您的 Windows Azure 目标。</p>
+<h2><a name="nextsteps"></a><span class="short-header">后续步骤</span>后续步骤</h2>
+<p>访问 blitline.com 可参阅有关我们所有其他功能的信息：</p>
+<ul>
+<li>Blitline API 终结点文档 <a href="http://www.blitline.com/docs/api">http://www.blitline.com/docs/api</a></li>
+<li>Blitline API 函数 <a href="http://www.blitline.com/docs/functions">http://www.blitline.com/docs/functions</a></li>
+<li>
+<p>Blitline API 示例 <a href="http://www.blitline.com/docs/examples">http://www.blitline.com/docs/examples</a></p>
+</li>
+<li>
+<p>第三方 Nuget 库 <a href="http://nuget.org/packages/Blitline.Net">http://nuget.org/packages/Blitline.Net</a></p>
+</li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18723" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="36" createDate="2013-07-11T09:59:11" updateDate="2014-08-18T11:04:03" nodeName="publishing-with-git" urlName="publishing-with-git" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18723" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>从源代码管理发布到 Windows Azure 网站</h1>
+<p>Windows Azure 网站支持从源代码管理和存储库工具（例如，BitBucket、CodePlex、Dropbox、Git、GitHub、Mercurial 和 TFS）进行连续部署。可以使用这些工具维护您网站的内容和代码，然后在需要时快速轻松地将更改推送到您的网站。</p>
+<p>在本文中，您将了解如何使用 Git 从本地计算机直接发布到 Windows Azure 网站（在 Windows Azure 中，此发布方法称作“本地 Git”）。您还将了解如何启用从存储库网站（例如，BitBucket、CodePlex、DropBox、GitHub 或 Mercurial）进行的连续部署。有关使用 TFS 进行连续部署的信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/common-tasks/publishing-with-tfs/">使用 Team Foundation Service 连续交付到 Windows Azure（可能为英文页面）</a>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>在使用<a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">针对 Mac 和 Linux 的 Windows Azure 命令行工具</a>创建网站时，将自动执行本文中所述的许多 Git 命令。</p>
+</div>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#Step1">安装 Git</a></li>
+<li><a href="#Step2">创建本地存储库</a></li>
+<li><a href="#Step3">添加网页</a></li>
+<li><a href="#Step4">启用网站存储库</a></li>
+<li><a href="#Step5">部署项目</a>
+<ul>
+<li><a href="#Step6">将本地文件推送到 Windows Azure（本地 Git）</a></li>
+<li><a href="#Step7">从存储库网站（例如，BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial）部署文件</a></li>
+</ul>
+</li>
+<li><a href="#Step8">问题排查</a></li>
+</ul>
+<h2><a id="Step2"></a>安装 Git</h2>
+<p>安装 Git 所需的步骤随操作系统的不同而不同。有关操作系统特定的分发和安装指南，请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">安装 Git</a>。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>在某些操作系统上，命令行和 GUI 版本的 Git 都可用。本文中提供的说明使用命令行版本。</p>
+</div>
+<h2><a id="Step2"></a>创建本地存储库</h2>
+<p>执行下列任务可创建新的 Git 存储库。</p>
+<ol>
+<li>
+<p>打开一个命令行，例如 <strong>GitBash</strong> (Windows) 或 <strong>Bash</strong> (Unix Shell)。在 OS X 系统上，可以通过 <strong>Terminal</strong> 应用程序访问命令行。</p>
+</li>
+<li>
+<p>从命令行中，更改到将在其中创建网站的目录。例如，<code>cd needsmoregit</code>。</p>
+</li>
+<li>
+<p>使用以下命令可初始化新的 Git 存储库：</p>
+<pre class="prettyprint">git init</pre>
+<p>这将返回一条消息，例如“已在 [路径] 中初始化空 Git 存储库”。</p>
+</li>
+</ol>
+<h2><a id="Step3"></a>添加网页</h2>
+<p>Windows Azure 网站支持用各种编程语言创建的应用程序。对于此示例，您将使用静态 .html 文件。有关将用其他编程语言创建的网站发布到 Windows Azure 的信息，请参阅 <a href="http://www.windowsazure.cn/zh-cn/develop/overview/">Windows Azure 开发中心（可能为英文页面）</a>。</p>
+<ol>
+<li>
+<p>通过使用文本编辑器，在 Git 存储库的根中创建一个名为 <strong>index.html</strong> 的新文件。将“Hello Git!”作为内容添加，然后保存该文件。</p>
+</li>
+<li>
+<p>从命令行中，确保您位于在其中创建了存储库的目录中，并使用以下命令将 <strong>index.html</strong> 文件添加到存储库中：</p>
+<pre class="prettyprint">git add index.html</pre>
+</li>
+<li>
+<p>接下来，使用以下命令将更改提交到存储库：</p>
+<pre class="prettyprint">git commit -m "Adding index.html to the repository"</pre>
+<p>您将看到与下面类似的输出：</p>
+<pre class="prettyprint">[master (root-commit) 369a79c] Adding index.html to the repository
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html</pre>
+</li>
+</ol>
+<h2><a id="Step4"></a>启用网站存储库</h2>
+<p>执行以下步骤可使用 Windows Azure 门户为您的网站启用 Git 存储库：</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 门户</a>。</p>
+</li>
+<li>
+<p>在页面的左侧，选择“网站”，然后选择要为其启用存储库的网站。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-select-website.png" alt="显示选定网站的图像"/></p>
+</li>
+<li>
+<p>在“速览”一节中，选择“从源代码管理设置部署”。这将显示“设置部署”对话框，该对话框会询问“您的源代码在哪里?”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-whereisyoursourcecode.png" alt="git-WhereIsYourSourceCode"/></p>
+</li>
+<li>
+<p>选择“本地 Git”，然后单击“下一页”箭头。</p>
+</li>
+<li>
+<p>一小段延迟后，将显示一条指明存储库已就绪的消息。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-instructions.png" alt="git-instructions"/></p>
+</li>
+</ol>
+<h2><a id="Step5"></a>部署项目</h2>
+<h3><a id="Step6"></a>将本地文件推送到 Windows Azure（本地 Git）</h3>
+<p>由于您已初始化本地存储库并将文件添加到该存储库中，因此请跳过门户中显示的说明的步骤 1 和步骤 2。通过使用命令行，将目录更改为您的网站目录，并使用门户返回的说明的步骤 3 中列出的命令。例如：</p>
+<pre class="prettyprint">git remote add azure http://username@needsmoregit.windowsazure.net/NeedsMoreGit.git</pre>
+<p><strong>remote</strong> 命令可将命名引用添加到远程存储库中，在此示例中，该命令将为您的 Windows Azure 网站存储库创建一个名为“azure”的引用。</p>
+<h4>发布和重新发布网站</h4>
+<ol>
+<li>
+<p>从命令行中使用以下命令可将当前存储库内容从本地存储库推送到“azure”远程网站：</p>
+<pre class="prettyprint">git push azure master</pre>
+<p>系统会提示您输入之前在设置存储库时创建的密码。输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台），您将看到与下面类似的输出：</p>
+<pre class="prettyprint">Counting objects: 6, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 486 bytes, done.
+Total 6 (delta 0), reused 0 (delta 0)
+remote: New deployment received.
+remote: Updating branch 'master'.
+remote: Preparing deployment for commit id '369a79c929'.
+remote: Preparing files for deployment.
+remote: Deployment successful.
+To http://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
+* [new branch]      master -&gt; master</pre>
+<div class="dev-callout"><strong>注意</strong>
+<p>为 Windows Azure 网站创建的存储库应推送请求以便面向其存储库的 <strong>master</strong> 分支，后者将用作该网站的内容。</p>
+</div>
+</li>
+<li>
+<p>在门户中，单击底部的“浏览”链接以验证是否已部署 <strong>index.html</strong>。这将显示一个包含“Hello Git!”的页面。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-hello-git.png" alt="包含“Hello Git!”的网页"/></p>
+</li>
+<li>
+<p>通过使用文本编辑器，更改 <strong>index.html</strong> 文件以使其包含“Yay!”，然后保存该文件。</p>
+</li>
+<li>
+<p>从命令行使用以下命令可添加和提交更改，然后将更改推送到远程存储库：</p>
+<pre class="prettyprint">git add index.html
+git commit -m "Celebration"
+git push azure master</pre>
+<p>完成 <strong>push</strong> 命令后，请刷新浏览器（您可能必须按 Ctrl+F5 才能正确刷新浏览器），您会发现该页面的内容此时将反映最新提交的更改。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-yay.png" alt="包含“Yay!”的网页"/></p>
+</li>
+</ol>
+<h3><a id="Step7"></a>从存储库网站（例如，BitBucket、CodePlex、DropBox、GitHub 或 Mercurial）部署文件</h3>
+<p>通过使用“本地 Git”将本地文件推送到 Windows Azure，可以手动将更新从本地项目推送到您的 Windows Azure 网站，而从 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 进行部署会生成一个连续部署过程，在此过程中，Windows Azure 会从项目中拉入最新的更新。</p>
+<p>这两种方法都会将项目部署到 Windows Azure 网站，如果您有多个人员在处理同一个项目并希望确保始终发布最新版本（不管是谁执行了最新更新），则连续部署会很有用。此外，如果您将上述工具之一用作应用程序的中央存储库，则连续部署也很有用。</p>
+<p>从 GitHub、CodePlex 或 BitBucket 部署文件需要您已将本地项目发布到这些服务之一。有关将项目发布到这些服务的更多信息，请参阅 <a href="https://help.github.com/articles/create-a-repo">创建存储库 (GitHub)（可能为英文页面）</a>、<a href="http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&amp;referringTitle=Source%20control%20clients&amp;ProjectName=codeplex">使用 Git 和 CodePlex（可能为英文页面）</a>、<a href="https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo">创建存储库 (BitBucket)（可能为英文页面）</a>、<a href="https://gist.github.com/trey/2722927">使用 Dropbox 共享 Git 存储库（可能为英文页面）</a>或<a href="http://mercurial.selenic.com/wiki/QuickStart">快速入门 - Mercurial（可能为英文页面）</a>。</p>
+<ol>
+<li>
+<p>将网站项目推送到存储库网站后，在 Windows Azure 门户的“速览”一节中，选择“从源代码管理设置部署”。这将显示“设置部署”对话框，该对话框会询问“您的源代码在哪里?”。</p>
+</li>
+<li>
+<p>选择要使用的源代码管理方法。</p>
+</li>
+<li>
+<p>在系统提示时，为选定服务输入凭据。</p>
+</li>
+<li>
+<p>在授权 Windows Azure 访问您的帐户后，系统将提示您提供存储库列表。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-choosearepositorytodeploy.png" alt="git-ChooseARepositoryToDeploy"/></p>
+</li>
+<li>
+<p>选择要与 Windows Azure 网站关联的存储库。单击复选标记以继续。</p>
+<div class="dev-callout"><strong>注意</strong>
+<p>在使用 GitHub 或 BitBucket 启用连续部署时，将显示公用项目和专用项目。</p>
+</div>
+</li>
+<li>
+<p>Windows Azure 将创建与所选存储库的关联，并将从 master 分支拉入文件。在此过程完成后，“部署”页面上的“部署历史记录”将显示与下面类似的“活动部署”消息：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-githubdeployed.png" alt="git-githubdeployed"/></p>
+</li>
+<li>
+<p>此时，已将您的项目从所选存储库部署到 Windows Azure 网站。若要验证该网站是否处于活动状态，请单击门户底部的“浏览”链接。浏览器将导航到该网站。</p>
+</li>
+<li>
+<p>若要验证连续部署是否正在进行，请更改您的项目，然后将所做的更新推送到已与此网站关联的存储库。推送到存储库后，您的网站很快将更新以反映更改。可以在网站的“部署”页面上验证是否已拉入更新。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-githubdeployed-updated.png" alt="git-GitHubDeployed-Updated"/></p>
+</li>
+</ol>
+<h4>连续部署的工作方式</h4>
+<p>连续部署通过提供在网站的“配置”选项卡的“部署”部分中找到的“部署触发器 URL”来工作。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-deploymenttrigger.png" alt="git-DeploymentTrigger"/></p>
+<p>在对存储库进行更新时，会将 POST 请求发送到此 URL，这将告知您的 Windows Azure 网站已更新存储库。此时，将检索更新并将其部署到您的网站。</p>
+<h4>指定要使用的分支</h4>
+<p>启用连续部署时，将默认为存储库的 <strong>master</strong> 分支。若要使用其他分支，请执行下列步骤：</p>
+<ol>
+<li>
+<p>在门户中，选择您的网站，然后选择“配置”。</p>
+</li>
+<li>
+<p>在此页面的“部署”部分，在“要部署的分支”字段中输入要使用的分支，然后按 Enter。最后，单击“保存”。</p>
+<p>Windows Azure 将立即开始基于对新分支所做的更改进行更新。</p>
+</li>
+</ol>
+<h4>禁用连续部署</h4>
+<p>可从 Windows Azure“仪表板”禁用连续部署。在“速览”一节下，选择用于断开与所使用的存储库的连接的选项：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/git-disconnectfromgithub.png" alt="git-DisconnectFromGitHub"/></p>
+<p>在显示确认消息时回答“是”后，若要从其他源设置发布，您可以返回到“速览”并单击“从源代码管理设置部署”。</p>
+<h2><a id="Step8"></a>问题排查</h2>
+<p>以下是使用 Git 发布到 Windows Azure 网站时遇到的常见错误或问题：</p>
+<hr />
+<p><strong>症状</strong>：无法解析主机“主机名”</p>
+<p><strong>原因</strong>：如果创建“azure”远程网站时输入的地址信息不正确，则会发生该错误。</p>
+<p><strong>解决方法</strong>：使用 <code>git remote -v</code> 命令列出所有远程网站以及关联的 URL。确认“azure”远程网站的 URL 正确。如果需要，请删除此远程网站并使用正确的 URL 重新创建它。</p>
+<hr />
+<p><strong>症状</strong>：无通用引用且未指定任何引用；不采取任何措施。或许您应指定一个分支，例如“master”。</p>
+<p><strong>原因</strong>：如果您在执行 Git 推送操作时未指定分支且未设置 Git 使用的 push.default 值，则会发生该错误。</p>
+<p><strong>解决方法</strong>：请再次执行推送操作，并指定 master 分支。例如：</p>
+<pre class="prettyprint">git push azure master</pre>
+<hr />
+<p><strong>症状</strong>：src refspec [分支名] 不匹配任何内容。</p>
+<p><strong>原因</strong>：如果您尝试推送到“azure”远程网站上 master 分支之外的分支，则会发生该错误。</p>
+<p><strong>解决方法</strong>：请再次执行推送操作，并指定 master 分支。例如：</p>
+<pre class="prettyprint">git push azure master</pre>
+<hr />
+<p><strong>症状</strong>：错误 - 已将更改提交到远程存储库，但未更新您的网站。</p>
+<p><strong>原因</strong>：如果您部署的是包含指定其他必需模块的 package.json 文件的 Node.js 应用程序，则会发生该错误。</p>
+<p><strong>解决方法</strong>：应在发生此错误前记录包含“npm ERR!”的其他消息，并可提供有关失败的其他上下文。以下是该错误的已知原因和相应的“npm ERR!”消息：</p>
+<ul>
+<li>
+<p><strong>package.json 文件的格式不正确</strong>：npm ERR!无法读取依赖项。</p>
+</li>
+<li>
+<p><strong>不具有 Windows 的二进制分发的本机模块</strong>：</p>
+<ul>
+<li>
+<p>npm ERR!`cmd "/c" "node-gyp rebuild"` 失败，1</p>
+<p>或者</p>
+</li>
+<li>
+<p>npm ERR![modulename@version] 预安装:`make || gmake`</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2>其他资源</h2>
+<ul>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/nodejs/how-to-guides/powershell-cmdlets/">如何使用 PowerShell for Windows Azure</a></li>
+<li><a href="/zh-cn/develop/nodejs/how-to-guides/command-line-tools/">如何使用针对 Mac 和 Linux 的 Windows Azure 命令行工具</a></li>
+<li><a href="http://git-scm.com/documentation">Git 文档</a></li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

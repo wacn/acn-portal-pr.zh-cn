@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="19336" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="58" createDate="2013-09-05T12:55:09" updateDate="2014-08-18T11:03:24" nodeName="couchdb-installation-and-configuration" urlName="couchdb-installation-and-configuration" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,19336" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>CouchDB 安装和配置</h1>
+<p><em>作者：<a href="http://msopentech.com">Microsoft Open Technologies Inc.</a> 公司的 Nick Ghinazzi</em></p>
+<p>CouchDB Installer for Windows Azure 工具可 简化 Windows Azure 虚拟机（用于 IaaS）或 Windows Azure 辅助角色（用于 PaaS）中承载的 CouchDB 群集的创建、配置和部署过程。</p>
+<h2>IaaS 或 PaaS</h2>
+<p>可以在 IaaS（基础结构即服务）或 PaaS 配置中运行 CouchDB。在决定是使用 IaaS 还是 PaaS 时，应考虑以下几点：</p>
+<ul>
+<li>对于 IaaS，Windows Azure 提供对虚拟化服务器的完全访问权限。您将负责管理和更新您的操作系统和 CouchDB，并监控和管理连接性、可用性和性能，就像对数据中心的任何服务器一样。</li>
+<li>对于 PaaS，Windows Azure 可为您管理您的虚拟化服务器硬件和操作系统。您将负责根据需要更新 CouchDB。Windows Azure PaaS 还提供预先配置的、可扩展资源，用于负载平衡、CPU 内核管理、虚拟内存和其他服务。</li>
+</ul>
+<p>本文档介绍如何分别对 IaaS 和 PaaS 配置使用该安装程序。</p>
+<h2>CouchDB 安装程序 - IaaS 配置</h2>
+<p>该安装程序可设置指定数量的 CouchDB 节点， 这些节点在具有双向复制的主主 (master-master) 配置中协同工作，以确保实现高可用性和 持续性。IaaS 配置非常简单，每台虚拟机上都有 一个 CouchDB 节点。例如，下面是一个具有两个 节点的配置：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-iaas_500x295.jpg" alt="couch-iaas"/></p>
+<p><strong>注意：</strong>CouchDB 节点之间的双向复制 借助客户端应用程序通过负载平衡器 使用的同一 HTTP 终结点处理。</p>
+<h2>先决条件</h2>
+<ul>
+<li>Windows 版本：Windows 7（64 位）或 Windows Server 2008 R2及以上 </li>
+<li>帐户：您必须具有本地管理员权限才能运行该 安装程序</li>
+<li>Microsoft .NET Framework 4.5及以上（完整版本）</li>
+<li>如果您运行的是 Windows Server 2008 R2 并且之前未禁用 Microsoft Internet Explorer 的 增强安全配置（手动或通过组策略）， 则您需要先禁用该配置，然后才能下载公用 设置文件。单击“开始”，键入 <strong>srvmgr</strong>，然后单击 <strong>SrvMgr.exe</strong>。 在服务器管理器工具中，单击“配置 IE ESC”，然后单击“对管理员禁用”。</li>
+</ul>
+<h2>运行该安装程序</h2>
+<p>若要下载并运行该安装程序，请执行以下步骤：</p>
+<ul>
+<li>单击以下链接下载压缩文件包：<a href="http://msopentechrelease.blob.core.windows.net/windows-azure-couchdb/CouchDBInstVM.zip">http://msopentechrelease.blob.core.windows.net/windows-azure-couchdb/CouchDBInstVM.zip</a> </li>
+<li>将文件包解压后拖到所选本地位置。</li>
+<li>请确保按照 <a href="http://msdn.microsoft.com/zh-cn/library/ee890038(VS.100).aspx">http://msdn.microsoft.com/zh-cn/library/ee890038(VS.100).aspx</a>中的说明取消阻止所有 dll 和配置文件。
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-1.jpg"/></p>
+</li>
+<li>为您的 Azure 订阅下载 publishSettings 文件。您既可以在 powershell 窗口中运行 Get-AzurePublishSettingsFile –e AzureChinaCloud。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-2.png"/>也可以访问以下链接：<a href="https://windows.azure.com/download/publishprofile.aspx">https://windows.azure.com/download/publishprofile.aspx</a></li>
+<li>以管理员身份打开命令提示符 (cmd.exe)，并导航到所指定的本地文件夹。</li>
+<li>
+<p>运行以下命令：</p>
+<p>Inst4WA.exe -XmlConfigPath &lt;yourpath&gt;/CouchDBInstVM-CN.xml -DomainName &lt;YourUniqueName&gt; -Subscription &lt;YourSubscriptionName&gt;-Location &lt;DataCenterLocation&gt; -AdminUserName &lt;AdminUserName&gt; -AdminPassWord &lt;AdminPassword&gt;</p>
+</li>
+</ul>
+<p><strong>&lt;yourpath&gt;</strong> 是 CouchInstaller 文件夹的路径名。请注意，如果您按照前面的说明操作，该路径将为当前文件夹并且您可以使用 . 别名来表示 <strong>&lt;yourpath&gt;</strong>。</p>
+<p><strong>&lt;YourUniqueName&gt;</strong> 是您已发布的 CouchDB 应用程序的 DNS 名称。请注意，DNS 名称在所有 Windows Azure 部署中都必须是唯一的 (*.chinacloudapp.cn)。如果您输入的 DNS 名称已被使用，安装程序将返回一条错误消息。 DeploymentModelCouchOnIaaS.xml 文件包含 该安装程序使用的设置。您可以通过命令提示符 覆盖这些设置。</p>
+<p><strong>&lt;YourSubscriptionName&gt; </strong>是您的订阅的友好名称。如果不知道此名称，可以在发布设置文件中找到它。</p>
+<p><strong>&lt;DatacenterLocation&gt; </strong>是您希望进行有效部署的数据中心位置的友好名称。例如：“China North”</p>
+<p> 例如 (命令行运行后的界面如下)： </p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-3.png"/></p>
+<p> &lt;Your Path&gt;: “C:/Users/v-leonch/Desktop/Installer 4 MC _Nov 2013/CouchDBInstVM/” 这是解压后文件包所在的本地文件夹的位置</p>
+<h2>CouchDB 安装程序 - PaaS 配置</h2>
+<p>在 PaaS 配置中，Node.js 演示应用程序（一个简单的 任务列表）安装在每个辅助角色上。此 应用程序使用 C# 包装程序与 CouchDB 节点 和辅助角色上的本地缓存通信。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-paas_499x395.jpg" alt="couch-paas"/></p>
+<p><strong>注意：</strong>如果运行的 Web 应用程序（例如手机应用程序）并非托管在 Windows Azure 中， 则它可以直接使用 CouchDB 终结点，就像本例中的 C# 包装程序 代码那样。</p>
+<h2>先决条件</h2>
+<ol>
+<li>Windows 版本：Windows 7（64 位）或 Windows Server 2008 R2及以上版本 </li>
+<li>帐户：您必须具有本地管理员权限才能运行该 安装程序</li>
+<li>Microsoft .NET Framework 4.5及以上（完整版本）</li>
+<li>如果您运行的是 Windows Server 2008 R2 并且之前未禁用 Microsoft Internet Explorer 的 增强安全配置（手动或通过组策略）， 则需要先禁用该配置，然后才能下载公用 设置文件。单击“开始”，键入 srvmgr，然后单击 SrvMgr.exe。在服务器管理器工具中，单击“配置 IE ESC”，然后 单击“对管理员禁用”。</li>
+<li>具有可用 Windows 远程管理 (WinRM) 映像的 IaaS 帐户。</li>
+</ol>
+<h2>运行该安装程序</h2>
+<p>若要下载并运行该安装程序，请执行以下步骤：</p>
+<ul>
+<li>单击以下链接获取该 安装程序：<a href="http://msopentechrelease.blob.core.windows.net/windows-azure-couchdb/CouchDBInstWR.zip">http://msopentechrelease.blob.core.windows.net/windows-azure-couchdb/CouchDBInstWR.zip</a></li>
+<li>请确保按照 <a href="http://msdn.microsoft.com/zh-cn/library/ee890038(VS.100).aspx">http://msdn.microsoft.com/zh-cn/library/ee890038(VS.100).aspx</a>中的说明取消阻止所有 dll 和配置文件。
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-4.jpg"/></p>
+</li>
+<li>为您的 Azure 订阅下载 publishSettings 文件。您既可以在 powershell 窗口中运行 Get-AzurePublishSettingsFile –e AzureChinaCloud。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-5.png"/>也可以访问以下链接：<a href="https://windows.azure.com/download/publishprofile.aspx">https://windows.azure.com/download/publishprofile.aspx</a></li>
+<li>将解压缩后的程序包文件夹中的 Azure.publishSettings 文件替换为您自己的 publishSettings 文件。或者，只需删除您在其中解压缩程序包的文件夹中的 Azure.publishsettings 文件并运行安装程序。这将启动浏览器，询问您是否下载 publishsettings 文件。</li>
+<li>以管理员身份打开命令提示符 (cmd.exe)，并导航到所指定的本地文件夹。</li>
+<li>
+<p>运行以下命令：</p>
+<p>Inst4WA.exe -XmlConfigPath "&lt;yourpath&gt;/CouchDBInstWR-CN.xml" -DomainName "&lt;youruniquename&gt;" -Subscription "&lt;yoursubscriptionname&gt;" -Location "&lt;datacenterlocation&gt;"&lt;yourpath&gt;是 CouchInstaller 文件夹的路径名。请注意，如果您按照前面的说明操作，该路径将为当前文件夹并且您可以使用 . 别名来表示&lt;yourpath&gt;。</p>
+<p><strong>&lt;YourUniqueName&gt;</strong>是您已发布的 CouchDB 应用程序的 DNS 名称。请注意，DNS 名称在所有 Windows Azure 部署中都必须是唯一的 (*.chinacloudapp.cn)。如果您输入的 DNS 名称已被使用，安装程序将返回一条错误消息。 DeploymentModelCouchOnIaaS.xml 文件包含 该安装程序使用的设置。您可以通过命令提示符 覆盖这些设置。</p>
+<p><strong>&lt;YourSubscriptionName&gt;</strong>是您的订阅的友好名称。如果不知道此名称，可以在发布设置文件中找到它。</p>
+<p><strong>&lt;DatacenterLocation&gt;</strong>是您希望进行有效部署的数据中心位置的友好名称。例如：“China North”</p>
+<p>例如 (命令行运行后的界面如下)：</p>
+<p> </p>
+<p>&lt;Your Path&gt;: “C:/Users/v-leonch/Desktop/Installer 4 MC _Nov 2013/CouchDBInstVM/” 这是解压后文件包所在的本地文件夹的位置</p>
+<p>安装程序运行完毕后，它将 在浏览器中启动演示应用程序。</p>
+</li>
+</ul>
+<h2>演示应用程序</h2>
+<p>安装程序完成这些节点的安装、设置和 部署后，您就拥有了一个正常运行的 Node.js 演示 应用程序，它会将数据保存到这两个节点。演示应用程序 是一个简单的任务列表。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-app_500x428.jpg" alt="couch-app"/></p>
+<p>该演示应用程序通过 CouchDB 的主主 (master-master) 复制 将数据写入两个数据库节点。有关主主 (master-master) 复制 的更多信息，请参阅 <a href="http://wiki.apache.org/couchdb/How_to_replicate_a_database">CouchDB wiki（可能为英文页面）</a>。</p>
+<p>您可以运行 Futon，即 CouchDB 管理界面。若要运行 Futon，请在浏览器中转到以下 URL：</p>
+<p>http:// &lt;dns-name&gt;.chinacloudapp.cn:5984/_utils</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/couch-futon_500x324.jpg" alt="couch-futon"/></p>
+<p>可在 <a href="http://guide.couchdb.org/draft/tour.html#futon">CouchDB 入门指南</a>中找到有关 Futon 的更多信息。</p>]]></bodyText></Chunk></localize>

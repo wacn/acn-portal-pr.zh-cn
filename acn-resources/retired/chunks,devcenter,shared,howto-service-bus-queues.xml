@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18729" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="42" createDate="2013-07-11T10:00:14" updateDate="2014-08-18T11:03:52" nodeName="howto-service-bus-queues" urlName="howto-service-bus-queues" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18729" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h2>什么是 Service Bus 队列？</h2>
+<p><span>Service Bus 队列支持<strong>中转消息传递通信</strong>模型。在使用队列时，分布式应用程序的组件不会直接相互通信，而是通过充当中介的队列交换消息。消息创建方（发送方）将消息传送到队列，然后继续对其进行处理。消息使用方（接收方）以异步方式从队列中提取消息并处理它。创建方不必等待使用方的答复即可继续处理并发送更多消息。队列为一个或多个竞争使用方提供“先入先出(FIFO)”消息传递方式。也就是说，接收方通常会按照消息添加到队列中的顺序来接收并处理消息，并且每条消息仅由一个消息使用方接收并处理。</span></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-08.png" alt="队列概念"/></p>
+<p>Service Bus 队列是一种可用于各种应用场景的通用技术：</p>
+<ul>
+<li>多层 Windows Azure 应用程序中 Web 角色和辅助角色之间的通信</li>
+<li>混合解决方案中本地应用程序和 Windows Azure 托管应用程序之间的通信</li>
+<li>在不同组织或组织的各部门中本地运行的分布式应用程序组件之间的通信</li>
+</ul>
+<p>利用队列，您可以更好地向外扩展应用程序，并增强您的体系结构的恢复能力。</p>
+<p> </p>
+<h2>创建服务命名空间</h2>
+<p>若要开始在 Windows Azure 中使用 Service Bus 队列，必须先创建一个服务命名空间。服务命名空间提供了用于对应用程序中的 Service Bus 资源进行寻址的范围容器。</p>
+<p>创建服务命名空间：</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在该管理门户的左侧导航窗格中，单击“Service Bus”。</p>
+</li>
+<li>
+<p>在管理门户的下方窗格中，单击“创建”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-03.png"/></p>
+</li>
+<li>
+<p>在“添加新命名空间”对话框中，输入命名空间名称。系统会立即检查该名称是否可用。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-04.png"/></p>
+</li>
+<li>
+<p>在确保命名空间名称可用后，选择应承载您的命名空间的国家或地区（确保使用在其中部署计算资源的同一国家/地区）。</p>
+<p>重要说明：选取要部署应用程序的<strong>相同区域</strong>。这将为您提供最佳性能。</p>
+</li>
+<li>
+<p>单击复选标记。系统现已创建您的服务命名空间并已将其启用。您可能需要等待几分钟，因为系统将为您的帐户设置资源。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/getting-started-multi-tier-27.png"/></p>
+</li>
+</ol>
+<p>您创建的命名空间随后将显示在管理门户中，然后要花费一段时间来激活。请等到状态变为“活动”后再继续。</p>
+<p> </p>
+<h2>获取命名空间的默认管理凭据</h2>
+<p>若要在新命名空间上执行管理操作（如创建队列），则必须获取该命名空间的管理凭据。</p>
+<ol>
+<li>
+<p>在左侧导航窗格中，单击“Service Bus”节点以显示可用命名空间的列表：<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-13.png"/></p>
+</li>
+<li>
+<p>从显示的列表中选择刚刚创建的命名空间：<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-09.png"/></p>
+</li>
+<li>
+<p>单击“访问密钥”。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/sb-queues-06.png"/></p>
+</li>
+<li>
+<p>在“连接到您的命名空间”对话框中，找到“默认颁发者”和“默认密钥”条目。记下这些值，因为您将在下面使用此信息来对命名空间执行操作。</p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

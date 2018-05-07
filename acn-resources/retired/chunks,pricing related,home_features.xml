@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <Chunk id="2015052019" parentID="16964" nodeType="9257" nodeName="home_features" urlName="home_features">
+    <hideAll>0</hideAll>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <forbidPublish>0</forbidPublish>
+    <bodyText>
+      <![CDATA[
+<style>
+    .nav_li_submenu {
+        color: #999;
+        height: 20px;
+        font-size: 14px;
+    }
+
+    .submenu_distance {
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+
+    .content_show {
+        min-height: 1100px;
+    }
+    /*ul-导航*/
+    .left_ul_content > li > a {
+        text-decoration: none;
+        display: block;
+        padding: 3px 0 3px 16%;
+        margin-left: -16%;
+        text-transform: capitalize;
+        font-size: 14px;
+        line-height: 21px;
+        color: #555555;
+    }
+
+        .left_ul_content > li > a:hover {
+            background-color: #f0f0f0;
+        }
+
+    .left_ul_content {
+        list-style: none;
+        padding: 0;
+        padding-left: 25px;
+        border: none;
+        margin: 0;
+        width: 100%;
+    }
+     /*mysql样式*/
+    .mysql-style {
+        display: block;
+        font-size: 14px;
+        text-transform: none;
+    }
+
+    @media(min-width:1250px) {
+        /*left 左侧导航*/
+        /*ul-导航*/
+        .left_ul_content {
+            min-width: 180px;
+            margin-left: 0;
+        }
+
+            .left_ul_content > li > a {
+                padding: 3px 0 3px 20px;
+                margin-left: -20px;
+            }
+          .mysql-style {
+            display: inline;
+            font-size: 10px;
+            text-transform: none;
+        }
+    }
+</style>
+<ul style="border:none;" class="left_ul_content">
+
+    <li><a id="side_nav_features_what-is-azure" href="/home/features/what-is-azure/" date-url="side_nav_features_what-is-azure"  class="submenu_distance">认识 Azure</a></li>
+
+    <li class="nav_li_submenu submenu_distance">计算</li>
+    <li>
+        <a id="side_nav_calculation_virtual-machines" href="/home/features/virtual-machines/" date-url="side_nav_features_virtual-machines">
+            虚拟机
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_calculation_cloud-services" href="/home/features/cloud-services/" date-url="side_nav_features_cloud-services">
+            云服务
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_calculation_batch" href="/home/features/batch/" date-url="side_nav_features_batch">
+            批处理
+        </a>
+    </li>
+
+    <li class="nav_li_submenu submenu_distance">Web 和移动</li>
+    <li>
+        <a id="side_web_moible_web-site" href="/home/features/web-site/" date-url="side_nav_features_web-site">
+            Web 应用
+        </a>
+    </li>
+    <li>
+        <a id="side_web_moible_mobile-services" href="/home/features/mobile-services/" date-url="side_nav_features_mobile-services">
+            移动服务
+        </a>
+    </li>
+    <li>
+        <a id="side_web_moible_notification-hubs" href="/home/features/notification-hubs/" date-url="side_nav_features_notification-hubs">
+            通知中心
+        </a>
+    </li>
+
+    <li class="nav_li_submenu submenu_distance">数据和存储</li>
+    <li>
+        <a id="side_data_storage_sql-database" href="/home/features/sql-database/" date-url="side_nav_features_sql-database">
+            SQL 数据库
+        </a>
+    </li>
+    <li>
+        <a id="side_data_storage_mysql" href="/home/features/mysql/" date-url="side_nav_features_mysql">
+            MySQL Database<span class="mysql-style"> on Azure</span>
+        </a>
+    </li>
+    <li>
+        <a id="side_data_storage_redis-cache" href="/home/features/redis-cache/" date-url="side_nav_features_redis-cache">
+            Redis 缓存
+        </a>
+    </li>
+    <li>
+        <a id="side_data_storage_storage" href="/home/features/storage/" date-url="side_nav_features_storage">
+            存储
+        </a>
+    </li>
+    <li>
+        <a id="side_data_storage_sql-data-warehouse" href="/home/features/sql-data-warehouse/" date-url="side_nav_features_sql-data-warehouse">
+            SQL 数据仓库
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_analytics_sql-server-stretch-database" href="/home/features/sql-server-stretch-database/" date-url="side_nav_features_sql-server-stretch-database">
+           SQL Server <span class="mysql-style"> Stretch Database </span>
+        </a>
+    </li>
+
+    <li class="nav_li_submenu submenu_distance">分析</li>
+    <li>
+        <a id="side_nav_analytics_hdinsight" href="/home/features/hdinsight/" date-url="side_nav_features_hdinsight">
+            HDInsight
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_analytics_stream-analytics" href="/home/features/stream-analytics/" date-url="side_nav_features_stream-analytics">
+            流分析
+        </a>
+    </li>
+   
+   <!--<li>-->
+        <!--<a id="side_nav_analytics_sql-data-warehouse" href="/home/features/sql-data-warehouse/" date-url="side_nav_features_sql-data-warehouse">-->
+            <!--SQL 数据仓库-->
+        <!--</a>-->
+    <!--</li>-->
+     
+    <li class="nav_li_submenu  submenu_distance">物联网</li>
+    <li>
+        <a id="side_nav_internet_iot-hub" href="/home/features/iot-hub/" date-url="side_nav_features_iot-hub">
+            Azure IoT 中心
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_internet_event-hubs" href="/home/features/event-hubs/" date-url="side_nav_features_event-hubs">
+            事件中心
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_internet_stream-analytics" href="/home/features/stream-analytics/" date-url="side_nav_features_stream-analytics">
+            流分析
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_internet_notification-hubs" href="/home/features/notification-hubs/" date-url="side_nav_features_notification-hubs">
+            通知中心
+        </a>
+    </li>
+    
+
+    <li class="nav_li_submenu submenu_distance">网络</li>
+    <li>
+        <a id="side_nav_network_networking" href="/home/features/networking/" date-url="side_nav_features_networking">
+            虚拟网络
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_network_expressroute" href="/home/features/expressroute/" date-url="side_nav_features_expressroute">
+            ExpressRoute
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_network_traffic-manager" href="/home/features/traffic-manager/" date-url="side_nav_features_traffic-manager">
+            流量管理器
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_network_vpn-gateway" href="/home/features/vpn-gateway/" date-url="side_nav_features_vpn-gateway">
+            VPN 网关
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_network_application-gateway" href="/home/features/application-gateway/" date-url="side_nav_features_application-gateway">
+            应用程序网关
+        </a>
+    </li>
+
+    <li class="nav_li_submenu submenu_distance">媒体和 CDN</li>
+    <li>
+        <a id="side_nav_media_media-services" href="/home/features/media-services/" date-url="side_nav_features_media-services">
+            媒体服务
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_media_cdn" href="/home/features/cdn/" date-url="side_nav_features_cdn">
+            CDN
+        </a>
+    </li>
+    <li class="nav_li_submenu submenu_distance">混合集成</li>
+    <li>
+        <a id="side_mixing_integration_messaging" href="/home/features/messaging/" date-url="side_nav_features_messaging">
+            服务总线
+        </a>
+    </li>
+    <li>
+        <a id="side_mixing_integration_back-up" href="/home/features/back-up/" date-url="side_nav_features_back-up">
+            备份
+        </a>
+    </li>
+    <li>
+        <a id="side_mixing_integration_site-recovery" href="/home/features/site-recovery/" date-url="side_nav_features_site-recovery">
+            站点恢复
+        </a>
+    </li>
+
+    <li class="nav_li_submenu submenu_distance">身份和访问管理</li>
+    <li>
+        <a id="side_identity_access_identity" href="/home/features/identity/" date-url="side_nav_features_identity">
+            Active Directory
+        </a>
+    </li>
+    <li>
+        <a id="side_identity_access_multi-factor-authentication" href="/home/features/multi-factor-authentication/" date-url="side_nav_features_multi-factor-authentication">
+            多重身份验证
+        </a>
+    </li>
+
+    <li class="nav_li_submenu submenu_distance">管理与安全</li>
+    <li>
+        <a id="side_nav_manage_scheduler" href="/home/features/scheduler/" date-url="side_nav_features_scheduler">
+            计划程序
+        </a>
+    </li>
+    <li>
+        <a id="side_nav_manage_automation" href="/home/features/automation/" date-url="side_nav_features_automation">
+            自动化
+        </a>
+    </li>
+     <li>
+        <a id="side_nav_manage_key-vault" href="/home/features/key-vault/" date-url="side_nav_features_key-vault">
+            密钥保管库
+        </a>
+    </li>
+</ul>
+
+      ]]>
+    </bodyText>
+  </Chunk>
+</localize>

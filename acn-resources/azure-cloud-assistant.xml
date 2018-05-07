@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+    <umbTextpage id="19329" parentID="19326" level="3" writerID="52" creatorID="94" nodeType="1059" template="20" sortOrder="3" createDate="2013-08-27T11:20:07" updateDate="2014-08-18T11:34:25" nodeName="Web" urlName="web" writerName="uRest" creatorName="xunfan" path="-1,11978,19326,19329" isDoc="" isResponsive="1">
+        <bodyText>
+<![CDATA[
+    <style>
+        * {
+        margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow: hidden;
+        }
+        li {list-style-type: none;}
+        .loading-scroll{position:fixed;top:0;left:0;width:100%;height:100%;background:#f8f8f8;opacity:1;z-index:15000;}
+        .header.hide{top:0px;}
+        .view{min-height:536px;width:100%;}
+        .op-section {
+            min-height:500px;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size:contain;
+            background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-position-one.png);
+            background-color: rgb(0, 126, 255);
+        }
+
+        .l-contain {
+            height: 100%;
+            position:relative;
+        }
+        .l-contain-a {
+            top: 50%;
+            position: absolute;
+            margin-top: -258px;
+            width: 100%;
+            height: 517px;
+        }
+
+        .l-container {
+            position: absolute;
+            top:9%;
+            margin-left:15%;
+            width:100%;
+            height:100%;
+        }
+
+        .l-container h1 {
+            font-size:2.3em;
+            margin-top:0px;
+            margin-bottom:20px;
+        }
+
+        .l-container p {
+            font-size:1.5em;
+            margin-top:0.4em;
+        }
+
+        .l-container .l-img-container {
+
+            width:220px;
+            height: 220px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-code.png);
+        }
+
+        .op-section .op-inersection {
+            min-width:800px;
+            max-width: 1240px;
+            margin: 0 auto;
+            background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-position-one-b.png);
+            background-repeat: no-repeat;
+            background-position: 83% 22%;
+        }
+
+        .l-container span {
+            display: block;
+            font-size: 1.5em;
+            margin-top:0.83em;
+            width: 220px;
+            text-align: center;
+        }
+
+        .r-container {
+            min-height:536px;
+            height: 100%;
+        }
+
+        .r-container .r-container-a {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .r-container .r-container-la {
+             width: 100%;
+            height: 100%;
+            background-image: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-one-phone.png),url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-one-icons.png);
+            background-position:76% 49%,0 42%;
+            background-repeat: no-repeat,no-repeat;
+            background-size:32%,contain;
+        }
+
+        .r-container .r-img-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .r-c {
+            background-image: url(//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-one-icons.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 31%;
+            z-index: 2;
+        }
+
+        .r-container .shadow-box {
+            position: absolute;
+            top: 50%;
+            margin-top: -258px;
+            z-index: 5;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 78%;
+            height: 517px;
+            right: 7.3%;
+        }
+
+        .r-container .shadow-icon {
+            position: absolute;
+            top: 50%;
+            margin-top: -258px;
+            z-index: 5;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 78%;
+            height: 517px;
+            right: 7.3%;
+        }
+
+        .r-container .shadow-two {
+            position: absolute;
+            top: 11%;
+            z-index: 4;
+            background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-two-phone.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 51.7%;
+            height: 100%;
+            right: 7%;
+        }
+
+        .r-container .r-mobile-box {
+            position: absolute;
+            top: 11.5%;
+            z-index: 4;
+            overflow: hidden;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 51%;
+            height: 100%;
+            right: 7%;
+        }
+
+        .r-mobile-box-a{position:relative;width:100%;height:100%;}
+
+
+        /*手机容器*/
+
+        .mobile-one,.mobile-two,.mobile-three {float: left;margin-top:9.45%;background-size: contain;background-repeat: no-repeat;}
+        .third .mobile-one,.third .mobile-two,.third .mobile-three {margin-top:6.2%;}
+
+
+        .second .r-container .mobile-one {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-two-phone-1.png);}
+        .second .r-container .mobile-two {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-two-phone-2.gif);}
+        .second .r-container .shadow-icon {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-two-phone-icons.png);}
+
+        .third .r-container .mobile-one {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-three-phone-1.png);}
+        .third .r-container .mobile-two {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-three-phone-2.png);}
+        .third .r-container .mobile-three {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-three-phone-3.png);}
+        .third .r-container .shadow-icon {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-three-phone-icons.png);}
+
+        .fourth .r-container .mobile-one {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-four-phone-1.png);}
+        .fourth .r-container .mobile-two {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-four-phone-2.png);}
+        .fourth .r-container .shadow-icon {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-four-phone-icons.png);}
+
+        .fifth .r-container .mobile-one {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-five-phone-1.png);}
+        .fifth .r-container .mobile-two {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-five-phone-2.png);}
+        .fifth .r-container .shadow-icon {background-image: url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure-mobile-a-five-phone-icons.png);}
+
+
+
+        .one,.third,.fifth {background-color: rgb(0, 126, 255);}
+        .second,.fourth {background-color: #fff;}
+
+
+        /*滚动控制*/
+
+        .radioWrap {
+            width: 12px;
+            height: 180px;
+            position: fixed;
+            right: 5%;
+            top: 50%;
+            margin-top: -90px;
+            z-index: 10;
+        }
+
+        .radio {
+            width: 100%;
+            height: 100%;
+            margin-top: 0px;
+            overflow: hidden;
+        }
+
+        .radio li {
+            width: 12px;
+            height: 12px;
+            background-color: #000000;
+            opacity:0.3;
+            filter:alpha(opacity=30);
+            -moz-opacity:0.3;
+            -khtml-opacity:0.3;
+            text-indent: -10000px;
+            border-radius: 50%;
+            margin-top: 12px;
+            cursor: pointer;
+        }
+
+        .radio li:first-child {
+            margin-top: 0;
+        }
+
+        .radioOn {
+            width: 12px;
+            height: 12px;
+            margin-bottom: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #98d24d;
+            border-radius: 50%;
+        }
+
+        .pure-content ul {
+            padding-left: 0px;
+        }
+
+        .ewm {
+            height: 150px;
+            width: 150px;
+            background: #1abc9c;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 23%;
+        }
+
+
+        .unshine {
+            -webkit-animation-name: reverflash;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-duration:3s;
+            -moz-animation-duration:3s;
+            -moz-animation-name: flash;
+            -moz-animation-timing-function: ease-in-out;
+        }
+
+        @-webkit-keyframes reverflash {
+            0% {
+                opacity: 1;
+                 filter:alpha(opacity=100);        
+                -khtml-opacity:1;
+            }
+            80%{
+                opacity: 1;
+                filter:alpha(opacity=100);   
+                -khtml-opacity:1;
+            }
+            100% {
+                opacity: 0;
+                filter:alpha(0);   
+                -khtml-opacity:0;
+            }
+        }
+
+        @-moz-keyframes reverflash {
+            0% {
+                opacity: 1;
+                -moz-opacity:1;
+            }
+            80%{
+                opacity: 1;
+                -moz-opacity:1;
+            }
+            100% {
+                 opacity: 0;
+                 -moz-opacity:0;
+            }
+        }
+
+        /*文字动画*/
+
+        .shine {
+            -webkit-animation-name: flash;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-duration: 1s;
+            -moz-animation-duration: 1s;
+            -moz-animation-name: flash;
+            -moz-animation-timing-function: ease-in-out;
+            -moz-animation-direction: alternate;
+        }
+
+        @-webkit-keyframes flash {
+            0% {
+                opacity: 0;
+                 filter:alpha(0);   
+                -khtml-opacity:0;
+            }
+            100% {
+                opacity: 1;
+                 filter:alpha(opacity=100);   
+                -khtml-opacity:1;
+            }
+        }
+
+        @-moz-keyframes flash {
+            0% {
+                opacity: 0;
+                 -moz-opacity:0;
+            }
+            100% {
+                opacity: 1;
+                 -moz-opacity:1;
+            }
+        }
+
+        .my-odd-color {
+            color: #003986;
+        }
+
+
+        .logo-wz {
+            color: #000;
+            font-size:0.7em;
+            margin-top: 3em;
+        }
+
+        .flash-f {
+          width: 200%;
+          height: 100%;
+          position: absolute;
+        }
+
+        .flash-m {
+          float: left;
+          height:100% ;
+          width:50% ;
+        }
+          .shine-opacity{
+          opacity:0;
+           filter:alpha(0);   
+            -khtml-opacity:0;
+           -moz-opacity:0;
+          }
+
+        @media screen and (max-width: 1160px) {
+            .l-container h1{font-size:2em;}
+            .l-container p{font-size:1em;}
+            .l-container span{font-size:1em;width:155px;}
+            .l-container .logo-wz{font-size:0.5em;}
+            .l-container .l-img-container{height:155px;width:155px;}
+
+        }       
+              
+    </style>
+    <div class="unshine loading-scroll"></div>
+    <div class="view">
+        <div class="frame">
+            <div class="op-section one">
+                <div class="row">
+                    <div class="op-inersection">
+                        <div class="col-md-4  col-xs-4 l-contain">
+                            <div class="l-contain-a">
+                                <div class="l-container">
+                                    <h1 class="shine">Azure 云助手</h1>
+                                    <p class="shine">官方唯一手机 APP</p>
+                                    <p class="shine">上云 | 用云 | 管云 从未如此简单</p>
+                                    <div style="position: fixed;height: 100%;margin-top:2.5em;">
+                                        <div class="l-img-container">
+                                        </div>
+                                        <span class="my-odd-color">扫描二维码快速安装</span>
+                                        <div class="logo-wz">
+                                            Azure 云助手由世纪互联发布运营，
+                                            <br>由微软中国云计算与企业事业部提供技术支持。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 r-container">
+                            <div class="r-container-la">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="op-section second">
+                <div class="row">
+                    <div class="op-inersection">
+                        <div class="col-md-4  col-xs-4 l-contain">
+                            <div class="l-contain-a">
+                                <div class="l-container">
+                                    <h1 class="shine my-odd-color">随时管控</h1>
+                                    <p class="shine my-odd-color">随时监控资源状态 实时查询用量账单</p>
+                                    <p class="shine my-odd-color">多个账户快速切换 便捷操作尽在掌握</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 r-container">
+                            <div class="r-container-a">
+                                <div class="shadow-box">
+                                    <div class="r-img-container">
+                                        <div class="flash-two r-mobile-box">
+                                            <div class="r-mobile-box-a">
+                                                <ul class="flash-f">
+                                                    <li class="mobile-one flash-m"></li>
+                                                    <li class="mobile-two flash-m "></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-two">
+                                    </div>
+                                </div>
+                                <div class="shadow-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="op-section third">
+                <div class="row">
+                    <div class="op-inersection">
+                        <div class="col-md-4  col-xs-4 l-contain">
+                            <div class="l-contain-a">
+                                <div class="l-container">
+                                    <h1 class="shine">快捷工单</h1>
+                                    <p class="shine">快速提交工单 无需电话等待</p>
+                                    <p class="shine">随时跟踪进度 方便故障排查</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 r-container">
+                            <div class="r-container-a">
+                                <div class="shadow-box">
+                                    <div class="r-img-container">
+                                        <div class="flash-three r-mobile-box">
+                                            <div class="r-mobile-box-a">
+                                                <ul class="flash-f">
+                                                    <li class="mobile-one flash-m"></li>
+                                                    <li class="mobile-two flash-m "></li>
+                                                    <li class="mobile-three flash-m "></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-two">
+                                    </div>
+                                </div>
+                                <div class="shadow-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="op-section fourth">
+                <div class="row">
+                    <div class="op-inersection">
+                        <div class="col-md-4  col-xs-4 l-contain">
+                            <div class="l-contain-a">
+                                <div class="l-container">
+                                    <h1 class="shine my-odd-color">报警通知</h1>
+                                    <p class="shine my-odd-color">实时接收报警通知 发现问题即时解决</p>
+                                    <p class="shine my-odd-color">时刻知晓最新服务 随时获得活动信息</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 r-container">
+                            <div class="r-container-a">
+                                <div class="shadow-box">
+                                    <div class="r-img-container">
+                                        <div class="flash-four r-mobile-box">
+                                            <div class="r-mobile-box-a">
+                                                <ul class="flash-f">
+                                                    <li class="mobile-one flash-m"></li>
+                                                    <li class="mobile-two flash-m "></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-two">
+                                    </div>
+                                </div>
+                                <div class="shadow-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="op-section fifth">
+                <div class="row">
+                    <div class="op-inersection">
+                        <div class="col-md-4  col-xs-4 l-contain">
+                            <div class="l-contain-a">
+                                <div class="l-container">
+                                    <h1 class="shine">精选内容</h1>
+                                    <p class="shine">汇集精选资讯 让您站在云的最前端</p>
+                                    <p class="shine">提供常用问答 使您轻松解决云难题</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 r-container">
+                            <div class="r-container-a">
+                                <div class="shadow-box">
+                                    <div class="r-img-container">
+                                        <div class="flash-five r-mobile-box">
+                                            <div class="r-mobile-box-a">
+                                                <ul class="flash-f">
+                                                    <li class="mobile-one flash-m"></li>
+                                                    <li class="mobile-two flash-m "></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-two">
+                                    </div>
+                                </div>
+                                <div class="shadow-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="radioWrap">
+        <ul class="radio">
+            <li>section0</li>
+            <li>section1</li>
+            <li>section2</li>
+            <li>section3</li>
+            <li>section4</li>
+        </ul>
+        <span class="radioOn"></span>
+    </div>
+]]>
+        </bodyText>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <pageTitle>Azure 云助手官方唯一手机 App 下载 - Azure云计算</pageTitle>
+        <metaKeywords>Azure 云助手,云助手,微软云助手</metaKeywords>
+        <metaDescription>
+            <![CDATA[Azure 云助手 App 随时监控资源状态实时查询用量账单，快速提交工单无需电话等待，云助手还汇集精选资讯让您站在云的最前端，使您轻松解决云难题。]]>
+        </metaDescription>
+        <linkid>solutions-web</linkid>
+        <urlDisplayName>网站</urlDisplayName>
+        <headerExpose></headerExpose>
+        <footerExpose></footerExpose>
+        <disqusComments>0</disqusComments>
+        <metaCanonical></metaCanonical>
+        <isHeader>0</isHeader>
+        <pageTemplate>solution-template</pageTemplate>
+        <localize>1</localize>
+        <localizePartial>0</localizePartial>
+        <sitemapHide>0</sitemapHide>
+       
+    </umbTextpage>
+</localize>

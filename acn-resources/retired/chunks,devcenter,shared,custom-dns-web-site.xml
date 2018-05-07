@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18737" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="50" createDate="2013-07-11T10:01:42" updateDate="2014-08-18T11:03:41" nodeName="custom-dns-web-site" urlName="custom-dns-web-site" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18737" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>为 Windows Azure 网站配置自定义域名</h1>
+<p>当您创建网站时，Windows Azure 在 chinacloudsites.cn 域中提供一个使人容易理解的子域，以使您的用户可使用类似 http://&lt;mysite&gt;.chinacloudsites.cn 的 URL 访问您的网站。但是，如果将网站配置为共享或专属模式，则可将网站映射到您自己的域名。</p>
+<div class="dev-callout">注意
+<p>本任务中的过程适用于 Windows Azure 网站；对于云服务，请参阅<a href="http://www.windowsazure.cn/zh-cn/develop/net/common-tasks/custom-dns/">在 Windows Azure 中配置自定义域名</a>。</p>
+</div>
+<p>本任务中的步骤要求将网站配置为共享或专属模式。由于网站功能尚处于预览阶段，并且我们正在按测量结果扩大容量，因此可能会出现“可用的专属实例服务器不足，无法满足此请求”错误。如果出现此错误，则需要稍后重新尝试执行此任务。</p>
+<p>可使用 CNAME 记录将您的域名指向您的 Windows Azure 网站。也可配置 A 记录将域名指向 Windows Azure 网站。该过程需要等待 CNAME 和 A 记录向外传播，然后才能在管理门户中最终设置域名。</p>
+<p>有两种方法可配置您的域注册机构中的域名服务器 (DNS) 设置，使其指向您的 Windows Azure 网站：</p>
+<ol>
+<li>
+<p><strong>CNAME（即别名）记录</strong></p>
+<p>通过 CNAME，可将 www.contoso.com 或 myblog.contoso.com 等特定域映射到 Windows Azure 网站的 &lt;<em>mysite</em>&gt;.chinacloudsites.cn 域名。</p>
+<p>以 Microsoft 样本域 contoso.com 为例：</p>
+<ul>
+<li>通常可映射 www.contoso.com 或 MySubSite.contoso.com 等子域。</li>
+<li>通常无法映射裸域（如 contoso.com）或通配符名称（如 *.contoso.com）。</li>
+</ul>
+</li>
+<li>
+<p><strong>A 记录</strong></p>
+<p>通过 A 记录，可将域（例如 contoso.com 或 www.contoso.com）或通配符域（例如 *.contoso.com）映射到 Windows Azure 网站中某个部署的单个公用 IP 地址。</p>
+<p>与使用 CNAME 相比，此方法的主要好处是，除子域（例如 www.contoso.com）外，您还可以映射根域（例如 contoso.com）和通配符域（例如 *.contoso.com）。</p>
+</li>
+</ol>
+<p>此任务包括下列步骤：</p>
+<ol>
+<li>先决条件：<a href="#bkmk_configsharedmode">将网站配置为共享模式</a></li>
+<li>先决条件：<a href="#bkmk_configurecname">配置您的域注册机构中的 CNAME</a></li>
+<li><a href="#bkmk_setcname">在管理门户中设置域名</a></li>
+</ol>
+<p>还可<a href="#bkmk_configurearecord">为域名配置 A 记录</a>。</p>
+<h2>将网站配置为共享模式</h2>
+<p>建议采用设置 CNAME 记录的方式将域名映射到 Windows Azure 网站。映射 CNAME 记录使网站免于产生可能会影响网站基础 IP 地址的更改。</p>
+<p>仅对 Windows Azure 网站的共享和专属模式可在网站上设置自定义域名。将网站从免费网站模式切换到共享或专属网站模式之前，必须先取消网站订阅已有的支出上限。有关共享和专属模式定价的详细信息，请参阅<a href="http://www.windowsazure.cn/zh-cn/pricing/details/">定价详细信息</a>。</p>
+<ol>
+<li>在浏览器中打开<a href="http://manage.windowsazure.cn">管理门户</a>。</li>
+<li>
+<p>在“网站”选项卡中，单击网站的名称。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-1.png"/></p>
+</li>
+<li>
+<p>单击“缩放”选项卡。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-2.png"/></p>
+</li>
+<li>
+<p>在“常规”部分中，通过单击“共享”设置网站模式。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-3.png"/></p>
+</li>
+<li>单击“保存”。</li>
+<li>
+<p>在“您正在更改为可能造成计费影响的模式。是否继续?”（如果选择“专属”，则确认消息将为：“是否确实要从免费升级为专属网站模式?”）中，单击“确定”。</p>
+<!--![][reservedmode4]--></li>
+</ol>
+<div class="dev-callout">注意
+<p>如果出现“为网站‘&lt;网站名称&gt;’配置规模失败”错误，则可使用详细信息按钮获得详细信息。可能会出现“可用的专属实例服务器不足，无法满足此请求。”错误。网站功能尚处于预览阶段，并且我们正在按测量结果扩大容量。如果出现此错误，则需要稍后重新尝试升级帐户。</p>
+</div>
+<h2>配置您的域注册机构中的 CNAME</h2>
+<p>若要配置自定义域名，必须在自定义域名的 DNS 表中创建一个 CNAME 记录。每个注册机构指定 CNAME 记录的方法类似但略有不同，但概念是相同的。配置该 CNAME 记录后，该信息向外传播将需要一段时间。</p>
+<ol>
+<li>在浏览器中打开 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</li>
+<li>在“网站”选项卡中，找到您的网站的名称。</li>
+<li>登录到 DNS 注册商的网站，然后转至管理 DNS 的页面。可能会在“域名”、“DNS”或“名称服务器管理”等部分中找到此页。</li>
+<li>现在找到管理 CNAME 的部分。您可能需要转至高级设置页面，并找到“CNAME”、“别名”或“子域”字样。</li>
+<li>
+<p>最后，必须提供子域别名，如 www。然后，必须提供主机名，即应用程序的 chinacloudsites.cn 域，它由在第 2 步中找到的名称与 chinacloudsites.cn 域组成。以 Microsoft 样本域 contoso.com 为例，以下 CNAME 记录示例将所有来自 <em>www.contoso.com</em> 的通信转发到 <em>mysite.chinacloudsites.cn</em>（您部属的应用程序的 DNS 名称）：</p>
+<p> </p>
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr><th><strong>别名</strong></th><th><strong>TTL</strong></th><th><strong>类型</strong></th><th>值</th></tr>
+<tr>
+<td>www.contoso.com</td>
+<td>86400</td>
+<td>CNAME</td>
+<td>mysite.chinacloudsites.cn</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+</li>
+</ol>
+<div class="dev-callout">注意
+<p>CNAME 通过 DNS 系统向外传播可能需要一段时间。直到 CNAME 已传播出去，才能设置网站的 CNAME。可使用 <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> 等服务确认该 CNAME 可用。</p>
+</div>
+<h2>在管理门户中设置域名</h2>
+<p>域名的 CNAME 或 A 记录传播出去后，必须将其与您的网站关联。</p>
+<ol>
+<li>在浏览器中打开 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</li>
+<li>在“网站”选项卡中，单击网站的名称。</li>
+<li>
+<p>单击“配置”选项卡。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-5.png"/></p>
+</li>
+<li>
+<p>单击屏幕底部的“管理域”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-6.png"/></p>
+</li>
+<li>
+<p>在“域名”文本框中，键入已配置的域名。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-7.png"/></p>
+</li>
+<li>
+<p>单击复选标记以接受该域名。</p>
+</li>
+</ol>
+<p>Windows Azure 先验证主机名在公共 DNS 中存在，然后再保存更改并更新内部 Windows Azure DNS。我们在提交保存之前验证主机名出于几个原因，一个主要原因是通过等待至 CNAME 更改传播出去，我们可确认该自定义域属于网站所有者。验证使我们的路由器可建立每个主机名的路由，并确保每个主机名都属于一个网站且仅属于这个网站。</p>
+<h2>为域名配置 A 记录</h2>
+<p>若要配置 A 记录，必须配置用于验证域名的 CNAME 记录。此过程与用于配置一条 CNAME 记录以指向您的网站的过程相同，但不包括配置将作验证用途的 CNAME 记录域名。例如，以 Microsoft 样本域 contoso.com 为例，主机名将为 awverify.www.contoso.com，而值将为 awverify.mysite.chinacloudsites.cn。此信息传播出去后，即可配置 A 记录。</p>
+<ol>
+<li>在浏览器中打开 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</li>
+<li>在“网站”选项卡中，单击网站的名称。</li>
+<li>
+<p>单击“配置”选项卡。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-5.png"/></p>
+</li>
+<li>
+<p>单击屏幕底部的“管理域”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/dncmntask-cname-6.png"/></p>
+</li>
+<li>
+<p>在“管理自定义域”对话框上，找到“在配置 A 记录时要使用的 IP 地址”，然后复制该 IP 地址。</p>
+</li>
+<li>登录到 DNS 注册商的网站，然后转至管理 DNS 的页面。可能会在“域名”、“DNS”或“名称服务器管理”等部分中找到此页。</li>
+<li>
+<p>配置域名和在第 5 步中复制的 IP 地址。例如，以下 DNS 示例将来自 <em>contoso.com</em> 的所有通信转发到 <em>172.16.48.1</em>。</p>
+<p> </p>
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr><th><strong>别名</strong></th><th><strong>TTL</strong></th><th><strong>类型</strong></th><th><strong>值</strong></th></tr>
+<tr>
+<td>awverify.www.contoso.com</td>
+<td>86400</td>
+<td>CNAME</td>
+<td>awverify.mysite.chinacloudsites.cn</td>
+</tr>
+<tr>
+<td>contoso.com</td>
+<td>7200</td>
+<td>A</td>
+<td>172.16.48.1</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol><!-- Bookmarks --> <!-- Links --> <!-- images --></div>]]></bodyText></Chunk></localize>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="16971" parentID="16964" level="4" writerID="52" creatorID="96" nodeType="9257" template="0" sortOrder="7" createDate="2013-01-08T21:55:42" updateDate="2014-08-18T11:06:27" nodeName="PDCDataManagement" urlName="pdcdatamanagement" writerName="uRest" creatorName="aaron" path="-1,11978,13607,16964,16971" isDoc=""><hideAll>0</hideAll><localize></localize><localizePartial></localizePartial><bodyText><![CDATA[<h2 id="header-5">数据管理</h2>
+<h3 id="sql-database">SQL Database</h3>
+<p>SQL Database 费用按照基于数据库大小分级的费率来计算。适用于两个版本：Web 版和企业版。Web 版支持最大为 5 GB 的基于 T-SQL 的关系数据库。企业版支持最大为 150 GB 的基于 T-SQL 的关系数据库。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>数据库大小</th><th>每月每数据库价格</th><th>将显示在您的帐单上的数据库单位 (DU)</th></tr>
+<tr>
+<td>0 到 100 MB</td>
+<td>固定 <span class="price-data" data-amount="4.995">4.995 美元</span></td>
+<td>0.5 DU</td>
+</tr>
+<tr>
+<td>大于 100 MB，小于等于 1 GB</td>
+<td>固定 <span class="price-data" data-amount="9.99">9.99 美元</span></td>
+<td>1 DU</td>
+</tr>
+<tr>
+<td>大于 1 GB，小于等于 10 GB</td>
+<td>前 1 GB 为 <span class="price-data" data-amount="9.99">9.99 美元</span>，每个额外的 GB 为 <span class="price-data" data-amount="3.996">3.996 美元</span></td>
+<td>
+<p>第 1 个 GB 为 1 DU</p>
+<p>每个额外的 GB 为 0.4 DU</p>
+</td>
+</tr>
+<tr>
+<td>大于 10 GB，小于等于 50 GB</td>
+<td>前 10 GB 为 <span class="price-data" data-amount="45.954">45.954 美元</span>，每个额外的 GB 为 <span class="price-data" data-amount="1.996">1.996 美元</span></td>
+<td>
+<p>前 10 GB 为 4.6 DU</p>
+<p>每个额外的 GB 为 0.2 DU</p>
+</td>
+</tr>
+<tr>
+<td>大于 50 GB，小于等于 150 GB</td>
+<td>前 50 GB 为 <span class="price-data" data-amount="125.874">125.874 美元</span>，每个额外的 GB 为 <span class="price-data" data-amount=".999">0.999 美元</span></td>
+<td>
+<p>前 50 GB 为 12.6 DU</p>
+<p>每个额外的 GB 为 0.1 DU</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>我们对您使用的每个 SQL Database 收取月费，但对超过该月费用的数据库费用实行摊销，并按天计算费用。对于超过 1 GB 的数据库，则会按照向上取整的 GB 增量来计费。例如，如果您在一个帐单月内的某 1 天使用了两个企业版数据库（大小分别为 4.4 GB 和 14.4 GB），我们将按照当天使用了 5 GB 和 15 GB 数据库对您进行收费，总费用为 <span class="price-data" data-amount="2.65">$2.65</span>。以下是计算公式：</p>
+<ul>
+<li>5 GB：(前 1 GB <span class="price-data" data-amount="9.99">9.99 美元</span> + 后 4 GB 每 GB <span class="price-data" data-amount="3.996">3.996 美元</span>）/ 31 天 = <span class="price-data" data-amount=".84">0.84 美元</span></li>
+<li>15 GB：(前 10 GB <span class="price-data" data-amount="45.954">45.954 美元</span> + 后 5 GB 每 GB <span class="price-data" data-amount="1.996">1.996 美元</span>）/ 31 天 = <span class="price-data" data-amount="1.81">1.81 美元</span></li>
+</ul>
+<p><a href="../../home/features/data-management/">有关 SQL Database 的详细信息</a></p>
+<h3 id="storage">存储</h3>
+<p>对于 Blob、表、队列和 Windows Azure 驱动器存储，以每月日均数据存储量 (GB) 为单位计算存储容量费用。例如，如果您在前半个月持续使用了 10 GB 的存储，而在后半个月未使用任何存储，则将按 5 GB 的平均存储使用量进行计费。</p>
+<p>Windows Azure 存储提供两个级别的冗余：</p>
+<ul>
+<li>本地冗余存储 (LRS) - 在单个子区域内提供高度持久且高度可用的存储。</li>
+<li>地理冗余存储 (GRS) - 通过将您的数据另外存储在同一区域内的另一个子区域中来提供最高级别的持久性。</li>
+</ul>
+<p>默认情况下，存储帐户设置为地理冗余。如果客户不需要这一额外级别的持久性，则可以关闭其存储帐户中默认的地理冗余设置。</p>
+<p>存储费用按照根据下表选择的冗余级别的分级费率来计算。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>存储容量</th><th>地理冗余</th><th>本地冗余</th></tr>
+<tr>
+<td>前 1 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".095">0.095 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".070">0.070 美元</span></td>
+</tr>
+<tr>
+<td>后 49 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".08">0.08 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".065">0.065 美元</span></td>
+</tr>
+<tr>
+<td>后 450 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".07">0.07 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".06">0.06 美元</span></td>
+</tr>
+<tr>
+<td>后 500 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".065">0.065 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".055">0.055 美元</span></td>
+</tr>
+<tr>
+<td>后 4,000 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".06">0.06 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".045">0.45 美元</span></td>
+</tr>
+<tr>
+<td>后 4,000 TB / 月</td>
+<td>每 GB <span class="price-data" data-amount=".055">0.055 美元</span></td>
+<td>每 GB <span class="price-data" data-amount=".037">0.037 美元</span></td>
+</tr>
+<tr>
+<td>超过 9,000 TB / 月</td>
+<td><a href="mailto:winazinqr@microsoft.com">联系我们</a></td>
+<td><a href="mailto:winazinqr@microsoft.com">联系我们</a></td>
+</tr>
+</tbody>
+</table>
+<p>存储事务成本如下所示。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>存储事务</th><th>价格</th></tr>
+<tr>
+<td>100,000 个事务</td>
+<td>每 100,000 个 <span class="price-data" data-amount=".01">0.01 美元</span></td>
+</tr>
+</tbody>
+</table>
+<p>对于 Windows Azure 驱动器存储，您将只为页 Blob 使用的存储空间和针对页 Blob 的读/写事务付费。您不用为使用本地驱动器缓存的读取事务付费。Windows Azure 驱动器使用费率与标准 Windows Azure 存储相同，并且与 Windows Azure 使用费一起包括在您的帐单中。您的帐单上没有针对 Windows Azure 驱动器的单独行项。</p>
+<p><a href="../../home/features/data-management/">有关存储的更多信息</a></p>]]></bodyText></Chunk></localize>

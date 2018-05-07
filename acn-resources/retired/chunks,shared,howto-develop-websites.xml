@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18775" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="6" createDate="2013-07-11T10:14:51" updateDate="2014-08-18T11:06:44" nodeName="howto-develop-websites" urlName="howto-develop-websites" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18775" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<p> </p>
+<h1>如何创建和部署网站</h1>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="disclaimer" macroAlias="AzureChunkDisplayer" />
+<p>正如可快速创建 Web 应用程序和部署通过库创建的 Web 应用程序一样，也可部署在工作站上用 Microsoft 或其他公司的传统开发人员工具创建的网站。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#tools">用于创建网站的开发工具</a></li>
+<li><a href="#howtocreatefromgallery">如何：通过库创建网站</a></li>
+<li><a href="#deployawebsite">如何：通过 Git 部署网站</a></li>
+<li><a href="#nextsteps">后续步骤</a></li>
+</ul>
+<h2><a name="tools"></a>用于创建网站的开发工具</h2>
+<p>Microsoft 提供的某些开发工具包括 <a href="http://go.microsoft.com/fwlink/?LinkId=225683">Microsoft Visual Studio 2010</a>、<a href="http://go.microsoft.com/fwlink/?LinkID=205116">Microsoft Expression Studio 4</a> 和 <a href="http://go.microsoft.com/fwlink/?LinkID=226244">Microsoft WebMatrix</a>（Microsoft 的一个免费 Web 开发工具，它提供基本的网站开发功能）。</p>
+<h2><a name="howtocreatefromgallery"></a>如何：通过库创建网站</h2>
+<?UMBRACO_MACRO chunkpath="shared" hide="0" chunkname="website-from-gallery" macroAlias="AzureChunkDisplayer" />
+<h2><a name="deployawebsite"></a>如何：通过 Git 部署网站</h2>
+<p>如果使用 Git 进行源代码管理，则可将应用程序直接从本地 Git 存储库发布到网站。Git 是一个免费的开源分布式版本控制系统，可处理规模从小到大的各种项目。若要将 Git 用于网站，必须从网站的“快速启动”或“仪表板”管理页中设置 Git 发布。设置 Git 发布后，每次 .Git 推送均发起一个新部署。您将在“部署”管理页上管理您的 Git 部署。</p>
+<p><strong>提示</strong><br />创建网站后，使用“快速启动”<strong></strong>或“仪表板”<strong></strong>管理页中的“设置 Git 发布”<strong></strong>为网站设置 Git 发布。如果您是初次使用 Git，则将指导您创建 Git 帐户以及用于您的网站的本地存储库。您将看到需要输入的准确 Git 命令，包括要用于您的网站的 Git 存储库 URL。</p>
+<h3>设置 Git 发布</h3>
+<ol>
+<li>在 Windows Azure 中创建网站。(<strong>新建 - 网站</strong>）</li>
+<li>从“快速启动”<strong></strong>管理页中，单击“设置 Git 发布”<strong></strong>。</li>
+</ol>
+<p>如果尚未按说明通过指定用于通过 Git 和 FTP 进行部署的用户名和密码，创建部署用户帐户，则请照做。随后将创建一个 Git 存储库用于您管理的网站。</p>
+<h3>将本地 Git 存储库推送到 Windows Azure</h3>
+<p>下面的过程将指导您创建新存储库或克隆现有存储库，然后将内容推送到网站的 Git 存储库。</p>
+<ol>
+<li>安装 Git 客户端。(<a href="http://go.microsoft.com/fwlink/?LinkId=252533">下载 Git</a>）</li>
+<li>
+<p>打开命令提示符，将目录更改为应用程序的根目录，然后键入以下命令：</p>
+<pre class="prettyprint">git init git add. git commit -m "initial commit"</pre>
+<p>此命令将创建一个本地 Git 存储库，然后将本地应用程序文件提交到该存储库。</p>
+</li>
+<li>
+<p>添加一个远程 Windows Azure 存储库，然后将文件推送到其中。</p>
+</li>
+<li>
+<p>打开命令提示符，将目录更改为应用程序的根目录，然后键入以下命令：</p>
+<pre class="prettyprint">git remote add azure http://azure@microsoft.com.antdf0.windows-int.net/azureweb.git git push azure master</pre>
+<p><strong>注意</strong>上面的命令将根据已为其创建 Git 存储库的网站的名称而有所不同。</p>
+</li>
+</ol>
+<h3>将网站克隆到我的计算机</h3>
+<ol>
+<li>安装 Git 客户端。(如果尚未<a href="http://go.microsoft.com/fwlink/?LinkId=252533">下载 Git</a>，则请照做。）</li>
+<li>克隆网站。</li>
+<li>
+<p>打开命令提示符，将目录更改为要放置文件的目录，然后键入：</p>
+<pre class="prettyprint">git clone -b master GitRepositoryURL</pre>
+<p>其中 <em>GitRepositoryURL</em> 是要克隆的 Git 存储库的 URL。</p>
+</li>
+<li>
+<p>提交更改，然后将存储库的内容推送回 Windows Azure。</p>
+</li>
+<li>
+<p>更改或添加某些文件后，将目录更改为应用程序的根目录，然后键入：</p>
+<pre class="prettyprint">git add. git commit -m "some changes" git push</pre>
+</li>
+</ol>
+<p>部署开始后，可在“部署”<strong></strong>管理页上监视部署状态。部署完毕后，单击“浏览”<strong></strong>以在浏览器中打开您的网站。</p>
+<hr />
+<h2><a name="nextsteps"></a>后续步骤</h2>
+<p>有关网站的详细信息，请参阅以下各项：</p>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=251824">演练：排除 Windows Azure 上的网站故障</a></li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

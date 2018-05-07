@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18638" parentID="18635" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="3" createDate="2013-06-04T14:38:12" updateDate="2014-08-18T11:05:45" nodeName="howto-connect-vm-cloud-service" urlName="howto-connect-vm-cloud-service" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18634,18635,18638" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>如何连接云服务中的虚拟机</h1>
+<p>当您创建一台虚拟机后，会自动创建一项云服务来包含该虚拟机。您可以在同一云服务下创建多台虚拟机，然后使虚拟机之间能够相互通信，在虚拟机之间进行平衡负载，维护虚拟机的高可用性。</p>
+<p>有关对虚拟机进行负载平衡的更多信息，请参见<a href="/zh-cn/manage/windows/common-tasks/how-to-load-balance-virtual-machines">对虚拟机进行负载平衡</a>。有关管理应用程序可用性的更多信息，请参见<a href="/zh-cn/manage/windows/common-tasks/manage-vm-availability">管理虚拟机的可用性</a>。</p>
+<p>您必须先创建一台虚拟机和新的云服务，然后在该云服务下将其他虚拟机与第一台虚拟机相连接。</p>
+<ol>
+<li>
+<p>使用<a href="/zh-cn/manage/windows/how-to-guides/custom-create-a-vm">如何创建自定义虚拟机</a>中的步骤创建虚拟机。</p>
+</li>
+<li>
+<p>创建第一台自定义虚拟机后，在“管理门户”<a href="http://manage.windowsazure.cn"></a>命令栏上，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/createnew.png" alt="创建自定义虚拟机"/></p>
+<p>这将显示“虚拟机操作系统选择”对话框。您现在可从映像库中选择一个映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imageselectionwindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>单击“平台映像”，选择想要使用的平台映像，然后单击箭头以继续。</p>
+<p>这将显示“虚拟机配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imagedefinewindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>在“虚拟机名称”中，键入要用于该虚拟机的名称。</p>
+</li>
+<li>
+<p>在“新密码”中，键入用于该虚拟机上 Administrator 帐户的密码。在“确认密码”中，再次键入您之前输入的密码。</p>
+</li>
+<li>
+<p>在“大小”中，选择要用于该虚拟机的大小。所选大小具体取决于您应用程序所需的内核数。</p>
+</li>
+<li>
+<p>对于运行 Linux 操作系统的虚拟机，您可以选择通过 SSH 密钥保护虚拟机。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>这将显示“虚拟机模式”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectedvms.png" alt="定义连接的虚拟机"/></p>
+</li>
+<li>
+<p>选择“连接到现有虚拟机”以在现有云服务下创建一台新虚拟机。选择将包含该新虚拟机的云服务。</p>
+</li>
+<li>
+<p>在“存储帐户”中，选择存储 VHD 文件的存储帐户，或者选择自动创建存储帐户。只能自动创建一个存储帐户。使用此设置创建的所有其他虚拟机也位于该存储帐户中。您最多只能创建 20 个存储帐户。</p>
+</li>
+<li>
+<p>在“区域/地缘组/虚拟网络”中，选择要包含该虚拟机的区域。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>这将显示“虚拟机选项”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/availabilitysetselect.png" alt="定义连接的虚拟机"/></p>
+</li>
+<li>
+<p>选择您在创建第一台虚拟机时创建的可用性集。</p>
+</li>
+<li>
+<p>单击复选标记以创建连接的虚拟机。</p>
+</li>
+</ol>]]></bodyText></Chunk></localize>

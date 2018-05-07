@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18661" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="10" createDate="2013-06-04T14:45:48" updateDate="2014-08-18T11:04:17" nodeName="windows-azure-execution-models" urlName="windows-azure-execution-models" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18661" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>Windows Azure 执行模型</h1>
+<p>Windows Azure 提供了兩种用于运行应用程序的不同执行模型：</p>
+<ul>
+<li>虚拟机</li>
+<!--<li>网站</li>-->
+<li>云服务</li>
+</ul>
+<p>每种模型提供一组不同服务，而您选择哪种模型完全取决于您要做什么。本文介绍所有这兩种模型，描述它们的技术并提供相关用例。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#VMachine">虚拟机</a></li>
+<!--<li><a href="#WebSites">网站</a></li> -->
+<li><a href="#CloudServices">云服务</a></li>
+<li><a href="#WhatShouldIUse">我该使用哪一种？做出选择</a></li>
+</ul>
+<p> </p>
+<h2>虚拟机</h2>
+<p>开发人员、IT 操作人员和其他人可以使用 Windows Azure 虚拟机在云环境中创建和使用虚拟机。提供“基础结构即服务”（Infrastructure as a Service，简称 IaaS），这是一项可广泛使用的技术。<a href="#Fig1">图 1</a> 显示其基本组成。</p>
+<p><a name="Fig1"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_01_creatingvms.png" alt="01_CreatingVMs"/></p>
+<p><strong>图 1：Windows Azure 虚拟机模型可提供“基础结构即服务”技术。</strong></p>
+<p>如图所示，可以使用 Windows Azure 管理门户或基于 REST 的 Windows Azure 服务管理 API 创建虚拟机。可以从包括 Internet Explorer、Mozilla 和 Chrome 在内的任何常用浏览器访问管理门户。对于 REST API，Microsoft 为 Windows、Linux 和 Macintosh 系统提供了客户端脚本工具。其他软件也可随意使用此接口。</p>
+<p>但是，访问此平台来创建新的 VM 时，需要为 VM 的映像选择虚拟硬盘 (VHD)。这些 VHD 存储在 Windows Azure blob 中，您有两个选择：上传您自己的 VHD，或使用 Windows Azure 虚拟机<em>库</em> 中由 Microsoft 及其合作伙伴提供的 VHD。该库中的 VHD 包括 Windows Server 2008 R2、Windows Server 2008 R2 with SQL Server 和 Windows Server 2012。该库中还保留有 Linux 映像，包括 Suse、Ubuntu 和 CentOS（由 Microsoft 合作伙伴提供）。</p>
+<p>除了选择 VHD，您还需要指定新 VM 的大小。选项有：</p>
+<ul>
+<li>特小型 — 带 1 个共享内核，768 MB 内存。</li>
+<li>小型 — 带 1 个内核，1.75 GB 内存。</li>
+<li>中型 — 带 2 个内核，3.5 GB 内存。</li>
+<li>大型 — 带 4 个内核，7 GB 内存。</li>
+<li>特大型 — 带 8 个内核，14 GB 内存。</li>
+</ul>
+<p>最后，选择新 VM 应在哪个 Windows Azure 数据中心运行，是在美国、欧洲还是亚洲。</p>
+<p>一旦您的 VM 开始运行，您需要按小时付费，直到您将该 VM 删除时付费才停止。付费多少与您实际使用 VM 的量无关，只要 VM 一运行，即开始计时。VM 空闲一小时和忙碌一小时的收费是相同的。</p>
+<p>每个运行的 VM 都有一个关联的 <em>OS 磁盘</em>，保存在 blob 中。当您使用库 VHD 创建 VM 时，该 VHD 被复制到您的 VM 的 OS 磁盘。您对于运行的 VM 的操作系统所做的任何更改都存储在这里。例如，如果您安装的应用程序修改了 Windows 注册表，则此更改将存储在您的 VM 的 OS 磁盘中。下次从该 OS 磁盘创建一个 VM 时，该 VM 继续在更改后的状态下运行。对于库中存储的 VHD，Microsoft 会根据需要应用更新，例如操作系统修补程序。然而，对于您自己 OS 磁盘中的 VHD，您需要自己负责应用这些更新（尽管默认情况下 Windows Update 是启用的）。</p>
+<p>虚拟机还监视承载着您创建的每个 VM 的硬件。如果一台运行 VM 的物理服务器出现故障，平台会及时发现，并转而在另一台计算机上运行同一 VM。假设您具有适当授权，则可以从您的 OS 磁盘复制已更改的 VHD，然后在别的地方运行它，如在您自己的本地数据中心或另一个云提供商处。</p>
+<p>您的 VM 除了具有 OS 磁盘，还具有一到多个<em>数据盘</em>。尽管这些数据盘看上去好似 VM 上已装入的磁盘驱动器，但其实它们的内容都存储在某个 blob 中。对数据盘执行的每个写操作都永久存储在这一基础 blob 中。像对待所有 blob 一样，Windows Azure 既在单个数据中心复制它们，也在其他数据中心复制它们，目的是防止发生故障。</p>
+<p>可以使用管理门户、PowerShell 和其他脚本工具或直接通过 REST API 管理运行的 VM。（事实上，凡是可以通过管理门户做的，也就可以通过此 API 以编程方式做到。）Microsoft 合作伙伴（如 RightScale 和 ScaleXtreme）也提供依赖 REST API 的管理服务。</p>
+<p>可以广泛使用 Windows Azure 虚拟机模型。Microsoft 瞄准的主要方案包括：</p>
+<ul>
+<li><strong>用于开发和测试的 VM。</strong> 开发组通常需要具有用来创建应用程序的特定配置的 VM。Windows Azure 虚拟机模型提供一种简单、经济的方法来创建、使用 VM 以及在不需要时删除 VM。</li>
+<li><strong>在云中运行应用程序。</strong> 对于某些应用程序，在公有云上运行具有经济意义。例如，考虑一个客户需求会急剧上升的应用程序。始终可以为自己的数据中心购买足够多的计算机来运行此应用程序，但其中大部分计算机多数情况下都可能处于闲置状态。如果在 Windows Azure 上运行此应用程序，只有在需要额外 VM 时才支付额外 VM 的费用，需求高峰过后，就可以将它们停止。或者，假设您是一家初创公司，需要在不做出任何承诺的情况下快速地按需计算资源。同样，Windows Azure 也是合适的选择。</li>
+<li><strong>将您自己的数据中心扩展到公有云。</strong>利用 Windows Azure 虚拟网络，您的组织可以创建一个虚拟网络 (VNET)，以便让一组 Windows Azure VM 看上去就像是您自己的本地网络的一部分。它允许在 Windows Azure 上运行如 SharePoint 等应用程序，与在您自己的数据中心运行这些应用程序相比，这种方法可能更易于部署且/或更便宜。</li>
+<li><strong>灾难恢复。</strong> 基于 IaaS 的灾难恢复让您在真正需要计算资源时才为这些资源付费，而不用不停地为很少使用的备份数据中心付费。例如，如果您的主数据中心出现故障，您可以创建在 Windows Azure 上运行的 VM 来运行至关重要的应用程序，然后在不需要时关闭它们。</li>
+</ul>
+<p>虽然这些不是唯一的可能情况，但它们确实为您如何使用 Windows Azure 虚拟机模型提供了很好的示例。</p>
+<h3>VM 分组：云服务</h3>
+<p>当您使用 Windows Azure 虚拟机创建新 VM 时，可以选择让它独立运行，或使它成为一起在<em>云服务</em>中运行的一组 VM 的一部分。（尽管名称类似，但不要和表示 Windows Azure PaaS 技术名称的“云服务 (Cloud Services)”混淆；这是两个不同概念）。每个独立 VM 都有它自己的公用 IP 地址，而同一云服务中的所有 VM 都可通过一个公用 IP 地址进行访问。<a href="#Fig2">图 2</a> 解释这种情况。</p>
+<p><a name="Fig2"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_02_cloudservices.png" alt="02_CloudServices"/></p>
+<p><strong>图 2：每个独立 VM 都有它自己的公用 IP 地址，而在云服务中分成一组的 VM 可通过一个公用 IP 地址来公开。</strong></p>
+<p>例如，如果您是创建一个虚拟机来创建和测试一个简单应用程序，则可能使用独立 VM。 但是，如果您要创建一个多层应用程序，其中包含一个 Web 前端、一个数据库或许还有一个中间层，则您很可能如图 2 所示的那样将多个 VM 连接到一个云服务。</p>
+<p>将 VM 在云服务中分成一组还便于利用其他选项。Windows Azure 为同一云服务中的 VM 提供负载平衡，使用户请求在各 VM 上分摊。VM 以这种方式连接后，它们之间还可以通过 Windows Azure 数据中心内的本地网络直接相互通信。</p>
+<p>同一个云服务中的 VM 还可以分成一个或多个<em>可用性集</em>。要理解为何这很重要，可考虑一个运行多个前端 VM 的 Web 应用程序。如果所有这些 VM 都部署在同一台物理计算机上甚至在计算机的同一机架中，单个硬件故障就可能导致它们全都不可访问。但是，如果这些 VM 分组到一个可用性集，Windows Azure 就会跨数据中心部署它们，因此任何一个单点故障都不会波及到其他 VM。</p>
+<h3>场景：使用 SQL Server 运行应用程序</h3>
+<p>为了更好地理解 Windows Azure 虚拟机的工作原理，有必要给出几个较为具体的场景。例如，假设您要创建一个在 Windows Azure 上运行的可靠且可缩放的 Web 应用程序。一种办法是在一个或多个 Windows Azure VM 中运行该应用程序的逻辑，然后使用 SQL Server 进行数据管理。<a href="#Fig3">图 3</a> 解释这种情况。</p>
+<p><a name="Fig3"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_03_appusingsqlserver.png" alt="03_AppUsingSQLServer"/></p>
+<p><strong>图 3：在 Windows Azure 虚拟机中运行的应用程序可以使用 SQL Server 执行存储。</strong></p>
+<p>在此示例中，两种 VM 都是从库中的标准 VHD 创建的。该应用程序的逻辑运行于 Windows Server 2008 R2 上，所以开发人员从此 VHD 创建了三个 VM，然后在每个 VM 上安装其应用程序。由于所有这些 VM 都在同一云服务中，因此他可以配置硬件负载平衡来分散请求。开发人员还从库中包含 SQL Server 2012 的 VHD 创建了两个 VM。在这两个 VM 运行后，他在每个实例中配置 SQL Server，以使用具有自动故障转移功能的数据库镜像。并不需要这样做，因为应用程序可以只使用单个 SQL Server 实例，但是采用这种方法能提高可靠性。</p>
+<h3>场景：运行 SharePoint 服务器场</h3>
+<p>假设某个组织想创建一个 SharePoint 服务器场，但并不希望在自己的数据中心中运行该服务器场。原因可能是其本地数据中心缺乏资源，或者该业务部门创建服务器场不是为了与其内部 IT 组打交道。在此类情况下，在 Windows Azure 虚拟机上运行 SharePoint 就很有意义。<a href="#Fig4">图 4</a> 解释这种情况。</p>
+<p><a name="Fig4"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_04_sharepointfarm.png" alt="04_SharePointFarm"/></p>
+<p><strong>图 4：Windows Azure 虚拟机允许在云中运行 SharePoint 服务器场。</strong></p>
+<p>SharePoint 服务器场具有几个组件，每个组件在从不同 VHD 创建的 Windows Azure VM 中运行。需要以下项目：</p>
+<ul>
+<li>Microsoft SharePoint。因为库中提供的任何映像都不包括 SharePoint，所以该组织必须提供自己的 VHD。</li>
+<li>Microsoft SQL Server。SharePoint 依赖于 SQL Server，因此该组织从标准库 VHD 创建运行 SQL Server 2012 的 VM。</li>
+<li>Windows Server Active Directory。SharePoint 也需要 Active Directory，因此该组织使用库中的 Windows Server 映像在云中创建域控制器。这并非是严格要求的，虽然也可以使用本地域控制器，但 SharePoint 需要频繁与 Active Directory 交互，因此这里显示的方法具有更好的性能。</li>
+</ul>
+<p>尽管图中未显示，但此 SharePoint 服务器场可能使用 Windows Azure 虚拟网络连接到本地网络。这使得 VM 以及它们所包含的应用程序对于使用该网络的人们而言像是位于本地。</p>
+<p>如这些示例所示，可以使用 Windows Azure 虚拟机在云中创建和运行新的应用程序，或以其他方式运行现有应用程序。不论您选择哪种选项，该技术的目标都是相同的： 为公有云计算提供一个通用基础。</p>
+<p> </p>
+<!--<h2>网站</h2>
+<p>人们通过多种不同方式使用 Web 技术。一个学生可以只使用静态 HTML 文件为自己的篮球队创建网站。一个 IT 顾问可以使用某个流行的开放源应用程序为一个小型企业设置内容管理系统。一个网站设计机构可以与一组开发人员合作构建一个可应对数以千计用户的自定义 Web 应用程序。</p>
+<p>所有这些任务都可以使用 Windows Azure 虚拟机模型来完成。但是创建和管理原始 VM 需要一些技巧和花一点功夫。如果您想要的只是一个网站或 Web 应用程序，这里有一个相对容易（或许也更便宜）的解决方案，即通常称为“Web 宿主”的办法。如<a href="#Fig5">图 5</a> 显示，Windows Azure 可为此提供网站模型。</p>
+<p><a name="Fig5"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_05_websites.png" alt="05_Websites"/></p>
+<p><strong>图 5：Windows Azure 网站模型支持通过各种技术构建的静态网站、常用 Web 应用程序和自定义 Web 应用程序。</strong></p>
+<p>Windows Azure 网站模型在虚拟机中运行 Windows Server 和 Internet Information Services (IIS)。如图所示，一个 VM 通常包含由多个用户创建的多个网站，但某个网站也可能在其自己保留的 VM 中运行。不论是否共享 VM，都可以将网站模型视为支持三种主要方案：建立静态网站、部署常用开放源应用程序和创建 Web 应用程序。每个方案都值得一一说明。</p>
+<p>构建静态网站只需要将包含 HTML 和其他 Web 内容的文件复制到相应目录，然后让 IIS 为用户提供这些文件。Windows Azure 网站更像是一个标准的 IIS 环境，所以这样做非常简单。网站还具有对许多流行的开放源应用程序的内置支持，包括 Drupal、WordPress 和 Joomla。用户可以从菜单选择想要的应用程序，然后让它自动安装并可供用户使用。无需编写代码，只需配置即可。同时，由于其中许多应用程序使用 MySQL，因此它们依赖由 Microsoft 合作伙伴 ClearDB 为 Windows Azure 提供的一项 MySQL 服务。</p>
+<p>开发人员还可使用网站创建完备的 Web 应用程序。此技术支持使用 ASP.NET、PHP 和 Node.js 创建应用程序，同样，其环境与本地 IIS 类似。例如，应用程序可以使用易贴的会话，而现有 Web 应用程序可以不做任何更改移动到此云平台。从网站上构建的应用程序可随意使用 Windows Azure 的其他方面，如 Service Bus、SQL Database 和 Blob 存储。您还可以在不同 VM 中运行一个应用程序的多个副本，而网站会自动在各 VM 中对请求进行负载平衡。同时，因为每个副本通常开始在一个已存在的 VM 中运行，所以启动新的应用程序实例的速度非常快；比等待创建新的 VM 快得多。</p>
+<p>如<a href="#Fig5">图 5</a> 所示，可以用多种方式将代码和其他 Web 内容加载到网站中。例如，一个简单的网站可能使用 FTP 或 Microsoft 的 WebDeploy 技术。网站还支持从源控制系统加载代码，这些系统包括 Git、Team Foundation Server 和基于云的 Team Foundation Service。</p>
+<p>Web 宿主是一种有用的方法。Windows Azure 网站旨在向广泛的受众提供这种方法，无论他们是想构建静态网站，使用流行的开放源 Web 应用程序，还是创建自定义 Web 软件。</p> -->
+<p> </p>
+<h2>云服务</h2>
+<p>Windows Azure 虚拟机提供 IaaS，而 Windows Azure 网站提供 Web 宿主。第三个计算选项“云服务”提供<em>平台即服务（Platform as a Service，简称 PaaS）</em>。这种技术旨在支持可扩展、可靠且运作便宜的应用程序。它还可以使开发人员不必担心管理他们所使用的平台，而将全副精力用在自己的应用程序上。<a href="#Fig6">图 6</a> 解释了此概念。</p>
+<p><a name="Fig6"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_06_cloudservices2.png" alt="06_CloudServices2"/></p>
+<p><strong>图 6：Windows Azure 云服务提供平台即服务。</strong></p>
+<p>像其他 Windows Azure 计算选项一样，云服务也依赖于 VM。该技术提供了两个略有不同 VM 选项：<em>Web 角色</em> 实例运行包含 IIS 的 Windows Server 变体，而<em>辅助角色</em> 实例运行不含 IIS 的同一 Windows Server 变体。云服务应用程序依赖于这两个选项的某种组合。</p>
+<p>例如，一个简单的应用程序可能只使用一个 Web 角色，而一个稍复杂的应用程序可能使用一个 Web 角色来处理来自用户的传入请求，然后将那些请求创建的工作传递给辅助角色进行处理。（此通信可能用到 Service Bus 或 Windows Azure 队列。）</p>
+<p>如图所示，一个应用程序中的所有 VM 都在同一云服务中运行，如之前对 Windows Azure 虚拟机模型所述的那样。因此，用户可以通过单个公用 IP 地址访问应用程序，而请求会自动在应用程序的各 VM 间实现负载平衡。与使用 Windows Azure 虚拟机模型创建的云服务一样，该平台将采用一种能够避免单点硬件故障的方式在云服务应用程序中部署 VM。</p>
+<p>即使应用程序在虚拟机中运行，理解云服务提供的是 PaaS 而非 IaaS 也很重要。以下办法有助于理解这一点：使用 IaaS（如 Windows Azure 虚拟机模型），首先要创建和配置您的应用程序将运行的环境，然后将应用程序部署到此环境中。您要负责该环境的大部分管理工作，如在每个 VM 中部署操作系统的新修补版本。相反，在 PaaS 中，这样的环境似乎早已存在。您只需部署您的应用程序。管理应用程序在其上运行的平台，包括部署操作系统的新版本，都已经替您做了。</p>
+<p>使用云服务，您无需创建虚拟机。相反，您只要提供一个配置文件，告知 Windows Azure 每个 VM 需要多少个角色实例（如三个 Web 角色实例和两个辅助角色实例）即可，平台就会为您创建它们。虽然仍然要选择这些 VM 的大小（选项与 Windows Azure VM 的相同），但不用您亲自明确创建它们。如果您的应用程序需要处理更大的负载，则可以要求增加 VM，Windows Azure 会创建这些实例。如果负载下降，则可以关闭这些实例并停止为它们付款。</p>
+<p>通常通过两个步骤就能使云服务应用程序可供用户使用。首先，开发人员将应用程序上载到该平台的暂存区域。当开发人员准备使应用程序上线后，他们会使用 Windows Azure 管理门户请求将应用程序投入生产。暂存与生产之间的这种切换无需停机就可完成，这使正在运行的应用程序可在不打扰其用户的情况下升级到新版本。</p>
+<p>云服务还提供监视功能。像 Windows Azure 虚拟机模型那样，它会检测发生故障的物理服务器，并在新的计算机上重新启动原先在故障服务器上运行的 VM。云服务不仅检测硬件故障，还检测发生故障的 VM 和应用程序。与虚拟机不同，它在每个 Web 角色和辅助角色中都存在有代理，因此它能够在发生故障时启动新的 VM 和应用程序实例。</p>
+<p>云服务的 PaaS 特性还具有其他含义。其中一个最重要的含义是，应编写基于此技术构建的应用程序以在任何 Web 角色或辅助角色实例出现故障时正确运行。要实现这一目标，云服务应用程序不应该在它自己的 VM 的文件系统中维持状态。与使用 Windows Azure 虚拟机模型创建的 VM 不同，对云服务 VM 的写入不是持久的；这与虚拟机数据盘完全不同。相反，云服务应用程序应将所有状态明确写入 SQL Database、blob、表或其他某种外部存储中。以这种方式构建应用程序会使它们更易于扩展、抵抗故障的能力更强，这就是云服务的两个重要目标。</p>
+<p> </p>
+<h2>我该使用哪一种？做出选择</h2>
+<p>所有兩个 Windows Azure 执行模型都能在云中构建可扩展、可靠的应用程序。既然在本质上是类似的，您应该使用哪种模型呢？答案取决于您想要做什么。</p>
+<p>虚拟机提供最通用的解决方案。如果您需要可能的最大控制权，或者需要泛型 VM 以用于开发和测试等目的，这是最好的选择。虚拟机也是在云中运行现成本地应用程序的最佳选择，如上述的 SharePoint 示例所示。同时，因为您使用这一技术创建的 VM 看起来正像是您的本地 VM，所以这也可能是灾难恢复的最佳选择。当然，能力越强责任也就越大，IaaS 会要求您承担一些管理工作。</p>
+<!--<p>当您要创建一个简单网站时，网站模型便是正确选择。当您想要基于现有应用程序（如 Joomla、WordPress 或 Drupal）创建网站时更是如此。如果创建一个管理任务不多的 Web 应用程序（甚至可扩展性很强的 Web 应用程序），或将现有 IIS Web 应用程序移到公有云中，网站模型也是一个不错的选择。它还提供快速部署功能，使您的应用程序的一个新实例能够在几乎瞬间便开始运行，而通过虚拟机或云服务部署新的 VM 可能需要好几分钟。</p>-->
+<p>云服务是 Windows Azure 提供的初始执行模型，它是一个显式 PaaS 方法。虽然 PaaS 与 Web 宿主间的界限并不分明，但云服务在一些重要方面与网站模型不同，其中包括：</p>
+<ul><!--<li>与网站模型不同，云服务授予您对应用程序 VM 的管理权限。您可以安装您的应用程序需要的任意软件，而网站模型无法做到这一点。</li>-->
+<li>因为云服务同时提供 Web 角色和辅助角色，所以对于其业务逻辑需要单独的 VM 的多层应用程序而言，这是比网站模型更好的选择。</li>
+<li>云服务提供单独的分阶段环境和生产环境，使应用程序更新比网站模型更流畅。</li>
+<!--<li>与网站模型不同，您可以使用网络技术（如 Windows Azure 虚拟网络和 Windows Azure Connect）将本地计算机与云服务应用程序挂钩。</li>-->
+<li>利用云服务，您可以使用远程桌面直接连接到应用程序的 VM，而网站模型无法做到这一点。</li>
+</ul>
+<p>因为是 PaaS，所以云服务还提供了一些超越 Windows Azure 虚拟机模型的好处。它会替您完成更多管理任务（如部署操作系统更新），这样，您的操作成本就很可能低于使用 Windows Azure 虚拟机模型的 IaaS 方法的成本。</p>
+<p>所有这三种 Windows Azure 执行模型都各有优缺点。做出最佳选择需要了解这些内容，明白您要完成的任务，然后从中选出最合适的。</p>
+<p>有时，单凭一种执行模型可能还不够。在这样的情况下，组合使用模型较为合适。例如，假设您要构建一个应用程序，既想利用云服务 Web 角色的管理好处，又想利用标准 SQL Server 提高兼容性或性能。在这种情况下，最好组合使用执行模型，如<a href="#Fig7">图 7</a> 所示。</p>
+<p><a name="Fig7"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/execmodels_07_combinetechnologies.png" alt="07_CombineTechnologies"/></p>
+<p><strong>图 7：单个应用程序可以使用多个执行模型。</strong></p>
+<p>如图所示，云服务 VM 在不同于虚拟机 VM 的单独云服务中运行。尽管如此，二者仍可高效通信，所以这样构建一个应用程序有时是最好的选择。</p>
+<p>因为云平台需要支持多种不同方案，所以 Windows Azure 提供了不同的执行模型。想要高效使用这一平台的任何用户（可能也包括您，假如您已阅读至此）都需要认真理解每种执行模型。</p>
+<h2>关于作者</h2>
+<p>David Chappell 是位于加利福尼亚州旧金山市的 Chappell &amp; Associates (<a href="http://www.davidchappell.com">www.davidchappell.com</a>) 的负责人。他通过演讲、写作和咨询，帮助全球的人们了解、使用新技术并围绕新技术做出更好的决策。</p>
+</div>]]></bodyText></Chunk></localize>

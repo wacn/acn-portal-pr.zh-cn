@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18657" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="5" createDate="2013-06-04T14:43:51" updateDate="2014-08-18T11:06:38" nodeName="attach-data-disk-windows-server-2008-vm-in-portal" urlName="attach-data-disk-windows-server-2008-vm-in-portal" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18657" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<p>可按照以下步骤附加数据磁盘：</p>
+<ol>
+<li>
+<p>在 <a href="http://manage.windowsazure.cn">Windows Azure管理门户</a>中，单击“虚拟机”，然后选择刚才创建的虚拟机 (<strong>testwinvm</strong>)。</p>
+</li>
+<li>
+<p>在命令栏上，单击“附加”，然后单击“附加空磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/attachdatadiskwinvm.png" alt="附加空磁盘"/></p>
+<p>这将显示“附加空磁盘”对话框。</p>
+</li>
+<li>
+<p>已为您定义好了“虚拟机名称”、“存储位置”和“文件名”。您只需要输入所需的磁盘大小。在“大小”字段中键入 <strong>5</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/attachdatadiskwinvm2.png" alt="附加空磁盘"/></p>
+<p><strong>注意：</strong>所有磁盘都是从 Windows Azure 存储中的 VHD 文件创建的。您可以为添加到存储的 VHD 文件提供名称，但 Windows Azure 会自动生成磁盘名称。</p>
+</li>
+<li>
+<p>单击复选标记以将数据磁盘附加到虚拟机。</p>
+</li>
+<li>
+<p>单击虚拟机的名称可显示仪表板；这样您可以验证数据磁盘是否已成功附加到虚拟机。</p>
+<p>现在虚拟机的磁盘数为 2 个。“磁盘”表中列出了您所附加的磁盘。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/attachdatadiskwinvm3.png" alt="附加空磁盘"/></p>
+<p>在您将数据磁盘附加到虚拟机后，该磁盘会处于脱机和未初始化状态。您必须先登录虚拟机并初始化磁盘，才能使用该磁盘存储数据。</p>
+</li>
+</ol>
+<h2>使用远程桌面和完整安装连接到虚拟机</h2>
+<ol>
+<li>
+<p>调配虚拟机后，在管理门户中，单击“虚拟机”，然后单击新的虚拟机。将显示有关您的虚拟机的信息。</p>
+</li>
+<li>
+<p>在页面底部，单击“连接”。使用 Windows 远程桌面程序 (<em>%windir%\system32\mstsc.exe</em>) 打开 rpd 文件。</p>
+</li>
+<li>
+<p>在“Windows 安全性”对话框中，提供 <strong>Testadmin</strong> 帐户的密码。（系统可能会要求您验证虚拟机的凭据。）您首次登录该虚拟机时，可能需要完成几个过程，包括设置桌面、完成 Windows 更新和 Windows 初始配置任务。当您通过 Windows 远程桌面连接到虚拟机后，该虚拟机就会像任何其他计算机一样开始工作。</p>
+</li>
+<li>
+<p>在您登录虚拟机后，打开“服务器管理器”。在左侧窗格中，展开“存储”，然后单击“磁盘管理”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/servermanager.png" alt="服务器管理器"/></p>
+</li>
+<li>
+<p>将显示“初始化磁盘”窗口。单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/initializedisk0.png" alt="初始化磁盘"/></p>
+</li>
+<li>
+<p>右键单击磁盘 2 的空间分配区域，单击“新建简单卷”，然后使用默认值完成该向导。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/initializediskvolume.png" alt="新建简单卷"/></p>
+<p>磁盘现在处于联机状态且可以使用新的驱动器号。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/initializesuccess.png" alt="初始化成功"/></p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

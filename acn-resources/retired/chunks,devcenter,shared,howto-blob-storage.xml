@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18667" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="16" createDate="2013-06-04T14:48:02" updateDate="2014-08-18T11:03:48" nodeName="howto-blob-storage" urlName="howto-blob-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18667" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h2><a name="what-is"></a>什么是 Blob 存储</h2>
+<p>Windows Azure Blob 存储是一项可存储大量非结构化数据的服务，用户可在世界任何地方通过 HTTP 或 HTTPS 访问这些数据。一个 Blob 的大小可以为数百 GB，一个存储帐户最多可以包含 100 TB 的 Blob。Blob 存储的常见用途包括：</p>
+<ul>
+<li>直接为浏览器提供图像或文档</li>
+<li>存储文件以供分布式访问</li>
+<li>流媒体视频和音频</li>
+<li>执行安全备份和灾难恢复</li>
+<li>存储数据以供本地或 Windows Azure 托管服务执行分析</li>
+</ul>
+<p>您可以使用 Blob 存储向外公布数据，或者私下公布数据以供在内部存储应用程序。</p>
+<h2><a name="concepts"></a>概念</h2>
+<p>Blob 服务包含以下组件：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/blob1.jpg" alt="Blob1"/></p>
+<ul>
+<li>
+<p><strong>存储帐户：</strong> 对 Windows Azure 存储服务进行的所有访问都要通过存储帐户完成。存储帐户是访问 Blob 的最高级别的命名空间。一个帐户可以包含无限个容器，只要这些容器的总大小不超过 100 TB 即可。</p>
+</li>
+<li>
+<p><strong>容器：</strong> 一个容器包含一组 Blob 集。所有 Blob 必须位于相应的容器中。一个帐户可以包含无限个容器。一个容器可以存储无限个 Blob。</p>
+</li>
+<li>
+<p><strong>Blob：</strong> 任何类型和大小的文件。Windows Azure 存储可存储两种类型的 Blob：块 Blob 和页 Blob。大部分文件都是块 blob。一个块 Blob 的大小可以达到 200 GB。本教程使用的是块 Blob。另一种 Blob 类型为页 Blob，其大小可达到 1 TB，在对文件中的一系列字节进行频繁修改时，这种 Blob 类型更加高效。有关 Blob 的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee691964.aspx">了解块 Blob 和页 Blob</a>。</p>
+</li>
+<li>
+<p><strong>URL 格式：</strong> 使用以下 URL 格式可访问 Blob：<br /> http://<code>&lt;存储帐户&gt;</code>.blob.core.chinacloudapi.cn/<code>&lt;容器&gt;</code>/<code>&lt;blob&gt;</code></p>
+<p>可使用以下 URL 寻址上图中的某个 Blob：<br /> http://sally.blob.core.chinacloudapi.cn/movies/MOV1.AVI</p>
+</li>
+</ul>]]></bodyText></Chunk></localize>

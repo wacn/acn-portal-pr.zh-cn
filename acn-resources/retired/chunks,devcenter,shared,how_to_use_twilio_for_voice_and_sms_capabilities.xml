@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18735" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="48" createDate="2013-07-11T10:01:21" updateDate="2014-08-18T11:03:55" nodeName="how_to_use_twilio_for_voice_and_sms_capabilities" urlName="how_to_use_twilio_for_voice_and_sms_capabilities" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18735" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h2><a id="WhatIs"></a>什么是 Twilio？</h2>
+<p>Twilio 是一种电话 Web 服务 API，它使您能够使用现有 Web 语言和技术构建语音和 SMS 应用程序。Twilio 是一项第三方服务（而非 Windows Azure 功能和 Microsoft 产品）。</p>
+<p>利用 <strong>Twilio 语音</strong>，您的应用程序可以发起和接收电话呼叫。利用 <strong>Twilio SMS</strong>，您的应用程序可以发出和接收 SMS 消息。利用 <strong>Twilio 客户端</strong>，您的应用程序可以使用现有 Internet 连接（包括移动连接）启用语音通信。</p>
+<h2><a id="Pricing"></a>Twilio 定价和特别优惠</h2>
+<p><a href="http://www.twilio.com/pricing">Twilio 定价（可能为英文页面）</a>中提供了有关 Twilio 定价的信息。Windows Azure 客户可享受<a href="http://ahoy.twilio.com/azure">特别优惠（可能为英文页面）</a>：免费获得 1000 条信息和 1000 分钟拨入通话时间。若要注册此优惠或了解更多信息，请访问 <a href="http://ahoy.twilio.com/azure">http://ahoy.twilio.com/azure</a>。</p>
+<h2><a id="Concepts"></a>概念</h2>
+<p>Twilio API 是一个为应用程序提供语音和 SMS 功能的 RESTful API。提供了多种语言版本的客户端库；有关列表，请参阅 <a href="https://www.twilio.com/docs/libraries">Twilio API 库（可能为英文页面）</a>。</p>
+<p>Twilio API 的关键方面是 Twilio 谓词和 Twilio 标记语言 (TwiML)。</p>
+<h3><a id="Verbs"></a>Twilio 谓词</h3>
+<p>API 利用了 Twilio 谓词；例如，<strong>&lt;Say&gt;</strong> 谓词指示 Twilio 在呼叫时传递语音消息。</p>
+<p>下面是 Twilio 谓词的列表。</p>
+<ul>
+<li><strong>&lt;Dial&gt;</strong>：将呼叫方连接到其他电话。</li>
+<li><strong>&lt;Gather&gt;</strong>：收集通过电话按键输入的数字。</li>
+<li><strong>&lt;Hangup&gt;</strong>：结束呼叫。</li>
+<li><strong>&lt;Play&gt;</strong>：播放音频文件。</li>
+<li><strong>&lt;Pause&gt;</strong>：安静地等待指定时间（以秒为单位）。</li>
+<li><strong>&lt;Record&gt;</strong>：录制呼叫方的声音并返回包含该录音的文件的 URL。</li>
+<li><strong>&lt;Redirect&gt;</strong>：将对呼叫或 SMS 的控制转移到其他 URL 上的 TwiML。</li>
+<li><strong>&lt;Reject&gt;</strong>：拒绝对 Twilio 号码的传入呼叫而不向您收费</li>
+<li><strong>&lt;Say&gt;</strong>：将文本转换为呼叫中生成的语音。</li>
+<li><strong>&lt;Sms&gt;</strong>：发送 SMS 消息。</li>
+</ul>
+<h3><a id="TwiML"></a>TwiML</h3>
+<p>TwiML 是一组基于 XML 的指令，这些指令以用于指示 Twilio 如何处理呼叫或 SMS 的 Twilio 谓词为基础。</p>
+<p>例如，以下 TwiML 会将文本 <strong>Hello World</strong> 转换为语音。</p>
+<pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" ?&gt; &lt;Response&gt;    &lt;Say&gt;Hello World&lt;/Say&gt; &lt;/Response&gt;</pre>
+<p>当应用程序调用 Twilio API 时，某个 API 参数将为返回 TwiML 响应的 URL。在开发过程中，可以使用 Twilio 提供的 URL 来提供应用程序所使用的 TwiML 响应。还可以承载您自己的 URL 来生成 TwiML 响应，也可以选择使用 <strong>TwiMLResponse</strong> 对象。</p>
+<p>有关 Twilio 谓词、其属性和 TwiML 的详细信息，请参阅 <a href="http://www.twilio.com/docs/api/twiml">TwiML</a>。有关 Twilio API 的其他信息，请参阅 <a href="http://www.twilio.com/api">Twilio API</a>。</p>
+<h2><a id="CreateAccount"></a>创建 Twilio 帐户</h2>
+<p>准备好获取 Twilio 帐户后，请在<a href="https://www.twilio.com/try-twilio">试用 Twilio（可能为英文页面）</a>上注册。可以先使用免费帐户，以后再升级您的帐户。</p>
+<p>注册 Twilio 帐户时，您将收到帐户 ID 和身份验证令牌。需要二者才能发起 Twilio API 呼叫。为了防止对您的帐户进行未经授权的访问，请保护身份验证令牌。您的帐户 ID 和身份验证令牌会分别显示在 <a href="https://www.twilio.com/user/account">Twilio 帐户页（可能为英文页面）</a>上标记为“帐户 SID”<strong></strong>和“身份验证令牌”<strong></strong>的字段中。</p>
+<h2><a id="VerifyPhoneNumbers"></a>验证电话号码</h2>
+<p>需要使用 Twilio 为您的帐户验证各个电话号码。例如，若要发起出站电话呼叫，必须使用 Twilio 验证电话号码是否为出站呼叫方 ID。同样，若要使电话号码接收 SMS 消息，则必须使用 Twilio 验证接收电话号码。有关如何验证电话号码的信息，请参阅<a href="https://www.twilio.com/user/account/phone-numbers/verified#">管理号码（可能为英文页面）</a>。下面的一些代码依赖于需要使用 Twilio 进行验证的电话号码。</p>
+<p>作为对应用程序使用现有号码的替代方法，您可以购买 Twilio 电话号码。有关购买 Twilio 电话号码的信息，请参阅 <a href="https://www.twilio.com/help/faq/phone-numbers">Twilio 电话号码帮助（可能为英文页面）</a>。</p>
+</div>]]></bodyText></Chunk></localize>

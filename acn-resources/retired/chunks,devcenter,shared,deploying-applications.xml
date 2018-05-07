@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18669" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="18" createDate="2013-06-04T14:48:37" updateDate="2014-08-18T11:03:43" nodeName="deploying-applications" urlName="deploying-applications" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18669" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>部署和更新 Windows Azure 应用程序</h1>
+<p>本文介绍部署和更新 Windows Azure 应用程序时可以采用的各种方式。为了充分理解本文，您应首先阅读 <a href="../application-model/">Windows Azure 应用程序模型</a>一文。<a id="compare" name="compare"></a></p>
+<h2>目录<a id="_GoBack" name="_GoBack"></a></h2>
+<ul>
+<li><a href="#benefits">Windows Azure 部署模型的优势</a></li>
+<li><a href="#lifecycle">Windows Azure 应用程序的生命周期</a></li>
+<li><a href="#scenario1">方案 #1：新部署</a></li>
+<li><a href="#scenario2">方案 #2：配置更改</a></li>
+<li><a href="#scenario3">方案 #3：增量代码升级</a></li>
+<li><a href="#scenario4">方案 #4：重大升级</a></li>
+<li><a href="#references">参考</a></li>
+</ul>
+<p> </p>
+<h2>Windows Azure 部署模型的优势</h2>
+<p>在传统的服务器托管模型中，当您将应用程序部署到主机时，您不得不为修补操作系统 (OS)、各种组件以及您的应用程序代码本身而担心。另外，您需要关注如何在最大限度减少应用程序停机时间的情况下执行这些更新，以便它仍然能够响应客户端请求。Windows Azure 会自动处理这类部署和更新问题。</p>
+<p>让您的应用程序在 Windows Azure 上投入运行很容易。您只需打包（压缩）您的应用程序，然后将它与一些 XML 配置文件一起上载到 Windows Azure 即可。Windows Azure 基于配置信息确定要为每个角色设置多少角色实例（这些角色实例实际上是虚拟机，即 VM），确定要在每个角色实例上放置哪些 OS 版本和组件，在每个角色实例上安装您上载的代码，然后启动它们。大多数情况下，角色实例在几分钟内即可启动并运行您的代码。初始化后，角色实例向负载平衡器报告，后者现在将向运行面向 Internet 的应用程序的所有角色实例均匀地分配客户端流量。</p>
+<p>您的角色实例（即，运行您的应用程序代码的 VM）启动并运行后，Windows Azure 会持续监视它们以确保应用程序的高可用性。如果您的应用程序的某个进程由于未经处理的异常而终止，则 Windows Azure 会在角色实例上自动重新启动您的应用程序进程。如果运行您的角色实例的硬件遇到故障，则 Windows Azure 会检测到这种情况，自动设置新的角色实例，然后在其他硬件上启动它，同样可以确保您的应用程序的高可用性。因为 Windows Azure 检测到出现故障的硬件并在其他硬件上设置新的角色实例需要花几分钟时间，所以强烈建议您将应用程序配置为至少为您运行的每个代码单元运行两个角色实例。这样，如果一个角色实例遇到问题，负载平衡器会将请求定向到另一个角色实例，从而确保客户端仍然可以访问您的应用程序。</p>
+<p>事实上，如果您查看 <a href="http://www.windowsazure.cn/zh-cn/support/sla/">Windows Azure 服务级别协议</a>，您会看到与计算服务相关的以下内容：</p>
+<p>我们保证，当您在不同的故障域和升级域中部署两个或更多角色实例时，面向 Internet 的角色将至少在 99.95% 的时间内具有外部连接。此外，我们将监视您的所有角色实例，并保证在 99.9% 的情况下能检测到角色实例的过程未运行情况并启动纠正措施。</p>
+<p>在您的应用程序运行时，Windows Azure 确保定期修补 OS 和组件，并最大限度缩短您的应用程序的停机时间。Windows Azure 还提供了方法来缩放您的应用程序，更改证书、终结点和配置设置，甚至管理您的应用程序代码的版本，这一切只需要极少或根本不需要停机。本文深入研究了所有可能的部署和更新方案。</p>
+<p> </p>
+<h2>Windows Azure 应用程序的生命周期</h2>
+<p>在将您的应用程序部署到 Windows Azure 后，您有许多方法来管理它以及它在其中运行的角色实例。例如，您可以轻松地增加或减少任何给定角色的实例数以满足业务需求。您还可以更改配置设置并将更改分发给角色实例，而不必重新部署任何代码。如果您发现错误或者想要向角色代码中添加小功能，则可以将新代码上载到 Windows Azure 并将它分发给相应角色实例。Windows Azure 在执行此操作的同时会确保您的应用程序仍然可供客户访问；下文中详细介绍了它如何做到这一点。</p>
+<p>最后，如果您要对代码进行重大更改，则 Windows Azure 也为您提供了方法，使您可以在客户访问旧代码的同时，上载新代码并在过渡区域中进行测试。然后，在您对新代码充满信心后，可以将它从过渡区域移到生产区域，以便新客户端请求现在针对新代码运行。</p>
+<p>下面几节详细介绍了如何执行这些方案。</p>
+<p> </p>
+<h2>方案 #1：新部署</h2>
+<p>若要将应用程序部署到 Windows Azure，必须先创建<em>托管服务</em>。您可以通过 Windows Azure 管理门户、通过<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg441304.aspx">创建托管服务 REST API</a> 或者在部署您的应用程序时自动从 Windows Azure 工具执行此操作。Windows Azure SDK for .NET 中的 Visual Studio 工具和 Windows Azure SDK for Node.js 中的命令行工具都支持创建托管服务。托管服务允许您选择全球六个 Windows Azure 数据中心之一来部署您的应用程序，还允许您保留客户端将用于访问您的服务的 DNS 前缀。完整 DNS 名称类似于<em>前缀</em>.chinacloudapp.cn。当然，您可以创建一条 DNS 记录，将您的自定义域名映射到 Windows Azure DNS 名称。有关详细信息，请参阅 <a href="../application-model/">Windows Azure 应用程序模型</a>一文。</p>
+<p>将应用程序部署到托管服务之前，必须将您的角色的应用程序和一起打包（压缩）到 CSPKG 文件中。您的服务定义 (CSDEF) 文件也必须嵌入到 CSPKG 文件中。另外，您还需要准备好您的服务配置 (CSCFG) 文件。<a href="../application-model/">Windows Azure 应用程序模型</a>一文中讨论了这些文件。然后，通过 Windows Azure 管理门户或通过调用<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460813.aspx">创建部署 REST API</a> 将这些文件上载到 Windows Azure。或者，您也可以直接从 Windows Azure 工具（例如 Windows Azure SDK for .NET 中的 Visual Studio 工具或 Windows Azure SDK for Node.js 中的命令行工具）部署应用程序。这些工具会自动为您处理创建 CSPKG 并将它上载到 Windows Azure 这样的底层细节。</p>
+<p>在上载文件后的几分钟内，Windows Azure 即会设置您的角色实例，并且您的应用程序将会启动并运行。下图显示了您在开发计算机上创建的 CSPKG 和 CSCFG 文件。CSPKG 文件包含 CSDEF 文件和两个角色的代码。在通过服务管理 API 将 CSPKG 和 CSCFG 文件上载到 Windows Azure 后，Windows Azure 在数据中心中创建角色实例。在此示例中，CSCFG 文件指示 Windows Azure 应创建角色 #1 的三个实例和角色 #2 的两个实例。<a id="AzureStorage" name="AzureStorage"></a></p>
+<p>![image][0]</p>
+<p> </p>
+<h2>方案 #2：配置更改</h2>
+<p>在应用程序部署完毕并运行后，您可以通过修改使用中的 CSCFG 文件来重新配置角色。您可以直接使用 Windows Azure 管理门户来编辑 CSCFG 文件，也可以通过 Windows Azure 管理门户或通过调用<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460809.aspx">更改部署配置 REST API</a> 来上载新的 CSCFG 文件。</p>
+<p>更改 CSCFG 文件最常见的原因是为了更改运行特定角色的实例数。不过，您也可以更改角色使用的配置设置值或证书。如果您取消自动 OS 更新，则还可以更改所有角色使用的 OS 版本。有关 OS 更新的更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff729422.aspx">管理 Windows Azure 来宾操作系统的升级</a>。</p>
+<p>在缩放角色的实例时，Windows Azure 会调整运行每个角色的代码的角色实例数。增加角色的实例数不会影响当前正在运行的实例。如果您减少角色的实例数，则 Windows Azure 会选择终止哪些实例。请注意，为要终止的实例提供了正常关闭的机会，从而允许它们将角色实例上的任何数据保存到更持久的存储上，例如 SQL Azure、Blob 或表。</p>
+<p>在下图中，一个新的 CSCFG 文件上载到 Windows Azure 中，从而指示角色 #1 应具有两个实例，角色 #2 应具有一个实例。然后，Windows Azure 终止每个角色的一个实例。</p>
+<p>![image][1]</p>
+<p>在更改配置设置值时，角色实例上的应用程序可能必须重新启动才能选取新的配置值。Windows Azure 使用前面介绍的就地滚动升级技术重新启动角色实例。下一节中也讨论了有关此技术的更多详细信息。<a id="Blob" name="Blob"></a></p>
+<p> </p>
+<h2>方案 #3：增量代码升级</h2>
+<p>如果您要对角色进行增量代码升级（例如，为了修复错误或添加小功能），可以创建包含新代码的新 CSPKG 文件，然后通过 Windows Azure 管理门户或通过调用<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460793.aspx">升级部署 REST API</a> 将它上载到 Windows Azure。或者，您也可以直接从 Windows Azure 工具（例如 Windows Azure SDK for .NET 中的 Visual Studio 工具或 Windows Azure SDK for Node.js 中的命令行工具）部署应用程序。这些工具会自动为您处理创建 CSPKG 并将它上载到 Windows Azure 这样的底层细节。</p>
+<p>上载新的 CSPKG 文件会导致 Windows Azure 只替换特定实例上的代码，这些实例运行您通过执行<em>就地升级</em> 修改其代码的角色。这意味着，Windows Azure 将停止一些运行旧版本代码的实例，使用新版本的代码（从 CSPKG 文件中提取）升级实例，然后重新启动实例。在运行新代码的实例启动并成功运行（被视为正常）约 15 分钟后，Windows Azure 将在仍运行旧版本代码的其他一些实例上执行相同升级。它将继续执行此操作，直到所有实例都运行新版本的代码为止。就地升级可确保您的应用程序始终有一些实例可用于处理客户端请求。这还意味着您的应用程序将具有一些同时运行旧版本代码和新版本代码的实例，您必须确保您的应用程序代码可以成功处理这种情况。</p>
+<p>为了确保运行某个角色的所有实例不会同时关闭，Windows Azure 使用了<em>升级域 (UD)</em>。默认情况下，应用程序具有五个升级域，Windows Azure 将在所有这些升级域中分发角色实例。例如，如果您拥有两个运行 Web 角色的实例和三个运行辅助角色的实例，则 Windows Azure 将自动如下表所示在升级域中分发实例：</p>
+<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
+<tbody>
+<tr align="left" valign="top">
+<td><strong>UD #0</strong></td>
+<td><strong>UD #1</strong></td>
+<td><strong>UD #2</strong></td>
+<td><strong>UD #3</strong></td>
+<td><strong>UD #4</strong></td>
+</tr>
+<tr align="left" valign="top">
+<td>Web 角色实例 #1</td>
+<td>Web 角色实例 #2</td>
+<td>（不适用）</td>
+<td>（不适用）</td>
+<td>（不适用）</td>
+</tr>
+<tr align="left" valign="top">
+<td>辅助角色实例 #1</td>
+<td>辅助角色实例 #2</td>
+<td>辅助角色实例 #3</td>
+<td>（不适用）</td>
+<td>（不适用）</td>
+</tr>
+</tbody>
+</table>
+<p>如果您上载的 CSPKG 包含两个角色的新代码，则 Windows Azure 将首先停止 UD #0 中的所有实例。在 Windows Azure 更新这些实例上的代码时，负载平衡器将客户端请求定向到另外三个实例，因此您的应用程序从未完全脱机。在 UD #0 中的实例安装了新代码后，它们会重新启动，负载平衡器开始再次将流量定向到它们。在新实例启动并运行（正常）约 15 分钟后，Windows Azure 停止 UD #1 中的实例，升级其代码，然后重新启动它们。最后，在 UD #1 中的所有角色实例均已启动并正常运行 15 分钟后，Windows Azure 停止 UD #2 中的实例，升级其代码，然后重新启动它。</p>
+<p>由于升级域的原因，只要您至少拥有两个实例来运行每个角色的代码，那么在执行升级时，您的角色就从不会完全脱机。在应用程序的 CSDEF 文件中指定您希望应用程序拥有的升级域的数量。最小值为 1（应避免此情况），最大值为 20。</p>
+<p>如果愿意，您可以手动处理每个升级域，而不是让 Windows Azure 每 15 分钟自动处理每个升级域。也就是说，您可以升级一个升级域中的实例，然后查看您的新代码的执行情况（也许可以通过使用远程桌面来访问特定角色实例）。然后，在您满意后，可以指示 Windows Azure 升级下一个升级域。如果您对代码不满意，也可以指示 Windows Azure 回滚更改，从而强制已处理的升级域中的实例恢复为以前版本的代码。</p>
+<p> </p>
+<h2>方案 #4：重大升级</h2>
+<p>Windows Azure 还为您提供了创建应用程序的主要新版本而不会导致应用程序出现任何停机的方法。重大更改是就地升级不起作用的更改，原因包括应用程序无法处理它在升级所有升级域期间，拥有并行运行的旧版本和新版本角色的情况。如果您要更改应用程序中使用的角色种类，就可能会出现这种情况。</p>
+<p>若要执行重大代码更改，您需要创建新的 CSPKG 文件（包含新版本的角色代码）和相应的 CSCFG 文件。然后，通过 Windows Azure 管理门户或通过调用<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460813.aspx">创建部署 REST API</a>，将这些新文件部署到托管服务的过渡环境中。或者，您也可以直接从 Windows Azure 工具（例如 Windows Azure SDK for .NET 中的 Visual Studio 工具或 Windows Azure SDK for Node.js 中的命令行工具）部署应用程序。这些工具会自动为您处理创建 CSPKG 并将它上载到 Windows Azure 这样的底层细节。</p>
+<p>Windows Azure 将新应用程序部署到一组新角色示例中，并且在将应用程序部署到过渡环境中时，Windows Azure 会分配一个全局唯一标识符 (GUID) 作为特殊的 DNS 前缀。新版本的应用程序现在在您所需的数据中心中启动和运行，并且可供您在 <em>guid</em>.chinacloudapp.cn</p>
+上访问以进行测试。
+<p>请注意，旧版本的应用程序仍向使用首选 DNS 前缀的客户端公开提供，并且您需要为运行您的生产（旧）代码的实例和运行您的过渡（新）代码的实例付费。下图显示了生产环境中运行的应用程序的 1.0 版本和过渡环境中运行的 2.0 版本。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/deploying-and-updating-applications-5.jpg" alt="图像"/></p>
+<p>在您使用 <em>guid</em>.chinacloudapp.cn 在过渡环境中充分测试新代码后，应通过执行称为<em>虚拟 IP (VIP) 交换</em> 的操作指示 Windows Azure 将它投入生产环境中。这会使 Windows Azure 对负载平衡器重新编程，以便它现在将原来发送到<em>前缀</em>.chinacloudapp.cn 的客户端流量定向到运行新版本代码的实例。这意味着客户端立即开始访问应用程序的新版本，并且对旧版本不再具有访问权限。同样，客户端不会遇到停机。下图显示了在执行 VIP 交换后，负载平衡器如何定向流量。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/deploying-and-updating-applications-6.jpg" alt="图像"/></p>
+<p>请注意，在交换 VIP 后，旧版本的应用程序仍在运行，并且现在可在 guid.chinacloudapp.cn 上的过渡环境中使用。当此版本仍在运行时，您仍需要为角色实例付费。您现在可以删除包含旧版本的应用程序的部署以减少费用。或者，您也可以让它继续运行一段时间，如果新版本的应用程序出现任何问题，可以再次交换 VIP，从而在您修复新版本时，使旧代码可供客户端访问。<a id="SQLAzure" name="SQLAzure"></a></p>
+<p> </p>
+<h2>参考</h2>
+<ul>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433027.aspx">部署 Windows Azure 服务</a></p>
+</li>
+<li>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460812.aspx">托管服务上的操作</a></p>
+</li>
+</ul>
+<div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">*作者：Jeffrey Richter (Wintellect)*</div>
+<p>[0]：../Media/deploying-and updating-applications-3.jpg [1]：../Media/deploying-and updating-applications-4.jpg</p>]]></bodyText></Chunk></localize>

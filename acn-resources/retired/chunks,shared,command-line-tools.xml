@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18656" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="4" createDate="2013-06-04T14:43:35" updateDate="2014-08-18T11:06:39" nodeName="command-line-tools" urlName="command-line-tools" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18656" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>适用于 Mac 和 Linux 的 Windows Azure 命令行工具</h1>
+<p>此工具提供了用于从 Mac 和 Linux 桌面创建、部署和管理虚拟机<!--、网站和 Windows Azure 移动服务-->的功能。此功能类似于随面向 .NET、Node.JS 和 PHP 的 Windows Azure SDK 一起安装的 Windows PowerShell cmdlet 所提供的功能。</p>
+<p>若要在 Mac 上安装该工具，请下载并运行 <a href="http://go.microsoft.com/fwlink/?LinkId=252249">Windows Azure SDK 安装程序</a>。</p>
+<p>若要在 Linux 上安装该工具，请安装最新版本的 Node.JS，然后使用 NPM 进行安装：</p>
+<pre class="prettyprint">npm install azure-cli -g</pre>
+<p>可选参数显示在方括号中（例如，[参数]）。其他所有参数都是必需的。</p>
+<p>除了此处记录的特定于命令的可选参数外，还有三个可用于显示详细输出（例如请求选项和状态代码）的可选参数。-v 参数提供详细输出，而 -vv 参数提供更详细的输出。--json 选项将以原始的 json 格式输出结果。</p>
+<p><strong>目录：</strong></p>
+<ul>
+<li><a href="#Manage_your_account_information_and_publish_settings">管理帐户信息和发布设置</a></li>
+<li><a href="#Commands_to_manage_your_Azure_virtual_machines">管理 Windows Azure 虚拟机的命令</a></li>
+<li><a href="#Commands_to_manage_your_Azure_virtual_machine_endpoints">管理 Windows Azure 虚拟机终结点的命令</a></li>
+<li><a href="#Commands_to_manage_your_Azure_virtual_machine_images">管理 Windows Azure 虚拟机映像的命令</a></li>
+<li><a href="#Commands_to_manage_your_Azure_virtual_machine_data_disks">管理 Windows Azure 虚拟机数据磁盘的命令</a></li>
+<li><a href="#Commands_to_manage_your_Azure_cloud_services">管理 Windows Azure 云服务的命令</a></li>
+<li><a href="#Commands_to_manage_your_Azure_certificates">管理 Windows Azure 证书的命令</a></li>
+<!--<li><a href="#Commands_to_manage_your_web_sites">管理网站的命令</a></li>
+<li><a href="#Commands_to_manage_mobile_services">管理 Windows Azure 移动服务的命令</a></li>-->
+<li><a href="#Manage_tool_local_settings">管理工具本地设置</a></li>
+</ul>
+<h2><a name="Manage_your_account_information_and_publish_settings"></a>管理帐户信息和发布设置</h2>
+<p>该工具使用您的 Windows Azure 订阅信息连接到您的帐户。可从 Windows Azure 门户的发布设置文件中获取此信息，如下所述。稍后可以导入发布设置文件作为永久性本地配置设置，该工具会将此设置用于后续操作。您只需导入您的发布设置一次。</p>
+<p><strong>account download [options]</strong></p>
+<p>此命令启动浏览器以从 Windows Azure 门户下载您的 .publishsettings 文件。</p>
+<pre class="prettyprint">~$ azure account download info:   Executing command account download info:   Launching browser to https://windows.azure.com/download/publishprofile.aspx help:   Save the downloaded file, then execute the command help:   account import &lt;file&gt; info:   account download command OK</pre>
+<p><strong>account import [options] &lt;file&gt;</strong></p>
+<p>此命令导入 publishsettings 文件或证书以便日后可以供该工具使用。</p>
+<pre class="prettyprint">~$ azure account import publishsettings.publishsettings info:   Importing publish settings file publishsettings.publishsettings info:   Found subscription: 3-Month Free Trial info:   Found subscription: Pay-As-You-Go info:   Setting default subscription to: 3-Month Free Trial warn:   The 'publishsettings.publishsettings' file contains sensitive information. warn:   Remember to delete it now that it has been imported. info:   Account publish settings imported successfully</pre>
+<p>注意：publishsettings 文件可以包含有关多个订阅的详细信息（即，订阅名称和 ID）。当您导入 publishsettings 文件时，第一个订阅将用作默认订阅。若要使用其他订阅，请运行以下命令。</p>
+<pre class="prettyprint">~$ azure config set subscription &lt;other-subscription-id&gt;</pre>
+<p><strong>account clear [options]</strong></p>
+<p>此命令删除已导入的存储的发布设置。如果您在此计算机上使用完该工具，并且希望确保日后不能通过您的帐户使用该工具，则使用此命令。</p>
+<pre class="prettyprint">~$ azure account clear Clearing account info. info:   OK</pre>
+<p><strong>account affinity-group list [options]</strong></p>
+<p>此命令列出您的 Windows Azure 地缘组。</p>
+<p>可以在一组虚拟机跨越多台物理计算机时设置地缘组。地缘组指定物理计算机应尽可能彼此接近，从而减少网络延迟。</p>
+<pre class="prettyprint">~$ azure account affinity-group list + Fetching affinity groups data:   Name                                  Label   Location data:   ------------------------------------  ------  -------- data:   535EBAED-BF8B-4B18-A2E9-8755FB9D733F  opentec  West US info:   account affinity-group list command OK</pre>
+<h2><a name="Commands_to_manage_your_Azure_virtual_machines"></a>管理 Windows Azure 虚拟机的命令</h2>
+<p>下图显示了如何在 Windows Azure 云服务的生产部署环境中托管 Windows Azure 虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/architecturediagram.jpg" alt="Azure 技术图表"/></p>
+<p><strong>create-new</strong> 在 Blob 存储中创建驱动器（即，图中的 e:\）；<strong>attach</strong> 会将已创建但未附加的磁盘附加到虚拟机。</p>
+<p><strong>vm create &lt;dns-prefix&gt; &lt;image&gt; &lt;userName&gt; [password] [optional parameters]</strong></p>
+<p>此命令创建新的 Windows Azure 虚拟机。默认情况下，所创建的每台虚拟机位于其自己的云服务中；但是，您可以使用此处提及的 -c 选项指定将虚拟机添加到现有云服务。</p>
+<p>请注意，vm create 命令（如 Windows Azure 门户）只会在生产部署环境中创建虚拟机。目前没有用于在云服务的过渡部署环境中创建虚拟机的选项。请注意，如果您的订阅中尚不包含 Windows Azure 存储帐户，此命令将创建一个。</p>
+<p>当您创建新的虚拟机时，您将需要指定该虚拟机所在的物理位置（即，数据中心）。您可以通过 --location 参数指定位置，也可以通过 --affinity-group 参数指定地缘组。如果没有提供这两个参数，系统将提示您从有效位置列表中提供一个。</p>
+<p>所提供密码的长度必须为 8-123 个字符，并且满足您要用于此虚拟机的操作系统的密码复杂度要求。</p>
+<p>如果您预计需要使用 SSH 来管理部署的 Linux 虚拟机（通常都是如此），则必须在创建该虚拟机时通过 -s 选项启用 SSH。在创建该虚拟机后无法启用 SSH。</p>
+<p>Windows 虚拟机稍后可以通过添加端口 3389 作为终结点来启用 RDP。</p>
+<p>此命令支持以下可选参数：</p>
+<p><strong>-c</strong> 可在托管服务中已创建的部署中创建虚拟机。如果此选项中未使用 -vmname，将自动生成新虚拟机的名称。<br /><strong>--vm-name</strong> 指定虚拟机的名称。默认情况下，此参数采用托管服务名称。如果未指定 -vmname，将生成 &lt;service-name&gt;&lt;id&gt; 形式的新虚拟机名称，其中 &lt;id&gt; 是服务中现有虚拟机的数量加上 1。例如，如果您使用此命令向拥有一台现有虚拟机的托管服务 MyService 中添加一台新虚拟机，则会将新虚拟机命名为 MyService2。<br /><strong>-u --blob-url</strong> 指定从中创建虚拟机系统磁盘的 Blob 存储 URL。<br /><strong>--vm-size</strong> 指定虚拟机的大小。有效值为“特小型”、“小型”、“中型”、“大型”和“特大型”。默认值为“小型”。<br /><strong>-r</strong> 添加与 Windows 虚拟机的 RDP 连接。<br /><strong>-s</strong> 添加与 Linux 虚拟机的 SSH 连接。此选项只能在创建虚拟机后使用。<br /><strong>--location</strong> 指定位置（例如，“美国中北部”）。<br /><strong>--affinity-group</strong> 指定地缘组。<br /><strong>-w, --virtual-network-name</strong> 指定要在其中添加新虚拟机的虚拟网络。可从 Windows Azure 门户设置和管理虚拟网络。<br /><strong>-b, --subnet-names</strong> 指定要分配给虚拟机的子网名称。</p>
+<p>在此示例中，MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB 是该平台提供的映像。有关操作系统映像的更多信息，请参见 VM 映像列表</p>
+。
+<pre class="prettyprint">~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "Western US" -r info:   Executing command vm create Enter VM 'my-vm-name' password: ************                                      info:   vm create command OK</pre>
+<p><strong>vm create-from &lt;dns-prefix&gt; &lt;role-file&gt;</strong></p>
+<p>此命令从 JSON 角色文件创建新的 Windows Azure 虚拟机。</p>
+<pre class="prettyprint">~$ azure vm create-from example.json info:   OK</pre>
+<p><strong>vm list [options]</strong></p>
+<p>此命令列出 Windows Azure 虚拟机。-json 选项指定以原始 JSON 格式返回结果。</p>
+<pre class="prettyprint">~$ azure vm list info:   Executing command vm list data:   DNS Name                          VM Name      Status                   data:   --------------------------------  -----------  --------- data:   my-vm-name.cloudapp-preview.net        my-vm        ReadyRole info:   vm list command OK</pre>
+<p><strong>vm location list [options]</strong></p>
+<p>此命令列出所有可用的 Windows Azure 帐户位置。</p>
+<pre class="prettyprint">~$ azure vm location list info:   Executing command vm location list data:   Name                   Display Name                                     data:   ---------------------  ------------ data:   Windows Azure Preview  West US      info:   account location list command OK</pre>
+<p><strong>vm show [options] &lt;name&gt;</strong></p>
+<p>此命令显示有关 Windows Azure 虚拟机的详细信息。-json 选项指定以原始 JSON 格式返回结果。</p>
+<pre class="prettyprint">~$ azure vm show my-vm info:   Executing command vm show data:   {                                                                       data:       InstanceSize: 'Small', data:       InstanceStatus: 'ReadyRole', data:       DataDisks: [], data:       IPAddress: '10.26.192.206', data:       DNSName: 'my-vm.chinacloudapp.cn', data:       InstanceStateDetails: {}, data:       VMName: 'my-vm', data:       Network: { data:           Endpoints: [ data:               { data:                   Protocol: 'tcp', data:                   Vip: '65.52.250.250', data:                   Port: '63238' , data:                   LocalPort: '3389', data:                   Name: 'RemoteDesktop' data:               } data:           ] data:       }, data:       Image: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011', data:       OSVersion: 'WA-GUEST-OS-1.18_201203-01' data:   }  info:   vm show command OK</pre>
+<p><strong>vm delete [options] &lt;name&gt;</strong></p>
+<p>此命令删除 Windows Azure 虚拟机。默认情况下，此命令不删除从中创建操作系统磁盘和数据磁盘的 Windows Azure Blob。若要删除 Blob 以及作为其基础的虚拟机，请指定 -b 选项。</p>
+<pre class="prettyprint">~$ azure vm delete my-vm  info:   Executing command vm delete info:   vm delete command OK</pre>
+<p><strong>vm start [options] &lt;name&gt;</strong></p>
+<p>此命令启动 Windows Azure 虚拟机。</p>
+<pre class="prettyprint">~$ azure vm start my-vm info:   Executing command vm start info:   vm start command OK</pre>
+<p><strong>vm restart [options] &lt;name&gt;</strong></p>
+<p>此命令重新启动 Windows Azure 虚拟机。</p>
+<pre class="prettyprint">~$ azure vm restart my-vm info:   Executing command vm restart info:   vm restart command OK</pre>
+<p><strong>vm shutdown [options] &lt;name&gt;</strong></p>
+<p>此命令关闭 Windows Azure 虚拟机。</p>
+<p><code> ~$ azure vm shutdown my-vm info:Executing command vm shutdown info:vm shutdown command OK </code></p>
+<p><strong>vm capture &lt;vm-name&gt; &lt;target-image-name&gt;</strong></p>
+<p>此命令捕获 Windows Azure 虚拟机映像。</p>
+<p>除非虚拟机状态为“已停止”，否则无法捕获虚拟机映像。</p>
+<pre class="prettyprint">~$ azure.cmd vm capture my-vm mycaptureimagename --delete info:   Executing command vm capture + Fetching VMs + Capturing VM info:   vm capture command OK</pre>
+<h2><a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>管理 Windows Azure 虚拟机终结点的命令</h2>
+<p>下图显示了多个虚拟机实例的典型部署的体系结构。请注意，在本示例中，端口 3389 在每台虚拟机上均为打开状态（用于进行 RDP 访问），并且负载平衡器用于将流量路由到虚拟机的每台虚拟机上还有一个内部 IP 地址（例如，168.55.11.1）。此内部 IP 地址也可用于虚拟机之间的通信。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/networkdiagram.jpg" alt="azurenetworkdiagram"/></p>
+<p>虚拟机的外部请求将通过负载平衡器。因此，不能针对包含多台虚拟机的部署中的特定虚拟机指定请求。对于包含多台虚拟机的部署，必须在虚拟机 (vm-port) 与负载平衡器 (lb-port) 之间配置端口映射。</p>
+<p><strong>vm endpoint create &lt;vm-name&gt; &lt;lb-port&gt; [vm-port]</strong></p>
+<p>此命令创建虚拟机终结点。</p>
+<pre class="prettyprint">~$ azure vm endpoint create my-vm 8888 8888 azure vm endpoint create my-vm 8888 8888 info:   Executing command vm endpoint create + Fetching VM + Reading network configuration + Updating network configuration info:   vm endpoint create command OK</pre>
+<p><strong>vm endpoint delete &lt;vm-name&gt; &lt;lb-port&gt;</strong></p>
+<p>此命令删除虚拟机终结点。</p>
+<pre class="prettyprint">~$ azure vm endpoint delete my-vm 8888 azure vm endpoint delete my-vm 8888 info:   Executing command vm endpoint delete + Fetching VM + Reading network configuration + Updating network configuration info:   vm endpoint delete command OK</pre>
+<p><strong>vm endpoint list &lt;vm-name&gt;</strong></p>
+<p>此命令列出所有虚拟机终结点。-json 选项指定以原始 JSON 格式返回结果。</p>
+<pre class="prettyprint">~$ azure vm endpoint list my-linux-vm data:   Name  External Port  Local Port                                         data:   ----  -------------  ---------- data:   ssh   22             22</pre>
+<h2><a name="Commands_to_manage_your_Azure_virtual_machine_images"></a>管理 Windows Azure 虚拟机映像的命令</h2>
+<p>虚拟机映像是所捕获的、可根据需要进行复制的已配置虚拟机。</p>
+<p><strong>vm image list [options]</strong></p>
+<p>此命令获取虚拟机映像的列表。有三种类型的映像：Microsoft 创建的映像（以“MSFT”作为前缀）、第三方创建的映像（通常以供应商的名称作为前缀）以及您创建的映像。若要创建映像，您可以捕获现有虚拟机或从上载到 Blob 存储的自定义 .vhd 创建映像。有关使用自定义 .vhd 的更多信息，请参见 VM 映像创建。-json 选项指定以原始 JSON 格式返回结果。</p>
+<pre class="prettyprint">~$ azure vm image list data:   Name                                                                   Category   OS data:   ---------------------------------------------------------------------  ---------  ------- data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux data:   WIN2K8-R2-WINRM                                                        User       Windows info:   vm image list command OK</pre>
+<p><strong>vm image show [options] &lt;name&gt;</strong></p>
+<p>此命令显示虚拟机映像的详细信息。</p>
+<pre class="prettyprint">~$ azure vm image show MSFT__Windows-Server-2008-R2-SP1.11-29-2011 + Fetching VM image info:   Executing command vm image show data:   {                                                                       data:       Label: 'Windows Server 2008 R2 SP1, Nov 2011', data:       Name: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011', data:       Description: 'Microsoft Windows Server 2008 R2 SP1', data:       @: { xmlns: 'http://schemas.microsoft.com/windowsazure', xmlns:i: 'http://www.w3.org/2001/XMLSchema-instance' }, data:       Category: 'Microsoft', data:       OS: 'Windows', data:       Eula: 'http://www.microsoft.com', data:       LogicalSizeInGB: '30' data:   } info:   vm image show command OK</pre>
+<p><strong>vm image delete [options] &lt;name&gt;</strong></p>
+<p>此命令删除虚拟机映像。</p>
+<pre class="prettyprint">~$ azure vm image delete my-vm-image info:   Executing command vm image delete info:   VM image deleted: my-vm-image                                          info:   vm image delete command OK</pre>
+<p><strong>vm image create &lt;name&gt; [source-path]</strong></p>
+<p>此命令创建虚拟机映像。您的自定义 .vhd 文件将上载到 Blob 存储，然后从该位置创建虚拟机映像。然后可使用此虚拟机映像创建虚拟机。Location 和 OS 参数是必需的。</p>
+<p>某些系统会施加每进程文件描述符限制。如果超出此限制，工具将显示文件描述符限制错误。您可以使用 -p &lt;number&gt; 参数再次运行该命令，以减少最大并行上载数。默认的最大并行上载数为 96。</p>
+<pre class="prettyprint">~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US" info:   Executing command vm image create + Retrieving storage accounts info:   VHD size : 13 MB info:   Uploading 13312.5 KB Requested:100.0% Completed:100.0% Running: 105 Time:    8s Speed:  1721 KB/s info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully info:   vm image create command OK</pre>
+<h2><a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>管理 Windows Azure 虚拟机数据磁盘的命令</h2>
+<p>数据磁盘是 Blob 存储中可供虚拟机使用的 .vhd 文件。有关如何将数据磁盘部署到 Blob 存储的更多信息，请参见前面所示的 Windows Azure 技术图表。</p>
+<p>用于附加数据磁盘的命令（azure vm disk attach 和 azure vm disk attach-new）会根据 SCSI 协议的要求向附加的数据磁盘分配逻辑单元号 (LUN)。将向附加到虚拟机的第一个数据磁盘分配 LUN 0，向下一个分配 LUN 1，依此类推。</p>
+<p>当您使用 azure vm disk detach 命令分离数据磁盘时，请使用 &lt;lun&gt; 参数指明要分离的磁盘。请注意，应始终按相反的顺序分离数据磁盘，即，从已分配的编号最高的 LUN 开始。Linux SCSI 层不支持在仍附加有编号较高的 LUN 时分离编号较低的 LUN。例如，您不应在仍附加有 LUN 1 的情况下分离 LUN 0。</p>
+<p><strong>vm disk show [options] &lt;name&gt;</strong></p>
+<p>此命令显示有关 Windows Azure 磁盘的详细信息。</p>
+<pre class="prettyprint">~$ azure vm disk show anucentos-anucentos-0-20120524070008 info:   Executing command vm disk show data:   AttachedTo DeploymentName "mycentos" data:   AttachedTo HostedServiceName "myanucentos" data:   AttachedTo RoleName "myanucentos" data:   OS "Linux" data:   Location "Windows Azure Preview" data:   LogicalDiskSizeInGB "30" data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd" data:   Name "mycentos-mycentos-0-20120524070008" data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd" info:   vm disk show command OK</pre>
+<p><strong>vm disk list [options] [vm-name]</strong></p>
+<p>此命令列出 Windows Azure 磁盘，或者附加到指定虚拟机的磁盘。如果此命令运行时带虚拟机名称参数，将返回附加到该虚拟机的所有磁盘。Lun 1 是使用虚拟机创建的，而列出的其他任何磁盘都将单独附加。</p>
+<pre class="prettyprint">~$ azure vm disk list mycentos info:   Executing command vm disk list data:   Lun  Size(GB)  Blob-Name data:   ---  --------  -------------------------------- data:   1    30        mycentos-cb39b8223b01f95c.vhd data:   2    10        mycentos-e3f0d717950bb78d.vhd info:   vm disk list command OK</pre>
+<p>在不使用虚拟机名称参数的情况下执行此命令将返回所有磁盘。</p>
+<pre class="prettyprint">~$ azure vm disk list  data:   Name                                        OS data:   ------------------------------------------  ------- data:   mycentos-mycentos-0-20120524070008          Linux data:   mycentos-mycentos-2-20120525055052 data:   mywindows-winvm-20120522223119              Windows info:   vm disk list command OK</pre>
+<p><strong>vm disk delete [options] &lt;name&gt;</strong></p>
+<p>此命令从个人存储库中删除 Windows Azure 磁盘。在删除磁盘之前必须从虚拟机中分离该磁盘。</p>
+<pre class="prettyprint">~$ azure vm disk delete mycentos-mycentos-2-20120525055052 info:   Executing command vm disk delete info:   Disk deleted: mycentos-mycentos-2-20120525055052                   info:   vm disk delete command OK</pre>
+<p><strong>vm disk create &lt;name&gt; [source-path]</strong></p>
+<p>此命令上载和注册 Windows Azure 磁盘。必须指定 --blob-url、--location 或 --affinity-group。如果将此命令与 [source-path] 结合使用，将上载指定的 .vhd 文件并创建新映像。然后您可以使用 vm disk attach 将此映像附加到虚拟机。</p>
+<p>某些系统会施加每进程文件描述符限制。如果超出此限制，工具将显示文件描述符限制错误。您可以使用 -p &lt;number&gt; 参数再次运行该命令，以减少最大并行上载数。默认的最大并行上载数为 96。</p>
+<pre class="prettyprint">~$ azure vm disk create my-data-disk ~/test.vhd --location "Western US" info:   Executing command vm disk create info:   VHD size : 10 MB                                                        info:   Uploading 10240.5 KB Requested:100.0% Completed:100.0% Running:  81 Time:   11s Speed:   952 KB/s  info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully info:   vm disk create command OK</pre>
+<p><strong>vm disk attach &lt;vm-name&gt; &lt;disk-image-name&gt;</strong></p>
+<p>此命令将 Blob 存储中的现有磁盘附加到云服务中部署的现有虚拟机。</p>
+<pre class="prettyprint">~$ azure vm disk attach my-vm my-vm-my-vm-2-201242418259 info:   Executing command vm disk attach info:   vm disk attach command OK</pre>
+<p><strong>vm disk attach-new &lt;vm-name&gt; &lt;size-in-gb&gt; [blob-url]</strong></p>
+<p>此命令将数据磁盘附加到 Windows Azure 虚拟机。在本示例中，20 GB 是要附加的新磁盘的大小。您可以选择使用 Blob URL 作为显式指定要创建的目标 Blob 的最后一个参数。如果您不指定 Blob URL，将自动生成一个 Blob 对象。</p>
+<pre class="prettyprint">~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd info:   Executing command vm disk attach-new info:   vm disk attach-new command OK</pre>
+<p><strong>vm disk detach &lt;vm-name&gt; &lt;lun&gt;</strong></p>
+<p>此命令分离附加到 Windows Azure 虚拟机的数据磁盘。&lt;lun&gt; 用于标识要分离的磁盘。要获取在分离某个磁盘之前与该磁盘关联的磁盘的列表，请使用 vm disk-list &lt;vm-name&gt;。</p>
+<pre class="prettyprint">~$ azure vm disk detach my-vm 2 info:   Executing command vm disk detach info:   vm disk detach command OK</pre>
+<h2><a name="Commands_to_manage_your_Azure_cloud_services"></a>管理 Windows Azure 云服务的命令</h2>
+<p>Windows Azure 云服务是托管在 Web 角色和辅助角色上的应用程序和服务。以下命令可用于管理 Windows Azure 云服务。</p>
+<p><strong>service list [options]</strong></p>
+<p>此命令列出 Windows Azure 云服务。</p>
+<pre class="prettyprint">~$ azure service list info:   Executing command service list data:   Name         Status                                                     data:   -----------  ------- data:   service1     Created data:   service2     Created info:   service list command OK</pre>
+<p><strong>service delete [options] &lt;name&gt;</strong></p>
+<p>此命令删除 Windows Azure 云服务。</p>
+<pre class="prettyprint">~$ azure cloud-service delete myservice info:   Executing command cloud-service delete myservice  info:   cloud-service delete command OK</pre>
+<h2><a name="Commands_to_manage_your_Azure_certificates"></a>管理 Windows Azure 证书的命令</h2>
+<p>Windows Azure 证书是已连接到您的 Windows Azure 帐户的证书（即，SSL 证书）。</p>
+<p><strong>service cert list [options]</strong></p>
+<p>此命令列出 Windows Azure 证书。</p>
+<pre class="prettyprint">~$ azure service cert list info:   Executing command service cert list + Fetching cloud services                                                       + Fetching certificates                                                         data:   Service   Thumbprint                                Algorithm data:   --------  ----------------------------------------  --------- data:   myservice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1      info:   service cert list command OK</pre>
+<p><strong>service cert create &lt;dns-prefix&gt; &lt;file&gt; [password]</strong></p>
+<p>此命令上载证书。将没有密码保护的证书的密码提示保留为空。</p>
+<pre class="prettyprint">~$ azure service cert create nghinazz ~/publishSet.pfx info:   Executing command service cert create Cert password:  + Creating certificate                                                          info:   service cert create command OK</pre>
+<p><strong>service cert delete [options] &lt;thumbprint&gt;</strong></p>
+<p>此命令删除证书。</p>
+<pre class="prettyprint">~$ azure service cert delete 262DBF95B5E61375FA27F1E74AC7D9EAE842916C info:   Executing command service cert delete + Deleting certificate                                                          info:   nghinazz : cert deleted info:   service cert delete command OK</pre>
+<!--<h2><a name="Commands_to_manage_your_web_sites"></a>管理网站的命令</h2>
+<p>Windows Azure 网站是可通过 URI 访问的 Web 配置。网站托管在虚拟机中，但您无需自己考虑创建和部署虚拟机的详细步骤。这些详细步骤将由 Windows Azure 为您完成。</p>
+<p><strong>site list [options]</strong></p>
+<p>此命令列出您的网站。</p>
+<pre class="prettyprint">~$ azure site list info:   Executing command site list data:   Name            State    Host names                                         data:   --------------  -------  -------------------------------------------------- data:   mongosite       Running  mongosite.antdf0.antares.chinacloudapi.cn      data:   myphpsite       Running  myphpsite.antdf0.antares.chinacloudapi.cn      data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.chinacloudapi.cn info:   site list command OK</pre>
+<p><strong>site create [options] [name]</strong></p>
+<p>此命令创建新的网站和本地目录。请注意，站点名称必须是唯一的。您无法创建与现有站点具有相同 DNS 名称的站点。</p>
+<pre class="prettyprint">~$ azure site create mysite info:   Executing command site create info:   Using location northeuropewebspace info:   Creating a new web site info:   Created web site at  mysite.antdf0.antares.chinacloudapi.cn info:   Initializing repository info:   Repository initialized info:   site create command OK</pre>
+<p><strong>site portal [options] [name]</strong></p>
+<p>此命令在浏览器中打开门户以便您能管理您的网站。</p>
+<pre class="prettyprint">~$ azure site portal mysite info:   Executing command site portal info:   Launching browser to https://windows.azure.net/#Workspaces/WebsiteExtension/Website/mysite/dashboard info:   site portal command OK</pre>
+<p><strong>site browse [options] [name]</strong></p>
+<p>此命令在浏览器中打开您的网站。</p>
+<pre class="prettyprint">~$ azure site browse mysite info:   Executing command site browse info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net info:   site browse command OK</pre>
+<p><strong>site show [options] [name]</strong></p>
+<p>此命令显示网站的详细信息。</p>
+<pre class="prettyprint">~$ azure site show mysite info:   Executing command site show info:   Showing details for site data:   Site AdminEnabled true data:   Site HostNames mysite.antdf0.antares-test.windows-int.net data:   Site Name mysite data:   Site Owner 00060000814EDDEE data:   Site RepositorySiteName mysite data:   Site SelfLink https://s1.api.antdf0.antares.chinacloudapi.cn:454/subscriptions/444e62ff-4c5f-4116-a695-5c803ed584a5/webspaces/northeuropewebspace/sites/mysite data:   Site State Running data:   Site UsageState Normal data:   Site WebSpace northeuropewebspace data:   Config AppSettings data:   Config ConnectionStrings data:   Config DefaultDocuments 0=Default.htm, 1=Default.asp, 2=index.htm, 3=index.html, 4=iisstart.htm, 5=default.aspx, 6=index.php, 7=hostingstart.aspx data:   Config DetailedErrorLoggingEnabled false data:   Config HttpLoggingEnabled false data:   Config Metadata data:   Config NetFrameworkVersion v4.0 data:   Config NumberOfWorkers 1 data:   Config PhpVersion 5.3 data:   Config PublishingPassword rJ}[Er2v[Y]q16B6vTD]n$[C2z}Z.pvgLfRcLnAp%ax]xstiLny};o@vmMAote@d data:   Config RequestTracingEnabled false data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/ info:   site show command OK</pre>
+<p><strong>site delete [options] [name]</strong></p>
+<p>此命令删除网站。</p>
+<pre class="prettyprint">~$ azure site delete mysite info:   Executing command site delete info:   Deleting site mysite info:   Site mysite has been deleted info:   site delete command OK</pre>
+<p><strong>site start [options] [name]</strong></p>
+<p>此命令启动网站。</p>
+<pre class="prettyprint">~$ azure site start mysite info:   Executing command site start info:   Starting site mysite info:   Site mysite has been started info:   site start command OK</pre>
+<p><strong>site stop [options] [name]</strong></p>
+<p>此命令停止网站。</p>
+<pre class="prettyprint">~$ azure site stop mysite info:   Executing command site stop info:   Stopping site mysite info:   Site mysite has been stopped info:   site stop command OK</pre>
+<h2><a name="Commands_to_manage_mobile_services"></a>管理 Windows Azure 移动服务的命令</h2>
+<p>Windows Azure 移动服务汇聚了一系列支持您的应用程序的后端功能的 Windows Azure 服务。移动服务命令分为以下几类：</p>
+<ul>
+<li><a href="#Mobile_Services">管理移动服务实例的命令</a></li>
+<li><a href="#Mobile_Configuration">管理移动服务配置的命令</a></li>
+<li><a href="#Mobile_Tables">管理移动服务表的命令</a></li>
+<li><a href="#Mobile_Scripts">管理移动服务脚本的命令</a></li>
+</ul>
+<p>以下选项适用于多数移动服务命令：</p>
+<ul>
+<li><strong>-h</strong> 或 <strong>--help</strong>：显示输出用法信息。</li>
+<li><strong>-s <code>&lt;id&gt;</code></strong> 或 <strong>--subscription <code>&lt;id&gt;</code></strong>：使用指定为 <code>&lt;id&gt;</code> 的特定订阅。</li>
+<li><strong>-v</strong> 或 <strong>--verbose</strong>：写入详细输出。</li>
+<li><strong>--json</strong>：写入 JSON 输出。</li>
+</ul>
+<h3><a name="Mobile_Services"></a>管理移动服务实例的命令</h3>
+<p><strong>mobile locations [options]</strong></p>
+<p>此命令列出移动服务地理位置。</p>
+<pre class="prettyprint">~$ azure mobile locations info:    Executing command mobile locations info:    East US (default) info:    West US         info:    North Europe</pre>
+<p><strong>mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]</strong></p>
+<p>此命令创建移动服务以及 SQL Database 和服务器。</p>
+<pre class="prettyprint">~$ azure mobile create todolist your_login_name Secure$Password info:    Executing command mobile create + Creating mobile service info:    Overall application state: Healthy info:    Mobile service (todolist) state: ProvisionConfigured info:    SQL database (todolist_db) state: Provisioned info:    SQL server (e96ean1c6v) state: ProvisionConfigured info:    mobile create command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-r <code>&lt;sqlServer&gt;</code></strong> 或 <strong>--sqlServer <code>&lt;sqlServer&gt;</code></strong>：使用指定为 <code>&lt;sqlServer&gt;</code> 的现有 SQL Database 服务器。</li>
+<li><strong>-d <code>&lt;sqlDb&gt;</code></strong> 或 <strong>--sqlDb <code>&lt;sqlDb&gt;</code></strong>：使用指定为 <code>&lt;sqlDb&gt;</code> 的现有 SQL Database。</li>
+<li><strong>-l <code>&lt;location&gt;</code></strong> 或 <strong>--location <code>&lt;location&gt;</code></strong>：在指定为 <code>&lt;location&gt;</code> 的特定位置创建服务。运行 Azure 移动位置可获取可用位置。</li>
+<li><strong>--sqlLocation <code>&lt;location&gt;</code></strong>：在特定 <code>&lt;location&gt;</code> 创建 SQL Server；默认为移动服务的位置。</li>
+</ul>
+<p><strong>mobile delete [options] [servicename]</strong></p>
+<p>此命令删除移动服务及其 SQL Database 和服务器。</p>
+<pre class="prettyprint">~$ azure mobile delete todolist -a -q info:    Executing command mobile delete data:    Mobile service todolist data:    SQL database todolistAwrhcL60azo1C401 data:    SQL server fh1kvbc7la + Deleting mobile service info:    Deleted mobile service + Deleting SQL server info:    Deleted SQL server + Deleting mobile application info:    Deleted mobile application info:    mobile delete command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-d</strong> 或 <strong>--deleteData</strong>：从此移动服务的数据库中删除所有数据。</li>
+<li><strong>-a</strong> 或 <strong>--deleteAll</strong>：删除 SQL Database 和服务器。</li>
+<li><strong>-q 或 **--quiet</strong>：不提示确认。在自动化脚本中使用此选项。</li>
+</ul>
+<p><strong>mobile list [options]</strong></p>
+<p>此命令列出您的移动服务。</p>
+<pre class="prettyprint">~$ azure mobile list info:    Executing command mobile list data:    Name          State  URL data:    ------------  -----  -------------------------------------- data:    todolist      Ready  https://todolist.azure-mobile.net/ data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/ info:    mobile list command OK</pre>
+<p><strong>mobile show [options] [servicename]</strong></p>
+<p>此命令显示有关移动服务的详细信息。</p>
+<pre class="prettyprint">~$ azure mobile show todolist info:    Executing command mobile show + Getting information info:    Mobile application data:    status Healthy data:    Mobile service name todolist data:    Mobile service status ProvisionConfigured data:    SQL database name todolistAwrhcL60azo1C401 data:    SQL database status Linked data:    SQL server name fh1kvbc7la data:    SQL server status Linked info:    Mobile service data:    name todolist data:    state Ready data:    applicationUrl https://todolist.azure-mobile.net/ data:    applicationKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX data:    masterKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX data:    webspace WESTUSWEBSPACE data:    region West US data:    tables TodoItem info:    mobile show command OK</pre>
+<p><strong>mobile restart [options] [servicename]</strong></p>
+<p>此命令重新启动移动服务实例。</p>
+<pre class="prettyprint">~$ azure mobile restart todolist info:    Executing command mobile restart + Restarting mobile service info:    Service was restarted. info:    mobile restart command OK</pre>
+<p><strong>mobile log [options] [servicename]</strong></p>
+<p>此命令返回移动服务日志，筛选出 <code>error</code> 之外的所有日志类型。</p>
+<pre class="prettyprint">~$ azure mobile log todolist -t error info:    Executing command mobile log data: data:    timeCreated 2013-01-07T16:04:43.351Z data:    type error data:    source /scheduler/TestingLogs.js data:    message This is an error. data: info:    mobile log command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-r <code>&lt;query&gt;</code></strong> 或 <strong>--query <code>&lt;query&gt;</code></strong>：执行指定的日志查询。</li>
+<li><strong>-t <code>&lt;type&gt;</code></strong> 或 <strong>--type <code>&lt;type&gt;</code></strong>：按条目 <code>&lt;type&gt;</code>（可以是 <code>information</code>、<code>warning</code> 或 <code>error</code>）筛选返回的日志。</li>
+<li><strong>-k <code>&lt;skip&gt;</code></strong> 或 <strong>--skip <code>&lt;skip&gt;</code></strong>：跳过 <code>&lt;skip&gt;</code> 指定的行数。</li>
+<li><strong>-p <code>&lt;top&gt;</code></strong> 或 <strong>--top <code>&lt;top&gt;</code></strong>：返回 <code>&lt;top&gt;</code> 指定的特定行数。</li>
+</ul>
+<p>请注意，<strong>--query</strong> 参数优先于 <strong>--type</strong>、<strong>--skip</strong> 和 <strong>--top</strong>。</p>
+<p><strong>mobile key regenerate [options] [servicename] [type]</strong></p>
+<p>此命令重新生成移动服务应用程序密钥。</p>
+<pre class="prettyprint">~$ azure mobile key regenerate todolist application info:    Executing command mobile key regenerate info:    New application key is SmLorAWVfslMcOKWSsuJvuzdJkfUpt40 info:    mobile key regenerate command OK</pre>
+<p>密钥类型为 <code>master</code> 和 <code>application</code>。</p>
+<div class="dev-callout">注意
+<p>当您重新生成密钥后，使用旧密钥的客户端可能无法访问您的移动服务。当您重新生成应用程序密钥后，应使用新密钥值更新您的应用程序。</p>
+</div>
+<h3><a name="Mobile_Configuration"></a>管理移动服务配置的命令</h3>
+<p><strong>mobile config list [options] [servicename]</strong></p>
+<p>此命令列出移动服务的配置选项。</p>
+<pre class="prettyprint">~$ azure mobile config list todolist info:    Executing command mobile config list + Getting mobile service configuration data:    dynamicSchemaEnabled true data:    microsoftAccountClientSecret Not configured data:    microsoftAccountClientId Not configured data:    microsoftAccountPackageSID Not configured data:    facebookClientId Not configured data:    facebookClientSecret Not configured data:    twitterClientId Not configured data:    twitterClientSecret Not configured data:    googleClientId Not configured data:    googleClientSecret Not configured data:    apnsMode none data:    apnsPassword Not configured data:    apnsCertifcate Not configured info:    mobile config list command OK</pre>
+<p><strong>mobile config get [options] [servicename] [key]</strong></p>
+<p>此命令获取移动服务的特定配置选项，在此示例中为动态架构。</p>
+<pre class="prettyprint">~$ azure mobile config get todolist dynamicSchemaEnabled info:    Executing command mobile config get data:    dynamicSchemaEnabled true info:    mobile config get command OK</pre>
+<p><strong>mobile config set [options] [servicename] [key] [value]</strong></p>
+<p>此命令设置移动服务的特定配置选项，在此示例中为动态架构。</p>
+<pre class="prettyprint">~$ azure mobile config set todolist dynamicSchemaEnabled false info:    Executing command mobile config set info:    mobile config set command OK</pre>
+<h3><a name="Mobile_Tables"></a>管理移动服务表的命令</h3>
+<p><strong>mobile table list [options] [servicename]</strong></p>
+<p>此命令列出您的移动服务中的所有表。</p>
+<pre class="prettyprint">~$azure mobile table list todolist info:    Executing command mobile table list data:    Name      Indexes  Rows data:    --------  -------  ---- data:    Channel   1        0 data:    TodoItem  1        0 info:    mobile table list command OK</pre>
+<p><strong>mobile table show [options] [servicename] [tablename]</strong></p>
+<p>此命令显示有关特定表的返回内容的详情。</p>
+<pre class="prettyprint">~$azure mobile table show todolist info:    Executing command mobile table show + Getting table information info:    Table statistics: data:    Number of records 5 info:    Table operations: data:    Operation  Script       Permissions data:    ---------  -----------  ----------- data:    insert     1900 bytes   user data:    read       Not defined  user data:    update     Not defined  user data:    delete     Not defined  user info:    Table columns: data:    Name  Type           Indexed data:    ----  -------------  ------- data:    id    bigint(MSSQL)  Yes data:    text      string data:    complete  boolean info:    mobile table show command OK</pre>
+<p><strong>mobile table create [options] [servicename] [tablename]</strong></p>
+<p>此命令创建表。</p>
+<pre class="prettyprint">~$azure mobile table create todolist Channels info:    Executing command mobile table create + Creating table info:    mobile table create command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-p <code>&lt;permissions&gt;</code></strong> 或 <strong>--permissions <code>&lt;permissions&gt;</code></strong>：<code>&lt;operation&gt;</code>=<code>&lt;permission&gt;</code> 对的逗号分隔列表，其中 <code>&lt;operation&gt;</code> 为 <code>insert</code>、<code>read</code>、<code>update</code> 或 <code>delete</code>，而 <code>&lt;permissions&gt;</code> 为 <code>public</code>、<code>application</code>（默认值）、<code>user</code> 或 <code>admin</code>。</li>
+</ul>
+<p><strong>mobile table update [options] [servicename] [tablename]</strong></p>
+<p>此命令只更改管理员对表的删除权限。</p>
+<pre class="prettyprint">~$azure mobile table update todolist Channels -p delete=admin info:    Executing command mobile table update + Updating permissions info:    Updated permissions info:    mobile table update command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-p <code>&lt;permissions&gt;</code></strong> 或 <strong>--permissions <code>&lt;permissions&gt;</code></strong>：<code>&lt;operation&gt;</code>=<code>&lt;permission&gt;</code> 对的逗号分隔列表，其中 <code>&lt;operation&gt;</code> 为 <code>insert</code>、<code>read</code>、<code>update</code> 或 <code>delete</code>，而 <code>&lt;permissions&gt;</code> 为 <code>public</code>、<code>application</code>（默认值）、<code>user</code> 或 <code>admin</code>。</li>
+<li><strong>--deleteColumn <code>&lt;columns&gt;</code></strong>：要删除的列（如 <code>&lt;columns&gt;</code>）的逗号分隔列表。</li>
+<li><strong>-q</strong> 或 <strong>--quiet</strong>：删除列而不提示确认。</li>
+<li><strong>--addIndex <code>&lt;columns&gt;</code></strong>：要包含在索引中的列的逗号分隔列表。</li>
+<li><strong>--deleteIndex <code>&lt;columns&gt;</code></strong>：要从索引中排除的列的逗号分隔列表。</li>
+</ul>
+<p><strong>mobile table delete [options] [servicename] [tablename]</strong></p>
+<p>此命令删除表。</p>
+<pre class="prettyprint">~$azure mobile table delete todolist Channels info:    Executing command mobile table delete Do you really want to delete the table (yes/no): yes + Deleting table info:    mobile table delete command OK</pre>
+<p>指定 -q 参数可在不提示确认的情况下删除表。执行此操作以防阻止自动化脚本。</p>
+<p><strong>mobile data read [options] [servicename] [tablename] [query]</strong></p>
+<p>此命令读取表中的数据。</p>
+<pre class="prettyprint">~$azure mobile data read todolist TodoItem info:    Executing command mobile data read data:    id  text     complete data:    --  -------  -------- data:    1   item #1  false data:    2   item #2  true data:    3   item #3  false data:    4   item #4  true info:    mobile data read command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-k <code>&lt;skip&gt;</code></strong> 或 <strong>--skip <code>&lt;skip&gt;</code></strong>：跳过 <code>&lt;skip&gt;</code> 指定的行数。</li>
+<li><strong>-t <code>&lt;top&gt;</code></strong> 或 <strong>--top <code>&lt;top&gt;</code></strong>：返回 <code>&lt;top&gt;</code> 指定的特定行数。</li>
+<li><strong>-l</strong> 或 <strong>--list</strong>：以列表格式返回数据。</li>
+</ul>
+<h3><a name="Mobile_Scripts"></a>管理脚本的命令</h3>
+<p><strong>mobile script list [options] [servicename]</strong></p>
+<p>此命令列出注册的脚本，包括表和计划程序脚本。</p>
+<pre class="prettyprint">~$azure mobile script list todolist info:    Executing command mobile script list + Getting script information info:    Table scripts data:    Name                   Size data:    ---------------------  ---- data:    table/TodoItem.delete  256 data:    table/Devices.insert   1660 error:   Unable to get shared scripts info:    Scheduler scripts data:    Name                 Status     Interval   Last run   Next run data:    -------------------  ---------  ---------  ---------  --------- data:    scheduler/undefined  undefined  undefined  undefined  undefined data:    scheduler/undefined  undefined  undefined  undefined  undefined info:    mobile script list command OK</pre>
+<p><strong>mobile script upload [options] [servicename] [scriptname]</strong></p>
+<p>此命令从 <code>table</code> 子文件夹上载名为 <code>todoitem.insert.js</code> 的新脚本。</p>
+<pre class="prettyprint">~$azure mobile script upload todolist table/todoitem.insert.js info:    Executing command mobile script upload info:    mobile script upload command OK</pre>
+<p>文件的名称必须由表和操作名称组成，并且文件必须位于和执行该命令的位置相对应的 table 子文件夹中。您还可以使用 <strong>-f <code>&lt;file&gt;</code></strong> 或 <strong>--file <code>&lt;file&gt;</code></strong> 参数指定包含要注册脚本的文件的文件名和路径。</p>
+<p><strong>mobile script download [options] [servicename] [scriptname]</strong></p>
+<p>此命令从 TodoItem 表将插入脚本下载到 <code>table</code> 子文件夹中名为 <code>todoitem.insert.js</code> 的文件。</p>
+<pre class="prettyprint">~$azure mobile script download todolist table/todoitem.insert.js info:    Executing command mobile script download info:    Saved script to ./table/todoitem.insert.js info:    mobile script download command OK</pre>
+<p>此命令支持以下其他选项：</p>
+<ul>
+<li><strong>-p <code>&lt;path&gt;</code></strong> 或 <strong>--path <code>&lt;path&gt;</code></strong>：文件中用于保存脚本的位置，其中当前工作目录是默认值。</li>
+<li><strong>-f <code>&lt;file&gt;</code></strong> 或 <strong>--file <code>&lt;file&gt;</code></strong>：保存脚本的文件的名称。</li>
+<li><strong>-o</strong> 或 <strong>--override</strong>：覆盖现有文件。</li>
+<li><strong>-c</strong> 或 <strong>--console</strong>：将脚本写入到控制台而不是文件。</li>
+</ul>
+<p><strong>mobile script delete [options] [servicename] [scriptname]</strong></p>
+<p>此命令从 TodoItem 表中删除现有插入脚本。</p>
+<pre class="prettyprint">~$azure mobile script delete todolist table/todoitem.insert.js info:    Executing command mobile script delete info:    mobile script delete command OK</pre>-->
+<h2><a name="Manage_tool_local_settings"></a>管理工具本地设置</h2>
+<p>本地设置是您的订阅 ID 和默认存储帐户名称。</p>
+<p><strong>config list [options]</strong></p>
+<p>此命令显示配置设置。</p>
+<pre class="prettyprint">~$ azure config list info:   Displaying config settings data:   Setting                Value                                data:   ---------------------  ------------------------------------ data:   subscription           32-digit-subscription-key data:   defaultStorageAccount  name</pre>
+<p><strong>config set [options] &lt;name&gt;,&lt;value&gt;</strong></p>
+<p>此命令更改配置设置。</p>
+<pre class="prettyprint">~$ azure config set defaultStorageAccount myname info:   Setting 'defaultStorageAccount' to value 'myname' info:   Changes saved.</pre>
+</div>]]></bodyText></Chunk></localize>

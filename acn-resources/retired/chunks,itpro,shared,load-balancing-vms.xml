@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18642" parentID="18635" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="7" createDate="2013-06-04T14:38:12" updateDate="2014-08-18T11:05:50" nodeName="load-balancing-vms" urlName="load-balancing-vms" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18634,18635,18642" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>对虚拟机进行负载平衡</h1>
+<p>与虚拟机的外部通信通过终结点进行。这些终结点可用于不同目的，例如，经过负载平衡的流量或直接虚拟机连接，像 RDP 或 SSH。您可以定义与特定端口关联且为其分配了特定通信协议的终结点。可以为终结点分配 TCP 或 UDP 协议（TCP 协议包括 HTTP 和 HTTPS 流量）。为虚拟机定义的每个终结点将获得公用和专用端口以用于通信。定义专用端口的目的是设置虚拟机通信规则，而公用端口则供 Windows Azure 用于与外部资源中的虚拟机进行通信。</p>
+<p>在配置终结点时，Windows Azure 将为云服务的公开定义端口上的网络流量进行循环负载平衡。当云服务中包含 Web 角色或辅助角色的实例时，您可以通过将该服务中运行的实例数设置为大于二，并在服务定义中定义一个公共终结点，来实现此负载平衡。对于虚拟机，您可以设置负载平衡，方法是创建新虚拟机，在一个云服务下将这些虚拟机连接在一起，然后将负载平衡终结点添加到虚拟机中。</p>
+<p>负载平衡的终结点是特定的 TCP 或 UDP 终结点，供云服务中包含的所有虚拟机使用。下图中所示的负载平衡终结点由三台虚拟机共享，并且使用公用和专用端口 80。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/loadbalancing.png" alt="负载平衡的终结点"/></p>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#firstmachine">步骤 1：创建第一台虚拟机</a></li>
+<li><a href="#addendpoint">步骤 2：将终结点添加到第一台虚拟机中</a></li>
+<li><a href="#addmachines">步骤 3：将虚拟机添加到云服务中</a></li>
+<li><a href="#loadbalance">步骤 4：设置虚拟机负载平衡</a></li>
+<li><a href="#lbprobes">步骤 5：（可选）定义负载平衡探测</a></li>
+</ul>
+<h2><a id="firstmachine"></a>步骤 1：创建第一台虚拟机</h2>
+<p>若要创建包含在云服务中的负载平衡虚拟机，必须创建第一台虚拟机，然后将新增的虚拟机与该第一台虚拟机相连接。当您创建该虚拟机时，系统会为您创建一项云服务。只有将新增的虚拟机与该第一台虚拟机相连接后，管理门户中才会显示为包含该虚拟机而创建的云服务。可以使用下列方法之一创建第一台虚拟机：</p>
+<ul>
+<li><strong>快速创建</strong> - 通过从映像库中选择一个映像，然后提供虚拟机名称和管理员密码，您可以快速创建虚拟机。有关更多信息，请参见<a href="/zh-cn/manage/windows/how-to-guides/quickly-create-a-vm">如何快速创建虚拟机</a>。</li>
+<li><strong>从库中</strong> - 可以通过提供高级设置（例如大小、连接的资源、DNS 名称和网络连接）来创建虚拟机。有关更多信息，请参见<a href="/zh-cn/manage/windows/how-to-guides/custom-create-a-vm">如何创建自定义虚拟机</a>。</li>
+</ul>
+<h2><a id="addendpoint"></a>步骤 2：将终结点添加到第一台虚拟机中</h2>
+<p>在 Windows Azure 中创建的所有虚拟机均可以使用专用网络通道自动与位于同一云服务或虚拟网络中的其他虚拟机进行通信。但是，您需要向虚拟机中添加终结点才能使 Internet 上的其他资源或其他虚拟网络与该虚拟机进行通信。</p>
+<p>若要为虚拟机设置负载平衡，可将终结点添加到所创建的第一台虚拟机中，然后分配该终结点，使其可供与第一台虚拟机相连接的其他所有虚拟机使用。有关创建终结点的更多信息，请参见<a href="/zh-cn/manage/windows/how-to-guides/setup-endpoints">如何与虚拟机建立通信</a>。</p>
+<h2><a id="addmachines"></a>步骤 3：将虚拟机添加到云服务中</h2>
+<p>当您创建一台虚拟机后，会自动创建一项云服务来包含该虚拟机。您可以连接同一云服务下的多台虚拟机，以使这些虚拟机之间能够相互通信，在虚拟机之间平衡网络流量，以及维护虚拟机的高可用性。有关连接虚拟机的更多信息，请参见<a href="/zh-cn/manage/windows/how-to-guides/connect-to-a-cloud-service">如何连接云服务中的虚拟机</a>。有关管理应用程序可用性的更多信息，请参见<a href="/zh-cn/manage/windows/common-tasks/manage-vm-availability">管理虚拟机的可用性</a>。</p>
+<h2><a id="loadbalance"></a>步骤 4：设置虚拟机负载平衡</h2>
+<p>在将新增的虚拟机与第一台虚拟机相连接并在第一台虚拟机上创建终结点后，您可以分配该终结点，使其可供新虚拟机用于进行负载平衡。</p>
+<p><strong>设置负载平衡终结点</strong></p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择已与第一台虚拟机连接的虚拟机之一。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/selectvm.png" alt="选择虚拟机"/></p>
+</li>
+<li>
+<p>单击“终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/endpoints.png" alt="选择终结点"/></p>
+</li>
+<li>
+<p>单击“添加终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/addendpoint.png" alt="添加终结点"/></p>
+</li>
+<li>
+<p>选择“现有终结点上的负载平衡流量”，选择添加到第一台虚拟机中的终结点，然后单击箭头以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/addloadbalanceendpoint.png" alt="添加负载平衡终结点"/></p>
+</li>
+<li>
+<p>在“名称”中，输入终结点的名称。</p>
+</li>
+<li>
+<p>在“专用端口”中，键入您希望该虚拟机使用的端口号。您可以使用虚拟机上的专用端口和防火墙规则，从而以适合您应用程序的方式重定向通信流量。此公用端口与为第一台虚拟机上的终结点定义的公用端口相同。专用端口可以与公用端口一样。例如，对于 HTTP 终结点，您很可能希望使用端口 80 作为所有虚拟机的公用端口和专用端口。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/endpointloadbalance.png" alt="定义负载平衡终结点"/></p>
+</li>
+<li>
+<p>单击复选标记以创建负载平衡终结点。在两台虚拟机的“终结点”页面的“负载平衡”列中，您会看到“是”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/loadbalancedendpointsuccess.png" alt="负载平衡终结点成功"/></p>
+</li>
+<li>
+<p>对云服务中的每台虚拟机执行步骤 2 至 8。</p>
+</li>
+</ol>
+<h2><a id="lbprobes"></a>步骤 5：（可选）定义负载平衡探测</h2>
+<p>虚拟机必须正常运行才能接收网络流量。您可以选择通过将负载平衡探测功能添加到负载平衡终结点中，来定义自己的用于确定虚拟机运行状况的方法。Windows Azure 每隔 15 秒探测来自虚拟机的响应，如果两次探测后都没有收到响应，则从循环中排除该虚拟机。必须使用 PowerShell 定义负载平衡器上的探测。有关使用 Windows Azure cmdlet 的更多信息，请参见 <a href="http://msdn.microsoft.com/zh-cn/library/jj156055.aspx">Windows Azure PowerShell 入门</a>。</p>
+<p>若要使用 PowerShell 更改现有虚拟机的配置，必须获得表示该虚拟机的对象，修改配置，然后更新对象来保存更改。下面的示例使用 Get AzureVM cmdlet 检索虚拟机对象，通过管道将对象传送到 Set-AzureEndpoint cmdlet 以更改负载平衡终结点设置，然后再通过管道将更改传送到 Update-AzureVM cmdlet：</p>
+<pre class="prettyprint">Get-AzureVM -ServiceName "MyService" -Name "MyTestVM2" | Set-AzureEndpoint -LBSetName "MyLBSet" –Name MyTestEndpoint2 –Protocol tcp –LocalPort 80 -ProbePort 80 -ProbeProtocol http -ProbePath "/" | Update-AzureVM</pre>
+<p>若要运行上例中所列的 cmdlet，您必须知道以下信息：</p>
+<ul>
+<li><strong>服务名称</strong> – 其中包含虚拟机的云服务的名称。</li>
+<li><strong>名称</strong> – 其中附加了终结点的虚拟机的名称。</li>
+<li><strong>负载平衡集名称</strong> – 终结点所属的负载平衡集的名称。当您创建负载平衡终结点时，系统会自动为您创建负载平衡集来包含该负载平衡终结点。在管理门户中创建负载平衡终结点时，负载平衡集的名称与为该集定义的第一个终结点相同。</li>
+<li><strong>终结点名称</strong> – 向其中添加负载平衡探测的终结点的名称。</li>
+<li><strong>协议</strong> – 用于与终结点通信的协议。TCP 和 UDP 协议用于定义终结点。TCP 协议支持 HTTP 和 HTTPS。</li>
+<li><strong>本地端口</strong> – 用于平衡网络流量负载的端口。</li>
+<li><strong>探测端口</strong> – 负载平衡探测所关联的端口。</li>
+<li><strong>探测协议</strong> – 探测预期使用的协议。</li>
+<li><strong>探测路径</strong> – 用于定义 Web 服务器操作的路径。仅在终结点上的 http 流量符合预期时需要此选项。您可以将路径定义为“/”，或者指定运行相应页面或应用程序以提供运行状况状态。如果指定“/”，Web 服务器将返回状态 200，任何其他状态将使虚拟机退出负载平衡循环。为负载平衡探测配置的 URL 无需传递主机标头或任何类型的身份验证就能从 Windows Azure 接收 GET 请求。如果您指定的探测路径返回“401 拒绝访问”，则 Windows Azure 不会将虚拟机添加到循环中。必须配置可以异步方式做出响应的 URL。如果通过指定页面或程序来定义运行状况状态，则该资源必须返回 200 才能使虚拟机包括在负载平衡循环中。</li>
+</ul>
+<p>您可以使用 Get-AzureVM cmdlet 和 Get-AzureEndpoint cmdlet 获取已经为虚拟机定义的终结点的信息。</p>
+<pre class="prettyprint">Get-AzureVM -ServiceName "MyTestVM1" -Name "MyTestVM2" | Get-AzureEndpoint</pre>
+<p>以上命令会产生下列结果：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/listendpoints.png" alt="列出终结点"/></p>]]></bodyText></Chunk></localize>

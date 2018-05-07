@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18641" parentID="18635" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="6" createDate="2013-06-04T14:38:12" updateDate="2014-08-18T11:05:43" nodeName="Create vm howto guide" urlName="create-vm-howto-guide" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18634,18635,18641" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>如何在 Windows Azure 中创建和配置虚拟机</h1>
+<p>本指南向您演示如何使用 Windows Azure 管理门户在 Windows Azure 中创建和配置虚拟机。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#virtualmachine">Windows Azure 中虚拟机的含义</a></li>
+<li><a href="#quickcreate">如何快速创建虚拟机</a></li>
+<li><a href="#customcreate">如何创建自定义虚拟机</a></li>
+<li><a href="#connectmachines">如何连接云服务中的虚拟机</a></li>
+<li><a href="#logon">如何登录到虚拟机</a></li>
+<li><a href="#attachdisk">如何将数据磁盘附加到虚拟机</a></li>
+<li><a href="#communication">如何设置与虚拟机的通信</a></li>
+<li><a href="#capture">如何捕获虚拟机的映像</a></li>
+<li><a href="#nextsteps">后续步骤</a></li>
+</ul>
+<h2><a id="virtualmachine"></a>Windows Azure 中虚拟机的含义</h2>
+<p>Windows Azure 中的虚拟机是云平台中您可以控制和管理的服务器。当您在 Windows Azure 中创建虚拟机后，可以随时根据需要删除和重新创建该虚拟机，并且可以像登录任何其他服务器一样登录该虚拟机。可使用虚拟硬盘 (VHD) 文件创建虚拟机。可使用以下类型的 VHD 在 Windows Azure 中创建虚拟机：</p>
+<ul>
+<li><strong>映像 -</strong> 作为用于新建虚拟机的模板的 VHD。映像是一个模板，因为它不具有类似于正在运行的虚拟机这样的特定设置，例如计算机名称和用户帐户设置。如果您使用映像来创建虚拟机，则会为该新虚拟机自动创建一个操作系统磁盘。</li>
+<li><strong>磁盘 -</strong> 可以作为操作系统的运行版本来启动和安装的 VHD。磁盘是映像的可运行版本。附加到虚拟化硬件和作为服务一部分运行的任何 VHD 均为磁盘。设置映像后，它会成为磁盘，并且在您使用映像创建虚拟机时始终会创建一个磁盘。</li>
+</ul>
+<p>使用映像创建虚拟机时可采用以下方法：</p>
+<ul>
+<li>使用 Windows Azure 管理门户映像库中提供的映像创建虚拟机。</li>
+<li>创建包含映像的 VHD 文件并将其上载到 Windows Azure，然后使用该映像创建虚拟机。有关创建和上传自定义映像的更多信息，请参见以下主题：
+<ul>
+<li><a href="http://">创建并上传包含 Linux 操作系统的虚拟硬盘</a></li>
+<li><a href="http://">创建并上传包含 Windows Server 操作系统的虚拟硬盘</a></li>
+</ul>
+</li>
+</ul>
+<h2><a id="quickcreate"></a>如何快速创建虚拟机</h2>
+<p>您可以使用管理门户中的“快速创建”方法来快速创建虚拟机。创建此虚拟机时，您只需要提供虚拟机的名称、用于创建虚拟机的映像以及用于管理虚拟机的用户帐户的密码即可。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。</p>
+</li>
+<li>
+<p>在命令栏中，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“快速创建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/createquick.png" alt="快速创建新虚拟机"/></p>
+<p>将显示“新建虚拟机”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/newvm.png" alt="输入新虚拟机的详细信息"/></p>
+</li>
+<li>
+<p>输入新虚拟机的以下信息：</p>
+<ul>
+<li>DNS 名称– 同时用于所创建的虚拟机和包含虚拟机的云服务的名称。</li>
+<li><strong>映像</strong> - 用于创建虚拟机的平台映像。如果您要创建运行 Linux 操作系统的虚拟机，则必须使用“从库中”方法创建该虚拟机。</li>
+<li><strong>帐户密码</strong> - 输入并确认 Administrator 帐户的密码。您将使用该帐户管理虚拟机。</li>
+<li><strong>位置</strong> – 包含虚拟机的区域。</li>
+</ul>
+</li>
+<li>
+<p>单击复选标记以创建虚拟机。</p>
+<p><strong>注意：</strong> 需创建一个存储帐户以包含该虚拟机。只能创建一个存储帐户来存储该虚拟机，如果存储帐户已存在，它还用于存储其他虚拟机。</p>
+<p>“虚拟机”页中将列出新的虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/vmsuccesswindows.png" alt="成功创建虚拟机"/></p>
+</li>
+</ol>
+<h2><a id="customcreate"></a>如何创建自定义虚拟机</h2>
+<p>通过提供高级选项（例如大小、连接的资源、DNS 名称和网络连接），您可以创建自定义虚拟机。如果您想要连接虚拟机或想要使用自定义映像创建虚拟机，则必须使用该方法。</p>
+<p>在创建虚拟机之前，您应该确定其预期用途。如果您的应用程序中只需要一台虚拟机，则可以选择创建独立虚拟机。如果您在相同的云服务中需要多台可互相通信并充当负载平衡应用程序的虚拟机，则可以选择将新虚拟机连接到现有虚拟机。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户。</p>
+</li>
+<li>
+<p>在命令栏中，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/createnew.png" alt="新建自定义虚拟机"/></p>
+<p>将显示“虚拟机操作系统选择”对话框。您现在可从映像库中选择一个映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imageselectionwindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>单击“平台映像”，选择想要使用的平台映像，然后单击箭头以继续。</p>
+<p>将显示“虚拟机配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imagedefinewindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>在“虚拟机名称”中，键入要用于该虚拟机的名称。</p>
+</li>
+<li>
+<p>在“新密码”中，键入用于该虚拟机上 Administrator 帐户的密码。在“确认密码”中，重新键入您之前输入的密码。</p>
+</li>
+<li>
+<p>在“大小”中，选择要用于该虚拟机的大小。所选大小取决于您的应用程序所需的内核数。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>将显示“虚拟机模式”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imagestandalonewindows.png" alt="定义独立虚拟机。"/></p>
+</li>
+<li>
+<p>选择虚拟机是单台独立虚拟机还是包含多台已连接虚拟机的云服务的一部分。有关连接虚拟机的更多信息，请参见如何在云服务中连接虚拟机</p>
+。</li>
+<li>
+<p>如果您要创建独立虚拟机，请在“DNS 名称”中，键入为虚拟机创建的云服务的名称。输入的名称可包含 3-24 个小写字母和数字。</p>
+</li>
+<li>
+<p>在“存储帐户”中，选择存储 VHD 文件的存储帐户，或者也可以选择自动创建存储帐户。每个区域只能自动创建一个存储帐户。使用此设置创建的所有其他虚拟机也位于该存储帐户中。您最多只能创建 20 个存储帐户。</p>
+</li>
+<li>
+<p>在“区域/地缘组/虚拟网络”中，选择要包含该虚拟机的区域、地缘组或虚拟网络。有关地缘组的更多信息，请参见<a href="http://">关于虚拟网络的地缘组</a>。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>将显示“虚拟机选项”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imageoptionswindows.png" alt="定义虚拟机选项。"/></p>
+</li>
+<li>
+<p>（可选）在“可用性集”中，选择“创建可用性集”。如果虚拟机是可用性集的成员，则会将其部署到与该集中其他虚拟机不同的容错域中。在可用性集中部署多台虚拟机可确保您的应用程序在出现网络故障、本地磁盘硬件故障以及任何计划内停机时仍然可用。</p>
+</li>
+<li>
+<p>如果您要创建可用性集，请为该可用性集输入名称。</p>
+</li>
+<li>
+<p>（可选）选择虚拟机应为其成员的子网。有关将虚拟机添加到网络的更多信息，请参见<a href="http://">在虚拟网络中创建虚拟机</a>。</p>
+。</li>
+<li>
+<p>单击箭头以创建虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/vmsuccesswindows.png" alt="成功创建自定义虚拟机"/></p>
+</li>
+</ol>
+<h2><a id="connectmachines"></a>如何连接云服务中的虚拟机</h2>
+<p>如果您创建一台虚拟机，则会自动创建一项云服务来包含该虚拟机。您可以在同一云服务下创建多台虚拟机以允许这些虚拟机互相通信、在虚拟机之间进行负载平衡以及保持虚拟机的高可用性。</p>
+<p>您必须先使用新的云服务创建一台虚拟机，然后在该云服务下将其他虚拟机与第一台虚拟机相连接。</p>
+<ol>
+<li>
+<p>使用<a href="#customcreate">如何创建自定义虚拟机</a>中介绍的步骤创建虚拟机。</p>
+</li>
+<li>
+<p>在您创建第一台自定义虚拟机后，在命令栏中，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/createnew.png" alt="创建自定义虚拟机。"/></p>
+<p>将显示“虚拟机操作系统选择”对话框。您现在可从映像库中选择一个映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imageselectionwindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>单击“平台映像”，选择想要使用的平台映像，然后单击箭头以继续。</p>
+<p>将显示“虚拟机配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imagedefinewindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>在“虚拟机名称”中，键入要用于该虚拟机的名称。</p>
+</li>
+<li>
+<p>在“新密码”中，键入用于该虚拟机上 Administrator 帐户的密码。在“确认密码”中，重新键入您之前输入的密码。</p>
+</li>
+<li>
+<p>在“大小”中，选择要用于该虚拟机的大小。所选大小取决于您的应用程序所需的内核数。</p>
+</li>
+<li>
+<p>对于运行 Linux 操作系统的虚拟机，您可以选择通过 SSH 密钥保护虚拟机。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>将显示“虚拟机模式”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectedvms.png" alt="定义已连接的虚拟机"/></p>
+</li>
+<li>
+<p>选择“连接到现有虚拟机”以在现有云服务下新建虚拟机。选择将包含新虚拟机的云服务。</p>
+</li>
+<li>
+<p>在“存储帐户”中，选择存储 VHD 文件的存储帐户，或者也可以选择自动创建存储帐户。只能自动创建一个存储帐户。使用此设置创建的所有其他虚拟机也位于该存储帐户中。您最多只能创建 20 个存储帐户。</p>
+</li>
+<li>
+<p>在“区域/地缘组/虚拟网络”中，选择要包含虚拟机的区域。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>将显示“虚拟机选项”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/availabilitysetselect.png" alt="定义已连接的虚拟机"/></p>
+</li>
+<li>
+<p>选择您在创建第一台虚拟机时创建的可用性集。</p>
+</li>
+<li>
+<p>单击复选标记以创建已连接的虚拟机。</p>
+</li>
+</ol>
+<h2><a id="logon"></a>如何登录到虚拟机</h2>
+<p>您可以登录到所创建的虚拟机来管理其设置以及在其上运行的应用程序。对于运行 Windows Server 2008 R2 操作系统的虚拟机，您可以使用管理门户中的“连接”按钮启动远程桌面连接。对于运行 Linux 操作系统的虚拟机，您可以使用安全外壳 (SSH) 客户端。</p>
+<h3>登录到运行 Windows Server 2008 R2 的虚拟机</h3>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择您想要登录的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectwindows.png" alt="登录到虚拟机"/></p>
+</li>
+<li>
+<p>单击“打开”以使用为虚拟机自动创建的远程桌面协议文件。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectwindows.png" alt="登录到虚拟机"/></p>
+</li>
+<li>
+<p>单击“连接”以继续连接过程。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectpublisher.png" alt="继续连接"/></p>
+</li>
+<li>
+<p>输入虚拟机上 Administrator 帐户的密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectcreds.png" alt="输入密码"/></p>
+</li>
+<li>
+<p>单击“是”以验证虚拟机的标识。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/connectverify.png" alt="验证计算机标识"/></p>
+<p>您现在可以像使用任何其他服务器一样使用该虚拟机。</p>
+</li>
+</ol>
+<h3>登录到运行 Linux 的虚拟机</h3>
+<p>您必须在计算机上安装要用于登录到虚拟机的 SSH 客户端。您可以选择很多 SSH 客户端程序。以下是可能的选项：</p>
+<ul>
+<li>如果您要使用运行 Windows 操作系统的计算机，则可能希望使用 PuTTY 等 SSH 客户端。有关更多信息，请参见 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 下载页</a>。</li>
+<li>如果您要使用运行 Linux 操作系统的计算机，则可能希望使用 OpenSSH 等 SSH 客户端。有关更多信息，请参见 <a href="http://www.openssh.org/">OpenSSH</a>。</li>
+</ul>
+<p>此过程将向您演示如何使用 PuTTY 程序访问虚拟机。</p>
+<ol>
+<li>
+<p>从管理门户中找到“主机名”和“端口信息”。您可以从虚拟机的仪表板中找到所需信息。单击虚拟机名称并查看仪表板“速览”部分的“SSH 详细信息”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/sshdetails.png" alt="获取 SSH 详细信息"/></p>
+</li>
+<li>
+<p>打开 PuTTY 程序。</p>
+</li>
+<li>
+<p>输入您从仪表板中收集到的主机名和端口信息，然后单击“打开”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/putty.png" alt="打开 PuTTY"/></p>
+</li>
+<li>
+<p>使用您在创建虚拟机时指定的帐户登录到虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/sshlogin.png" alt="登录到虚拟机"/></p>
+<p>您现在可以像使用任何其他服务器一样使用该虚拟机。</p>
+</li>
+</ol>
+<h2><a id="attachdisk"></a>如何将数据磁盘附加到虚拟机</h2>
+<p>您可以将数据磁盘附加到虚拟机以存储应用程序数据。数据磁盘是您可以使用自己的计算机在本地创建，或者使用 Windows Azure 在云中创建的虚拟硬盘 (VHD)。您管理虚拟机中数据磁盘的方式与管理办公室中服务器的方式相同。</p>
+<p>您可以将已包含数据的数据磁盘上传和附加到虚拟机，也可以将空的磁盘附加到虚拟机。添加磁盘时不会停止虚拟机。但是根据虚拟机的大小，您可以附加到虚拟机中的磁盘数量是有限的。下表列出了允许向每种大小的虚拟机中添加的磁盘的数量。</p>
+<table border="1" style="width: 300px;">
+<tbody>
+<tr bgcolor="#e9e7e7"><th>大小</th><th>数据磁盘限制</th></tr>
+<tr>
+<td>特小型</td>
+<td>1</td>
+</tr>
+<tr>
+<td>小型</td>
+<td>2</td>
+</tr>
+<tr>
+<td>中型</td>
+<td>4</td>
+</tr>
+<tr>
+<td>大型</td>
+<td>8</td>
+</tr>
+<tr>
+<td>特大型</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<h3>附加现有磁盘</h3>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择要向其中附加磁盘的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“附加”，然后选择“附加磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachexistingdiskwindows.png" alt="附加数据磁盘"/></p>
+<p>将显示“附加磁盘”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachexistingdisk.png" alt="输入数据磁盘详细信息"/></p>
+</li>
+<li>
+<p>选择想要附加到虚拟机中的数据磁盘。</p>
+</li>
+<li>
+<p>单击复选标记以将数据磁盘附加到虚拟机。</p>
+<p>虚拟机的仪表板中将列出该数据磁盘。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachsuccess.png" alt="成功附加数据磁盘"/></p>
+</li>
+</ol>
+<h3>附加空磁盘</h3>
+<p>当您新建数据磁盘时，需要确定磁盘的大小。在您将空磁盘附加到虚拟机后，该磁盘将处于脱机状态。在可以使用该磁盘之前，您必须先连接到虚拟机，然后使用服务器管理器初始化该磁盘。</p>
+<p><strong>注意：</strong> Windows Azure 存储支持最大为 1 TB 的 blob，其中可容纳最大虚拟大小为 999 GB 的 VHD。当您在 Hyper-V 中为新硬盘输入“1 TB”时，该值代表虚拟大小。这会生成一个超过 512 字节的文件。</p>
+<ol>
+<li>
+<p>单击“虚拟机”，然后选择要向其中附加数据磁盘的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“附加”，然后选择“附加空磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachdiskwindows.png" alt="附加空磁盘"/></p>
+<p>将显示“附加空磁盘”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachnewdiskwindows.png" alt="附加新的空磁盘"/></p>
+</li>
+<li>
+<p>在“存储位置”中，选择要存储为数据磁盘创建的 VHD 文件的存储帐户。</p>
+</li>
+<li>
+<p>在“文件名”中，可以接受自动生成的名称，也可以输入要用于存储的 VHD 文件的名称。从 VHD 文件创建的数据磁盘始终会使用自动生成的名称。</p>
+</li>
+<li>
+<p>在“大小”中，输入数据磁盘的大小。</p>
+</li>
+<li>
+<p>单击复选标记以附加空数据磁盘。</p>
+<p>虚拟机的仪表板中将列出该数据磁盘。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachemptysuccess.png" alt="成功附加空数据磁盘"/></p>
+</li>
+</ol>
+<h3>在 Windows Server 2008 R2 中初始化新的数据磁盘</h3>
+<p>您刚刚添加到虚拟机中的数据磁盘在您添加它后处于脱机和未初始化状态。您必须先访问虚拟机并初始化磁盘，然后才能使用该磁盘存储数据。</p>
+<ol>
+<li>
+<p>使用“如何登录到虚拟机”<a href="#logon"></a>中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在登录到虚拟机之后，打开“服务器管理器”，在左侧窗格中展开“存储”，然后单击“磁盘管理”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/servermanager.png" alt="打开服务器管理器"/></p>
+</li>
+<li>
+<p>右键单击“磁盘 2”，然后单击“初始化磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/initializedisk.png" alt="初始化磁盘"/></p>
+</li>
+<li>
+<p>单击“确定”启动初始化过程。</p>
+</li>
+<li>
+<p>右键单击磁盘 2 的空间分配区域，单击“新建简单卷”，然后使用默认值完成该向导。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/initializediskvolume.png" alt="初始化卷"/></p>
+<p>磁盘现在处于联机状态且可以使用新的驱动器号。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/initializesuccess.png" alt="成功初始化卷"/></p>
+</li>
+</ol>
+<h3>在 Linux 中初始化新的数据磁盘</h3>
+<ol>
+<li>
+<p>使用“如何登录到虚拟机”<a href="#logon"></a>中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令，然后输入为管理虚拟机而创建的帐户的密码：</p>
+<p><code>sudo grep SCSI /var/log/messages</code></p>
+<p>您可以在所示消息中找到最后添加的数据磁盘的标识符。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskmessages.png" alt="获得磁盘消息"/></p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令以新建设备，然后输入帐户密码：</p>
+<p><code>sudo fdisk /dev/sdc</code></p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令以新建设备，然后输入帐户密码：</p>
+<p><code>sudo fdisk /dev/sdc</code></p>
+</li>
+<li>
+<p>键入<strong> n</strong> 新建一个分区。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskpartition.png" alt="新建设备"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 将该分区设置为主分区，键入<strong> 1</strong> 将其设置为第一分区，然后键入 Enter 以接受默认分区值。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskcylinder.png" alt="创建分区"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 以查看有关分区磁盘的详细信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskinfo.png" alt="列出磁盘信息"/></p>
+</li>
+<li>
+<p>键入<strong> w</strong> 以写入磁盘的设置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskwrite.png" alt="写入磁盘更改"/></p>
+</li>
+<li>
+<p>您必须在新分区上创建文件系统。键入下面的命令以创建文件系统，然后输入帐户密码：</p>
+<p><code>sudo mkfs -t ext4 /dev/sdc1</code></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskfilesystem.png" alt="创建文件系统"/></p>
+</li>
+<li>
+<p>键入下面的命令以生成驱动器安装目录，然后输入帐户密码：</p>
+<p><code>sudo mkdir /mnt/datadrive</code></p>
+</li>
+<li>
+<p>键入下面的命令以安装驱动器：</p>
+<p><code>sudo mount /dev/sdc1 /mnt/datadrive</code></p>
+<p>数据磁盘现在可以作为 <strong>/mnt/datadrive</strong> 使用。</p>
+</li>
+</ol>
+<h2><a id="communication"></a>如何设置与虚拟机的通信</h2>
+<p>在 Windows Azure 中创建的所有虚拟机均可以使用专用网络通道自动与位于同一云服务或虚拟网络中的其他虚拟机进行通信。但是，您需要向虚拟机中添加终结点才能使 Internet 上的其他资源或其他虚拟网络与该虚拟机进行通信。您可以将特定端口和协议与终结点相关联。资源可使用 TCP 或 UDP 协议连接到终结点。TCP 协议包括 HTTP 和 HTTPS 通信。</p>
+<p>将对为虚拟机定义的每个终结点分配用于通信的公用和专用端口。定义专用端口的目的是设置虚拟机通信规则，而公用端口则供 Windows Azure 负载平衡器用于与外部资源中的虚拟机进行通信。</p>
+<ol>
+<li>
+<p>登录到 Windows Azure 管理门户（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择您要配置的虚拟机。</p>
+</li>
+<li>
+<p>单击“终结点”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/endpointswindows.png" alt="终结点"/></p>
+</li>
+<li>
+<p>单击“添加终结点”。</p>
+<p>将显示“添加终结点”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/addendpointwindows.png" alt="添加终结点"/></p>
+</li>
+<li>
+<p>接受“添加终结点”的默认选项，然后单击箭头以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/endpointtcpwindows.png" alt="输入终结点详细信息"/></p>
+</li>
+<li>
+<p>在“名称”中，输入终结点的名称。</p>
+</li>
+<li>
+<p>在“公用端口”和“专用端口”中，键入 80。这些端口编号可以不同。公用端口是来自 Windows Azure 外部的通信的入口点，并供 Windows Azure 负载平衡器使用。您可以使用虚拟机上的专用端口和防火墙规则以适合您的应用程序的方式重定向通信。</p>
+</li>
+<li>
+<p>单击复选标记以创建终结点。</p>
+<p>现在，“终结点”页上将列出该终结点。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/endpointwindowsnew.png" alt="成功创建终结点"/></p>
+</li>
+</ol>
+<h2><a id="capture"></a>如何捕获虚拟机的映像</h2>
+<p>您可以使用映像库中的映像轻松创建虚拟机，也可以捕获和使用自己的映像来创建自定义虚拟机。映像是用作创建虚拟机的模板的虚拟硬盘 (VHD) 文件。映像是一个模板，因为它不具有类似于配置的虚拟机这样的特定设置，例如计算机名称和用户帐户设置。如果您想要创建以相同方式设置的多台虚拟机，则可以捕获已配置虚拟机的映像并使用该映像作为模板。</p>
+<h3>捕获运行 Windows Server 2008 R2 的虚拟机的映像</h3>
+<ol>
+<li>
+<p>使用“如何登录到虚拟机”<a href="#logon"></a>中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>以管理员身份打开“命令提示符”窗口。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/sysprepcommand.png" alt="运行 Sysprep.exe"/></p>
+</li>
+<li>
+<p>将目录更改为 <code>%windir%\system32\sysprep</code>，然后运行 sysprep.exe。</p>
+<p>将显示“系统准备工具”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/sysprepgeneral.png" alt="输入 Sysprep.exe 选项"/></p>
+</li>
+<li>
+<p>在“系统清理操作”中，选择“进入系统全新体验(OOBE)”并确保选中“一般化”。有关使用 Sysprep 的更多信息，请参见<a href="http://technet.microsoft.com/zh-cn/library/bb457073.aspx">如何使用 Sysprep：简介</a>。</p>
+</li>
+<li>
+<p>在“关机选项”中，选择“关机”。</p>
+</li>
+<li>
+<p>单击“确定”。</p>
+</li>
+<li>
+<p>sysprep 命令将关闭虚拟机，这会在管理门户中将虚拟机的状态更改为“已停止”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/sysprepstopped.png" alt="虚拟机已停止"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后选择要从中捕获映像的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“捕获”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/capturevm.png" alt="捕获虚拟机的映像"/></p>
+<p>将出现“捕获虚拟机”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/capture.png" alt="输入映像的名称"/></p>
+</li>
+<li>
+<p>在“映像名称”中，输入新映像的名称。</p>
+</li>
+<li>
+<p>必须通过运行 sysprep 命令对所有 Windows Server 映像进行一般化。单击“我已在虚拟机上运行 Sysprep”以指示操作系统准备就绪，可随时将其用作映像。</p>
+</li>
+<li>
+<p>单击复选标记以捕获映像。当您捕获某台虚拟机的映像后，将删除该虚拟机。</p>
+<p>新映像现在显示在“映像”下。捕获映像后，将删除虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/capturesuccess.png" alt="成功捕获映像"/></p>
+<p>当您使用“从库中”方法创建虚拟机时，可以使用通过单击“虚拟机操作系统选择”页面上“我的映像”捕获的映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/myimageswindows.png" alt="使用捕获的映像"/></p>
+</li>
+</ol>
+<h3>捕获运行 Linux 的虚拟机的映像</h3>
+<ol>
+<li>
+<p>使用“如何登录到虚拟机”<a href="#logon"></a>中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令，然后输入在虚拟机上创建的帐户的密码：</p>
+<p><code>sudo waagent –deprovision</code></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/linuxdeprovision.png" alt="取消设置虚拟机"/></p>
+</li>
+<li>
+<p>键入<strong> y</strong> 以继续。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/linuxdeprovision2.png" alt="成功地取消设置虚拟机"/></p>
+</li>
+<li>
+<p>键入<strong> Exit</strong> 以关闭 SSH 客户端。</p>
+</li>
+<li>
+<p>在管理门户中，选择虚拟机，然后单击“关机”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shutdownvm.png" alt="关闭虚拟机"/></p>
+</li>
+<li>
+<p>单击“是”，同意在虚拟机停止运行后继续支付相关付费。</p>
+</li>
+<li>
+<p>在虚拟机停止后，在命令栏中，单击“捕获”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/capturevm.png" alt="捕获虚拟机的映像"/></p>
+<p>将出现“捕获虚拟机”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/capturelinux.png" alt="输入捕获的详细信息"/></p>
+</li>
+<li>
+<p>在“映像名称”中，输入新映像的名称。</p>
+</li>
+<li>
+<p>必须通过运行带 –deprovision 选项的 waagent 命令来取消设置所有 Linux 映像。单击“已在虚拟机上运行取消设置命令”以指示操作系统准备就绪，可随时将其用作映像。</p>
+</li>
+<li>
+<p>单击复选标记以捕获映像。</p>
+<p>新映像现在显示在“映像”下。捕获映像后，将删除虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/capturesuccess.png" alt="成功捕获映像"/></p>
+<p>当您使用“从库中”方法创建虚拟机时，可以使用通过单击“虚拟机操作系统选择”页面上“我的映像”捕获的映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/myimageslinux.png" alt="使用捕获的映像"/></p>
+</li>
+</ol>
+<h2><a id="nextsteps"></a>后续步骤</h2>
+<p>现在，您已了解有关创建虚拟机的基础知识，单击下面的链接可了解如何执行更复杂的任务。</p>
+<ul>
+<li>将虚拟机部署到虚拟网络或子网</li>
+<li>使用本地 DNS/AD 将虚拟机添加到本地域</li>
+</ul>]]></bodyText></Chunk></localize>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18724" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="37" createDate="2013-07-11T09:59:21" updateDate="2014-08-18T11:04:01" nodeName="powershell" urlName="powershell" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18724" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>如何使用 Windows Azure PowerShell</h1>
+<p>本指南介绍如何使用 Windows PowerShell cmdlet 创建、测试、部署和管理 Windows Azure 服务。涉及的应用场景包括<strong>导入发布设置</strong>、<strong>创建 Windows Azure 服务以承载应用程序</strong>、<strong>在 Windows Azure 计算模拟器中运行服务</strong>、<strong>部署和更新云服务</strong>、<strong>设置服务的部署选项</strong>以及<strong>停止、启动和删除服务</strong>。</p>
+<div class="dev-callout">注意
+<p>有关每个 cmdlet 的详细说明，请参见 <a href="http://go.microsoft.com/fwlink/?LinkId=253185">Windows Azure 管理 Cmdlet</a>。</p>
+</div>
+<h2>目录</h2>
+<ul>
+<li><a href="#WhatIs">什么是 Windows Azure PowerShell</a></li>
+<li><a href="#GetStarted">开始使用 Windows Azure PowerShell</a></li>
+<li><a href="#ImportPubSettings">如何：导入发布设置</a></li>
+<li><a href="#CreateService">如何：创建 Windows Azure 服务</a></li>
+<li><a href="#TestLocally">如何：在 Windows Azure 模拟器中本地测试服务</a></li>
+<li><a href="#DefaultDeploymentOptions">如何：设置服务的默认部署选项</a></li>
+<li><a href="#StorageAcctMultipleServices">如何：将一个存储帐户用于多个服务</a></li>
+<li><a href="#Deploy">如何：将云服务部署到 Windows Azure</a></li>
+<li><a href="#Update">如何：更新已部署的服务</a></li>
+<li><a href="#Scale">如何：向外扩展服务</a></li>
+<li><a href="#Cache">如何：创建专用缓存</a></li>
+<li><a href="#StopStartRemove">如何：停止、启动和删除服务</a></li>
+<li><a href="#WebSite">如何：创建和管理 Windows Azure 网站</a></li>
+<li><a href="#SqlDatabase">如何：创建、修改和删除 SQL Database 服务器</a></li>
+</ul>
+<h2><a id="WhatIs"></a>什么是 Windows Azure PowerShell</h2>
+<p>Windows Azure PowerShell 提供了用于通过一些 Windows PowerShell cmdlet 开发和部署 Windows Azure 应用程序的命令行环境。</p>
+<p>支持以下任务：</p>
+<ul>
+<li>导入发布设置以使您能够在 Windows Azure 中部署服务。</li>
+<li>为云服务生成配置文件和示例应用程序。创建包含 Web 角色和辅助角色的 Windows Azure 服务。</li>
+<li>使用 Windows Azure 计算模拟器本地测试服务。</li>
+<li>将服务部署到 Windows Azure 过渡环境或生产环境。</li>
+<li>在 Windows Azure 中扩展和更新服务。</li>
+<li>启用和禁用对服务角色实例的远程访问。</li>
+<li>启动、停止和删除服务。</li>
+</ul>
+<h2><a id="GetStarted"></a>开始使用 Windows Azure PowerShell</h2>
+<p>建议采用的 Windows Azure PowerShell cmdlet 安装方法是通过 <a href="http://go.microsoft.com/fwlink/?LinkId=253447">Microsoft Web 平台安装程序</a>。安装并启动 Web 平台安装程序后，选择“Windows Azure PowerShell”<strong></strong>，然后按照提示安装 cmdlet。Web 平台安装程序将安装 Windows Azure PowerShell cmdlet 的所有依赖项。请注意，您也可以选择“Windows Azure SDK for Node.js - 2012 年 7 月版”<strong></strong>或“Windows Azure SDK for PHP - 2012 年 7 月版”<strong></strong>，因为这些 SDK 将包括 Windows Azure PowerShell cmdlet。</p>
+<h3>Windows PowerShell 入门</h3>
+<p>如果您以前没有使用过 Windows PowerShell，以下资源可帮助您入门：</p>
+<ul>
+<li>
+<p>有关基本说明，请参见 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055.aspx">Windows PowerShell 入门指南</a>中的<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055.aspx">使用 Windows PowerShell</a>。</p>
+</li>
+<li>
+<p>在 Windows PowerShell 中工作时，您的最佳帮助来源是 <strong>Help</strong> cmdlet。下表汇总了一些常见的帮助请求。有关更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/bb648604.aspx">获取帮助：Help</a>，或在 Windows PowerShell 中，键入：<strong>help</strong>。</p>
+<table border="1" cellspacing="4" cellpadding="4">
+<tbody>
+<tr align="left" valign="top">
+<td>Cmdlet 格式</td>
+<td>返回的信息</td>
+</tr>
+<tr align="left" valign="top">
+<td>help</td>
+<td>显示有关使用 help cmdlet 的帮助主题</td>
+</tr>
+<tr align="left" valign="top">
+<td>help azure</td>
+<td>列出 Windows Azure PowerShell 管理单元中的所有 cmdlet</td>
+</tr>
+<tr align="left" valign="top">
+<td>help node-dev</td>
+<td>列出用于开发和管理 Node.js 应用程序的 cmdlet</td>
+</tr>
+<tr align="left" valign="top">
+<td>help php-dev</td>
+<td>列出用于开发和管理 PHP 应用程序的 cmdlet</td>
+</tr>
+<tr align="left" valign="top">
+<td>help &lt;cmdlet&gt;</td>
+<td>显示有关 Windows PowerShell cmdlet 的帮助</td>
+</tr>
+<tr align="left" valign="top">
+<td>help &lt;cmdlet&gt; -parameter *</td>
+<td>显示 cmdlet 的参数定义</td>
+</tr>
+<tr align="left" valign="top">
+<td>help &lt;cmdlet&gt; -examples</td>
+<td>显示 cmdlet 的语法行示例</td>
+</tr>
+<tr align="left" valign="top">
+<td>help &lt;cmdlet&gt; -full</td>
+<td>显示 cmdlet 的技术要求</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3>Windows Azure PowerShell 入门</h3>
+<p>Windows Azure PowerShell cmdlet 具有一些不是所有 Windows PowerShell 组件共有的特殊要求：</p>
+<ul>
+<li>
+<p>若要在 Windows Azure 中部署应用程序，您必须拥有 Windows Azure 订阅。您必须下载订阅信息（通过使用 <strong>Get-AzurePublishSettingsFile</strong>），然后导入这些设置（通过使用 <strong>Import-AzurePublishSettingsFile</strong>），才能使用 cmdlet 部署应用程序。</p>
+</li>
+<li>
+<p>您必须从服务目录中运行对云服务执行操作的 cmdlet。</p>
+<p>在您创建新的云服务时，会在当前目录中创建服务目录，并且 Windows PowerShell 命令提示符的焦点会移动到该服务目录。从该服务目录中，您可以将 Web 角色和辅助角色添加到服务中。服务的所有其他 cmdlet 可从服务目录的任何子目录中运行。</p>
+</li>
+<li>
+<p>在您创建并配置了新云服务后，或在您运行任何更新已部署服务的配置的 cmdlet 后，必须运行 <strong>Publish-AzureServiceProject</strong> cmdlet 来将更新发布到云服务部署。例如，在运行带 <strong>-Instances</strong> 参数的 <strong>Set-AzureServiceProjectRole</strong> 来将其他 Web 角色实例添加到服务配置后，需运行 <strong>Publish-AzureServiceProject</strong> 来向外扩展云服务。</p>
+<p>如果您在 Windows Azure 计算模拟器中本地运行部署，则必须在更新服务定义文件 (.csdef) 或服务配置文件 (.cscfg) 后再次运行 <strong>Start-AzureEmulator</strong>。不过，计算模拟器会立即向 server.js（对于 Node.js 应用程序）和 web.config 文件呈现更新。</p>
+</li>
+<li>
+<p>虽然 Windows Azure PowerShell cmdlet 和参数不区分大小写，但为 cmdlet 输入的以下值区分大小写：服务名称、订阅名称、存储帐户名称和部署位置。</p>
+</li>
+</ul>
+<h3>打开 Windows Azure PowerShell</h3>
+<p>在“开始”<strong></strong>菜单上，依次单击“所有程序”<strong></strong>、“Windows Azure”<strong></strong>和“Windows Azure PowerShell”<strong></strong>。</p>
+<h3>语法行示例</h3>
+<p>在本指南中的语法行示例中，所有服务都是从 C:\app 文件夹创建的。C:\app 文件夹不是必需的；您可以从任何位置创建 Windows Azure 服务。大多数语法行示例使用名为 MyService 的服务，并且对该服务执行的 cmdlet 是在以下命令提示符处输入的：</p>
+<pre class="prettyprint">C:\app\MyService&gt;</pre>
+<h2><a id="ImportPubSettings"></a>如何：导入发布设置</h2>
+<p>若要在 Windows Azure 中部署应用程序，您必须拥有 Windows Azure 订阅。如果您没有 Windows Azure 订阅，请参见 Windows Azure 的<a href="http://www.windowsazure.cn/zh-cn/pricing/purchase-options/">购买选项</a>来获取信息。</p>
+<p>您必须下载订阅信息（通过使用 <strong>Get-AzurePublishSettingsFile</strong>），然后导入这些设置（通过使用 <strong>Import-AzurePublishSettingsFile</strong>），才能使用 PowerShell cmdlet 部署应用程序。</p>
+<p><strong>Get-AzurePublishSettingsFile</strong> cmdlet 会在 <a href="http://manage.windowsazure.cn/">Windows Azure 管理门户</a>中打开一个网页，您可以从中下载发布配置文件。您将需要使用您的 Windows Azure 帐户的凭据登录该门户。</p>
+<p>在下载发布配置文件时，请注意您的设置文件的路径和名称。在使用 <strong>Import-AzurePublishSettingsFile</strong> 导入设置时，您必须提供此信息。默认的位置和文件名格式为：</p>
+<p>C:\Users\&lt;MyAccount&gt;\Downloads\[<em>MySubscription</em>-…]-<em>downloadDate</em>-credentials.publishsettings</p>
+<p>下面的示例演示如何为您的 Windows Azure 帐户下载发布设置。</p>
+<pre class="prettyprint">Get-AzurePublishSettingsFile</pre>
+<p>在下面的示例中，导入了于 2011-11-11 时间下载到默认路径的发布设置。在这种情况下，用户是 Project1 订阅及其自己的订阅的共同管理员。</p>
+<pre class="prettyprint">Import-AzurePublishSettingsFile C:\Users\MyAccount\Downloads\MySubscription-Project1-11-11-2011-credentials.publishsettings</pre>
+<p>如果在您导入发布设置后，将您添加到其他订阅中作为共同管理员，则您将需要重复此过程来下载新的 .publishsettings 文件，然后导入这些设置。有关添加共同管理员来帮助管理订阅服务的信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg456328.aspx">如何添加和删除 Windows Azure 订阅的共同管理员</a>。</p>
+<div class="dev-callout">重要说明
+<p>在您导入发布设置后，应删除使用 Get-AzurePublishSettingsFile 下载的发布配置文件。下载的配置文件包含不应由未授权用户访问的管理证书。如果您需要有关您的订阅的信息，可以从 <a href="http://manage.windowsazure.cn/">Windows Azure 管理门户</a>或 <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services 客户门户</a>获得。</p>
+</div>
+<h2><a id="CreateService"></a>如何：创建 Windows Azure 服务</h2>
+<p>使用 <strong>New-AzureServiceProject</strong> cmdlet 来为您的应用程序创建云服务基架。</p>
+<p>下面的示例演示如何创建名为 MyService 的新云服务。</p>
+<pre class="prettyprint">PS C:\app&gt; New-AzureServiceProject -ServiceName MyService</pre>
+<p>此 cmdlet 在您的本地计算机上创建一个服务子目录，将服务配置文件添加到该服务目录中，并将 Windows PowerShell 命令提示符的焦点更改为新服务目录。</p>
+<p>在您创建服务后，可以通过从该服务目录运行以下任何 cmdlet 来配置服务的 Web 角色或辅助角色。</p>
+<ul>
+<li><strong>Add-AzureNodeWebRole</strong></li>
+<li><strong>Add-AzureNodeWorkerRole</strong></li>
+<li><strong>Add-AzurePHPWebRole</strong></li>
+<li><strong>Add-AzurePHPWorkerRole</strong></li>
+<li><strong>Add-AzureDjangoWebRole</strong></li>
+</ul>
+<p>在将您的应用程序作为云服务部署到 Windows Azure 中时，它作为一个或多个<em>角色</em> 运行。简单来说，<em>角色</em> 是指应用程序文件和配置。您可以为您的应用程序定义一个或多个角色，其中每个角色都具有自己的一组应用程序文件和自己的配置。Web 角色是为 Web 应用程序编程自定义的，而辅助角色旨在支持常规开发以及定期或长期运行的流程。有关服务角色的更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg432976.aspx">创建 Windows Azure 托管服务概述</a>。</p>
+<p>上面列出的 cmdlet 创建可随时运行用指定语言（Node.js 或 PHP）编写的代码的角色目录。在创建角色后，您可以将代码置于角色目录中，然后使用 <strong>Start-AzureEmulator</strong> cmdlet 在计算模拟器中运行它或使用 <strong>Publish-AzureServiceProject</strong> cmdlet 将它发布到 Windows Azure。</p>
+<p>您可以不带任何参数运行这些 cmdlet 来创建名称为 WebRole1 或 WorkerRole1 的单个角色实例。使用 <strong>-Name</strong> 参数可使用不同的角色名称。</p>
+<p>对于应用程序中的每个角色，您可以使用 <strong>-Instances</strong> 选项指定要部署的虚拟机（即<em>角色实例</em>）的数量。</p>
+<p>下面的示例演示如何使用 <strong>Add-AzureNodeWebRole</strong> cmdlet 来创建具有两个实例的名为 <strong>MyWebRole</strong> 的新 Web 角色。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Add-AzureNodeWebRole MyWebRole -I 2</pre>
+<h2><a id="TestLocally"></a>如何：在 Windows Azure 模拟器中本地测试服务</h2>
+<p><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh757255(vs.103).aspx">Start-AzureEmulator</a> cmdlet 在 Windows Azure 计算模拟器中启动服务，同时还启动 Windows Azure 存储模拟器。在将服务部署到 Windows Azure 之前，可以使用计算模拟器来本地测试该服务。在应用程序使用 Windows Azure 存储服务之前，您可以使用存储模拟器来本地测试存储。</p>
+<p>如果您的应用程序包括 Web 角色，可以使用 <strong>–Launch</strong> 参数在浏览器中打开该 Web 角色。</p>
+<p>下面的示例在计算模拟器中运行 MyService 应用程序并在浏览器中打开 Web 角色。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Start-AzureEmulator -Launch</pre>
+<p>在完成应用程序的本地测试后，运行 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh757258(vs.103).aspx">Stop-AzureEmulator</a> cmdlet 来停止 Windows Azure 计算模拟器，如下所示。</p>
+<p>下面的示例演示如何使用 <strong>Stop-AzureEmulator</strong> 停止该模拟器。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Stop-AzureEmulator</pre>
+<h2><a id="DefaultDeploymentOptions"></a>如何：设置服务的默认部署选项</h2>
+<p>您可以使用带有 <strong>-Location</strong>、<strong>-Slot</strong>、<strong>-Subscription</strong> 和 <strong>-Storage</strong> 参数的 <strong>Set-AzureServiceProject</strong> cmdlet 来设置要在部署服务时使用的默认部署位置、槽（过渡或生产）、Windows Azure 订阅和存储帐户。默认选项适用于单个服务。您可以从服务目录中的任何位置运行此 cmdlet。</p>
+<p>这些选项在您随后部署服务（使用 <strong>Publish-AzureServiceProject</strong>）时生效。如果您要在服务部署期间替代默认部署选项，可以使用 <strong>Publish-AzureServiceProject</strong> cmdlet 的参数。</p>
+<p>如果您尚未设置默认部署选项，并且您在发布服务时没有指定要使用的部署选项，则使用以下设置部署服务：</p>
+<table border="1" cellspacing="4" cellpadding="4">
+<tbody>
+<tr align="left" valign="top">
+<td valign="bottom">设置</td>
+<td valign="bottom">默认值</td>
+</tr>
+<tr align="left" valign="top">
+<td>位置</td>
+<td>将服务随机分配到“美国中南部”或“美国中北部”。</td>
+</tr>
+<tr align="left" valign="top">
+<td>槽</td>
+<td>将服务部署到生产槽。</td>
+</tr>
+<tr align="left" valign="top">
+<td>订阅</td>
+<td>使用您的发布配置文件中的第一个订阅。如果您是多个订阅的管理员，则应该指定订阅以确保使用目标订阅。</td>
+</tr>
+<tr align="left" valign="top">
+<td>存储帐户</td>
+<td>创建与服务同名的新存储帐户，如果该名称已用于任何其他订阅的存储帐户，部署将失败。在这种情况下，您必须指定要用于服务的存储帐户。</td>
+</tr>
+</tbody>
+</table>
+<p>在下面的示例中，MyService 服务的默认部署位置设置为“亚洲东南部”：</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Set-AzureServiceProject -Location "Southeast Asia"</pre>
+<p>默认情况下将服务发布到生产槽，在生产槽中，将根据服务名称为该服务分配一个友好 URL (http://<em>MyService</em>.chinacloudapp.cn)。如果您希望在将服务部署到生产槽之前先部署到过渡槽以进行测试，则可以将默认部署槽设置为“过渡”。</p>
+<p>下面的示例将 MyService 服务的默认部署槽设置为“过渡”。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Set-AzureServiceProject -Slot Staging</pre>
+<p>如果您是多个 Windows Azure 订阅的管理员，则只需设置服务的部署订阅。如果您被指派为除您自己的订阅以外的其他订阅的共同管理员，请使用 <strong>-Subscription</strong> 参数来指定要用于服务的订阅。</p>
+<p>下面的示例将 ContosoFinanace 订阅设置为要用于 MyService 服务的默认订阅。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Set-AzureServiceProject -Subscription Contoso_Finance</pre>
+<h2><a id="StorageAcctMultipleServices"></a>如何：将一个存储帐户用于多个服务</h2>
+<p>默认情况下，在您部署新服务时，会在部署位置创建一个新的存储帐户，并会使用该存储帐户将应用程序包和配置文件复制到 Windows Azure Blob 服务。新存储帐户与该服务具有相同的名称和位置，并且它与用于部署服务的订阅相关联。</p>
+<p>如果您希望将现有存储帐户用于服务，则可以使用 <strong>-Storage</strong> 参数来将该存储帐户指定为服务部署的默认存储帐户，也可以使用 <strong>Publish-AzureServiceProject</strong> 的 <strong>-Storage</strong> 参数来指定当前服务部署的存储帐户。</p>
+<p>若要了解哪些存储帐户可用于您的 Windows Azure 订阅，请运行 <strong>Get-AzureStorageAccount</strong> cmdlet。如果您是多个订阅的共同管理员，请使用 <strong>-Subscription</strong> 参数来指定检索哪个订阅的存储信息。此 cmdlet 检索每个存储帐户的存储帐户名称和访问密钥。</p>
+<div class="dev-callout">注意
+<p>有关创建、管理和删除存储帐户的信息，请参见<a href=" http://msdn.microsoft.com/zh-cn/library/windowsazure/hh531793.aspx">如何：管理 Windows Azure 订阅的存储帐户</a>。</p>
+</div>
+<p>在下面的示例中，服务共同管理员使用导入的发布设置检索订阅的存储帐户信息。</p>
+<pre class="prettyprint">PS C:\ &gt; Get-AzureStorageAccount   Account Name: ContosoUS Primary Key: YSAwVSjixHpcsK/IX7cRcqzVVa19YCUEhzndhZMZL9aMmNT2Du1DPiufPDBiJUO7FW4Dcb7tkzw14VoK0EppnA== Secondary Key: OBlsaR6A4untNNwuhHDkWkcI7pKwTEPA9JYO/Jv2m/zERqrtMjUGVpz8xRZ2mTPp5qksu9K2JawAo5rEKDaL+w== Account Name: ContosoAsia Primary Key: OzAqwcrrtHa4/5qUyekSRK1F257PrzQHE+i4TJc38MHDBDNjZesbbftfm5tta2rsNH0SM7DEnlqt9PW70AB1VA== Secondary Key: xjCQHNwgedo/RXMOk1PKqRHiEpox001/H+qgl/OphoKzOoQTzR/FAGGobsf5HgjE35lfPAD0KeApGFv4ga0hhw==</pre>
+<p>然后，共同管理员通过从 MyService 服务目录运行以下 cmdlet，来将 ContosoUS 设置为要用于 MyService 服务的默认存储帐户。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Set-AzureServiceProject -Storage ContosoUS</pre>
+<h2><a id="Deploy"></a>如何：将云服务部署到 Windows Azure</h2>
+<p>在您准备好将服务部署到 Windows Azure 时，请使用 <strong>Publish-AzureServiceProject</strong> cmdlet。在您部署新云服务时，Windows Azure 将执行以下任务：</p>
+<ol>
+<li>
+<p>将源和配置文件打包到服务包（.cspkg 文件）中。</p>
+</li>
+<li>
+<p>创建新的云服务。</p>
+</li>
+<li>
+<p>如果没有指定任何存储帐户，则在需要时创建新的存储帐户。</p>
+</li>
+<li>
+<p>将服务包和配置文件复制到存储帐户的 Windows Azure Blob 存储中。</p>
+</li>
+<li>
+<p>使用上载的服务包创建云服务和部署。</p>
+</li>
+</ol>
+<p>使用以下参数来指定当前部署的部署选项。</p>
+<h3>更改服务名称</h3>
+<p>服务名称在 Windows Azure 中必须是唯一的。如果您在创建服务时为它提供的名称不是唯一的，则可以使用 <strong>-Name</strong> 参数来分配新名称。</p>
+<p>在下面的示例中，在部署服务时，服务名称更改为 MyService01。服务目录的名称没有更改，但服务在 Windows Azure 中将为 MyService01。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -ServiceName MyService01</pre>
+<div class="dev-callout">注意
+<p>如果您指定的服务名称在 Windows Azure 中不是唯一的，服务部署将失败，并且您会看到以下错误：“Publish-AzureServiceProject:远程服务器返回了意外响应:(409) 冲突。”</p>
+</div>
+<h3>设置此部署的订阅</h3>
+<p>如果您是多个 Windows Azure 订阅的管理员，则只需使用 <strong>-Subscription</strong> 参数。在这种情况下，建议您包括此参数以确保对服务使用目标订阅。</p>
+<p>在下面的示例中，使用 Contoso_Finance 订阅来部署 MyService 服务。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Subscription Contoso_Finance</pre>
+<h3>指定此部署的位置</h3>
+<p>使用 <strong>-Location</strong> 参数可指定服务部署的地理区域。如果您尚未设置服务的默认部署位置，并且没有使用此参数指定位置，则会将服务随机分配到“美国中北部”或“美国中南部”。</p>
+<p>若要获取可用位置的列表，请运行以下 cmdlet。</p>
+<pre class="prettyprint">Help Publish-AzureServiceProject -Parameter Location</pre>
+<p>在下面的示例中，使用 <strong>Publish-AzureServiceProject</strong> cmdlet 将服务部署到“亚洲东南部”数据中心：</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Location "Southeast Asia"</pre>
+<h3>使用现有存储帐户</h3>
+<p>如果您管理同一位置的多个服务，则可以包括 <strong>-StorageAccountName</strong> 参数来为服务分配该位置中的现有存储帐户而非创建新的存储帐户。如果您尚未为服务指定默认存储帐户，并且在部署服务时没有指定服务帐户，那么即使在该位置已提供现成的存储帐户，也会创建新的存储帐户。有关创建和管理存储帐户的信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh531567.aspx">如何：管理 Windows Azure 订阅的存储帐户</a>。</p>
+<p>在下面的示例中，使用 ContosoFinance 订阅的 StorageUS 存储帐户来部署 MyService 服务。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Subscription ContosoFinance -StorageAccountName StorageUS</pre>
+<h3>将服务部署到过渡或生产槽</h3>
+<p>使用 <strong>-Slot</strong> 参数可指定在 Windows Azure 中是将服务部署到过渡环境还是生产环境。默认情况下，将服务部署到生产环境。在 Windows Azure 中，通过用于访问服务的地址来区分过渡和生产环境。在将服务部署到生产环境之前，可使用过渡环境来测试服务，在过渡环境中，分配了更友好的 URL：</p>
+<ul>
+<li>
+<p>过渡 URL 格式：<code>&lt;ServiceID&gt;</code>.chinacloudapp.cn<br /> 示例：http://b8f3dd0c084a4add81e1c3345eb0af87.chinacloudapp.cn/</p>
+</li>
+<li>
+<p>生产 URL 格式：<code>&lt;ServiceName&gt;</code>.chinacloudapp.cn<br /> 示例：http://MyService.chinacloudapp.cn</p>
+</li>
+</ul>
+<p>在下面的示例中，将 MyService 服务部署到 Windows Azure 过渡环境。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Slot Staging</pre>
+<div class="dev-callout">注意
+<p>有关管理过渡和生产部署的更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg433027.aspx">在 Windows Azure 中管理部署概述</a>。</p>
+</div>
+<h3>在浏览器中打开 Web 角色</h3>
+<p>如果服务包含 Web 角色，则可以包括 <strong>-Launch</strong> 参数来在浏览器中打开该 Web 角色。所有服务在部署后会自动启动，但不会打开 Web 角色，除非包括 <strong>-Launch</strong> 参数。</p>
+<h3>示例</h3>
+<p>在下面的示例中，使用之前设置的值部署 MyService 服务。将创建新的存储帐户。服务将部署到生产环境。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject  Publishing to Windows Azure. This may take several minutes... 6:15:58 PM - Preparing deployment for MyService with Subscription ID: 0807028c-e0a5-4773-82e3-8cae71dd5702... 6:16:04 PM - Connecting... 6:16:07 PM - Creating... 6:16:09 PM - Created hosted service 'MyService'. 6:16:09 PM - Verifying storage account 'myservice'... 6:18:14 PM - Uploading Package... 6:20:41 PM - Created Deployment ID: 7ce799c2023a4ae9b346b970045cd14c. 6:20:41 PM - Starting... 6:20:41 PM - Initializing... 6:20:55 PM - Instance WebRole1_IN_0 of role WebRole1 is creating the virtual machine. 6:24:26 PM - Instance WebRole1_IN_0 of role WebRole1 is busy. 6:25:42 PM - Instance WebRole1_IN_0 of role WebRole1 is ready. 6:25:43 PM - Created Website URL: http://MyService.chinacloudapp.cn. 6:25:43 PM - Complete.</pre>
+<p>在下面的示例中，使用参数来设置当前服务部署的订阅 (ContosoFinance)、槽（过渡）和位置（美国中北部）。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Subscription ContosoFinance -Sl staging -L "North Central US"</pre>
+<h2><a id="Update"></a>如何：更新已部署的服务</h2>
+<p>在对已部署的服务使用 <strong>Publish-AzureServiceProject</strong> 时，将就地更新该服务或创建新部署。更新方法取决于您所做更改的类型。</p>
+<p>就地执行以下类型的更新，而不重新部署服务：</p>
+<ul>
+<li>
+<p>向服务中添加新的 Web 角色或辅助角色，或更改现有角色的实例数。</p>
+</li>
+<li>
+<p>更新应用程序或服务配置文件。</p>
+</li>
+<li>
+<p>启用和禁用对服务角色实例的远程访问。</p>
+</li>
+</ul>
+<p>以下类型的更新会启动新的服务部署：</p>
+<ul>
+<li>
+<p>如果您更改订阅、存储帐户或部署位置，则会进行新的服务部署，并删除以前的部署。</p>
+</li>
+<li>
+<p>如果您更改部署槽（例如，将过渡环境中的服务部署到生产环境），则会执行第二个部署而不删除第一个部署。</p>
+</li>
+</ul>
+<p>在下面的示例中，在向 MyWebRole 服务角色中添加第二个服务角色示例后，就地更新 MyService 服务。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Set-AzureServiceProjectRole -RoleName MyWebRole -Instances 2 PS C:\app\MyService&gt; Publish-AzureServiceProject</pre>
+<p>下面的示例演示如何将新的服务部署发布到生产环境。如果服务部署存在于过渡环境中，则保留两个部署。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Slot Production</pre>
+<p>在下面的示例中，已部署到“欧洲任意地区”位置的服务将重新部署到“欧洲北部”。因为位置发生更改，将重新部署服务并删除现有部署。将使用“欧洲北部”位置的现有存储帐户。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Publish-AzureServiceProject -Location "North Europe" -StorageAccountName NorthEuropeStore</pre>
+<h2><a id="Scale"></a>如何：向外扩展服务</h2>
+<p>您可以通过使用 <strong>Set-AzureRole</strong> cmdlet 向 Web 角色或辅助角色中添加实例或从中删除实例，来向外或向内扩展正在运行的服务。</p>
+<p>下面的示例演示如何通过将 MyWebRole Web 角色的实例数更改为 2 来更新 MyService 服务：</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Set-AzureRole -Service MyService -Slot Production -RoleName MyWebRole -Count 2</pre>
+<p>请注意，<strong>Set-AzureRole</strong> cmdlet 无需您重新发布服务，因为它会更新已部署的服务配置文件。</p>
+<h2><a id="Cache"></a>如何：创建专用缓存</h2>
+<p>Windows Azure PowerShell cmdlet 允许您将辅助角色设置为专用缓存，并将 Web 角色配置为使用 memcache 协议访问缓存。</p>
+<p>若要在现有项目中创建专用缓存，请使用 <strong>Add-AzureCacheWorkerRole</strong> cmdlet。下面的示例添加名为 <code>mycacherole</code> 的角色：</p>
+<pre class="prettyprint">PS C:\app\MyService New-AzureCacheWorkerRole -Name mycacherole</pre>
+<p>然后，您可以通过使用 <strong>Enable-AzureMemcacheRole</strong> cmdlet 来将 Web 角色配置为使用 memcache 协议访问专用缓存。下面的示例将现有的 Web 角色（名为 <code>mywebrole</code>）配置为访问专用缓存 (<code>mycacherole</code>)：</p>
+<pre class="prettyprint">PS C:\app\MyService Enable-AzureMemcacheRole mywebrole mycacherole</pre>
+<p>然后，可以使用 memcache 协议的客户端（例如 PHP 和 Node.js）可以使用主机名 <code>localhost_mywebrole</code> 连接到专用缓存（默认情况下，在端口 11211 上）。下面的示例演示 PHP 和 Node.js 的连接代码：</p>
+<p><strong>PHP</strong></p>
+<pre class="prettyprint">$memcache = new Memcache; $memcache-&gt;connect('localhost_mywebrole', 11211) or die ("Could not connect");</pre>
+<p><strong>Node.js</strong></p>
+<pre class="prettyprint">var mc = require("mc"); var mcclient = new mc.Client('localhost_mywebrole'); mcclient.connect(function() {         console.log("Connected to the localhost memcache on port 11211!"); });</pre>
+<p>有关 Caching 定价的信息，请参见<a href="http://www.windowsazure.cn/zh-cn/pricing/details/#header-8">定价详细信息</a>。</p>
+<h2><a id="StopStartRemove"></a>如何：停止、启动和删除服务</h2>
+<p>即使已部署的应用程序没有运行，也会继续累加订阅的计费时间。因此，从 Windows Azure 订阅中删除不需要的部署很重要。您还可以选择停止服务但不删除它。不过，如果您没有删除服务，那么即使该服务已停止，也会累加计算单位（虚拟机）的费用。</p>
+<p>使用 <strong>Stop-AzureService</strong> cmdlet 可停止正在运行的已部署服务。如果过渡环境和生产环境中都有部署，可以使用 -<strong>Slot</strong> 参数来指定要停止哪个部署。如果没有指定槽，则会同时停止两个部署。</p>
+<p>下面的示例演示如何停止 MyService 服务。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Stop-AzureService</pre>
+<p>使用 <strong>Start-AzureService</strong> cmdlet 可重新启动已停止的服务。对于同时具有过渡部署和生产部署的服务，<strong>-Slot</strong> 参数指定要启动哪个部署。如果没有包括 <strong>-Slot</strong> 参数，则会同时启动这两个部署。</p>
+<p>下面的示例演示如何启动 MyService 服务的生产部署。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Start-AzureService -Slot production</pre>
+<p>若要删除服务，请使用 <strong>Remove-AzureService</strong> cmdlet。如果服务具有关联的部署，则此 cmdlet 会提示您删除这些部署。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Remove-AzureService -ServiceName MyService</pre>
+<p>您可以通过将 <strong>-Force</strong> 选项与 <strong>Remove-AzureService</strong> cmdlet 结合使用来绕过提示。下面的示例演示如何删除与 MyService 服务关联的所有部署及服务本身。</p>
+<pre class="prettyprint">PS C:\app\MyService&gt; Remove-AzureService -ServiceName MyService -Force</pre>
+<h2><a id="WebSite"></a>如何：创建和管理 Windows Azure 网站</h2>
+<p>可使用 Windows Azure PowerShell cmdlet 来执行您在 <a href="http://manage.windowsazure.cn/">Windows Azure 管理门户</a>中可执行的许多网站创建和管理任务。以下各节演示如何执行一些基本任务。有关网站 cmdlet 的完整列表，请使用 <code>help</code> 命令：</p>
+<pre class="prettyprint">PS C:\MySite&gt; help website</pre>
+<div class="dev-callout">注意
+<p>以下示例假定您的本地网站的根目录为 <code>MySite</code>。</p>
+</div>
+<h3>创建网站</h3>
+<p>您可以使用 <strong>New-AzureWebsite</strong> 命令创建网站。下面的命令演示如何创建名为 <code>mysite</code> 的新网站。该网站的 URL 将为 <code>mysite.chinacloudsites.cn</code>。</p>
+<pre class="prettyprint">PS C:\MySite&gt; New-AzureWebsite mysite</pre>
+<h4>使用 Git 进行部署</h4>
+<p>若要创建启用 Git 的网站，您必须在本地安装 Git，并且 Git 可执行文件必须位于您的 Path 环境变量中。下面的示例演示如何创建启用 Git 的网站 (<code>mysite</code>)：</p>
+<pre class="prettyprint">PS C:\MySite&gt; New-AzureWebsite mysite -Git</pre>
+<div class="dev-callout">注意
+<p>在您从不是 Git 存储库的目录运行上面的命令时，即使该命令成功运行，您也会收到以下消息：<code>fatal:Not a git repository (or any of the parent directories):.git</code>。</p>
+</div>
+<p>如果本地目录不是 Git 存储库，此命令会为您创建一个。在创建存储库后（或者如果它已是最初要使用的存储库），此命令还会创建一个远程存储库 (<code>azure</code>)，并在您的本地存储库中创建对它的引用。然后，您可以继续将更改添加、提交并推送到远程存储库：</p>
+<pre class="prettyprint">git add . git commit -m "your commit comments" git push azure master</pre>
+<h4>从 GitHub 进行部署</h4>
+<p>如果您拥有 GitHub 存储库的本地克隆，或者如果您的本地存储库具有对 GitHub 存储库的单个远程引用，则可以在创建新网站时使用 <strong>-Github</strong> 标志来允许从 GitHub 进行发布：</p>
+<pre class="prettyprint">PS C:\MySite&gt; New-AzureWebsite mysite -Github</pre>
+<p>此命令将立即发布您的 GitHub 存储库中的内容。自此时起，将自动发布推送到存储库的任何更改。</p>
+<p>在推送更改后，您可以使用 <strong>Get-AzureWebsiteDeployment</strong> cmdlet 来获取部署信息：</p>
+<pre class="prettyprint">PS C:\MySite&gt; Get-AzureWebsiteDeployment</pre>
+<h3>配置应用设置</h3>
+<p>应用设置是在运行时可供应用程序使用的键值对。在 ASP.NET Web 应用程序中，可通过 <a href="http://msdn.microsoft.com/zh-cn/library/system.configuration.configurationmanager.appsettings.aspx">Configuration.AppSettings</a> 属性访问应用设置，并且应用设置将替代具有在 Web.config 文件中定义的相同键的设置。对于 Node.js 和 PHP 应用程序，应用设置可用作环境变量。下面的示例演示如何设置键值对：</p>
+<pre class="prettyprint">PS C:\MySite&gt; $settings = @{"myKey" = "myValue"} PS C:\MySite&gt; Set-AzureWebsite -AppSettings $settings</pre>
+<h3>启动、停止或重新启动网站</h3>
+<p>Windows Azure PowerShell cmdlet 允许您使用以下命令启动、停止或重新启动网站：</p>
+<pre class="prettyprint">PS C:\MySite&gt; Start-AzureWebsite PS C:\MySite&gt; Stop-AzureWebsite PS C:\MySite&gt; Restart-AzureWebsite</pre>
+<h2><a id="SqlDatabase"></a>如何：创建、修改和删除 SQL Database 服务器</h2>
+<p>Windows Azure SQL Database 是基于 SQL Server 技术构建的基于云的关系数据库平台。（有关更多信息，请参见 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee336230.aspx">Windows Azure SQL Database 简介</a>。）Windows Azure Powershell 提供了允许您创建、修改和删除 SQL Database 服务器的 cmdlet。</p>
+<div class="dev-callout">注意
+<p>SQL Database 服务器与云服务项目没有关联。下面演示的 SQL Database cmdlet 无需像上面的示例一样从项目目录运行。</p>
+</div>
+<h3>创建服务器</h3>
+<p>若要创建 SQL Database 服务器，请使用 <strong>New-AzureSqlDatabaseServer</strong> cmdlet。您将需要提供管理员名称和登录名以及位置：</p>
+<pre class="prettyprint">PS C:\&gt; New-AzureSqlDatabaseServer -AdministratorLogin MyLogin -AdministratorLoginPassword MyPassw0rd -Location "North Central US"</pre>
+<p>成功创建新服务器后，您将看到类似于以下内容的输出：</p>
+<pre class="prettyprint">ServerName          Location            AdministratorLogin ----------          ----------          ---------- t9qh586619          North Central US    MyLogin</pre>
+<p>若要获得服务器的列表，请使用 <strong>Get-AzureSqlDatabaseServer</strong> cmdlet。若要更新服务器，请使用 <strong>Set-AzureSqlDatabaseServer</strong> cmdlet。</p>
+<p>在创建服务器后，您将需要创建防火墙规则以使该服务器可供访问。</p>
+<h3>创建防火墙规则</h3>
+<p>若要允许连接到 SQL Database 服务器，您必须创建一条防火墙规则来指定允许来自其的连接的 IP 地址范围。下面的示例演示如何使用 <strong>New-AzureSqlDatabaseServerFirewallRule</strong> cmdlet 来允许来自 <code>111.111.111.111</code> 和 <code>222.222.222.222</code> 之间的 IP 地址的连接：</p>
+<pre class="prettyprint">PS C:\&gt; New-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.111 -EndIpAddress 222.222.222.222</pre>
+<div class="dev-callout">注意
+<p>若要允许其他 Windows Azure 服务访问服务器，请创建将 StartIpAddress 和 EndIpAddress 都指定为 <code>0.0.0.0</code> 的规则。</p>
+</div>
+<p>若要更新现有规则，请使用 <strong>Set-AzureSqlDatabaseServerFirewallRule</strong> cmdlet：</p>
+<pre class="prettyprint">PS C:\&gt; Set-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.222 -EndIpAddress 222.222.222.111</pre>
+<p>若要获得服务器的规则列表，请使用 <strong>Get-AzureSqlDatabaseServerFirewallRule</strong> cmdlet：</p>
+<pre class="prettyprint">PS C:\&gt; Get-AzureSqlDatabaseServerFirewallRule -ServerName t9qh586619</pre>
+<p>若要删除防火墙规则，请使用 <strong>Remove-AzureSqlDatabaseFirewallRule</strong> cmdlet。</p>
+<h3>删除服务器</h3>
+<p>若要删除 SQL Database 服务器，请使用 <strong>Remove-AzureSqlDatabaseServer</strong> cmdlet 并指定服务器名称：</p>
+<pre class="prettyprint">PS C:\&gt; Remove-AzureSqlDatabaseServer -ServerName t9qh586619</pre>
+<p>上面的命令将需要确认您要删除指定的服务器。若要替代此默认行为，请使用 <strong>-Force</strong> 参数。使用此参数将删除服务器而无需确认。</p>
+<h2>其他资源</h2>
+<ul>
+<li><a href="http://go.microsoft.com/fwlink/?LinkId=253185">Windows Azure 管理 Cmdlet</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/nodejs/tutorials/getting-started/">Node.js Web 应用程序</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/nodejs/tutorials/web-app-with-storage/">使用表存储的 Node.js Web 应用程序</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/nodejs/common-tasks/enable-remote-desktop/">在 Windows Azure 中启用远程桌面</a></li>
+<li><a href="http://www.windowsazure.cn/zh-cn/develop/nodejs/common-tasks/enable-ssl/">在 Windows Azure 中为 Node.js 应用程序配置 SSL</a></li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

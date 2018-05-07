@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18428" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="2" createDate="2013-05-03T15:55:22" updateDate="2014-08-18T11:03:59" nodeName="intro-to-windows-azure" urlName="intro-to-windows-azure" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18428" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>介绍 Windows Azure</h1>
+<p>Windows Azure 是微软把技术授权给世纪互联为公有云提供的应用程序平台。您可以多种不同方式使用此平台。例如，可以使用 Windows Azure 构建一个在世纪互联运营的数据中心运行并存储其数据的 Web 应用程序。或者只使用 Windows Azure 存储数据，而使用此数据的应用程序则在本地（即公有云之外）运行。可以使用 Windows Azure 创建虚拟机以用于开发和测试，或运行 SharePoint 和其他应用程序。可以使用 Windows Azure 构建拥有海量用户的高度可缩放应用程序。因为此平台提供了种类广泛的服务，所以所有这些想法都有可能实现。</p>
+<p>为此，您需要了解一些基本知识。即使您对云计算一无所知，本文也能帮助您了解 Windows Azure 的基础知识。我们的目的是为您提供理解和使用此云平台的基础。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#components">Windows Azure 的组件</a></li>
+<li><a href="#models">执行模型</a></li>
+<li><a href="#data">数据管理</a></li>
+<li><a href="#networking">联网</a></li>
+<!--<li><a href="#analytics">业务分析</a></li>-->
+<li><a href="#messaging">消息传递</a></li>
+<li><a href="#caching">缓存</a></li>
+<li><a href="#identity">标识</a></li>
+<li><a href="#HPC">高性能计算 (HPC)</a></li>
+<!--<li><a href="#media">媒体</a></li>
+<li><a href="#commerce">商务</a></li>-->
+<li><a href="#sdk">SDK</a></li>
+<li><a href="#start">入门</a></li>
+</ul>
+<h2><a id="components"></a>Windows Azure 的组件</h2>
+<p>要了解 Windows Azure 有什么用途，有必要将其提供的服务分成不同类别。图 1 显示一种分类方法。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure1.png" alt="Windows Azure 组件"/> <br /> <strong>图 1：Windows Azure 提供在 Microsoft 数据中心运行的可访问 Internet 的应用程序服务。</strong></p>
+<p>要开始使用 Windows Azure，至少需要知道它的每个组件的基础知识。本文的其余部分将一一叙述图中显示的技术，描述每种技术的作用以及可能用到它们的场合。</p>
+<h2><a id="models"></a>执行模型</h2>
+<p>一个云平台所做的最基本事情之一是执行应用程序。Windows Azure 为执行应用程序提供了三种选项，如图 2 所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure2.png" alt="执行模型"/></p>
+<p><strong>图 2：Windows Azure 提供“基础结构即服务”(IaaS)、Web 宿主和“平台即服务”(PaaS)。</strong></p>
+<p>所有这三种方法（即虚拟机、网站和云服务）都可以单独使用。也可以组合使用它们来创建一个综合使用其中两个或更多个选项的应用程序。</p>
+<h3>虚拟机</h3>
+<p>可以按需创建一个虚拟机（无论是从标准映像还是从您提供的映像），此功能非常有用。还增加了按小时为此 VM 付费的功能，这一点更加有用。这种方法通常称为“基础结构即服务”(IaaS)，即是 Windows Azure 虚拟机模型提供的用途。</p>
+<p>要创建一个 VM，需要指定使用哪一个 VHD 以及 VM 的大小。接下来，为 VM 运行的每个小时付费。如图 2 所示，Windows Azure 虚拟机模型提供标准 VHD 库。其中包括 Microsoft 提供的选项，如 Windows Server 2008 R2、Windows Server 2012、Windows Server 2008 R2 with SQL Server，以及 Microsoft 合作伙伴提供的 Linux 映像。您也可以自由地上传您自己的 VHD 以及用您自己的 VHD 创建 VM。</p>
+<p>无论映像来自何处，您都可以在 VM 运行的同时永久存储所做的任何更改。下次从该 VHD 创建 VM 时，将从中断的地方开始。也可以从 Windows Azure 中复制更改的 VHD，然后在本地运行。</p>
+<p>可通过许多不同方式使用 Windows Azure VM。可以使用它们创建廉价的开发和测试平台，用完后即可关闭它。也可以创建和运行使用您喜欢的任何语言和库的应用程序。这些应用程序可以使用 Windows Azure 提供的任何数据管理选项，并且您还可以选择使用 SQL Server 或在一个或多个虚拟机中运行的另一个 DBMS。另一个选项是使用 Windows Azure VM 作为您的本地数据中心的扩展，运行 SharePoint 或其他应用程序。为支持此功能，可以通过在 Windows Azure VM 中运行 Active Directory 在云中创建 Windows 域。可以用这种相当通用的云计算方法来处理许多不同问题。你的行动你做主。</p>
+<!--<h3>网站</h3>
+<p>人们在云中最常做的事情之一是运行网站和 Web 应用程序。虽然 Windows Azure 虚拟机模型允许此操作，但仍由您负责管理一个或多个 VM。如果您只需要一个由别人代您负责管理工作的网站，该怎么办？</p>
+<p>这正是 Windows Azure 网站模型的用途。此执行模型提供了使用 Internet Information Services (IIS) 的托管 Web 环境。您可以将现有 IIS 网站原封不动地移动到 Windows Azure 网站，或者直接在云中创建一个新网站。网站开始运行后，您可以动态添加或删除实例，依靠网站在实例间对请求进行负载平衡。如图 2 所示，Windows Azure 网站既提供一个共享选项，使您的网站与其他网站一起在一个虚拟机中运行，也提供让网站在自己的 VM 中运行的方式。</p>
+<p>Windows Azure 网站模型旨在使开发人员和 Web 设计机构都能利用它。在开发方面，它支持使用 .NET、PHP、Node.js 以及 SQL Database 和 MySQL（来自 Microsoft 合作伙伴 ClearDB）执行关系存储。它还为几个流行的应用程序（包括 WordPress、Joomla 和 Drupal）提供内置支持。其目标是为在公有云中创建网站和 Web 应用程序提供一个低成本、可缩放且广泛适用的平台。</p>-->
+<h3>云服务</h3>
+<p>假设您要构建一个云应用程序，它可以支持大量并发用户，无需太多管理，且从不出故障。例如，您可能是一家较成熟的软件供应商，您决定通过在云中构建您应用程序之一的某个版本来包含“软件即服务”(SaaS)。或者，您可能是一家初创公司，您创建了一个预计会快速普及的使用者应用程序。如果在 Windows Azure 上构建，应使用哪个执行模型？</p>
+<p>Windows Azure 网站模型允许创建这种 Web 应用程序，但存在一些限制。例如，您没有管理访问权限，这意味着您不能随意安装软件。Windows Azure 虚拟机模型为您提供了极大的灵活性，包括管理访问权限，您当然可以用它来构建高度可缩放的应用程序，但您必须自己处理可靠性和管理方面的诸多工作。您希望的选项应当是既能赋予您控制能力，又能处理可靠性和管理所需的大部分工作。</p>
+<p>这正是 Windows Azure 云服务所提供的内容。此技术明确用于支持可扩展、可靠且管理任务不多的应用程序，它也是通常称为“平台即服务”(PaaS) 的一个示例。要使用该服务，可以使用所选择的技术（如 C#、Java、PHP、Python、Node.js 或其他技术）创建一个应用程序。然后，您的代码在运行某个 Windows Server 版本的虚拟机（称为实例）中执行。</p>
+<p>但这些 VM 有别于您使用 Windows Azure 虚拟机模型创建的 VM。首先，Windows Azure 本身管理它们，执行如安装操作系统修补程序并自动推出新修补的映像等操作。（这意味着您的应用程序不应保持 Web 或辅助角色实例中的状态；而应使用下一节中描述的 Windows Azure 数据管理选项之一。）Windows Azure 也监视 VM，重新启动任何出现故障的 VM。</p>
+<p>如图 2 所示，在创建实例时您有两个角色可以选择，两者都基于 Windows Server。二者间的主要区别是，Web 角色的实例运行 IIS，而辅助角色的实例则不然。但是，管理两个角色的方式相同，而一个应用程序常常同时使用这两者。例如，一个 Web 角色实例可能会接受来自用户的请求，然后将它们传递给辅助角色实例进行处理。若要向上或向下扩展您的应用程序，可以请求 Windows Azure 创建任一角色的更多实例，或关闭现有的实例。而正像 Windows Azure 虚拟机模型那样，每个 Web 角色实例或辅助角色实例按小时计费。</p>
+<p>这三种 Windows Azure 执行模式各有各的作用。Windows Azure 虚拟机模型提供通用计算环境、Windows Azure 网站模型提供低成本 Web 宿主，而 Windows Azure 云服务是创建可扩展、可靠、管理成本低的应用程序的最佳选择。前面提过，您可以根据需要单独或组合使用这些技术来为您的应用程序打下正确的基础。您选择哪种方法取决于您要解决什么问题。</p>
+<h2><a id="data"></a>数据管理</h2>
+<p>应用程序需要数据，不同类型的应用程序需要不同类型的数据。因此，Windows Azure 提供了几种不同方法来存储和管理数据。</p>
+<p>其中一种方法过去已经提到过：在使用 Windows Azure 虚拟机模型创建的 VM 中运行 SQL Server 或另一个 DBMS 的能力。（重要的是要意识到：此选项不限于关系系统；您也可以自由地运行 NoSQL 技术，如 MongoDB 和 Cassandra。）运行自己的数据库系统最直截了当，就是将我们使用的东西复制到我们自己的数据中心，但仍需要处理该 DBMS 的管理任务。为使操作更轻松些，Windows Azure 为您提供了三个数据管理选项，它们能在很大程度上代替您进行管理。图 3 演示了这些选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure3.png" alt="Windows Azure 数据管理"/> <br /> <strong>图 3：对于数据管理，Windows Azure 提供关系存储、可缩放 NoSQL 表和非结构化二进制存储。</strong></p>
+<p>三个选项分别解决不同的需求：关系存储，快速访问可能的大量简单类型化数据以及非结构化二进制存储。在所有三种情况下，数据自动在 Windows Azure 数据中心的三台不同计算机上进行复制以提供高可用性。还值得指出的是，所有三个选项都可通过 Windows Azure 应用程序或通过在其他地方（如您的本地数据中心、便携式计算机或手机）运行的应用程序访问。而不管您以何种方式应用它们，都需要基于使用量为所有 Windows Azure 数据管理服务付费，包括缴纳按 GB 量计费的每月存储数据费用。</p>
+<h3>SQL Database</h3>
+<p>对于关系存储，Windows Azure 提供了 SQL Database。SQL Database 以前称为 SQL Azure，它提供关系数据库管理系统的所有关键功能，包括原子事务、具有数据完整性约束的多用户并发数据访问、ANSI SQL 查询和大家所熟知的编程模型。和 SQL Server 相同，也可以使用 Entity Framework、ADO.NET、JDBC 和其他常见数据访问技术访问 SQL Database。SQL Database 还支持大部分的 T-SQL 语言以及 SQL Server 工具（如 SQL Server Management Studio）。对于熟悉 SQL Server（或其他关系数据库）的用户而言，使用 SQL Database 很简单。</p>
+<p>但 SQL Database 在云中不只是一个 DBMS，它还是一个 PaaS 服务。虽然您仍然控制着您的数据以及谁可以访问该数据，但 SQL Database 负责管理方面的基础工作，例如管理硬件基础架构，并自动保持数据库和操作系统软件处于最新状态。SQL Database 还提供一个联盟选项，用来将数据分布到多个服务器。对于要处理大量数据或需要将数据访问请求分散到多个服务器上以获得更好的性能的应用程序，这很有用。</p>
+<p>如果您要创建需要关系存储的 Windows Azure 应用程序（使用三个执行模型中的任何一个），则 SQL Database 可能是一个不错的选择。但是，在云外运行的应用程序也可以使用该服务，所以还有很多其他方案。例如，可以从不同客户端系统（包括台式机、笔记本电脑、平板电脑和手机）访问存储在 SQL Database 中的数据。而且，因为它通过复制提供内置的高可用性，所以使用 SQL Database 有助于减少停机时间。</p>
+<h3>表</h3>
+<p>假设您要创建一个 Windows Azure 应用程序，该应用程序需要快速访问类型化数据（这样的数据可能很多），但并不需要对此数据执行复杂的 SQL 查询。例如，假设您要创建一个使用者应用程序，该应用程序需要存储每个用户的客户资料信息。您的应用程序将会大受欢迎，所以您需要考虑到大量数据，但除了存储数据，然后以简单方式检索它们外，您不想拿这些数据做更多事情。这种时候恰恰能体现出 Windows Azure 表的意义。</p>
+<p>不要被名称搞糊涂了：这种技术不提供关系存储。（事实上，它是称为键/值存储的 NoSQL 做法的一个示例。）相反，Windows Azure 表允许应用程序存储各种类型的属性，如字符串、整数和日期。然后，应用程序可以通过为一个属性组提供唯一键来检索该组。虽然不支持像联接这样的复杂操作，但表提供对类型化数据的快速访问。它们也能高度缩放，一个表即可以容纳多达 TB 量级的数据。使用表通常比使用 SQL Database 关系存储更便宜，这与表的简单性是相配的。</p>
+<h3>Blob</h3>
+<p>第三个数据管理选项是 Windows Azure Blob，用于存储非结构化的二进制数据。像表一样，Blob 也提供廉价的存储，单个 blob 可以具有 1 TB 大小。例如，一个存储视频、备份数据或其他二进制信息的应用程序可以使用 blob 作为简单、廉价的存储。Windows Azure 应用程序还可以使用 Windows Azure 驱动器，使得 blob 可以为 Windows Azure 实例中装入的 Windows 文件系统提供持久存储。该应用程序看到的是普通 Windows 文件，但内容其实存储在 blob 中。</p>
+<h2><a id="networking"></a>联网</h2>
+<p>Windows Azure 如今在分布于中国的兩个数据中心运行。当您运行应用程序或存储数据时，可以选择使用其中一个或多个数据中心。您还可以通过各种方式连接到这些数据中心：</p>
+<ul>
+<li>
+<p>可以使用 Windows Azure 虚拟网络将您自己的本地本地网络与一组定义的 Windows Azure VM 连接。</p>
+</li>
+</ul>
+<p>图 4 解释这三种选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure4.png" alt="Windows Azure 联网"/> <br /> <strong>图 4：Windows Azure 允许创建云 VPN，将 Windows Azure 应用程序与本地计算机连接，以及智能地跨不同数据中心分发用户请求。</strong></p>
+<h3>虚拟网络</h3>
+<p>使用公共云的一种有效方法是把它当作您自己的数据中心的扩展。因为您可以按需创建 VM，然后在不需要时删除它们（同时停止付费），所以只有在您需要计算能力时才具有这种能力。由于 Windows Azure 虚拟机模型允许您创建运行 SharePoint、Active Directory 以及其他熟悉的本地软件的 VM，因此可以用这种方法处理您的已有应用程序。</p>
+<p>不过，要使这种方法真正发挥作用，您的用户应该能够像这些应用程序就在您自己的数据中心运行那样对待它们。这正是 Windows Azure 虚拟网络所允许的。使用 VPN 网关设备，管理员可以在您的本地网络和在 Windows Azure 中运行的一组定义的 VM 之间建立一个虚拟专用网络 (VPN)。因为您将自己的 IP v4 地址分配给云 VM，所以它们看上去就好像在您自己的网络上。您组织中的用户可以访问这些 VM 包含的应用程序，就像这些应用程序在本地运行一样。</p>
+<!--<h3><span>业务分析</span></h3>
+<p>分析数据是企业如何使用信息技术的基础。云平台提供按使用计费的按需资源池，是这种计算的良好基础。相应地，Windows Azure 提供两种业务分析选项。图 5 解释了这些选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure5.png" alt="Windows Azure 分析"/> <br /> <strong>图 5：对于业务分析，Windows Azure 提供了针对大型数据的报告和支持。</strong></p>
+<p>分析数据可以采取多种形式，因此这两个选项区别很大。每个选项都值得一一说明。</p>
+<h3>SQL Reporting</h3>
+<p>使用存储数据最常见的方式之一是创建基于该数据的报告。为了让您对 SQL Database 中的数据执行此操作，Windows Azure 提供了 SQL Reporting。SQL Reporting 是 SQL Server 随附的报告服务的子集，使用它可以将报告内置到在 Windows Azure 或本地运行的应用程序中。您创建的报告可以为各种格式，包括 HTML、XML、PDF、Excel 等，它们可以嵌在应用程序中，或通过 Web 浏览器进行查看。</p>
+<p>另一种分析 SQL Database 数据的选项是使用本地商业智能工具。对于客户端，SQL Database 像是 SQL Server，因此同样的技术可以用于两者。例如，您可以自由使用本地 SQL Server Reporting Services 从 SQL Database 数据创建报告。</p>
+<h3>Hadoop</h3>
+<p>多年以来，大部分数据分析都是针对使用关系 DBMS 建立的数据仓库中存储的关系数据进行的。这种业务分析仍然很重要，会在将来持续很长一段时间。但如果您要分析的数据大到该关系数据库没办法处理，同时假设该数据不是关系型的，该怎么办？例如，数据中心的服务器日志、传感器的历史事件数据等。在这种情况下，您遇到了所谓的大数据问题。您需要另一种方法。</p>
+<p>如今用来分析大数据的主导技术是 Hadoop。该技术是一个 Apache 开放源代码项目，它使用 Hadoop 分布式文件系统 (HDFS) 存储数据，然后让开发人员创建 MapReduce 作业分析这些数据。HDFS 将数据分布在多个服务器上，然后在每个服务器上运行 MapReduce 作业块，从而对大数据进行并行处理。</p>
+<p>如图 5 所示，Apache Hadoop-based Service for Windows Azure 允许 HDFS 跨多个虚拟机分发数据，然后跨这些 VM 分布 MapReduce 作业逻辑。如同本地 Hadoop 一样，在本地（逻辑和它所处理的数据位于同一 VM 中）并行处理数据以改善性能。Apache Hadoop-based Service for Windows Azure 也支持该技术的其他组件，包括 Hive 和 Pig，Microsoft 还创建了一个 Excel 插件用于发出 Hive 查询。</p> -->
+<h2><a id="messaging"></a>消息传递</h2>
+<p>无论代码做什么，它都常常需要与其他代码交互。某些情况下，需要的只是基本的已排队消息。在其他情况下，需要更复杂的交互。Windows Azure 提供几个不同方法来解决这些问题。图 6 解释了这些选项。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure6.png" alt="Windows Azure 消息传递"/> <br /> <strong>图 6：为连接应用程序，Windows Azure 通过云提供队列、发布/订阅和同步连接。</strong></p>
+<h3>队列</h3>
+<p>队列是一个简单的想法：一个应用程序将一条消息放在一个队列中，而该消息最终被另一个应用程序读取。如果您的应用程序只需要这种简单的服务，Windows Azure Queues 可能是最好的选择。</p>
+<p>当前 Queues 的一种常见用途是让 Web 角色实例与处于同一个云服务应用程序内的辅助角色实例通信。例如，假设您创建了一个 Windows Azure 应用程序用于视频共享。该应用程序包括在 Web 角色中运行的 PHP 代码（供用户上传和观看视频），以及使用 C# 实现的辅助角色（用于将上传的视频转换为各种格式）。当 Web 角色实例从用户获取新视频时，它可以将视频存储在 blob 中，然后通过队列向辅助角色发送一条消息，告诉它在哪里可以找到此新视频。一个辅助角色实例（不管是哪一个）然后将从队列读取该消息并在后台执行所需的视频转换。以这种方式构建应用程序将允许异步处理，还使得应用程序更易于缩放，因为 Web 角色实例和辅助角色实例的数目可以独立变化。</p>
+<h3>Service Bus</h3>
+<p>无论是在云中、数据中心、移动设备还是在其他地方运行，应用程序都需要交互。Windows Azure Service Bus 的目标是让在几乎任何地方运行的应用程序交换数据。</p>
+<p>如图 6 所示，Service Bus 提供队列服务。但是，该服务与刚才介绍的 Queues 并不完全相同。例如，与 Windows Azure Queues 不同，Service Bus 提供发布和订阅机制。一个应用程序可以发送消息给主题，而其他应用程序可以创建对此主题的订阅。这允许在一组应用程序间进行一对多通信，让多个收件人阅读同一消息。而队列不是唯一的选项：Service Bus 还允许通过其中继服务直接通信，从而为通过防火墙交互提供一条安全途径。</p>
+<p>通过 Service Bus 通信的应用程序可能是在某个其他云平台上运行的 Windows Azure 应用程序或软件。但是，也可以是在云外部运行的应用程序。例如，假设有家航空公司在其自己的数据中心内的计算机上实现预订服务。该航空公司需要向一些客户端公开这些服务，包括机场自助售票值机亭、预订代理终端机甚至客户手机。它可以使用 Service Bus 来完成此工作，在各种应用程序之间创建松散耦合的交互。</p>
+<h2><a id="caching"></a>缓存</h2>
+<p>应用程序往往会反复访问相同的数据。提高性能的一种方法是保留更接近应用程序的数据的副本，尽量减少检索它所需的时间。Windows Azure 提供两种不同服务来实现这一点：在内存中缓存 Windows Azure 应用程序使用的数据，通过内容传送网络 (CDN) 缓存磁盘上更接近于其用户的 blob 数据。图 7 显示了这两种服务。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure7.png" alt="Windows Azure 缓存"/> <br /> <strong>图 7：Windows Azure 应用程序可以在内存中缓存数据，可以在世界各地的站点中缓存 blob 的副本。</strong></p>
+<h3>缓存</h3>
+<p>访问存储在任何 Windows Azure 数据管理服务（SQL Database、表或 Blob）中的数据的速度相当快。而访问存储在内存中的数据的速度更快。因此，保留频繁访问的数据的内存中副本可以提高应用程序的性能。可以使用 Windows Azure 内存中 Caching 来做到这一点。</p>
+<p>云服务应用程序可以将数据存储在此缓存中，然后直接检索它，而无需访问持久性存储。如图 7 所示，缓存可在您的应用程序的 VM 内进行维护，或由专用于缓存的 VM 提供。在任一情况下，都可以分发缓存，并跨 Windows Azure 数据中心中的多个 VM 分布其包含的数据。</p>
+<p>例如，一个多次读取产品目录的应用程序可能从使用这种缓存中受益，因为它可以更快地获得其所需的数据。该技术还支持锁定，因此可用于读/写以及只读数据。只需改变一下配置，ASP.NET 应用程序就可以使用该服务存储会话数据。</p>
+<h2><a id="identity"></a>标识</h2>
+<p>大部分应用程序都使用标识。例如，知道用户是谁可以让应用程序决定它应该如何与该用户交互。为帮助您做到这一点，Microsoft 提供 Windows Azure Active Directory。</p>
+<p>与大多数目录服务一样，Windows Azure Active Directory 存储有关用户以及他们所属组织的信息。它允许用户登录，为他们提供令牌，以便他们可以向应用程序证明自己的身份。它还允许与在您的本地网络本地运行的 Windows Server Active Directory 同步用户信息。虽然 Windows Azure Active Directory 使用的机制和数据格式与 Windows Server Active Directory 中使用的并不完全相同，但执行的功能基本相似。</p>
+<p>务必要了解 Windows Azure Active Directory 主要供云应用程序使用。例如，在 Windows Azure 或其他云平台上运行的应用程序可以使用它。Microsoft 自己的云应用程序（如 Office 365 中的云应用程序）也使用它。但是，如果您希望将自己的数据中心扩展到使用 Windows Azure 虚拟机模型和 Windows Azure 虚拟网络的云中，Windows Azure Active Directory 并不是正确的选择。相反，您需要在云 VM 中运行 Windows Server Active Directory，如前面所述。</p>
+<p>为了让应用程序访问它所包含的信息，Windows Azure Active Directory 提供一个称为 Windows Azure Active Directory Graph 的 RESTful API。该 API 允许运行于任何平台上的应用程序访问目录对象和它们之间的关系。例如，一个授权的应用程序可以使用该 API 了解某个用户、其所属的团体的信息以及其他信息。应用程序还可以看到用户与其社交圈之间的关系，从而帮助他们利用这些人际关系更好地开展工作。</p>
+<p>该服务的另一个功能是 Windows Azure Active Directory Access Control，它可以让应用程序更易于接受来自不同身份提供商的身份信息。Access Control 不需要应用程序理解多样的数据格式和每位提供商所使用的协议，它将所有这些都统统转换为一种通用格式。它还允许应用程序接受来自一个或多个 Active Directory 域的登录。例如，一个提供 SaaS 应用程序的供应商可以使用 Windows Azure Active Directory Access Control 功能赋予其客户群中的用户通过单一登录访问该应用程序的权利。</p>
+<p>目录服务是本地计算的一个核心基础。因此毋庸置疑，它们在云中也很重要。</p>
+<h2><a id="HPC"></a>高性能计算</h2>
+<p>使用云平台的最具吸引力的方法之一是高性能计算 (HPC)，HPC 的本质就是在多个计算机上同时执行代码。在 Windows Azure 上，这意味着同时运行多个虚拟机，所有虚拟机并行工作来解决某个问题。此操作需要以某种方式调度应用程序，即，跨这些实例分发其工作。为此，Windows Azure 提供 HPC 计划程序。</p>
+<p>该组件可以与构建的 HPC 应用程序协同工作以使用行业标准消息传递接口 (MPI)。执行有限元分析的软件（如汽车碰撞模拟）便是这种类型的应用程序的一个例子，这样的例子还有很多。HPC 计划程序也可以与所谓的易并行应用程序（如 Monte Carlo 模拟）一起使用。不管解决什么问题，它提供的价值都是相同的：HPC 计划程序处理跨许多 Windows Azure 虚拟机调度并行计算工作的复杂问题。目标是更轻松地构建在云中运行的 HPC 应用程序。</p>
+<!--<h2><a id="media"></a>媒体</h2>
+<p>视频构成当今 Internet 流量的一大部分，并且该比例以后将更大。然而，在 Web 上提供视频并不简单。有许多可变因素，例如编码算法和用户屏幕的显示分辨率。视频需求往往还会突然爆发，例如在星期六晚上的高峰期，许多人都决定在这个时候观看在线影片。</p>
+<p>考虑到这种需求的增加，可以有把握地打赌将创建许多使用视频的新应用程序。但是，所有应用程序都需要解决一些相同的问题，而每个人彼此独立解决这些问题并没有任何意义。较好的方法是创建提供供许多应用程序使用的通用解决方案的平台。在云中构建此平台具有一些明显的优势。它可以按现用现付模式广泛提供，并且还可以应对视频应用程序经常面临的需求变化。</p>
+<p>Windows Azure 媒体服务解决了此问题。它提供了一组云组件，从而使用户可以轻松地创建和运行使用视频和其他媒体的应用程序。图 8 解释了此技术。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure8.png" alt="Windows Azure 媒体服务"/> <br /> <strong>图 8：媒体服务是向全球客户端提供视频和其他媒体的应用程序的平台。</strong></p>
+<p>如图所示，媒体服务为使用视频和其他媒体的应用程序提供了一组组件。例如，它包括将视频上载到媒体服务中的媒体插入组件（视频存储在 Windows Azure Blob 中）、支持各种视频和音频格式的编码组件、提供数字版权管理的内容保护组件、用于将广告插入视频流的组件、用于流式处理的组件，等等。Microsoft 合作伙伴也可以为该平台提供组件，然后让 Microsoft 代表他们分发这些组件并计费。</p>
+<p>使用此平台的应用程序可以运行在 Windows Azure 上或其他位置。例如，视频制作公司的桌面应用程序可能允许其用户将视频上载到媒体服务，然后以各种方式对其进行处理。或者，运行在 Windows Azure 上的基于云的内容管理服务可能依赖媒体服务来处理和分发视频。无论在哪里运行以及执行何操作，每个应用程序都会选择需要使用的组件，并通过 RESTful 接口访问这些组建。</p>
+<p>若要分发所生成的内容，应用程序可以使用 Windows Azure CDN、其他 CDN，或只是将比特直接发送给用户。无论实现方式如何，使用媒体服务创建的视频可供各种客户端系统使用，包括 Windows、Macintosh、HTML 5、iOS、Android、Windows Phone、Flash 和 Silverlight。其目标是更轻松地创建现代媒体应用程序。</p>
+<h2><a id="commerce"></a>商务</h2>
+<p>“软件即服务”的出现正在改变我们创建应用程序的方式。它还改变了我们销售应用程序的方式。由于 SaaS 应用程序位于云中，因此其潜在客户应联机查找解决方案。并且此更改适用于数据和应用程序。为什么人们不寻求通过云来寻找市场上销售的数据集？Microsoft 通过 Windows Azure Marketplace 解决了这两个问题，如图 9 中所示。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/introazure9.png" alt="Windows Azure 商务"/> <br /> <strong>图 9：Windows Azure Marketplace 允许您查找和购买 Windows Azure 应用程序和商业数据集。</strong></p>
+<p>潜在客户可以搜索 Marketplace 来查找满足其需求的 Windows Azure 应用程序，然后通过应用程序的创建者或直接通过 Marketplace 来注册使用它们。客户还可以在 Marketplace 中搜索商业数据集，包括人口统计数据、财务数据、地理数据等等。当他们找到喜欢的内容后，可以从供应商处或直接通过 Marketplace 进行访问。应用程序还可以通过 Marketplace 来使用 Bing 搜索 API，从而使它们可以访问 Web 搜索结果。</p>-->
+<h2><a id="sdk"></a>SDK</h2>
+<p>早在 2008 年，Windows Azure 的第一个预发行版本仅支持 .NET 开发。而现今，您几乎可以使用任何语言创建 Windows Azure 应用程序。Microsoft 目前为 .NET、Java、PHP、Node.js 和 Python 提供了特定于语言的 SDK。还有一个为任何语言（例如 C++）提供基本支持的常规 Windows Azure SDK。</p>
+<p>这些 SDK 可帮助您构建、部署和管理 Windows Azure 应用程序。可从 www.windowsazure.cn 或 GitHub 获得它们，并且它们可以与 Visual Studio 和 Eclipse 结合使用。Windows Azure 还提供了开发人员可以将其与任何编辑器或开发环境结合使用的命令行工具，包括用于从 Linux 和 Macintosh 系统将应用程序部署到 Windows Azure 的工具。</p>
+<p>除了帮助您构建 Windows Azure 应用程序以外，这些 SDK 还提供了客户端库，可帮助您创建在云外部运行的使用 Windows Azure 服务的软件。例如，您可以构建在依赖 Windows Azure blob 的主机上运行的应用程序，或创建通过 Windows Azure 管理界面部署 Windows Azure 应用程序的工具。</p>
+<h2><a id="start"></a>入门</h2>
+<p>现在，您已了解大体情况，下一步是编写您的第一个 Windows Azure 应用程序。选择您的语言<a href="/downloads/">下载</a>，然后继续下一步。云计算是新的默认计算模式 -- 立即开始。</p>
+<h2><a id="author"></a>关于作者</h2>
+<p>David Chappell 是位于加利福尼亚州旧金山市的 Chappell &amp; Associates (www.davidchappell.com) 的负责人。他通过演讲、写作和咨询，帮助全球的人们了解、使用新技术并围绕新技术做出更好的决策。</p>]]></bodyText></Chunk></localize>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18778" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="9" createDate="2013-07-11T10:15:37" updateDate="2014-08-18T11:06:38" nodeName="attach-data-disk-centos-vm-in-portal" urlName="attach-data-disk-centos-vm-in-portal" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18778" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div><ol>
+<li>在 <a href="http://manage.windowsazure.cn">Windows Azure管理门户</a>中，单击“虚拟机”，然后选择刚才创建的虚拟机 (<strong>testlinuxvm</strong>)。</li>
+<li>
+<p>在命令栏上，单击“附加”，然后单击“附加空磁盘”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/attachdatadisklinuxvm.png" alt="附加空磁盘"/></p>
+<p>这将显示“附加空磁盘”对话框。</p>
+</li>
+<li>
+<p>已为您定义好了“虚拟机名称”、“存储位置”和“文件名”。您只需要输入所需的磁盘大小。在“大小”字段中键入 <strong>5</strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/attachdatadisklinuxvm2.png" alt="附加空磁盘"/></p>
+<p><strong>注意：</strong>所有磁盘都是从 Windows Azure 存储中的 VHD 文件创建的。您可以为添加到存储的 VHD 文件提供名称，但是 Windows Azure 会自动生成磁盘名称。</p>
+</li>
+<li>
+<p>单击复选标记以将数据磁盘附加到虚拟机。</p>
+</li>
+<li>
+<p>单击虚拟机的名称可显示仪表板；这样您可以验证数据磁盘是否已成功附加到虚拟机。</p>
+<p>现在虚拟机的磁盘数为 2 个。您附加的磁盘会列在“磁盘”表中。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/attachdatadisklinuxvm3.png" alt="附加空磁盘"/></p>
+<p>在您将数据磁盘附加到虚拟机后，该磁盘会处于脱机和未初始化状态。您必须先登录虚拟机并初始化磁盘，才能使用该磁盘存储数据。</p>
+</li>
+</ol>
+<h2>使用 SSH 或 PuTTY 连接到虚拟机并完成安装</h2>
+<p>您刚刚添加到虚拟机中的数据磁盘在您添加它后处于脱机和未初始化状态。您必须先登录到虚拟机并初始化磁盘，然后才能使用该磁盘存储数据。</p>
+<ol>
+<li>
+<p>配置虚拟机后，使用 SSH 或 PuTTY 进行连接，并作为 <strong>newuser</strong> 进行登录（如上述步骤中所述）。</p>
+</li>
+<li>
+<p>在 SSH 或 PuTTY 窗口中，键入以下命令，然后输入帐户密码：</p>
+<p><code>$ sudo grep SCSI /var/log/messages</code></p>
+<p>您可以在所示消息中找到上次添加的数据磁盘的标识符（在此示例中为 <strong>sdc</strong>）。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/grepscsimessages.png" alt="GREP"/></p>
+</li>
+<li>
+<p>在 SSH 或 PuTTY 窗口中，输入以下命令，对磁盘 <strong>/dev/sdc</strong> 进行分区：</p>
+<p><code>$ sudo fdisk /dev/sdc</code></p>
+</li>
+<li>
+<p>输入 <strong>n</strong> 新建一个分区。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/fdisk1.png" alt="FDISK"/></p>
+</li>
+<li>
+<p>键入 <strong>p</strong> 将该分区设置为主分区，键入 <strong>1</strong> 将其设置为第一分区，然后键入 Enter 以接受默认分区值 (1)。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/fdisk2.png" alt="FDISK"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 以查看有关分区磁盘的详细信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/fdisk3.png" alt="FDISK"/></p>
+</li>
+<li>
+<p>键入<strong> w</strong> 以写入磁盘的设置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/fdisk4.png" alt="FDISK"/></p>
+</li>
+<li>
+<p>使用 <strong>mkfs.ext3</strong> 命令格式化新磁盘：</p>
+<p><code>$ sudo mkfs.ext3 /dev/sdc1</code></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/mkfs.png" alt="格式化磁盘"/></p>
+</li>
+<li>
+<p>创建目录以便为驱动器设置装入点：</p>
+<p><code>$ sudo mkdir /mnt/datadrive</code></p>
+</li>
+<li>
+<p>安装驱动器：</p>
+<p><code>$ sudo mount /dev/sdc1 /mnt/datadrive</code></p>
+</li>
+<li>
+<p>打开 <strong>/etc/fstab</strong> 文件并附加以下行：</p>
+<p><code>/dev/sdc1 /mnt/datadrive ext3 defaults 1</code></p>
+</li>
+<li>
+<p>保存并关闭 <strong>/etc/fstab</strong> 文件。</p>
+</li>
+<li>
+<p>使用 e2label 标记分区：</p>
+<p><code>:$ sudo e2label /dev/sdc1 /mnt/datadrive</code></p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

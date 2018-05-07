@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18716" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="29" createDate="2013-07-11T09:57:34" updateDate="2014-08-18T11:04:15" nodeName="website-mysql" urlName="website-mysql" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18716" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<p>按照以下步骤创建 Windows Azure 网站和 MySQL 数据库：1. 登录到<a href="https://manage.windowsazure.cn">管理门户</a>。2. 单击该门户左下角的“+ 新建”图标。</p>
+<pre class="prettyprint">![Create New Windows Azure web site][new-website]</pre>
+<ol>
+<li>
+<p>单击“网站”，然后单击“自定义创建”。在“URL”中输入值，从“数据库”下拉列表中选择“新建 MySQL 数据库”，然后在“区域”下拉列表中选择网站的数据中心。单击对话框底部的箭头。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/custom_create.jpg" alt="自定义创建新的网站"/></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/website_details.jpg" alt="填写网站详细信息"/></p>
+</li>
+<li>
+<p>为数据库的“名称”输入一个值，在“区域”下拉列表中为数据库选择数据中心，并选中表明您同意法律条款的框。单击对话框底部的复选标记。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/new_mysql_db.jpg" alt="新建 MySQL 数据库"/></p>
+<p>创建网站后，将显示文本“已成功完成网站‘[SITENAME]’的创建”。</p>
+<p>接下来，您需要获取 MySQL 连接信息。</p>
+<div class="dev-callout">注意
+<p>仅在 Windows Azure 网站的预览版本中需要从“.publishsettings”文件获取 MySQL 连接信息，如以下步骤所述。</p>
+</div>
+</li>
+<li>
+<p>单击网站列表中显示的网站的名称以打开该网站的“快速启动”仪表板。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/go_to_dashboard.png" alt="打开网站仪表板"/></p>
+</li>
+<li>
+<p>从网站的仪表板中，单击页面右下角的“下载发布配置文件”链接：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/download_publish_profile.jpg" alt="下载发布配置文件"/></p>
+</li>
+<li>
+<p>在 XML 编辑器中打开 <code>.publishsettings</code> 文件。<code>&lt;databases&gt;</code> 元素将类似于此：</p>
+<pre class="prettyprint">&lt;databases&gt;   &lt;add name="tasklist"         connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e"         providerName="MySql.Data.MySqlClient"         type="MySql"/&gt; &lt;/databases&gt;</pre>
+</li>
+<li>
+<p><code>&lt;add&gt;</code> 元素中的 <code>connectionString</code> 特性含有您的数据库连接信息。<code>Database</code>、<code>Data Source</code>、<code>User Id</code> 和 <code>Password</code> 的值分别是数据库名称、服务器名称、用户名和用户密码。</p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

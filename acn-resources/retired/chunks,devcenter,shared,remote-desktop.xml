@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18721" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="34" createDate="2013-07-11T09:58:49" updateDate="2014-08-18T11:04:05" nodeName="remote-desktop" urlName="remote-desktop" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18721" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中启用远程桌面</h1>
+<p>您可以通过远程桌面访问在 Windows Azure 中运行的角色实例的桌面。您可以使用远程桌面连接配置虚拟机，或者排查应用程序问题。</p>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#step1">步骤 1:创建自签名 PFX 证书</a></li>
+<li><a href="#step2">步骤 2:修改服务定义和配置文件</a></li>
+<li><a href="#step3">步骤 3:上载部署包和证书</a></li>
+<li><a href="#step4">步骤 4:连接到角色实例</a></li>
+</ul>
+<h2><a name="step1"></a>步骤 1:创建自签名 PFX 证书</h2>
+<p>若要使用远程桌面，您需要创建自签名个人信息交换 (PFX) 证书，该证书用于针对角色实例对您进行身份验证。此证书将通过您的部署上载到 Windows Azure，并且用于远程访问部署的任何计算机上均必须安装了此证书。</p>
+<p>在要用于远程访问角色实例的计算机（例如，已安装 Windows Azure SDK 的开发计算机）上执行下列步骤。</p>
+<ol>
+<li>
+<p>从“开始”菜单中，键入“inetmgr”，并按 Enter。这将显示 Internet Information Services (IIS) 管理器管理单元。</p>
+</li>
+<li>
+<p>在“IIS”部分，单击“服务器证书”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-01.png"/></p>
+</li>
+<li>
+<p>在右侧的“操作”菜单上，单击“创建自签名证书”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-02.png"/></p>
+</li>
+<li>
+<p>在“创建自签名证书”对话框中，输入证书的名称，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-03.png"/></p>
+</li>
+<li>
+<p>证书列表中将显示新的证书。单击新证书，然后单击“导出”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-04.png"/></p>
+</li>
+<li>
+<p>在“导出证书”对话框中，选择导出位置和证书密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-05.png"/></p>
+</li>
+</ol>
+<p>在完成这些步骤后，可以将生成的 PFX 证书上载到 Windows Azure。</p>
+<h2><a name="step2"></a>步骤 2:修改服务定义和配置文件</h2>
+<p>此时您已创建证书，您需要配置服务定义和服务配置文件来使用该证书。必须更新服务定义文件以导入 <strong>Remote Access</strong> 和 <strong>Remote Forwarder</strong> 模块，并且必须更新服务配置文件以包含证书指纹。</p>
+<ol>
+<li>
+<p>如果服务定义文件不包含 <strong>Imports</strong> 节，请将此节添加到 <strong>WebRole</strong> 元素中。然后，将以下模块添加到 <strong>Imports</strong> 节：</p>
+<pre class="prettyprint">&lt;Imports&gt;
+    &lt;Import moduleName="RemoteAccess"/&gt;
+    &lt;Import moduleName="RemoteForwarder"/&gt;
+&lt;/Imports&gt;</pre>
+</li>
+<li>
+<p>在服务配置文件中，将以下两个设置添加到 <strong>ConfigurationSettings</strong> 节中：</p>
+<pre class="prettyprint">&lt;Role name=ï¿½Deployment&gt;
+&lt;ConfigurationSettings&gt;
+            &lt;Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="" /&gt;
+            &lt;Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="" /&gt;
+&lt;/ConfigurationSettings&gt;
+...
+&lt;/Role&gt;</pre>
+</li>
+<li>
+<p>服务配置文件还需要您之前创建的 .pfx 证书的指纹。将证书条目添加到如下所示的 <code>&lt;Certificates&gt;</code> 节，并将下面的示例指纹值替换为您自己的指纹值：</p>
+<pre class="prettyprint">&lt;Role name="Deployment&gt;
+    ...
+&lt;Certificates&gt;
+            &lt;Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="?9427befa18ec6865a9ebdc79d4c38de50e6316ff" thumbprintAlgorithm="sha1" /&gt;
+        &lt;/Certificates&gt;
+&lt;/Role&gt;</pre>
+</li>
+<li>
+<p>现在已更新服务定义和服务配置文件，请打包您的部署以上载到 Windows Azure。如果您使用的是 <strong>cspack</strong>，请务必不要使用 <strong>/generateConfigurationFile</strong> 标记，因为这将覆盖您刚插入的证书信息。</p>
+</li>
+</ol>
+<p>此时您已使用证书相关信息来更新包，下一步是将包和证书上载到 Windows Azure。</p>
+<h2><a name="step3"></a>步骤 3:上载部署包和证书</h2>
+<p>已创建您的证书，并且已将您的包更新为使用证书。现在您必须使用管理门户将包和证书上载到 Windows Azure。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn/">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>单击“新建托管服务”，添加有关托管服务的必需信息，然后单击“添加证书”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-06.png"/></p>
+</li>
+<li>
+<p>在“上载证书”对话框中，输入您之前创建的 PFX 证书的位置和该证书的密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-07.png"/></p>
+</li>
+<li>
+<p>单击“确定”以创建托管服务。当部署达到“就绪”状态时，您可以继续执行后续步骤。</p>
+</li>
+</ol>
+<p>此时您已在托管服务中部署应用程序，并已上载 Windows Azure 将用于授权远程连接的证书。</p>
+<h2><a name="step4"></a>步骤 4:连接到角色实例</h2>
+<p>在 Windows Azure 中启动并运行您的部署后，您需要启用远程访问，然后连接到角色实例。</p>
+<ol>
+<li>
+<p>在管理门户中，选择为远程访问配置的部署中的角色，然后单击门户功能区的“远程访问”区域中的“启用”复选框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-08.png"/></p>
+</li>
+<li>
+<p>在“设置远程桌面凭据”对话框中，输入访问部署实例时的远程桌面连接的用户名和密码。选择之前创建托管服务时上载的证书，设置所需的到期时间，然后单击“确定”。</p>
+<p>可能需要几秒钟的时间才能为部署启用远程桌面；在此时段内，部署的状态为“正在更新”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-09.png"/></p>
+</li>
+<li>
+<p>当部署状态为“就绪”时，选择部署的实例，然后单击门户功能区的“远程访问”区域中的“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-10.png"/></p>
+</li>
+<li>
+<p>单击“连接”后，Web 浏览器会提示您保存 .rdp 文件。如果您使用的是 Internet Explorer，请单击“打开”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-11.png"/></p>
+</li>
+<li>
+<p>打开该文件时，会显示一个安全提示。单击“连接”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-12.png"/></p>
+</li>
+<li>
+<p>单击“连接”，将显示一个安全提示，要求输入访问该实例的凭据。输入您创建的帐户的密码，然后单击“确定”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-13.png"/></p>
+</li>
+</ol>
+<p>连接完成后，远程桌面连接将在 Windows Azure 中显示该实例的桌面。您已成功获取对该实例的远程访问权限，并且可以执行任何必需任务来管理应用程序。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/remote-desktop-14.png"/></p>
+<h2>其他资源</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/hh124107.aspx">远程访问 Windows Azure 中的角色实例</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg443832.aspx">将远程桌面与 Windows Azure 角色一起使用</a></li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

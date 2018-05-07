@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="19337" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="59" createDate="2013-09-05T12:55:30" updateDate="2014-08-18T11:03:44" nodeName="deploy_mongodb_worker_roles_in_azure_mongodb_ecosystem_2.2.2" urlName="deploy_mongodb_worker_roles_in_azure_mongodb_ecosystem_222" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,19337" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>在 Windows Azure 中部署 MongoDB 辅助角色</h1>
+<p><em>由 <a href="http://docs.mongodb.org/ecosystem/tutorial/deploy-mongodb-worker-roles-in-azure/">10gen Inc.</a> 供稿</em></p>
+<p>MongoDB 辅助角色当前为预览版。请在 <a href="https://groups.google.com/forum/?fromgroups#!forum/mongodb-dev">mongodb-dev</a>、<a href="https://groups.google.com/forum/?fromgroups#!forum/mongodb-user">mongodb-user</a> 或 IRC #mongodb 中提供反馈。</p>
+<p>MongoDB 辅助角色项目使您能够在 Windows Azure 上部署和运行 MongoDB 副本集。副本集成员作为 Windows Azure 辅助角色实例运行。MongoDB 数据文件存储在作为云驱动器安装的 Windows Azure 页 Blob 中。您可以使用任一 MongoDB 驱动程序连接到 MongoDB 服务器实例。MongoDB <a href="http://docs.mongodb.org/ecosystem/drivers/csharp/"><em>.Net 驱动程序</em></a>作为程序包的一部分提供。</p>
+<h2>获取程序包</h2>
+<p>MongoDB Windows Azure 辅助角色作为包含相关源文件的 Visual Studio 2010 解决方案交付。您可以在 GitHub 中访问该程序包：</p>
+<p>https://github.com/mongodb/mongo-azure/</p>
+<p>建议您使用最新标记版本。</p>
+<p>或者，您也可以通过从 git bash shell 运行以下命令来克隆存储库：</p>
+<pre class="prettyprint">cd 
+git config --global core.autocrlf true
+git clone git@github.com:mongodb/mongo-azure.git
+cd mongo-azure
+git config core.autocrlf true</pre>
+<p>在克隆存储库之前，您必须将 core.autocrlf 的全局设置设为 true。在克隆存储库之后，建议您将 core.autocrlf 的本地设置设为 true（如上所示），以便对 core.autocrlf 的全局设置的后续更改不会影响此存储库。如果稍后您要将 core.autocrlf 的全局设置更改为 false，请运行以下命令：</p>
+<pre class="prettyprint">git config --global core.autocrlf false</pre>
+<h2>组件</h2>
+<p>在您解压缩程序包或克隆存储库之后，您将看到以下目录：</p>
+<ul>
+<li>Setup：包含一个名为 solutionsetup.cmd 的文件。<strong>可在打开解决方案文件之前运行它。</strong></li>
+<li>src：包含项目的所有源代码。</li>
+<li>src/SampleApplications：包含可用于在 Windows Azure 上演示 MongoDB 的应用程序示例。<a href="https://github.com/mongodb/mongo-azure/tree/master/src/SampleApplications">有关更多信息，请参阅列表</a>。</li>
+<li>lib：库文件。包含 MongoDB .NET 驱动程序</li>
+<li>Tools：包含该项目的其他工具。</li>
+</ul>
+<h2>初始设置</h2>
+<p>我们假定您运行的是 Windows x64 和 Visual Studio。如果不是，请首先安装它们；Visual Studio 2010 或 Visual Web Developer 2010 应能够正常运行。</p>
+<ol>
+<li>安装最新的 <a href="http://www.windowsazure.cn/zh-cn/develop/net/">Windows Azure SDK</a>。</li>
+<li>在您的本地计算机上启用 IIS。为此，请转至“打开或关闭 Windows 功能”控制面板中的“程序”下。选中“Internet Information Services”，并选中“万维网服务”|“应用程序开发功能”下的“ASP.NET”。</li>
+<li>克隆该项目。</li>
+<li><strong>在打开任一解决方案文件之前</strong>，请运行 Setupsolutionsetup.cmd。</li>
+<li>打开您所需的解决方案，将“MongoDB.WindowsAzure.(Sample.)Deploy”项目设为启动项目，然后运行它！</li>
+</ol>
+<p>安装脚本将执行以下操作：</p>
+<ul>
+<li>为两个解决方案创建云配置</li>
+<li>将 MongoDB 二进制文件下载到 libMongoDBBinaries。</li>
+</ul>
+<p>注意</p>
+<p>默认情况下，安装脚本会下载 <strong>64 位</strong>版本的 MongoDB。如果您使用 <strong>32 位</strong> Windows 进行开发，则必须下载最新的 32 位 MongoDB 二进制文件并将其置于libMongoDBBinaries 中。应在运行 solutionsetup.cmd 之后执行此操作，以便不会覆盖您的工作数据。</p>
+<p>可在 <a href="https://github.com/mongodb/mongo-azure/blob/master/src/README.md">Github 自述文件</a>中找到必备组件。</p>
+<p>安装这些组件之后，您可以打开仅适用于副本集和监控应用程序的任一解决方案 MongoDB.WindowsAzure.sln；适用于副本集、监控应用程序和 IIS 应用程序示例 MvcMovie 的 MongoDB.WindowsAzure.Sample.sln，以便对其进行测试。</p>
+<h2>部署和运行</h2>
+<h3>在计算/存储模拟器上本地运行</h3>
+<p>以下是运行应用程序示例的说明。</p>
+<p>首先，您可以在开发计算机上本地测试您的安装。默认配置包含 3 个运行在端口 27017、27018 和 27019 上的副本集成员，其副本集名称为“rs”。</p>
+<p>在 Visual Studio 中，使用 F5 或“调试”-&gt;“启动调试”运行解决方案。这将启动副本集、监控应用程序和 MvcMovie 应用程序示例（如果您位于解决方案示例中）。</p>
+<p>您可以通过在浏览器中使用监控应用程序或 MvcMovie 应用程序示例，或者通过对正在运行的实例运行 mongo.exe 来验证此过程。</p>
+<h3>部署到 Windows Azure</h3>
+<p>在本地运行应用程序后，您可以将应用程序解决方案示例部署到 Windows Azure。数据存储在 Blob 存储中的情况下，您无法在计算模拟器上本地执行此过程。这是因为使用 Windows Azure 驱动器时需要计算和存储位于同一位置。</p>
+<h2>其他信息</h2>
+<p>MongoDB 辅助角色可运行带以下选项的 mongod.exe：</p>
+<pre class="prettyprint">--dbpath --port --logpath --journal --nohttpinterface --logappend --replSet</pre>
+<p>MongoDB 可在 Windows Azure 存储中创建以下容器和 Blob：</p>
+<ul>
+<li>Mongo 数据 Blob 容器名称 - mongoddatadrive（副本集名称）</li>
+<li>Mongo 数据 Blob 名称 - mongoddblob(instance id).vhd</li>
+</ul>
+<h2>常见问题/疑难解答</h2>
+<ul>
+<li>
+<p>我能否通过运行 mongo.exe 进行连接？</p>
+<ul>
+<li>可以，如果您安装了远程桌面。然后您可以连接到任一辅助角色实例并运行 e:approotMongoDBBinariesbinmongo.exe。</li>
+</ul>
+</li>
+<li>
+<p>在部署到 Windows Azure 时角色实例没有启动</p>
+<ul>
+<li>检查是否正确指定了存储 URL。</li>
+</ul>
+</li>
+<li>
+<p>在 Windows Azure 中使用 .Net 驱动程序时偶尔出现套接字异常</p>
+</li>
+<li>
+<p>My MongoDB 实例在辅助角色上运行良好。提供的管理器应用程序显示实例运行良好，但我的客户端应用程序无法连接。</p>
+<ul>
+<li>
+<p>确保 Instance Maintainer 可执行程序部署为客户端角色的一部分。您还需要更改客户端角色的服务定义，以便在实例启动时启动 InstanceMaintainer。</p>
+<p>请参照下图：</p>
+<p>Instance Maintainer 已部署为角色的一部分：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/azure-worker-roles-instance-maintainer-1.png" alt="http://docs.mongodb.org/_images/azure-worker-roles-instance-maintainer-1.png"/> Instance Maintainer 根据服务定义启动：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/azure-worker-roles-instance-maintainer-2.png" alt="http://docs.mongodb.org/_images/azure-worker-roles-instance-maintainer-2.png"/></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

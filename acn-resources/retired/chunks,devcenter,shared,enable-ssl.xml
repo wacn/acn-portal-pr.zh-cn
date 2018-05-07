@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18736" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="49" createDate="2013-07-11T10:01:32" updateDate="2014-08-18T11:03:45" nodeName="enable-ssl" urlName="enable-ssl" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18736" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<p> </p>
+<h1>在 Windows Azure 中为应用程序配置 SSL</h1>
+<p>安全套接字层 (SSL) 加密是用于保护通过 Internet 发送的数据的最常见方法。此常见任务讨论了如何为 Web 角色指定 HTTPS 终结点以及如何上载 SSL 证书来保护您的应用程序。</p>
+<p>此任务包括下列步骤：</p>
+<ul>
+<li><a href="#step1">步骤 1:获取 SSL 证书</a></li>
+<li><a href="#step2">步骤 2:修改服务定义和配置文件</a></li>
+<li><a href="#step3">步骤 3:上载部署包和证书</a></li>
+<li><a href="#step4">步骤 4:使用 HTTPS 连接到角色实例</a></li>
+</ul>
+<p> </p>
+<h2>步骤 1:获取 SSL 证书</h2>
+<p>若要为应用程序配置 SSL，您首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。如果您尚未获取 SSL 证书，则需要从销售 SSL 证书的公司购买一个 SSL 证书。</p>
+<p>该证书必须满足 Windows Azure 中的以下 SSL 证书要求：</p>
+<ul>
+<li>证书必须包含私钥。</li>
+<li>必须为密钥交换创建证书（.pfx 文件）。</li>
+<li>证书的使用者名称必须与用于访问云服务的域匹配。您无法从证书颁发机构 (CA) 处获取针对 chinacloudapp.cn 域的 SSL 证书。您必须获取在访问服务时要使用的自定义域名。在从 CA 处请求证书时，该证书的使用者名称必须与用于访问应用程序的自定义域名匹配。例如，如果自定义域名为 <strong>contoso.com</strong>，则可以从 CA 处请求针对 <strong>*.contoso.com</strong> 或 <strong>www.contoso.com</strong> 的证书。</li>
+<li>该证书必须使用至少 2048 位加密。</li>
+</ul>
+<p>您可以创建并使用自签名证书以用于测试目的。有关如何使用 IIS 管理器创建自签名证书的详细信息，请参阅<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg432987.aspx">如何为角色创建证书</a>。</p>
+<p>接下来，您必须在服务定义和服务配置文件中包含有关此证书的信息。</p>
+<p> </p>
+<h2>步骤 2:修改服务定义和配置文件</h2>
+<p>必须将应用程序配置为使用此证书，并且必须添加 HTTPS 终结点。因此，需要更新服务定义和服务配置文件。</p>
+<ol>
+<li>
+<p>在您的开发环境中，打开服务定义文件 (CSDEF)，在 <strong>WebRole</strong> 节中添加 <strong>Certificates</strong> 节，并包含以下证书相关信息：</p>
+<pre class="prettyprint">&lt;WebRole name="CertificateTesting" vmsize="Small"&gt;
+...
+    &lt;Certificates&gt;
+        &lt;Certificate name="SampleCertificate" storeLocation="LocalMachine" 
+            storeName="CA" /&gt;
+    &lt;/Certificates&gt;
+...
+&lt;/WebRole&gt;</pre>
+<p><strong>Certificates</strong> 节定义了我们的证书的名称、其位置及其所在存储的名称。我们有证书颁发机构存储，但您也可以选择其他选项。有关更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg465718.aspx">如何将证书与服务关联</a>。</p>
+</li>
+<li>
+<p>在您的服务定义文件中，在 <strong>Endpoints</strong> 节中添加 <strong>InputEndpoint</strong> 元素以启用 HTTPS：</p>
+<pre class="prettyprint">&lt;WebRole name="CertificateTesting" vmsize="Small"&gt;
+...
+    &lt;Endpoints&gt;
+        &lt;InputEndpoint name="HttpsIn" protocol="https" port="443" 
+            certificate="SampleCertificate" /&gt;
+    &lt;/Endpoints&gt;
+...
+&lt;/WebRole&gt;</pre>
+</li>
+<li>
+<p>在您的服务定义文件中，在 <strong>Sites</strong> 节中添加 <strong>Binding</strong> 元素。这将添加 HTTPS 绑定以将终结点映射到您的网站：</p>
+<pre class="prettyprint">&lt;WebRole name="CertificateTesting" vmsize="Small"&gt;
+...
+    &lt;Sites&gt;
+        &lt;Site name="Web"&gt;
+            &lt;Bindings&gt;
+                &lt;Binding name="HttpsIn" endpointName="HttpsIn" /&gt;
+            &lt;/Bindings&gt;
+        &lt;/Site&gt;
+    &lt;/Sites&gt;
+...
+&lt;/WebRole&gt;</pre>
+<p>对服务定义文件进行的所有必需更改已完成，但您仍需要将证书信息添加到服务配置文件中。</p>
+</li>
+<li>
+<p>在您的服务配置文件 (CSCFG) 中，在 <strong>Role</strong> 节中添加 <strong>Certificates</strong> 节，并将下面的示例指纹值替换为证书的指纹值：</p>
+<pre class="prettyprint">&lt;Role name="Deployment"&gt;
+...
+    &lt;Certificates&gt;
+        &lt;Certificate name="SampleCertificate" 
+            thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+            thumbprintAlgorithm="sha1" /&gt;
+    &lt;/Certificates&gt;
+...
+&lt;/Role&gt;</pre>
+</li>
+</ol>
+<p>现在已更新服务定义和服务配置文件，请打包您的部署以上载到 Windows Azure。如果您使用的是 <strong>cspack</strong>，请务必不要使用 <strong>/generateConfigurationFile</strong> 标记，因为这将覆盖您刚插入的证书信息。</p>
+<p> </p>
+<h2>步骤 3:上载部署包和证书</h2>
+<p>已将部署包更新为使用此证书，并且已添加 HTTPS 终结点。现在您可以使用管理门户将包和证书上载到 Windows Azure。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在管理门户中，单击左下角的“+新建”，然后单击“云服务”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-new-custom-create.png" alt="“云服务”对话框"/></p>
+</li>
+<li>
+<p>选择“自定义创建”，然后指定“URL”和“区域/地缘组”。<br />最后，选中“立即部署云服务包”，然后单击箭头以继续。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-custom-create.png" alt="自定义创建云服务"/></p>
+</li>
+<li>
+<p>在“自定义创建”对话框的第二页上，填写所需信息，然后选择“立即添加证书”。单击箭头以继续。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-custom-create-package.png" alt="自定义创建云服务"/></p>
+</li>
+<li>
+<p>使用“自定义创建”对话框的第三页以附加证书，然后单击此复选框。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/cloud-service-custom-created-add-cert.png" alt="自定义创建云服务"/></p>
+</li>
+</ol>
+<p> </p>
+<h2>步骤 4:使用 HTTPS 连接到角色实例</h2>
+<p>现在，您的部署已在 Windows Azure 中启用并运行，您可以使用 HTTPS 连接到该部署。</p>
+<ol>
+<li>
+<p>在管理门户中，选择“云服务”，然后单击服务的 URL。</p>
+</li>
+<li>
+<p>浏览器将导航到此 URL；确保其开头为 <strong>https</strong>，而不是 <strong>http</strong>。</p>
+<p>该浏览器会用绿色显示地址，指示它使用的是 HTTPS 连接。它还指示已为您的应用程序正确配置 SSL。</p>
+<div class="dev-callout"><strong>注意：</strong>
+<p>如果您使用的是自签名证书，则当您浏览到与自签名证书关联的 HTTPS 终结点时，浏览器中将显示一个证书错误。使用由证书颁发机构签名的证书可避免此问题；同时，您可以忽略此错误。</p>
+</div>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/ssl-04.png"/></p>
+</li>
+</ol>
+<h2>其他资源</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/gg465718.aspx">如何将证书与服务关联</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ff795779.aspx">如何在 HTTPS 终结点上配置 SSL 证书</a></li>
+</ul>
+</div>]]></bodyText></Chunk></localize>

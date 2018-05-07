@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="16969" parentID="16964" level="4" writerID="52" creatorID="96" nodeType="9257" template="0" sortOrder="5" createDate="2013-01-08T21:55:41" updateDate="2014-08-18T11:06:24" nodeName="PDCCloudServices" urlName="pdccloudservices" writerName="uRest" creatorName="aaron" path="-1,11978,13607,16964,16969" isDoc=""><hideAll>0</hideAll><localize></localize><localizePartial></localizePartial><bodyText><![CDATA[<h2 id="header-3">云服务</h2>
+<p>仅在您部署应用程序之后才会对 Windows Azure Web 和辅助角色计费。在开发和测试应用程序时，请删除不用的云服务实例来最大限度降低费用。不足 1 小时的云服务按 1 小时计费。</p>
+<p>下表总结了每个云服务实例大小的定价：</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard">
+<tbody>
+<tr><th>云服务实例大小</th><th>CPU 内核数</th><th>CPU 速度</th><th>内存</th><th>实例存储</th><th>I/O 性能</th><th>成本/小时</th></tr>
+<tr>
+<td>特小型</td>
+<td>共享</td>
+<td>1.0 GHz</td>
+<td>768 MB</td>
+<td>20 GB</td>
+<td>低</td>
+<td><span class="price-data" data-amount=".02">$0.02</span></td>
+</tr>
+<tr>
+<td>小型</td>
+<td>1</td>
+<td>1.6 GHz</td>
+<td>1.75 GB</td>
+<td>225 GB</td>
+<td>中等</td>
+<td><span class="price-data" data-amount=".12">$0.12</span></td>
+</tr>
+<tr>
+<td>中型</td>
+<td>2</td>
+<td>1.6 GHz</td>
+<td>3.5 GB</td>
+<td>490 GB</td>
+<td>高</td>
+<td><span class="price-data" data-amount=".24">$0.24</span></td>
+</tr>
+<tr>
+<td>大型</td>
+<td>4</td>
+<td>1.6 GHz</td>
+<td>7 GB</td>
+<td>1,000 GB</td>
+<td>高</td>
+<td><span class="price-data" data-amount=".48">$0.48</span></td>
+</tr>
+<tr>
+<td>特大型</td>
+<td>8</td>
+<td>1.6 GHz</td>
+<td>14 GB</td>
+<td>2,040 GB</td>
+<td>高</td>
+<td><span class="price-data" data-amount=".96">$0.96</span></td>
+</tr>
+</tbody>
+</table>
+<p>有关云服务实例大小的详细信息<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/ee814754.aspx">现已公布</a>。</p>
+<p>如下表中所述，在显示给您的帐单上，所有云服务小时数均转换为小型实例小时数。例如，在显示给您的帐单上，一小时中型云服务实例将显示为两小时小型云服务实例。时间将按每小时 <span class="price-data" data-amount=".12">$0.12</span> 的小型实例费率计费。</p>
+<table border="1" cellspacing="0" cellpadding="0" class="azure-standard" id="equivalent-ratios">
+<tbody>
+<tr><th>云服务实例大小</th><th>时钟小时数</th><th>小型实例小时数</th></tr>
+<tr>
+<td>特小型</td>
+<td>1</td>
+<td>1/6 小时</td>
+</tr>
+<tr>
+<td>小型</td>
+<td>1</td>
+<td>1 小时</td>
+</tr>
+<tr>
+<td>中型</td>
+<td>1</td>
+<td>2 小时</td>
+</tr>
+<tr>
+<td>大型</td>
+<td>1</td>
+<td>4 小时</td>
+</tr>
+<tr>
+<td>特大型</td>
+<td>1</td>
+<td>8 小时</td>
+</tr>
+</tbody>
+</table>
+<p>通过将服务部署的小时数乘以部署中包含的等效小型云服务实例数来计算计费的云服务小时数。不足一小时的云服务实例（转换前）按照实例被部署了一个完整小时计费。例如，如果您在上午 10:50 部署了一个小型云服务实例，然后在上午 11:10 将其删除，则按两小时小型云服务来计费，即上午 10:50 到 11:00 算作一个小时，上午 11:00 到 11:10 算作另一个小时。</p>
+<p>对于您部署的其他云服务实例大小，则小时数通过乘以 1/6、1/2、1/4 或 1/8 转换为等效的小型实例小时数，具体情况取决于部署的云服务实例大小。此外，每次删除部署然后又重新部署服务时，每个部署的云服务实例都按至少一个完整小时计费。但是，如果在一个整点内部署实例的时间不到五分钟，则不收费。</p>
+<p><a href="../../home/features/cloud-services/">有关云服务的详细信息</a></p>]]></bodyText></Chunk></localize>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18637" parentID="18635" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="2" createDate="2013-06-04T14:38:11" updateDate="2014-08-18T11:05:46" nodeName="howto-custom-create-vm" urlName="howto-custom-create-vm" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18634,18635,18637" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h1>如何创建自定义虚拟机</h1>
+<p>通过提供高级选项（例如大小、连接的资源、DNS 名称和网络连接），您可以创建自定义虚拟机。如果您要连接虚拟机或者要使用自定义映像创建虚拟机，则必须使用该方法。</p>
+<p>在创建虚拟机之前，您应该确定其预期用途。如果您的应用程序中只需要一台虚拟机，则可以选择创建独立虚拟机。如果您在相同的云服务中需要多台可互相通信并充当负载平衡应用程序的虚拟机，则可以选择将新虚拟机连接到现有虚拟机。</p>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>。</p>
+</li>
+<li>
+<p>在命令栏上，单击“新建”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/create.png" alt="新建虚拟机"/></p>
+</li>
+<li>
+<p>单击“虚拟机”，然后单击“从库中”。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/createnew.png" alt="新建自定义虚拟机"/></p>
+<p>这将显示“虚拟机操作系统选择”对话框。您现在可从映像库中选择一个映像。此操作方法指示选择 Windows Server 2008 R2 映像，但这些指令也适用于 Linux 映像。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imageselectionwindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>单击“平台映像”，选择想要使用的平台映像，然后单击箭头以继续。</p>
+<p>这将显示“虚拟机配置”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imagedefinewindows.png" alt="选择映像"/></p>
+</li>
+<li>
+<p>在“虚拟机名称”中，键入要用于该虚拟机的名称。</p>
+</li>
+<li>
+<p>在“新密码”中，键入用于该虚拟机上 Administrator 帐户的密码。在“确认密码”中，再次键入您之前输入的密码。</p>
+</li>
+<li>
+<p>在“大小”中，选择要用于该虚拟机的大小。所选大小具体取决于您应用程序所需的内核数。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>这将显示“虚拟机模式”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imagestandalonewindows.png" alt="定义独立虚拟机"/></p>
+</li>
+<li>
+<p>选择虚拟机是作为单台独立虚拟机还是作为包含多台已连接虚拟机的云服务的一部分。有关连接虚拟机的更多信息，请参见如何连接云服务中的虚拟机</p>
+。</li>
+<li>
+<p>如果您要创建独立虚拟机，请在“DNS 名称”中，键入为虚拟机创建的云服务的名称。输入的名称可包含 3-24 个小写字母和数字。</p>
+</li>
+<li>
+<p>在“存储帐户”中，选择存储 VHD 文件的存储帐户，或者也可以选择自动创建存储帐户。每个区域只能自动创建一个存储帐户。使用此设置创建的所有其他虚拟机也位于该存储帐户中。您最多只能创建 20 个存储帐户。</p>
+</li>
+<li>
+<p>在“区域/地缘组/虚拟网络”中，选择要包含该虚拟机的区域、地缘组或虚拟网络。有关地缘组的更多信息，请参见<a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/">关于虚拟网络的地缘组</a>。</p>
+</li>
+<li>
+<p>单击箭头以继续。</p>
+<p>这将显示“虚拟机选项”对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/imageoptionswindows.png" alt="定义虚拟机选项"/></p>
+</li>
+<li>
+<p>（可选）在“可用性集”中，选择“创建可用性集”。如果某虚拟机是可用性集的成员，则会将其部署到与该集中其他虚拟机不同的容错域中。一个可用性集中包含多台虚拟机可以确保在出现网络故障、本地磁盘硬件故障以及任何计划内停机时，应用程序仍然可用。</p>
+</li>
+<li>
+<p>如果您要创建可用性集，请为该可用性集输入名称。</p>
+</li>
+<li>
+<p>（可选）选择虚拟机所属的子网。有关将虚拟机添加到网络的更多信息，请参见<a href="/zh-cn/manage/services/networking/add-a-vm-to-a-virtual-network/">在虚拟网络中创建虚拟机</a>。</p>
+</li>
+<li>
+<p>单击箭头以创建虚拟机。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/vmsuccesswindows.png" alt="成功创建自定义虚拟机"/></p>
+</li>
+</ol>]]></bodyText></Chunk></localize>

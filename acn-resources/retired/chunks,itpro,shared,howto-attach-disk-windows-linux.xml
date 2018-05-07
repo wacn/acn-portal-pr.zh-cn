@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18639" parentID="18635" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="4" createDate="2013-06-04T14:38:12" updateDate="2014-08-18T11:05:44" nodeName="howto-attach-disk-windows-linux" urlName="howto-attach-disk-windows-linux" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18634,18635,18639" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>如何将数据磁盘附加到虚拟机</h1>
+<p>若要使用此功能和其他新的 Windows Azure 功能，请注册<a href="https://account.windowsazure.cn/PreviewFeatures">免费预览版</a>。</p>
+<ul>
+<li><a href="#concepts">概念</a></li>
+<li><a href="#attachexisting">如何：附加现有磁盘</a></li>
+<li><a href="#attachempty">如何：附加空磁盘</a></li>
+<li><a href="#initializeinWS">如何：在 Windows Server 2008 R2 中初始化新的数据磁盘</a></li>
+<li><a href="#initializeinlinux">如何：在 Linux 中初始化新的数据磁盘</a></li>
+</ul>
+<h2><a id="concepts"></a>概念</h2>
+<p>您可以将数据磁盘附加到虚拟机以存储应用程序数据。数据磁盘是您可以使用自己的计算机在本地创建，或者使用 Windows Azure 在云中创建的虚拟硬盘 (VHD)。您管理虚拟机中数据磁盘的方式与管理办公室中服务器的方式相同。</p>
+<p>您可以将已包含数据的数据磁盘上传和附加到虚拟机，也可以将空的磁盘附加到虚拟机。添加磁盘时不会停止虚拟机。但是根据虚拟机的大小，您可以附加到虚拟机中的磁盘数量是有限的。下表列出了允许向每种大小的虚拟机中添加的磁盘的数量。</p>
+<table border="1" style="width: 300px;">
+<tbody>
+<tr bgcolor="#e9e7e7"><th>大小</th><th>数据磁盘限制</th></tr>
+<tr>
+<td>特小型</td>
+<td>1</td>
+</tr>
+<tr>
+<td>小型</td>
+<td>2</td>
+</tr>
+<tr>
+<td>中型</td>
+<td>4</td>
+</tr>
+<tr>
+<td>大型</td>
+<td>8</td>
+</tr>
+<tr>
+<td>特大型</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>有关使用数据磁盘的更多信息，请参见<a href="http://go.microsoft.com/fwlink/?LinkId=263439">管理磁盘和映像</a>。</p>
+<h2><a id="attachexisting"></a>如何：附加现有磁盘</h2>
+<ol>
+<li>
+<p>登录到 <a href="http://manage.windowsazure.cn">Windows Azure 管理门户</a>（如果您尚未这么做）。</p>
+</li>
+<li>
+<p>单击“虚拟机”<strong></strong>，然后选择要向其中附加磁盘的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“附加”<strong></strong>，然后选择“附加磁盘”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachexistingdiskwindows.png" alt="附加数据磁盘"/></p>
+<p>将显示“附加磁盘”<strong></strong>对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachexistingdisk.png" alt="输入数据磁盘详细信息"/></p>
+</li>
+<li>
+<p>选择想要附加到虚拟机中的数据磁盘。</p>
+</li>
+<li>
+<p>单击复选标记以将数据磁盘附加到虚拟机。</p>
+<p>虚拟机的仪表板中将列出该数据磁盘。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachsuccess.png" alt="成功附加数据磁盘"/></p>
+</li>
+</ol>
+<h2><a id="attachempty"></a>如何：附加空磁盘</h2>
+<p>当您新建数据磁盘时，需要确定磁盘的大小。在您将空磁盘附加到虚拟机后，该磁盘将处于脱机状态。在可以使用该磁盘之前，您必须先连接到虚拟机，然后使用服务器管理器初始化该磁盘。</p>
+<p><strong>注意：</strong> Windows Azure 存储支持最大为 1 TB 的 blob，其中可容纳最大虚拟大小为 999 GB 的 VHD。当您在 Hyper-V 中为新硬盘输入“1 TB”时，该值代表虚拟大小。这会生成一个超过 512 字节的文件。</p>
+<ol>
+<li>
+<p>单击“虚拟机”<strong></strong>，然后选择要向其中附加数据磁盘的虚拟机。</p>
+</li>
+<li>
+<p>在命令栏中，单击“附加”<strong></strong>，然后选择“附加空磁盘”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachdiskwindows.png" alt="附加空磁盘"/></p>
+<p>将显示“附加空磁盘”<strong></strong>对话框。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachnewdiskwindows.png" alt="附加新的空磁盘"/></p>
+</li>
+<li>
+<p>在“存储位置”<strong></strong>中，选择要存储为数据磁盘创建的 VHD 文件的存储帐户。</p>
+</li>
+<li>
+<p>在“文件名”<strong></strong>中，可以接受自动生成的名称，也可以输入要用于存储的 VHD 文件的名称。从 VHD 文件创建的数据磁盘始终会使用自动生成的名称。</p>
+</li>
+<li>
+<p>在“大小”<strong></strong>中，输入数据磁盘的大小。</p>
+</li>
+<li>
+<p>单击复选标记以附加空数据磁盘。</p>
+<p>虚拟机的仪表板中将列出该数据磁盘。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/attachemptysuccess.png" alt="成功附加空数据磁盘"/></p>
+</li>
+</ol>
+<h2><a id="initializeinWS"></a>如何：在 Windows Server 2008 R2 中初始化新的数据磁盘</h2>
+<p>您刚刚添加到虚拟机中的数据磁盘在您添加它后处于脱机和未初始化状态。您必须先访问虚拟机并初始化磁盘，然后才能使用该磁盘存储数据。</p>
+<ol>
+<li>
+<p>使用<a href="/zh-cn/manage/windows/how-to-guides/log-on-a-windows-vm/">如何登录到运行 Windows Server 2008 R2 的虚拟机</a>中列出的步骤连接到虚拟机</p>
+</li>
+<li>
+<p>在登录到虚拟机之后，打开“服务器管理器”，在左侧窗格中<strong></strong>展开“存储”<strong></strong>，然后单击“磁盘管理”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/servermanager.png" alt="打开服务器管理器"/></p>
+</li>
+<li>
+<p>右键单击“磁盘 2”<strong></strong>，然后单击“初始化磁盘”<strong></strong>。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/initializedisk.png" alt="初始化磁盘"/></p>
+</li>
+<li>
+<p>单击“确定”<strong></strong>启动初始化过程。</p>
+</li>
+<li>
+<p>右键单击磁盘 2 的空间分配区域，单击“新建简单卷”<strong></strong>，然后使用默认值完成该向导。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/initializediskvolume.png" alt="初始化卷"/></p>
+<p>磁盘现在处于联机状态且可以使用新的驱动器号。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/initializesuccess.png" alt="成功初始化卷"/></p>
+</li>
+</ol>
+<h2><a id="initializeinlinux"></a>如何：在 Linux 中初始化新的数据磁盘</h2>
+<ol>
+<li>
+<p>使用<a href="/zh-cn/manage/linux/how-to-guides/log-on-a-linux-vm/">如何登录到运行 Linux 的虚拟机</a>中列出的步骤连接到虚拟机。</p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令，然后输入为管理虚拟机而创建的帐户的密码：</p>
+<p><code>sudo grep SCSI /var/log/messages</code></p>
+<p>您可以在所示消息中找到最后添加的数据磁盘的标识符。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskmessages.png" alt="获得磁盘消息"/></p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令以新建设备，然后输入帐户密码：</p>
+<p><code>sudo fdisk /dev/sdc</code></p>
+</li>
+<li>
+<p>在 SSH 窗口中，键入下面的命令以新建设备，然后输入帐户密码：</p>
+<p><code>sudo fdisk /dev/sdc</code></p>
+</li>
+<li>
+<p>键入<strong> n</strong> 新建一个分区。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskpartition.png" alt="新建设备"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 将该分区设置为主分区，键入<strong> 1</strong> 将其设置为第一分区，然后键入 Enter 以接受默认分区值。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskcylinder.png" alt="创建分区"/></p>
+</li>
+<li>
+<p>键入<strong> p</strong> 以查看有关分区磁盘的详细信息。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskinfo.png" alt="列出磁盘信息"/></p>
+</li>
+<li>
+<p>键入<strong> w</strong> 以写入磁盘的设置。</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskwrite.png" alt="写入磁盘更改"/></p>
+</li>
+<li>
+<p>您必须在新分区上创建文件系统。键入下面的命令以创建文件系统，然后输入帐户密码：</p>
+<p><code>sudo mkfs -t ext4 /dev/sdc1</code></p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/itpro/shared/diskfilesystem.png" alt="创建文件系统"/></p>
+</li>
+<li>
+<p>键入下面的命令以生成驱动器安装目录，然后输入帐户密码：</p>
+<p><code>sudo mkdir /mnt/datadrive</code></p>
+</li>
+<li>
+<p>键入下面的命令以安装驱动器：</p>
+<p><code>sudo mount /dev/sdc1 /mnt/datadrive</code></p>
+<p>数据磁盘现在可以作为 <strong>/mnt/datadrive</strong> 使用。</p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>

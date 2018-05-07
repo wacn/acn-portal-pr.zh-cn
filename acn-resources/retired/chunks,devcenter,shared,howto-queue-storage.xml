@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18666" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="15" createDate="2013-06-04T14:47:45" updateDate="2014-08-18T11:03:50" nodeName="howto-queue-storage" urlName="howto-queue-storage" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18666" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<h2><a name="what-is"></a>什么是队列存储</h2>
+<p>Windows Azure 队列存储是一项可存储大量消息的服务，用户可以通过经验证的呼叫，使用 HTTP 或 HTTPS 从世界任何地方访问这些消息。一条队列消息的大小可达 64 KB，一个队列中可以包含数百万条消息，而一个存储帐户的总容量限值高达 100 TB。队列存储的常见用途包括：</p>
+<ul>
+<li><span>创建积压工作以进行异步处理</span></li>
+<li>将消息从 Windows Azure Web 角色传递到 Windows Azure 辅助角色</li>
+</ul>
+<h2><a name="concepts"></a>概念</h2>
+<p>队列服务包含以下组件：</p>
+<p><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/dotnet/queue1.png" alt="队列 1"/></p>
+<ul>
+<li>
+<p><strong>URL 格式：</strong> 可使用以下 URL 格式访问队列：<br /> http://<code>&lt;存储帐户&gt;</code>.queue.core.chinacloudapi.cn/<code>&lt;队列&gt;</code></p>
+<p>可使用以下 URL 访问示意图中的某个队列：<br /> http://myaccount.queue.core.chinacloudapi.cn/imagesToDownload</p>
+</li>
+<li>
+<p><strong>存储帐户：</strong> 对 Windows Azure 存储服务进行的所有访问都要通过存储帐户完成。存储帐户是访问队列的最高级别的命名空间。一个存储帐户中 Blob、表和队列内容的总大小不能超过 100 TB。</p>
+</li>
+<li>
+<p><strong>队列：</strong> 一个队列包含一组消息。所有消息必须位于相应的队列中。</p>
+</li>
+<li>
+<p><strong>消息：</strong> 一条消息（不管采用何种格式）的最大大小为 64 KB。</p>
+</li>
+</ul>]]></bodyText></Chunk></localize>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18714" parentID="18426" level="5" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="27" createDate="2013-07-11T09:57:03" updateDate="2014-08-18T11:04:18" nodeName="windows-azure-networking" urlName="windows-azure-networking" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,16345,18426,18714" isDoc=""><hideAll>0</hideAll><localize>0</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<h1>Windows Azure 联网</h1>
+<p>连接到 Windows Azure 应用程序和数据的最简单办法是通过普通 Internet 连接。但这种简单办法通常不是最好的办法。Windows Azure 提供了将用户连接到 Windows Azure 数据中心的技术：</p>
+<ul>
+<li>虚拟网络</li>
+<!--<li>Connect</li>
+<li>Traffic Manager</li> --></ul>
+<p>本文将一一介绍这些方法。</p>
+<h2>目录</h2>
+<ul>
+<li><a href="#Vnet">Windows Azure 虚拟网络</a></li>
+<!--<li><a href="#Connect">Windows Azure Connect</a></li>
+<li><a href="#TrafficMngr">Windows Azure Traffic Manager</a></li> --></ul>
+<p> </p>
+<h2>Windows Azure 虚拟网络</h2>
+<p>通过 Windows Azure 可以创建在 Microsoft 数据中心中运行的虚拟机 (VM)。假设您的组织要使用这些 VM 运行供公司员工使用的企业应用程序或其他软件。或许您想要在云中创建一个 SharePoint 服务器场，或运行库存管理应用程序。为了尽可能方便用户操作，您希望可以访问这些应用程序，就好像它们是在您自己的数据中心中运行一样。</p>
+<p>有一个标准解决方案可解决此问题：创建一个虚拟专用网络 (VPN)。例如，如今各种规模的组织都通过这种方法将分支办公室计算机链接到公司的主要数据中心。同样的方法也可用于 Windows Azure VM，如<a href="#Fig1">图 1</a> 所示。</p>
+<p><a name="Fig1"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/networking_01_networking.png" alt="01_Networking"/></p>
+<p><strong>图 1：利用 Windows Azure 虚拟网络服务，可以在云中创建一个连接到本地数据中心的虚拟网络。</strong></p>
+<p>如图所示，利用 Windows Azure 虚拟网络服务可在 Windows Azure 数据中心的一组 VM 周围创建一个称为“虚拟网络或 VNET”的逻辑边界。然后，您可以在此 VNET 与您的本地网络间建立 IPsec 连接。可以使用 Windows Azure 虚拟机服务和/或 Windows Azure 云服务创建 VNET 中的 VM。换言之，它们可以是使用 Windows Azure 的“基础结构即服务”(IaaS) 技术或“平台即服务”(PaaS) 技术创建的 VM。不管作何选择，创建 IPsec 连接都需要一台 VPN 网关设备（挂接到本地网络的一个专门硬件），还需要您的网络管理员提供服务。此连接一旦建立，在 VNET 中运行的 Windows Azure VM 就像是组织网络的另一部分。</p>
+<p>如<a href="#Fig1">图 1</a> 所示，您应从自己的网络所使用的同一 IP 地址空间为这些 Windows Azure VM 分配 IP 地址。在此所示的方案中，使用了专用 IP 地址，云中的 VM 就像另一个 IP 子网。在本地网络上运行的软件会将这些 VM 看作本地 VM，就像它们对待传统 VPN 那样。而且，务必要注意，因为此连接发生在 IP 层，所以两端的虚拟机和物理机都可以运行任何操作系统。运行 Windows Server 或 Linux 的 Windows Azure VM 可以与运行 Windows、Linux 或其他系统的本地计算机交互。也可以使用主流管理工具（包括 System Center 等）来管理云 VM 和它们所包含的应用程序。</p>
+<p>使用 Windows Azure 虚拟网络在许多情况下有重要意义。正如已经提到的，这种方法让企业用户能够更轻松地访问云应用程序。这种易用性的一个重要方面是，可以让 Windows Azure VM 成为现有本地 Active Directory 域的一部分，用户凭借单一登录便能访问他们运行的应用程序。如果您愿意，还可以在云中创建 Active Directory 域，然后将此域连接到您的本地网络。</p>
+<p>在 Windows Azure 数据中心中创建 VNET 可以让您高效地根据需要访问大型资源池。您可以按需创建 VM，在运行它们时才付费，不需要时则删除它们（同时停止付费）。这适用于需要快速访问预配置计算机的场景，例如生成新软件的开发团队。他们无需等待本地管理员设置所需的资源，自己就可以在公有云中创建这些资源。</p>
+<p>正如虚拟网络使得 Windows Azure VM 对于本地资源就像是在本地一样，反过来也是如此：现在，在本地网络中运行的软件对于在 Windows Azure VNET 中运行的应用程序就像是在本地。例如，因为您已确定在云中操作会更经济，所以要将一个现有本地应用程序移到 Windows Azure 中。但是，如果按法律要求必须将该应用程序所使用的数据存储在本地，该怎么办？在这种情况下，使用虚拟网络可让云应用程序将本地数据库系统视为在本地，这样，即可轻松访问它。无论选择哪种方案，结果都一样：Windows Azure 将成为您自己的数据中心的扩展。</p>
+<p> </p>
+<!-- Windows Azure Connect
+<p>有时，将整个本地网络与一组 Windows Azure VM 连接是正确的选择。Windows Azure 虚拟网络就是为解决此问题而设计的。但是，如果您需要的不是这种普通解决方案，该怎么办？假设您只需要将单个 Windows Azure 应用程序（甚至单个 VM）与您的本地网络上的一个特定计算机组连接。解决这一问题便是 Windows Azure Connect 的目标，如<a href="#Fig2">图 2</a> 所示。</p>
+<p><a name="Fig2"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/networking_02_connect.png" alt="02_Connect"/></p>
+<p><strong>图 2：Windows Azure Connect 将 Windows Azure 中的一个或多个 VM 与运行 Windows 的一组本地计算机链接。</strong></p>
+<p>与虚拟网络不同，Connect 无需使用 VPN 网关设备，也不需要网络管理员提供服务（或予以批准）。相反，凡是对本地网络中的某台 Windows 计算机具有管理权限的人都可以在该计算机上安装所需的 Windows Azure Connect 软件。一旦完成安装，该软件便可以建立与指定 Windows Azure VM 关联的 IPsec 链接。</p>
+<p>如图所示，Connect 未将两个网络链接起来；Windows Azure VM 保留任何已有的 IP 地址。相反，它会在特定本地 Windows 计算机与特定 Windows Azure VM 之间建立直接的 IPsec 连接。（为了利用现有防火墙设置，Connect 实际在 SSL 连接的基础之上发送 IPsec。）对于云服务应用程序，您可以选择一个或多个要连接的角色，Windows Azure 允许与这些角色中的每个实例进行通信。对于使用 Windows Azure 虚拟机服务创建的 VM，您可以安装用于本地计算机的相同 Windows Azure Connect 软件。</p>
+<p>Windows Azure Connect 适用于各种场合。例如，在 Windows Azure 上运行的应用程序可以使用 Connect 链接到本地数据库系统，或者本地网络上的开发人员可以使用 Connect 通过域将云 VM 加入本地环境中。尽管 Connect 解决方案不如虚拟网络那样通用，但它更容易设置。开发人员不用打扰他们的网络管理员就能自己设置，而且无需额外硬件。哪种方法最适合您取决于您具体要解决什么问题。</p>
+<p> </p>
+<h2>Windows Azure Traffic Manager</h2>
+<p>假设您已经构建了一个成功的 Windows Azure 应用程序。世界各地许多国家/地区的许多人都在使用您的应用程序。这很了不起，但成功也带来了新问题，事情往往如此。例如，您的应用程序很有可能在世界不同地区的多个 Windows Azure 数据中心中运行。如何跨这些数据中心智能地路由流量，从而让您的用户始终获得最佳体验呢？</p>
+<p>Windows Azure 流量管理器就是为解决此问题而设计的。<a href="#Fig3">图 3</a>演示了相关原理。</p>
+<p><a name="Fig3"></a> <img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/devcenter/shared/networking_03_trafficmanager.png" alt="03_TrafficManager"/></p>
+<p><strong>图 3：Windows Azure 流量管理器可以跨运行于不同 Windows Azure 数据中心中的应用程序实例智能地定向用户请求。</strong></p>
+<p>本例中，您的应用程序在分布在四个数据中心中的 VM 上运行：两个在美国，一个在欧洲，一个在亚洲。假设在柏林的一个用户想要访问该应用程序。如果您正在使用 Traffic Manager，就会发生以下情况。</p>
+<p>像往常一样，该用户的系统会查找您的应用程序的 DNS 名称（<a href="#Fig3">步骤 1</a>）。此查询将重定向到 Windows Azure DNS 系统（<a href="#Fig3">步骤 2</a>），后者随后查找关于此应用程序的 Traffic Manager 策略。每个策略由特定 Windows Azure 应用程序的所有者通过图形界面或 REST API 创建。无论是通过何种方式创建的，该策略都指定了下列三个选项之一：</p>
+<ul>
+<li><strong>性能：</strong> 将所有请求都发送到最近的数据中心。</li>
+<li><strong>故障转移：</strong>将所有请求都发送到此策略的创建者所指定的数据中心，除非该数据中心不可用。在这种情况下，将按照策略的创建者定义的优先次序将请求路由到其他数据中心。</li>
+<li><strong>循环：</strong> 所有请求均匀分布于在其中运行该应用程序的所有数据中心。</li>
+</ul>
+<p>一旦获得正确策略，Traffic Manager 就会根据所指定的三个选项之一来指出应将此请求路由到哪个数据中心（<a href="#Fig3">步骤 3</a>）。然后，它将选定数据中心的位置返回给用户（<a href="#Fig3">步骤 4</a>），该用户然后即可访问该应用程序实例（<a href="#Fig3">步骤 5</a>）。</p>
+<p>为实现此目的，Traffic Manager 必须知道每个数据中心目前已启动并在运行该应用程序的哪些实例。为此，Traffic Manager 会定期通过 HTTP GET 对应用程序的每个副本执行 ping 操作，然后记录是否收到响应。如果某应用程序实例停止响应，Traffic Manager 将停止向该实例发送流量，直到它恢复响应 ping 为止。</p>
+<p>并非每个应用程序都足够大或使用面足够广，需要使用 Traffic Manager。但是，对于那些确实足够大或使用面足够广的应用程序而言，这可能是一项很有用的服务。</p>
+-->
+<h2>关于作者</h2>
+<p>David Chappell 是位于加利福尼亚州旧金山市的 Chappell &amp; Associates (<a href="http://www.davidchappell.com">www.davidchappell.com</a>) 的负责人。他通过演讲、写作和咨询，帮助全球的人们了解、使用新技术并围绕新技术做出更好的决策。</p>
+</div>]]></bodyText></Chunk></localize>

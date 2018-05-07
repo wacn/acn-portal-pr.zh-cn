@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize><Chunk id="18782" parentID="18652" level="4" writerID="52" creatorID="94" nodeType="9257" template="0" sortOrder="13" createDate="2013-07-11T10:16:29" updateDate="2014-08-18T11:06:46" nodeName="install-and-run-mongo-on-win2k8-vm" urlName="install-and-run-mongo-on-win2k8-vm" writerName="uRest" creatorName="xunfan" path="-1,11978,13607,18652,18782" isDoc=""><hideAll>0</hideAll><localize>1</localize><localizePartial>0</localizePartial><bodyText><![CDATA[<div>
+<p>按照以下步骤操作可在运行 Windows Server 2008 R2 的虚拟机上安装和运行 MongoDB。</p>
+<div class="dev-callout">警告
+<p>默认情况下不启用 MongoDB 安全功能，例如身份验证和 IP 地址绑定。在将 MongoDB 部署到生产环境之前，应启用安全功能。有关更多信息，请参见<a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">安全性和身份验证（可能为英文页面）</a>。</p>
+</div>
+<ol>
+<li>使用远程桌面连接到该虚拟机后，从“开始”菜单打开 Internet Explorer。</li>
+<li>选择右上角的“工具”按钮。在“Internet 选项”中，选择“安全”选项卡，然后选择“受信任站点”图标，最后单击“站点”按钮。将 <em>http://*.mongodb.org</em> 添加到受信任站点列表中。</li>
+<li>转到<a href="http://www.mongodb.org/downloads">下载 - MongoDB（可能为英文页面）</a>。</li>
+<li>在“Production Release (Recommended)”（产品版本(推荐)）部分查找最新版本，并单击“Windows 64-bit”（Windows 64 位）列中的“*2008+”链接。单击“另存为”并将 zip 文件保存到桌面。</li>
+<li>右键单击 zip 文件并选择“全部提取...”指定“C:\”并单击“提取”。在提取文件后，您可能需要将安装文件夹重命名为其他更简单的名称。例如“MongoDB”。</li>
+<li>
+<p>在上述步骤中创建的数据磁盘（例如 <strong>F:</strong> 盘）中创建 MongoDB 数据和日志目录。从“开始”中，选择“命令提示符”以打开命令提示符窗口。输入：</p>
+<pre class="prettyprint">C:\&gt; F: F:\&gt; mkdir \MongoData F:\&gt; mkdir \MongoLogs</pre>
+</li>
+<li>
+<p>若要运行数据库，请运行：</p>
+<pre class="prettyprint">F:\&gt; C: C:\&gt; cd \MongoDB\bin C:\my_mongo_dir\bin&gt; mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log</pre>
+<p>当 mongod.exe 服务器启动和预分配日志文件时，所有日志消息都将定向到 <em>F:\MongoLogs\mongolog.log</em> 文件。MongoDB 可能需要几分钟来预分配日志文件和开始侦听连接。</p>
+</li>
+<li>
+<p>若要启动 MongoDB 命令行管理程序，请从“开始”中打开另一个窗口并输入以下内容：</p>
+<pre class="prettyprint">C:\&gt; cd \my_mongo_dir\bin   C:\my_mongo_dir\bin&gt; mongo   &gt;db   test       &gt; db.foo.insert( { a : 1 } )   &gt; db.foo.find()   { _id : ..., a : 1 }   &gt; show dbs   ...   &gt; show collections   ...   &gt; help</pre>
+<p>通过 insert 创建数据库。</p>
+</li>
+<li>
+<p>（可选）支持将 mongod.exe 作为 Windows 服务进行安装和运行。若要将 mongod.exe 作为服务安装，请从命令提示符处运行以下命令：</p>
+<pre class="prettyprint">C:\mongodb\bin&gt;mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install</pre>
+<p>这将创建一项说明为“Mongo DB”的名为“Mongo DB”的服务。必须使用 <strong>--logpath</strong> 选项指定日志文件，因为正运行的服务不会在命令窗口中显示输出。<strong>--logpath</strong> 选项指定重新启动服务可将输出附加到现有日志文件。<strong>--dbpath</strong> 选项指定数据目录的位置。有关与服务相关的更多命令行选项，请参阅<a href="http://www.mongodb.org/display/DOCS/Windows+Service">与服务相关的命令行选项（可能为英文页面）</a>。</p>
+</li>
+<li>现在，MongoDB 已安装且处于运行状态，您必须在 Windows 防火墙中打开一个端口才能远程连接到 MongoDB。从“开始”菜单中，选择“管理工具”，然后选择“高级安全 Windows 防火墙”。</li>
+<li>
+<p>在左窗格中，选择“入站规则”。在右侧的“操作”窗格中，选择“新建规则...”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winfirewall1.png" alt="Windows 防火墙"/></p>
+<p>在“新建入站规则向导”中，选择“端口”，然后单击“下一步”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winfirewall2.png" alt="Windows 防火墙"/></p>
+<p>选择“TCP”，然后选择“特定本地端口”。指定端口“27107”（MongoDB 侦听的端口），然后单击“下一步”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winfirewall3.png" alt="Windows 防火墙"/></p>
+<p>选择“允许连接”，然后单击“下一步”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winfirewall4.png" alt="Windows 防火墙"/></p>
+<p>再次单击“下一步”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winfirewall5.png" alt="Windows 防火墙"/></p>
+<p>指定规则名称（如“MongoPort”），然后单击“完成”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winfirewall6.png" alt="Windows 防火墙"/></p>
+</li>
+<li>
+<p>在安装 MongoDB 后，您必须配置终结点才能远程访问 MongoDB。在“管理门户”中，依次单击“虚拟机”、您的新虚拟机的名称和“终结点”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winvmaddendpoint.png" alt="终结点"/></p>
+</li>
+<li>
+<p>单击页面底部的“添加终结点”。选择“添加终结点”，然后单击“下一步”。<img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winvmaddendpoint2.png" alt="终结点"/></p>
+</li>
+<li>
+<p>添加名为“Mongo”的终结点、协议 <strong>TCP</strong>，并将“公用”和“专用”端口均设置为“27017”。这将允许对 MongoDB 进行远程访问。<br /><img src="http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/media/shared/winvmaddendpoint3.png" alt="终结点"/></p>
+</li>
+</ol></div>]]></bodyText></Chunk></localize>
