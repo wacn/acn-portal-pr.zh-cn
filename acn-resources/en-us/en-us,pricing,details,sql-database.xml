@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2016-06-29T15:44:24" urlName="sql-database" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+        <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+        </style>
+            <tags ms.service="sql-database" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/sql-server.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/css/sql-database@2x.png" />
+                        <h2>Azure SQL Database</h2>
+                        <h4>Managed relational SQL Database as a service</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_sql_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_sql_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure SQL Database is a cloud database service built for <strong>application developers</strong>. The database is a unique service that allows <a href="https://docs.azure.cn/sql-database/sql-database-service-tiers" id="home-sql_sql-database-service-tiers">real time scaling without downtime</a>, helps you to efficiently deliver multi-tenant applications, and further provides you with more time to innovate and release products to the market at a faster speed. The <strong>built-in intelligence</strong> of the SQL Database will quickly <a href="https://docs.azure.cn/sql-database/sql-database-advisor" id="home-sql_sql-database-advisor">understand the unique characteristics of the application and dynamically adjust it</a> to maximize its performance, reliability, and data protection capabilities. You can use <a href="https://docs.azure.cn/sql-database/sql-database-develop-overview" id="home-sql_sql-database-develop-overview">a language and platform you like to generate secure applications</a> which shall be connected to an SQL Database.</p>
+                <h2>Pricing Details</h2>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab">
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database" data-toggle="tab">Elastic Database</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-href="#tabContent2" id="home_single_database" data-toggle="tab">Single database</a>
+                    </li>
+                </ul>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: Level 1 tab content panel 1 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 1 -->
+                        <ul class="tab-nav">
+                            <li class="active">
+                                <a href="javascript:void(0)" data-href="#tabContent1-1" data-toggle="tab" id="elastic_database-VCore">vCore</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent1-2"  data-toggle="tab" id="elastic_database-DTU">DTU</a>
+                            </li>
+                        </ul>
+                        <!-- END: Tab level 2 navigator 1 -->
+                        <!-- BEGIN: Tab level 2 content -->
+                        <div class="tab-content">
+                            <p>SQL Database Elastic Pool is a shared resource model that enables higher resource utilization efficiency, with all the databases within an elastic pool sharing predefined resources within the same pool. The workload pattern is well defined and is highly cost-effective in multitenant scenarios. Elastic pool is best for new SaaS apps, or for modernizing existing apps to SaaS.</p>
+                            <!-- BEGIN: Tab level 2 content 1-1 -->
+                            <div class="tab-panel" id="tabContent1-1">
+                                <p>A vCore-based purchase model is best if you are looking for flexibility, control and transparency of individual resource consumption. This model allows you to scale compute, memory, and storage based upon your workload needs and provides a straightforward way to translate on-premises workload requirements to the cloud. The vCore model is in preview. Prices reflect general availability rates.</p>
+                                <h3>General Purpose</h3>
+                                <p>Ideal for most business workloads, offering balanced and scalable compute and storage options.</p>
+                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>1 vCore = 1 physical CPU</p>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%"
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Meomry（GB）</strong></th>
+                                        <th align="left"><strong>Max number of databases per pool</th>
+                                        <th align="left"><strong>License included price<sup> 1</sup></strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 2</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>7</td>
+                                        <td>100</td>
+                                        <td>￥2.5662/hour<br/>( about ￥1,909.2528/month )</td>
+                                        <td>￥1.549/hour<br/>( about￥1,152.456/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>14</td>
+                                        <td>200</td>
+                                        <td>￥5.1324/hour<br/>( about ￥3,818.5056/month )</td>
+                                        <td>￥3.0979/hour<br/>( about￥2,304.8376/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>28</td>
+                                        <td>500</td>
+                                        <td>￥10.2649/hour<br/>( about ￥7,637.0856/month )</td>
+                                        <td>￥6.1958/hour<br/>( about￥4,609.6752/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>500</td>
+                                        <td>￥20.5297/hour<br/>( about ￥15,274.0968/month )</td>
+                                        <td>￥12.3917/hour<br/>( about￥9,219.4248/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>500</td>
+                                        <td>￥41.0594/hour<br/>( about ￥30,548.1936/month )</td>
+                                        <td>￥24.7834/hour<br/>( about￥18,438.8496/month )（~40%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>The vCore model is in preview. Prices reflect general availability rates.</div><br />
+                                    <div class="ms-date"><sup>2 </sup>Applies to SQL Server Licenses with active Software Assurance (SA).</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+                                <h4>Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>In the General Purpose tier, you are charged for Premium blob storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 4 TB with 1 GB increments.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>￥ 1.17024</td>
+                                    </tr>
+                                </table>
+                                <h4>Backup Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>Free while in Preview</td>
+                                    </tr>
+                                </table>
+                                <h4>I/Os<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>Free while in Preview</p>
+                                <h3>Business Critical</h3>
+                                <p>Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.</p>
+                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>1 vCore = 1 physical CPU</p>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Memory（GB）</strong></th>
+                                        <th align="left"><strong>Max number of databases per pool</th>
+                                        <th align="left"><strong>License included price<sup> 1</sup></strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 2</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>14</td>
+                                        <td>50</td>
+                                        <td>￥13.8279/hour<br/>( about￥10,287.9576/month )</td>
+                                        <td>￥6.1959/hour<br/>( about￥4,609.7496/month )（~55%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>28</td>
+                                        <td>100</td>
+                                        <td>￥27.6557/hour<br/>( about￥20,575.8408/month )</td>
+                                        <td>￥12.3917/hour<br/>( about￥9,219.4248/month )（~55%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>100</td>
+                                        <td>￥55.3114/hour<br/>( about￥41,151.6816/month )</td>
+                                        <td>￥24.7834/hour<br/>( about￥18,438.8496/month )（~55%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>100</td>
+                                        <td>￥110.6229/hour<br/>( about￥82,303.4376/month )</td>
+                                        <td>￥49.5669/hour<br/>( about￥36,877.7736/month )（~55%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>The vCore model is in preview. Prices reflect general availability rates.</div><br />
+                                    <div class="ms-date"><sup>2 </sup>Applies to SQL Server Licenses with active Software Assurance (SA).</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+                                <h4>Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>In the Business Critical tier, you are charged for local SSD storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 1 TB with 1 GB increments.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>￥ 2.544</td>
+                                    </tr>
+                                </table>
+                                <h4>Backup Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>Free while in Preview</td>
+                                    </tr>
+                                </table>
+                                <h4>I/Os<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>Free while in Preview</p>
+                                
+                            </div>
+                            <div class="tab-panel" id="tabContent1-2">
+                                <h3>Elastic pools</h3>
+                                <p>Elastic pools let you manage the collective performance of a pool of databases rather than single databases. The databases in the pool automatically scale up and down to meet demand. You can easily add and remove databases from the pool, scaling your app from a handful of databases to thousands, all within a budget you control.</p>
+                                <p>Elastic pools are available in basic, standard, and premium service tiers. Each tier is distinguished primarily by its overall performance, which is measured in <a href="//docs.azure.cn/sql-database/sql-database-service-tiers#understanding-dtus">elastic Database Transaction Units (eDTUs)</a>. See<a href="//docs.azure.cn/sql-database/sql-database-service-tiers#understanding-dtus"> Service tiers for elastic database pools</a> for details.</p>
+                                <h3>Basic</h3>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>eDTU/each pool</strong></th>
+                                        <th align="left"><strong>Storage of each pool</strong></th>
+                                        <th align="left"><strong>Max storage per pool<sup>1</sup></strong></th>
+                                        <th align="left"><strong>Max DB/pool</strong></th>
+                                        <th align="left"><strong>Max eDTU/database</strong></th >
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td>5 GB</td>
+                                        <td>5 GB</td>
+                                        <td>100</td>
+                                        <td>5</td>
+                                        <td>￥ 31.00/day<br/>(about￥ 961.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>100</td>
+                                        <td>10 GB</td>
+                                        <td>10 GB</td>
+                                        <td>200</td>
+                                        <td>5</td>
+                                        <td>￥ 62.00/day<br/>(about￥ 1,922.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200</td>
+                                        <td>20 GB</td>
+                                        <td>20 GB</td>
+                                        <td>500</td>
+                                        <td>5</td>
+                                        <td>￥ 124.00/day<br/>(about￥ 3,844.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>300</td>
+                                        <td>29 GB</td>
+                                        <td>29 GB</td>
+                                        <td>500</td>
+                                        <td>5</td>
+                                        <td>￥186.00/day<br/>(about￥5,766.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>400</td>
+                                        <td>39 GB</td>
+                                        <td>39 GB</td>
+                                        <td>500</td>
+                                        <td>5</td>
+                                        <td>￥248.00/day<br/>(about￥7,688.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>800</td>
+                                        <td>78 GB</td>
+                                        <td>78 GB</td>
+                                        <td>500</td>
+                                        <td>5</td>
+                                        <td>￥496.00/day<br/>(about￥15,376.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1200</td>
+                                        <td>117 GB</td>
+                                        <td>117 GB</td>
+                                        <td>500</td>
+                                        <td>5</td>
+                                        <td>￥744.00/day<br/>(about￥23,064.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1600</td>
+                                        <td>156 GB</td>
+                                        <td>156 GB</td>
+                                        <td>500</td>
+                                        <td>5</td>
+                                        <td>￥992.00/day<br/>(about￥ 30,752.00/month)</td>
+                                    </tr>
+                                </table>
+                                
+                                <h3>Standard</h3>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>eDTU/each pool</strong></th>
+                                        <th align="left"><strong>Storage of each pool</strong></th>
+                                        <th align="left"><strong>Max storage space/pool<sup>1</sup></strong></th>
+                                        <th align="left"><strong>Max DB/pool</strong></th>
+                                        <th align="left"><strong>Max eDTU/database</strong></th >
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td>50 GB</td>
+                                        <td>500 GB</td>
+                                        <td>100</td>
+                                        <td>50</td>
+                                        <td>￥46.00/day<br/>(about￥1,426.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>100</td>
+                                        <td>100 GB</td>
+                                        <td>750 GB</td>
+                                        <td>200</td>
+                                        <td>100</td>
+                                        <td>￥92.00/day<br/>(about￥2,852.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200</td>
+                                        <td>200 GB</td>
+                                        <td>1 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥184.00day<br/>(about￥5,704.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>300</td>
+                                        <td>300 GB</td>
+                                        <td>1.25 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥276.00/day<br/>(about￥8,556.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>400</td>
+                                        <td>400 GB</td>
+                                        <td>1.5 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥368.00/day<br/>(about￥11,408.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>800</td>
+                                        <td>800 GB</td>
+                                        <td>2 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥736.00/day<br/>(about￥22,816.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1200</td>
+                                        <td>1.2 TB</td>
+                                        <td>2.5 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥1,104.00/day  <br/>(about￥34,224.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1600</td>
+                                        <td>1.6 TB</td>
+                                        <td>3 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥1,472.00/day<br/>(about￥45,632.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2000</td>
+                                        <td>1.9 TB</td>
+                                        <td>3.5 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥1,840.00/day<br/>(about￥57,040.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2500</td>
+                                        <td>2.4 TB</td>
+                                        <td>4 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥2,300.00/day<br/>(about￥71,300.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3000</td>
+                                        <td>2.9 TB</td>
+                                        <td>4 TB</td>
+                                        <td>500</td>
+                                        <td>100</td>
+                                        <td>￥2,760.00/day<br/>(about￥85,560.00/month)</td>
+                                    </tr>
+                                </table>
+                                <!-- END: Table2-Content--> <!-- BEGIN: Table3-Content-->
+                                <h3>Premium RS<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h3>
+                                <p>Premium RS is designed for IO intensive workloads that can accept a limited durability guarantee and lower Service Level Agreements. The running of Premium RS reduces the number of redundant copies, which means that in the event of a service failure, capturing the backup and recovery data may require a five-minute delay.</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>eDTU/each pool</strong></th>
+                                        <th align="left"><strong>Storage of each pool</strong></th>
+                                        <th align="left"><strong>Max storage space/pool<sup>1</sup></strong></th>
+                                        <th align="left"><strong>Max DB/pool</strong></th>
+                                        <th align="left"><strong>Max eDTU/database</strong></th >
+                                        <th align="left"><strong>Pricing</strong> Preview</th>
+                                    </tr>
+                                    <tr>
+                                        <td>125</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <td>50</td>
+                                        <td>125</td>
+                                        <td>￥71.25/day<br/>(about￥2,208.75/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>250</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>250</td>
+                                        <td>￥142.5/day<br/>(about￥ 4,417.5/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>500</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>500</td>
+                                        <td>￥285.00/day<br/>(about￥8,835.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1000</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1000</td>
+                                        <td>￥570.00/day<br/>(about￥ 17,670.00/month)</td>
+                                    </tr>
+                                </table>   
+                                <!-- END: Table3-Content--> <!-- BEGIN: Table4-Content-->
+                                <h3>Premium</h3>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>eDTU/each pool</strong></th>
+                                        <th align="left"><strong>Storage of each pool</strong></th>
+                                        <th align="left"><strong>Max storage space/pool<sup>1</sup></strong></th>
+                                        <th align="left"><strong>Max DB/pool</strong></th>
+                                        <th align="left"><strong>Max eDTU/database</strong></th >
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>125</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <td>50</td>
+                                        <td>125</td>
+                                        <td>￥285.00/day<br/>(about￥8,835.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>250</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>250</td>
+                                        <td>￥570.00/day<br/>(about￥ 17,670.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>500</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>500</td>
+                                        <td>￥1,140/day<br/>(about￥35,340.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1000</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1000</td>
+                                        <td>￥2280.00/day<br/>(about￥70,680.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1500</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1000</td>
+                                        <td>￥3420.00/hour<br/>(about￥106,020.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2000</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1750</td>
+                                        <td>￥4,560.00/day<br/>(about￥ 141,360.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2500</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1750</td>
+                                        <td>￥5,700.00/day<br/>(about￥176,700.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3000</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1750</td>
+                                        <td>￥6,840.00/day<br/>(about￥212,040.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3500</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>1750</td>
+                                        <td>￥7,980.00/day<br/>(about￥247,380.00/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4000</td>
+                                        <td>750 GB</td>
+                                        <td>1 TB</td>
+                                        <td>100</td>
+                                        <td>4000</td>
+                                        <td>￥9,120.00/day<br/>(about￥282,720.00/month)</td>
+                                    </tr>
+                                </table>
+                                <!-- END: Table4-Content-->
+                                <h3>Extra Data Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h3>
+                                <p>The following are preview prices.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">
+                                            <strong></strong>
+                                        </th>
+                                        <th align="left">
+                                            <strong>Pricing</strong> Preview
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Standard</td>
+                                        <td>￥0.5406/month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Premium level and premium RS</td>
+                                        <td>￥1.0812/month</td>
+                                    </tr>
+                                </table>
+                                <p>Extra storage is only available in the standard and premium service tiers. </p>
+
+                                <h3>Long Term Retention Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h3>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">
+                                            <strong></strong>
+                                        </th>
+                                        <th align="left">
+                                            <strong>Preview Price</strong>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Long Term Retention Storage</td>
+                                        <td>¥0.4681/GB/month</td>
+                                    </tr>
+                                </table>
+                                <h3>Active Geo-replication</h3>
+                                <p>Active Geo-replication can create up to 4 online (readable) secondary databases in any Azure region. The secondary database can be created using the same service level as the primary database, with some potential differences in performance. The secondary database is priced at 1 times the price of the selected performance level. The traffic costs arising from Geo-replication between the primary and secondary databases are included in the costs of the online secondary database.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BEGIN: TAB-CONTAINER-2 -->
+                    <div class="tab-panel" id="tabContent2">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <ul class="tab-nav">
+                            <li class="active">
+                                <a href="javascript:void(0)" data-href="#tabContent2-1" data-toggle="tab" id="single_database-vcore">vCore</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent2-2" data-toggle="tab" id="single_database-dtu">DTU</a>
+                            </li>
+                            </li>
+                        </ul>
+                        <!-- BEGIN: Tab level 2 content 2 --> 
+                        <div class="tab-content">
+                            <p>Single Database is best for applications with predictable patterns and relatively stable workloads.</p>
+                            <!-- BEGIN: Tab level 2 content 2-1 -->
+
+                            <div class="tab-panel" id="tabContent2-1">
+                                <p>A vCore-based purchase model is best if you are looking for flexibility, control and transparency of individual resource consumption. This model allows you to scale compute, memory, and storage based upon your workload needs and provides a straightforward way to translate on-premises workload requirements to the cloud. The vCore model is in preview. Prices reflect general availability rates.</p>
+                                <h3>General Purpose</h3>
+                                <p>Ideal for most business workloads, offering balanced and scalable compute and storage options.</p>
+                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>1 vCore = 1 physical CPU</p>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Meomry（GB）</strong></th>
+                                        <th align="left"><strong>License included price<sup> 1</sup></strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 2</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>7</td>
+                                        <td>￥2.5662/hour<br/>( about￥1,909.2528/month )</td>
+                                        <td>￥1.549/hour<br/>( about￥1,152.456/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>14</td>
+                                        <td>￥5.1324/hour<br/>( about￥3,818.5056/month )</td>
+                                        <td>￥3.0979/hour<br/>( about￥2,304.8376/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>28</td>
+                                        <td>￥10.2649/hour<br/>( about￥7,637.0856/month )</td>
+                                        <td>￥6.1958/hour<br/>( about￥4,609.6752/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>￥20.5297/hour<br/>( about￥15,274.0968/month )</td>
+                                        <td>￥12.3917/hour<br/>( about￥9,219.4248/month )（~40%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>￥41.0594/hour<br/>( about￥30,548.1936/month )</td>
+                                        <td>￥24.7834/hour<br/>( about￥18,438.8496/month )（~40%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>The vCore model is in preview. Prices reflect general availability rates.</div><br />
+                                    <div class="ms-date"><sup>2 </sup>Applies to SQL Server Licenses with active Software Assurance (SA).</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+                                <h4>Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>In the General Purpose tier, you are charged for Premium blob storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 4 TB with 1 GB increments.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>￥ 1.17024</td>
+                                    </tr>
+                                </table>
+                                <h4>Backup Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>Free while in Preview</td>
+                                    </tr>
+                                </table>
+                                <h4>I/Os<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>Free while in Preview</p>
+
+                                <h3>Business Critical</h3>
+                                <p>Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.</p>
+                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>1 vCore = 1 physical CPU</p>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Memory（GB）</strong></th>
+                                        <th align="left"><strong>License included price<sup> 1</sup></strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 2</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>7</td>
+                                        <td>￥6.9139/hour<br/>( about￥5,143.9416/month )</td>
+                                        <td>￥3.0979/hour<br/>( about￥2,304.8376/month )（~55%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>14</td>
+                                        <td>￥13.8279/hour<br/>( about￥10,287.9576/month )</td>
+                                        <td>￥6.1959/hour<br/>( about￥4,609.7496/month )（~55%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>28</td>
+                                        <td>￥27.6557/hour<br/>( about￥20,575.8408/month )</td>
+                                        <td>￥12.3917/hour<br/>( about￥9,219.4248/month )（~55%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>￥55.3114/hour<br/>( about￥41,151.6816/month )</td>
+                                        <td>￥24.7834/hour<br/>( about￥18,438.8496/month )（~55%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>￥110.6229/hour<br/>( about￥82,303.4376/month )</td>
+                                        <td>￥49.5669/hour<br/>( about￥36,877.7736/month )（~55%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>The vCore model is in preview. Prices reflect general availability rates.</div><br />
+                                    <div class="ms-date"><sup>2 </sup>Applies to SQL Server Licenses with active Software Assurance (SA).</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+                                <h4>Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>In the Business Critical tier, you are charged for local SSD storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 1 TB with 1 GB increments.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>￥ 2.544</td>
+                                    </tr>
+                                </table>
+
+                                <h4>Backup Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>Free while in Preview</td>
+                                    </tr>
+                                </table>
+                                <h4>I/Os<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                <p>Free while in Preview</p>
+                               
+                            </div>
+                            <!-- END: Tab level 2 content 2-1-->
+                            <!-- BEGIN: Tab level 2 content 2-2 -->
+                            <div class="tab-panel" id="tabContent2-2">
+                                <!-- BEGIN: Table1-Content-->
+                                <p>Single databases are fully isolated databases optimized for workloads when performance demands are somewhat predictable. You can scale a single database up or down through the basic, standard, and premium service tiers to get the performance and features your app needs, precisely when it needs it. Each tier is distinguished primarily by performance, which is measured in <a class="wa-selta" id="documentation-articles-sql-database-service-tiers-" style="color:#00a8d9;" target="_blank" href="//docs.azure.cn/sql-database/sql-database-service-tiers/">Database Transaction Unit (DTU)</a>. See <a target="_blank" class="wa-selta" id="/documentation/articles/sql-database-service-tiers/" href="//docs.azure.cn/sql-database/sql-database-service-tiers/" style="color:#00a8d9;">Service Layers</a> for more details.</p>
+                                <h3>Basic</h3>
+                                <p>Applications designed for light transaction workloads. The "basic" level performance goal provides a predictable hourly transaction rate.</p>
+                                
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th></th>
+                                        <th align="left"><strong>Database Transaction Unit</strong></th>
+                                        <th align="left"><strong>Storage included</strong></th>
+                                        <th align="left"><strong>Max storage</strong></th>
+                                        <!-- <th align="left"><strong>时点还原<br />（自助还原）</strong></th> -->
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>B</td>
+                                        <td>5 DTU</td>
+                                        <td>2 GB</td>
+                                        <td>2 GB</td>
+                                        <!-- <td>7天</td> -->
+                                        <td>￥1.04/day<br />(about￥32.24/month)</td>
+                                    </tr>
+                                </table>
+                                <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
+                                <h3>Standard</h3>
+                                <p>The standard is suitable for transactional workloads. It provides medium level performance and built-in business continuity features, including point-in-time recovery. The "standard" level performance goal provides a predictable transaction rate per minute.</p>
+                                <p>Provide Max flexibility. Supports all virtual machine configurations and features.</p>
+                                <!-- <p>从2016年4month1日起，单个数据库标准级别价格将下调25.5%，以下是新价格：</p> -->
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">                 
+                                    <tr>
+                                        <th></th>
+                                        <th align="left"><strong>Database Transaction Unit</strong></th>
+                                        <th align="left"><strong>Storage included</strong></th>
+                                        <th align="left"><strong>Max storage</strong></th>
+                                        <!-- <th align="left"><strong>时点还原<br />（自助还原）</strong></th> -->
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>S0</td>
+                                        <td>10 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>250 GB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥3.13/day<br />(about￥97.03/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>S1</td>
+                                        <td>20 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>250 GB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥6.24/day<br />(about￥193.44/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>S2</td>
+                                        <td>50 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>250 GB</td>
+                                       <!--  <td>14天内的任何点</td> -->
+                                        <td>￥15.65/day<br />(about￥485.15/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>S3</td>
+                                        <td>100 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                       <!--  <td>14天内的任何点</td> -->
+                                        <td>￥31.27/day<br />(about￥969.37/month)</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>S4（Preview）</td>
+                                        <td>200 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥32.45/day<br />(about￥1,005.95/month)</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>S6（Preview）</td>
+                                        <td>400 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥64.89/day<br />(about￥2,011.59/month)</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>S7（Preview）</td>
+                                        <td>800 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥129.79/day<br />(about￥4,023.49/month)</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>S9（Preview）</td>
+                                        <td>1600 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥259.57/day<br />(about￥8,046.67/month)</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>S12（Preview）</td>
+                                        <td>3000 DTU</td>
+                                        <td>250 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>14天内的任何点</td> -->
+                                        <td>￥486.70/day<br />(about￥15,087.70/month)</td>
+                                    </tr> 
+                                </table>
+                                <!-- END: Table2-Content--> <!-- BEGIN: Table3-Content-->
+                                <h3>Premium RS<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h3>
+                                    <p>Premium RS is designed for IO intensive workloads that can accept a limited durability guarantee and lower Service Level Agreements. The running of Premium RS reduces the number of redundant copies, which means that in the event of a service failure, capturing the backup and recovery data may require a five-minute delay.</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">               
+                                    <tr>
+                                        <th></th>
+                                        <th align="left"><strong>Database Transaction Unit</strong></th>
+                                        <th align="left"><strong>Storage included</strong></th>
+                                        <th align="left"><strong>Max storage</strong></th>
+                                        <!--<th align="left"><strong>时点还原<br />（自助还原）</strong></th>-->
+                                        <th align="left"><strong>Pricing</strong>（Preview）</th>
+                                    </tr>
+                                    <tr>
+                                        <td>PRS1</td>
+                                        <td>125 DTU</td>                            
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!--<td>35天</td>-->
+                                        <td>￥24.20/day<br />(about￥750.28/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PRS2</td>
+                                        <td>250 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!--<td>35天</td>-->
+                                        <td>￥48.40/day<br />(about￥1,500.56/month)</td>
+                                    <tr>
+                                        <td>PRS4</td>
+                                        <td>500 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!--<td>35天</td>-->
+                                        <td>￥96.81/day<br />(about￥3,001.10/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PRS6</td>
+                                        <td>1000 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!--<td>35天</td>-->
+                                        <td>￥193.62/day<br />(about￥6,002.13/month)</td>
+                                    </tr>
+                                </table>
+                                <!-- END: Table3-Content--> <!-- BEGIN: Table4-Content-->
+                                <h3>Premium</h3>
+                                <!-- <p>从2016年4month1日起，高级级别价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">               
+                                    <tr>
+                                        <th></th>
+                                        <th align="left"><strong>Database Transaction Unit</strong></th>
+                                        <th align="left"><strong>Storage included</strong></th>
+                                        <th align="left"><strong>Max storage</strong></th>
+                                        <!-- <th align="left"><strong>时点还原<br />（自助还原）</strong></th> -->
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>P1</td>
+                                        <td>125 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>35天</td> -->
+                                        <td>￥96.81/day<br />(about￥3,001.11/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P2</td>
+                                        <td>250 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>35天</td> -->
+                                        <td>￥193.62/day<br />(about￥6,002.22/month)</td>
+                                    <tr>
+                                        <td>P4</td>
+                                        <td>500 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>35天</td> -->
+                                        <td>387.24/day<br />(about￥12,004.44/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P6 (formerly P3)<sup style="font-weight: normal;">1</sup></td>
+                                        <td>1,000 DTU</td>
+                                        <td>500 GB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>35天</td> -->
+                                        <td>￥774.47/day<br />(about 24,008.57/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P11</td>
+                                        <td>1,750 DTU</td>
+                                        <td>1 TB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>35天</td> -->
+                                        <td>￥ 1,455.86/day<br />(about￥ 45,131.66/month)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P15</td>
+                                        <td>4,000 DTU</td>
+                                        <td>1 TB</td>
+                                        <td>1 TB</td>
+                                        <!-- <td>35天</td> -->
+                                        <td>￥ 3,327.61/day<br />(about￥ 103,155.91/month)</td>
+                                    </tr>
+
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup style="font-weight: normal;">1</sup>From now on, P3 is officially renamed P6.</div>
+                                </div>
+                                <p>Note: The output data will be charged according to the regular <a id="SQL_Database_chuanshu" style="color: #00a8d9;" href="/pricing/details/data-transfer/" target="_blank">data transmission</a> rate.</p>
+
+                                <h3>Extra Data Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h3>
+                                <p>The following are preview prices.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">
+                                            <strong></strong>
+                                        </th>
+                                        <th align="left">
+                                            <strong>Pricing</strong> Preview
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Standard</td>
+                                        <td>￥0.5406/month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Premium and Premium RS</td>
+                                        <td>￥1.0812/month</td>
+                                    </tr>
+                                </table>
+                                <p>Extra storage is only available in the standard and premium service tiers. </p>
+                        
+                                <!-- END: Table4-Content--> 
+                                <h3>Long Term Retention Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h3>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">
+                                            <strong></strong>
+                                        </th>
+                                        <th align="left">
+                                            <strong>Preview Price</strong>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Long Term Retention Storage</td>
+                                        <td>¥0.4681/GB/month</td>
+                                    </tr>
+                                </table>
+                                <!-- BEGIN: Table5-Content-->
+                                <h3>Active Geo-replication</h3>
+                                <p>Active Geo-replication can create up to 4 online (readable) secondary databases in any Azure region. The secondary database can be created using the same service level as the primary database, with some potential differences in performance. The secondary database is priced at 1 times the price of the selected performance level. The traffic costs arising from Geo-replication between the primary and secondary databases are included in the costs of the online secondary database.</p>
+                                <!-- END: Table5-Content-->
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+                <!-- END: TAB-CONTAINER-2 -->
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question1">What is a vCore?</a>
+                                <section>
+                                     <p>A virtual core (vCore) represents the logical CPU available for your server, offered with a choice between generations of hardware. For servers created using Gen4 vCores, the vCores are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. For servers created using Gen5 vCores, the vCores are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question2">What does the vCore-based model provide?</a>
+                                <section>
+                                     <p>The vCore-based purchasing model gives you more flexibility and control and a straightforward way to translate your on-premises workload requirements to the cloud. It also allows you to scale compute and storage resources independently, based upon your workload needs.</p>
+                                     <p>The vCore-based model is available to SQL Database managed instance, Single Database and Elastic Pool deployment options and enables the use of Azure Hybrid Benefit for SQL Server for each of these options. Pricing within the vCore-based model is therefore available with and without the hybrid benefit:</p>
+                                     <ul>
+                                        <li>License included: Excludes Azure Hybrid Benefit for SQL Server. This option is for customers who choose not to apply their existing SQL Server licenses with Software Assurance to vCore-based SQL Database deployment options.</li>
+                                        <li>Base rate: Reduced price that includes Azure Hybrid Benefit for SQL Server. Customers can opt into this price by using their SQL Server licenses with Software Assurance.</li>
+                                     </ul>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question3">Is moving to the vCore-based model required?</a>
+                                <section>
+                                     <p>Moving to the vCore-based model is not required. The introduction of the vCore-based model to the Elastic Pool and Single Database deployment options reflects our commitment to customer choice and flexibility. If you want to continue using the DTU-based model, you do not need to take any action and your experience and billing will remain unchanged. The DTU-based model will remain a viable option for purchasing SQL Database resources, alongside the vCore-based model.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question4">What will happen to the DTU-based model?</a>
+                                <section>
+                                     <p>The DTU and vCore-based models will continue to exist side by side. We are launching the vCore-based model in response to customer requests for more transparency around their database resources and the ability to scale compute and storage separately. </p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question5">How should I choose between the DTU vs vCore-based models?</a>
+                                <section>
+                                     <p>The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based performance levels represent preconfigured bundles of resources to drive different levels of application performance. If you do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month, you may find the DTU-based model more suitable for your needs.</p>
+                                     <!-- <p>If you need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice. Additionally, if you have an active Software Assurance (SA) for SQL Server, you can leverage your existing investment and save up to 30% with Azure Hybrid Benefit for SQL Server. Both of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches.</p> -->
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question6">Do I need to take my application offline to convert from a DTU-based database to a new vCore-based service tier?</a>
+                                <section>
+                                     <p>The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question7">How does usage show up in my bill?</a>
+                                <section>
+                                     <p>In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month and consumed backup storage. If the backup exceeds the total database size (i.e., 100% of the database size) there will be additional charges. vCore hours, configured database storage, consumed IO and backup storage are clearly itemized in the bill, making it easier to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you will be billed in GB/month consumed in a month.</p>
+                                     <p>For example:</p>
+                                     <ul><li>If the SQL database exists for 12 hours in a month, the bill will show usage for 12 hours of vCore. If the SQL database provisioned an additional 100 GB, the bill will show storage usage in units of GB/Month prorated hourly and number of IOs consumed in a month.</li></ul>
+                                     <p>If the SQL database is active for less than one hour, you are billed for each hour the database exists using the highest service tier selected, provisioned storage and IO that applied during that hour, regardless of usage or whether the database was active for less than an hour.</p>
+                                     <p>For example:</p>
+                                     <ul>
+                                        <li>If you create a Managed Instance and delete it five minutes later, you’ll be charged for one database hour.</li>
+                                        <li>If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.</li>
+                                     </ul>
+                                     <p>Note: For a limited period through June 30th 2018, backup charges and IO charges will be free of charge.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question8">How is the backup charge calculated?</a>
+                                <section>
+                                     <p>Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage will be charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you’ll pay for the additional 10 GBs.</p>
+                                     <p>Note: For a limited period, until June 30, 2018, the backup charges will be free.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question9">Will I incur any network data transfer charges?</a>
+                                <section>
+                                     <p>There will be no additional charges for network data ingress or egress during public preview. Additional charges will be introduced at general availability.</p>
+                                </section>
+                            </div>
+                        </li>
+                       <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question10">What is Azure Hybrid Benefit for SQL Server, and am I eligible for it?</a>
+                                <section>
+                                     <p>The Azure Hybrid Benefit for SQL Server helps you maximize the value from your current licensing investments and accelerate your migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with active Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available to all vCore-based options: SQL Database Managed Instance, Single Database and Elastic Pool. You may apply this benefit even if the SKU is active but note the base rate will be applied from the time you select it in the portal. No credit will be issued retroactively.</p>
+                                     <p>You can activate the Azure Hybrid Benefit via the Azure Portal by attesting you have sufficient active licenses with Software Assurance. The Azure Hybrid Benefit works as follows:</p>
+                                     <ul>
+                                        <li>If you have Standard Edition per core licenses with Software Assurance, you can get one vCore in the general purpose option for every one license core you own on-premises.</li>
+                                        <li>If you have Enterprise Edition per core licenses with Software Assurance, you can get one vCore in the business critical option (coming soon) for every one license core you own on-premises. Note: The Azure Hybrid Benefit for SQL Server for the Business Critical option is only available to Enterprise Edition customers.</li>
+                                        <li>If you have highly-virtualized Enterprise Edition per core licenses with Software Assurance you can get four vCores in the General Purpose option for every one license core you own on-premises. This is a unique virtualization benefit available only on Azure.</li>
+                                     </ul>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question11">What is the virtualization Benefit?</a>
+                                <section>
+                                     <p>The virtualization benefit is applicable to virtualized workloads on vCore-based Azure SQL Database. You can use it to convert 1 license core of SQL Enterprise Edition with active Software Assurance to get up to 4 vCores of General Purpose at the base rate. This makes moving virtualized applications to vCore-based SQL Database options highly cost-effective. For example, if you have 4 core licenses of SQL Enterprise Edition, you can receive up to 16 vCores of General Purpose at the base rate.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question12">Can I use my SQL Server license on-premises and in the cloud?</a>
+                                <section>
+                                     <p>Your licenses must be used either on-premises or in the cloud; however, you have a 180-day grace period during which you can use licenses both on-premises and in the cloud to facilitate migration.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question13">Can I apply Azure Hybrid Benefit for SQL Server retroactively?</a>
+                                <section>
+                                     <p>No. Azure Hybrid Benefit cannot be applied retroactively.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question14">What happens to my Azure Hybrid Benefit for SQL Server if my Software Assurance expires?</a>
+                                <section>
+                                     <p>To use Azure Hybrid Benefit for SQL Server, you need active Software Assurance. If your Software Assurance expires and you don’t renew it, you’ll be moved to the license included pricing of the respective SKU.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question15">Pricing example in DTU based model for a single database with extra storage provisioned</a>
+                                <section>
+                                    <p>Suppose an S3 database has provisioned 1 TB. The amount of storage included for S3 is 250 GB, and so the extra storage amount is 1024 GB – 250 GB = 774 GB. The unit price for extra storage in the Standard tier is approximately ¥0.5406/GB/month during preview, and so the extra storage price is 774 GB * ¥0.5406/GB/month = ¥402.2064/month. Therefore, the total price for the S3 database is ¥969.37/month for DTUs + ¥402.2064/month for extra storage = ¥1,371.5764/month.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question16">Pricing example in DTU based model for an elastic pool with extra storage provisioned</a>
+                                <section>
+                                    <p>Suppose a 125 eDTU Premium pool has provisioned 1 TB. The amount of storage included for a 125 eDTU Premium pool is 250 GB, and so the extra storage amount is 1024 GB – 250 GB = 774 GB. The unit price for extra storage in the Premium tier is approximately ¥0.5406/GB/month during preview, and so the extra storage price is 774 GB * ¥0.5406/GB/month = ¥402.2064/month. Therefore, the total price for the pool is ¥2,208.75/month for pool eDTUs + ¥402.2064/month for extra storage = ¥2,610.9564/month.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <p>See the<a href="//docs.azure.cn/sql-database/sql-database-faq/"> SQL Database FAQ </a>in documentation.</p>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Region</h2>
+                <p>SQL Database is provided in:</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>Territory</strong></th>
+                        <th align="left"><strong>Region</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Mainland China</td>
+                        <td>China North, China East</td>
+                    </tr>
+                </table>
+                
+               <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="database-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>Basic, Standard, and Premium Levels</p>
+				<p>We guarantee a connection time between a single or elastic Basic, Standard or Premium Azure SQL Database and our Internet Gateway of not less than a 99.99%.</p>
+				<p>Web and Enterprise Editions (no longer available)</p>
+				<p>We ensure customers will be able to establish a connection between the Web Edition or Enterprise Edition Azure SQL Database and our Internet Gateway at least 99.9% of the time.</p>
+				<p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/sql-database/" id="pricing_database_sla">Service Level Agreements</a> page.</p>
+                </div>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                    
+    
+    ]]></bodyText>
+    <pageTitle>Azure SQL Database Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-sql-database</linkid>
+    <metaKeywords>Azure, Azure SQL Database, pricing details, pricing, billing</metaKeywords>
+    <metaDescription><![CDATA[About Azure SQL Database pricing. There are two types of SQL Database, i.e. single database and elastic database, each of which can be further divided into Basic, Standard and Premium versions. Users can choose the proper database type and level to meet their own demands. A 1RMB Trial gets you￥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Azure SQL Database</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

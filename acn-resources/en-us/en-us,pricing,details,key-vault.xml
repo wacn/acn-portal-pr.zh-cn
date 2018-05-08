@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="key-vault" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+            <tags ms.service="key-vault" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/media/images/production/key-vault.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/production/key-vault@2x.png" />
+                        <h2>Key Vault<!--span>Key Vault</span--></h2>
+                        <h4>Safeguard and maintain control of keys and other secrets</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_keyvault_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_keyvault_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure Key Vault enables Azure subscribers to safeguard and control the cryptographic keys and other secrets that are used by cloud applications and services.</p>
+                <ul>
+                    <li>Protect secrets such as keys and passwords.</li>
+                    <li>Set up and deploy new vaults and keys in minutes without waiting for purchases, hardware or IT, and centrally manage keys, secrets, and policies.</li>
+                    <li>Maintain control of encrypted data - Authorize yourself and third parties and revoke the use of keys as needed.</li>
+                    <li>Separation of key management responsibilities allows developers to easily manage keys for development/testing and production keys transferred seamlessly to security operations departments for management.</li>
+                    <li>Rapid expansion can meet the encryption requirements of your cloud applications and satisfy high requirements.</li>
+                    <li>Global redundancy can be achieved by provisioning vaults in Azure Global Data Center.</li>
+                </ul>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <div class="tab-control-container tab-active">
+                    <h2>Pricing Details</h2>
+                    <!-- <p>从2016年4月1日起， 价格下调 25.5%，以下是下调后的新价格：</p> -->
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%" class="table-col6">
+                        <tr>
+                            <th align="left"><strong>&#160;</strong></th>
+                            <th align="left"><strong>Standard</strong></th>
+                        </tr>
+                        <tr>
+                            <td>Keys for secrets and software protection</td>
+                            <td>￥0.20/10,000 operations</td>
+                        </tr>
+						<tr>
+                            <td>Certificate renewal <sup>1</sup></td>
+                            <td>￥19.716/renewal request </td>
+                        </tr>
+                    </table>
+                    <p>*In the event your monthly operations exceed 50 million, please <a id="home_keyvault_support_contact" href="/support/contact/">contact us</a> for pricing.</p>
+					<p><sup>1</sup> The key vault does not issue or resell certificates issued by a Certificate Authority (CA). It simplifies or automates certain processes when users purchase certificates from public certification authorities, such as registrations and renewals. </p>
+                </div> 
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="key-vault-question-stored">What can I store in the key vault?</a>
+                                <section>
+                                    <p>You can also store the following types of keys and secrets:</p>
+                                    <ul>
+                                        <li>Keys can be imported or generated. When you ask the Key Vault service to decrypt or sign with a key, the operation is performed in the key vault.</li>
+                                        <li>You can also use keys for encryption. In this case, cryptographic operations are performed in software. These computations are performed in the Azure compute roles.</li>
+                                        <li>Secrets are data (under 25 KB) such as passwords or PFX files that your application can store and retrieve in plaintext. The Key Vault service persists secrets encrypted, and provides an access control layer over them.</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="key-vault-question-operations">How is an operation defined?</a>
+                                <section>
+                                    <p>Every successfully authenticated REST API call counts as one operation. Examples of key operations: create, import, get, list, backup, restore, delete, update, sign, verify, wrap, unwrap, encrypt and decrypt. Examples of operations for secrets: create/update, get, and list.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="key-vault-question-billed">How are my various operations charged? </a>
+                                <section>
+                                    <p>Operations of all keys and secrets are charged at a flat rate of ￥0.20/10,00 operations, including operations on keys for secrets and software protection. For example, during a billing cycle, you performed 2,000 operations by using keys and 500 operations using secrets. Then 2,500 chargeable operations will be generated in this billing cycle.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="key-vault-question-fees">Is there a setup fee for the Azure Key Vault? </a>
+                                <section>
+                                    <p>No, there is no any setup fee for the Azure Key Vault.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="key-vault-question-applications">Can I use the Key Vault with third-party applications? </a>
+                                <section>
+                                    <p>Of course, you can grant use rights of keys stored in the Key Vault to any application hosted anywhere (Microsoft Azure, third-party cloud, local).</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="key-vault-question-key">If my application uses a key created by another Azure subscriber, will I be charged for using that key?</a>
+                                <section>
+                                    <p>No, only the key owner will be charged.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Region</h2>
+                <p>The Key vault is available in the following areas:</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>Territory</strong></th>
+                        <th align="left"><strong>Region</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Mainland China</td>
+                        <td>China North, China East</td>
+                    </tr>
+                </table>
+                <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="keyvault-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				 <p>We guarantee that in at least 99.9% of cases, key vault transactions can be processed within 5 seconds. To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/key-vault/" id="pricing_keyvault_sla">Service Level Agreements</a> page.</p>
+                </div>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                     
+    
+    ]]></bodyText>
+    <pageTitle>Key Vault Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-key-vault</linkid>
+    <metaKeywords>Azure, Key Vault, and Pricing</metaKeywords>
+    <metaDescription><![CDATA[Learn more about the pricing details of Azure Key Vault. With Azure Key Vault, Azure users can protect and control the encryption keys and other secrets used by cloud applications and services. A 1RMB Trial gets you RMB1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Key Vault</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

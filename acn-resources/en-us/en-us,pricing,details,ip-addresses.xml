@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2015-07-07T09:41:59" urlName="ip-addresses" writerName="content" creatorName="content">
+    <bodyText>
+                      <![CDATA[
+      
+            <style>
+                .ip_tit_font{
+                    font-size:16px;
+                }
+            </style>
+           <div>
+                    <!-- BEGIN: Table1-Content-->
+
+                    <h1>Azure IP Address</h1>
+                    <p><a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-networks-instance-level-public-ip/" id="ip-addresses_docs-virtual-networks-instance-level-public-ip">All instance level public IP addresses</a> (ILPIP) in Azure are generally charged at ￥0.026 per IP per hour (￥19.344 per IP per month). Azure provides some free IP addresses, which are based on the resources they’re associated with and the deployment model types used. The table below lists these free resources.</p>
+                    <p>Azure has two different types of deployment models, which are used to create and process resources: <a id="pricing_ip_virtual-networks-instance-level-public-ip" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/">Azure Resource Manager (ARM) and Azure Classics (ASM)</a>.</p>
+		   </div>
+		   <div class="pricing-page-section">                    
+                    <h2>Pricing Details</h2>
+					<!-- BEGIN: Table1-Content--> <!--<h3>保留的 IP 地址</h3>-->					
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                        <div class="ms-date">*Monthly price estimation is based on a usage of 744 hours every month.</div>
+                    </div>					
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <th align="left"><strong>Types</strong></th>
+                                <th align="left"><strong>Basic (Classics)</strong></th>
+                                <th align="left"><strong>Basic (ARM)</strong></th>
+                            </tr>
+                            <tr>
+                                <td>Dynamic IP Address</td>
+                                <td>First cloud service VIP: free of charge<br/>Others: ￥0.026/hour (￥19.344/month)<sup>1</sup></td>
+                                <td>￥0.026/hour (￥19.344/month)</td>
+                            </tr>
+							<tr>
+                                <td><p>Static IP address</p><p>(reservation + usage)</p></td>
+                                <td><p>The first 5 reserved IP addresses associated with the cloud service currently used: free of charge</p><p>Others: ￥0.026/hour (￥19.344/month)<sup>2</sup></p></td>
+                                <td><p>The first 5 reserved IP addresses associated with the cloud service currently used: ￥0.026/hour (￥19.344/month)</p><p>Others: ￥0.052/hour (￥38.688/month)<sup>3</sup></p></td>
+                            </tr>
+                    </table> 
+                    <div class="tags-date">
+                        <div class="ms-date">* Suitable for a limit of 20 reserved IP addresses for every subscription. If you have an Enterprise agreement with Microsoft Azure operated by 21Vianet, 100 IP addresses can be reserved at most. If you need to increase this limit, please <a id="public_IP_us" style="color: #00a8d9;" href="/zh-cn/support/contact/">contact us</a>.</div><br/>
+                        <div class="ms-date"><sup>1</sup> Every cloud service can obtain a free public VIP. Other VIPs are charged at ￥0.026/hour.</div><br/>
+                        <div class="ms-date"><sup>2 </sup> No matter whether they’re connected with the running Virtual Machines <a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">network interface</a> or with Azure Load Balancer, the first 5 static IPs are not charged a reservation fee.</div>
+						<div class="ms-date"><sup>3 </sup>No matter whether they’re connected with the running Virtual Machines <a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">network interface</a>or with Azure Load Balancer, the first 5 static IPs are not charged with the reservation fee, but charged with a usage fee. Starting with the 6th static public IP address, the usage fee and reservation fee are ￥0.026/hour for every IP, that is, ￥0.052/hour.</div>
+                        <!-- <div class="ms-date">*注：前 5 个保留的 IP 如果在使用中则为免费，如果只保留了 IP 而没有使用则将被计费。详情请见<a id="public_IP_QA" style="color: #00a8d9;" href="/support/faq/"> 常见问题</a>。</div> -->
+                    </div>
+                    <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
+                    <h3>IP address remaps</h3>
+                    <!--<p>即日起，IP 地址重新映射价格下调 24%，以下是下调后的新价格：</p>-->
+					<p>Whenever a reserved IP address is associated with a new cloud Service, it’s deemed as a remap.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*Suitable only for deployment in ASM/Classics deployment models.</div><br />
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th>&#160;</th>
+                            <th align="left"><strong>Pricing</strong></th>
+                        </tr>
+                        <tr>
+                            <td>The first 100 IP address remaps per month</td>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <td>All other IP address remaps</td>
+                            <td>Every remap ￥0.456/month</td>
+                        </tr>
+                    </table>                    
+                    <!-- END: Table2-Content-->
+            </div>  
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question8">When the virtual machine is in a “stopped-deallocated” status, are you charging me for the public IP address? </a>
+                                <section>
+                                    <p>In the ARM deployment model, when the relevant VM is in “stopped-deallocated”, no charging is imposed on “dynamic” public IP addresses. Yet, no matter how relevant resources are, “static” public IP addresses are charged (unless it’s one of the first 5 “static” public IP addresses in this region). For details about static and dynamic allocation methods, please view <a id="public_IP_us2" style="color: #00a8d9;" href="https://docs.azure.cn/virtual-network/virtual-network-ip-addresses-overview-arm/">IP Addresses in Azure</a>.</p>
+									<p>In the ARM deployment model, when the VM is in “stopped-deallocated”, no charges are imposed on an instance level public IP (ILPIP).</p>
+                                </section>
+
+                            </div>
+                        </li>
+						<!--
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question1">我可以保留多少个 IP 地址？</a>
+                                <section>
+                                    <p>Azure 的企业协议，则可以保留最多 100 个 IP 地址。如果您需要增加此限额，请<a id="public_IP_us2" style="color: #00a8d9;" href="/zh-cn/support/contact/">联系我们</a>。</p>
+                                </section>
+
+                            </div>
+                        </li>
+						-->
+						
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question2">When does the billing clock for public IP address start and stop?</a>
+                                <section>
+                                    <p>For the “static” public IP address in the ARM deployment model and the “reserved” IP address in the ASM deployment model, the billing clock will start from the 2nd hour after you create the IP address so that some time is left to allocate IP addresses. The billing clock will stop after you delete the IP addresses.</p>
+									<p>For all other IP addresses, the clock will start once relevant resources are activated, or stop when deleting or stopped-deallocated. </p>	
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question6">I purchased Public IP addresses prior to September 2017. Which SKUs do I have?</a>
+                                <section>
+                                    <p>If you purchased public IP addresses prior to September 2017, you are using the Basic Public IP.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question3">Is less than 1 hour billed as 1 hour? </a>
+                                <section>
+                                    <p>Yes. Less than 1 hour is billed at 1 hour.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question4">What’s an unused reservered IP address?</a>
+                                <section>
+                                    <p>This is a reserved IP address that is not used in a running deployment. We nominally charge the reserved IP address not being used (see the pricing table).</p>
+                                </section>
+
+                            </div>
+                        </li>
+						
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question5">When the virtual machine is in a stopped-deallocated state, will you charge a certain reserved IP address?</a>
+                                <section>
+                                    <p>No, not if there is a virtual machine running in the deployment and the reserved IPs include one of 5 reserved IP addresses currently in use.</p>
+                                    <p>However, the reserved IP addresses will be charged if all virtual machines in deployment are in a stopped-deallocated state.</p>
+                                </section>
+
+                            </div>
+                        </li>
+						
+						<!--
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question6">保留 IP 和实例层级公共 IP 之间的差别是什么？</a>
+                                <section>
+                                    <p>一个部署中可能有多个虚拟机实例。 保留的IP是分配给整个部署的公共IP地址，可以被保留不变。实例层级公共 IP 是分配到一个虚拟机级别的公共IP地址，是临时的（非保留，会发生变化）。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question7">我是否可以保留实例层级公共 IP 地址？</a>
+                                <section>
+                                    <p>不可以。目前，您只能保留 VIP。</p>
+                                </section>
+                            </div>
+                        </li>
+						-->
+                    </ul>
+                </div>
+			</div>
+			<div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need any help, please visit <a href="/support/contact/" id="ip-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>IP address service doesn’t provide Service Level Agreement. To learn more about the details of our Service Level Agreement, please visit the <a href="/support/legal/sla/" id="pricing_ip-address_sla">Service Level Agreements</a> page.</p>
+                </div>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" /> --> <!--END: Support and service code chunk-->      
+                                                                             
+    
+    ]]></bodyText>
+    <pageTitle>Azure IP Address Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-reserved-ip-addresses</linkid>
+    <metaKeywords>Azure, IP-Addresses, price, FAQ</metaKeywords>
+    <metaDescription><![CDATA[Learn about the pricing details of Azure IP Addresses. A 1RMB Trial gets you ￥1,500 in service credits. You can also make a direct purchase and become an Azure Pay-in-Advance customer to enjoy a service level agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Azure IP Addresses</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

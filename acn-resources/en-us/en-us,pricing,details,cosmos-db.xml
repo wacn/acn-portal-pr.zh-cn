@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-08T09:41:59" urlName="cosmos-db" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+            <tags ms.service="cosmos-db" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/media/media,images,production,cosmos-db-background.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/media,images,production,cosmos-db.png" />
+                        <h2>Azure Cosmos DB</h2>
+                        <h4>Distributed, multi-model database for any scale</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_cosmos-db_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_cosmos-db_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure Cosmos DB is a distributed, multimodal database. It was built from the ground up with <a id="pricing-cosmos-db_docs-distribute-data-globally" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/distribute-data-globally/">distribution</a> and horizontal scaling at its core. It offers turnkey distribution across any number of Azure regions by transparently scaling and replicating data (wherever users are). Flexibly scale throughput and storage within the range of multiple data centers, and only pay for what you need. Azure Cosmos DB guarantees single digit millisecond latencies at the 99th percentile, offers <a id="pricing-cosmos-db_docs-documentdb-consistency-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-consistency-levels/">multiple well-defined consistency models</a> for fine tuning performance, and guarantees high availability with multi-homing functionality anywhere in each region – all supported by industry-leading, comprehensive <a id="pricing-cosmos-db_sla-cosmos-db" style="color: #00a8d9;" href="/support/sla/cosmos-db/">Service Level Agreements</a> (SLAs).</p>
+                <p>Azure Cosmos DB really is <a id="pricing-cosmos-db_download" style="color: #00a8d9;" href="http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf">architecture-independent</a>. It can automatically index all data without having to deal with architecture and index management. It is also a data model with multiple models, local support documentation, key values, graphs, and columns. With Azure Cosmos DB, you can use selected APIs to access data because <a id="pricing-cosmos-db_docs-documentdb-sql-query" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-sql-query/">DocumentDB SQL</a> (documents) and MongoDB (documents) are all supported locally.</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+                    <h2>Pricing Details</h2>
+                    <h3>Provisioned throughput</h3>
+					<p>Regardless of its size, you can store data and provisioned throughput capacity. Each collection is billed on an hourly basis based on the amount of data stored (in GB) and reserved throughput (in units of 100 RU/second).</p>
+					<p>Unlimited containers have a minimum of 1,000 RU/second. When data grows, they have a minimum of at least 100 RU/second per partition.</p>
+                   
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>Unit</strong></th>
+                            <th align="left"><strong>Price</strong></th>
+                        </tr>
+                        <tr>
+                            <td>SSD Storage (per GB)</td>
+                            <td>¥2.576/GB/month</td>
+                        </tr>
+                        <tr>
+                            <td>Reserved RU/second (per 100 RU)</td>
+                            <td>¥0.082/hour (about ¥61.01/month)</td>
+                        </tr>
+                    </table>
+										
+					<!-- <h3>附加预配：每分钟请求单位<sup style="color: #a5ce00; font-weight: bold"> 预览</sup></h3>
+					<p>现在，您可以选择每分钟预配请求单位，补充预配吞吐量。每分钟预配请求单位，允许用户每分钟发出批量请求 (UTC)。对于每 100 个每秒预配的吞吐量单位，其限制在每分钟 1,000 个请求单位以内。以下价格为预览版价格，享受正式版价格的 50% 折扣。</p>
+                   
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>单位</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>每分钟保留请求单位（每 1,000 个 RU）</td>
+                            <td>¥ 0.0277 /小时（约 ¥ 20.6088 /月）</td>
+                        </tr>
+                    </table> --> <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
+                    <h3>Scaling containers</h3>
+                    <p>For high-throughput and high-storage workloads, you can create <a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-partition-data/">unlimited containers</a> by defining a partition key when a collection is created. A partitioned container will seamlessly scale out as the quantity of stored data grows and provisioned throughput increases.</p>  
+                    
+                    <h3>Multi-regional scale with geo-replication</h3>
+                    <p>Azure Cosmos DB containers can be <a id="pricing-cosmos-db_docs-distribute-data-globally-2" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/distribute-data-globally/">distributed</a>, which means all your data can be automatically replicated to the regions you specify. Your app continues to work using a logical endpoint, while your data is automatically extracted and served to users from their nearest region using an intuitive programming model for <a id="pricing-cosmos-db_docs-documentdb-consistency-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-consistency-levels/">data consistency</a> and <a id="pricing-cosmos-db_sla-cosmos-db-2" style="color: #00a8d9;" href="/support/sla/cosmos-db/">99.99%</a> availability. Distributed containers are billed based on the storage consumed in each region and the throughput provisioned for each Azure Cosmos DB container multiplied by the number of regions associated with an Azure Cosmos DB database account. Standard <a id="pricing-cosmos-db_pricing-data-transfer" style="color: #00a8d9;" href="/pricing/details/data-transfer/">data transfer rates</a> apply for replication data transfer between regions. For example, suppose a user has a database account that spans three Azure regions and two containers that are provisioned with 1 million RUs and 2 million RUs respectively. The total provisioned RUs for the first container will be 3 million RUs (1 million RUs x 3 regions), and the total provisioned RUs for the second container will be 6 million RUs (2 million RUs x 3 regions).</p>
+                    
+                    <h3>High throughput and low-latency queries</h3>
+                    <p>When writing a sustained amount of data with Azure Cosmos DB, the data is indexed synchronously to provide consistent SQL queries using a write-optimized, latch-free database engine designed for solid-state drives (SSDs) and low-latency access. When data is distributed, read and write requests always originate from the local region. Performance can be further optimized by <a id="pricing-cosmos-db_docs-documentdb-indexing-policies" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-indexing-policies/">customizing automatic index behavior</a>.</p>
+                    
+                    <h3>Collections with predefined performance and size</h3>
+                    <p>Before August 1, 2017, S1, S2, or S3 size collections can continue to use these features for a predefined 10 GB of storage and throughput, which can vary with the size of the instance: S1 (250 RU/second billed at ¥0.15/hour), S2 (1,000 RU/second billed at ¥0.30/hour), or S3 (2,500 RU/second billed at ¥0.60/hour) throughput collections. If you want to reconfigure the throughput of these collections, please see <a id="pricing-cosmos-db_docs-documentdb-performance-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">Changing performance levels using the Azure portal</a>. If you want to use an unlimited container, you need to convert previously created S1, S2, or S3 collections to use the unlimited throughput and storage sizes described above, as described in <a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Partitioning and scaling in Azure Cosmos DB</a>.</p>
+                    <!-- END: Table2-Content-->
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question1">What is a request unit?</a>
+                                <section>
+                                     <p>A request unit (RU) is the unit of measurement for throughput in Azure Cosmos DB. 1 RU corresponds to the throughput for obtaining a 1 KB file. Every operation performed in DocumentDB (including reads, writes, SQL queries, and stored procedure executions) has a determined request unit value based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory, and how they affect your application throughput, you can think in terms of a single Request Unit measure.</p>
+									 <p>A request unit used through provisioned RUs per second or a one-minute bucket is the same.</p>
+                                     <p>For details on request units and help determining your collection needs, please see <a id="pricing-cosmos-db_docs-documentdb-request-units" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-request-units/">Request Units in Azure Cosmos DB</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question2">How does request unit usage appear on my bill?</a>
+                                <section>
+                                    <p>During this period, billing is based on the total capacity (RU/second) provisioned under your Azure Cosmos DB account, using predictable hourly rates that fluctuate steadily.</p>
+									<p>If you create accounts for two partitions that use 500 RU/second and 700 RU/second respectively, the total provisioned capacity will reach 1,200 RU/second. Therefore, the billing amount will be 12 x ¥0.082 = ¥0.984/hour.</p>
+									<p>If your throughput needs to be changed and you increase the capacity of each partition by 500 RU/second, while also creating a new unlimited container using 20,000 RU/s, your overall provisioned capacity would be 22,200 RU/second (1,000 RU/second + 1,200 RU/second + 20,000 RU/second). Your bill would then change to: ¥0.082 x 222 = ¥18.204/hour.</p>
+									<p>In a month of 720 hours, if 500 hours are provisioned at 1,200 RU/second and 220 hours are provisioned at 22,200 RU/second, the monthly bill will show: 500 x ¥0.984/hour + 220 x ¥18.204/hour = ¥4,496.88/hour.</p>
+                                </section>
+
+                            </div>
+                        </li>
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question9">Working principles of request units per minute</a>
+                                <section>
+                                    <p>In addition to the normal preview throughput, additional per minute request units can now be provisioned. You can use these additional throughput units in the UTC minute window. If per minute request units are enabled, an additional 1,000 request units per minute can be used for every 100 RU/second provisioned in a container.</p>
+									<p>For example, if you provision 400 RU/second, you can use an additional 4,000 request units per second. Suppose that an application requires more than 400 RU/second at 12 o'clock noon. From 12:00:01 p.m. to 12:01:00 p.m., the application will be able to use 4,000 additional request units while continuing to use the provisioned 400 RU/second throughput. Starting from 12:00:01 p.m., if all 4,000 request units are used before 12:01:00 p.m., the other request units cannot be used until the next UTC minute (starting from 12:01:01 p.m.). If you do not use all 4,000 request units within a given minute time interval, the remaining request units will not accumulate to the next minute time interval.</p>
+									<p>Please see <a id="pricing-cosmos-db_docs-request-units-per-minute" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/request-units-per-minute/">Number of per minute request units in Azure Cosmos DB</a> for details.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question3">If I specify my own performance for the container, how will the storage be billed?</a>
+                                <section>
+                                    <p>Storage capacity is billed according to the maximum hourly amount of data stored (in GB) over a monthly period. For example, if you used 100 GB of storage in the first half of the month and 50 GB in the second half of the month, you would be billed for an equivalent of 75 GB of storage during that month.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question4">How will I be billed if my container is active for less than an hour?</a>
+                                <section>
+                                    <p>You are billed the flat rate for each hour the container exists, regardless of usage or if the collection is active for less than an hour. For example, if you create a container and delete it five minutes later, your bill will reflect a charge of one unit hour.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question5">When does the billing rate change after I have upgraded a container?</a>
+                                <section>
+                                    <p>If you define your own performance for a container and upgrade from 400 RU to 1,000 RU at 9:30 a.m., then downgrade back to 400 RU at 10:45 a.m., you will be charged for two hours of 1,000 RU.</p>
+									<p>If you select a predefined collection performance level and upgrade from an S1 collection to an S3 collection at 9:30 a.m., then downgrade back to S1 at 10:45 a.m., you will be charged for two hours of S3.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question6">How do I increase or decrease the throughput for each collection?</a>
+                                <section>
+                                    <p>You can increase or decrease the number of request units per container in an Azure Cosmos DB account using one of the supported SDKs or REST APIs in the <a id="cosmos-db_azure-menhu" style="color: #00a8d9;" href="/portal/">Azure portal</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <!--
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question7">我是否可以用一个数据库帐户购买具有预定义性能和用户定义的性能的多个集合？</a>
+                                <section>
+                                    <p>是的，你可以拥有多个集合。但是，对于新应用程序，建议使用用户定义的性能来创建集合，因为它们可支持较大的存储大小和预配的吞吐量，以及灵活而精细的计费模型。</p>
+                                </section>
+                            </div>
+                        </li>
+						-->
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question8">How can I move from an S1/S2/S3 collection to a single partition?</a>
+                                <section>
+                                     <p>If you want to move an S1, S2, or S3 performance level collection to a single partition with the same storage size, please see <a id="pricing-cosmos-db_docs-documentdb-performance-levels-2" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">Changing performance levels using the Azure portal</a>.</p>
+                                     <p>If you want to move an existing single collection into an unlimited container, please see <a id="pricing-cosmos-db_docs-documentdb-partition-data-2" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Partitioning and scaling in Azure Cosmos DB</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Storage_question10">What are the advantages of replacing an S1/S2/S3 collection with a 10 GB container?</a>
+                                <section>
+                                     <p>At an entry point, the throughput of a single partition will exceed S1 (400 RU/second compared to 250 RU/second) and the price will be lower. It can also be increased to 10,000 RU/second compared to 2,500 RU/second for S3. The advantage of the new provisioning model is that it can be increased in increments of 100 RU/second, so you do not have to pay to buy 2,500 RU/second of S3 when you only need 1,200 RU/second.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Region</h2>
+                <p>Azure Cosmos DB services are available in the following regions:</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>Territory</strong></th>
+                        <th align="left"><strong>Region</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Mainland China</td>
+                        <td>China North, China East</td>
+                    </tr>
+                </table>
+                <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="cosmos-db-contact-page">Azure Support</a> to select self-service or any other methods to contact us for support.</p>
+                <p><a href="/home/features/cosmos-db/">Azure Cosmos DB</a> operated by 21Vianet in China is a <a href="//docs.azure.cn/zh-cn/cosmos-db/distribute-data-globally/">distributed</a> multi-model database service. It provides turnkey data distribution in different Azure Data Centers in China, so your users can adjust and replicate your data transparently, no matter where they are located. This service offers a comprehensive 99.99% Service Level Agreement that includes a Cosmos DB database account for a single Azure region configured with any of five levels of consistency, or throughput, consistency, availability, and latency guarantees for database accounts across multiple Azure regions configured with any of four levels of loose consistency. In addition to consistency level selection, Cosmos DB also offers a 99.999% Service Level Agreement for database accounts with read availability across two or more Azure regions.</p>
+				<p>To learn more about the details of our Service Level Agreement, please visit the <a id="cosmos-db-pricing_sla" href="/support/sla/cosmos-db/" target="_blank">Service Level Agreement</a> page.</p>
+                </div>
+               <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />  --> <!--END: Support and service code chunk-->
+            </div>
+            <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                
+    
+    ]]></bodyText>
+    <pageTitle>Azure Cosmos DB Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-cosmos-db</linkid>
+    <metaKeywords>Azure, Azure Cosmos DB, NoSQL, pricing details, pricing, billing</metaKeywords>
+    <metaDescription><![CDATA[Learn more about the pricing details for Azure Cosmos DB. Azure Cosmos DB bills for each collection on an hourly basis based on the amount of data stored (in GB) and reserved throughput (in units of 100 RU/second). There are also detailed instructions on how it charges for cross-regional data transfers. A 1RMB Trial gets you ¥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Azure Cosmos DB</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

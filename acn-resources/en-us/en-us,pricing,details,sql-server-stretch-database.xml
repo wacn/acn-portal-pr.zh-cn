@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-06-30T17:41:59" urlName="sql-server-stretch-database" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+            <tags ms.service="sql-server-stretch-database" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/sql-server-stretch%20database.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/css/sql-server-stretch-database@2x.png" />
+                        <h2>SQL Server <small>Stretch Database</small></h2>
+                        <h4>Dynamically stretch on-premises SQL Server databases to Azure</h4>                      
+                        <em><a href="/pricing/1rmb-trial/" id="home_sql-stretch_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_sql-stretch_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>With the SQL Server Stretch Database, you can dynamically stretch the warm or cold transational data in Windows SQL Server to Azure. It is different from traditional solutions for management of cold data, as the data stored in the Stretch Database is available at any time. Applying the Stretch Database, you can provide longer storage retention for large amounts of data, without paying too much. Meanwhile you can choose the performance level in accordance with your performance requirements and scael up or down as required.</p>
+                <p>The Stretch Database bills separately for compute and storage, therefore you need to pay only for the actually-used data. Compute usage is measured in Database Stretch Units (DSU), and the customer can scale up or down the performance/DSU level in line with requirements at any time.</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+                    <h2>Pricing Details</h2>
+                    <p>SQL Server Stretch Database is now general available. The following standard prices are used for billing starting September 1, 2016.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong> Performance level (DSU) </strong></th>                           
+                            <th align="left"><strong> Standard price (CNY) </strong></th>
+                        </tr>
+                        <tr>
+                            <td>100</td>                         
+                            <td><span>¥22.51/hour (about ¥16,747.44/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>200</td>
+                            <td><span>¥45.02/hour (about ¥33,494.88/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td><span>¥67.53/hour (about ¥50,242.32/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td><span>¥90.04/hour (about ¥66,989.76/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td><span>¥112.55/hour (about ¥83,737.20/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>600</td>
+                            <td><span>¥135.06/hour (about ¥100,484.64/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>1,000</td>
+                            <td><span>¥225.1/hour (about ¥167,474.40/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>1,200</td>
+                            <td><span>¥270.12/hour (about ¥220,969.28/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>1,500</td>                            
+                            <td><span>¥337.65/hour (about ¥251,211.60/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>2,000</td>
+                            <td><span>¥450.2/hour (about ¥334,948.80/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>3,000</td>
+                            <td><span>¥675.3/hour (about ¥502,423.20/month)</span></td>
+                        </tr>
+                        <tr>
+                            <td>6,000</td>
+                            <td><span>¥1,350.6/hour (about ¥1,004,846.49/month)</span></td>
+                        </tr>
+                    </table>
+            <!--    <div class="tags-date">
+                        <div class="ms-date">预览阶段，数据库大小被限制为 60TB。当 Stretch Database 正式上市后，数据库体积显示将有所扩大。</div><br />
+                    </div>
+                    --> <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
+                    <h3>Outbound Data Transfer</h3>                                  
+                    <p>Outbound data transfer is charged according to the standard <a id="/pricing/details/data-transfer/" href="/pricing/details/data-transfer/">data transfer</a> rate.</p>
+                  
+                    <h3>Data Storage and Snapshots</h3>
+                    <p>Data storage is ¥1.441/GB/hour. Data Storage includes the size of the Stretch Database and backup snapshots. All Stretch Databases have 7-day incremental backup snapshots.</p>
+                    <p>Note: Storage transactions are free of charge. In other words, you only need to pay for data storage, and no transaction fees are needed.</p>
+                    
+                    <h3>Geo-backup</h3>
+                    <p>You can still choose to back up Geo-Redundancy for the Stretch Database to achieve disaster recovery. Storage for Geo-Redundant copies will be charged based on the <a id="/pricing/details/storage/-1" href="/pricing/details/storage/">rate</a> of the Azure standard disk RA-GRS rate of ¥1.056/GB/month.</p>
+
+                    
+                </div>
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql-stretch_question_compatible">What editions of SQL Server are compatible with Stretch Database?</a>
+                                <section>
+                                    <p>Stretch Database is a new feature of SQL Server 2016. This feature is available for all editions of SQL Server 2016.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_unit">What is a DSU (Stretch Database Unit)?</a>
+                                <section>
+                                    <p>In order to continue to provide customers with more predictable performance experiences, the concept of the Stretch Database Unit (DSU) was introduced in SQL Stretch Database. DSUs represent the performance of queries and data migration and can be quantified by these workload goals: the speed at which the data is migrated and written into Azure and read and calculated from Azure. This indicator can help customers assess the relative extent of performance required for their workloads.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_amount">How is the usage of Stretch Database reflected in the billing?</a>
+                                <section>
+                                    <p>Your billing will include a predictable storage monthly fee and a separate amount for the computing fee. Depending on the number of computing resources (DSU) used, the monthly computing fee may vary. In order to allow you to see the total amount of computing resources consumed more clearly, storage and computing fees will be reflected separately in the billing.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_bill">If I use the Stretch Database for less than an hour, how will I be charged for that?</a>
+                                <section>
+                                    <p>Regardless of whether the database is active or not, or the database exists for over an hour or not, you will need to pay for every hour of Stretch Database's existence, and you will be charged the highest rate applicable during the hour. For example, if you create a Stretch Database and delete it after 5 minutes, your database will be charged for 1 hour. If you create a Stretch Database with 100 DSUs and then expand it to 400 DSUs immediately, then you will be charged by 400 DSUs for the first hour. If you delete the database and create a database with the same name thereafter, your billing will reflect the cost of the two separate databases for one hour, respectively.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_dsu">If I use different levels of DSU in the same hour, how will I be charged for that?</a>
+                                <section>
+                                    <p>DSU will be charged by the “hour” based on the highest level performance applicable within the hour.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_performance">Can I change the Stretch Database performance level?</a>
+                                <section>
+                                    <p>You can adjust the Stretch Database's performance level. Changes in performance levels will take effect after a few minutes, and your database will remain available online during the change.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_data">How much data can I stretch into Azure?</a>
+                                <section>
+                                    <p>During the preview phase, your Stretch Database can contain up to 60 TB of data. Around the date of official listing of the service, we will determine the final actual upper limit of the size.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_withdraw">How do I undo a database stretch?</a>
+                                <section>
+                                   
+                                    <p>You can move data back to your on-premises environment at any time. If you plan to unsubscribe from Stretch Database, to continue accessing the data, you must either move the data back to the on-premises environment through un-stretching operations or export the data to a storage service. For more information about un-stretching or exporting data, see the SQL Server 2016 StretchDatabase documentation.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_consume">How much storage capacity will my database consume?</a>
+                                <section>
+                                    <p>The amount of data consumed in the Stretch Database is approximately the same storage capacity as the same data when it was located in SQL Server before moving to the Stretch Database. The Stretch Database advisor tool can help you estimate storage requirements. For more information on how to use the load advisor tool, please refer to the related documentation.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_azuresql">Can I use Stretch Database together with Azure SQL Database?</a>
+                                <section>
+                                    <p>Stretch Database is not currently compatible with Azure SQL Database, so you can not stretch the Azure SQL database to </p>
+                                    <p>Stretch Database, nor can you stretch SQL Server tables or databases to an Azure SQL Database.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>                                
+                                <a id="home_sql-stretch_question_sqlserver">If I have an existing Stretch Database from SQL Server 2016 RC0 or an earlier version, can it be directly upgraded to RC1 or a newer version and continue running on the new Stretch Database service?</a>
+                                <section>
+                                    <p>Upgrading is not currently supported. If you want to retain the data that has been stretched to Azure, you need to first un-migrate (Un-Migrate) the data in Azure to your own SQL Server database. After the un-migration is completed, you can upgrade and re-stretch the data to the new Stretch Database service. Please note that un-migrating data from Azure will incur data transfer fees.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div><a id="home_sql-stretch_question_sql-server-rco">Currently I am using SQL Server 2016 RC0. After stretching the database, the Azure portal will display it as a SQL DB S3. How can I stretch to SQL Stretch Database? </a><section>
+                                    <p>As the SQL Stretch Database service is currently in a limited public preview phase, customers need to sign up to access the preview service. To access this service, please register [here]. If not, RC0 users will be stretched to SQL DB S3 by default. Beginning with RC1, users will only be able to stretch to the SQL Stretch Database service.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Region</h2>
+                <p>The SQL Server Stretch Database service is available in the following areas:</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>Territory</strong></th>
+                        <th align="left"><strong>Region</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Mainland China</td>
+                        <td>China North, China East</td>
+                    </tr>
+                </table>
+				
+				 <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="sql-server-stretch-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				 <p>We guarantee that the customers have connections between the SQL Server Stretch Database and Internet gateway at least 99.9% of the time. To learn more about the details of our Service Level Agreement, please visit the <a href="/support/legal/sla/" id="pricing_sql-server-stretch_sla">Service Level Agreements</a> page.</p>
+                </div>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->   
+                               
+    
+    ]]></bodyText>
+    <pageTitle>SQL Server Stretch Database Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-sql-server-stretch-database</linkid>
+    <metaKeywords>Azure, SQL Server Stretch Database, pricing details, pricing, billing</metaKeywords>
+    <metaDescription><![CDATA[Learn about the pricing details of SQL Server Stretch Database. Different performance levels correspond to different prices. A 1RMB Trial gets you ¥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Server Stretch Database</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

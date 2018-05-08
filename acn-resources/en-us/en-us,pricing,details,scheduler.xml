@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+            <tags ms.service="scheduler" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/media/images/production/scheduler.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//resource.cdn.azure.cn/marketing-resource/media/images/production/scheduler@2x.png" />
+                        <h2>Scheduler</h2>
+                        <h4>Run your jobs on simple or complex recurring schedules</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_scheduler_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_scheduler_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure Scheduler lets you run jobs on any schedule, such as calling HTTP/S endpoints or posting messages to Azure Storage queues. Integrate jobs into your applications that run immediately, on a recurring schedule, or anytime in the future—and call services both inside and outside of Azure.</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <div class="tab-control-container tab-active">
+                    <h2>Pricing Details</h2>
+                    <!-- <p>从 2016 年 4 月 1 日起， 价格会下调 25.5%，以下是下调后的新价格：</p>  -->
+                    <p>Since May 1, 2016, the previous Advanced Version has been renamed Advanced Version P10.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left"><strong>&#160;</strong></th>
+                                <th align="left"><strong>Free</strong></th>
+                                <th align="left"><strong>Standard</strong></th>
+                                <th align="left"><strong>P10 Premium</strong></th>
+                                <th align="left"><strong>P20 Premium</strong></th>
+                            </tr>
+                            <tr>
+                                <td>Price per Month<sup>1</sup></td>
+                                <td>Free</td>
+                                <td>￥96.81/unit</td>
+                                <td>￥938.15/unit</td>
+                                <td>￥10,300/unit</td>
+                            </tr>
+                            <tr>
+                                <td>Job executions<sup>2</sup></td>
+                                <td>3,600</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Maximum execution frequency</td>
+                                <td>Every hour</td>
+                                <td>Every minute</td>
+                                <td>Every minute</td>
+                                <td>Every minute</td>
+                            </tr>
+                            <tr>
+                                <td>Job collections</td>
+                                <td>1</td>
+                                <td>10/unit</td>
+                                <td>10k/unit</td>
+                                <td>5k/unit</td>
+                            </tr>
+                            <tr>
+                                <td>Jobs per collection</td>
+                                <td>5</td>
+                                <td>50</td>
+                                <td>50</td>
+                                <td>1,000</td>
+                            </tr>
+                            <tr>
+                                <td>Scaling</td>
+                                <td>N/A</td>
+                                <td>Up to 10 units</td>
+                                <td>1 premium unit<br/><a id="scheduler_price_contactus01" href="/support/contact/">Contact us </a>for more</td>
+                                <td>1 premium unit<br/><a id="scheduler_price_contactus02" href="/support/contact/">Contact us </a>for more</td>
+                            </tr>
+                            <tr>
+                                <td>Outbound authentication</td>
+                                <td>--</td>
+                                <td>Y</td>
+                                <td>Y</td>
+                                <td>Y</td>
+                            </tr>
+                        </table>
+                        <p><sup>1</sup> Billing is prorated hourly. One standard unit is billed for every 10 job collections (or fraction) created, prorated hourly. Similarly, one premium unit is billed for every 10,000 job collections (or fraction) created, prorated hourly. Jobs are aggregated across geographies.</p>
+                        <p><sup>2</sup> The execution times of jobs in the Free Scheduler services will be counted every 30 days. All service tiers will be restricted by the maximum execution frequency and the total number of executable jobs. Within the 30-day calculation period, the number of job executions will be actually limited as follows: 21.6 million executions for every standard unit and 21.6 billion executions for every advanced unit. The word “limitless” in the tables above means that the total number of executions for every unit is limitless within the maximum execution frequency.</p>
+            
+                </div>
+            </div>
+            <!-- END: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+        <a id="scheduler_price_question1">What is the billing for Scheduler?</a>
+                                <section>
+                                    <p>In the case of one or multiple active job assemblages, Scheduler will prorate billing by the hour. A Standard unit will be charged in proportion to the number of hours for every 10 Standard job assemblages (or part of them) established. Similarly, an Advanced unit will be charged in proportion to the number of hours for every 10,000 Advanced job assemblages (or part of them) established.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+        <a id="scheduler_price_question2">Is the Scheduler quota applied at the subscription level?</a>
+                                <section>
+                                    <p>The quota of Scheduler shall be applied at the subscription level. In addition, it is worth noting that all the jobs of a given job assemblage will be bound to the region of that job assemblage.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+        <a id="scheduler_price_question3">How long will be the job execution log be retained?</a>
+                                <section>
+                                    <p>The execution log contains the history records of job executions from the previous 60 days.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+        <a id="scheduler_price_question4">Can I upgrade my Scheduler service from the Free version to the Standard version?</a>
+                                <section>
+                                    <p>Yes, the existing job assemblage can be upgraded by updating the hierarchy features.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+        <a id="scheduler_price_question6">How is the high availability of Scheduler achieved?</a>
+                                <section>
+                                    <p>Scheduler supports high availability by matching two regions across the same territory, such as pairing southern central America and northern central America, northern Europe and western Europe, eastern Asia-Pacific and southeastern Asia-Pacific. The jobs submitted to a given territory (see the following listed territory) can be executed in either of the paired regions.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+        <a id="scheduler_price_question5">Is Scheduler independent from the Scheduled Job feature in the Mobile Service?</a>
+                                <section>
+                                    <p>Yes, they are independent from each other, although they can both offer scheduling features. The Scheduled Job feature in the Mobile Service is a feature of the same kind while Scheduler is an independent scheduling program with more extensive usage occasions.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Region</h2>
+                <p>Scheduler is available in the following regions:</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>Territory</strong></th>
+                        <th align="left"><strong>Region</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Mainland China</td>
+                        <td>China North, China East</td>
+                    </tr>
+                </table>
+               <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="scheduler-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				 <p>We guarantee in at least 99.9% of cases all schedule calling operations can be started within 30 minutes of the scheduled time. Availability is charged and settled per month. To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/scheduler/" id="pricing_scheduler_sla">Service Level Agreements</a> page.</p>
+                </div>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                         
+    
+    ]]></bodyText>
+    <pageTitle>Scheduler Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-scheduler</linkid>
+    <metaKeywords>Azure, Scheduler, Pricing</metaKeywords>
+    <metaDescription><![CDATA[Learn more about the pricing of Scheduler. Azure Scheduler can be used to create jobs about reliable internal and external services in the cloud and operate those jobs according to demand or schedule or assign jobs for future dates. A 1RMB Trial gets you RMB1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Scheduler</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
