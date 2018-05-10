@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T11:41:59" urlName="data-transfer" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+	      	<style type="text/css">
+	            .pricing-detail-tab .tab-nav{
+	                padding-left: 0!important;
+	                margin-top: 5px;
+	                margin-bottom: 0;
+	                overflow: hidden;
+	            }
+	            .pricing-detail-tab .tab-nav li {
+	                list-style: none;
+	                float: left;
+	            }
+
+	            .pricing-detail-tab .tab-nav li.active a {
+	                border-bottom: 4px solid #00a3d9;
+	            }
+
+	            .pricing-detail-tab .tab-nav li.active a:hover {
+	                border-bottom: 4px solid #00a3d9;
+	            }
+
+	            .pricing-detail-tab .tab-content .tab-panel{
+	                display: none;
+	            }
+
+	            .pricing-detail-tab .tab-content .tab-panel.show-md{
+	                display: block;
+	            }
+
+	            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+	                padding-left: 5px;
+	                padding-right: 5px;
+	                color: #00a3d9;
+	                background-color: #FFF;
+	            }
+
+	            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+	                color: #FFF;
+	                background-color: #00a3d9;              
+	            }
+
+	            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+	                color: #FFF;
+	                background-color: #00a3d9;              
+	            }
+	            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+	            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+	            }
+	        </style> 
+            <tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
+                        <h2>Block Blob</h2>
+                        <h4>REST-based object storage for unstructured data</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_storage_trial">Apply for trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_storage_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+			<div class="pricing-page-section">
+				<p>Total cost of Block Blob storage depends on:</p>
+				<ul>
+					<li>Volume of data stored per month.</li>
+					<li>Quantity and types of operations performed, along with any data transfer costs.</li>
+					<li>Data redundancy option selected.</li>
+				</ul>
+		        <h2>Pricing Details</h2>
+			</div>
+			<div class="technical-azure-selector pricing-detail-tab">
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="javascript:void(0)" data-href="#tabContent1" id="home_storage_blobs" data-toggle="tab">Blob storage</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-href="#tabContent2" id="home_storage_gpv1" data-toggle="tab">General Purpose v1</a>
+                    </li>
+                </ul>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+				<div class="tab-content">
+					<!-- BEGIN: Level 1 tab content panel 1 -->
+                    <div class="tab-panel" id="tabContent1">
+						<p>Blob Storage accounts provide access to the latest features, but not to Page Blobs, Files, Queues, or Tables. While there are price differences between General Purpose v2 and Blob Storage to consider, we recommend that most users use General Purpose v2.</p>
+						<h4>Data storage prices</h4>
+						<p>These are the costs of storage data in Block Blob. The pricing shown below are monthly billing by the data size (GB) of storage. These pricing may vary from the access tier of Block Blob Storage (“hot” or “cool”) and the redundancy options you select as well as the data size of storage.</p>
+						<div class="tags-date">
+							<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="center" colspan="2"><strong>Local Redundant Storage (LRS)</strong></th>
+								<th align="center" colspan="2"><strong>Geo-Redundant Storage (GRS)</strong></th>
+								<th align="center" colspan="2"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td align="center">Cold</td>
+								<td align="center">Hot</td>
+								<td align="center">Cold</td>
+								<td align="center">Hot</td>
+								<td align="center">Cold</td>
+								<td align="center">Hot</td>
+							</tr>
+							<tr>
+								<td>First 100 TB/month</td>
+								<td align="center">￥ 0.11</td>
+								<td align="center">￥ 0.149</td>
+								<td align="center">￥ 0.22</td>
+								<td align="center">￥ 0.298</td>
+								<td align="center">￥ 0.279</td>
+								<td align="center">￥ 0.378</td>
+							</tr>
+							<tr>
+								<td>Last 900 TB/month</td>
+								<td align="center">￥ 0.11</td>
+								<td align="center">￥ 0.1438</td>
+								<td align="center">￥ 0.22</td>
+								<td align="center">￥ 0.2876</td>
+								<td align="center">￥ 0.279</td>
+								<td align="center">￥ 0.3648</td>
+							</tr>
+							<tr>
+								<td>Last 4000 TB/month</td>
+								<td align="center">￥ 0.11</td>
+								<td align="center">¥ 0.1436</td>
+								<td align="center">￥ 0.22</td>
+								<td align="center">￥ 0.2872</td>
+								<td align="center">￥ 0.279</td>
+								<td align="center">￥ 0.3643</td>
+							</tr>
+							<tr>
+								<td>Over 5000 TB/month</td>
+								<td align="center" colspan="2"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">Contact us</a></td>
+								<td align="center" colspan="2"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">Contact us</a></td>
+								<td align="center" colspan="2"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">Contact us</a></td>
+							</tr>
+						</table>
+						<p><strong><sup>1 </sup></strong>1 TB = 1,024GB</p>
+						<h4>Operation and Data Transmission Pricing</h4>
+						<p>The following are HTTP operation costs of Block Blob data and the costs of retrieving data from Block Blob or writing data into Block Blob. These pricing may vary from the access layer of Block Blob Storage (“hot” or “cold”) and the redundancy options you select. </p>
+						<div class="tags-date">
+							<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+						</div>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong></strong></th>
+								<th align="center" colspan="2"><strong>Local Redundant Storage (LRS)</strong></th>
+								<th align="center" colspan="2"><strong>Geo-Redundant Storage (GRS) Read and Access Geo-Redundant Storage (RA-GRS)</strong></th>
+							  
+							</tr>
+							<tr>
+								<td></td>
+								<td align="center">Cold</td>
+								<td align="center">Hot</td>
+								<td align="center">Cold</td>
+								<td align="center">Hot</td>
+							</tr>
+							<tr>
+								<td>List and create container operations (per 10,000 counted)</td>
+								<td align="center">￥ 0.09</td>
+								<td align="center">￥ 0.045</td>
+								<td align="center">￥ 0.18</td>
+								<td align="center">￥ 0.09</td>
+							   
+							</tr>
+							<tr>
+								<td>Read operations (per 10,000 counted)</td>
+								<td align="center">￥ 0.03</td>
+								<td align="center">￥ 0.015</td>
+								<td align="center">￥ 0.03</td>
+								<td align="center">￥ 0.015</td>
+							   
+							</tr>
+							<tr>
+								<td>All other operations (per 10,000 counted)</td>
+								<td align="center">￥ 0.03</td>
+								<td align="center">￥ 0.015</td>
+								<td align="center">￥ 0.03</td>
+								<td align="center">￥ 0.015</td>
+							
+							</tr>
+							<tr>
+								<td>Data Search (GB)</td>
+								<td align="center">￥ 0.0657</td>
+								<td align="center">Free</td>
+								<td align="center">￥ 0.0657</td>
+								<td align="center">Free</td>
+							</tr>
+							<tr>
+								<td>Data writes (GB)</td>
+								<td align="center">￥ 0.0164</td>
+								<td align="center">Free</td>
+								<td align="center">￥ 0.0328</td>
+								<td align="center">Free</td>
+							</tr>
+							<tr>
+								<td>Geo-replication data transfer (GB)</td>
+								<td align="center">Not suitable</td>
+								<td align="center">Not suitable</td>
+								<td align="center">¥ 0.67</td>
+								<td align="center">¥ 0.67</td>
+							</tr>
+						</table>
+						
+						<p>The pricing of Page Blob is the same as that of Standard Disk. Please view the <a id="pricing_storage_contact" style="color: #00a8d9;" href="javascript:void(0)" data-href="#tabContent3" >Standard Disk Pricing</a> page.</p>
+						<!-- END: Table1-Content-1 -->
+					</div>
+	                <div class="tab-panel" id="tabContent2">
+		                <p>General Purpose v1 enables access to Block Blobs, Page Blobs, Files, Queues, and Tables—offering our lowest transaction prices but with higher storage prices. General Purpose v1 accounts do not provide access to Cool and Archive storage.</p>
+						<h4>Data Storage Pricing</h4>
+	                    <ul>
+							<!-- BEGIN: Table-Content-->
+							<div class="tags-date">
+								<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+							</div>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th align="left"><strong>Monthly storage capacity</strong></th>
+									<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+									<th align="left"><strong>Zone Redundant Storage (ZRS)</strong></th>
+									<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+									<th align="left"><strong> Only Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+								</tr>
+								<tr>
+									<td>0 to 1TB<sup>1</sup></td>
+									<td>￥0.41/GB</td>
+									<td>￥0.64/GB</td>
+									<td>￥0.82/GB</td>
+									<td>￥1.04/GB</td>
+								</tr>
+								<tr>
+									<td>1TB to 50 TB</td>
+									<td>￥0.37/GB</td>
+									<td>￥054/GB</td>
+									<td>￥0.74/GB</td>
+									<td>￥0.94/GB</td>
+								</tr>
+								<tr>
+									<td>More than 50 TB</td>
+									<td>￥0.33/GB</td>
+									<td>￥0.50/GB</td>
+									<td>￥0.66/GB</td>
+									<td>￥0.83/GB</td>
+								</tr>
+							</table>
+							<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>						
+	                    </ul>
+						<div class="more-detail">
+							 <p></p>
+							 <h4>Operation and Data Transfer Pricing</h4>
+							 <p>The followings prices are the HTTP operation costs of Block Blob data and the costs of retrieving data from Block Blob or writing data into Block Blob.</p>
+							<div class="tags-date">
+								<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+							</div>
+							<table cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<th align="left"><strong></strong></th>
+									<th align="left"><strong>(LRS)</strong></th>
+									<th align="left"><strong>(ZRS)</strong></th>
+									<th align="left"><strong>(GRS)</strong></th>
+									<th align="left"><strong>(RA-GRS)</strong></th>
+								  
+								</tr>
+								<tr>
+									<td>Writes (per 10,000 counted)</td>
+									<td align="left">￥0.045</td>					   
+									<td align="left">￥0.045</td>					   
+									<td align="left">￥0.09</td>					   
+									<td align="left">￥0.09</td>					   
+								</tr>					
+								<tr>
+									<td>List and create container operations (per 10,000 counted)</td>
+									<td align="left">￥0.045</td>
+									<td align="left">￥0.045</td>
+									<td align="left">￥0.045</td>
+									<td align="left">￥0.045</td>					   
+								</tr>
+								<tr>
+									<td>Reads (per 10,000 counted)</td>
+									<td align="left">￥0.015</td>
+									<td align="left">￥0.015</td>						   
+									<td align="left">￥0.015</td>						   
+									<td align="left">￥0.015</td>						   
+								</tr>
+								<tr>
+									<td>All other operations (per 10,000 counted)</td>
+									<td align="left">￥0.015</td>
+									<td align="left">￥0.015</td>						   
+									<td align="left">￥0.015</td>						   
+									<td align="left">￥0.015</td>						   
+								</tr>
+								<tr>
+									<td>Data retrieval</td>
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+								</tr>
+								<tr>
+									<td>Data writes (GB)</td>
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+								</tr>
+								<tr>
+									<td>Geo-replication data transfer (GB)</td>
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+									<td align="left">Free</td>						   
+								</tr>
+							</table>
+						</div>	
+			
+					<!-- END: TAB-CONTROL -->
+	            	</div>
+	            </div>
+	        </div>
+            <div class="pricing-page-section">
+			    <div class="more-detail">
+			        <h2>FAQ</h2>
+        			<em>Expand all</em>
+			        <ul>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question1">What is a Blob Storage account and what are the differences between this account and a general-purpose storage account?</a>
+			                    <section>
+			                        <p>A Blob Storage account is specialized for storing data as blobs, and allows users to specify an access tier based on the frequency of access to data in that account. General Purpose accounts can be used to store blobs as well as files, disks, tables, and queues. </p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question2">Has the pricing of Block Blob in the general-purpose Storage account been changed?</a>
+			                    <section>
+			                        <p>No. The pricing of Block Blob in the general-purpose Storage account hasn’t yet been changed. Please view the <a id="pricing_storage_question" style="color: #00a8d9;" href="/pricing/details/storage/blob/">Block Blog Pricing</a> page.</p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question3">When viewing the Azure bill, how can we distinguish whether paying for Blob in the Blob Storage account or general-purpose Storage account is required?</a>
+			                    <section>
+			                        <p>If “Hot” or “Cold” is in the resource name, this means that this expense is related to the Blob Storage account. For instance, if it’s “Standard IO - Cold Block Blob (GB)”, it means you used the Blob Storage account and need to pay for this account, while “Standard IO – Block Blob (GB)” is charged in relation to the Block Blob in the general-purpose Storage account. </p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question4">What are “Hot” and “Cold” access layers and how do we ascertain which one is to be used?</a>
+			                    <section>
+									<p>In the Blob Storage account, we could set Blob’s access layer to “Hot” and “Cold”. The storage GB pricing increases in the sequence of “Cold” and “Hot” layer. The data access expense increases in the sequence of “Hot” and “Cold” layer. The “Hot” and “Cold” layers are separately applied to data with almost no access and occasional access, and the availability of Service Level Agreement of these data has a lower requirement. If you don’t know the data access mode, it’s recommended that you use the “Hot” layer for at least one month in the beginning, then decide if it’s necessary to shift to “Cold” storage to save costs where applicable. </p>
+
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question5">Is paying the data write expense of switching a Blob Storage account from “Cold” to “Hot” required?</a>
+			                    <section>
+			                        <p>We will charge the data retrieval of the Blob Storage account when it’s switched from “Cold” to “Hot”. For instance, if the Blob Storage account has 100 GB data, when the account is switched from “Cold” to “Hot”, you will be charged with a data retrieval fee of 100 * ¥ 0.0657 = ¥ 6.57.</p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question6">Is paying for data writes required when the Blob Storage account is switched from “Hot” to “Cold”?</a>
+			                    <section>
+			                        <p>No. Paying for data writes is not required when your account is switched from “Hot” to “Cold”. If you write directly data into the “Cold” access layer of the Blob Storage account, only paying the data writing expense is required. </p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question7">What is the charge for Geo-replication data transfer?</a>
+			                    <section>
+			                        <p>When you write data into GRS accounts, that data will be replicated to another Azure region. The Geo-Replication Data Transfer charge is the bandwidth cost of replicating that data to another Azure region.</p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question8">What are the total charges incurred when changing my account replication setting from LRS to GRS or RA-GRS?</a>
+			                    <section>
+			                        <p>There will be a one-time fee equal to the sum of all data multiplied by the geo-replication fee in the primary region. For data stored in the Archive tier, there will also be a charge to read all the data (both read operations per 10,000 blobs and for data retrieval per GB) from the primary region and to write all the data (write operations per 10,000) into the secondary region.</p>
+			                    </section>
+
+			                </div>
+			            </li>
+					</ul>
+		        </div>
+	        </div>
+	        <div class="pricing-page-section">
+			    <h2>Marketing Regions</h2>
+			    <p>Storage services are available in the following regions:</p>
+			    <table cellpadding="0" cellspacing="0" class="table-col6">
+			        <tr>
+			            <th align="left"><strong>Territory</strong></th>
+			            <th align="left"><strong>Region</strong></th>
+			        </tr>
+			        <tr>
+			            <td>Mainland China</td>
+			            <td>China North, China East</td>
+			        </tr>
+			    </table>
+			</div>
+
+    		<div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="storage-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>Block Blob itself doesn’t provide financially supported service level agreements. Its availability depends on the used service level for Basic storage. To learn more about the details of the Service Level Agreement, please visit the <a href="/support/sla/storage/" id="pricing_storage_sla">Service Level Agreements</a> page.</p>
+			</div>
+
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>Blob Storage Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage-blobs</linkid>
+    <metaKeywords>Azure, Azure Cloud Computing, Blob Storage – Block Blob, pricing details, pricing, billing</metaKeywords>
+    <metaDescription><![CDATA[Learn the pricing details - storage - Block (Blob Storage – Block Blob) pricing details. Provide Block Blob - storage pricing and Block Blob - visit relevant pricing quotes.]]></metaDescription>
+    <urlDisplayName></urlDisplayName>
+  </TextpageLeftNav>
+</localize>
+

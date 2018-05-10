@@ -54,7 +54,7 @@
   .calculator-filter .arrow-down {
     display: inline-block;
     position: absolute;
-    background: url("//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/icon_dropdown-arrow.png");
+    background: url("//resource.cdn.azure.cn/marketing-resource/css/img/icon_dropdown-arrow.png");
     width: 8px;
     height: 4px;
     right: 5px;
@@ -86,11 +86,11 @@
   }
 </style>
 
-<script src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/Content/calculator/calculatorconst.js" type="text/javascript"></script>
-<script src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/Content/calculator/calculatordatamodel.js" type="text/javascript"></script>
+<script src="//resource.cdn.azure.cn/marketing-resource/Content/calculator/calculatorconst.js" type="text/javascript"></script>
+<script src="//resource.cdn.azure.cn/marketing-resource/Content/calculator/calculatordatamodel.js" type="text/javascript"></script>
 
 <div class='preload'>
-  <img src='//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/right.png' />
+  <img src='//resource.cdn.azure.cn/marketing-resource/css/img/right.png' />
 </div>
 <div class="calculator-filter">
   <label class='calculator-filter-label'>请您选择需要估算的服务</label>
@@ -332,7 +332,7 @@
 
         <!-- start calculator modal -->
         <div class="preload">
-            <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/right.png">
+            <img src="//resource.cdn.azure.cn/marketing-resource/css/img/right.png">
         </div>
         <div class="modal modal-calculator hide">
             <div class="container">
@@ -387,108 +387,111 @@
         <!-- end calculator animation layer -->
 
 <script>
-    CalculatorUIRenderer.AddService("app-service");
-	CalculatorUIRenderer.AddService("app-service-ssl");
-    CalculatorUIRenderer.AddService("cdn");
-    CalculatorUIRenderer.AddService("virtual-machines-windows");
-    CalculatorUIRenderer.AddService("virtual-machines-linux");
-    CalculatorUIRenderer.AddService("sql-server-standard");
-  CalculatorUIRenderer.AddService("virtual-machines-ml-server");
-    CalculatorUIRenderer.AddService("cloud-services");
-    CalculatorUIRenderer.AddService("storage-cold-hot-block-blob");
-	CalculatorUIRenderer.AddService("storage-cold-hot-block-blob-access");
-	CalculatorUIRenderer.AddService("storage-general-purpose-block-blob");
-	CalculatorUIRenderer.AddService("storage-general-purpose-block-blob-access");
-	CalculatorUIRenderer.AddService("storage-general-purpose-file");
-	CalculatorUIRenderer.AddService("storage-general-purpose-file-access");
-  CalculatorUIRenderer.AddService("storage-manager-disk-premium");
-  CalculatorUIRenderer.AddService("storage-manager-disk-premium-snapshots");
-  CalculatorUIRenderer.AddService("storage-manager-disk-standard");
-  CalculatorUIRenderer.AddService("storage-manager-disk-standard-snapshots");
-  CalculatorUIRenderer.AddService("storage-manager-disk-standard-access");
-  CalculatorUIRenderer.AddService("storage-ummanager-disk-premium");
-  CalculatorUIRenderer.AddService("storage-ummanager-disk-standard");
-	CalculatorUIRenderer.AddService("storage-ummanager-disk-blob");
-  CalculatorUIRenderer.AddService("storage-general-purpose-table");
-  CalculatorUIRenderer.AddService("storage-general-purpose-table-access");
-  CalculatorUIRenderer.AddService("storage-general-purpose-queues");
-  CalculatorUIRenderer.AddService("storage-general-purpose-queues-access");
-	CalculatorUIRenderer.AddService("storage-import-export");
-    CalculatorUIRenderer.AddService("sql-database-elastic-vcore");
-    CalculatorUIRenderer.AddService("sql-database-elastic-vcore-hybrid");
-    CalculatorUIRenderer.AddService("sql-database-elastic-dtu");
-    CalculatorUIRenderer.AddService("sql-database-single-vcore");
-    CalculatorUIRenderer.AddService("sql-database-single-vcore-hybrid");
-    CalculatorUIRenderer.AddService("sql-database-single-dtu");
-    CalculatorUIRenderer.AddService("mobile-service");
-    CalculatorUIRenderer.AddService("event-hubs");
-    CalculatorUIRenderer.AddService("automation");
-    CalculatorUIRenderer.AddService("media-services-encoder");
-	CalculatorUIRenderer.AddService("media-services-media-reserved-unit");
-	CalculatorUIRenderer.AddService("media-services-channels");
-    CalculatorUIRenderer.AddService("media-services-stream");
-    CalculatorUIRenderer.AddService("media-services-content-protect");
-    CalculatorUIRenderer.AddService("media-services-indexing");
-    CalculatorUIRenderer.AddService("media-services-media-reserved-redactor");
-    CalculatorUIRenderer.AddService("site-recovery");
-    CalculatorUIRenderer.AddService("mysql-database-on-azure");
-    CalculatorUIRenderer.AddService("cosmos-db_ssd");
-    CalculatorUIRenderer.AddService("cosmos-db_ru");
-    CalculatorUIRenderer.AddService("redis-cache");
-    CalculatorUIRenderer.AddService("stream-analytics");
-    CalculatorUIRenderer.AddService("notification-hub");
-  CalculatorUIRenderer.AddService("hdinsight-linux-hadoop-head");
-  CalculatorUIRenderer.AddService("hdinsight-linux-hadoop-data");
-  CalculatorUIRenderer.AddService("hdinsight-linux-hbase-head");
-  CalculatorUIRenderer.AddService("hdinsight-linux-hbase-region");
-  CalculatorUIRenderer.AddService("hdinsight-linux-hbase-zookeeper");
-  CalculatorUIRenderer.AddService("hdinsight-linux-storm-nimbus");
-  CalculatorUIRenderer.AddService("hdinsight-linux-storm-supervisor");
-  CalculatorUIRenderer.AddService("hdinsight-linux-storm-zookeeper");
-  CalculatorUIRenderer.AddService("hdinsight-linux-spark-head");
-  CalculatorUIRenderer.AddService("hdinsight-linux-spark-worker");
-	CalculatorUIRenderer.AddService("hdinsight-windows-hadoop-head");
-	CalculatorUIRenderer.AddService("hdinsight-windows-hadoop-data");
-	CalculatorUIRenderer.AddService("hdinsight-windows-hbase-head");
-	CalculatorUIRenderer.AddService("hdinsight-windows-hbase-region");
-	CalculatorUIRenderer.AddService("hdinsight-windows-hbase-zookeeper");
-	CalculatorUIRenderer.AddService("hdinsight-windows-storm-nimbus");
-	CalculatorUIRenderer.AddService("hdinsight-windows-storm-supervisor");
-	CalculatorUIRenderer.AddService("hdinsight-windows-storm-zookeeper");
-    CalculatorUIRenderer.AddService("schedule");
-    CalculatorUIRenderer.AddService("backup");
-    CalculatorUIRenderer.AddService("service-bus");
-    CalculatorUIRenderer.AddService("virtual-network");
-	CalculatorUIRenderer.AddService("virtual-network-data-transfer");
-	CalculatorUIRenderer.AddService("ip-address");
-    CalculatorUIRenderer.AddService("traffic-manager");
-	CalculatorUIRenderer.AddService("networking-inbound");
-    CalculatorUIRenderer.AddService("networking-outbound");
-    CalculatorUIRenderer.AddService("data-transferenter");
-    CalculatorUIRenderer.AddService("data-transfer");
-    CalculatorUIRenderer.AddService("application-gateway-basic");
-	CalculatorUIRenderer.AddService("application-gateway-waf");
-    CalculatorUIRenderer.AddService("application-gateway-data-process");
-    CalculatorUIRenderer.AddService("expressroute-unlimited");
-    CalculatorUIRenderer.AddService("expressroute-measurement");
-    CalculatorUIRenderer.AddService("expressroute-data");
-	CalculatorUIRenderer.AddService("power-bi-embedded");
-    CalculatorUIRenderer.AddService("key-vault");
-    CalculatorUIRenderer.AddService("sql-data-warehouse");
-    CalculatorUIRenderer.AddService("sql-server-stretch-database");
-    CalculatorUIRenderer.AddService("azure-iot-hub");
-    CalculatorUIRenderer.AddService("cognitive-services-face");
-	CalculatorUIRenderer.AddService("cognitive-services-computer-vision");
-	CalculatorUIRenderer.AddService("analysis-services-devp");
-	CalculatorUIRenderer.AddService("analysis-services-date");
-	CalculatorUIRenderer.AddService("analysis-services-ssl");
-	CalculatorUIRenderer.AddService("analysis-services-scale-out");
-  CalculatorUIRenderer.AddService("api-management");
-  CalculatorUIRenderer.AddService("network-watcher");
-    CalculatorUIRenderer.AddService("azure-monitor");
-    CalculatorUIRenderer.AddService("support");
-    
-    CalculatorUIRenderer.PostProcess();
+	window.calculatorServiceList = [ "app-service",
+									 "app-service-ssl",
+									 "cdn",
+									 "virtual-machines-windows",
+									 "virtual-machines-linux",
+									 "sql-server-standard",
+									 "virtual-machines-ml-server",
+									 "cloud-services",
+									 "storage-cold-hot-block-blob",
+                  "storage-cold-hot-block-blob-access",
+                  "storage-general-purpose-block-blob",
+                  "storage-general-purpose-block-blob-access",
+                  "storage-page-blobs-gpv2-standard",
+                  "storage-page-blobs-gpv2-unmanager-disk-standard-access",
+                  "storage-page-blobs-gpv2-page-blobs-access",
+                  "storage-page-blobs-gpv1-ummanager-disk-premium",
+                  "storage-page-blobs-gpv1-ummanager-disk-standard",
+                  "storage-page-blobs-gpv1-ummanager-disk-blob",
+                  "storage-manager-disk-premium",
+                  "storage-manager-disk-premium-snapshots",
+                  "storage-manager-disk-standard",
+                  "storage-manager-disk-standard-snapshots",
+                  "storage-manager-disk-standard-access",
+                  "storage-general-purpose-file",
+                  "storage-general-purpose-file-access",
+                  "storage-queues-gpv2",
+                  "storage-queues-gpv2-access",
+                  "storage-general-purpose-queues",
+                  "storage-general-purpose-queues-access",
+                  "storage-general-purpose-table",
+                  "storage-general-purpose-table-access",
+									 "storage-import-export",
+									 "sql-database-elastic-vcore",
+									 "sql-database-elastic-vcore-hybrid",
+									 "sql-database-elastic-dtu",
+									 "sql-database-single-vcore",
+									 "sql-database-single-vcore-hybrid",
+									 "sql-database-single-dtu",
+									 "mobile-service",
+									 "event-hubs",
+									 "automation",
+									 "media-services-encoder",
+									 "media-services-media-reserved-unit",
+									 "media-services-channels",
+									 "media-services-stream",
+									 "media-services-content-protect",
+									 "media-services-indexing",
+									 "media-services-media-reserved-redactor",
+									 "site-recovery",
+									 "mysql-database-on-azure",
+									 "cosmos-db_ssd",
+									 "cosmos-db_ru",
+									 "redis-cache",
+									 "stream-analytics",
+									 "notification-hub",
+									 "hdinsight-windows-hadoop-head",
+									 "hdinsight-windows-hadoop-data",
+									 "hdinsight-windows-hbase-head",
+									 "hdinsight-windows-hbase-region",
+									 "hdinsight-windows-hbase-zookeeper",
+									 "hdinsight-windows-storm-nimbus",
+									 "hdinsight-windows-storm-supervisor",
+									 "hdinsight-windows-storm-zookeeper",
+									 "hdinsight-linux-hadoop-head",
+									 "hdinsight-linux-hadoop-data",
+									 "hdinsight-linux-hbase-head",
+									 "hdinsight-linux-hbase-region",
+									 "hdinsight-linux-hbase-zookeeper",
+									 "hdinsight-linux-storm-nimbus",
+									 "hdinsight-linux-storm-supervisor",
+									 "hdinsight-linux-storm-zookeeper",
+									 "hdinsight-linux-spark-head",
+									 "hdinsight-linux-spark-worker",
+									 "schedule",
+									 "backup",
+									 "service-bus",
+									 "virtual-network",
+									 "virtual-network-data-transfer",
+									 "ip-address",
+									 "traffic-manager",
+									 "networking-inbound",
+									 "networking-outbound",
+									 "data-transferenter",
+									 "data-transfer",
+									 "application-gateway-basic",
+									 "application-gateway-waf",
+									 "application-gateway-data-process",
+									 "expressroute-unlimited",
+									 "expressroute-measurement",
+									 "expressroute-data",
+									 "power-bi-embedded",
+									 "key-vault",
+									 "sql-data-warehouse",
+									 "sql-server-stretch-database",
+									 "azure-iot-hub",
+									 "cognitive-services-face",
+									 "cognitive-services-emotion",
+									 "cognitive-services-computer-vision",
+									 "analysis-services-devp",
+									 "analysis-services-date",
+									 "analysis-services-ssl",
+									 "analysis-services-scale-out",
+									 "api-management",
+									 "network-watcher",
+									 "support" ]
 </script>
 ]]>
     </bodyText>

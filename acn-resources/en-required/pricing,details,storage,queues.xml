@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T11:41:59" urlName="data-transfer" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+	      	<style type="text/css">
+				.pricing-detail-tab .tab-nav{
+					padding-left: 0!important;
+					margin-top: 5px;
+					margin-bottom: 0;
+					overflow: hidden;
+				}
+				.pricing-detail-tab .tab-nav li {
+					list-style: none;
+					float: left;
+				}
+
+				.pricing-detail-tab .tab-nav li.active a {
+					border-bottom: 4px solid #00a3d9;
+				}
+
+				.pricing-detail-tab .tab-nav li.active a:hover {
+					border-bottom: 4px solid #00a3d9;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel{
+					display: none;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel.show-md{
+					display: block;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+					padding-left: 5px;
+					padding-right: 5px;
+					color: #00a3d9;
+					background-color: #FFF;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+					color: #FFF;
+					background-color: #00a3d9;				
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+					color: #FFF;
+					background-color: #00a3d9;				
+				}
+				.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+				background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+				}
+			</style>
+            <tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                    	<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
+                        <h2>队列存储<span>Queues Storage</span></h2>
+                        <h4>根据流量有效缩放应用程序</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_storage_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_storage_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+			<div class="pricing-page-section">
+				<div>
+	                <h2>定价详细信息</h2>
+	                <p>队列可为应用提供可靠的消息传递解决方案，通常用于存储要异步处理的消息。队列消息的大小最多可达 64 KB，队列中可包含数百万条消息。</p>
+					<!-- BEGIN: Level 1 tab navigator -->
+					<div class="technical-azure-selector pricing-detail-tab">
+						<ul class="tab-nav">
+							<li class="active">
+								<a href="javascript:void(0)" data-href="#tabContent1" id="gpv2" data-toggle="tab">常规用途 v2</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">常规用途 v1</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<!-- BEGIN: Table1-Content-->	
+							<div class="tab-panel" id="tabContent1">
+								<p>常规用途 v2 的定价针对 GB 存储最低价格进行了优化，通过它可以访问最新的 Azure 存储功能，包括冷存储和存档存储。使用这些帐户可访问块 Blob、页 Blob、文件和队列。</p>
+								<h4>数据存储价格</h4>
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br/>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+										<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+										<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+									</tr>
+									<tr>
+										<td>¥ 0.4579/GB</td>
+										<td>¥ 0.6106/GB</td>
+										<td>¥ 0.7632/GB</td>
+									</tr>
+								</table>
+								<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+								<h4>操作和数据传输价格</h4>								
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br/>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong></strong></th>
+										<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+										<th align="left"><strong>异地冗余存储 (GRS)</th>
+										<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+									</tr>						
+									<tr>
+										<td>队列类别 1 <sup>1</sup> 操作（按 10,000 计）</td>
+										<td align="left">￥0.0407</td>					   
+										<td align="left">￥0.0814</td>					   
+										<td align="left">￥0.0814</td>					   
+									</tr>
+									<tr>
+										<td>队列类别 2 <sup>2</sup> 操作（按 10,000 计）</td>
+										<td align="left">￥0.0407</td>
+										<td align="left">￥0.0407</td>
+										<td align="left">￥0.0407</td>
+									</tr>
+									<tr>
+										<td>队列类别 1 操作额外 IO 单位（按 10,000 计）</td>
+										<td align="left">￥0.0407</td>					   
+										<td align="left">￥0.0814</td>					   
+										<td align="left">￥0.0814</td>
+									</tr>
+									<tr>
+										<td>队列类别 2 操作额外 IO 单位（按 10,000 计）</td>
+										<td align="left">￥0.0407</td>
+										<td align="left">￥0.0814</td>
+										<td align="left">￥0.0814</td>
+									</tr>
+									<tr>
+										<td>异地复制数据传输（按 GB）</td>
+										<td align="left">不适用</td>
+										<td align="left">0.2035</td>					   
+										<td align="left">0.2035</td>					   
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date"><sup>1 </sup>以下队列操作计为类别 1：CreateQueue、ListQueues、PutMessage、SetQueueMetadata、UpdateMessage、ClearMessages、DeleteMessage、DeleteQueue、GetMessageWrite、GetMessagesWrite。</div><br />
+									<div class="ms-date"><sup>2 </sup>以下队列操作计为类别 2：GetMessage、GetMessages、GetQueueMetadata、GetQueueServiceProperties、GetQueueAcl、PeekMessage、PeekMessages、GetMessageRead、GetMessagesRead。</div>
+								</div>
+							</div>
+							<!-- BEGIN: Table2-Content-->	
+							<div class="tab-panel" id="tabContent2">
+								<p>常规用途 v1 的事务价格最低，存储价格较高，通过它可以访问块 Blob、页 Blob、文件、队列和表。常规用途 v1 帐户不支持访问冷存储和存档存储。</p>
+								<h4>数据存储价格</h4>
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>每月存储容量</strong></th>
+										<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+										<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+										<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+									</tr>
+									<tr>
+										<td>0 至 1TB<sup>1</sup></td>
+										<td>¥ 0.72/GB</td>
+										<td>¥ 0.95/GB</td>
+										<td>¥ 1.21/GB</td>
+									</tr>
+									<tr>
+										<td>1TB 至 50 TB</td>
+										<td>¥ 0.57/GB</td>
+										<td>¥ 0.80/GB</td>
+										<td>¥ 1.02/GB</td>
+									</tr>
+									<tr>
+										<td>大于 50 TB</td>
+										<td>¥ 0.54/GB</td>
+										<td>¥ 0.74/GB</td>
+										<td>¥ 0.94/GB</td>
+									</tr>
+								</table>
+					
+								<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+
+								<h4>操作和数据传输价格</h4>								
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong></strong></th>
+										<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
+										<th align="left"><strong>异地冗余存储 (GRS)</th>
+										<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+									  
+									</tr>						
+									<tr>
+										<td>队列类别 1 <sup>1</sup> 操作（按 10,000 计）</td>
+										<td align="left">￥0.003663</td>					   
+										<td align="left">￥0.003663</td>					   
+										<td align="left">￥0.003663</td>					   
+									</tr>
+									<tr>
+										<td>队列类别 2 <sup>2</sup> 操作（按 10,000 计）</td>
+										<td align="left">￥0.02</td>
+										<td align="left">￥0.02</td>					   
+										<td align="left">￥0.02</td>					   
+									</tr>
+									<tr>
+										<td>异地复制数据传输（按 GB）</td>
+										<td align="left">不适用</td>
+										<td align="left">免费</td>					   
+										<td align="left">免费</td>					   
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date"><sup>1 </sup>以下队列操作计为类别 1：CreateQueue、ListQueues、PutMessage、SetQueueMetadata、UpdateMessage、ClearMessages、DeleteMessage、DeleteQueue、GetMessageWrite、GetMessagesWrite。</div><br />
+									<div class="ms-date"><sup>2 </sup>以下队列操作计为类别 2：GetMessage、GetMessages、GetQueueMetadata、GetQueueServiceProperties、GetQueueAcl、PeekMessage、PeekMessages、GetMessageRead、GetMessagesRead。</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END: TAB-CONTROL -->
+	            </div>
+            </div>
+            <div class="pricing-page-section">
+			    <h2>上市地区</h2>
+			    <p>存储服务在以下区域中提供：</p>
+			    <table cellpadding="0" cellspacing="0" class="table-col6">
+			        <tr>
+			            <th align="left"><strong>地域</strong></th>
+			            <th align="left"><strong>区域</strong></th>
+			        </tr>
+			        <tr>
+			            <td>中国大陆</td>
+			            <td>中国东部数据中心 , 中国北部数据中心</td>
+			        </tr>
+    			</table>
+    		</div>
+
+    		<div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="storage-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>我们保证至少在 99.99%（对于冷访问层为 99.9%）的时间成功地处理从读取访问异地冗余存储 (RA-GRS) 帐户读取数据的请求，但前提是在次要区域重试从主要区域读取数据的失败尝试</p>
+				<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理从本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户读取数据的请求。</p>
+				<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理将数据写入本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户，以及读取访问异地冗余存储 (RA-GRS) 帐户的请求。</p>
+				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/storage/" id="pricing_storage_sla">服务级别协议</a>页。</p>
+				<p>托管磁盘本身不提供有财务方面支持的服务级别协议。托管磁盘的可用性取决于所使用的基础存储和其所依附的虚拟机的服务级别协议。若要了解更多有关托管磁盘的服务级别协议的详细信息，请访问<a href="/support/sla/managed-disks/">托管磁盘服务级别协议</a>页。</p>
+			</div>  
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>价格详情-存储-队列-Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage-queues</linkid>
+    <metaKeywords>Azure, 微软云, Azure 存储 - 队列,价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[队列可为应用提供可靠的消息传递解决方案，通常用于存储要异步处理的消息。队列消息的大小最多可达 64 KB，队列中可包含数百万条消息。]]></metaDescription>
+    <urlDisplayName>价格详情 - 存储 - 队列</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

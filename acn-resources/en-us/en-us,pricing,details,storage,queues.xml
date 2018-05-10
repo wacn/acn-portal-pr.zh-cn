@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T11:41:59" urlName="data-transfer" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+	      	<style type="text/css">
+				.pricing-detail-tab .tab-nav{
+					padding-left: 0!important;
+					margin-top: 5px;
+					margin-bottom: 0;
+					overflow: hidden;
+				}
+				.pricing-detail-tab .tab-nav li {
+					list-style: none;
+					float: left;
+				}
+
+				.pricing-detail-tab .tab-nav li.active a {
+					border-bottom: 4px solid #00a3d9;
+				}
+
+				.pricing-detail-tab .tab-nav li.active a:hover {
+					border-bottom: 4px solid #00a3d9;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel{
+					display: none;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel.show-md{
+					display: block;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+					padding-left: 5px;
+					padding-right: 5px;
+					color: #00a3d9;
+					background-color: #FFF;
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+					color: #FFF;
+					background-color: #00a3d9;				
+				}
+
+				.pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+					color: #FFF;
+					background-color: #00a3d9;				
+				}
+				.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+				background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+				}
+			</style>
+            <tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                    	<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
+                        <h2>Queues Storage</h2>
+                        <h4>Effectively scale apps according to traffic</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_storage-queues_trial">Apply for trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_storage-queues_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+			<div class="pricing-page-section">
+				<div>
+	                <h2>Pricing Details</h2>
+	                <p>Queues provide a reliable messaging solution for your apps, and are generally used to store messages to be processed asynchronously. Queue messages can be up to 64 KB in size and can contain millions of messages.</p>
+					<!-- BEGIN: Level 1 tab navigator -->
+					<div class="technical-azure-selector pricing-detail-tab">
+						<ul class="tab-nav">
+							<li class="active">
+								<a href="javascript:void(0)" data-href="#tabContent1" id="gpv2" data-toggle="tab">General Purpose v2</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">General Purpose v1</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<!-- BEGIN: Table1-Content-->	
+							<div class="tab-panel" id="tabContent1">
+								<p>General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the lowest GB storage prices. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.</p>
+								<h4>Data storage prices</h4>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br/>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									</tr>
+									<tr>
+										<td>¥ 0.4579/GB</td>
+										<td>¥ 0.6106/GB</td>
+										<td>¥ 0.7632/GB</td>
+									</tr>
+								</table>
+								<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+								<h4>Operations and data transfer prices</h4>								
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br/>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong></strong></th>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									</tr>						
+									<tr>
+										<td>Queue Class 1 <sup>1</sup> operations (in 10,000)</td>
+										<td align="left">￥0.0407</td>					   
+										<td align="left">￥0.0814</td>					   
+										<td align="left">￥0.0814</td>					   
+									</tr>
+									<tr>
+										<td>Queue Class 2 <sup>2</sup> operations (in 10,000)</td>
+										<td align="left">￥0.0407</td>
+										<td align="left">￥0.0407</td>
+										<td align="left">￥0.0407</td>
+									</tr>
+									<tr>
+										<td>Queue Class 1 extra IO units operations (in 10,000)</td>
+										<td align="left">￥0.0407</td>					   
+										<td align="left">￥0.0814</td>					   
+										<td align="left">￥0.0814</td>
+									</tr>
+									<tr>
+										<td>Queue Class 2 extra IO units operations (in 10,000)</td>
+										<td align="left">￥0.0407</td>
+										<td align="left">￥0.0814</td>
+										<td align="left">￥0.0814</td>
+									</tr>
+									<tr>
+										<td>Geo-replication data transfer (per GB)</td>
+										<td align="left">不适用</td>
+										<td align="left">0.2035</td>					   
+										<td align="left">0.2035</td>					   
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date"><sup>1 </sup>The following Queue operations are counted as Class 1: CreateQueue, ListQueues, PutMessage, SetQueueMetadata, UpdateMessage, ClearMessages, DeleteMessage, DeleteQueue, GetMessageWrite, GetMessagesWrite</div><br />
+									<div class="ms-date"><sup>2 </sup>The following Queue operations are counted as Class 2: GetMessage, GetMessages, GetQueueMetadata, GetQueueServiceProperties, GetQueueAcl, PeekMessage, PeekMessages, GetMessageRead, GetMessagesRead</div>
+								</div>
+							</div>
+							<!-- BEGIN: Table2-Content-->	
+							<div class="tab-panel" id="tabContent2">
+								<p>General Purpose v1 enables access to Block Blobs, Page Blobs, Files, Queues, and Tables—offering our lowest transaction prices but with higher storage prices. General Purpose v1 accounts do not provide access to Cool and Archive storage.</p>
+								<h4>Data Storage Pricing</h4>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Monthly storage capacity</strong></th>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									</tr>
+									<tr>
+										<td>0 to 1TB<sup>1</sup></td>
+										<td>￥ 0.72/GB</td>
+										<td>￥ 0.95/GB</td>
+										<td>￥ 1.21/GB</td>
+									</tr>
+									<tr>
+										<td>1 TB to 50 TB</td>
+										<td>¥ 0.57/GB</td>
+										<td>￥ 0.80/GB</td>
+										<td>￥ 1.02/GB</td>
+									</tr>
+									<tr>
+										<td>More than 50 TB</td>
+										<td>¥ 0.54/GB</td>
+										<td>￥ 0.74/GB</td>
+										<td>￥ 0.94/GB</td>
+									</tr>
+								</table>
+					
+								<p><strong><sup>1 </sup></strong>1 TB = 1,024GB</p>
+
+								<h4>Operation and Data Transmission Pricing</h4>								
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong></strong></th>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									  
+									</tr>						
+									<tr>
+										<td>Queue types 1 <sup>1</sup> operation (per 10,000 counted)</td>
+										<td align="left">¥ 0.003663</td>					   
+										<td align="left">￥ 0.003663</td>					   
+										<td align="left">￥ 0.003663</td>					   
+									</tr>
+									<tr>
+										<td>Queue types 2 <sup>2</sup> operation (per 10,000 counted)</td>
+										<td align="left">￥ 0.02</td>
+										<td align="left">￥ 0.02</td>					   
+										<td align="left">¥ 0.02</td>					   
+									</tr>
+									<tr>
+										<td>Geo-replication data transfer (per GB)</td>
+										<td align="left">Free</td>
+										<td align="left">Free</td>					   
+										<td align="left">Free</td>					   
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date"><sup>1 </sup>The following queue operations are designated as type 1: CreateQueue, ListQueues, PutMessage, SetQueueMetadata, UpdateMessage, ClearMessages, DeleteMessage, DeleteQueue, GetMessageWrite, GetMessagesWrite.</div><br />
+									<div class="ms-date"><sup>2 </sup>The following queue operations are designated as type 2: GetMessage, GetMessages, GetQueueMetadata, GetQueueServiceProperties, GetQueueAcl, PeekMessage, PeekMessages, GetMessageRead, GetMessagesRead.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END: TAB-CONTROL -->
+	            </div>
+            </div>
+            <div class="pricing-page-section">
+			    <h2>Marketing Regions</h2>
+			    <p>Storage services are available in the following regions:</p>
+			    <table cellpadding="0" cellspacing="0" class="table-col6">
+			        <tr>
+			            <th align="left"><strong>Territory</strong></th>
+			            <th align="left"><strong>Region</strong></th>
+			        </tr>
+			        <tr>
+			            <td>Mainland China</td>
+			            <td>China North, China East</td>
+			        </tr>
+			    </table>
+    		</div>
+
+    		<div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="storage-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>We guarantee that we can successfully process data reading requests from an offsite redundant storage (RA-GRS) account at least 99.99% of the time (99.9% for the Cold Access Layer), provided that we will retry in the secondary zone from the data writing failure from the primary zone.</p>
+				<p>We guarantee that we can successfully process data reading from local redundant storage (LRS) and offsite redundant storage (GRS) accounts at least 99.9% of the time (99% for the Cold Access Layer)</p>
+				<p>We guarantee that we can successfully process data writing requests into onsite redundant storage (LRS) and geo-redundant storage (GRS) accounts and read and access geo-redundant storage (RA-GRS) accounts at least 99.9% of the time (99% for the Cold Access Layer).</p>
+				<p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/storage/" id="pricing_storage_sla">Service Level Agreements</a> page.</p>
+				<p>The Managed Disk itself doesn’t provide a Service Level Agreement with financial support. The availability of a Managed Disk depends on the Service Level Agreement governing the basic storage used and the Virtual Machine it’s attached to. To learn more about the details of the Service Level Agreement of the Managed Disk, please visit the <a href="/support/sla/managed-disks/">Managed Disk Service Level Agreements</a> page.</p>
+			</div>  
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>Azure Cloud Storage_Queues - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage-queues</linkid>
+    <metaKeywords>Azure, storage, Queues</metaKeywords>
+    <metaDescription><![CDATA[Learn about the pricing details of Azure Storage. Azure Storage is a highly durable, available and scalable cloud storage enabling access anytime, anywhere. A 1RMB Trial gets you ¥ 1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Storage - Queues</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

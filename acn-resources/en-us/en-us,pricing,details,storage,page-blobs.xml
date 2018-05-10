@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T11:41:59" urlName="data-transfer" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+      	<style type="text/css">
+			.pricing-detail-tab .tab-nav{
+				padding-left: 0!important;
+				margin-top: 5px;
+				margin-bottom: 0;
+				overflow: hidden;
+			}
+			.pricing-detail-tab .tab-nav li {
+				list-style: none;
+				float: left;
+			}
+
+			.pricing-detail-tab .tab-nav li.active a {
+				border-bottom: 4px solid #00a3d9;
+			}
+
+			.pricing-detail-tab .tab-nav li.active a:hover {
+				border-bottom: 4px solid #00a3d9;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel{
+				display: none;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel.show-md{
+				display: block;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+				padding-left: 5px;
+				padding-right: 5px;
+				color: #00a3d9;
+				background-color: #FFF;
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+				color: #FFF;
+				background-color: #00a3d9;				
+			}
+
+			.pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+				color: #FFF;
+				background-color: #00a3d9;				
+			}
+			.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+			background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+			}
+		</style>
+            <tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
+                        <h2>Page Blobs</h2>
+                        <h4>Optimized for random read and write options</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_storage-page-blobs_trial">Apply for trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_storage-page-blobs_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+			<div class="pricing-page-section">
+				<p>Page Blobs are optimized for random read and write options. Page Blobs are ideal for scenarios that require the ability to overwrite a random small segment at a known address, like storing index-based and sparse data structures. Page blobs can be accessed through REST protocol or attached to a VM to support disk traffic as Unmanaged Disks.</p>
+				<div>
+	                <h2>Pricing Details</h2>
+					<!-- BEGIN: Level 1 tab navigator -->
+					<div class="technical-azure-selector pricing-detail-tab">
+						<ul class="tab-nav">
+							<li class="active">
+								<a href="javascript:void(0)" data-href="#tabContent1" id="gpv2" data-toggle="tab">General Purpose v2</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">General Purpose v1</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<!-- BEGIN: Table1-Content-->	
+							<div class="tab-panel" id="tabContent1">
+								<p>General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the lowest GB storage prices. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.</p>
+								<h4>Data storage prices for Standard Page Blobs</h4>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br/>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									</tr>
+									<tr>
+										<td>¥ 0.4579/GB</td>
+										<td>¥ 0.6106/GB</td>
+										<td>¥ 0.7632/GB</td>
+									</tr>
+								</table>
+								<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
+								<h4>Operations prices for Page Blobs used as Unmanaged Disks</h4>
+								<p>We charge ¥0.0051 per 10,000 transactions for Standard Page Blobs attached to VM and used as Unmanaged Disks. Any type of operation against against Unmanaged Disks is counted as a transaction including reads, writes, and deletes.</p>
+								<h4>Operations prices for Page Blobs (Non-disks)</h4>
+								<p>Page Blob transactions that are not performed through a VM are billed on a per-transaction basis. For each transaction, a single operation is billed as either a write, a read, or a delete operation. If a read or write transaction is larger than 64 KB, an additional read or write input/output (IO) is billed for each additional 64 KB, up to a maximum of 15 IOs per transaction. If the transaction is larger than 1 MB [64 KB x (1 transaction + 15 IOs)], no further IOs will be charged, regardless of the size of the transaction.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong></strong></th>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									  
+									</tr>						
+									<tr>
+										<td>Write operations<sup>1</sup>(per 10,000)</td>
+										<td align="left">￥0.0153</td>
+										<td align="left">￥0.3053</td>						   
+										<td align="left">￥0.3053</td>			   
+									</tr>
+									<tr>
+										<td>Write additional IO units (per 10,000)</td>
+										<td align="left">￥0.0237</td>
+										<td align="left">￥0.0474</td>						   
+										<td align="left">￥0.0474</td>						   
+									</tr>
+									<tr>
+										<td>Read operations<sup>2</sup> (per 10,000)</td>
+										<td align="left">￥0.0153</td>
+										<td align="left">￥0.0153</td>						   
+										<td align="left">￥0.0153</td>						   
+									</tr>
+									<tr>
+										<td>Read additional IO units (per 10,000)</td>
+										<td align="left">￥0.0017</td>
+										<td align="left">￥0.0017</td>						   
+										<td align="left">￥0.0017</td>						   
+									</tr>
+									<tr>
+										<td>Delete operations</td>	
+										<td align="left">Free</td>
+										<td align="left">Free</td>						   
+										<td align="left">Free</td>						   
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date"><sup>1 </sup>The following API calls are considered write operations: AbortCopyBlob, AppendBlock, BreakBlobLease, BreakContainerLease, ChangeBlobLease, ChangeContainerLease, CopyBlob, CreateContainer, IncrementalCopyBlob, PutBlob, PutGeoMessage, PutGeoRepairMessageMeasurementEvent, PutGeoVerificationMessageMeasurementEvent, PutPage, SetBlobMetadata, SetBlobProperties, SetBlobServiceProperties, SetContainerACL, SetContainerMetadata, SnapshotBlob, and UndeleteBlob.</div><br />
+									<div class="ms-date"><sup>2 </sup> The following API calls are considered read operations: AcquireBlobLease, AcquireContainerLease, BlobPreflightRequest, GeoBootstrap, GetBlob, GetBlobLeaseInfo, GetBlobMetadata, GetBlobProperties, GetBlobServiceProperties, GetBlobServiceStats, GetBlockList, GetContainerACL, GetContainerMetadata, GetContainerProperties, GetCopyInformation, GetEncryptionKey, GetPageRegions, ReleaseBlobLease, ReleaseContainerLease, RenewBlobLease, and RenewContainerLease.</div>
+								</div>
+							</div>
+							<!-- BEGIN: Table2-Content-->	
+							<div class="tab-panel" id="tabContent2">
+								<p>General Purpose v1 enables access to Block Blobs, Page Blobs, Files, Queues, and Tables—offering our lowest transaction prices but with higher storage prices. General Purpose v1 accounts do not provide access to Cool and Archive storage.</p>
+								
+								<h3>Premium Non-Managed Disk and Page Blob</h3>
+								<p>Premium Non-Managed Disk, a high-performance storage based on a solid state drive (SSD), aims to support I/O intensive workloads through extremely large throughput and extremely low delay. With the help of Premium Non-Managed Disk, we can set permanent disk and configure its size and performance characteristics. </p>
+								<p>The total expenses of Premium Non-Managed Disk depends on the disk size and quantity, and is subjected to the <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">outgoing data transmission</a>. The disk size provides different input/output operations per second (IOP), throughput limit and monthly pricing per GB. We can select necessary options most appropriate to applications, including storage size, IOP and throughput. We can add several permanent disks onto the VM and configure at most 64 TB storage space to every VM. The disk throughput of every VM can reach up to 80,000 (number of input/output operations per second) and 1600 MB/second, with a read delay of less than 1 millisecond. Premium Non-Managed Disk is supported by the sizes of the DS Series, DSv2 Series and FS Series VMs exclusively used for Premium Disk. The pricing and billing standards of DS Series VMs are the same as the D Series VMs. </p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+								</div>
+								<p>The pricing of screenshots is charged at the rate of ￥ 2.35/GB per month. </p>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Disk Types</strong></th>
+										<th align="left"><strong>P10</strong></th>
+										<th align="left"><strong>P15</strong></th>
+										<th align="left"><strong>P20</strong></th>
+										<th align="left"><strong>P30</strong></th>
+										<th align="left"><strong>P40</strong></th>
+										<th align="left"><strong>P50</strong></th>
+										<th align="left"><strong>P60<sup>1</sup></strong></th>
+									</tr>
+									<tr>
+										<td>Disk sizes</td>
+										<td>128 GB</td>
+										<td>256 GB</td>
+										<td>512 GB</td>
+										<td>1 TB</td>
+										<td>2 TB</td>
+										<td>4 TB</td>
+										<td>8 TB</td>
+									</tr>
+									<tr>
+										<td>Monthly pricing</td>
+										<td>￥ 132.15</td>
+										<td>￥ 254.86</td>
+										<td>￥ 490.93</td>
+										<td>￥ 906.29</td>
+										<td>￥ 1,736.83</td>
+										<td>¥ 3,322.63</td>
+										<td>¥ 6,343.21</td>
+									</tr>
+									<tr>
+										<td>IOP of every disk</td>
+										<td>500</td>
+										<td>1,100</td>
+										<td>2,300</td>
+										<td>5,000</td>
+										<td>7,500</td>
+										<td>7,500</td>
+										<td>7,500</td>
+									</tr>
+									<tr>
+										<td>Throughput of every disk</td>
+										<td>100 MB /second</td>
+										<td>125 MB /second</td>									
+										<td>150 MB /second</td>
+										<td>200 MB /second</td>
+										<td>250 MB /second</td>
+										<td>250 MB /second</td>
+										<td>250 MB /second</td>
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date">Premium Disk has no transaction processing expenses.</div></br>
+									<div class="ms-date"><sup>1 </sup>Azure does not support P60 serving as the disk of the Virtual Machine. Page Blob supports accessing P60 through REST.</div>
+								</div>
+								<h4>Standard Non-Managed Disk and Page Blob</h4>
+								<p>Standard Disks employ a hard disk drive (HDD)-based storage medium. They are most suitable for development/testing not sensitive to performance changes and other non-frequent access workloads.</p>
+								<p>The total cost of the Standard Managed Disk storage depends on the size and quantity of disks, quantity of transactions and <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">outgoing data transmission</a>.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Monthly storage capacity</strong></th>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									</tr>
+									<tr>
+										<td>0 to 1 TB<sup>1</sup></td>
+										<td>￥ 0.44/GB</td>
+										<td>￥ 0.88/GB</td>
+										<td>¥ 1.056/GB</td>
+									</tr>
+									<tr>
+										<td>1 TB to 50 TB</td>
+										<td>￥ 0.3667/GB</td>
+										<td>¥ 0.7334/GB</td>
+										<td>￥ 0.8801/GB</td>
+									</tr>
+									<tr>
+										<td>50 TB to 500 TB</td>
+										<td>￥ 0.33/GB</td>
+										<td>￥ 0.66/GB</td>
+										<td>¥ 0.792/GB</td>
+									</tr>
+									<tr>
+										<td>500 TB to 1000 TB</td>
+										<td>￥ 0.2933/GB</td>
+										<td>￥ 0.5866/GB</td>
+										<td>￥ 0.7039/GB</td>
+									</tr>
+									<tr>
+										<td>1000 TB to 5000 TB</td>
+										<td>￥ 0.275/GB</td>
+										<td>￥ 0.55/GB</td>
+										<td>￥ 0.66/GB</td>
+									</tr>
+									<tr>
+										<td>More than 5000 TB</td>
+										<td align="left"><a id="pricing_storage_blob-disc_lrs_contact" style="color: #00a8d9;" href="/support/contact/">Contact us</a></td>
+										<td align="left"><a id="pricing_storage_blob-disc_grs_contact" style="color: #00a8d9;" href="/support/contact/">Contact us</a></td>
+										<td align="left"><a id="pricing_storage_blob-disc_ra-grs_contact" style="color: #00a8d9;" href="/support/contact/">Contact us</a></td>
+									</tr>
+								</table>
+								<p><strong><sup>1 </sup></strong>1 TB = 1,024GB</p>
+								
+								<h4>Operation and Data Transmission Pricing</h4>
+								<p>If the transactions of Page Blob are not performed by Virtual Machines, billing is done by the transaction. For every transaction, a single operation shall be considered as write, read or delete for billing. If the size of the read or write is more than 64 KB, an extra read/write (IO) expense will be charged for every excess of 64 KB, and up to 15 IO are charged per transaction. If the size of a transaction is more than 1 MB [64 KB x (1 transaction + 15 IOs)], other IOs are not charged, irrespective of the size of transactions.</p>						
+								
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong></strong></th>
+										<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+										<th align="left"><strong>Geo-Redundant Storage (GRS)</th>
+										<th align="left"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
+									  
+									</tr>						
+									<tr>
+										<td>Writes <sup>1</sup> (per 10,000 counted)</td>
+										<td align="left">￥ 0.0037</td>
+										<td align="left">¥ 0.0037</td>						   
+										<td align="left">￥ 0.0037</td>			   
+									</tr>
+									<tr>
+										<td>Write extra IO units (per 10,000 counted)</td>
+										<td align="left">Free</td>
+										<td align="left">Free</td>						   
+										<td align="left">Free</td>						   
+									</tr>
+									<tr>
+										<td>Read<sup>2</sup> (per 10,000 counted)</td>
+										<td align="left">￥ 0.0037</td>
+										<td align="left">¥ 0.0037</td>						   
+										<td align="left">¥ 0.0037</td>						   
+									</tr>
+									<tr>
+										<td>Read extra IO units (per 10,000 counted)</td>
+										<td align="left">Free</td>
+										<td align="left">Free</td>						   
+										<td align="left">Free</td>						   
+									</tr>
+									<tr>
+										<td>Delete</td>	
+										<td align="left">¥ 0.0037</td>
+										<td align="left">¥ 0.0037</td>						   
+										<td align="left">￥ 0.0037</td>						   
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date"><sup>1 </sup> The following API calls are considered to be write options: AbortCopyBlob, AppendBlock, BreakBlobLease, BreakContainerLease, ChangeBlobLease, ChangeContainerLease, CopyBlob, CreateContainer, IncrementalCopyBlob, PutBlob, PutGeoMessage, PutGeoRepairMessageMeasurementEvent, PutGeoVerificationMessageMeasurementEvent, PutPage, SetBlobMetadata, SetBlobProperties, SetBlobServiceProperties, SetContainerACL, SetContainerMetadata, SnapshotBlob and UndeleteBlob.</div><br />
+									<div class="ms-date"><sup>2 </sup> The following API calls are considered to be read operations: AcquireBlobLease, AcquireContainerLease, BlobPreflightRequest, GeoBootstrap, GetBlob, GetBlobLeaseInfo, GetBlobMetadata, GetBlobProperties, GetBlobServiceProperties, GetBlobServiceStats, GetBlockList, GetContainerACL, GetContainerMetadata, GetContainerProperties, GetCopyInformation, GetEncryptionKey, GetPageRegions, ReleaseBlobLease, ReleaseContainerLease, RenewBlobLease and RenewContainerLease.</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+		
+					<!-- END: TAB-CONTROL -->
+	            </div>
+            </div>
+			<div class="pricing-page-section">
+			    <h2>Marketing Regions</h2>
+			    <p>Storage services are available in the following regions:</p>
+			    <table cellpadding="0" cellspacing="0" class="table-col6">
+			        <tr>
+			            <th align="left"><strong>Territory</strong></th>
+			            <th align="left"><strong>Region</strong></th>
+			        </tr>
+			        <tr>
+			            <td>Mainland China</td>
+			            <td>China North, China East</td>
+			        </tr>
+			    </table>
+			</div>
+    		<div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="storage-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>We guarantee that we can successfully process data reading requests from an offsite redundant storage (RA-GRS) account at least 99.99% of the time (99.9% for the Cold Access Layer), provided that we will retry in the secondary zone from the data writing failure from the primary zone.</p>
+				<p>We guarantee that we can successfully process data reading from local redundant storage (LRS) and offsite redundant storage (GRS) accounts at least 99.9% of the time (99% for the Cold Access Layer)</p>
+				<p>We guarantee that we can successfully process data writing requests into onsite redundant storage (LRS) and geo-redundant storage (GRS) accounts and read and access geo-redundant storage (RA-GRS) accounts at least 99.9% of the time (99% for the Cold Access Layer).</p>
+				<p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/storage/" id="pricing_storage_sla">Service Level Agreements</a> page.</p>
+				<p>The Managed Disk itself doesn’t provide a Service Level Agreement with financial support. The availability of a Managed Disk depends on the Service Level Agreement governing the basic storage used and the Virtual Machine it’s attached to. To learn more about the details of the Service Level Agreement of the Managed Disk, please visit the <a href="/support/sla/managed-disks/">Managed Disk Service Level Agreements</a> page.</p>
+			</div>
+
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>Azure Cloud Storage_Page_Blobs - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage-page-blobs</linkid>
+    <metaKeywords>Page_Blobs</metaKeywords>
+    <metaDescription><![CDATA[Learn about the pricing details of Azure Storage. Azure Storage is a highly durable, available and scalable cloud storage enabling access anytime, anywhere. A 1RMB Trial gets you ¥ 1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Storage - Page Blobs</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

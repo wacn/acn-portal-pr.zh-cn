@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T11:41:59" urlName="data-transfer" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                    	<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
+                        <h2>Files</h2>
+                        <h4>File shares that use the standard SMB 3.0 protocol</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_storage-files_trial">Apply for trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_storage-files_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+			<div class="pricing-page-section">
+				<p>Azure File offers fully managed file shares in the cloud, accessible via the industry standard Server Message Block (SMB) protocol. </p>
+				<p>Azure File shares can be mounted concurrently by cloud or on-premises deployments of Windows, macOS, and Linux. Enable file sharing between applications running in your virtual machines using familiar Windows APIs or File REST API. Additionally, Azure File Sync allows caching and synchronization of Azure File shares on Windows Servers for local access.</p>
+				<div>
+	                <h2>Pricing Details</h2>
+	                <h4>Data Storage Pricing</h4>
+					<p>These are the costs of storage data in Document Storage. The pricing shown below are monthly billing by the data size (GB) of storage. These pricing may vary from the redundancy options you select.</p>
+					<div class="tags-date">
+						<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+					</div>
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+							<th align="left"><strong>Geo-Redundant Storage (GRS)</strong></th>
+						</tr>
+						<tr>
+							<td>￥ 1.4/GB</td>
+							<td>￥ 1.75/GB</td>
+						</tr>
+					</table>
+					<h4>Operation and Data Transmission Pricing</h4>
+					<p>The following are the HTTP operation costs of document data. These pricing may vary from the redundancy options you select.</p>				
+					<div class="tags-date">
+						<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+					</div>
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<th align="left"><strong></strong></th>
+							<th align="left"><strong>Local Redundant Storage (LRS)</strong></th>
+							<th align="left"><strong>Geo-Redundant Storage (GRS)</th>
+						  
+						</tr>						
+						<tr>
+							<td>Place and create a container operation (per 10,000 counted)</td>
+							<td align="left">￥ 0.10</td>
+							<td align="left">￥ 0.20</td>						   
+						</tr>
+						<tr>
+							<td>List operations (per 10,000 counted)</td>
+							<td align="left">￥ 0.10</td>
+							<td align="left">¥ 0.10</td>						   
+						</tr>
+						<tr>
+							<td>Other operations (per 10,000 counted) in addition to deletion (free of charge)</td>
+							<td align="left">￥ 0.01</td>
+							<td align="left">￥ 0.01</td>					
+						</tr>
+						<tr>
+							<td>File agreement operations (per 10,000 counted)</td>
+							<td align="left">¥ 0.01</td>
+							<td align="left">¥ 0.01</td>					
+						</tr>
+					</table>
+		
+					<!-- END: TAB-CONTROL -->
+	            </div>
+            </div>
+            <div class="pricing-page-section">
+		    	<div class="more-detail">
+			        <h2>FAQ</h2>
+        			<em>Expand all</em>
+					<ul>
+						<li>
+							<i class="icon icon-plus"></i>
+							<div>
+								<a  id="Storage_question14">If I create sharing with a 5 TB limit, will I be charged for the entire 5 TB or just the cost of the storage space used?</a>
+								<section>
+			                        <p>Only the storage space used is charged for, rather than the allocated limit. </p>
+			                    </section>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="pricing-page-section">
+			    <h2>Marketing Regions</h2>
+			    <p>Storage services are available in the following regions:</p>
+			    <table cellpadding="0" cellspacing="0" class="table-col6">
+			        <tr>
+			            <th align="left"><strong>Territory</strong></th>
+			            <th align="left"><strong>Region</strong></th>
+			        </tr>
+			        <tr>
+			            <td>Mainland China</td>
+			            <td>China North, China East</td>
+			        </tr>
+			    </table>
+    		</div>
+
+    		<div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="storage-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>We guarantee that we can successfully process data reading requests from an offsite redundant storage (RA-GRS) account at least 99.99% of the time (99.9% for the Cold Access Layer), provided that we will retry in the secondary zone from the data writing failure from the primary zone.</p>
+				<p>We guarantee that we can successfully process data reading from local redundant storage (LRS) and offsite redundant storage (GRS) accounts at least 99.9% of the time (99% for the Cold Access Layer)</p>
+				<p>We guarantee that we can successfully process data writing requests into onsite redundant storage (LRS) and geo-redundant storage (GRS) accounts and read and access geo-redundant storage (RA-GRS) accounts at least 99.9% of the time (99% for the Cold Access Layer).</p>
+				<p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/storage/" id="pricing_storage_sla">Service Level Agreements</a> page.</p>
+				<p>The Managed Disk itself doesn’t provide a Service Level Agreement with financial support. The availability of a Managed Disk depends on the Service Level Agreement governing the basic storage used and the Virtual Machine it’s attached to. To learn more about the details of the Service Level Agreement of the Managed Disk, please visit the <a href="/support/sla/managed-disks/">Managed Disk Service Level Agreements</a> page.</p>
+			</div>
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>Azure Cloud Storage_Files - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-storage-files</linkid>
+    <metaKeywords>Azure, storage, Files</metaKeywords>
+    <metaDescription><![CDATA[Learn about the pricing details of Azure Storage. Azure Storage is a highly durable, available and scalable cloud storage enabling access anytime, anywhere. A 1RMB Trial gets you ¥ 1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Storage - Files</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
