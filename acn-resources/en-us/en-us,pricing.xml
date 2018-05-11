@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <localize>
   <umbTextpage id="18482" parentID="12022" level="3" writerID="106" creatorID="94" nodeType="1059" template="11" sortOrder="0" createDate="2013-05-05T16:51:50" updateDate="2014-11-11T02:23:53" nodeName="Overview" urlName="overview" writerName="content" creatorName="xunfan" path="-1,11978,12022,18482" isDoc="" isResponsive="true">
     <bodyText><![CDATA[
@@ -10,7 +10,7 @@
 		      }
       	}
       	.overview-content .nav_item{
-      	height:280px;
+      	height:310px;
       	}
 	      	
       </style>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div id="price_overview_nav" class="page_body_nav">
 						<h1>
-							<a id="overview_anchor_knowPrice" class="anchor"></a>Understanding pricing for all services
+							<a id="overview_anchor_knowPrice" class="anchor"></a> Understanding pricing for all services
 							<br />
 						</h1>
 
@@ -26,14 +26,14 @@
 							<div class="nav_item" id="nav_item_pri">
 								<a id="overview_anchor_cal" class="anchor"></a>
 								<h2 class="nav_title">
-									Compute
+									Calculate
 								</h2>
-								<ul title="Compute" class="low-price">
+								<ul title="Computing" class="low-price">
 									<li>
-										<a id="price_overview_cal_virtual-machines" href="/pricing/details/virtual-machines/" class="single-link">Virtual Machines</a>
+										<a id="price_overview_cal_virtual-machines" href="/pricing/details/virtual-machines/" class="single-link"> Virtual Machines </a>
 									</li>
 									<li>
-										<a id="price_overview_cal_virtual-machine-scale-sets" href="/pricing/details/virtual-machine-scale-sets/" class="single-link">Virtual Machine Scale Sets</a>
+										<a id="price_overview_cal_virtual-machine-scale-sets" href="/pricing/details/virtual-machine-scale-sets/" class="single-link"> Virtual Machine Scale Sets </a>
 									</li>
 									
 									<li>
@@ -41,7 +41,7 @@
 									</li>
 									
 									<li>
-										<a id="price_overview_cal_batch" href="/pricing/details/batch/" class="single-link">Batch</a>
+										<a id="price_overview_cal_batch" href="/pricing/details/batch/" class="single-link">Batch processing</a>
 									</li>
 									
 									<li>
@@ -49,7 +49,12 @@
 									</li>
 									
 									<li>
-										<a id="price_overview_cal_cloud-services" href="/pricing/details/cloud-services/" class="single-link">Cloud Services</a>
+										<a id="price_overview_cal_cloud-services" href="/pricing/details/cloud-services/" class="single-link"> Cloud Services </a>
+									</li>
+									<li>
+										<a id="price_overview_cal_azure-functions" href="/pricing/details/azure-functions/" class="single-link">
+											Azure Functions
+										</a>
 									</li>
 									
 								</ul>
@@ -60,9 +65,9 @@
 							<div class="nav_item" id="nav_item_pri">
 								<a id="overview_anchor_network" class="anchor"></a>
 								<h2 class="nav_title" >
-									Networking
+									Networks
 								</h2>
-								<ul title="Networking"  class="low-price">
+								<ul title="Networks"  class="low-price">
 									<li>
 										<a id="pricing_overview_network_virtual-network" href="/pricing/details/virtual-network/" class="single-link">Virtual Network</a>
 									</li>
@@ -82,16 +87,19 @@
 										<a id="pricing_overview_network_traffic-manager" href="/pricing/details/traffic-manager/" class="single-link">Traffic Manager</a>
 									</li>
 									<li>
+										<a id="pricing_overview_network_ccs" href="/pricing/details/ccs/" class="single-link">Cloud Connection Service</a>
+									</li>
+									<li>
 										<a id="pricing_overview_network_expressroute" href="/pricing/details/expressroute/" class="single-link">ExpressRoute</a>
 									</li>
 									<li>
-										<a id="pricing_overview_network_data-transfer" href="/pricing/details/data-transfer/" class="single-link">Data Transfer (Bandwidth)</a>
+										<a id="pricing_overview_network_data-transfer" href="/pricing/details/data-transfer/" class="single-link">Data Transmission (Bandwidth)</a>
 									</li>
 									<li>
 										<a id="pricing_overview_network_ip-addresses" href="/pricing/details/ip-addresses/" class="single-link">IP Address</a>
 									</li>
 									<li>
-										<a id="pricing_overview_network_reserved-network-watcher" href="/pricing/details/network-watcher/" class="single-link">Network Watcher</a>
+										<a id="pricing_overview_network_network-watcher" href="/pricing/details/network-watcher/" class="single-link">Network Watcher</a>
 									</li>
 								</ul>
 							</div>
@@ -108,10 +116,31 @@
 										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/" class="single-link">Storage</a>
 									</li>
 									<li>
+										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/blobs/" class="single-link"> - Block Blobs</a>
+									</li>
+									<li>
+										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/page-blobs/" class="single-link"> - Page blobs</a>
+									</li>
+									<li>
+										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/managed-disks/" class="single-link"> - Managed Disks</a>
+									</li>
+									<li>
+										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/files/" class="single-link"> - Files</a>
+									</li>
+									<li>
+										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/queues/" class="single-link"> - Queues</a>
+									</li>
+									<li>
+										<a id="pricing_overview_storage_storage" href="/pricing/details/storage/queues/" class="single-link"> - Table</a>
+									</li>
+									<li>
 										<a id="pricing_overview_storage_backup" href="/pricing/details/backup/" class="single-link">Backup</a>
 									</li>
 									<li>
-										<a id="pricing_overview_storage_site-recovery" href="/pricing/details/site-recovery/" class="single-link">Site Recovery</a>
+										<a id="pricing_overview_storage_site-recovery" href="/pricing/details/site-recovery/" class="single-link">Website Recovery</a>
+									</li>
+									<li>
+										<a id="pricing_overview_storage_storage-import-export" href="/pricing/details/storage-import-export/" class="single-link">Import/Export</a>
 									</li>
 								</ul>
 							</div>
@@ -143,23 +172,23 @@
 							<div class="nav_item larger_item" id="nav_item_pri">
 								<a id="overview_anchor_database" class="anchor"></a>
 								<h2 class="nav_title">
-									Databases
+									Database
 								</h2>
-								<ul title="Databases">
+								<ul title="Database">
 									<li>
 										<a id="pricing_overview_database_sql-database" href="/pricing/details/sql-database/" class="single-link">SQL Database</a>
 									</li>
 									<li>
-										<a id="pricing_overview_database_mysql" href="/pricing/details/mysql/" class="single-link">MySQL Database on Azure</a>
+										<a id="pricing_overview_database_mysql" href="/pricing/details/mysql/" class="single-link"> MySQL Database on Azure </a>
 									</li>
 									<li>
 										<a id="pricing_overview_database_sql-data-warehouse" href="/pricing/details/sql-data-warehouse/" class="single-link">SQL Data Warehouse</a>
 									</li>
 									<li>
-										<a id="pricing_overview_database_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link">SQL Server Stretch Database</a>
+										<a id="pricing_overview_database_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link"> SQL Server Stretch Database </a>
 									</li>									
 									<li>
-										<a id="pricing_overview_database_cosmos-db" href="/pricing/details/cosmos-db/" class="single-link">Cosmos DB</a>
+										<a id="pricing_overview_database_cosmos-db" href="/pricing/details/cosmos-db/" class="single-link">Azure Cosmos DB</a>
 									</li>
 									<li>
 										<a id="pricing_overview_database_redis-cache" href="/pricing/details/redis-cache/" class="single-link">Redis Cache</a>
@@ -172,9 +201,9 @@
 							<div class="nav_item larger_item" id="nav_item_pri">
 								<a id="overview_anchor_analytics" class="anchor"></a>
 								<h2 class="nav_title">
-									Analytics
+									Analysis
 								</h2>
-								<ul title="Analytics">
+								<ul title="Analysis">
 									
 									<li>
 										<a id="pricing_overview_analytics_hdinsight" href="/pricing/details/hdinsight/" class="single-link">HDInsight</a>
@@ -202,13 +231,13 @@
 										<a id="pricing_overview_analytics_cognitive-services" href="/pricing/details/cognitive-services/" class="single-link">Cognitive Services</a>
 									</li>
 									<li>
-										<a id="pricing_overview_analytics_cognitive-services-face-api" href="/pricing/details/cognitive-services/" class="single-link">- Face API</a>
+										<a id="pricing_overview_analytics_cognitive-services-face-api" href="/pricing/details/cognitive-services/" class="single-link"> - Face API</a>
 									</li>
 									<li>
-										<a id="pricing_overview_analytics_cognitive-services-computer-vision" href="/pricing/details/cognitive-services/" class="single-link">- Computer Vision API</a>
+										<a id="pricing_overview_analytics_cognitive-services-computer-vision" href="/pricing/details/cognitive-services/" class="single-link"> - Computer Vision API</a>
 									</li>
 									<!-- <li>
-										<a id="pricing_overview_analytics_cognitive-services-emotion" href="/pricing/details/cognitive-services/" class="single-link">- 情绪识别 API</a>
+										<a id="pricing_overview_analytics_cognitive-services-emotion" href="/pricing/details/cognitive-services/" class="single-link"> - 情绪识别 API</a>
 									</li> -->
 								</ul>
 							</div>
@@ -233,6 +262,11 @@
 									<li>
 										<a id="pricing_overview_internet_notification-hubs" href="/pricing/details/notification-hubs/" class="single-link">Notification Hubs</a>
 									</li>
+									<li>
+										<a id="price_overview_internet_azure-functions" href="/pricing/details/azure-functions/" class="single-link">
+											Azure Functions
+										</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -242,14 +276,14 @@
 							<div class="nav_item" id="nav_item_pri">
 								<a id="overview_anchor_integration" class="anchor"></a>
 								<h2 class="nav_title">
-									Integration
+									Enterprise Integration
 								</h2>
-								<ul title="Integration">
+								<ul title="Enterprise Integration">
 									<li>
 										<a id="pricing_overview_integration_service-bus" href="/pricing/details/service-bus/" class="single-link">Service Bus</a>
 									</li>
 									<li>
-										<a id="pricing_overview_integration_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link">SQL Server Stretch Database</a>
+										<a id="pricing_overview_integration_sql_server_stretch_database" href="/pricing/details/sql-server-stretch-database/" class="single-link"> SQL Server Stretch Database </a>
 									</li>
 
 									<li>
@@ -263,11 +297,11 @@
 							<div class="nav_item" id="nav_item_pri">
 								<a id="overview_anchor_security" class="anchor"></a>
 								<h2 class="nav_title">
-									Security + Identity
+									Security + Authentication
 								</h2>
-								<ul title="Security + Identity">
+								<ul title="Security + Authentication">
 									<li>
-										<a id="pricing_overview_security_key-vault" href="/pricing/details/key-vault/" class="single-link">Key Vault</a>
+										<a id="pricing_overview_security_key-vault" href="/pricing/details/key-vault/" class="single-link">Key Vault </a>
 									</li>
 									<li>
 										<a id="pricing_overview_security_active-directory" href="/pricing/details/active-directory/" class="single-link">Azure Active Directory</a>
@@ -283,9 +317,9 @@
 							<div class="nav_item" id="nav_item_pri">
 								<a id="overview_anchor_manage" class="anchor"></a>
 								<h2 class="nav_title">
-									Management Tools
+									Monitoring + Supervision
 								</h2>
-								<ul title="Management Tools">
+								<ul title="Monitoring + Supervision">
 									<li>
 											<a id="pricing_overview_manage_automation" href="/pricing/details/automation/" class="single-link">Automation</a>
 										</li>
@@ -316,9 +350,9 @@
 						<li>
 							<i class="icon icon-plus"></i>
 							<div>
-								<a id="A0">What is the specific procedure for requesting a Fapiao? How many types of China Fapiao are there? Is there any restriction on Fapiao title?</a>
+								<a id="A0">What is the specific procedure for requesting an Fapiao? What types of Fapiaos are there? What are the space limits on a Fapiao?</a>
 								<section>
-									<p>Sign in to account.windowsazure.cn, click Subscriptions, Payment, History, Manage Fapiao, then complete sign-up. Refer to <a id="home_overview_fapiao" style="color:#00a8d9;" href="http://www.21vbluecloud.com/communities/FAQ/fapiao/234.html">http://www.21vbluecloud.com/communities/FAQ/fapiao/234.html</a>for more info.</p>
+									<p>Register at account.windowsazure.cn, click on Subscribe, Payment History, then Manage Invoices, then complete the application. For more information see: <a id="home_overview_fapiao" style="color:#00a8d9;" href="http://www.21vbluecloud.com/communities/FAQ/fapiao/234.html">http://www.21vbluecloud.com/communities/FAQ/fapiao/234.html. </a></p>
 									<p>Fapiaos include both special value-added tax Fapiaos and ordinary value-added tax Fapiaos.</p>
 									<p>Regarding Fapiao accounts, the client’s actual name must be used.</p>
 								</section>
@@ -327,10 +361,10 @@
 						<li>
 							<i class="icon icon-plus"></i>
 							<div>
-								<a id="A1">When and where can I apply for Fapiao?</a>
+								<a id="A1">Can you apply for a Fapiao at any time? Where do you apply for a Fapiao?</a>
 								<section>
-									<p>After payment has been made, wait 3 days. After 3 days you can start applying for a Fapiao. Should you have any special requirements, please contact the 21Vianet service center, call 86-10-84563652 or 400-089-0365.</p>
-									<p>You can click here to apply directly for a Fapiao: <a id="home_overview_LoginView" style="color:#00a8d9;" href="http://fapiao.cloud.21vianet.com/EmailAcount/LoginView">http://fapiao.cloud.21vianet.com/EmailAcount/LoginView</a>. You can also follow the steps below to sign in to the Fapiao page.</p>
+									<p>A user can apply for a Fapiao 3 days after the payment is completed. Should you have any special requirements, please contact the 21Vianet service center, call 86-10-84563652 or 400-089-0365.</p>
+									<p>You can click here to apply directly for a Fapiao: <a id="home_overview_LoginView" style="color:#00a8d9;" href="http://fapiao.cloud.21vianet.com/EmailAcount/LoginView">http://fapiao.cloud.21vianet.com/EmailAcount/LoginView </a>. You can also follow the steps below to sign in to the Fapiao page.</p>
 									<p>Sign in to the Azure Account Center at: <a id="home_overview_account" style="color:#00a8d9;" href="http://account.windowsazure.cn">http://account.windowsazure.cn</a>, click Subscriptions, Payment History, Manage Fapiao, then complete sign-up.</p>
 								</section>
 							</div>
@@ -347,7 +381,7 @@
 						<li>
 							<i class="icon icon-plus"></i>
 							<div>
-								<a id="A3">Do I need to provide my license key if I upload Windows Server Image to Azure?</a>
+								<a id="A3">Do I need to provide my license key if I upload my local Windows Server map to Azure?</a>
 								<section>
 									<p>No. Azure will provide the Windows Server license key for any instance which is running.</p>
 								</section>
@@ -356,10 +390,10 @@
 						<li>
 							<i class="icon icon-plus"></i>
 							<div>
-								<a id="A4">How do I sign in to a Fapiao account? What should I do if I can’t apply Fapiao after activating Fapiao account successfully? What should I do if I can’t apply for Fapiao?</a>
+								<a id="A4">How do I register a Fapiao interface account? After successfully activating the account, what do I do if I can’t make out a Fapiao?</a>
 								<section>
 									<p>After clicking here to enter the Fapiao page, you can click “Sign Up Account” in the right corner of the page and choose the product you’ve purchased to sign up for an Azure account.</p>
-									<p>If you are unable to apply for Fapiao after activating Fapiao account successfully, please call 21Vianet Customer Service Center: 86-10-84563652 or 400-089-0365.</p>
+									<p>If you are unable to apply for Fapiao after activating your Fapiao account successfully, please call 21Vianet Customer Service Center: 86-10-84563652 or 400-089-0365.</p>
 								</section>
 							</div>
 						</li>
@@ -368,7 +402,7 @@
 							<div>
 								<a id="A5">After applying for a Fapiao, how do I get the Fapiao? Do I have to pay any extra costs?</a>
 								<section>
-									<p>You can get it through express delivery or get it yourself. You can get it through express delivery or get it by yourself. 21Vianet will help print and deliver Fapiao and pay the express fee.</p>
+									<p>You can get it through express delivery or get it yourself. 21Vianet will help print and deliver Fapiao and pay the express fee.</p>
 									<p>If you have previously chosen self-pickup, you can change this to express delivery. The self-pickup is from Room 657, Building 3, No. 88 Keyuan Road, Pudong District, Shanghai.</p>
 								</section>
 							</div>
@@ -379,9 +413,9 @@
 		   
     ]]></bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
-    <pageTitle>To find out about all Azure pricing - Azure</pageTitle>
+    <pageTitle>To find out about all Azure pricing - Azure Cloud Computing</pageTitle>
     <metaKeywords>Azure, Microsoft Cloud, Pricing, Service Pricing, Price calculator, Discounts, Invoicing</metaKeywords>
-    <metaDescription><![CDATA[Azure provides detailed price information and you can find out the price of all services as well as preferential deals. It provides price estimates that allow you to quickly understand your costs. At the same time, it provides you answers to FAQ related to purchasing and provides you consultation.]]></metaDescription>
+    <metaDescription><![CDATA[Windows Azure provides detailed price information and you can find out the price of all services as well as preferential deals. It provides price estimates that allow you to quickly understand your costs. At the same time, it will provide you answers to FAQs related to purchasing and provide you consultation.]]></metaDescription>
     <linkid>pricing-overview</linkid>
     <urlDisplayName>Overview</urlDisplayName>
     <headerExpose></headerExpose>
