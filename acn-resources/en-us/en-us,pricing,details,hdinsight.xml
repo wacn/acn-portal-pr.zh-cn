@@ -8,8 +8,8 @@
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//resource.cdn.azure.cn/marketing-resource/css/hdinsight@2x.png" />
-                        <h2>HDInsight</h2>
-                        <h4>Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters</h4>
+                        <h2>HDInsight<span>HDInsight</span></h2>
+                        <h4>The only fully-managed cloud-based Hadoop product makes big data understandable and affordable.</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_hd_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_hd_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
                 </div>
@@ -223,20 +223,20 @@
 								<th align="left" width="30%"><strong></strong></th>					
 								<th align="left"><strong>Hadoop, HBase, Storm, Spark</strong></th>
 								<!--<th align="left"><strong>R Server</strong></th>-->
-								<th align="left"><strong>KAFKA</strong>（Preview）</th>
+								<th align="left"><strong>KAFKA</strong> Preview</th>
 							</tr>
 							<tr>
 								<td>Standard Cluster</td>								
 								<td>Basic price/node-hours</td>
 								<!--<td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>-->
-								<td>Basic price/nodes-hours + ¥0/core-hour + Storage<sup>1</sup></td>
+								<td>Basic price/nodes-hours + ￥ 0/core-hour + Storage<sup>1</sup></td>
 							</tr>							
 							</tr>
 						</table>
 						<div class="tags-date">
 							<div class="ms-date"><sup>1</sup> Kafka needs a Managed Disk. Customers can make a selection of standard Managed Disk or Premium Managed Disk. For the pricing of Managed Disks, please view the <a href="/pricing/details/storage/">Azure Storage Pricing Details</a> page.</div>
 						</div>
-						<h3>A Series General Purpose Nodes</h3>
+						<h3>A Series Universal Nodes</h3>
 						<p>A3 and A4<!--、A6、A7--> are economical options for meeting universal demands. Customers running basic query applications and modes on Hadoop will benefit from using the A Series.</p>
 						<p>The A1 node can be only used as Storm’s Zookeeper node. The A2 node can be only used as Zookeeper node of HBase and Storm.<!--使用 R Server 的边缘节点仅在 A6、A7 上可用。--></p>
 						<p>A Series cannot be used as data nodes in Linux Cluster. They can only be used as the head node and ZooKeeper node, and only A1, A2 and A3 are available.</p>
@@ -248,31 +248,31 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong>Instances</strong></th>
-								<th align="left"><strong>Number of Cores</strong></th>
+								<th align="left"><strong>Number of cores</strong></th>
 								<th align="left"><strong>RAM</strong></th>
-								<th align="left"><strong>Disk sizes</strong></th>
+								<th align="left"><strong>Disk size</strong></th>
 								<th align="left"><strong>Pricing Per Node</strong></th>
 							</tr>
 							<tr>
 								<td>A1</td>
 								<td>1</td>
-								<td>1.75GB</td>
-								<td>70GB</td>
-								<td>¥0.3981/hour<br /> (about ¥296.1864/month)</td>
+								<td>1.75&#160;GB</td>
+								<td>70 GB</td>
+								<td>￥ 0.3981/hour<br /> (about ￥ 296.1864/month)</td>
 							</tr>
 							<tr>
 								<td>A2</td>
 								<td>2</td>
 								<td>3.5 GB</td>
 								<td>135 GB</td>
-								<td>¥0.9662/hour<br /> (about ¥718.8528/month)</td>
+								<td>￥ 0.9662/hour<br /> (about ￥ 718.8528/month)</td>
 							</tr>
 							<tr>
 								<td>A3</td>
 								<td>4</td>
 								<td>7 GB</td>
 								<td>285 GB</td>
-								<td>¥1.9425/hour<br /> (about ¥1,445.22/month)</td>
+								<td>￥ 1.9425/hour<br /> (about ￥ 1,445.22/month)</td>
 							</tr>
 							<!--
 							<tr>
@@ -309,82 +309,82 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong>Instances</strong></th>
-								<th align="left"><strong>Number of Cores</strong></th>
+								<th align="left"><strong>Number of cores</strong></th>
 								<th align="left"><strong>Memory</strong></th>
-								<th align="left"><strong>Disk sizes</strong></th>
-								<th align="left"><strong>Original price	</strong></th>
-								<th align="left"><strong>New price</strong> <sup style="color:#e66102; font-weight: bold">new</sup></th>
+								<th align="left"><strong>Disk size</strong></th>
+								<th align="left"><strong>Original price</strong></th>
+								<th align="left"><strong><sup style="color:#e66102; font-weight: bold">New price</sup></strong></th>
 							</tr>
 							<tr>
 								<td>D1</td>
 								<td>1</td>
 								<td>3.5 GB</td>
 								<td>50 GB</td>
-								<td>¥1.12/hour<br />(about ¥833.28/month)</td>
-								<td>¥0.5981/hour<br />(about ¥444.9864/month)</td>
+								<td>￥ 1.12/hour<br />(about ￥ 833.28/month)</td>
+								<td>￥ 0.5981/month<br />(about ￥ 444.9864/month)</td>
 							</tr>
 							<tr>
 								<td>D2</td>
 								<td>2</td>
 								<td>7 GB</td>
 								<td>100 GB</td>
-								<td>¥2.23/hour<br />(about ¥1,659.12/month)</td>
-								<td>¥1.2362/hour<br />(about ¥919.7328/month)</td>
+								<td>￥ 2.23/hour<br />(about ￥ 1,659.12/month)</td>
+								<td>￥ 1.2362/hour<br />(about ￥ 919.7328/month)</td>
 							</tr>
 							<tr>
 								<td>D3</td>
 								<td>4</td>
 								<td>14 GB</td>
 								<td>200 GB</td>
-								<td>¥4.47/hour<br />(about ¥3,325.68/month)</td>
-								<td>¥2.4725/hour<br />(about ¥1,839.54/month)</td>
+								<td>￥ 4.47/hour<br />(about ￥ 3,325.68/month)</td>
+								<td>￥ 2.4725/hour<br />(about ￥ 1,839.54/month)</td>
 							</tr>
 							<tr>
 								<td>D4</td>
 								<td>8</td>
 								<td>28 GB</td>
 								<td>400 GB</td>
-								<td>¥8.94/hour<br />(about ¥6,651.36/month)</td>
-								<td>¥4.965/hour<br />(about ¥3,693.96 /month)</td>
+								<td>￥ 8.94/hour<br />(about ￥ 6,651.36/month)</td>
+								<td>￥ 4.965/hour<br />(about ￥ 3,693.96/month)</td>
 							</tr>
 							<tr>
 								<td>D5</td>
 								<td>16</td>
 								<td>56 GB</td>
 								<td>800 GB</td>
-								<td>¥16.07/hour<br />(about ¥11,956.08/month)</td>
-								<td>¥9.8999/hour<br />(about ¥7,365.5256/month)</td>
+								<td>￥ 16.07/hour<br />(about ￥ 11,956.08/month)</td>
+								<td>￥ 9.8999/hour<br />(about ￥ 7,365.5256/month)</td>
 							</tr>
 							<tr>
 								<td>D11</td>
 								<td>2</td>
 								<td>14 GB</td>
 								<td>100 GB</td>
-								<td>¥2.67/hour<br />(about ¥1,986.48/month)</td>
-								<td>¥1.9717/hour<br />(about ¥1,466.9448/month)</td>
+								<td>￥ 2.67/hour<br />(about ￥ 1,986.48/month)</td>
+								<td>￥ 1.9717/hour<br />(about ￥ 1,466.9448/month)</td>
 							</tr>
 							<tr>
 								<td>D12</td>
 								<td>4</td>
 								<td>28 GB</td>
 								<td>200 GB</td>
-								<td>¥5.34/hour<br />(about ¥3,972.96/month)</td>
-								<td>¥3.9434/hour<br />(about ¥2,933.8896/month)</td>
+								<td>￥ 5.34/hour<br />(about ￥ 3,972.96/month)</td>
+								<td>￥ 3.9434/hour<br />(about ￥ 2,933.8896/month)</td>
 							</tr>
 							<tr>
 								<td>D13</td>
 								<td>8</td>
 								<td>56 GB</td>
 								<td>400 GB</td>
-								<td>¥9.61/hour<br />(about ¥7,149.84/month)</td>
-								<td>¥7.8867/hour<br />(about ¥5,867.7048/month)</td>
+								<td>￥ 9.61/hour<br />(about ￥ 7,149.84/month)</td>
+								<td>￥ 7.8867/hour<br />(about ￥ 5,867.7048/month)</td>
 							</tr>
 							<tr>
 								<td>D14</td>
 								<td>16</td>
 								<td>112 GB</td>
 								<td>800 GB</td>
-								<td>¥11.2234/hour<br />(about ¥8,350.2096/month)</td>
+								<td>￥ 11.2234/hour<br />(about ￥ 8,350.2096/month)</td>
 								<td></td>
 							</tr>
 						</table>
@@ -395,87 +395,87 @@
 						<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
 						<div class="tags-date">
 							<div class="ms-date">*The following prices are tax-inclusive.</div><br />
-							<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+							<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.<br/>*The pricing and billing mode of HDInsight Dv2 series are same as those of HDInsight D series. The name of HDInsight Dv2 series is displayed as HDInsight D series in the bill.</div>
 						</div>
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong>Instances</strong></th>
-								<th align="left"><strong>Number of Cores</strong></th>
+								<th align="left"><strong>Number of cores</strong></th>
 								<th align="left"><strong>Memory</strong></th>
-								<th align="left"><strong>Disk sizes</strong></th>
-								<th align="left"><strong>Original price	</strong></th>
-								<th align="left"><strong>New price</strong> <sup style="color:#e66102; font-weight: bold">new</sup></th>
+								<th align="left"><strong>Disk size</strong></th>
+								<th align="left"><strong>Original price</strong></th>
+								<th align="left"><strong><sup style="color:#e66102; font-weight: bold">New price</sup></strong></th>
 							</tr>
 							<tr>
 								<td>D1 v2</td>
 								<td>1</td>
 								<td>3.5 GB</td>
 								<td>50 GB</td>
-								<td>¥1.12/hour<br />(about ¥833.28/month)</td>
-								<td>¥0.5981/hour<br />(about ¥444.9864/month)</td>
+								<td>￥ 1.12/hour<br />(about ￥ 833.28/month)</td>
+								<td>￥ 0.5981/month<br />(about ￥ 444.9864/month)</td>
 							</tr>
 							<tr>
 								<td>D2 v2</td>
 								<td>2</td>
 								<td>7 GB</td>
 								<td>100 GB</td>
-								<td>¥2.23/hour<br />(about ¥1,659.12/month)</td>
-								<td>¥1.2362/hour<br />(about ¥919.7328/month)</td>
+								<td>￥ 2.23/hour<br />(about ￥ 1,659.12/month)</td>
+								<td>￥ 1.2362/hour<br />(about ￥ 919.7328/month)</td>
 							</tr>
 							<tr>
 								<td>D3 v2</td>
 								<td>4</td>
 								<td>14 GB</td>
 								<td>200 GB</td>
-								<td>¥4.47/hour<br />(about ¥3,325.68/month)</td>
-								<td>¥2.4725/hour<br />(about ¥1,839.54/month)</td>
+								<td>￥ 4.47/hour<br />(about ￥ 3,325.68/month)</td>
+								<td>￥ 2.4725/hour<br />(about ￥ 1,839.54/month)</td>
 							</tr>
 							<tr>
 								<td>D4 v2</td>
 								<td>8</td>
 								<td>28 GB</td>
 								<td>400 GB</td>
-								<td>¥8.94/hour<br />(about ¥6,651.36/month)</td>
-								<td>¥4.965/hour<br />(about ¥3,693.96/month)</td>
+								<td>￥ 8.94/hour<br />(about ￥ 6,651.36/month)</td>
+								<td>￥ 4.965/hour<br />(about ￥ 3,693.96/month)</td>
 							</tr>
 							<tr>
 								<td>D5 v2</td>
 								<td>16</td>
 								<td>56 GB</td>
 								<td>800 GB</td>
-								<td>¥16.07/hour<br />(about ¥11,956.08/month)</td>
-								<td>¥9.8999/hour<br />(about ¥7,365.5256/month)</td>
+								<td>￥ 16.07/hour<br />(about ￥ 11,956.08/month)</td>
+								<td>￥ 9.8999/hour<br />(about ￥ 7,365.5256/month)</td>
 							</tr>
 							<tr>
 								<td>D11 v2</td>
 								<td>2</td>
 								<td>14 GB</td>
 								<td>100 GB</td>
-								<td>¥2.67/hour<br />(about ¥1,986.48/month)</td>
-								<td>¥1.9717/hour<br />(about ¥1,466.9448/month)</td>
+								<td>￥ 2.67/hour<br />(about ￥ 1,986.48/month)</td>
+								<td>￥ 1.9717/hour<br />(about ￥ 1,466.9448/month)</td>
 							</tr>
 							<tr>
 								<td>D12 v2</td>
 								<td>4</td>
 								<td>28 GB</td>
 								<td>200 GB</td>
-								<td>¥5.34/hour<br />(about ¥3,972.96/month)</td>
-								<td>¥3.9434/hour<br />(about ¥2,933.8896/month)</td>
+								<td>￥ 5.34/hour<br />(about ￥ 3,972.96/month)</td>
+								<td>￥ 3.9434/hour<br />(about ￥ 2,933.8896/month)</td>
 							</tr>
 							<tr>
 								<td>D13 v2</td>
 								<td>8</td>
 								<td>56 GB</td>
 								<td>400 GB</td>
-								<td>¥9.61/hour<br />(about ¥7,149.84/month)</td>
-								<td>¥7.8867/hour<br />(about ¥5,867.7048/month)</td>
+								<td>￥ 9.61/hour<br />(about ￥ 7,149.84/month)</td>
+								<td>￥ 7.8867/hour<br />(about ￥ 5,867.7048/month)</td>
 							</tr>
 							<tr>
 								<td>D14 v2</td>
 								<td>16</td>
 								<td>112 GB</td>
 								<td>800 GB</td>
-								<td>¥11.2234/hour <br />(about ¥8,350.2096/month)</td>
+								<td>￥ 11.2234/hour<br />(about ￥ 8,350.2096/month)</td>
 								<td></td>
 							</tr>
 						</table>
@@ -588,7 +588,7 @@
 					</div>
 					<!-- END: TAB-CONTAINER-Linux --> <!-- BEGIN: TAB-CONTAINER-Windows -->
 					<div class="tab-control-container" id="tabContentwin">
-						<p><strong>* If you have a cluster (3.3 or earlier edition) running in HDInsight Windows, please migrate it to HDInsight Linux (3.5 and upgraded editions) before July 31, 2018, so as to maintain the capability of creating or adjusting the HDI Cluster. Please view <a href="//docs.azure.cn/hdinsight/hdinsight-migrate-from-windows-to-linux">Obtaining More Information on Migration from a Windows-based HDInsight Cluster to a Linux-based Cluster</a>documentation.</strong></p>
+						<p><strong>* If you have a cluster (3.3 or earlier edition) running in HDInsight Windows, please migrate it to HDInsight Linux (3.5 and upgraded editions) before July 31, 2018, so as to maintain the capability of creating or adjusting the HDI Cluster. Please view <a href="//docs.azure.cn/zh-cn/hdinsight/hdinsight-migrate-from-windows-to-linux">Obtaining More Information on Migration from a Windows-based HDInsight Cluster to a Linux-based Cluster</a>documentation.</strong></p>
 						<p>
 							HDInsight Cluster is composed of a group of nodes. In the lifecycle of the cluster, customers must pay for these nodes. Billing starts from creation of the cluster, and ends in deletion of the cluster. Billing is prorated by the minute.<!-- 用户可以选择标准版或高级版群集类型。高级版价格需在标准版价格基础上增加额外的附加费。此外，如果客户选择 R Server 群集，还需针对此特定工作负荷收取额外附加费。以下价格中，高级版价格为预览价格，提供 50% 的价格优惠。-->
 						</p>
@@ -614,9 +614,9 @@
 							-->
 						</table>
 						
-						<h3>A Series General Purpose Nodes</h3>
+						<h3>A Series Universal Nodes</h3>
 						<p>A3, A4, A6 and A7 are an economical option for meeting universal demands. The customers running basic query applications and modes on Hadoop will benefit from the use of A Series.</p>
-						<p>The A1 node can only b used as Storm’s ZooKeeper node. The A2 node can be only used as the ZooKeeper node for HBase and Storm.<!-- 使用 R-Server 的边缘节点仅在 A6、A7 上可用。--></p>
+						<p>The A1 node can only b used as Storm’s ZooKeeper node. The A2 and A5 nodes can be only used as the ZooKeeper node for HBase and Storm.<!-- 使用 R-Server 的边缘节点仅在 A6、A7 上可用。--></p>
 						<!-- <p>从 2016 年 4 月 1 日起，Web 应用的价格下调 25.5%，以下是下调后的新价格：</p>-->
 						<div class="tags-date">
 							<div class="ms-date">*The following prices are tax-inclusive.</div><br />
@@ -625,59 +625,59 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong>Instances</strong></th>
-								<th align="left"><strong>Number of Cores</strong></th>
+								<th align="left"><strong>Number of cores</strong></th>
 								<th align="left"><strong>Memory</strong></th>
-								<th align="left"><strong>Disk sizes</strong></th>
+								<th align="left"><strong>Disk size</strong></th>
 								<th align="left"><strong>Pricing Per Node</strong></th>
 							</tr>
 							<tr>
 								<td>A1</td>
 								<td>1</td>
-								<td>1.75 GB</td>
+								<td>1.75&#160;GB</td>
 								<td>70 GB</td>
-								<td>¥0.51/hour<br /> (about ¥379.44/month)</td>
+								<td>￥ 0.51/hour<br />(about ￥ 379.44/month)</td>
 							</tr>
 							<tr>
 								<td>A2</td>
 								<td>2</td>
 								<td>3.5 GB</td>
 								<td>135 GB</td>
-								<td>¥1.01/hour<br /> (about ¥751.44/month)</td>
+								<td>￥ 1.01/hour<br />(about ￥ 751.44/month)</td>
 							</tr>
 							<tr>
 								<td>A3</td>
 								<td>4</td>
 								<td>7 GB</td>
 								<td>285 GB</td>
-								<td>¥2.03/hour<br /> (about ¥1,510.32/month)</td>
+								<td>￥ 2.03/hour<br />(about ￥ 1,510.32/month)</td>
 							</tr>
 							<tr>
 								<td>A4</td>
 								<td>8</td>
 								<td>14 GB</td>
 								<td>605 GB</td>
-								<td>¥4.05/hour<br /> (about ¥3,013.20/month)</td>
+								<td>￥ 4.05/hour<br />(about ￥ 3,013.20/month)</td>
 							</tr>
 							<tr>
 								<td>A5</td>
 								<td>2</td>
 								<td>14 GB</td>
 								<td>135 GB</td>
-								<td>¥1.71/month<br /> (about ¥1,272.24/month)</td>
+								<td>￥ 1.71/month<br />(about ￥ 1,272.24/month)</td>
 							</tr>
 							<tr>
 								<td>A6</td>
 								<td>4</td>
 								<td>28 GB</td>
 								<td>285 GB</td>
-								<td>¥3.43/month<br /> (about ¥2,551.92/month)</td>
+								<td>￥ 3.43/month<br />(about ￥ 2,551.92/month)</td>
 							</tr>
 							<tr>
 								<td>A7</td>
 								<td>8</td>
 								<td>56 GB</td>
 								<td>605 GB</td>
-								<td>¥6.85/month<br /> (about ¥5,096.40/month)</td>
+								<td>￥ 6.85/month<br />(about ￥ 5,096.40/month)</td>
 							</tr>
 						</table>
 						<!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
@@ -691,9 +691,9 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong>Instances</strong></th>
-								<th align="left"><strong>Number of Cores</strong></th>
+								<th align="left"><strong>Number of cores</strong></th>
 								<th align="left"><strong>Memory</strong></th>
-								<th align="left"><strong>Disk sizes</strong></th>
+								<th align="left"><strong>Disk size</strong></th>
 								<th align="left"><strong>Pricing Per Node</strong></th>
 							</tr>
 							<tr>
@@ -701,56 +701,56 @@
 								<td>1</td>
 								<td>3.5 GB</td>
 								<td>50 GB</td>
-								<td>¥1.12/hour<br />(about ¥833.28/month)</td>
+								<td>￥ 1.12/hour<br />(about ￥ 833.28/month)</td>
 							</tr>
 							<tr>
 								<td>D2</td>
 								<td>2</td>
 								<td>7 GB</td>
 								<td>100 GB</td>
-								<td>¥2.23/hour<br />(about ¥1,659.12/month)</td>
+								<td>￥ 2.23/hour<br />(about ￥ 1,659.12/month)</td>
 							</tr>
 							<tr>
 								<td>D3</td>
 								<td>4</td>
 								<td>14 GB</td>
 								<td>200 GB</td>
-								<td>¥4.47/hour<br />(about ¥3,325.68/month)</td>
+								<td>￥ 4.47/hour<br />(about ￥ 3,325.68/month)</td>
 							</tr>
 							<tr>
 								<td>D4</td>
 								<td>8</td>
 								<td>28 GB</td>
 								<td>400 GB</td>
-								<td>¥8.94/hour<br />(about ¥6,651.36/month)</td>
+								<td>￥ 8.94/hour<br />(about ￥ 6,651.36/month)</td>
 							</tr>
 							<tr>
 								<td>D11</td>
 								<td>2</td>
 								<td>14 GB</td>
 								<td>100 GB</td>
-								<td>¥2.67/hour<br />(about ¥1,986.48/month)</td>
+								<td>￥ 2.67/hour<br />(about ￥ 1,986.48/month)</td>
 							</tr>
 							<tr>
 								<td>D12</td>
 								<td>4</td>
 								<td>28 GB</td>
 								<td>200 GB</td>
-								<td>¥5.34/hour<br />(about ¥3,972.96/month)</td>
+								<td>￥ 5.34/hour<br />(about ￥ 3,972.96/month)</td>
 							</tr>
 							<tr>
 								<td>D13</td>
 								<td>8</td>
 								<td>56 GB</td>
 								<td>400 GB</td>
-								<td>¥9.61/hour<br />(about ¥7,149.84/month)</td>
+								<td>￥ 9.61/hour<br />(about ￥ 7,149.84/month)</td>
 							</tr>
 							<tr>
 								<td>D14</td>
 								<td>16</td>
 								<td>112 GB</td>
 								<td>800 GB</td>
-								<td>¥17.29/month<br /> (about ¥12,863.76/month)</td>
+								<td>￥ 17.29/month<br />(about ￥ 12,863.76/month)</td>
 							</tr>
 						</table>
 						<!-- END: Table2-Content--> <!-- BEGIN: Table3-Content-->
@@ -765,9 +765,9 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<th align="left"><strong>Instances</strong></th>
-								<th align="left"><strong>Number of Cores</strong></th>
+								<th align="left"><strong>Number of cores</strong></th>
 								<th align="left"><strong>Memory</strong></th>
-								<th align="left"><strong>Disk sizes</strong></th>
+								<th align="left"><strong>Disk size</strong></th>
 								<th align="left"><strong>Pricing Per Node</strong></th>
 							</tr>
 							<tr>
@@ -775,56 +775,56 @@
 								<td>1</td>
 								<td>3.5 GB</td>
 								<td>50 GB</td>
-								<td>¥1.12/hour<br />(about ¥833.28/month)</td>
+								<td>￥ 1.12/hour<br />(about ￥ 833.28/month)</td>
 							</tr>
 							<tr>
 								<td>D2 v2</td>
 								<td>2</td>
 								<td>7 GB</td>
 								<td>100 GB</td>
-								<td>¥2.23/hour<br />(about ¥1,659.12/month)</td>
+								<td>￥ 2.23/hour<br />(about ￥ 1,659.12/month)</td>
 							</tr>
 							<tr>
 								<td>D3 v2</td>
 								<td>4</td>
 								<td>14 GB</td>
 								<td>200 GB</td>
-								<td>¥4.47/hour<br />(about ¥3,325.68/month)</td>
+								<td>￥ 4.47/hour<br />(about ￥ 3,325.68/month)</td>
 							</tr>
 							<tr>
 								<td>D4 v2</td>
 								<td>8</td>
 								<td>28 GB</td>
 								<td>400 GB</td>
-								<td>¥8.94/hour<br />(about ¥6,651.36/month)</td>
+								<td>￥ 8.94/hour<br />(about ￥ 6,651.36/month)</td>
 							</tr>
 							<tr>
 								<td>D11 v2</td>
 								<td>2</td>
 								<td>14 GB</td>
 								<td>100 GB</td>
-								<td>¥2.67/hour<br />(about ¥1,986.48/month)</td>
+								<td>￥ 2.67/hour<br />(about ￥ 1,986.48/month)</td>
 							</tr>
 							<tr>
 								<td>D12 v2</td>
 								<td>4</td>
 								<td>28 GB</td>
 								<td>200 GB</td>
-								<td>¥5.34/hour<br />(about ¥3,972.96/month)</td>
+								<td>￥ 5.34/hour<br />(about ￥ 3,972.96/month)</td>
 							</tr>
 							<tr>
 								<td>D13 v2</td>
 								<td>8</td>
 								<td>56 GB</td>
 								<td>400 GB</td>
-								<td>¥9.61/hour<br />(about ¥7,149.84/month)</td>
+								<td>￥ 9.61/hour<br />(about ￥ 7,149.84/month)</td>
 							</tr>
 							<tr>
 								<td>D14 v2</td>
 								<td>16</td>
 								<td>112 GB</td>
 								<td>800 GB</td>
-								<td>¥17.29/month<br /> (about ¥12,863.76/month)</td>
+								<td>￥ 17.29/month<br />(about ￥ 12,863.76/month)</td>
 							</tr>
 						</table>
 						<!-- END: Table3-Content-->
@@ -836,8 +836,8 @@
 
             <div class="pricing-page-section">
                 <div class="more-detail">
-                    <h2>FAQs</h2>
-                    <em id="hdinsight_unfolded_all">Expand all</em>
+                    <h2>FAQ</h2>
+                    <em id="hdinsight_unfolded_all">Expand All</em>
                     <ul>
                         <li>
                             <i class="icon icon-plus"></i>
@@ -852,9 +852,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question2">How do I make sure I’ve completely stopped the HDInsight cluster without further charges?</a>
+                                <a id="HDInsight_question2">How do I make sure I’ve completely suspended the HDInsight cluster without further charges?</a>
                                 <section>
-                                    <p>To stop the HDInsight cluster, you must delete this cluster. Under default conditions, all data required to run HDInsight cluster are placed in Blob Storage, so deleting this cluster will not affect data. If you hope to keep Hive meta (table and framework), set up the cluster using external meta storage. For details, please refer to <a id="HDInsight_price_clu" style="color: #00a8d9;" href="https://docs.azure.cn/hdinsight/hdinsight-hadoop-provision-linux-clusters/">this file</a>.</p>
+                                    <p>To suspend the HDInsight cluster, you must delete this cluster. Under default conditions, all data required to run HDInsight cluster are placed in Blob Storage, so deleting this cluster will not affect data. If you hope to keep Hive meta (table and framework), set up the cluster using external meta storage. For details, please refer to <a id="HDInsight_price_clu" style="color: #00a8d9;" href="https://docs.azure.cn/hdinsight/hdinsight-hadoop-provision-linux-clusters/">this file</a>.</p>
                                 </section>
 
                             </div>
@@ -895,7 +895,7 @@
                             <div>
                                 <a id="HDInsight_question4">Are the aforementioned pricing tax-inclusive?</a>
                                 <section>
-                                    <p>The aforementioned pricing are tax-inclusive.</p>
+                                    <p>The aforementioned pricing are tax-inclusive</p>
                                 </section>
                             </div>
                         </li>
@@ -922,7 +922,7 @@
                             <div>
                                 <a id="HDInsight_question7">How much does it cost for a cluster containing "x" data nodes?</a>
                                 <section>
-                                    <p>To estimate the cost of clusters of different scales, please use the <a id="pricing_hdinsight_cal" href="/pricing/calculator/">Azure Calculator.</a></p>
+                                    <p>To estimate the cost of clusters of different scales, please use the <a id="pricing_hdinsight_cal" href="/pricing/calculator/">Azure Calculator</a></p>
                                 </section>
                             </div>
                         </li>
@@ -952,11 +952,11 @@
                 <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                     
     
     ]]></bodyText>
-    <pageTitle>HDInsight Pricing Details - Azure Cloud Computing</pageTitle>
+    <pageTitle>Azure HDInsight Hosting Service Pricing - Azure Cloud Computing</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-hdinsight</linkid>
     <metaKeywords>Azure, Microsoft Cloud, HDInsight, Pricing, Hadoop, Hosting, Analysis Service, Big Data, 1RMB Trial</metaKeywords>
-    <metaDescription><![CDATA[Learn about the pricing details of Azure HDInsight. Azure HDInsight is an Apache Hadoop cloud service suitable for big data, allowing deployment of different types of clusters for different types of data analysis workloads, including: Hadoop, HBase, and Storm clusters. Different types of clusters have multiple nodes for different types of roles. A 1RMB Trial gets you ¥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <metaDescription><![CDATA[Learn about the pricing details of Azure HDInsight. Azure HDInsight is an Apache Hadoop cloud service suitable for big data, allowing deployment of different types of clusters for different types of data analysis workloads, including: Hadoop, HBase, and Storm clusters. Different types of clusters have multiple nodes for different types of roles. A 1RMB Trial gets you ￥ 1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
     <urlDisplayName>Pricing Details - HDInsight</urlDisplayName>
   </TextpageLeftNav>
 </localize>
