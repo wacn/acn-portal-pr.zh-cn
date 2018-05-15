@@ -1,273 +1,305 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2016-06-29T15:44:24" urlName="hybird-benefit" writerName="content" creatorName="content">
+  <TextpageLeftNav template="15" createDate="2016-06-29T15:44:24" updateDate="2016-06-29T15:44:24" urlName="hybird-benefit" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
-            <style type="text/css">
-            .pricing-detail-tab .tab-nav{
-                padding-left: 0!important;
-                margin-top: 5px;
-                margin-bottom: 0;
-                overflow: hidden;
-            }
-            .pricing-detail-tab .tab-nav li {
-                list-style: none;
-                float: left;
-            }
-
-            .pricing-detail-tab .tab-nav li.active a {
-                border-bottom: 4px solid #00a3d9;
-            }
-
-            .pricing-detail-tab .tab-nav li.active a:hover {
-                border-bottom: 4px solid #00a3d9;
-            }
-
-            .pricing-detail-tab .tab-content .tab-panel{
-                display: none;
-            }
-
-            .pricing-detail-tab .tab-content .tab-panel.show-md{
-                display: block;
-            }
-
-            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
-                padding-left: 5px;
-                padding-right: 5px;
-                color: #00a3d9;
-                background-color: #FFF;
-            }
-
-            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
-                color: #FFF;
-                background-color: #00a3d9;              
-            }
-
-            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
-                color: #FFF;
-                background-color: #00a3d9;              
-            }
-            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
-            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
-            }
-        </style> 
+            <style>
+                .common-banner{
+                    background-image:url("//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/azure_hybrid_benefit_banner.jpg");
+                    background-size:cover;
+                    background-position: center center;
+                    position: relative;
+                    width: 100%;
+                    height: 360px;
+                    background-repeat: no-repeat;
+                }
+                .common-banner:before {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: rgba(0,0,0,.8);
+                }
+                .common-banner-title{
+                    width: 1240px;
+                    margin: 0 auto;
+                    position: relative;
+                }
+                .common-banner-title ul{
+                    padding-left:20px;
+                    margin-top:0;
+                }
+                .common-banner-title ul li{
+                    font-size:14px;
+                    padding:2px 0;
+                }
+                .section-component{
+                    margin-top:0;
+                }
+                .content .single-page .row .pure-content h1{
+                    margin-top:60px;
+                }
+                .tab-control-selector{
+                    margin-top:60px;
+                }
+                .content .single-page .row .tab-control-container h1{
+                    margin-top:60px;
+                }.content .single-page .row .tab-control-container h1:first-child{
+                    margin-top:20px;
+                }
+                .content .single-page .row .pricing-page-section h1{
+                    margin-top:50px;
+                }
+                .azure-hybird{
+                width:100%;
+                }
+                .azure-hybird .azure-hybird-sql {
+                    width:470px;
+                }
+                .azure-hybird .azure-hybird-sql img{
+                    width:100%;
+                }
+                .azure-hybird .azure-hybird-sql p{
+                    text-align:center;
+                }
+                .common-banner .common-banner-image{
+                    padding: 30px 0 60px;
+                }
+                @media only screen and (max-width: 769px){
+                    .common-banner .common-banner-image .common-banner-title span{
+                        font-size: 14px;
+                        display: block;
+                        height: 20px;
+                        line-height: 22px;
+                    }
+                    .azure-hybird .azure-hybird-sql {
+                        width:100%;
+                    }
+                }
+                .common-banner .common-banner-image .common-banner-title h1{
+                margin-top:0;
+                }
+            </style>
             <!-- BEGIN: Product-Detail-TopBanner -->
-            <div>
+            <div class="section-component">
+                <div class="pricing-page-section">
+                    <h1 style="margin-top:60px;">加快数字化转换</h1>
+                    <p>现在是移到 Azure 和享受云技术优势的大好时机，这些优势包括：可快速增减，仅针对所用内容付费，以及节省运算效能。在混合云策略中，不管是部署新的虚拟机、移动部分工作负荷，还是迁移数据中心，只要移到云端，Azure 混合权益即可显著节省成本。</p>
+                </div>
+                <div class="tab-control-selector">
+                    <a href="javascript:void(0)" data-href="#tabContent1" id="home_Windows-server" class="active">Windows Server</a>
+                    <a href="javascript:void(0)" data-href="#tabContent2" id="home_sql-server">SQL Server</a>
+                    <div class="clearfix"></div>
+                    <!-- BEGIN: TAB-CONTAINER-1 -->
+                    <div class="tab-control-container tab-active" id="tabContent1">
+                        <h1>数字化转型，让客户的 Windows Server 许可价值最大化</h1>
+                    
+                        <p>与其他流行的 Microsoft 解决方案如 SQL Server 和 SharePoint 类似，现在客户也可以将现有的 Windows Server 许可合并到 Azure 中使用，从而充分利用这一权益将数据中心平滑扩展至云中。</p>
                         
-                <h1>Azure 混合权益（Azure Hybrid Benefit）</h1>
-                <h4>用于 Windows Server 或 SQL Server 迁移的最具成本效益的云。</h4>
-                <ul>
-                    <li>利用 Azure 混合权益和保留实例，在 Windows Server 上节省多达 82% 的成本；</li>
-                    <li>使用 Azure 混合权益，在迁移到 Azure SQL 数据库 <sup>1</sup> 时节省至多 30% <sup>2</sup> 的费用；</li>
-                    <li>按照自己的节奏进行 - 移动一些工作负荷或整个数据中心；</li>
-                    <li>最大限度地利用现有的软件保障投资。</li>
-                </ul>
-                <h2>加快数字化转换</h2>
-                <p>现在是移到 Azure 和享受云技术优势的大好时机，这些优势包括：可快速增减，仅针对所用内容付费，以及节省运算效能。在混合云策略中，不管是部署新的虚拟机、移动部分工作负荷，还是迁移数据中心，只要移到云端，Azure 混合权益即可显著节省成本。</p>
-            </div>
-            <!-- BEGIN: TAB-CONTROL -->
-            <div class="technical-azure-selector tab-control-selector">
-                <a href="javascript:void(0)" data-href="#tabContent1" id="home_Windows-server" class="active">Windows Server</a>
-                <a href="javascript:void(0)" data-href="#tabContent2" id="home_sql-server">SQL Server</a>
-                <div class="clearfix"></div>
-                <!-- BEGIN: TAB-CONTAINER-1 -->
-                <div class="tab-control-container tab-active" id="tabContent1">
-                    <h2>数字化转型，让客户的 Windows Server 许可价值最大化</h2>
-                
-                    <p>与其他流行的 Microsoft 解决方案如 SQL Server 和 SharePoint 类似，现在客户也可以将现有的 Windows Server 许可合并到 Azure 中使用，从而充分利用这一权益将数据中心平滑扩展至云中。</p>
-                    
-                    <h3>更低的虚拟机价格。</h3> 
-                    <p>借助 A-HUB 权益计划 ( Azure Hybrid Use Benefit, Azure 混合云使用权益 )，客户可以使用软件保障 ( SA ） 涵盖的本地 Windows Server 许可在 Azure 中部署并运行特价的 Windows Server 虚拟机，然后客户只需按照同等级别 Linux 虚拟机的费率支付基本的虚拟机费用即可。</p>
-                    <p>（具体价格参照<a href="/pricing/details/virtual-machines/" id="a-hub_pricing-vm">虚拟机价格详情</a>页面）</p>
-                    
-                    <h3>支持灵活云就绪的许可模式。</h3> 
-                    <p>借助 A-HUB 权益计划，客户可以将组织内的部分工作负载或整个数据中心都扩展至云中，从而建立适合组织需要的云就绪架构。</p>
-                    
-                    <h3>超值权益，即刻拥有。</h3> 
-                    <p>如果客户的许可尚未包含软件保障 ( SA )，那么现在就是考虑订阅软件保障的最佳时机。借助软件保障协议，客户的 Azure 实例使用最多可节约高达 20% 的成本（ 具体取决于用量、实例类型，以及数据中心的位置等因素 ）。</p>
-                    
-                    <p>若要订阅软件保障，敬请联系您的 Microsoft 客户团队。</p>
-                    
-                    
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                    <th align="left" style="width: 50%;"><strong>带软件保障的数据中心版许可</strong></th>
-                    <th align="left" style="width: 50%;"><strong>带软件保障的标准版许可</strong></th>
-                    </tr>
-                    <tr>
-                    <td class="left_align">
-                        <ul>
-                            <li>每个双处理器许可，可部署两个虚拟机且每个虚拟机最多 8 个内核。</li>
-                            <li>Azure 部署费用最高节约 20%。</li>
-                            <li>每个许可能够同时在本地和 Azure 中使用。</li>
-                        </ul>
-                    </td>
-                    <td class="left_align">
-                        <ul>
-                            <li>每个双处理器许可，可部署两个虚拟机且每个虚拟机最多 8 个内核。</li>
-                            <li>Azure 部署费用最高节约 20%。</li>
-                            <li>每个许可只能在本地或在 Azure 中使用。</li>
-                        </ul>
-                    </td>
-                    </tr>
-                    </table>
-                                
-                    <h2>案例分析</h2>
-                    <div style="text-align: left;"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/hybrid-use-benefit-save.jpg" alt="A-HUB-对比" title="" style="max-width:auto;height:auto;"></div>
-                    </br>
-                    <p>这个例子展示了相比其他公有云，客户通过 Azure 运行 Windows Server 可以节约的成本。使用带有软件保障的本地 Windows Server 许可后，客户只需为基本计算资源付费。</p>
-                    
-                    <p>* 节约金额的估值基于 中国大陆区域由世纪互联运营的 A4 版本。实例，以 2016 年 9 月 13 日的定价年化估算而来。定价若有变动恕不另行通知。</p>
-                    
-                    
-                    <h2>如何参与 A-HUB 权益计划</h2>
-                    
-                    <ul>
-                    <li><strong>确定资格与计算许可。</strong>对于每个带软件保障的 Windows Server 双处理器许可，客户可运行两个最多 8 内核的虚拟机，或一个 16 内核的虚拟机，以定价较低者为准。</li>
-                    
-                    <li><strong>上传映像文件。</strong>需要使用 Windows PowerShell 在本地创建 Windows Server 虚拟机，为其添加 Azure Hybrid Use Benefit 标签后上传至 Azure。</li>
-                    
-                    <li><strong>受益看得见的节约。</strong>随后，Azure 将按照非 Windows 虚拟机的费率计费。</li>
-                    </ul>
-                    
-                    </br></br>
-                    <p><strong>特别提示：</strong></p>
-                    <p>1. 本计划仅针对处于有效期之内的正版 Windows Server 软件和保障 ( SA ) 的客户有效，世纪互联将对使用本计划的用户进行审计并根据审计结果对用户的价格作出必要调整，和 / 或要求客户偿付之前账单差额。</p>
-                    <p>2. CPP 和 A-HUB （Azure Hybrid Use Benefit） 不能重叠共享提示：如果您的虚拟机包含多项优惠，您仅能享受单项优惠，优惠不能叠加享受。</p>
-                    <p>3. CPP 套餐是虚拟机的包年服务，目前只适用于在线服务高级协议用户（Online Service Premium Agreement）。</p>
-                </div>
-                <!-- END: TAB-CONTAINER-1 -->
-                <!-- BEGIN: TAB-CONTAINER-2 -->
-                <div class="tab-control-container" id="tabContent2">
-                    <h2>利用面向 SQL Server 的 Azure 混合权益，在 Azure SQL 数据库上节省多达 30% 的成本</h2>
-                    <p>通过使用现有 SQL Server 许可证，可以最大限度利用当前的软件保障投资，从而在基于 vCore 的 SQL 数据库选项方面节省多达 30% 的成本。</p>
-                    <h3>立即节省多达 30% 的成本。</h3>
-                    <img style="width:470px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sql-ahub-compare.jpg" alt=""/>
-
-                    <h2>为 SQL 数据库中的虚拟化工作负荷获取更多权益</h2>
-                    <h3>SQL Server 许可证抵换价值</h3>
-                    <strong>SQL 数据库基于 vCore 的选项</strong>
-                    <img style="width:470px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sql-tradein-value.jpg" alt=""/>
-                    <h2>仅限 Azure：为虚拟化工作负荷获取更多</h2>
-                    <p>具有软件保障并使用无限制虚拟化权益的 SQL Server Enterprise Edition 客户能够以具有成本效益的费率迁移到 SQL 数据库。</p>
-                    <p>选择常规用途选项时，面向 SQL Server 的 Azure 混合权益可为具有软件保障的 SQL Server Enterprise Edition 客户在云中提供 4 个核心 - 相对于其本地拥有的每 1 个核心。常规用途选项最能满足虚拟化工作负荷的需求，可采用极具成本效益的方式实现到 SQL 数据库的迁移。</p>
-
-                    <h2>激活面向 SQL Server 的混合权益</h2>
-                    <h3>已在使用 Azure？</h3>
-                    <p>从<a href="//portal.azure.cn/">Azure 门户</a>或通过<a href="//market.azure.cn/zh-cn/marketplace/apps/Microsoft.WindowsServer">Azure Marketplace</a>注册 SQL 数据库托管实例。</p>
-                    <p>从<a href="//portal.azure.cn/">Azure 门户</a>或通过<a href="//market.azure.cn/zh-cn/marketplace/apps/Microsoft.WindowsServer">Azure Marketplace</a>试用 SQL 数据库单一数据库或弹性池。</p>
-
-                    <!-- <h3>是 Azure 的新手？<a href="https://azure.microsoft.com/zh-cn/pricing/purchase-options/?v=17.10">创建免费帐户</a></h3> -->
-
-                </div>
-                <!-- END: TAB-CONTAINER-2 -->
-            </div>
-            <div class="pricing-page-section">
-                        <div class="more-detail">
-                            <h2>常见问题</h2>
-                            <em>全部展开</em>
+                        <h2>更低的虚拟机价格</h2> 
+                        <p>借助 A-HUB 权益计划 ( Azure Hybrid Use Benefit, Azure 混合云使用权益 )，客户可以使用软件保障 ( SA ） 涵盖的本地 Windows Server 许可在 Azure 中部署并运行特价的 Windows Server 虚拟机，然后客户只需按照同等级别 Linux 虚拟机的费率支付基本的虚拟机费用即可。</p>
+                        <p>（具体价格参照<a href="/pricing/details/virtual-machines/" id="a-hub_pricing-vm">虚拟机价格详情</a>页面）</p>
+                        
+                        <h2>支持灵活云就绪的许可模式</h2> 
+                        <p>借助 A-HUB 权益计划，客户可以将组织内的部分工作负载或整个数据中心都扩展至云中，从而建立适合组织需要的云就绪架构。</p>
+                        
+                        <h2>超值权益，即刻拥有</h2> 
+                        <p>如果客户的许可尚未包含软件保障 ( SA )，那么现在就是考虑订阅软件保障的最佳时机。借助软件保障协议，客户的 Azure 实例使用最多可节约高达 20% 的成本（ 具体取决于用量、实例类型，以及数据中心的位置等因素 ）。</p>
+                        
+                        <p>若要订阅软件保障，敬请联系您的 Microsoft 客户团队。</p>
+                        
+                        
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                        <th align="left" style="width: 50%;"><strong>带软件保障的数据中心版许可</strong></th>
+                        <th align="left" style="width: 50%;"><strong>带软件保障的标准版许可</strong></th>
+                        </tr>
+                        <tr>
+                        <td class="left_align">
                             <ul>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="home_azure-hybrid-benefit-sql1">什么是 vCore？</a>
-                                        <section>
-                                             <p>虚拟核心 (vCore) 表示服务器可用的逻辑 CPU，并提供两代硬件供客户选择。对于使用 Gen4 vCore 创建的服务器，vCore 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。对于使用 Gen5 vCore 创建的服务器，vCore 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。</p>
-                                        </section>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql2">Azure SQL 数据库中基于 vCore 的模型有哪些优势？</a>
-                                        <section>
-                                            <p>通过基于 vCore 的购买模型，可灵活、受控而直接地将本地工作负荷要求转换到云。允许根据工作负荷需求，独立缩放计算和存储资源。</p>
-                                            <p>基于 vCore 的模型适用于 SQL 数据库托管实例、单一数据库和弹性池部署选项，且这些选项都可使用适用于 SQL Server 的 Azure 混合权益。因此，无论是否使用混合权益，基于 vCore 的模型内部的定价都适用：</p>
-                                            <ul>
-                                                <li>包含许可证：不包含面向 SQL Server 的 Azure 混合权益。此选项适用于不愿意将具有软件保障的现有 SQL Server 许可证应用于基于 vCore 的数据库部署选项的客户。</li>
-                                                <li>基准费率：包含面向 SQL Server 的 Azure 混合权益的折扣价格。客户可以通过使用具有软件保障的 SQL Server 许可证来选择此价格。</li>
-                                            </ul>
-                                        </section>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql3">面向 SQL Server 的 Azure 混合权益是什么？我有资格使用它吗？</a>
-                                        <section>
-                                            <p>面向 SQL Server 的 Azure 混合权益可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。Azure 混合权益 SQL Server 是基于 Azure 的混合权益，可通过它使用具有软件保障的 SQL Server 许可证，从而支付更少的 SQL 数据库费用（“基准费率”）。通过适用于 SQL Server 的 Azure 混合权益，可使用所有基于 vCore 的选项：SQL 数据库托管实例、单一数据库和弹性池。即使 SKU 是活动的也可以应用此权益，但请注意，从你在门户中进行选择时起，就会应用基准费率。不会补发信用额度。</p>
-                                            <p>通过在 Azure 门户证明你有足够的具有软件保障的有效许可证，即可激活 Azure 混合权益。Azure 混合权益的工作原理如下：</p>
-                                            <ul>
-                                                <li>如果拥有含软件保障的、按核心许可证颁发的 Standard Edition，选择常规用途选项，每有 1 个本地许可证核心可获得 1 个 vCore。</li>
-                                                <li>如果拥有含软件保障的、按核心许可证颁发的 Enterprise Edition，选择业务关键选项（即将推出），每有 1 个本地许可证核心可获得 1 个 vCore。注意：适用于 SQL Server 的 Azure 混合权益，其业务关键选项仅对 Enterprise Edition 客户提供。</li>
-                                                <li>如果拥有含软件保障的、按核心许可证颁发的高度虚拟化 Enterprise Edition，选择常规用途选项，每有 1 个本地许可证核心可获得 4 个 vCore。这是仅限于 Azure 的独特虚拟化权益。</li>
-                                            </ul>
-                                        </section>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql4">什么是虚拟化权益？</a>
-                                        <section>
-                                             <p>虚拟化权益适用于基于 vCore 的 Azure SQL 数据库上的虚拟化工作负荷。可使用它通过有效的软件保障转换 SQL Enterprise Edition 的 1 个核心，以按照基准费率获得最多 4 个常规用途 vCore。这样，就可以采用极具成本效益的方式将虚拟化应用程序迁移到基于 vCore 的 SQL 数据库。例如，如果有 SQL Enterprise Edition 的 4 个核心许可证，就可以按基准费率获得最多 16 个常规用途 vCore。</p>
-                                        </section>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql5">能否在本地和云中使用 SQL Server 许可证？</a>
-                                        <section>
-                                           <p>必须在本地或云中使用许可证，但有 180 天的宽限期，此期间可在本地和云同时使用许可证以促进迁移。</p>
-                                        </section>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql6">能否以追溯方式应用面向 SQL Server 的 Azure 混合权益？</a>
-                                        <section>
-                                             <p>否。Azure 混合权益不能以追溯方式进行应用。</p>    
-                                        </section>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql7">如果软件保障到期，面向 SQL Server 的 Azure 混合权益会发生什么情况？</a>
-                                        <section>
-                                             <p>若要使用面向 SQL Server 的 Azure 混合权益，需要有效的软件保障。如果软件保障到期并且你没有续订，则系统会将你转到相应 SKU 的“包含许可证”定价。</p>    
-                                        </section>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon icon-plus"></i>
-                                    <div>
-                                        <a id="azure-hybrid-benefit-sql8">哪种产品有资格使用面向 SQL Server 的 Azure 混合权益？</a>
-                                        <section>
-                                             <p>此混合权益仅适用于 SQL Server 集成服务 (SSIS) 和基于 vCore 的Azure SQL 数据库选项：托管实例、单一数据库和弹性池。</p>    
-                                        </section>
-
-                                    </div>
-                                </li>
-                        </div>
+                                <li>每个双处理器许可，可部署两个虚拟机且每个虚拟机最多 8 个内核。</li>
+                                <li>Azure 部署费用最高节约 20%。</li>
+                                <li>每个许可能够同时在本地和 Azure 中使用。</li>
+                            </ul>
+                        </td>
+                        <td class="left_align">
+                            <ul>
+                                <li>每个双处理器许可，可部署两个虚拟机且每个虚拟机最多 8 个内核。</li>
+                                <li>Azure 部署费用最高节约 20%。</li>
+                                <li>每个许可只能在本地或在 Azure 中使用。</li>
+                            </ul>
+                        </td>
+                        </tr>
+                        </table>
+                                    
+                        <h1>案例分析</h1>
+                        <div style="text-align: left;"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/hybrid-use-benefit-save.jpg" alt="A-HUB-对比" title="" style="max-width:auto;height:auto;"></div>
+                        </br>
+                        <p>这个例子展示了相比其他公有云，客户通过 Azure 运行 Windows Server 可以节约的成本。使用带有软件保障的本地 Windows Server 许可后，客户只需为基本计算资源付费。</p>
+                        
+                        <p>* 节约金额的估值基于 中国大陆区域由世纪互联运营的 A4 版本。实例，以 2016 年 9 月 13 日的定价年化估算而来。定价若有变动恕不另行通知。</p>
+                        
+                        
+                        <h1>如何参与 A-HUB 权益计划</h1>
+                        
+                        <ul>
+                        <li><strong>确定资格与计算许可。</strong>对于每个带软件保障的 Windows Server 双处理器许可，客户可运行两个最多 8 内核的虚拟机，或一个 16 内核的虚拟机，以定价较低者为准。</li>
+                        
+                        <li><strong>上传映像文件。</strong>需要使用 Windows PowerShell 在本地创建 Windows Server 虚拟机，为其添加 Azure Hybrid Use Benefit 标签后上传至 Azure。</li>
+                        
+                        <li><strong>受益看得见的节约。</strong>随后，Azure 将按照非 Windows 虚拟机的费率计费。</li>
+                        </ul>
+                        
+                        </br></br>
+                        <p><strong>特别提示：</strong></p>
+                        <p>1. 本计划仅针对处于有效期之内的正版 Windows Server 软件和保障 ( SA ) 的客户有效，世纪互联将对使用本计划的用户进行审计并根据审计结果对用户的价格作出必要调整，和 / 或要求客户偿付之前账单差额。</p>
+                        <p>2. CPP 和 A-HUB （Azure Hybrid Use Benefit） 不能重叠共享提示：如果您的虚拟机包含多项优惠，您仅能享受单项优惠，优惠不能叠加享受。</p>
+                        <p>3. CPP 套餐是虚拟机的包年服务，目前只适用于在线服务高级协议用户（Online Service Premium Agreement）。</p>
                     </div>
+                    <!-- END: TAB-CONTAINER-1 -->
+                    <!-- BEGIN: TAB-CONTAINER-2 -->
+                    <div class="tab-control-container" id="tabContent2">
+                        <h1>利用面向 SQL Server 的 Azure 混合权益，在 Azure SQL 数据库上节省多达 30% 的成本</h1>
+                        <p>通过使用现有 SQL Server 许可证，可以最大限度利用当前的软件保障投资，从而在基于 vCore 的 SQL 数据库选项方面节省多达 30% 的成本。</p>
+                        <h2>立即节省多达 30% 的成本</h2>
+                        <img style="width:470px;" src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sql-ahub-compare.jpg" alt=""/>
+
+                        <h1 style="margin-top:40px;">为 SQL 数据库中的虚拟化工作负荷获取更多权益</h1>
+                        <h2>SQL Server 许可证抵换价值</h2>
+                        <div class="azure-hybird">
+                            <div class="azure-hybird-sql">
+                                <p>SQL 数据库基于 vCore 的选项</p>
+                                
+                                <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sql-tradein-value.jpg" alt=""/>
+                                
+                                <p>具有软件保障的 SQL Server</p>
+                            </div>
+                        </div>
+                        <h2>仅限 Azure：为虚拟化工作负荷获取更多</h2>
+                        <p>具有软件保障并使用无限制虚拟化权益的 SQL Server Enterprise Edition 客户能够以具有成本效益的费率迁移到 SQL 数据库。</p>
+                        <p>选择常规用途选项时，面向 SQL Server 的 Azure 混合权益可为具有软件保障的 SQL Server Enterprise Edition 客户在云中提供 4 个核心 - 相对于其本地拥有的每 1 个核心。常规用途选项最能满足虚拟化工作负荷的需求，可采用极具成本效益的方式实现到 SQL 数据库的迁移。</p>
+
+                        <h1>激活面向 SQL Server 的混合权益</h1>
+                        <h2>已在使用 Azure？</h2>
+                        <p>从<a href="//portal.azure.cn/">Azure 门户</a>或通过<a href="//market.azure.cn/zh-cn/marketplace/apps/Microsoft.WindowsServer">Azure Marketplace</a>注册 SQL 数据库托管实例。</p>
+                        <p>从<a href="//portal.azure.cn/">Azure 门户</a>或通过<a href="//market.azure.cn/zh-cn/marketplace/apps/Microsoft.WindowsServer">Azure Marketplace</a>试用 SQL 数据库单一数据库或弹性池。</p>
+
+                        <!-- <h2>是 Azure 的新手？<a href="https://azure.microsoft.com/zh-cn/pricing/purchase-options/?v=17.10">创建免费帐户</a></h2> -->
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h1>常见问题</h1>
+                    <em>全部展开</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_azure-hybrid-benefit-sql1">什么是 vCore？</a>
+                                <section>
+                                     <p>虚拟核心 (vCore) 表示服务器可用的逻辑 CPU，并提供两代硬件供客户选择。对于使用 Gen4 vCore 创建的服务器，vCore 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。对于使用 Gen5 vCore 创建的服务器，vCore 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql2">Azure SQL 数据库中基于 vCore 的模型有哪些优势？</a>
+                                <section>
+                                    <p>通过基于 vCore 的购买模型，可灵活、受控而直接地将本地工作负荷要求转换到云。允许根据工作负荷需求，独立缩放计算和存储资源。</p>
+                                    <p>基于 vCore 的模型适用于 SQL 数据库托管实例、单一数据库和弹性池部署选项，且这些选项都可使用适用于 SQL Server 的 Azure 混合权益。因此，无论是否使用混合权益，基于 vCore 的模型内部的定价都适用：</p>
+                                    <ul>
+                                        <li>包含许可证：不包含面向 SQL Server 的 Azure 混合权益。此选项适用于不愿意将具有软件保障的现有 SQL Server 许可证应用于基于 vCore 的数据库部署选项的客户。</li>
+                                        <li>基准费率：包含面向 SQL Server 的 Azure 混合权益的折扣价格。客户可以通过使用具有软件保障的 SQL Server 许可证来选择此价格。</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql3">面向 SQL Server 的 Azure 混合权益是什么？我有资格使用它吗？</a>
+                                <section>
+                                    <p>面向 SQL Server 的 Azure 混合权益可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。Azure 混合权益 SQL Server 是基于 Azure 的混合权益，可通过它使用具有软件保障的 SQL Server 许可证，从而支付更少的 SQL 数据库费用（“基准费率”）。通过适用于 SQL Server 的 Azure 混合权益，可使用所有基于 vCore 的选项：SQL 数据库托管实例、单一数据库和弹性池。即使 SKU 是活动的也可以应用此权益，但请注意，从你在门户中进行选择时起，就会应用基准费率。不会补发信用额度。</p>
+                                    <p>通过在 Azure 门户证明你有足够的具有软件保障的有效许可证，即可激活 Azure 混合权益。Azure 混合权益的工作原理如下：</p>
+                                    <ul>
+                                        <li>如果拥有含软件保障的、按核心许可证颁发的 Standard Edition，选择常规用途选项，每有 1 个本地许可证核心可获得 1 个 vCore。</li>
+                                        <li>如果拥有含软件保障的、按核心许可证颁发的 Enterprise Edition，选择业务关键选项（即将推出），每有 1 个本地许可证核心可获得 1 个 vCore。注意：适用于 SQL Server 的 Azure 混合权益，其业务关键选项仅对 Enterprise Edition 客户提供。</li>
+                                        <li>如果拥有含软件保障的、按核心许可证颁发的高度虚拟化 Enterprise Edition，选择常规用途选项，每有 1 个本地许可证核心可获得 4 个 vCore。这是仅限于 Azure 的独特虚拟化权益。</li>
+                                    </ul>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql4">什么是虚拟化权益？</a>
+                                <section>
+                                     <p>虚拟化权益适用于基于 vCore 的 Azure SQL 数据库上的虚拟化工作负荷。可使用它通过有效的软件保障转换 SQL Enterprise Edition 的 1 个核心，以按照基准费率获得最多 4 个常规用途 vCore。这样，就可以采用极具成本效益的方式将虚拟化应用程序迁移到基于 vCore 的 SQL 数据库。例如，如果有 SQL Enterprise Edition 的 4 个核心许可证，就可以按基准费率获得最多 16 个常规用途 vCore。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql5">能否在本地和云中使用 SQL Server 许可证？</a>
+                                <section>
+                                   <p>必须在本地或云中使用许可证，但有 180 天的宽限期，此期间可在本地和云同时使用许可证以促进迁移。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql6">能否以追溯方式应用面向 SQL Server 的 Azure 混合权益？</a>
+                                <section>
+                                     <p>否。Azure 混合权益不能以追溯方式进行应用。</p>    
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql7">如果软件保障到期，面向 SQL Server 的 Azure 混合权益会发生什么情况？</a>
+                                <section>
+                                     <p>若要使用面向 SQL Server 的 Azure 混合权益，需要有效的软件保障。如果软件保障到期并且你没有续订，则系统会将你转到相应 SKU 的“包含许可证”定价。</p>    
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="azure-hybrid-benefit-sql8">哪种产品有资格使用面向 SQL Server 的 Azure 混合权益？</a>
+                                <section>
+                                     <p>此混合权益仅适用于 SQL Server 集成服务 (SSIS) 和基于 vCore 的Azure SQL 数据库选项：托管实例、单一数据库和弹性池。</p>    
+                                </section>
+
+                            </div>
+                        </li>
+                </div>
+            </div>
             <!-- END: TAB-CONTROL -->
             <div class="pricing-page-section">
-                <h2>其他资源</h2>
-                <!-- <h3>完整的常见问题</h3>
+                <h1>其他资源</h1>
+                <!-- <h2>完整的常见问题</h2>
                 <p><a href="//azure.microsoft.com/zh-cn/pricing/hybrid-benefit/faq/">查看有关 Azure 混合权益的常见问题</a></p> -->
-                <h3>数据表</h3>
+                <h2>数据表</h2>
                 <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/Windows_Server_Azure_Hybrid_Use_Benefit_Datasheet.pdf">下载 Azure 混合权益摘要</a></p>
-                <h3>Azure 上的 Windows Server</h3>
+                <h2>Azure 上的 Windows Server</h2>
                 <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/Ultimate-Guide-to-Windows-Server-on-Azure.pdf">下载《Azure 上的 Windows Server 终极指南》</a></p>
-                <h3>文档</h3>
+                <h2>文档</h2>
                 <p><a href="//docs.azure.cn/zh-cn/virtual-machines/windows/hybrid-use-benefit-licensing">查看技术教程及更多资源</a></p>
                 <div class="tags-date">
                     <div class="ms-date">1 实际节省的费用可能随位置、实例类型或使用情况而异</div><br />
@@ -281,6 +313,24 @@
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-hybird-benefit</linkid>
     <metaKeywords>Azure 混合权益</metaKeywords>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+          <div class="common-banner" id="azure-hybired-contact-banner">      
+            <div class="common-banner-image">
+                <div class="common-banner-title">
+                    <h1>Azure 混合权益<span>（Azure Hybrid Benefit）</span></h1>
+                    <p>用于 Windows Server 或 SQL Server 迁移的最具成本效益的云。</p>
+                    <ul>
+                        <li>利用 Azure 混合权益和保留实例，在 Windows Server 上节省多达 82% 的成本；</li>
+                        <li>使用 Azure 混合权益，在迁移到 Azure SQL 数据库 <sup>1</sup> 时节省至多 30% <sup>2</sup> 的费用；</li>
+                        <li>按照自己的节奏进行 - 移动一些工作负荷或整个数据中心；</li>
+                        <li>最大限度地利用现有的软件保障投资。</li>
+                    </ul>
+                </div>
+            </div>
+          </div>  
+        <!-- End: Banner-->
+    ]]></banner>
     <metaDescription><![CDATA[使用现有许可证和软件保障可节省多达 40% 的 Windows Server 虚拟机成本，并可获得云计算的所有优势。]]></metaDescription>
     <urlDisplayName>Azure 混合权益</urlDisplayName>
   </TextpageLeftNav>
