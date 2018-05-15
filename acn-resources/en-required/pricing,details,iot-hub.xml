@@ -18,7 +18,7 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>连接、监视并控制数百万在各种操作系统和协议上运行的 IoT 资产，以通过 Azure IoT 中心快速开始你的物联网项目。如果需要，控制特定设备的访问权限以保持系统的完整性。借助这些资产建立可靠的双向通信（即使间歇性连接），以便分析传入的遥测数据并根据需要发送命令和通知。利用每设备身份验证，通过合适的凭据与设备通信，提升 IoT 解决方案的安全性。</p>
+                <p>连接、监视并控制在各种操作系统和协议上运行的数百万 IoT 资产，通过 IoT 中心快速启动物联网项目。使用每设备身份验证，通过合适的凭据与设备通信，提升 IoT 解决方案的安全性。借助这些资产安全地建立可靠的双向通信（即使是间歇性连接），以便分析传入的遥测、同步设备管理工作流，并根据需要发送命令和通知。</p>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">
@@ -26,11 +26,13 @@
                 <div class="tab-control-container tab-active" id="tabContent1">
                     <!-- BEGIN: Table1-Content-->
                     <h2>定价详细信息</h2>
-                    <p>Azure IoT 中心有四个版本：免费版、S1 版、S2 版和 S3 版。IoT 中心现已公开发布。新的定价将按如下标注生效。</p>
+                    <!-- <p>Azure IoT 中心有四个版本：免费版、S1 版、S2 版和 S3 版。IoT 中心现已公开发布。新的定价将按如下标注生效。</p>
                     <p><strong>免费版：</strong>免费试用 Azure IoT 中心服务。注册后即可每天共传输最多 8,000 条消息。免费版适用于了解和测试 IoT 中心服务的功能。</p>
                     <p><strong>S1 版：</strong>IoT 中心 S1 版为生成相对少量数据的 IoT 解决方案而设计。S1 版的每个计价单位让你能够在所有已连接设备间每天传输最多 400,000 条消息。</p>
                     <p><strong>S2 版：</strong>IoT 中心 S2 版为生成大量数据的 IoT 解决方案而设计。S2 版的每个计价单位让你能够在所有已连接设备间每天传输最多 600 万条消息。</p>
-                    <p><strong>S3 版：</strong>IoT 中心 S3 版为生成超大量数据的 IoT 解决方案而设计。S3 版的每个计价单位让你能够在所有已连接设备间每天传输最多 3 亿条消息。</p>
+                    <p><strong>S3 版：</strong>IoT 中心 S3 版为生成超大量数据的 IoT 解决方案而设计。S3 版的每个计价单位让你能够在所有已连接设备间每天传输最多 3 亿条消息。</p> -->
+                    <p>连接 IoT 设备，构建 IoT 解决方案，将数据转换为商业智能。</p>
+                    <h4>基本级别 <sup style="color:#e66102; font-weight: bold">new</sup></h4>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -38,13 +40,42 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>版本类型</strong></th>
-                            <th align="left"><strong>原价格</strong></th>
-                            <th align="left"><strong>新价格 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
+                            <th align="left"><strong>价格/单位/月</strong></th>
                             <th align="left"><strong>消费总数/天/单位</strong></th>
                             <th align="left"><strong>消费计算大小</strong></th>
                         </tr>
                         <tr>
-                            <td>免费</td>
+                            <td>B1</td>
+                            <td>￥ 101.76</td>
+                            <td>400,000</td>
+                            <td>4KB</td>
+                        </tr>
+                        <tr>
+                            <td>B2</td>
+                            <td>￥ 508.80</td>
+                            <td>6,000,000</td>
+                            <td>4KB</td>
+                        </tr>
+                        <tr>
+                            <td>B3</td>
+                            <td>￥ 5,088.00</td>
+                            <td>300,000,000</td>
+                            <td>4KB</td>
+                        </tr>
+                    </table>
+                    <h4>标准级别</h4>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>版本类型</strong></th>
+                            <th align="left"><strong>价格/单位/月</th>
+                            <th align="left"><strong>消费总数/天/单位</strong></th>
+                            <th align="left"><strong>消费计算大小</strong></th>
+                        </tr>
+                        <tr>
                             <td>免费</td>
                             <td>免费</td>
                             <td>8,000</td>
@@ -52,27 +83,71 @@
                         </tr>
                         <tr>
                             <td>S1</td>
-                            <td>￥ 388.00/单位/月</td>
-                            <td>￥ 254.40/单位/月</td>
+                            <td>￥ 254.40</td>
                             <td>400,000</td>
                             <td>4KB</td>
                         </tr>
                         <tr>
                             <td>S2</td>
-                            <td>￥ 3888.00/单位/月</td>
-                            <td>￥ 2,544.00/单位/月</td>
+                            <td>￥ 2,544.00</td>
                             <td>6,000,000</td>
                             <td>4KB</td>
                         </tr>
                         <tr>
                             <td>S3</td>
-                            <td>￥ 38880.00/单位/月</td>
-                            <td>￥ 25,440.00/单位/月</td>
+                            <td>￥ 25,440.00</td>
                             <td>300,000,000</td>
                             <td>4KB</td>
                         </tr>
                     </table>
-                   
+                   <p>如需详细了解基本层和标准层支持的功能，请参阅<a href="//docs.azure.cn/zh-cn/iot-hub/iot-hub-scaling">如何选择适合的 IoT 中心层</a>。</p>
+                   <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>功能</strong></th>
+                            <th align="left"><strong>基本</strong></th>
+                            <th align="left"><strong>标准</strong></th>
+                        </tr>
+                        <tr>
+                            <td>设备到云遥测</td>
+                            <td>√</td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>每设备标识</td>
+                            <td>√</td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>消息路由、事件网格集成</td>
+                            <td>√</td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>HTTP、AMQP、MQTT 协议</td>
+                            <td>√</td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>DPS 支持</td>
+                            <td>√</td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>监视和诊断</td>
+                            <td></td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>云到设备消息传递</td>
+                            <td></td>
+                            <td>√</td>
+                        </tr>
+                        <tr>
+                            <td>设备管理、设备孪生</td>
+                            <td></td>
+                            <td>√</td>
+                        </tr>
+                    </table>
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
             </div>
@@ -95,9 +170,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="ih-que-q2">Azure IoT 中心 S1 版中包括哪些内容?</a>
+                                <a id="ih-que-q2">如何增加或减少购买的 IoT 中心单位数？</a>
                                 <section>
-                                    <p>S1 版的每个计价单位让你能够在所有设备间每天传输多达 400,000 条信息。如果每天在所有设备上传输的消息总数超过 400,000 条，则需要购买更多单位。</p>
+                                    <p>每个层都有每日消息数限制，超出后就会被限制。请参阅<a href="//docs.azure.cn/zh-cn/iot-hub/iot-hub-devguide-quotas-throttling">限制文档</a>了解详细信息。如需更改，可在 IoT 中心内调整单位。也可在层内更改单位类型（例如从 S1 变为 S2）或升级至更高的层（例如从 B1 升级至 S2）。如果希望使用超过 200 个单位的 IoT 中心 S1 S2 SKU 和 IoT 中心 B1 B2 SKU 或者超过 10 个单位的 IoT 中心 B3 或 S3，请联系<a href="/support/contact/">Azure 支持部门</a>。</p>
                                 </section>
 
                             </div>
@@ -105,27 +180,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="ih-que-q3">Azure IoT 中心 S2 版中包括哪些内容?</a>
-                                <section>
-                                    <p>Azure IoT 中心 S2 版用于客户拥有大量设备，并生成大量数据，因此需要频繁传输消息的场景。S2 版的每个计价单位让你能够每天传输多达 600 万条信息。如果每天在所有设备上传输的消息总数超过 600 万条，则需要购买更多单位。</p>
-                                </section>
-
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="ih-que-q4">如何增加或减少购买的 IoT 中心单位数？</a>
-                                <section>
-                                    <p>每个层都有每日消息数限制，超出后就会被限制。请参阅<a href="//docs.azure.cn/zh-cn/iot-hub/iot-hub-devguide-quotas-throttling">限制文档</a>了解详细信息。如需更改，可在 IoT 中心内调整单位。也可在层内更改单位类型（例如从 S1 变为 S2）。如果希望使用超过 200 个单位的 IoT 中心 S1 S2 SKU 和 超过 10 个单位的 IoT 中心 S3，请联系 Azure 支持部门。</p>
-                                </section>
-
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="ih-que-q5">我可通过 IoT 中心发送的最大消息大小是多少？</a>
+                                <a id="ih-que-q3">我可通过 IoT 中心发送的最大消息大小是多少？</a>
                                 <section>
                                     <p>从设备发送到云的消息的最大消息大小为 256 KB。在付费版（即 S1 版和 S2 版）中，这些消息按 4 KB 的块计量。例如，如果设备通过 S1 版或 S2 版发送一条 16 KB 大小的消息，这条消息将按 4 条消息计费。已连接设备通过免费版发送的消息按 0.5 KB 的块计量。例如，如果设备通过 IoT 中心免费版发送一条 16 KB 大小的消息，这条消息将按 32 条消息计费。</p>
                                     <p>对于付费 SKU （即 S1 版和 S2 版），从云发送到设备的最大消息大小为 64 KB，按 4 KB 的块计量。例如，一条通过 S1 版或 S2 版发送的 8 KB 大小的消息将按 2 条消息计费。使用免费版发送的消息以 0.5 KB 的块计量。例如，一条通过 IoT 中心免费版发送的 8 KB 大小的消息将按 16 条消息计费。</p>
@@ -135,16 +190,76 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="ih-que-q6">Azure IoT 中心服务的计费方式是什么？</a>
+                                <a id="ih-que-q4">是否会对与文件上传相关的消息收费？</a>
                                 <section>
-                                    <p>IoT中心单位的用量按天计算，按月生成账单。根据本月内消费的 IoT 中心单位数对客户进行计费。</p>
+                                    <p>仅启动新上传并提供完成上传通知的消息才计入每日消息分配。客户必须提供其自己的存储帐户并为存储付费。不会针对文件上传单独收费。例如，在典型文件上传方案中，仅有两条消息，一条消息指示已启动文件上传，另一条消息指示已完成文件上传。在收到上传失败通知时，客户可选择在状态说明中发送附加数据。有关文件上传功能的其他详细信息，请参阅 IoT 中心文档。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="ih-que-q5">我可通过文件上传功能发送的最大文件大小是多少？</a>
+                                <section>
+                                    <p>IoT 中心的文件上传功能遵循 Azure 存储已经实施的上传限制。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="ih-que-q6">IoT 中心环境中的设备孪生和查询是什么？</a>
+                                <section>
+                                    <p>设备对包含设备状态信息（元数据、配置和条件），并存储为 JSON 文档。对可由云和设备应用程序修改，且支持大量查询语言。设备孪生是 IoT 中心设备管理的原始基础，可通过读取、写入和查询等多个操作进行访问。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="ih-que-q7">成对读取、写入和查询如何计费？</a>
+                                <section>
+                                    <p>成对读取、写入和查询仅在标准层中可用，按 0.5KB 的块计费，且分别考虑返回的对大小、更新大小和查询结果大小。例如，读取 4 KB 的对按 8 条消息计费，更新 1 KB 有效负载的对按 2 条消息计费，查询 10 KB 结果的对按 20 条消息计费。所有其他消息针对付费层（S1、S2、S3）以 4 KB 的块计费，针对免费层以 0.5 KB 计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="ih-que-q8">直接方法如何计费？</a>
+                                <section>
+                                    <p>直接方法是由云发起的请求响应通信，且仅在标准层中可用。云从设备接收即时响应。请求和响应两者最多均为 8KB，且针对付费层（如 S1、S2 和 S3）以 4KB 的块进行计量，因此如果通过 S1、S2 或 S3 层本发送了 8KB 请求，该请求将按 2 条消息计费。使用免费层发送的请求以 0.5KB 的块计量。例如，一条通过 IoT 中心免费层发送的 8KB 大小的消息将按 16 条消息计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="ih-que-q9">长时运行的作业如何计费？</a>
+                                <section>
+                                    <p>作业允许在大量设备上启动或安排成对写入和直接方法的执行。作业操作不计费，但产生的成对写入和方法调用要如上述计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="ih-que-q10">Azure IoT 中心服务的计费方式是什么？</a>
+                                <section>
+                                    <p>每天测量 IoT 中心单位的使用量，每月生成帐单。根据本月内消费的 IoT 中心单位数对客户进行计费。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="ih-que-q7">如果我在月中购买额外的 IoT 中心单位，是否按比例计费？</a>
+                                <a id="ih-que-q11">如果我在月中购买额外的 IoT 中心单位，是否按比例计费？</a>
                                 <section>
                                     <p>你可以随时选择增加购买的 IoT 中心单位数。如果在月中注册服务，则本月费用将根据本月剩余天数按比例进行计算。（对于 IoT 中心服务，一个月定义为 31 天）。如果在月中增加 IoT 中心单位数，则本月费用将根据本月每天可用的单位数进行计算。</p>
                                 </section>
@@ -153,7 +268,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="vm-que-q8">如果业务需要更改，能否减少单位数？</a>
+                                <a id="vm-que-q12">如果业务需要更改，能否减少单位数？</a>
                                 <section>
                                     <p>是的，可以随时从“设置”页面减少单位数量。更改将于次日生效，在月底反映在帐单上。</p>
                                 </section>
@@ -162,7 +277,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="vm-que-q9">我可以从免费版切换到付费版吗？</a>
+                                <a id="vm-que-q13">我可以从免费版切换到付费版吗？</a>
                                 <section>
                                     <p>否，你不能从免费版切换到付费版。免费版仅用于测试概念证明解决方案。</p>
                                 </section>
@@ -171,9 +286,45 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="vm-que-q10">我可以在 IoT 中心 S1 版和 S2 版之间切换吗？</a>
+                                <a id="vm-que-q14">如何取消 IoT 中心服务订阅？</a>
                                 <section>
-                                    <p>是的，你必须采取措施从一个付费版本显式切换到另一版本。设备标识和发行消息会传递到新版本中。不允许从付费版切换到免费版。</p>
+                                    <p>可从<a href="//portal.azure.cn/">Azure 管理门户</a>中取消 IoT 中心订阅。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="vm-que-q15">IoT 中心中的设备管理费用是多少？</a>
+                                <section>
+                                    <p>设备管理功能是 IoT 中心的一部分。设备管理消息的测量方式与 IoT 中心中的其他遥测消息类似。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="vm-que-q16">可以在任何标准 IoT 中心版之间切换吗？</a>
+                                <section>
+                                    <p>是的，你必须采取措施从一个付费版本显式切换到另一版本。设备 ID 和所有消息均传递到新版本中。如果客户想要从较高级别切换到较低级别（例如，从 S2 切换到 S1），并且他们使用的消息数超出了 S1 允许的每日消息数，则当天将按 S2 对该客户收费，并从下一天起按 S1 费率收费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="vm-que-q17">可以在任何基本 IoT 中心版之间切换吗？</a>
+                                <section>
+                                    <p>是的，你必须采取措施从一个付费版本显式切换到另一版本。设备 ID 和所有消息均传递到新版本中。如果客户想要从较高级别切换到较低级别（例如，从 B2 切换到 B1），并且他们使用的消息数超出了 B1 允许的每日消息数，则当天将按 B2 对该客户收费，并从下一天起按 B1 费率收费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="vm-que-q18">可以在 IoT 中心基本层与标准层之间相互切换吗？</a>
+                                <section>
+                                    <p>可以。可通过 Azure 门户从基本层升级为标准层，但不能从标准层降级为基本层。若要从标准层移至基本层，必须创建一个新的基本层 IoT 中心，并需向该 IoT 中心重新注册设备。</p>
                                 </section>
                             </div>
                         </li>
