@@ -4,14 +4,70 @@
     <bodyText>
       <![CDATA[
            <tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
-
+            <style>
+                .cognitive-banner{
+                    margin: 30px 0;
+                }
+                .cognitive-figure{
+                    padding-bottom: 30px;
+                    margin-bottom: 30px;
+                    overflow: hidden;
+                }
+                .cognitive-figure .col-md-3{
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                .cognitive-figure .col-md-9{
+                    padding-left: 2%;
+                    padding-right: 0;
+                }
+                .pricing-page-section .cognitive-figure .col-md-9 h2, .container .pure-content .pricing-page-section .cognitive-icon-group .cognitive-text h2{
+                    margin-top: 4px !important;
+                }
+                .cognitive-icon-group{
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                    list-style:none;
+                    padding-left:0 !important;
+                }
+                .cognitive-icon-group li{
+                    width:100%;
+                    overflow:hidden;
+                    margin-bottom: 30px !important;
+                }
+                .cognitive-icon-group li div{
+                    float: left;
+                }
+                .cognitive-icon{
+                    width: 10%;
+                    min-width: 100px;
+                    margin-right:-120px;
+                }
+                .cognitive-text{                   
+                    margin-left:120px;
+                }
+                .cognitive-icon-group li:last-child{
+                    margin-bottom: 0 !important;
+                }
+                @media only screen and (max-width: 769px){
+                    .cognitive-figure{
+                        padding-bottom: 20px;
+                    }
+                    .cognitive-figure .col-md-9{
+                        padding-left: 0;
+                    }
+                    .pricing-page-section .cognitive-figure .col-md-9 h2{
+                        margin-top: 26px !important;
+                    }
+                }
+            </style>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
                         <h2>存储<span>Storage</span></h2>
-                        <h4>持久的、高度可用的、高度可伸缩的云存储器</h4>
+                        <h4>解除繁重的数据中心管理。</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_storage_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
                         <a href="/pricing/pia/" id="home_storage_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
@@ -20,38 +76,74 @@
             <!-- END: Product-Detail-TopBanner -->
             <!-- BEGIN: Product-Detail-Content -->
             <div class="pricing-page-section">
-                <h1>适合不同规模数据，经济可靠的云存储</h1>
                 <ul>
-                    <li>管理 PB 级别的存储</li>
-                    <li>跨越数百公里的地域冗余存储</li>
-                    <li>业界最高性能</li>
-                    <li>符合行业标准的跨虚拟机 SMB 文件共享</li>
-                    <li>有竞争力的价格，按用量付费</li>
-                    <li>支持 REST、.NET、Java、C++、node.js、PowerShell 等</li>
+                    <li>一系列满足你需求的解决方案</li>
+                    <li>无限的可伸缩性</li>
+                    <li>灵活应对需求变化</li>
+                    <li>低成本，只需支付所需内容</li>
                 </ul>
-                <h2>Blob、表、队列和文件</h2>
-                <p>Azure 存储服务在数据存储和检索方面具有较高灵活性，可以用于存储大量非结构化数据方面，例如使用 Azure Blob 存储文档和媒体文件；或者使用 Azure 表存储结构化 nosql 数据；或者使用 Azure 队列存储可靠消息；以及使用基于 SMB 的 <a id="home-files_storage" class="link-btn_one" href="/home/features/storage/files/" style="color:#00a8d9" target="_blank">Azure 文件</a>服务将本地应用程序迁移到云中。</p>
-                
-                <h2>高级存储</h2>
-                <p>Azure 高级存储为在 Azure 虚拟机上运行的 I/O 密集型工作负荷提供高性能、低延迟的磁盘支持。你可以向虚拟机 (VM) 附加几个高级存储磁盘。借助高级存储，应用程序对于每个 VM 可以具有多达 32 TB 的存储，对于每个 VM 可以实现 50,000 IOPS（每秒输入/输出操作数），并且读取操作的延迟非常低。高级存储目前仅可用于在 Azure 虚拟机所使用的磁盘上存储数据。</p>
-                <p><a id="home_advanceStoMore" href="/home/features/xio-storage/" target="_blank">了解更多</a></p>
-
-                <h2>高伸缩性</h2>
-                <p>Azure 存储服务可随时满足你不断提高的数据需求，最多可为每个帐户提供 500 TB 存储。一个订阅默认支持 20 个存储帐户，因此可提供 PB 级别的存储，您可将其用于实现最大规模的部署方案。无论构建消费产品网站，或是 TB 级的大数据应用程序，Azure 都能应付自如。</p>
-
-                <h2>耐久且高度可用</h2>
-                <p>Azure 存储服务会自动复制你的数据，帮助防范意外硬件故障，确保数据随时可用。我们将在一个区域中保留 3 个副本。地域冗余选项可在数百公里外的区域额外创建 3 个副本，进一步提高可靠性并实现灾难恢复。地域冗余备份可读访问选项，可将数据可用性进一步提高至99.99%。</p>
-
-                <h2>专为开发人员设计</h2>
-                <p>借助对 .NET、Java、Android、C++ 和 Node.js 等常见客户端库的支持，自由构建应用程序。Azure 存储服务中的数据还可以通过 REST API 访问，任何能够发起 HTTP/HTTPS 请求的语言都可调用该 API。Azure 存储服务提供可靠的一致性保障，简化了云应用程序的开发，使构建在 Azure 之上的应用程序具备可预测的体验。</p>
-
-                <!--<h2>全球覆盖</h2>
-                <pAzure 存储服务已在全球建立19个数据中心，其中包括中国东部以及中国北部。你可以将文件放置在对业务最有利的区域，还可以根据需要扩展存储服务或跨数据中心部署，并将数据保留在靠近客户的地理位置，让用户实现快速高性能访问。</p>
-                -->
-				
-                <h2>成本效益高</h2>
-                <p>只需为使用的服务付费，并且价格低于本地自建存储方案。我们有竞争力的定价匹配策略意味着你能借助云存储获得巨大的收益。</p>
-               
+                <div class="cognitive-figure">
+                    <div class="col-md-4">
+                        <h2>文件</h2>
+                        <p>简单的分布式跨平台文件系统</p>
+                        <ul>
+                            <li>直接迁移</li>
+                            <li>简单便宜</li>
+                            <li>无需编码即可将数据迁移至云</li>
+                        </ul>
+                        <p><a href="/home/features/storage/files/">了解更多</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>磁盘</h2>
+                        <p>用于 I/O 密集型应用程序的高级存储</p>
+                        <ul>
+                            <li>低延迟、高吞吐量</li>
+                            <li>自动三重复制</li>
+                            <li>企业级持久性</li>
+                        </ul>
+                        <p><a href="/home/features/storage/unmanaged-disks/">了解更多</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Blob</h2>
+                        <p>高度可缩放的非结构化数据对象存储</p>
+                        <ul>
+                            <li>以高成本效益拥有巨大容量</li>
+                            <li>分层存储选项</li>
+                            <li>覆盖全球的单一基础架构</li>
+                        </ul>
+                        <p><a href="/home/features/storage/blobs/">了解更多</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>队列</h2>
+                        <p>用于大容量云服务的持久队列</p>
+                        <ul>
+                            <li>高成本效益的便捷消息传送</li>
+                            <li>分离的元件灵活性</li>
+                            <li>可复原的缩放和缓冲</li>
+                        </ul>
+                        <p><a href="/home/features/storage/queues/">了解更多</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>表</h2>
+                        <p>灵活的 NoSQL 数据库</p>
+                        <ul>
+                            <li>键 - 值表存储</li>
+                            <li>结构化或非结构化数据</li>
+                            <li>Internet 规模的低延迟</li>
+                        </ul>
+                        <p><a href="/home/features/storage/tables/">了解更多</a></p>
+                    </div>
+                    <!-- <div class="col-md-4">
+                        <h2>存档</h2>
+                        <p>对不常使用的数据进行低成本存储</p>
+                        <ul>
+                            <li>自动加密静态数据</li>
+                            <li>与热存储层和冷存储层无缝集成</li>
+                            <li>由领先的数据管理合作伙伴支持</li>
+                        </ul>
+                        <p><a href="/home/features/storage/archive/">了解更多</a></p>
+                    </div>  -->
+                </div>
             </div>
             <!-- END: Product-Detail-Content -->
             <!--BEGIN: Support and service code chunk-->
