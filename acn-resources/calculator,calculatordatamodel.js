@@ -4507,8 +4507,164 @@ var CalculatorData = {
             }]
         },
 
-        "storage-manager-disk-premium": {
-            Name: "存储 - 高级托管磁盘",
+        "storage-manager-disk-gpv2-access": {
+            Name: "存储 - 托管磁盘 - 常规用途 v2 - 操作和数据传输价格",
+            Types: [{
+                Name: "LRS",
+                Features: [{
+                    Name: "写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "删除操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "删除操作",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "删除操作",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            }]
+        }, 
+        "storage-manager-disk-gpv1-premium": {
+            Name: "存储 - 高级托管磁盘 - 常规用途 v1",
             Types: [{
                 Name: "P4",
                 Features: [{
@@ -4639,8 +4795,8 @@ var CalculatorData = {
             }]
         },  
 
-        "storage-manager-disk-premium-snapshots": {
-            Name: "存储 - 高级托管磁盘 - 快照",
+        "storage-manager-disk-gpv1-premium-snapshots": {
+            Name: "存储 - 高级托管磁盘 - 常规用途 v1 - 快照",
             Types: [{
                 Name: "default",
                 Features: [{
@@ -4662,8 +4818,8 @@ var CalculatorData = {
             }]
         },  
         
-        "storage-manager-disk-standard": {
-            Name: "存储 - 标准托管磁盘",
+        "storage-manager-disk-gpv1-standard": {
+            Name: "存储 - 标准托管磁盘 - 常规用途 v1",
             Types: [{
                 Name: "S4",
                 Features: [{
@@ -4812,8 +4968,8 @@ var CalculatorData = {
             ]
         },          
 
-        "storage-manager-disk-standard-snapshots": {
-            Name: "存储 - 标准托管磁盘 - 快照",
+        "storage-manager-disk-gpv1-standard-snapshots": {
+            Name: "存储 - 标准托管磁盘 - 常规用途 v1 - 快照",
             Types: [{
                 Name: "default",
                 Features: [{
@@ -4835,8 +4991,8 @@ var CalculatorData = {
             }]
         },
 
-        "storage-manager-disk-standard-access": {
-            Name: "存储 - 标准托管磁盘 - 操作和数据传输价格",
+        "storage-manager-disk-gpv1-standard-access": {
+            Name: "存储 - 标准托管磁盘 - 常规用途 v1 - 操作和数据传输价格",
             Types: [{
                 Name: "default",
                 Features: [{
