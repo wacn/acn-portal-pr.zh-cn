@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="backup" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-31T11:50:00" urlName="backup" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -26,7 +26,7 @@
                 <div class="tab-control-container tab-active">
                     <h2>定价详细信息</h2>
                     <p>备份服务根据每个受保护实例的大小收费，增量为 500GB。此外，Azure 存储空间单独收费，可降低长时间的存储成本。客户能够在 LRS 或 GRS 块 Blob 存储之间进行灵活选择（请参阅<a id="pricing-bankup_storage-blob" href="/pricing/details/storage/blob/" target="_blank">常规用途存储账户的块 Blob 定价详情</a>)。</p>
-                    <!-- <p>从2016年4月1日起， 价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                   <h4>Azure VM 及本地服务器备份</h4>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br>
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -49,6 +49,22 @@
                             <td>每500 GB 有￥63.29 的增量 + 使用的存储</td>
                         </tr>
                     </table>
+                    <h4>备份存储空间</h4>
+                    <p>Azure 备份使用块 Blob 存储对实例进行备份。可以灵活选择本地冗余存储 (LRS) 或异地冗余存储 (GRS)。LRS 和 GRS 都是块 Blob 存储。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br>
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>本地冗余存储 (LRS) </strong></th>
+                            <th align="left"><strong>异地冗余存储 (GRS)</strong></th>
+                        </tr>
+                        <tr>
+                            <td>￥0.36/GB</td>
+                            <td>￥0.18/GB</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <!-- END: TAB-CONTROL -->
@@ -61,30 +77,46 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question1">在新定价模型中，将针对哪些内容向我计费？ </a>
+                                <a id="Backup_price_question1">定价模型如何工作？ </a>
                                 <section>
-                                    <p>新定价有两个组成部分：</p>
+                                    <p>Azure 备份的新定价模型有两个组成部分：</p>
                                     <ul>
-                                        <li>使用的 Azure 块 Blob 存储量：用于存储备份数据和恢复点。存储冗余选项也很灵活，对于备份保管库，客户可以在本地冗余存储 (LRS) 或异地冗余存储 (GRS) 之间进行选择。</li>
-                                        <li>受保护实例的 Azure 备份软件价格。</li>
+                                        <li>受保护实例：这是 Azure 备份的主要计费单位。客户为使用 Azure 备份服务保护的实例的数量付费。</li>
+                                        <li>存储器：客户可以选择<a href="//docs.azure.cn/zh-cn/storage/common/storage-introduction#replication">本地冗余存储 (LRS) 或异地冗余存储 (GRS) </a>作为他们的备份保管库。存储器的净价取决于使用服务存储的数据量。</li>
                                     </ul>
-                                    <p>这些内容将作为单独的行项出现在你的 azure 月度帐单上。</p>
+                                    <p>这两个组成部分作为单独的行项出现在 Azure 月度帐单上。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question2">为什么要更改定价模型？</a>
+                                <a id="Backup_price_question2">受保护实例是什么？ </a>
                                 <section>
-                                    <p>在短时间保留数据时，针对存储的每个 GB 的备份数据向客户收费的模型是有效的。随着对 Azure 备份中<a id="pri_bankup_keep2" href="http://azure.microsoft.com/zh-cn/updates/azure-backup-increases-features-and-supports-additional-dpm-workloads/">长期保留</a>功能的持续增强，以及待备份数据量的不断增长，按 GB 收费模型对于长期保留数据的客户而言变得成本高昂。新业务模型使客户能够利用 Azure 存储空间带来的规模效益，并同时继续享受 Azure 备份的增强功能带来的好处。</p>
+                                    <p>受保护的实例表示用于配置到 Azure 的备份的计算机、物理/虚拟服务器或者数据库。为计算机、服务器或数据库设置备份策略，并为数据创建副本后，实例即受到保护。备份数据的后续副本将更改使用的存储量，但额外备份副本不会使受保护的实例数量增加。受保护的实例的一些常见示例包括运行 Windows 操作系统的虚拟机、应用程序服务器、数据库和个人计算机。例如：</p>
+                                    <ul>
+                                        <li>运行 Hyper-V 或 Azure IaaS 虚拟机监控程序结构的虚拟机。这些虚拟机的来宾操作系统可以是 Windows Server 或 Linux。</li>
+                                        <li>包含运行 Windows Server 的物理计算机或虚拟机的应用程序服务器，以及包含要备份的数据的工作负荷。常见工作负荷有 Microsoft SQL Server、Microsoft Exchange 服务器、Microsoft SharePoint 服务器、Microsoft Dynamics 和 Windows Server 的文件服务器角色。要备份或保护这些工作负荷，需要 Azure 备份服务器或 System Center Data Protection Manager (DPM)。</li>
+                                        <li>运行 Windows 操作系统的个人计算机。</li>
+                                        <li>SQL 服务器，包括服务器上的所有数据库。</li>
+                                    </ul>
+                                    <p>如果选择备份虚拟机监控程序结构及其来宾工作负荷，则虚拟机监控程序结构和其来宾工作负荷将被视为单独的受保护实例并独立计费。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question3">我需为还原和网络出口付费吗？</a>
+                                <a id="Backup_price_question3">是否所有受保护实例的定价都一样？</a>
+                                <section>
+                                    <p>不是，从计费角度来看，基于实例的大小将实例分类为三个类别。每个受保护实例的价格取决于以上定价表中实例的分类。请注意，上表中的价格不包括存储器的价格，存储器单独收费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Backup_price_question4">我需为还原和网络出口付费吗？</a>
                                 <section>
                                     <p>将不会针对任何还原操作或与还原操作关联的出站网络带宽（出口）向客户收费。</p>
                                 </section>
@@ -93,188 +125,79 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question4">我可以期待多大幅度的节省？  </a>
+                                <a id="Backup_price_question5">哪些客户将获得此新定价？ </a>
                                 <section>
-                                    <p>此更改的主要驱动因素是让客户通过使用 Azure 备份获得巨大价值。与按 GB 收费模型相比，客户在使用 LRS 块 Blob 存储和新定价时可实现多达 52% 的节省。 </p>
-                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                        <tr>
-                                            <th align="left"><strong>受保护实例大小 (GB)</strong></th>
-                                            <th align="left"><strong>每 GB AZURE 备份价格（人民币）</strong></th>
-                                            <th align="left"><strong>新价格和使用 LRS 块 BLOB 存储实现的节省（人民币）</strong></th>
-                                            <th align="left"><strong>新价格和使用 GRS 块 BLOB 存储实现的节省（人民币）</strong></th>
-                                        </tr>
-                                        <tr>
-                                            <td>50</td>
-                                            <td>￥60</td>
-                                            <td>￥63(-5%)</td>
-                                            <td>￥83.5(-39%)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>100</td>
-                                            <td>￥120</td>
-                                            <td>￥126(-5%)</td>
-                                            <td>￥167(-39%)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>250</td>
-                                            <td>￥300</td>
-                                            <td>￥187.5(38%)</td>
-                                            <td>￥290(3%)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>500</td>
-                                            <td>￥600</td>
-                                            <td>￥290(52%)</td>
-                                            <td>￥495(18%)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1000</td>
-                                            <td>￥1200</td>
-                                            <td>￥580(52%)</td>
-                                            <td>￥990(18%)</td>
-                                        </tr>
-                                    </table>
+                                    <p>新定价将适用于所有 Azure 备份客户。</p>
                                 </section>
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="more-detail">
-                    <em>全部展开</em>
                     <h3>受保护的服务器和实例</h3>
                     <ul>
+                        
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question6">受保护实例是什么？ </a>
+                                <a id="Backup_price_question6">如果我从月中开始在 Azure 上保护计算机，我仍然需要按受保护实例的全价付款吗？</a>
                                 <section>
-                                    <p>受保护实例是 Azure 备份中使用的计费单位，根据受保护计算机的大小（又称“前端大小”）收取软件费用。因此，受保护实例越大，为此向客户收取的费用就越多。例如，如果在 Azure 备份中保护一台卷大小为 2200GB 的文件服务器，则会向客户收取￥316.45/月（2200GB/500GB = 4.4，以 500GB 为增量取整到 5，每个增量收费￥63.29）。</p>
+                                    <p>不需要，根据该实例受保护当月的使用天数按比例分摊费用。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question7">受保护实例有哪些类型？</a>
+                                <a id="Backup_price_question7">如果我增加我的备份数据的保留期并使用 Azure 备份存储更多数据，会发生什么？</a>
                                 <section>
-                                    <p>有三大类别：</p>
-                                    <ul>
-                                        <li>虚拟机：可以是 Hyper-V 虚拟机</li>
-                                        <li>Windows 或 Linux 服务器计算机：可以是物理主机或虚拟来宾。这些计算机通常有一些需要备份的应用程序或工作负载正在运行。常见工作负载有：Microsoft SQL Server、Microsoft Exchange、Microsoft SharePoint、Microsoft Dynamics 以及 Windows Server 的文件服务器角色。</li>
-                                        <li>Windows 客户端计算机</li>
-                                    </ul>
+                                    <p>使用 Azure 备份存储的所有数据均按上述备份存储费率，对使用 Azure 备份保存数据的持续时间进行计费。但是，增加的保留期不影响你付费的受保护实例的软件价格。请注意，你必须在计算机上安装最新的 Azure 备份代理才能确保此行为。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question8">我如何估计受保护实例的数量？ </a>
+                                <a id="Backup_price_question8">如果停止保护但将数据保留在 Azure 备份保管库中会怎么样？ </a>
                                 <section>
-                                    <p>可以通过对以下项求和来估计受保护实例的数量：</p>
-                                    <ul>
-                                        <li>虚拟机数量</li>
-                                        <li>安装了 DPM 代理的计算机的数量（不包括 Hyper-V 主机）</li>
-                                        <li>安装了 Azure 备份代理的计算机的数量</li>
-                                    </ul>
-                                    <p>每个受保护实例的帐单将取决于该受保护实例的“前端”大小。</p>
+                                    <p>因为只要通过 Azure 备份保留了数据，你将继续为受保护实例和存储器付费。受保护实例账单基于你决定停止保护之前上次成功备份的大小。存储器账单基于该实例存储在备份保管库中的数据总量。</p>
+                                    
+                                    <p>例如，对于 100GB 虚拟机的备份。受保护实例收费为每月 ￥63.29。如果每天添加 1GB 的数据且数据保留 120 天，你将为此部分存储器单独付费。一个月后，如果你决定停止保护虚拟机但保留 Azure 备份中的数据，则每月将向你收费 ￥63.29，直到你将备份数据显式删除。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question9">我如何估计受保护实例的“前端”大小？</a>
+                                <a id="Backup_price_question9">我是否需要升级 Azure 备份代理？</a>
                                 <section>
-                                    <p>一个受保护实例的“前端”大小是来自该计算机的、要在 Azure 备份中保护的所有数据大小的总和（压缩前）。计算机上未受到保护的数据不会计入受保护实例的大小。</p>
-                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                        <tr>
-                                            <th align="left"><strong>受保护实例</strong></th>
-                                            <th align="left"><strong>受保护实例大小</strong></th>
-                                        </tr>
-                                        <tr>
-                                            <td>虚拟机</td>
-                                            <td>要备份到 Azure 上的虚拟硬盘的已使用大小</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Microsoft SQL Server</td>
-                                            <td>要备份到 Azure 上的数据库和实例</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Microsoft 文件服务器</td>
-                                            <td>要备份到 Azure 上的卷中的文件和文件夹</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Microsoft SharePoint</td>
-                                            <td>要在 Azure 上保护的 SharePoint 内容场的总大小</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Microsoft Exchange</td>
-                                            <td>备份到 Azure 上的 Exchange 服务器上的邮箱大小</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Microsoft Windows（客户端）</td>
-                                            <td>要备份到 Azure 上的卷中的文件和文件夹</td>
-                                        </tr>
-                                    </table>
+                                    <p>需要，Azure 备份代理需要升级到最新版本才能使用新定价。使用较早版本的代理将对要计费的受保护实例的大小产生不利影响。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_question10">如果我的受保护实例很小，怎么办？</a>
+                                <a id="Backup_price_question10">哪些客户将获得此新定价？</a>
                                 <section>
-                                     <p>我们提供规模较小的层，这将是小型服务器和客户端计算机的理想选择。如果受保护实例的“前端”大小小于 50GB，则该实例属于￥31.65/月的最低定价层。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="Backup_price_question11">如果我从月中开始在 Azure 上保护计算机，我仍然需要按受保护实例的全价付款吗？</a>
-                                <section>
-                                     <p>不需要，根据该计算机受保护当月的使用天数按比例分摊费用。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="Backup_price_question12">如果我对备份数据的保留策略进行更改并在 Azure 中存储更多数据，那么我需要为受保护实例这部分支付更多费用吗？</a>
-                                <section>
-                                     <p>不需要，不会根据存储在 Azure 中的数据量（“后端数据”）收取保护实例部分的费用。Azure 备份存储的数据是另外根据 Azure 块 Blob 存储的费率计费。而受保护实例部分的费用完全根据“前端大小”针对受保护实例收费，不受不同备份和保留策略的影响。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="Backup_price_question13">我需要升级我的 Azure 备份代理吗？</a>
-                                <section>
-                                     <p>需要，Azure 备份代理需要升级到最新版本才能使用新定价。使用较早版本的代理将对要计费的受保护实例的“前端”大小产生不利影响。</p>
+                                     <p>新定价将适用于所有 Azure 备份客户。</p>
                                 </section>
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="more-detail">
-                    <em>全部展开</em>
                     <h3>备份存储成本</h3>
                     <ul>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor1">对于存储，将针对哪些内容向我计费？ </a>
+                                <a id="Backup_price_stor1">我将在存储侧为哪些项付费? </a>
                                 <section>
-                                    <p>使用新定价后，Azure 中存储的备份数据（又称“后端大小”）将根据所在区域的块 Blob 费率进行计费。</p>
+                                    <p>使用 Azure 备份存储的所有数据均按上述备份存储费率进行计费。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor2">块 Blob 定价适用于 LRS 或 GRS 存储吗？ </a>
+                                <a id="Backup_price_stor2">块 Blob 定价是否适用于 LRS 或 GRS 存储？ </a>
                                 <section>
                                     <p>这取决于为备份保管库选择的存储选项。备份保管库的存储选项有：本地冗余存储 (LRS) 或异地冗余存储 (GRS)。</p>
                                 </section>
@@ -283,35 +206,24 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor3">我可以拥有两个不同的保留库吗，即一个使用 LRS，一个使用 GRS？ </a>
+                                <a id="Backup_price_stor3">我能否拥有两个不同的保管库 - 一个使用 LRS 另一个使用 GRS？</a>
                                 <section>
-                                    <p>是的，支持。每个保管库中的备份数据将根据保管库所在区域的相应 LRS 或 GRS 块 Blob 费率计费。客户对选取了保管库选项的 Azure 存储空间帐单具有完全控制。 </p>
+                                    <p>可以。每个保管库中的备份数据将根据保管库所在区域的相应 LRS 或 GRS 块 Blob 费率计费。客户对选取了保管库选项的 Azure 存储器帐单具有完全控制。 </p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor4">我应在何时选取 LRS 存储，又应在何时获取 GRS 存储？   </a>
-                                <section>
-                                    <p>Azure <a id="bp_pri_stor4" href="/home/features/storage/#pricing">存储定价页</a>提供有关 LRS 和 GRS 存储类型价值的基本指导。</p>
-                                    <p>理想状态下，要用于立即可操作的对象恢复的备份数据应放在异地冗余存储上。这确保了始终有另一份备份数据的副本可供时间关键恢复使用。</p>
-                                    <p>寻求可供长期保留的廉价存储（取代本地磁带）的价格敏感型客户将发现使用本地冗余存储的巨大价值。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="Backup_price_stor5">哪些因素会影响使用的备份存储量？ </a>
+                                <a id="Backup_price_stor4">什么有助于使用的备份存储？</a>
                                 <section>
                                     <p>为特定受保护实例保存在 Azure 备份中的总备份数据量（“后端大小”）根据以下因素变动：</p>
                                     <ul>
-                                        <li>备份数据的保留期限。</li>
-                                        <li>存储在每个恢复点中的净新改动。</li>
-                                        <li>备份数据实现的压缩等级。</li>
-                                        <li>计划备份作业的频率。</li>
-                                        <li>任何关联的备份元数据。</li>
+                                        <li>备份数据的保留期</li>
+                                        <li>存储在每个恢复点中的网络新流失</li>
+                                        <li>备份数据可实现的压缩级别</li>
+                                        <li>计划备份作业的频率</li>
+                                        <li>任意相关联的备份元数据</li>
                                     </ul>
                                 </section>
                             </div>
@@ -319,123 +231,126 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor6">我如何查明使用的备份存储量？</a>
+                                <a id="Backup_price_stor5">我如何查明使用的备份存储量？</a>
+                                <section>
+                                    <p>备份保管库仪表板页面将显示注册到保管库的计算机中的总数据量。它还会显示用于备份保管库的存储类型。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Backup_price_stor6">我是否必须为存储事务付费？</a>
                                 <section>
                                     <p>与当前定价一样，你无需为 Azure 备份的存储事务付费。这些内容作为你所支付软件价格的一部分包含在内。</p>
                                 </section>
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="more-detail">
-                    <em>全部展开</em>
-                    <h3>从 DPM 将数据备份到 Azure</h3>
+                    <h3>网络成本</h3>
                     <ul>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="backup_price_dpm1">有定价模型如何应用于各种工作负载和大小的示例吗？</a>
+                                <a id="backup_price_dpm1">我已经注册了 ExpressRoute。我必须付出什么？</a>
                                 <section>
-                                   <p>使用新定价后，Azure 中存储的备份数据（又称“后端大小”）将根据所在区域的块 Blob 费率进行计费。</p>
-                                    <table border="0" style="margin-bottom: 30px; width: 100%; margin-left: 0px;">
-                                        <tr>
-                                            <th align="left"><strong>主计算机</strong></th>
-                                            <th align="left"><strong>工作负载</strong></th>
-                                            <th align="left"><strong>受保护实例大小</strong></th>
-                                            <th align="left"><strong>计费数量</strong></th>
-                                        </tr>
-                                        <tr>
-                                            <td>1 台 Windows 主机</td>
-                                            <td>Windows Server 2012（文件/文件夹备份）</td>
-                                            <td>300GB</td>
-                                            <td>￥63.29/月</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3 台 Windows 主机</td>
-                                            <td>
-                                                Windows Exchange<br>
-                                                Windows Exchange<br>
-                                                Windows Exchange
-                                            </td>
-                                            <td>
-                                                600GB<br>
-                                                1300GB<br>
-                                                400GB
-                                            </td>
-                                            <td>
-                                                ￥126.58/月<br>
-                                                ￥189.87/月<br>
-                                                ￥63.29/月
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 台 Windows 客户端计算机</td>
-                                            <td>Windows 8.1（文件/文件夹备份）</td>
-                                            <td>25GB</td>
-                                            <td>￥31.65/月</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 台 Hyper-V 虚拟机</td>
-                                            <td>虚拟机备份</td>
-                                            <td>30GB</td>
-                                            <td>￥31.65/月</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 台 Windows 来宾计算机</td>
-                                            <td>Windows Server 2012（文件/文件夹备份）</td>
-                                            <td>120GB</td>
-                                            <td>￥63.29/月</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 台 Windows 来宾计算机</td>
-                                            <td>Microsoft SQL Server（独立）</td>
-                                            <td>600GB</td>
-                                            <td>￥126.58/月</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3 台 Windows 来宾计算机</td>
-                                            <td>
-                                                <span>Microsoft SQL Server（群集）：</span>
-                                                <ul>
-                                                    <li> 计算机 1：50 个数据库</li>
-                                                    <li> 计算机 2：75 个数据库</li>
-                                                    <li> 计算机 3：20 个数据库</li>
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                70GB<br>80GB<br>15GB<br/>
-                                                <span style="height:30px; display:block;"></span>
-                                                <br>
-                                            </td>
-                                            <td>
-                                                ￥63.29/月+<br>￥63.29/月+<br>￥31.65/月<br/>
-                                                <span>注：如果数据库在群集中四处移动，则使用备份时的大小进行计算</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5 台 Windows 来宾计算机</td>
-                                            <td>包括前端、内容数据库等的完整 SharePoint 场</td>
-                                            <td>1300GB</td>
-                                            <td>
-                                                ￥189.87/月（SharePoint 场的大小大于 1000GB 且小于 1500GB）
-                                                <br/> 注：SharePoint 场是一个特殊实体，根据场中的受保护数据的总大小计费。
-                                            </td>
-                                        </tr>
-                                </table>
+                                   <p>ExpressRoute 费用不包含在 Azure 备份中。客户将继续单独为 Azure 备份付费，并根据选择的端口速度为 ExpressRoute 付费。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>示例</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="backup_price_ex1">示例</a>
+                                <section>
+                                   <table> 
+                                        <thead>
+                                            <tr>
+                                                <th>主计算机</th> 
+                                                <th>工作负载</th> 
+                                                <th>受保护实例大小</th> 
+                                                <th>计费数量*</th> 
+                                            </tr>
+                                        </thead> 
+                                        <tbody> 
+                                            <tr> 
+                                                <td>1 台 Windows 主机</td> 
+                                                <td>Windows Server 2012（文件/文件夹备份）</td> 
+                                                <td>300GB</td> 
+                                                <td>￥63.29/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>3 台 Windows 主机</td> 
+                                                <td>Microsoft Exchange<br>Microsoft Exchange<br>Microsoft Exchange</td> 
+                                                <td>600GB<br>1300GB<br>400GB</td> 
+                                                <td>￥126.58/月<br/>￥189.87/月<br/>￥63.29/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>1 台 Windows 客户端计算机</td> 
+                                                <td>Windows 8.1（文件/文件夹备份）</td> 
+                                                <td>25GB</td> 
+                                                <td>￥31.65/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>1 台 Hyper-V 虚拟机</td> 
+                                                <td>虚拟机备份</td> 
+                                                <td>30GB</td> 
+                                                <td>￥31.65/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>1 台 Azure IaaS 虚拟机</td> 
+                                                <td>虚拟机备份</td> 
+                                                <td>250GB</td> 
+                                                <td>￥63.29/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>1 台 Windows 来宾计算机</td> 
+                                                <td>Windows Server 2012（文件/文件夹备份）</td> 
+                                                <td>120GB</td> 
+                                                <td>￥63.29/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>1 台 Windows 来宾计算机</td> 
+                                                <td>Microsoft SQL Server（独立）</td> 
+                                                <td>600GB</td> 
+                                                <td>￥126.58/月</td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>3 台 Windows 来宾计算机</td> 
+                                                <td>Microsoft SQL Server（群集）：
+                                                    <ul> 
+                                                        <li>计算机 1：50 个数据库</li> 
+                                                        <li>计算机 2：75 个数据库</li> 
+                                                        <li>计算机 3：20 个数据库</li> 
+                                                    </ul> 
+                                                </td> 
+                                                <td>70GB<br>80GB<br>15GB</td> 
+                                                <td>￥63.29/月+<br>￥63.29/月+<br>￥31.65/月<p>注：如果数据库在群集中四处移动，则使用备份时的大小进行计算</p> </td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td>5 台 Windows 来宾计算机</td> 
+                                                <td>包括前端、内容数据库等的完整 SharePoint 场</td> 
+                                                <td>1300GB</td> 
+                                                <td>￥189.87/月（SharePoint 场的大小大于 1000GB 且小于 1500GB）<p>注：SharePoint 场是一个特殊实体，根据场中的受保护数据的总大小计费。</p> </td> 
+                                            </tr> 
+                                        </tbody> 
+                                    </table>
+                                    <p>*根据备份选项对 Azure 存储器另外计费</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="backup_price_dpm2">我有一台使用 Microsoft SQL Server 的虚拟机，拥有 250GB 数据。我的 Azure 备份帐单会是什么样的？</a>
+                                <a id="backup_price_ex2">如果使用 Microsoft Azure 备份 (MAB) 服务器对数据进行本地备份，而不将数据备份到 Azure，我是否仍然需要为使用服务支付费用？</a>
                                 <section>
-                                   <p>对于在 Azure 备份中保护大小为 250GB 的 SQL Server 数据库的情况，SQL Server 被视为受保护实例。因为受保护实例的大小大于 50GB 但小于 500GB，因此收费￥63.29。如果也在 Azure 备份中备份了虚拟机，则将它作为另一个受保护实例计数。因为虚拟机的大小小于 500GB，所以收费￥63.29。 </p>
-                                   <p>注：单独对虚拟机备份和工作负载备份（在虚拟机中运行）收费</p>
+                                    <p>是的，在使用 MAB 服务器对数据进行本地备份时，仍然会按实例备份服务费用对你进行收费。但是，因为只对数据进行本地备份，所以不会产生任何 Azure 存储费用。</p>
                                 </section>
                             </div>
                         </li>
-                        
                     </ul>
                 </div>
             </div>
