@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="backup" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-31T12:50:00" urlName="backup" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
             <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
@@ -24,7 +24,7 @@
                 <div class="tab-control-container tab-active">
                     <h2>Pricing Details</h2>
                     <p>Backup services are charged by the size of every protected instance, at an increment of 500 GB. In addition, Azure storage space is charged individually, allowing for reduction in long-lasting storage cost. Customers can make a flexible selection between LRS or GRS Block Blob Storage (please refer to the pricing details for <a id="pricing-bankup_storage-blob" href="/pricing/details/storage/blob/" target="_blank">Block Blob for general-purpose Storage Accounts</a>).</p>
-                    <!-- <p>从2016年4月1日起， 价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                    <h4>Backup for Azure VMs and on-premises servers</h4>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br>
                         <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
@@ -45,6 +45,23 @@
                         <tr>
                             <td>Instances with more than 500 GB of data</td>
                             <td>Increments of ￥63.29 every 500 GB + storage used</td>
+                        </tr>
+                    </table>
+
+                    <h4>Backup Storage</h4>
+                    <p>Azure Backup uses Block Blob storage for backing up your instances. You have the flexibility to choose between locally redundant storage (LRS) or geo-redundant storage (GRS). Both LRS and GRS are Block Blob Storage.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>LRS </strong></th>
+                            <th align="left"><strong>GRS</strong></th>
+                        </tr>
+                        <tr>
+                            <td>￥0.36/GB</td>
+                            <td>￥0.18/GB</td>
                         </tr>
                     </table>
                 </div>
