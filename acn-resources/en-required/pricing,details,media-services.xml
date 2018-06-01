@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-28T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="media-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -33,8 +33,7 @@
                 <div class="tab-control-container tab-active" id="tabContent1">
                     <!-- BEGIN: Table1-Content-->
                     <h3>点播视频 (VoD) 编码</h3>
-                    <p>标准编码器将视频和音频输入文件转码为适合在各种设备上播放的输出格式，包括智能手机、平板电脑、电脑、游戏机和电视。</p>
-                    <p>从 2017 年 1 月 1 日起，标准编码器<!-- 和高级编码器-->的费用将采用全新的计价模式，即按照输出时间（每分钟）计价，同时价格也会有所下调。用户无需进行任何操作，即可使用新的价格和计价模式。以下是下调后的新价格：</p>
+                    <p>标准编码器将视频和音频输入文件转码为适合在各种设备上播放的输出格式，包括智能手机、平板电脑、电脑、游戏机和电视。游戏机和电视。高级转码器可实现对广播和电影应用程序常见格式的转码，且支持需要复杂逻辑的工作流。若要深入了解两种编码器功能异同，请参阅我们的<a href="//docs.azure.cn/zh-cn/media-services/media-services-encode-asset/">文档</a>。</p>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -42,65 +41,16 @@
 					
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <th width="50%"></th>
                             <th align="left"><strong>标准编码器<sup> 1</sup></strong></th>
+                            <th align="left"><strong>高级编码器 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
                         </tr>
                         <tr>
-                            <td>编码</td>
-                            <td>¥0.09858/输出分钟 (约 ¥4400.61/月）</td>
+                            <td>¥0.09858/输出分钟 (约 ¥4,400.61/月）</td>
+                            <td>¥0.35616/输出分钟 (约 ¥15,898.9824/月）</td>
                         </tr>
                     </table>
-					
-					<!-- 
-					<table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th></th>
-                            <th align="left"><strong>标准编码器</strong></th>
-                            <th align="left"><strong>高级编码器</strong></th> 
-                        </tr>
-                        <tr>
-                            <td>编码</td>
-                            <td>¥0.09858/分钟 (约 ¥4400.61/月） </td>
-                            <td>¥0.23002/分钟 (约 ¥10268.09/月）</td>
-                        </tr> 
-                    </table>
-					 -->
 					
                     <p><sup>1 </sup>输出分钟收费仅适用于成功的作业。</p>
-					<p>以下是调整前的原价格：</p>
-					<div class="tags-date">
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>已处理的数据</strong></th>
-                            <th align="left"><strong>标准编码器</strong></th>
-                        </tr>
-                        <tr>
-                            <td>第一个 5 TB <sup>1</sup> / 月</td>
-                            <td>¥13.04每输出 GB</td>
-                        </tr>
-                        <tr>
-                            <td>后 5 TB/月</td>
-                            <td>¥12.29每输出 GB</td>
-                        </tr>
-                        <tr>
-                            <td>后 15 TB/月</td>
-                            <td>¥10.80每输出 GB</td>
-                        </tr>
-                        <tr>
-                            <td>后 25 TB/月</td>
-                            <td>¥9.69每输出 GB</td>
-                        </tr>
-                        <tr>
-                            <td>超过 50 TB/月</td>
-                            <td>¥8.20每输出 GB</td>
-                        </tr>
-                    </table>
-                    <p><sup>1</sup> TB = 1024 GB</p>
-					
-                    <!-- <p><sup>2</sup>如果您与世纪互联签订了企业协议，您必须与客户经理联系以获得这些价格。</p>--> 
                     <!-- END: Table1-Content-->
 					<h3>输出分钟乘数</h3>
                     <p>若要计算编码任务的总输出分钟，将使用以下乘数。</p>

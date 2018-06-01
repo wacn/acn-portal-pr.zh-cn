@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2014-10-20T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-28T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
     <bodyText>
                       <![CDATA[
       
@@ -28,8 +28,7 @@
                 <div class="tab-control-container tab-active" id="tabContent1">
                     <!-- BEGIN: Table1-Content-->
                     <h3>Video on Demand (VoD) encoding</h3>
-                    <p>Standard Encoder transcodes video and audio input files into output formats suitable for playback on a variety of devices, including smartphones, tablets, PCs, game consoles and televisions.</p>
-                    <p>From January 1, 2017, the standard encoder <!-- 和高级编码器--> will adopt the new pricing model, which is based on the output time (per minute), and the price will be reduced accordingly. Users may enjoy the new price and pricing model without any additional operations. The following is the new price after price cut:</p>
+                    <p>Standard Encoder transcodes video and audio input files into output formats suitable for playback on a variety of devices, including smartphones, tablets, PCs, game consoles and televisions.Premium Encoder transcodes formats common to broadcast and movie applications, and supports video workflows that require complex logic. See our <a href="//docs.azure.cn/zh-cn/media-services/media-services-encode-asset/">documentation</a>for an in-depth comparison of the two encoders’ features.</p>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
                         <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
@@ -37,65 +36,17 @@
 					
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <th width="50%"></th>
-                            <th align="left"><strong>Standard Encoder<sup> 1 </sup></strong></th>
+                            <th align="left"><strong>Standard Encoder<sup> 1</sup></strong></th>
+                            <th align="left"><strong>Premium Encoder <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
                         </tr>
                         <tr>
-                            <td>Code</td>
                             <td>￥0.09858/output minute (about ￥4400.61/month)</td>
+                            <td>￥0.35616/output minute (about ￥15,898.9824/month)</td>
                         </tr>
                     </table>
-					
-					<!-- 
-					<table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th></th>
-                            <th align="left"><strong>标准编码器</strong></th>
-                            <th align="left"><strong>高级编码器</strong></th> 
-                        </tr>
-                        <tr>
-                            <td>编码</td>
-                            <td>¥0.09858/分钟 (约 ¥4400.61/月） </td>
-                            <td>¥0.23002/分钟 (约 ¥10268.09/月）</td>
-                        </tr> 
-                    </table>
-					 -->
 					
                     <p><sup>1 </sup>The charges for output minutes apply only to the successful operation.</p>
-					<p>The following is the original price before adjustment:</p>
-					<div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong> Data processed </strong></th>
-                            <th align="left"><strong>Standard Encoder </strong></th>
-                        </tr>
-                        <tr>
-                            <td>First 5 TB <sup>1</sup>/month</td>
-                            <td>￥13.04 per output GB</td>
-                        </tr>
-                        <tr>
-                            <td>Last 5 TB/month</td>
-                            <td>12.29 per output GB</td>
-                        </tr>
-                        <tr>
-                            <td>Last 15 TB/month</td>
-                            <td>￥10.80 per output GB</td>
-                        </tr>
-                        <tr>
-                            <td>Last 25 TB/month</td>
-                            <td>￥9.69 per output GB</td>
-                        </tr>
-                        <tr>
-                            <td>Over 50 TB/month</td>
-                            <td>￥8.20 per output GB</td>
-                        </tr>
-                    </table>
-                    <p><sup>1</sup> TB = 1024GB</p>
-					
-                    <!-- <p><sup>2</sup>如果您与世纪互联签订了企业协议，您必须与客户经理联系以获得这些价格。</p>--> <!-- END: Table1-Content-->
+					<!-- END: Table1-Content-->
 					<h3>Output minutes multiplier</h3>
                     <p>To calculate the total output minutes for an encoding task, the following multiplier will be used.</p>
                     <table cellpadding="0" cellspacing="0" width="100%">
