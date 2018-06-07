@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-28T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-07T10:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
     <bodyText>
                       <![CDATA[
       
@@ -81,14 +81,12 @@
                     <p>There may also be <a href="/pricing/details/storage/">Storage Space</a> and <a href="/pricing/details/data-transfer/">Data Transmission Rates</a> that will be billed at standard Azure rates.</p>
                     <!-- BEGIN: Table2-Content-->
                     <h3>Media reserved units</h3>
-					<p>From January 1, 2017, the billing unit for media reserved unit changed from daily to hourly, and the price was reduced.</p> 
                     <p>If the workload requires running multiple tasks at the same time, a Media reserved unit is recommended. The overall throughput of the service can be increased by:</p>
 						<ul>
 							<li>Increasing the number of media reserved units to achieve parallel processing of more tasks</li>
 							<li>Using faster media reserved units (e.g. S3)</li>
 						</ul>
 					<p>For more details, refer to <a href="https://docs.azure.cn/" id="media-services_portal-encoding-units">How to Use the Azure Classic Management Portal to Scale Media Processing</a>.</p>
-					<p>The following is the new price after the price cut:</p> 
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
                         <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
@@ -118,41 +116,7 @@
                             <td>About 2 times the Basic Edition</td>
                             <td>About 4 times the Basic Edition</td>
                         </tr>
-                    </table>
-										
-					<p>The following is the original price before adjustment:</p>
-					<div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>&#160;</strong></th>
-                            <th align="left"><strong>S1(Basic）</strong></th>
-                            <th align="left"><strong>S2(Standard）</strong></th>
-                            <th align="left"><strong>S3(Premium）</strong></th>
-                        </tr>
-                        <tr>
-                            <td>Price/unit</td>
-                            <td>￥469.24/month<sup> 1 </sup></td>
-                            <td>￥938.15/month<sup> 1 </sup></td>
-                            <td>￥2,606.46/month<sup> 1 </sup></td>
-                        </tr>
-                        <tr>
-                            <td>Other parallel tasks</td>
-                            <td>1 / unit</td>
-                            <td>1 / unit</td>
-                            <td>1 / unit</td>
-                        </tr>
-                        <tr>
-                            <td>Relative performance <sup>2</sup></td>
-                            <td>&#160;</td>
-                            <td>About 2 times the Basic Edition</td>
-                            <td>About 4 times the Basic Edition</td>
-                        </tr>
-                    </table>                    
-                    <p><sup>1</sup> Billing is prorated on a per-minute basis.</p>
-					<p><sup>2</sup> Expected performance with <a href="//docs.azure.cn/media-services/media-services-scale-media-processing-overview" id="meida-services_docs-media-services-scale-media-processing-overview">Media Encoder Standard</a> increases.</p>			
+                    </table>			
                     <!-- END: Table2-Content-->
                      
                 </div>
@@ -181,7 +145,7 @@
                     <p>There may also be <a id="Media_serivce_storage2" href="/pricing/details/storage/" target="_blank">Storage</a> and <a id="Media_serivce_data2" style="color: #008fbf;" href="/pricing/details/data-transfer/" target="_blank">Data Transmission Rates</a> that will be charged at standard Azure rates.</p>
                     <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
                     <h3>Live Channels with Live Encoding</h3>
-                    <p>Live Channels with Live Encoding is now officially released. Since December 19, 2017, the price has been lowered again. The following is the comparison table between the original price and the new price:</p>
+                    <p>Live Channels with Live Encoding is officially released. </p>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
                         <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
@@ -189,27 +153,22 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>&#160;</strong></th>
-                            <th align="left"><strong>Original price</strong></th>
-                            <th align="left"><strong><sup style="color:#e66102; font-weight: bold">New price</sup></strong></th>
+                            <th align="left"><strong>Price</strong></th>
                         </tr>
                         <tr>
                             <td>First 20 hours/month</td>
-                            <td>￥40.5/hour</td>
                             <td>￥24.74/hour</td>
                         </tr>
                         <tr>
                             <td>Following 80 hours (20-100 hours)/month</td>
-                            <td>￥34.61/hour</td>
                             <td>￥21.14/hour</td>
                         </tr>
                         <tr>
                             <td>Following 150 hours (100-250 hours)/month</td>
-                            <td>￥33.87/hour</td>
                             <td>￥20.69/hour</td>
                         </tr>
                         <tr>
                             <td>Over 250 hours/month</td>
-                            <td>￥33.14/hour</td>
                             <td>￥20.25/hour</td>
                         </tr>
                     </table>
@@ -356,15 +315,14 @@
                         </tr>
                     </table>
                     <p><sup>1</sup> The cost is prorated by minutes, and the minimum fee is charged starting from five minutes.</p>
-                    <h3>Redactor <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+                    <h3>Redactor</h3>
                     <p>The video is anonymized by detecting and obscuring the faces of selected individuals. The Azure Media Redactor is very applicable to public security and news media programs. Pricing depends on the duration and resolution of the input file. Where possible, the Redactor may also use the media reserved unit to run video parallel-processing tasks. (Note: the Service Level Agreement of the Redactor is only applicable to the S3 media reserved unit). For more details, please refer to our <a href="//docs.azure.cn/media-services/media-services-face-redaction">documentation</a>.</p>
-                    <p>Note: As of October 31, 2017, all input resolutions (no more than 1920x1200) are charged according to the metering of S1. Starting November 1, 2017, usage will be measured according to the "Supported Input Resolutions" as set out below.</p>
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>&#160;</strong></th>
-                            <th align="left"><strong>S1 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
-                            <th align="left"><strong>S2 <sup style="color:#e66102; font-weight: bold">new</sup></th>
-                            <th align="left"><strong>S3 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
+                            <th align="left"><strong>S1</strong></th>
+                            <th align="left"><strong>S2</strong></th>
+                            <th align="left"><strong>S3</strong></th>
                         </tr>
                         <tr>
                             <td>Supported Input Resolutions<sup> 1</sup></td>
