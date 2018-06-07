@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localize>
+  <umbTextpage id="2016043012" parentID="18486" level="4" writerID="106" creatorID="106" nodeType="1059" template="13" sortOrder="36" createDate="2018-06-04T15:16:30" updateDate="2018-06-04T16:10:30" nodeName="ipinyou" urlName="ipinyou" writerName="content" creatorName="content" path="-1,11978,19421,18486,2016043012" isDoc="">
+    <bodyText>
+      <![CDATA[
+
+            <div class="common-content-bookmark">
+                        
+                <div class="section-component">
+
+                    <h2>业务背景</h2>
+
+                    <p>华风爱科气象科技（北京）有限公司是由中国最大的气象信息媒体服务公司华风集团与全球知名的商业气象服务公司 AccuWeather 于 2015 年在北京共同成立。华风爱科从空间、时间、科学指数、人性化四维角度出发，打造优质的气象服务产品。全球气象服务数据全覆盖，中国气象局全类别数据支持。AccuWeather 全球数据囊括各大洲，预报时间尺度从 1 分钟到 90 天。</p>
+
+                    <p>华风爱科拥有全球 300 万城市及地区的天气预报能力，旗下的中国天气通产品，提供 45 天超长预报和每日详情，通过曲线和日历两种方式展现，48 小时逐小时预报，可以让工作和生活更有计划；内容丰富的现在天气可以实时掌握各种气象要素，满足不同行业对天气的需求   。华风爱科数据访问量以每秒几万次的速度上升着，目前总访问量已超过 1 万 4 千亿次，为了给广大用户提供全方位、多角度、高精度的气象信息服务，让用户以更便利、有效的方式了解天气信息，对 IT 系统提出了更高的要求。</p>
+
+                </div>
+                <div class="section-component">
+
+                    <h2>解决方案</h2>
+
+                    <p>华风爱科成立之初与移动通讯行业客户达成多个合作，需要快速搭建起高性能、高可靠的 IT 服务架构，但由于技术人员数量较少，如果采用传统的租用机房、自建服务器、网络设备搭建 IT 基础设施的方式，时间成本较大，同时缺少足够的运维人员进行日常维护。因此华风爱科选择将 IT 系统架构部署至云端，由于华风爱科的海外母公司 AccuWeather 将相关技术和资源搭建在海外 Azure 上，华风爱科为了便于在本地部署 AccuWeather 的新技术，选择将 IT 系统部署在国内 Azure 上，由于海内外 Azure 的统一操作性，工程师可以将 AccuWeather 的新技术无缝迁移至国内公司，节约了二次学习开发的人力成本。同时，相较其他云服务商，由世纪互联运营的微软 Azure 在性能、功能、可靠性、安全性、价格、技术支持能力等多方面的综合性能更符合华风爱科的业务模式。</p>
+
+                    <p><strong>灵活高效的虚拟机</strong></p>
+
+                    <p>华风爱科主要负责天气产品的开发以及天气预报、预警等信息的传播；中国移动、联通、电信三大运营商、以及百度、一点资讯也与华风爱科达成了合作，除此之外，国内各大主流手机厂商内置的“天气预报”数据都是实时调用华风爱科的天气数据，每天的调用次数超过 20 亿次。大规模的数据吞吐量加上气象数据信息的重要性，华风爱科需要可靠的 IT 系统来提供保证高并发且稳定的服务。Azure 平台上高性能的虚拟机能够快速的进行横向扩展以满足不断增长的用户访问。搭载 Azure 的虚拟机，华风爱科可以远程控制和配置网络的方方面面，由于气象信息的特殊性，天气访问主要集中在早晚两个高峰时段，夜间访问量小，Azure 的虚拟机服务支持不限带宽，按流量计费，在不同时段动态的进行资源调度，为华风爱科最大幅度的降低 IT 成本。在天气 API 服务中，可依据用户访问量来动态的调整 worker role 资源，支持云服务的弹性伸缩，从而在保障服务的前提下最大化的节约资源和成本。</p>
+
+                    <p><strong>简化部署的 PaaS 层服务</strong></p>
+
+                    <p>作为全国 50% 以上的手机天气数据的内容提供商，华风爱科对接口可靠性要求非常高，一旦数据库出现问题意味着全国过半手机中断天气服务，为保障数据库的稳定性，华风爱科搭载了 Azure 北区和东区两地资源，做为多中心的灾备方案。Azure 的 PaaS 层服务流量管理器可监控 Azure 或外部网站与服务，在遭遇故障后随时将用户访问重定向至新位置，借此可改善重要应用程序的可用性。华风爱科的多中心方案搭载流量管理器服务，在节约人力维护的基础上，保障了众多用户稳定高效的访问气象数据。</p>
+
+                    <p>另外，不同于传统的 IT 系统，云端服务不支持每秒几百兆的高性能共享存储，对于华风爱科高速大量的数据访问，会出现数据提取延迟问题；为缓解这一问题，华风爱科使用了 Azure 的 Redis 服务，将部分数据放在 Redis 当中作为中转，以保持数据访问的延续性。</p>
+
+                    <p>在华风爱科推出小型业务时，如说明文档等非核心业务搭建新的 App 服务耗时较长，业务维护复杂。因此搭载了 Azure 的 PaaS 层服务 App service，在小型业务的应用中无需搭建 App，工程师将文件直接放入 App service 即可实现应用，为企业省去服务层面的工作，仅需为内容层面工作，小业务的上线速度更快成本更低。</p>
+
+                    <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/casestudy-accu-weather-01.jpg" alt=""/>
+
+                    <p style="text-align:center">API 架构图</p>
+                </div>
+                <div class="section-component">
+                    
+                    <h2>客户收益</h2>
+
+                    <p>目前华风爱科搭载了 Azure 的虚拟机、存储、云服务、Redis、网络、MySQL、SQL Server、流量管理器、App Services、Event hub、Service Bus、Load Balancer 等解决方案。通过采用 Azure 解决方案，华风爱科提供的气象数据服务连续性更有保障，节省了维护的人力成本，加快了新技术的应用速度，并得了良好的收益。</p>
+
+                    <p><strong>虚拟机助 IT 系统为企业领跑</strong></p>
+
+                    <p>华风爱科在 2016 年初开始实施 Azure，从第一个核心系统实施到其正式投入运行仅耗时 1 周时间。因为业务的快速发展、技术的高频更迭，服务器需求频繁变化，灵活的 IT 架构大幅减少工程师的工作量，促进核心业务开发，便于新服务出现后第一时间推向市场。</p>
+
+                    <p><strong>PaaS 层服务让气象服务无后顾之忧</strong></p>
+
+                    <p>Azure PaaS 层服务的优势是为企业节约实施和维护软件系统的成本，直接享用服务所带来的价值。结合 Azure PaaS 层的服务华风爱科不止打破了基础设施壁垒，还通过内置于平台中的预编码应用程序组件，大幅度削减编码新应用所需的时间，为华风爱科提供了便捷的数据接口以保障用户访问，为华风爱科简化了大量部署工作、大大降低了硬件投入成本。</p>
+
+                    <p><strong>Azure 技术团队带华风爱科畅游云端</strong></p>
+
+                    <p>最初华风爱科的工程师在 Azure 的功能和操作上不熟悉，Azure 的技术团队为此提供多次培训和技术交流，使得华风爱科掌握了 Azure 上各项功能和使用；其次技术团队持续辅导华风爱科如何在云上构建合理的 IT 架构，针对华风爱科的业务模式给出技术建议；第三，多项业务在 Azure 上运行很多时候要准确的计算各个业务的成本，在这方面 Azure 也给出了有效方案和建议。</p>
+
+                    <p>华风爱科从 2015 年 5 月成立到现在已经与众多国内外超一流品牌达成战略合作，目前公司为移动互联网、人工智能、运动生活、健康医疗、智慧出行等诸多领域提供气象技术服务，优化其产品性能。随着新技术的迅猛发展，华风爱科将持续迁移更多的业务到 Azure，通过不断的技术融合与创新，为用户提供准确、及时、全面的气象信息服务；未来将继续结合人工智能与大数据技术做更多全新尝试，与 Azure 建立合作双赢的关系，借助 Azure 服务在全球的便捷性，未来华风爱科计划将服务覆盖到更多地区，更好的实现海外业务扩展，构建国内外商业气象新业态。</p>
+				</div>                
+                
+                <div class="tag-list">
+                    <p class="p">
+                        <h2>所用技术和服务</h2>
+                        <ul class="link-group-icon">
+                             <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_load-balancer-blue.png"><a target="_blank" href="/home/features/load-balancer/" id="case-study_accu-weather_load-balancer">负载均衡</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_traffic_manager.png"><a target="_blank" href="/home/features/traffic-manager/" id="case-study_accu-weather_traffic-manager">流量管理器</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_redis.png"><a target="_blank" href="/home/features/redis-cache/" id="case-study_accu-weather_redis-cache">Redis 缓存</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service_icon_24_vm.png"><a target="_blank" href="/home/features/virtual-machines/" id="case-study_accu-weather_vm">虚拟机</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_sql.png"><a target="_blank" href="/home/features/sql-database/" id="case-study_accu-weather_sql-database">SQL 数据库</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/img/service_icon_24_storage.png"><a target="_blank" href="/home/features/storage/" id="case-study_accu-weather_storage">存储</a></li>
+                            <li><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/solutions-benefits/industry-solution-icon-4.png"><a target="_blank" href="/home/features/cloud-services/" id="case-study_accu-weather_cloud-services">云服务</a></li>
+                        </ul>  							
+                    </p>
+                </div>
+            </div>
+
+            ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>华风爱科案例 - Azure云计算</pageTitle>
+    <metaKeywords></metaKeywords>
+    <metaDescription><![CDATA[Azure 提供的 IaaS 层的虚拟机高达 99.95% 的月度服务级别协议让我们放心的将数据搭载到 Azure 上，其全球部署的一致性、PaaS 层的服务及灵活的计费模式帮助华风爱科实现了海内外业务的衔接，简化了工程师的工作量，同时大幅降低了学习、时间等成本，让技术团队将更多的业务放到业务上面。]]></metaDescription>
+    <linkid>case-studies-accu-weather</linkid>
+    <urlDisplayName>华风爱科案例</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <banner><![CDATA[
+      <!-- BEGIN: Banner -->
+         <div class="common-banner casestudy-banner" data-config="{'backgroundColor':'#333333','backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/banner/case-study-weathercn-banner.jpg','imageHeight':'420'}" id="banner">          
+            <div class="common-banner-image common-banner-image-cover">
+                <div class="common-banner-title">
+                    <div class="bread-crumb hidden-sm hidden-xs">
+                        <ul>
+                            <li><a href="/partnerancasestudy/case-studies/" id="parter_case_accu-weather" class="single-link">客户案例</a></li>
+                            <li><span>&gt;</span></li>
+                            <li><span class="single-link single-link-nohover">华风爱科</span></li>
+                        </ul>
+                    </div>
+                    <div class="video-detail">
+                        <div class="case-study-layer">
+                            <a href="http://www.weathercn.com/" id="case-study-accu-weatherwebsite" target="_blank" rel=“nofollow"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/accu-weather-logo-80@2x.png" class="casestudy-logo" data-rjs="2"/></a>
+                            <h1>华风爱科</h1>
+                            <p>Azure 的虚拟机、存储以及 PaaS 层服务保障华风爱科的气象数据安全高效的实现每秒数万次访问。</p>
+                        </div>
+                        <p class="casestudy-info">Azure 提供的 IaaS 层的虚拟机高达 99.95% 的月度服务级别协议让我们放心的将数据搭载到 Azure 上，其全球部署的一致性、PaaS 层的服务及灵活的计费模式帮助华风爱科实现了海内外业务的衔接，简化了工程师的工作量，同时大幅降低了学习、时间等成本，让技术团队将更多的业务放到业务上面。</p>
+                        <div class="casestudy-line"></div>
+                        <span class="tips">石磊，华风爱科气象科技（北京）有限公司 IT 部高级主管 </span>
+                        <a href="#" class="video-play-button" id="case-study-video-player"></a> 
+                    </div>
+                          
+                    <div class="video-center">  
+                        <div class="video-instance">                            
+                            <video id="case-study-video" class="video-js vjs-tech responsive-size" preload="none" width="100%" height="100%"
+                                   poster="" data-setup='{ "controls": false }'>
+                                <source src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/casestudy/case_study_weathercn.mp4" type='video/mp4'>
+                            </video>
+                            <a href="#" class="video-close" id="case-study-video-close"><i class="icon icon-close"></i></a>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- End: Banner-->
+    ]]></banner>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>0</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>
