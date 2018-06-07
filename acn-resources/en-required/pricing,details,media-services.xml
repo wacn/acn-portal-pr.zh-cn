@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-28T09:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-07T10:41:59" urlName="virtual-machines" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="media-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -85,15 +85,13 @@
                     <p>请参见常见问题了解更多示例。</p>
                     <p>还可能会存在<a href="/pricing/details/storage/">存储空间</a>和<a href="/pricing/details/data-transfer/">数据传输</a>费率，将按标准 Azure 费率计费。</p>
                     <!-- BEGIN: Table2-Content-->
-                    <h3>媒体保留单元</h3>
-					<p>从 2017 年 1 月 1 日起，媒体保留单元的计费单位将由每天变成每小时，同时价格也会有所下调。</p> 
+                    <h3>媒体保留单元</h3> 
                     <p>如果工作负荷需要同时运行多个任务，建议使用媒体保留单元。可通过以下方式增加服务的整体吞吐量：</p>
 						<ul>
 							<li>增加媒体保留单元数目，实现更多任务的并行处理</li>
 							<li>使用更快的媒体保留单元（如 S3）</li>
 						</ul>
 					<p>相关详细信息，请参阅<a href="https://docs.azure.cn/" id="media-services_portal-encoding-units">如何使用 Azure 经典管理门户缩放媒体处理</a>。</p>
-					<p>以下是下调后的新价格：</p> 
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -123,41 +121,7 @@
                             <td>约基本版的 2 倍</td>
                             <td>约基本版的 4 倍</td>
                         </tr>
-                    </table>
-										
-					<p>以下是调整前的原价格：</p>
-					<div class="tags-date">
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>&nbsp;</strong></th>
-                            <th align="left"><strong>S1（基本）</strong></th>
-                            <th align="left"><strong>S2（标准）</strong></th>
-                            <th align="left"><strong>S3（高级）</strong></th>
-                        </tr>
-                        <tr>
-                            <td>价格 / 单位</td>
-                            <td>¥469.24 /月<sup> 1 </sup></td>
-                            <td>¥938.15 /月<sup> 1 </sup></td>
-                            <td>¥2,606.46 /月<sup> 1 </sup></td>
-                        </tr>
-                        <tr>
-                            <td>其他并行任务</td>
-                            <td>1/单位</td>
-                            <td>1/单位</td>
-                            <td>1/单位</td>
-                        </tr>
-                        <tr>
-                            <td>相对性能<sup> 2</sup></td>
-                            <td>&nbsp;</td>
-                            <td>约基本版的 2 倍</td>
-                            <td>约基本版的 4 倍</td>
-                        </tr>
-                    </table>                    
-                    <p><sup>1</sup> 按分钟分摊费用。</p>
-					<p><sup>2</sup> 使用<a href="https://docs.azure.cn/zh-cn/media-services/media-services-scale-media-processing-overview" id="meida-services_docs-media-services-scale-media-processing-overview">Media Encoder Standard</a>产生的预计性能增加。</p>			
+                    </table>                   		
                     <!-- END: Table2-Content-->
                      
                 </div>
@@ -188,7 +152,7 @@
                     <!-- END: Table1-Content-->
                     <!-- BEGIN: Table2-Content-->
                     <h3>使用实时编码的实时频道</h3>
-                    <p>具有实时编码的实时频道目前正式发布。自 2017 年 12 月 19 日起，价格再次下调，以下是原价格和新价格对比表：</p>
+                    <p>具有实时编码的实时频道正式发布。</p>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -196,27 +160,22 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>&nbsp;</strong></th>
-                            <th align="left"><strong>原价格</strong></th>
-                            <th align="left"><strong>新价格 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
+                            <th align="left"><strong>价格</strong></th>
                         </tr>
                         <tr>
                             <td>前 20 小时/月</td>
-                            <td>¥40.5/小时</td>
                             <td>¥24.74/小时</td>
                         </tr>
                         <tr>
                             <td>接下来的 80 小时（20-100 小时）/月</td>
-                            <td>¥34.61/小时</td>
                             <td>¥21.14/小时</td>
                         </tr>
                         <tr>
                             <td>接下来的 150 小时（100-250 小时）/月</td>
-                            <td>¥33.87/小时</td>
                             <td>¥20.69/小时</td>
                         </tr>
                         <tr>
                             <td>超过 250 小时/月</td>
-                            <td>¥33.14/小时</td>
                             <td>¥20.25/小时</td>
                         </tr>
                     </table>
@@ -369,15 +328,15 @@
                         </tr>
                     </table>
                     <p><sup>1</sup> 按分钟数分摊费用，最低费用按 5 分钟收费。</p>
-                    <h3>编修器 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+                    <h3>编修器</h3>
                     <p>通过检测和模糊化所选个人的面孔，对视频进行匿名处理。Azure 媒体编修器十分适合用于公共安全和新闻媒体方案。定价取决于输入文件的持续时间和分辨率。在可能的情况下，编修器还会利用媒体保留单元运行视频并行处理任务（注意：编修器的 SLA 仅适用于 S3 媒体保留单元）。有关详细信息，请参阅我们的<a href="https://docs.azure.cn/zh-cn/media-services/media-services-face-redaction">文档</a>。</p>
-                    <p>注意：截至 2017 年 10 月 31 日，所有输入分辨率（不超过 1920x1200）都按 S1 计量收费。从 2017 年 11 月 1 日起，使用情况将根据下述“支持的输入分辨率”进行计量。</p>
+                    
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>&nbsp;</strong></th>
-                            <th align="left"><strong>S1 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
-                            <th align="left"><strong>S2 <sup style="color:#e66102; font-weight: bold">new</sup></th>
-                            <th align="left"><strong>S3 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
+                            <th align="left"><strong>S1</strong></th>
+                            <th align="left"><strong>S2</strong></th>
+                            <th align="left"><strong>S3</strong></th>
                         </tr>
                         <tr>
                             <td>支持的输入分辨率<sup> 1</sup></td>
