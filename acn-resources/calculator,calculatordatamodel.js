@@ -11050,7 +11050,7 @@ var CalculatorData = {
         },
 
         "backup": {
-            Name: "备份",
+            Name: "备份 - Azure VM 及本地服务器备份",
             Types: [{
                 Name: "小于 50 GB",
                 Features: [{
@@ -11194,6 +11194,44 @@ var CalculatorData = {
                     }]
                 }
                 ]
+            }]
+        },
+        "backup-backup-storage": {
+            Name: "备份存储空间",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "LRS 块 blob",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "GRS 块 blob",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.36",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
             }]
         },
         "service-bus": {
