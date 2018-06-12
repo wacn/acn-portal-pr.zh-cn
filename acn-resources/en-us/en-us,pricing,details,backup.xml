@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-08T14:50:00" urlName="backup" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="backup" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
             <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
@@ -23,7 +23,7 @@
             <div class="technical-azure-selector tab-control-selector">
                 <div class="tab-control-container tab-active">
                     <h2>Pricing Details</h2>
-                    <p>Backup services are charged by the size of every protected instance, at an increment of 500 GB. In addition, Azure storage space is charged individually, allowing for reduction in long-lasting storage cost. Customers can make a flexible selection between LRS or GRS Block Blob Storage (please refer to the pricing details for <a id="pricing-bankup_storage-blob" href="/pricing/details/storage/blob/" target="_blank">Block Blob for general-purpose Storage Accounts</a>).</p>
+                    <p>Backup services are charged by the size of every protected instance, at an increment of 500 GB. In addition, Azure storage space is charged individually, allowing for reduction in long-lasting storage cost. Customers can make a flexible selection between LRS or GRS Block Blob Storage .</p>
                     <h4>Backup for Azure VMs and on-premises servers</h4>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br>
@@ -454,7 +454,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="pricing-page-section">
+            <!-- <div class="pricing-page-section">
                 <h2>Region</h2>
                 <p>Azure Backup services are available in the following regions:</p>
                 <table cellpadding="0" cellspacing="0" class="table-col6">
@@ -466,12 +466,12 @@
                         <td>Mainland China</td>
                         <td>China North, China East</td>
                     </tr>
-                </table>
-                <div class="pricing-page-section">
+                </table> -->
+            <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>
                 <p>If you have any questions or need help, please visit <a href="/support/contact/" id="backup-contact-page">Azure Support</a> to select self-service or any other method to contact us for support.</p>
                 <p>We guarantee that the availability of the backup and recovery functions of Azure Backup services reaches at least 99.9%. The availability is calculated by the monthly billing cycle. If you want to learn more about the details of our server level agreement, please visit the <a href="/support/sla/back-up/" id="pricing_backup_sla">Service Level Agreement</a> page.</p>
-                </div>
+            </div>
                 <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                                    
     
     ]]></bodyText>
