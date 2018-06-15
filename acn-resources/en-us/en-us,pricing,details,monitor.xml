@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="monitor" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-011T12:11:59" urlName="monitor" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
             <tags ms.service="monitor" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
@@ -56,7 +56,16 @@
                             </tr>
                         </tbody>
                     </table>
+                    <p>Metric queries are charged based on the number of standard API calls. A standard API call is a call that analyzes 1,440 data points (1,440 is also the total number of data points that can be stored per metric per day). If an API call analyzes more than 1,440 data points, then it will count as multiple standard API calls. If an API call analyzes less than 1,440 data points, it will count as less than one API call. The number of standard API calls is calculated every day as the total number of data points analyzed per day divided by 1,440. </p>
+                    <ul>
+                        <li>Metrics for 90 days are provided at no charge. If you need to retain more than 90 days of metrics data, you can route the metrics data to a storage account or Event Hub, and you will then be billed for storage or by the corresponding event hub. You will also be billed for the corresponding API calls for metrics queries required to route the data.</li>
+                    </ul>
+                    <!-- END: Table1-Content-->
                     
+                    <h4>Examples</h4>
+                    <p>API calls that return 2,000 data points will be calculated as 2,000/1,440 = 1.4 standard API calls.</p>
+                    <p>API calls that return 200 data points will be calculated as 200/1,440 = 0.1 standard API calls.</p>
+                    <p>Tracking five metrics from 100 virtual machines at a granularity level of one minute will produce 720,000 data points, i.e. (720,000/1,440)500 standard API calls per day.</p>
                     <h3>Notifications</h3>
                     <p>You are billed based on the type and number of notifications you choose to send.</p>
                     <table  cellpadding="0" cellspacing="0" width="100%">
@@ -73,39 +82,99 @@
                                 <td class="left_align">1,000 emails per month</td>
                                 <td class="left_align">￥20.3/100,000 emails</td>
                             </tr>
-                            <!-- <tr>
-                                <td class="left_align">推送通知（面向 Azure 应用）</td>
-                                <td class="left_align">1,000 notifications per month</td>
-                                <td class="left_align">￥20.3/100,000 notifications</td>
-                            </tr> -->
                             <tr>
                                 <td class="left_align">Webhook</td>
                                 <td class="left_align">100,000 web hooks per month</td>
                                 <td class="left_align">￥6.1/1,000,000 web hooks</td>
                             </tr>
-                            <!-- <tr>
-                                <td class="left_align"><strong>短信</strong></td>
-                                <td class="left_align"><strong>价格</strong></td>
+                            <tr>
+                                <td class="left_align">SMS</td>
+                                <td class="left_align"></td>
                                 <td class="left_align"></td>
                             </tr>
                             <tr>
-                                <td class="left_align">短信（国家代码 +1）</td>
-                                <td class="left_align">￥0.065635/条</td>
-                                <td class="left_align"></td>
-                            </tr> -->
+                                <td class="left_align"><strong>Country Code</strong></td>
+                                <td class="left_align"><strong>Free Units Included</strong></td>
+                                <td class="left_align"><strong>Price</strong></td>
+                            </tr>
+                            <tr>
+                                <td> China（+ 86）</td>
+                                <td>–</td>
+                                <td>¥0.219165/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Hong Kong（+ 852）</td>
+                                <td>–</td>
+                                <td>¥0.179988/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Australia（+ 61）</td>
+                                <td>–</td>
+                                <td>¥0.36252/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Brazil（+ 55）</td>
+                                <td>–</td>
+                                <td>¥0.148188/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> France（+ 33）</td>
+                                <td>–</td>
+                                <td>¥0.34344/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Germany（+ 49）</td>
+                                <td>–</td>
+                                <td>¥0.634855/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> India（+ 91）</td>
+                                <td>–</td>
+                                <td>¥0.026711/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Ireland（+ 353）</td>
+                                <td>–</td>
+                                <td>¥0.251856/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Japan（+ 81）</td>
+                                <td>–</td>
+                                <td>¥0.29256/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Netherlands（+ 31）</td>
+                                <td>–</td>
+                                <td>¥0.8586/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> Singapore（+ 65）</td>
+                                <td>–</td>
+                                <td>¥0.197605/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> South Africa（+ 27）</td>
+                                <td>–</td>
+                                <td>¥0.158491/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> South Korea（+ 82）</td>
+                                <td>–</td>
+                                <td>¥0.29892/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> United Kingdom（+ 44）</td>
+                                <td>–</td>
+                                <td>¥0.22896/SMS</td>
+                            </tr>
+                            <tr>
+                                <td> United States（+ 1）</td>
+                                <td>100 SMS per month</td>
+                                <td>¥0.065635/SMS</td>
+                            </tr>
                         </tbody>
                     </table>
-					<p>Billed on the basis of the number of standard API calls per metrics query. A standard API call returns 1,440 data points (1,440) is also the total number of data points that can be stored per metric per day). If the API call returns over 1,440 data points, it will be calculated as more than one standard API call. If the API call returns less than 1,440 data points, it will be counted as less than one API call. The number of standard API calls is calculated on a daily basis by dividing the number of data points used per day by 1,440.</p>
-                    <ul>
-                        <li>Metrics for 90 days are provided at no charge. If you need to retain more than 90 days of metrics data, you can route the metrics data to a storage account or Event Hub, and you will then be billed for storage or by the corresponding event hub. You will also be billed for the corresponding API calls for metrics queries required to route the data.</li>
-                        <li>You can route diagnostic logs to a storage account or Event Hub, and you will then be billed for storage or by the corresponding event hub.</li>
-                    </ul>
-                    <!-- END: Table1-Content-->
-                    
-                    <h2>Examples</h2>
-                    <p>API calls that return 2,000 data points will be calculated as 2,000/1,440 = 1.4 standard API calls.</p>
-                    <p>API calls that return 200 data points will be calculated as 200/1,440 = 0.1 standard API calls.</p>
-                    <p>Tracking five metrics from 100 virtual machines at a granularity level of one minute will produce 720,000 data points, i.e. (720,000/1,440)500 standard API calls per day.</p>
+
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
             </div>
