@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="monitor" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-11T12:11:59" urlName="monitor" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="monitor" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -34,12 +34,12 @@
                 <!-- BEGIN: TAB-CONTAINER-1 -->
                 <div class="tab-control-container tab-active" id="tabContent1">
                     <!-- BEGIN: Table1-Content-->
-					
-					<h2>定价详细信息</h2>
+                    
+                    <h2>定价详细信息</h2>
                     <h3>度量值</h3>
                     <p>指标表示一系列时间序列。按监测到的时间序列数和进行的 API 调用次数计费。</p>
-					<p>2018 年 8 月 1 日之前的指标查询免费。指标查询的费用将按照下面的定价计划于 2018 年 8 月 1 日开始生效。</p>
-				    <div class="tags-date">
+                    <p>2018 年 8 月 1 日之前的指标查询免费。指标查询的费用将按照下面的定价计划于 2018 年 8 月 1 日开始生效。</p>
+                    <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div>
                     </div>
                     <table  cellpadding="0" cellspacing="0" width="100%">
@@ -53,11 +53,22 @@
                         <tbody>
                             <tr>
                                 <td class="left_align">指标查询</td>
-                                <td class="left_align">每月 1,000,000 个标准 API 调用</td>
+                                <td class="left_align">1,000,000 个标准 API 调用</td>
                                 <td class="left_align">¥0.101/1,000 个标准 API 调用</td>
                             </tr>
                         </tbody>
                     </table>
+                    
+                    <p>根据标准 API 调用数对指标查询进行收费。标准 API 调用分析 1,440 个数据点（1,440 也是每天每个指标可存储的数据点的总数）。如果 API 调用分析超过 1,440 个数据点，会将其算作多个标准 API 调用。如果 API 调用分析少于 1,440 个数据点，会将其算作不到一个 API 调用。标准 API 调用数会每天进行计算，计算方法是将每天分析的数据点总数除以 1,440。</p>
+                    <ul>
+                        <li>提供 90 天内的指标，无需任何费用。若要保留 90 天以上的指标数据，可将指标数据路由到存储帐户或事件中心。会分别对存储和事件中心收取相应的费用。此外，会针对路由数据所需的相应 API 调用对指标查询进行收费。</li>
+                    </ul>
+                    <!-- END: Table1-Content-->
+                    
+                    <h4>示例</h4>
+                    <p>返回 2,000 个数据点的 API 调用将被算作 2,000/1,440 = 1.4 个标准 API 调用。</p>
+                    <p>返回 200 个数据点的 API 调用将被算作 200/1,440 = 0.1 个标准 API 调用。</p>
+                    <p>如果每天从 100 个虚拟机以一分钟的粒度跟踪五个指标，将产生 720,000 个数据点，即每天 (720,000/1,440) 500 个标准 API 调用。</p>
                     <h3>通知</h3>
                     <p>根据你选择发送的通知类型和数量来计费。</p>
                     <table  cellpadding="0" cellspacing="0" width="100%">
@@ -71,48 +82,112 @@
                         <tbody>
                             <tr>
                                 <td class="left_align">电子邮件</td>                                
-                                <td class="left_align">每月电子邮件数 1,000</td>
-                                <td class="left_align">¥20.3/100,000 电子邮件</td>
+                                <td class="left_align">1,000</td>
+                                <td class="left_align">¥20.3/100,000</td>
                             </tr>
                             <!-- <tr>
                                 <td class="left_align">推送通知（面向 Azure 应用）</td>
-                                <td class="left_align">每月 1,000 个通知</td>
-                                <td class="left_align">¥20.3/100,000 个通知</td>
+                                <td class="left_align">1,000</td>
+                                <td class="left_align">¥20.3/100,000</td>
                             </tr> -->
                             <tr>
                                 <td class="left_align">Webhook</td>
-                                <td class="left_align">每月 100,000 个 Web 挂钩</td>
-                                <td class="left_align">¥6.1/1,000,000 个 Web 挂钩</td>
+                                <td class="left_align">100,000</td>
+                                <td class="left_align">¥6.1/1,000,000</td>
                             </tr>
-                            <!-- <tr>
-                                <td class="left_align"><strong>短信</strong></td>
-                                <td class="left_align"><strong>价格</strong></td>
+                            <tr>
+                                <td class="left_align">短信</td>
+                                <td class="left_align"></td>
                                 <td class="left_align"></td>
                             </tr>
                             <tr>
-                                <td class="left_align">短信（国家代码 +1）</td>
-                                <td class="left_align">¥0.065635/条</td>
-                                <td class="left_align"></td>
-                            </tr> -->
+                                <td class="left_align"><strong>国家/地区代码</strong></td>
+                                <td class="left_align"><strong>内附免费单位数</strong></td>
+                                <td class="left_align"><strong>价格</strong></td>
+                            </tr>
+                            <tr>
+                                <td> 中国（+ 86）</td>
+                                <td>–</td>
+                                <td>¥0.219165/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 中国香港特别行政区（+ 852）</td>
+                                <td>–</td>
+                                <td>¥0.179988/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 澳大利亚（+ 61）</td>
+                                <td>–</td>
+                                <td>¥0.36252/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 巴西（+ 55）</td>
+                                <td>–</td>
+                                <td>¥0.148188/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 法国（+ 33）</td>
+                                <td>–</td>
+                                <td>¥0.34344/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 德国（+ 49）</td>
+                                <td>–</td>
+                                <td>¥0.634855/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 印度（+ 91）</td>
+                                <td>–</td>
+                                <td>¥0.026711/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 爱尔兰（+ 353）</td>
+                                <td>–</td>
+                                <td>¥0.251856/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 日本（+ 81）</td>
+                                <td>–</td>
+                                <td>¥0.29256/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 荷兰（+ 31）</td>
+                                <td>–</td>
+                                <td>¥0.8586/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 新加坡（+ 65）</td>
+                                <td>–</td>
+                                <td>¥0.197605/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 南非（+ 27）</td>
+                                <td>–</td>
+                                <td>¥0.158491/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 韩国（+ 82）</td>
+                                <td>–</td>
+                                <td>¥0.29892/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 英国（+ 44）</td>
+                                <td>–</td>
+                                <td>¥0.22896/每条短信</td>
+                            </tr>
+                            <tr>
+                                <td> 美国（+ 1）</td>
+                                <td>每月 100 条短信</td>
+                                <td>¥0.065635/每条短信</td>
+                            </tr>
                         </tbody>
                     </table>
-					<p>根据标准 API 调用数对指标查询进行收费。标准 API 调用返回 1,440 个数据点（1,440 也是每天每个指标可存储的数据点的总数）。如果 API 调用返回超过 1,440 个数据点，会将其算作多个标准 API 调用。如果 API 调用返回少于 1,440 个数据点，会将其算作不到一个 API 调用。标准 API 调用数会每天进行计算，计算方法是将每天使用的数据点总数除以 1,440。</p>
-                    <ul>
-                        <li>提供 90 天内的指标，无需任何费用。若要保留 90 天以上的指标数据，可将指标数据路由到存储帐户或事件中心。会分别对存储和事件中心收取相应的费用。此外，会针对路由数据所需的相应 API 调用对指标查询进行收费。</li>
-                        <li>可将诊断日志路由至存储帐户或事件中心。将分别对存储和事件中心收取相应的费用。</li>
-                    </ul>
-                    <!-- END: Table1-Content-->
-                    
-                    <h2>示例</h2>
-                    <p>返回 2,000 个数据点的 API 调用将被算作 2,000/1,440 = 1.4 个标准 API 调用。</p>
-                    <p>返回 200 个数据点的 API 调用将被算作 200/1,440 = 0.1 个标准 API 调用。</p>
-                    <p>如果每天从 100 个虚拟机以一分钟的粒度跟踪五个指标，将产生 720,000 个数据点，即每天 (720,000/1,440) 500 个标准 API 调用。</p>
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
             </div>
             <!-- END: TAB-CONTROL -->
-
-            <!-- <div class="pricing-page-section">
+<!-- 
+            <div class="pricing-page-section">
                 <h2>上市地区</h2>
                 <p>Azure 监控器在以下区域中提供：</p>
                 <table cellpadding="0" cellspacing="0" class="table-col6">
@@ -125,11 +200,11 @@
                         <td>中国东部数据中心 , 中国北部数据中心</td>
                     </tr>
                 </table>
-            </div>  -->   
+            </div> -->    
             <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
-                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="app-contact-page"> Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
-				<p>使用 Azure 监控器，您可以收集详尽的性能和使用情况数据、活动和诊断日志，并以一致的方式定义 Azure 资源的警报和通知。我们保证，在不少于 99.9% 的时间内，通知会成功送达。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/monitor/" id="pricing_app_sla">服务级别协议</a>页。</p>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="monitor-contact-page"> Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>使用 Azure 监控器，您可以收集详尽的性能和使用情况数据、活动和诊断日志，并以一致的方式定义 Azure 资源的警报和通知。我们保证，在不少于 99.9% 的时间内，通知会成功送达。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/monitor/" id="pricing_monitor_sla">服务级别协议</a>页。</p>
             </div>  
             <!--BEGIN: Support and service code chunk-->
             <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  -->                                                                      
