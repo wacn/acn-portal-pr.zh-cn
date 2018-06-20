@@ -11065,37 +11065,6 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "31.65",
                     }]
-                }, {
-                    Name: "LRS 块 blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.41,0.37,0.33",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                },
-                {
-                    Name: "GRS 块 blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.82,0.74,0.66",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
                 }]
             },
             {
@@ -11112,39 +11081,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "63.29",
                     }]
-                }, {
-                    Name: "LRS 块 blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.41,0.37,0.33",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                },
-                {
-                    Name: "GRS 块 blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.82,0.74,0.66",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                }
-                ]
+                }]
             },
             {
                 Name: "大于 500 GB",
@@ -11160,40 +11097,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "63.29",
                     }]
-                },
-              {
-                  Name: "LRS 块 blob",
-                  PricePeriod: PricePeriodEnum.Monthly,
-                  PriceUnit: "个",
-                  MinUnit: "0",
-                  MaxUnit: "20",
-                  Sizes: [{
-                      Name: "default",
-                      Description: "default",
-                      PriceTier: "0,1024,1025,51200,51201,512000",
-                      PricePerTier: "0.41,0.37,0.33",
-                      MinUnit: "0",
-                      MaxUnit: "100000",
-                      PriceUnit: "GB"
-                  }]
-              },
-                {
-                    Name: "GRS 块 blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.82,0.74,0.66",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                }
-                ]
+                }]
             }]
         },
         "backup-backup-storage": {
