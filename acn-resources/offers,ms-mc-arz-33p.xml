@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-06-21T10:00:00">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal" ms.date="" wacn.date="" wacn.lang="cn"/></p>
@@ -12,6 +12,10 @@
         <p>若预付费费率提高，会在加价之前至少 30 天通知您。我们会不定期将新服务添加到 Azure 平台。我们会通知您这些新服务以及使用这些服务可能收取的费用。但是，只有在您选择使用新服务的情况下才会向您收取费用。</p>
         <p><a id="ms-mc-arz-33p_pia" href="/pricing/pia/">立即购买 &gt;</a></p>
         <p><a href="//docs.azure.cn/zh-cn/billing/billing-sign-up-azure-account-and-get-a-pia-subscription/" class="single-link"">了解标准预付费订阅注册流程<i class="icon icon-arrow-right-thin"></i></a></p>
+
+        <!-- <h2>1 元人民币试用订阅升级为标准预付费产品</h2>
+        <p>如果您在 1 元人民币试用订阅的 30 天有效期内将<a href="//docs.azure.cn/zh-cn/billing/billing-upgrade-1rmb-trial">1 元试用订阅升级为标准预付费产品</a>，您的 1 元试用订阅产品的剩余金额（若有）,将自动结转到新升级的标准预付费账户中，并按照<a href="/pricing/overview/">标准预付费的产品定价</a>计费。 </p> -->
+
         <h2>付款选项</h2>
         <p>支持“支付宝”，“银联在线”和“电汇”等三种支付方式，选择前两种线上支付的最低付款金额为 1,000 元人民币，电汇的最低支付金额为 5,000 元人民币。电汇的详情操作方式，可参考<a id="ms-mc-arz-33p_azure-wire-transfer-overview" href="//docs.azure.cn/zh-cn/billing/billing-pay-for-subscription-via-wire-transfer/">电汇说明</a>。</p>
         <p>有关定价和计费的更多详细信息（包括各项 Azure 功能的价格）可参见我们的<a id="ms-mc-arz-33p_overview" href="/pricing/overview/">定价页面</a>。</p>
@@ -19,40 +23,33 @@
         <p>您可以随时取消此订阅，但同时也会使您帐户中的预付金额作废。</p>
         <h2>使用配额</h2>
         <p>适用以下月度使用配额。如果您需要的额度超出这些配额，请随时联系我们的<a id="ms-mc-arz-33p_contact" href="/support/contact/">客户服务</a>，我们将根据您的实际需求相应调整配额。</p>
-        <h2>云服务和虚拟机</h2>
-        <p>标准配额为 20 个并发标准小型 (A1) 计算实例，或相当数量的其他类型或大小的计算实例，通过以下计算实例配额换算表确定。</p>
+        <h2>存储和虚拟机</h2>
+        
         <table>
         <thead>
         <tr>
-            <th>1 个以下类型的计算实例</th>
-            <th>等效标准小型 (A1) 实例数量</th>
+            <th></th>
+            <th>经典模式</th>
+            <th>资源组模式</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>超小型 (A0)</td>
-            <td>1</td>
+            <td>虚拟机</td>
+            <td>每个订阅在所有区域最多可部署 20 vCPUs</td>
+            <td>每个订阅在每个区域最多可部署 20 vCPUs</td>
         </tr>
         <tr>
-            <td>小型 (A1)</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>中型 (A2)</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>大型 (A3) 或 A6</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>超大型 (A4) 或 A7</td>
-            <td>8</td>
+            <td>存储服务</td>
+            <td>每个订阅在所有区域最多可部署 100 个</td>
+            <td>每个订阅在所有区域最多可部署 200 个</td>
         </tr>
         </tbody>
         </table>
-        <h2>存储</h2>
-        <p>20 个并行存储帐户</p>
+        <p><strong>Note：</strong></p>
+        <p>经典模式下，达到上限 20 vCPUs 后,该订阅不能创建经典模式虚拟机，但仍可创建资源组模式虚拟机。</p>
+        <h2>数据传输</h2>
+        <p>我们为您提供每月 1 TB 的免费数据流入额度，如果超过该数据传输使用限额，将按照标准预付费定价进行计费。 </p>
         <h2>云服务</h2>
         <p>20 个云服务帐户。每个云服务帐户将拥有 2 个部署环境：暂存环境和生产环境。</p>
         <h2>Active Directory</h2>
