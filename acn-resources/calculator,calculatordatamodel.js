@@ -364,51 +364,103 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.13",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.36",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.94",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.88",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.76",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.71",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.43",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.85",
+                    }]
+                },
+                {
+                    Name: "B 系列/BS 系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1/BS1",
+                        Description: "1个内核，1GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.018"
+                    },
+                    {
+                        Name: "B2/BS2",
+                        Description: "2个内核，4GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.066"
+                    }]
+                },
+                {
+                    Name: "B 系列 / BS 系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1m/BS1m",
+                        Description: "1个内核，2GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.032"
+                    },
+                    {
+                        Name: "B2m/BS2m",
+                        Description: "2个内核，8GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.122"
+                    },
+                    {
+                        Name: "B4m/BS4m",
+                        Description: "4个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.23"
+                    },
+                    {
+                        Name: "B8m/BS8m",
+                        Description: "8个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.438"
                     }]
                 },
                 {
@@ -420,31 +472,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.5405",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.0810",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.1620",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.3355",
                     }]
                 },
                 {
-                    Name: "",
+                    Name: "Av2系列",
                     Description: "Av2 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
@@ -452,194 +504,313 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.9665",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.9394",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.8775",
                     }]
                 },
-             {
-                Name: "D 系列",
-                Description: "D 系列",
-                PricePeriod: PricePeriodEnum.Hourly,
-                PriceUnit: "台",
-                MinUnit: "0",
-                MaxUnit: "100",
-                Sizes: [{
-                    Name: CalculatorConst.D1Size,
-                    Description: CalculatorConst.D1SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "0.48",
-                },
                 {
-                    Name: CalculatorConst.D2Size,
-                    Description: CalculatorConst.D2SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "1",
-                },
-                {
-                    Name: CalculatorConst.D3Size,
-                    Description: CalculatorConst.D3SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "2.01",
-                },
-                {
-                    Name: CalculatorConst.D4Size,
-                    Description: CalculatorConst.D4SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "4.05",
-                },
-                {
-                    Name: CalculatorConst.D11Size,
-                    Description: CalculatorConst.D11SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "1.7",
-                },
-                {
-                    Name: CalculatorConst.D12Size,
-                    Description: CalculatorConst.D12SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "3.41",
-                },
-                {
-                    Name: CalculatorConst.D13Size,
-                    Description: CalculatorConst.D13SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "6.83",
-                },
-                {
-                    Name: CalculatorConst.D14Size,
-                    Description: CalculatorConst.D14SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "13.67",
-                }]
-            },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "0.53",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "1.11",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "2.22",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "4.45",
-                 },
-                 {
-                     Name:CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "8.56",
-                 }]
-             },
-                {
-                    Name: "Dv2 系列",
-                    Description: "D 2v系列",
+                    Name: "Dv3 系列/DSv3 系列",
+                    Description: "Dv3 系列/DSv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.D11V2Size,
+                        Name: "D2 v3/DS2 v3",
+                        Description: "2个内核，8GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.25"
+                    },
+                    {
+                        Name: "D4 v3/DS4 v3",
+                        Description: "4个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.52"
+                    },
+                    {
+                        Name: "D8 v3/DS8 v3",
+                        Description: "8个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.04"
+                    }]
+                },
+                {
+                    Name: "Dv3 系列 / DSv3 系列",
+                    Description: "Dv3 系列/DSv3 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D16 v3/DS16 v3",
+                        Description: "16个内核，64GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.08"
+                    },
+                    {
+                        Name: "D32 v3/DS32 v3",
+                        Description: "32个内核，128GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "20.15"
+                    },
+                    {
+                        Name: "D64 v3/DS64 v3",
+                        Description: "64个内核，256GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "40.3"
+                    }]
+                },
+                {
+                    Name: "D 系列/DS 系列",
+                    Description: "D 系列/DS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D1/DS1",
+                        Description: CalculatorConst.D1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.48"
+                    },
+                    {
+                        Name: "D2/DS2",
+                        Description: CalculatorConst.D2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1"
+                    },
+                    {
+                        Name: "D3/DS3",
+                        Description: CalculatorConst.D3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.01"
+                    },
+                    {
+                        Name: "D4/DS4",
+                        Description: CalculatorConst.D4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.05"
+                    }]
+                },
+                {
+                    Name: "D 系列 / DS 系列",
+                    Description: "D 系列/DS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D11/DS11",
+                        Description: CalculatorConst.D11SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.7"
+                    },
+                    {
+                        Name: "D12/DS12",
+                        Description: CalculatorConst.D12SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.41"
+                    },
+                    {
+                        Name: "D13/DS13",
+                        Description: CalculatorConst.D13SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.83"
+                    },
+                    {
+                        Name: "D14/DS14",
+                        Description: CalculatorConst.D14SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "13.67"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列/ESv3 系列",
+                    Description: "Ev3 系列/ESv3 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/ES2 v3",
+                        Description: "2个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.6"
+                    },
+                    {
+                        Name: "E4 v3/ES4 v3",
+                        Description: "4个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.21"
+                    },
+                    {
+                        Name: "E8 v3/ES8 v3",
+                        Description: "8个内核，64GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.41"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列 / ESv3 系列",
+                    Description: "Ev3 系列/ESv3 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E16 v3/ES16 v3",
+                        Description: "16个内核，128GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.84"
+                    },
+                    {
+                        Name: "E32 v3/ES32 v3",
+                        Description: "32个内核，256GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.66"
+                    },
+                    {
+                        Name: "E64 v3/ES64 v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "51.33"
+                    }]
+                },
+                {
+                     Name: "Dv2系列/DSv2系列",
+                     Description: "Dv2系列/DSv2系列",
+                     PricePeriod: PricePeriodEnum.Hourly,
+                     PriceUnit: "台",
+                     MinUnit: "0",
+                     MaxUnit: "100",
+                     Sizes: [{
+                         Name: "D1 v2/DS1 v2",
+                         Description: CalculatorConst.D1V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "0.53"
+                     },
+                     {
+                         Name: "D2 v2/DS2 v2",
+                         Description: CalculatorConst.D2V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "1.11"
+                     },
+                     {
+                         Name: "D2 v2/DS2 v2",
+                         Description: CalculatorConst.D3V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "2.22"
+                     },
+                     {
+                         Name: "D4 v2/DS4 v2",
+                         Description: CalculatorConst.D4V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "4.45"
+                     }]
+                },
+                {
+                    Name: "Dv2 系列 / DSv2 系列",
+                    Description: "Dv2系列/DSv2系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name:"D5 v2/DS5 v2",
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "8.56"
+                    },
+                    {
+                        Name: "D11 v2/DS11 v2",
                         Description: CalculatorConst.D11V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.88",
+                        PricePerTier: "1.88"
                     },
                     {
-                        Name: CalculatorConst.D12V2Size,
+                        Name: "D12 v2/DS12 v2",
                         Description: CalculatorConst.D12V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.76",
-                    },
-                    {
-                        Name: CalculatorConst.D13V2Size,
+                        PricePerTier: "3.76"
+                    }]
+                },
+                {
+                    Name: "Dv2系列 / DSv2系列",
+                    Description: "Dv2系列/DSv2 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D13 v2/DS13 v2",
                         Description: CalculatorConst.D13V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.51",
+                        PricePerTier: "7.51"
                     },
                     {
-                        Name: CalculatorConst.D14V2Size,
+                        Name: "D14 v2/DS14 v2",
                         Description: CalculatorConst.D14V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "15.03",
-                    }
-                    , {
-                        Name: CalculatorConst.D15V2Size,
+                        PricePerTier: "15.03"
+                    }, 
+                    {
+                        Name: "D15 v2/DS15 v2",
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.79",
-                    }
-                    ]
+                        PricePerTier: "18.79"
+                    }]
                 },
                 {
-                Name: "F 系列",
-                Description: "F 系列",
-                PricePeriod: PricePeriodEnum.Hourly,
-                PriceUnit: "台",
-                MinUnit: "0",
-                MaxUnit: "100",
-                Sizes: [{
-                    Name: CalculatorConst.F1Size,
-                    Description: CalculatorConst.F1SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "0.46",
-                },
-                {
-                    Name: CalculatorConst.F2Size,
-                    Description: CalculatorConst.F2SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "0.97",
-                },
-                {
-                    Name: CalculatorConst.F4Size,
-                    Description: CalculatorConst.F4SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "1.95",
-                },
-                {
-                    Name: CalculatorConst.F8Size,
-                    Description: CalculatorConst.F8SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "3.91",
-                },
-                {
-                    Name: CalculatorConst.F16Size,
-                    Description: CalculatorConst.F16SizeDesc,
-                    PriceTier: PriceTierEnum.Fixed,
-                    PricePerTier: "7.53",
+                    Name: "F 系列/FS 系列",
+                    Description: "F 系列/FS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "F1/FS1",
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.46",
+                    },
+                    {
+                        Name: "F2/FS2",
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.97",
+                    },
+                    {
+                        Name: "F4/FS4",
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.95",
+                    },
+                    {
+                        Name: "F8/FS8",
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.91",
+                    },
+                    {
+                        Name: "F16/FS16",
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.53",
+                    }]
                 }]
-            }]
             }]
         },
         "virtual-machines-linux": {
@@ -695,51 +866,109 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.13",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.29",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.75",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.51",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.01",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.62",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.25",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.49",
+                    }]
+                },
+                {
+                    Name: "B 系列/BS 系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1/BS1",
+                        Description: "1个内核，1GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.012",
+                    },
+                    {
+                        Name: "B2/BS2",
+                        Description: "2个内核，4GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.048",
+                    },
+                    {
+                        Name: "B1m/BS1m",
+                        Description: "1个内核，2GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.024"
+                    }]
+                },
+                {
+                    Name: "B系列 / BS系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1m/BS1m",
+                        Description: "1个内核，2GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.024"
+                    },
+                    {
+                        Name: "B2m/BS2m",
+                        Description: "2个内核，8GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.122"
+                    },
+                    {
+                        Name: "B4m/BS4m",
+                        Description: "4个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.23"
+                    },
+                    {
+                        Name: "B8m/BS8m",
+                        Description: "8个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.376"
                     }]
                 },
                 {
@@ -751,31 +980,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.4370",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.8625",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.7365",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.4615",
                     }]
                 },
                 {
-                    Name: "",
+                    Name: "Av2系列",
                     Description: "Av2 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
@@ -783,192 +1012,313 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8630",
+                        PricePerTier: "1.8630"
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.7338",
+                        PricePerTier: "3.7338"
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.4635",
+                        PricePerTier: "7.4635"
                     }]
                 },
-             {
-                    Name: "D 系列",
-                    Description: "D 系列",
+
+                {
+                    Name: "Dv3 系列 / DSv3 系列",
+                    Description: "Dv3 系列 / DSv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.D1Size,
+                        Name: "D2 v3/DS2 v3",
+                        Description: "2个内核，8GiB RAM，50GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.14"
+                    },
+                    {
+                        Name: "D4 v3/DS4 v3",
+                        Description: "4个内核，16GiB RAM，100GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.29"
+                    },
+                    {
+                        Name: "D8 v3/DS8 v3",
+                        Description: "8个内核，32GiB RAM，200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.58"
+                    }]
+                },
+                {
+                    Name: "Dv3系列/DSv3系列",
+                    Description: "Dv3 系列 / DSv3 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D16 v3/DS16 v3",
+                        Description: "16个内核，64GiB RAM，400GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.16"
+                    },
+                    {
+                        Name: "D32 v3/DS32 v3",
+                        Description: "32个内核，128GiB RAM，800GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.32"
+                    },
+                    {
+                        Name: "D64 v3/DS64 v3",
+                        Description: "64个内核，256GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.64"
+                    }]
+                },
+                {
+                    Name: "D 系列/DS 系列",
+                    Description: "D 系列/DS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D1/DS1",
                         Description: CalculatorConst.D1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.44",
+                        PricePerTier: "0.44"
                     },
                     {
-                        Name: CalculatorConst.D2Size,
+                        Name: "D2/DS2",
                         Description: CalculatorConst.D2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.92",
+                        PricePerTier: "0.92"
                     },
                     {
-                        Name: CalculatorConst.D3Size,
+                        Name: "D3/DS3",
                         Description: CalculatorConst.D3SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.85",
+                        PricePerTier: "1.85"
                     },
                     {
-                        Name: CalculatorConst.D4Size,
+                        Name: "D4/DS4",
                         Description: CalculatorConst.D4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.73",
-                    },
-                    {
-                        Name: CalculatorConst.D11Size,
-                        Description: CalculatorConst.D11SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.57",
-                    },
-                    {
-                        Name: CalculatorConst.D12Size,
-                        Description: CalculatorConst.D12SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.14",
-                    },
-                    {
-                        Name: CalculatorConst.D13Size,
-                        Description: CalculatorConst.D13SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.29",
-                    },
-                    {
-                        Name: CalculatorConst.D14Size,
-                        Description: CalculatorConst.D14SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.58",
+                        PricePerTier: "3.73"
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "0.49",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "1.02",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "2.04",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "4.1",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "8.17",
-                 }]
-             },
                 {
-                    Name: "Dv2 系列",
-                    Description: "D 2v系列",
+                    Name: "D系列 / DS系列",
+                    Description: "D 系列/DS 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.D11V2Size,
-                        Description: CalculatorConst.D11V2SizeDesc,
+                        Name: "D11/DS11",
+                        Description: CalculatorConst.D11SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.73",
+                        PricePerTier: "1.57"
                     },
                     {
-                        Name: CalculatorConst.D12V2Size,
-                        Description: CalculatorConst.D12V2SizeDesc,
+                        Name: "D12/DS12",
+                        Description: CalculatorConst.D12SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.46",
+                        PricePerTier: "3.14"
                     },
                     {
-                        Name: CalculatorConst.D13V2Size,
-                        Description: CalculatorConst.D13V2SizeDesc,
+                        Name: "D13/DS13",
+                        Description: CalculatorConst.D13SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.92",
+                        PricePerTier: "6.29"
                     },
                     {
-                        Name: CalculatorConst.D14V2Size,
-                        Description: CalculatorConst.D14V2SizeDesc,
+                        Name: "D14/DS14",
+                        Description: CalculatorConst.D14SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13.83",
-                    }
-                    , {
-                        Name: CalculatorConst.D15V2Size,
-                        Description: CalculatorConst.D15V2SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.29",
-                    }
-                    ]
+                        PricePerTier: "12.58"
+                    }]
                 },
                 {
-                    Name: "F 系列",
-                    Description: "F 系列",
+                    Name: "Ev3 系列 / ESv3 系列",
+                    Description: "Ev3 系列 / ESv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.F1Size,
+                        Name: "E2 v3/ES2 v3",
+                        Description: "2个内核，16GiB RAM，50GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.45"
+                    },
+                    {
+                        Name: "E4 v3/ES4 v3",
+                        Description: "4个内核，32GiB RAM，100GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.92"
+                    },
+                    {
+                        Name: "E8 v3/ES8 v3",
+                        Description: "8个内核，64GiB RAM，200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.83"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列/ESv3 系列",
+                    Description: "Ev3 系列 / ESv3 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E16 v3/ES16 v3",
+                        Description: "16个内核，128GiB RAM，400GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.67"
+                    },
+                    {
+                        Name: "E32 v3/ES32 v3",
+                        Description: "32个内核，256GiB RAM，800GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "23.33"
+                    },
+                    {
+                        Name: "E64 v3/ES64 v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "46.66"
+                    }]
+                },
+                {
+                     Name: "Dv2系列/DSv2系列",
+                     Description: "Dv2系列/DSv2系列",
+                     PricePeriod: PricePeriodEnum.Hourly,
+                     PriceUnit: "台",
+                     MinUnit: "0",
+                     MaxUnit: "100",
+                     Sizes: [{
+                         Name: "D1 v2/DS1 v2",
+                         Description: CalculatorConst.D1V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "0.49"
+                     },
+                     {
+                         Name:"D2 v2/DS2 v2",
+                         Description: CalculatorConst.D2V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "1.02"
+                     },
+                     {
+                         Name: "D3 v2/DS3 v2",
+                         Description: CalculatorConst.D3V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "2.04"
+                     },
+                     {
+                         Name: "D4 v2/DS4 v2",
+                         Description: CalculatorConst.D4V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "4.1"
+                     }]
+                },
+                {
+                    Name: "Dv2 系列 / DSv2 系列",
+                    Description: "Dv2 系列 / DSv2 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [
+                     {
+                         Name: "D5 v2/DS5 v2",
+                         Description: CalculatorConst.D5V2SizeDesc,
+                         PriceTier: PriceTierEnum.Fixed,
+                         PricePerTier: "8.17"
+                     },
+                     {
+                        Name: "D11 v2/DS11 v2",
+                        Description: CalculatorConst.D11V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.73"
+                    },
+                    {
+                        Name: "D12 v2/DS12 v2",
+                        Description: CalculatorConst.D12V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.46"
+                    }]
+                },
+                {
+                     Name: "Dv2系列 /DSv2系列 ",
+                     Description: "Dv2系列/DSv2系列",
+                     PricePeriod: PricePeriodEnum.Hourly,
+                     PriceUnit: "台",
+                     MinUnit: "0",
+                     MaxUnit: "100",
+                     Sizes: [{
+                        Name: "D13 v2/DS13 v2",
+                        Description: CalculatorConst.D13V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.92"
+                    },
+                    {
+                        Name: "D14 v2/DS14 v2",
+                        Description: CalculatorConst.D14V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "13.83"
+                    }, 
+                    {
+                        Name: "D15 v2/DS15 v2",
+                        Description: CalculatorConst.D15V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "17.29"
+                    }]
+                },
+                {
+                    Name: "F 系列/FS 系列",
+                    Description: "F 系列/FS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "F1/FS1",
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.43",
+                        PricePerTier: "0.43"
                     },
                     {
-                        Name: CalculatorConst.F2Size,
+                        Name: "F2/FS2",
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.9",
+                        PricePerTier: "0.9"
                     },
                     {
-                        Name: CalculatorConst.F4Size,
+                        Name: "F4/FS4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8",
+                        PricePerTier: "1.8"
                     },
                     {
-                        Name: CalculatorConst.F8Size,
+                        Name: "F8/FS8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.61",
-                    }
-                    , {
-                        Name: CalculatorConst.F16Size,
+                        PricePerTier: "3.61"
+                    },
+                    {
+                        Name: "F16/FS16",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.19",
+                        PricePerTier: "7.19"
                     }]
                 }]
             }]
@@ -986,31 +1336,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.33",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.53",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.04",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.86",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.73",
                     }]
@@ -1024,49 +1374,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.35",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.58",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.16",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.1",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.21",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.93",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.65",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.3",
                     }]
@@ -1080,25 +1430,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.7605",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.301",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.382",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.7855",
                     }]
@@ -1112,19 +1462,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.1865",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.1594",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.3275",
                     }]
@@ -1312,31 +1662,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.87",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.07",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.58",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.4",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.79",
                     }]
@@ -1350,49 +1700,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.89",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.12",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.7",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.64",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.27",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.47",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.19",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.36",
                     }]
@@ -1406,25 +1756,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.3005",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.841",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.922",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.8455",
                     }]
@@ -1438,19 +1788,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.7265",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.6994",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "13.3875",
                     }]
@@ -1638,31 +1988,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.54",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.74",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.25",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.07",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.13",
                     }]
@@ -1676,49 +2026,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.56",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.79",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.37",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.31",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.61",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.14",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "13.86",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "27.7",
                     }]
@@ -1732,25 +2082,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.9705",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.511",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.592",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "25.1855",
                     }]
@@ -1764,19 +2114,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.3965",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "14.3694",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "28.7275",
                     }]
@@ -1967,31 +2317,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.33",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.47",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.88",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.53",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.07",
                     }]
@@ -2005,49 +2355,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.35",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.51",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.97",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.73",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.46",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.84",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "13.108",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.47",
                     }]
@@ -2061,25 +2411,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.657",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.0825",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.9565",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.9115",
                     }]
@@ -2093,19 +2443,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.083",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.9538",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.9135",
                     }]
@@ -2293,31 +2643,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.87",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.01",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.42",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.07",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.13",
                     }]
@@ -2331,49 +2681,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.89",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.05",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.51",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.27",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.52",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.38",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.01",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12",
                     }]
@@ -2387,25 +2737,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.197",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.6225",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.4965",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.9715",
                     }]
@@ -2419,19 +2769,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.623",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.4938",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.9735",
                     }]
@@ -2619,31 +2969,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.54",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.68",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.09",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.74",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "23.47",
                     }]
@@ -2657,49 +3007,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.56",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.72",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.18",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.94",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "23.86",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.05",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "13.68",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "27.34",
                     }]
@@ -2713,25 +3063,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.867",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.2925",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.1665",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.3115",
                     }]
@@ -2745,19 +3095,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.293",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "14.1638",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "28.3135",
                     }]
@@ -2948,31 +3298,31 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.54",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，40GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.68",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，60GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，60GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.09",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，120GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，120GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.74",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，240GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，240GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "23.47",
                     }]
@@ -2986,49 +3336,49 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A0Size,
-                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 磁盘",
+                        Description: "1个（共用）内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.56",
                     },
                     {
                         Name: CalculatorConst.A1Size,
-                        Description: "1个内核，1.75GiB RAM，70GiB 磁盘",
+                        Description: "1个内核，1.75GiB RAM，70GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.72",
                     },
                     {
                         Name: CalculatorConst.A2Size,
-                        Description: "2个内核，3.5GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，3.5GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.18",
                     },
                     {
                         Name: CalculatorConst.A3Size,
-                        Description: "4个内核，7GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，7GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.94",
                     },
                     {
                         Name: CalculatorConst.A4Size,
-                        Description: "8个内核，14GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，14GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "23.86",
                     },
                     {
                         Name: CalculatorConst.A5Size,
-                        Description: "2个内核，14GiB RAM，135GiB 磁盘",
+                        Description: "2个内核，14GiB RAM，135GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.05",
                     },
                     {
                         Name: CalculatorConst.A6Size,
-                        Description: "4个内核，28GiB RAM，285GiB 磁盘",
+                        Description: "4个内核，28GiB RAM，285GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "13.68",
                     },
                     {
                         Name: CalculatorConst.A7Size,
-                        Description: "8个内核，56GiB RAM，605GiB 磁盘",
+                        Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "27.34",
                     }]
@@ -3042,25 +3392,25 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A1v2Size,
-                        Description: "1个内核，2GiB RAM，10GiB 磁盘",
+                        Description: "1个内核，2GiB RAM，10GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.867",
                     },
                     {
                         Name: CalculatorConst.A2v2Size,
-                        Description: "2个内核，4GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，4GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.2925",
                     },
                     {
                         Name: CalculatorConst.A4v2Size,
-                        Description: "4个内核，8GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，8GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.1665",
                     },
                     {
                         Name: CalculatorConst.A8v2Size,
-                        Description: "8个内核，16GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，16GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.3115",
                     }]
@@ -3074,19 +3424,19 @@ var CalculatorData = {
                     MaxUnit: "100",
                     Sizes: [{
                         Name: CalculatorConst.A2mv2Size,
-                        Description: "2个内核，16GiB RAM，20GiB 磁盘",
+                        Description: "2个内核，16GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.293",
                     },
                     {
                         Name: CalculatorConst.A4mv2Size,
-                        Description: "4个内核，32GiB RAM，40GiB 磁盘",
+                        Description: "4个内核，32GiB RAM，40GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "14.1638",
                     },
                     {
                         Name: CalculatorConst.A8mv2Size,
-                        Description: "8个内核，64GiB RAM，80GiB 磁盘",
+                        Description: "8个内核，64GiB RAM，80GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "28.3135",
                     }]
