@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="redis-cache" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-26T17:00:00" urlName="redis-cache" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="redis-cache" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -36,7 +36,7 @@
                             <td style="min-width:100px;">           
                             </td>
                             <td style="min-width:100px;">
-                               基本缓存，适用于开发/测试。
+                            基本缓存是单个缓存节点，适用于开发/测试和非关键型工作负荷。
                             </td>
                             <td style="padding-left: 80px;">
                                基于主/从复制的生产级别缓存服务。
@@ -78,7 +78,7 @@
                                 SLA
                             </td>
                             <td style="min-width:100px;">
-                                -
+                                基本级别没有服务级别协议
                             </td>
                             <td style="padding-left: 80px;">
                                 99.9%
@@ -209,7 +209,7 @@
                     <!-- BEGIN: Table2-Content-->
                     <h2>定价详细信息</h2>
                     <h3>基本</h3>
-                    <p>基本缓存是单个缓存节点，适用于开发/测试和非关键型工作负荷。基本级别没有服务级别协议。</p>
+                    <p>基本缓存是单个缓存节点，适用于开发/测试和非关键型工作负荷。基本级别没有服务级别协议。缓存节点的更新升级阶段，服务不可用，数据可能会丢失。</p>
                     <!-- <p>从2016年4月1日起，基本级别价格会下调 25.5%，以下是下调后的新价格：</p> -->
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
