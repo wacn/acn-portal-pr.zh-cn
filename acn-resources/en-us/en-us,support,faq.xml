@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2014-11-07T08:57:21" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
+  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-06-25T15:00:00" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
     <bodyText><![CDATA[
       
         <div class="section-component">
                         <h2>Please select the category of FAQ to browse</h2>
                         <!-- BEGIN: TAB-CONTROL -->
                         <div class="tab-control-selector">
-                            <a href="#" data-href="#general" id="faq-general" class="active">General inquiries</a> <a href="#" data-href="#registration" id="faq-registration">Registration</a> <a href="#" data-href="#billingAndSubscription" id="faq-billingAndSubscription">Billing, subscriptions and Fapiao</a> <a href="#" data-href="#implementationAndMaintenance" id="faq-implementationAndMaintenance">Implementation and maintenance</a> <!-- <a href="#" data-href="#ICP" id="faq-icp">ICP 问题</a> --> <!--<a href="#" data-href="#policy" id="faq-policy">Azure 支持概述问题</a>--> <a href="#" id="new_control_bexpend" class="faq-floder"><em>Show all</em></a>
+                            <a href="#" data-href="#general" id="faq-general" class="active">General inquiries</a> <a href="#" data-href="#registration" id="faq-registration">Registration</a> <a href="#" data-href="#billingAndSubscription" id="faq-billingAndSubscription">Billing, subscriptions and Fapiao</a> <a href="#" data-href="#implementationAndMaintenance" id="faq-implementationAndMaintenance">Implementation and maintenance</a> <!-- <a href="#" data-href="#ICP" id="faq-icp">ICP 问题</a> --> 
+                            <a href="#" data-href="#support" id="faq-support">Azure Support</a> <a href="#" id="new_control_bexpend" class="faq-floder"><em>Show all</em></a>
                             <div class="clearfix"></div>
                             <div class="floder-layer">
                                 <div class="tab-control-container tab-active" id="general">   
                                     <div class="pricing-page-section">                      
                                         <div class="more-detail">
-                                            <h2>1 General Inquiries</h2>
+                                            <h2>General Inquiries</h2>
                                             <ul>
                                                 <li>
                                                     <i class="icon icon-plus"></i>
@@ -214,16 +215,16 @@
                                                         </section>
                                                     </div>
                                                 </li>
-                                                <li>
+                                                <!-- <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
                                                         <a id="q-1-10" href="#q-1-10">Does Azure support open-source software in China?</a>
                                                         <section>
                                                             <p>Azure supports a large number of open source applications, frameworks and languages, and the number is still growing. We understand that developers want to use the most suitable tools based on their own experience, skill, tool and application needs, and our goal is to allow developers to choose tools as needed.</p>
-                                                            <p>For open source code, please refer to <a id="FAQ-8" href="//github.com/Azure?utf8=%E2%9C%93&q=azure-sdk&type=&language=">Microsoft Azure SDK</a>.</p>
+                                                            
                                                         </section>
                                                     </div>
-                                                </li>
+                                                </li> -->
                                                 <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
@@ -1279,137 +1280,184 @@
                                         </div>
                                     </div>
                                 </div>
-								--> <!--<div class="tab-control-container" id="policy">
+								--> 
+								<div class="tab-control-container" id="support">
                                     <div class="pricing-page-section">                      
                                         <div class="more-detail">
-                                            <h2>Azure 支持概述</h2>
+                                            <h2>Azure Support</h2>
+                                            <h3>Azure Support Overview</h3>
 											<ul>
                                                 <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-1" href="#">什么是故障维修服务？</a>
+                                                        <a id="q-5-1" href="#q-5-1">For which languages does 21Vianet provide support? </a>
                                                         <section>
-                                                            <p> “故障维修服务”是一个行业术语，指“一项技术在其正常功能适用过程中出现故障时所展开的支持工作，需要支持团队介入才能恢复正常运行。”</p>
+                                                            <p>21Vianet provides support in two languages: Chinese and English.</p>
                                                         </section>
                                                     </div>
                                                 </li>
 												<li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-2" href="#">关于咨询服务，专业版 (Pro-Direct) 与企业高级版 (Premier) 相比如何？ </a>
+                                                        <a id="q-5-2" href="#q-5-2">Do I get 24x7 support?</a>
                                                         <section>
-                                                            <p>专业版 (Pro-Direct) 咨询服务基于</p>
-															<ol>
-																<li>公开使用的Azure 的最佳实践文档。</li>
-																<li>来自 Azure 论坛的信息 来为您提供支持指导，但它比企业高级版（Premier）支持程度有限。</li>
-															</ol>
-															<p>Pro-Direct 顾问不提供特定于某个客户的详细咨询帮助，例如设计、架构或代码评审、应用程序具体指导、配置调优（如性能调优）或规范验证。  Pro-Direct 也不提供现场支持或不参与项目实现，如（但不限于）Azure 上客户开发或部署的编码或配置。</p>
+                                                            <p>21Vianet provides 24x7 technical support in Chinese and English for severity A only. Severity A support is available only to customers who have signed the 21Vianet Online Services Advanced Agreement (purchase services through the sales team).</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-3" href="#">Azure 支持计划是否涵盖预览服务或功能？</a>
+                                                        <a id="q-5-3" href="#q-5-3">What is considered local business hours for support? </a>
                                                         <section>
-                                                            <p>我们仅向“公共预览 (public preview)”服务和功能提供支持，且仅限于故障维修问题。</p>
+                                                            <p>For China, business hours are defined as 9:00 A.M to 6:00 P.M Beijing time during week days (weekends and holidays are excluded). </p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-4" href="#">我如何联系 Azure 支持？</a>
+                                                        <a id="q-5-4" href="#q-5-4">What kind of support will I get from 21vianet technical support team? </a>
                                                         <section>
-                                                            <p>您可通过<a id="faq-policy-contact" href="/support/contact/">联系我们</a>轻松访问 Azure 支持。这是获取自助服务或支持工程师反馈的最快方式，他们将准备好开始提供帮助。</p>
+                                                            <p>21vianet technical support team will provide you with break-fix and limited advisory support. Break-fix issues are technical problems you experience while using Azure services. "Break-fix" is an industry term that refers to “work involved in supporting a technology when it fails in the normal course of its function, which requires intervention by a support organization to be restored to working order." Limited advisory support generally includes answers to common questions and best practices sharing. </p>
+                                                            <p>For customer specific architectural support such as design reviews, performance tuning, code optimization and personalized configuration, please get support from Premier service. You can contact your account manager to learn how to purchase.</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-5" href="#">为什么在线提交工单是首选的联系 Azure 支持的方式？</a>
+                                                        <a id="q-5-5" href="#q-5-5">What is a Public Preview service or feature? Will it be supported?</a>
                                                         <section>
-                                                            <p><a id="faq-policy-support-azure" target="_blank" href="https://support.windowsazure.cn/support/support-azure/">在线提交工单</a>使我们能够以最高效简便的方法快速获得您的服务请求的详细说明，更快地转给最适合的工程师；相比于通过电话提供此类信息，在线提交使您不必额外花时间等待回应。因此，我们强烈推荐您使用网页或云助手在线提交。</p>
+                                                            <p>Public Preview services or features are available to Azure subscribers through the Azure Portal, these services are intended to be used as an early-look into what is coming and as a chance to test upcoming services and features. Public Preview services or features are identified by “Preview” tag in the Azure Portal and Azure.cn product page.</p>
+                                                            <p>When you’re offered early access to Azure preview services and features, they are subject to reduced or different service terms as set forth in your service agreement and the preview supplemental terms. Preview Services and Features are provided “as-is”, “with all faults”, and “as available”, and are excluded from the Service SLAs or any Limited Warranties provided for Azure Services released to general availability (GA), and are made available to you on the condition that you agree to these terms of use, which supplement your agreement governing use of Azure. 21Vianet provides support from Public Preview service or feature.</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <h3>Using Azure Support</h3>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-6" href="#">谁可以提交工单？</a>
+                                                        <a id="q-5-6" href="#q-5-6">How do I contact Azure Support? </a>
                                                         <section>
-                                                            <p>您订阅的帐户管理员、服务管理员或协同管理员可以提交工单。此外，任何具有订阅的“写权限”（<a id="faq-policy-role-based-access-control-in-azure-preview-portal" target="_blank" href="/updates/role-based-access-control-in-azure-preview-portal/">所有者/参与者</a>）的用户均可以提交和管理该订阅相关的工单。</p>
+                                                            <p>Our<a href="/support/contact/">contact support page </a>provides all avaible entrances to Azure support. You can easily get access to Azure Support by submitting a support request online or via mobile (app), contacting support through WeChat account or calling 21Vianet hotline. </p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-7" href="#">什么是初始响应时间？提交工单后，多久可以获得相关人员的反馈？</a>
+                                                        <a id="q-5-7" href="#q-5-7">Why is submitting a request online the preferred method of contacting Azure Support? </a>
                                                         <section>
-                                                            <p>初始响应时间是指从您提交工单到 支持工程师与您联系并开始处理工单之间的这段时间。初始响应时间同时取决于支持计划类别和请求的业务影响（也称为严重级别）。</p>
+                                                            <p>Submitting support requests online allows support team to deliver fast and deep technical expertise in the most effective and efficient manner possible. Due to the detailed nature of the requests, it is much easier to provide relevant information online, compared to reading this information over the phone. This model also eliminates unproductive hold time for a simple, intuitive online process. As a result, customer problems are routed more quickly, to the most qualified engineer.</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-8" href="#">你们可以用多快的速度解决我的工单？</a>
+                                                        <a id="q-5-8" href="#q-5-8">Is there a phone number I can call to contact the Azure Support? </a>
                                                         <section>
-                                                            <p>我们承诺会尽快协助您解决问题。有时这意味着在提供完整解决方案之前，我们会优先降低对您业务或者运营的负面影响。因此，我们承诺初始响应时间，及与您协同合作直至问题缓解。由于故障排查和解决工单所需的时间随问题的具体内容不同而大有差异，我们不能承诺解决时间，但尽全力与您协作尽快解决问题。</p>
+                                                            <p>Contacting Azure Support over the phone will not speed up the processing of your request and you will get a much better and faster experience by submitting support requests online. If you cannot submit a request online, please call 21V service hotline: 400-089-0365.</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-9" href="#">我正在 Azure 上运行非微软技术或使用开源软件 (OSS) 构建的自定义应用程序，能否得到支持？</a>
+                                                        <a id="q-5-9" href="#q-5-9">How do I submit a support request? </a>
                                                         <section>
-                                                            <p>客户可以在 Azure 平台上运行非 微软技术，包括但不限于 Linux、Oracle、SAP 和 IBM。对于可支持范围内的所有情况，支持团队会帮您辨别问题源自 Azure 服务本身还是自定义的应用程序。</p>
-															<p>如果确定该问题是由 Azure 服务或平台导致的，我们将提供全面的技术支持。对于其他所有情况，我们将提供商业上合理的支持，如解决方法不足以解决您的问题，我们可能会向您推荐其他第三方支持渠道。</p>
+                                                            <pYou can submit online (or via mobile) support request directly from<a href="//support.azure.cn/support/support-azure/">here</a>.                                             Also, you will be redirected to online support from “<a href="//portal.azure.cn/">Help + support</a>”blade in Azure Management Portal. Visit<a href="/support/contact/">contact support page</a>for all avaible entrances to Azure support. </p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-10" href="#">我可以在在线提交工单时要求回电吗？</a>
+                                                        <a id="q-5-10" href="#q-5-10">How do I submit a support request if I cannot log in to the management portal? </a>
                                                         <section>
-                                                            <p>可以，这是标准版 (Standard) 及以上的客户所享有的一项权益。如果您选择与支持工程师沟通，可以在提交工单时将“电话”选为您的首选联系方式。</p>
+                                                            <p>You can submit online (or via mobile) support request directly from<a href="//support.azure.cn/support/support-azure/">here</a>. Refer to<a href="/support/contact/">contact support page</a>for all avaible entrances to Azure support.  </p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-11" href="#">我如何在运行中断或服务中断事件 (SIE) 期间获取支持？</a>
+                                                        <a id="q-5-11" href="#q-5-11">How do I get support if I don’t have an Azure subscription yet, and I get an error message while creating one? </a>
                                                         <section>
-                                                            <p>在 SIE（服务中断）期间，我们会在<a id="faq-policy-shd" href="/support/service-dashboard/">Azure 服务仪表盘</a>发布及时更新, 这是接收最新信息的最佳方式。您也可提交工单，我们会与您协作以确定您的问题是否与当前发生的的 SIE 有关。</p>
+                                                            <p>You can open a Subscription Management support request from<a href="//support.azure.cn/support/support-azure/">here</a>.</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-12" href="#">我如何升级到更高级别的 Azure 支持计划？</a>
+                                                        <a id="q-5-12" href="#q-5-12">What is Initial Response Time and how quickly can I expect to hear back from someone after submitting my support request?  </a>
                                                         <section>
-                                                            <p>根据您购买的 Azure 服务及充值金额或者年度承诺额，您可以升级支持计划，请参考<a id="faq-policy-plans" href="/support/plans/">Azure 支持计划</a>了解具体的标准。</p>
+                                                            <p>Initial Response Time is the period from when you submit your support request to when a Support Engineer contacts you and starts working on your support request. The Initial Response Time varies with the Business Impact of the request (also known as Severity).</p>
                                                         </section>
                                                     </div>
                                                 </li>
-												<li>
+                                                <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-policy-13" href="#">什么是高级云服务依赖关系图 (CSDM)？</a>
+                                                        <a id="q-5-13" href="#q-5-13">How quickly will you resolve my support request?  </a>
                                                         <section>
-                                                            <p>云服务依赖关系图 (CSDM) 记录了上游和下游会影响云服务的关键系统依赖关系。这将帮助您的 IT 人员在问题发生前识别潜在问题，同时帮助他们在问题发生时更快速地解决问题。</p>
+                                                            <p>21 Vianet is committed to assist you in resolving your issue as soon as possible. Sometimes that means focusing efforts on reducing the business impact and mitigating any negative impact to your operation, before moving to a full solution. Therefore, 21Vianet make a commitment to Initial Response Time and also in working with you until the impact of your issue is mitigated, having no direct SLA for support request resolution. The time it takes to troubleshoot and resolve a support request varies greatly based on the specifics of the issue. Support engineer will work with you to get the issue resolved as fast as possible.</p>
+                                                        </section>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon icon-plus"> </i>
+                                                    <div>
+                                                        <a id="q-5-14" href="#q-5-14">I’m running a non-Microsoft technology on Azure or a custom application built using Open Source Software (OSS). Will it be supported? </a>
+                                                        <section>
+                                                            <p>Customers can run non-Microsoft technologies on the Azure platform, including but not limited to Linux, Oracle, SAP, and IBM. For all scenarios that are eligible for support, 21V Support team will help in isolating the issue between the Azure Service and your custom application.</p>
+                                                            <p>Full technical support will be provided if the issue is determined to be caused by an Azure service or platform. Commercially reasonable support will be provided to all other scenarios. When an adequate solution to your issue is not achieved, you might be referred to other support channels that are available for the non-Microsoft software.</p>
+                                                            <p>For open source code, please refer to <a id="FAQ-8" href="//github.com/Azure?utf8=%E2%9C%93&q=azure-sdk&type=&language=">Microsoft Azure SDK</a>.</p>
+                                                        </section>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-5-15" href="#q-5-15">	How do I get support during an Outage or Service Interruption Event (SIE)? </a>
+                                                        <section>
+                                                            <p>During a SIE (Service Outage), 21Vianet provides frequent and timely updates to the <a href="/support/service-dashboard/">Azure Service Dashboard</a>. This is the best way to receive the latest information. You can also <a href="/support/contact/">chat</a>through WeChat account with a support engineer who will work with you to determine whether your issue is related to an ongoing SIE.</p>
+                                                        </section>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-5-16" href="#q-5-16">Can I request a Root-Cause Analysis (RCA)?  </a>
+                                                        <section>
+                                                            <p>If you have opened an Azure technical support case and need an RCA, you can request one.</p>
+                                                        </section>
+                                                    </div>
+                                                </li>
+                                                <h3>Azure Support for Enterpise/Premier </h3>
+                                                <li>
+                                                    <i class="icon icon-plus"></i>
+                                                    <div>
+                                                        <a id="q-5-17" href="#q-5-17">How do I purchase an Enterprise contract?</a>
+                                                        <section>
+                                                            <p>Please consult Purchase Process section in this article:<a href="//docs.azure.cn/en-us/articles/azure-china-purchasing-guidance/go-china-playbook-ospa-purchase-process">Enterprise Purchase Process</a>.</p>
+                                                        </section>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <i class="icon icon-plus"> </i>
+                                                    <div>
+                                                        <a id="q-5-18" href="#q-5-18">What if I already have a Premier contract and I want to learn more about how to get the most from it? </a>
+                                                        <section>
+                                                            <p>Contact your Technical Account Manager (TAM) to discuss options for best utilizing your existing Premier support agreement or rightsizing your Premier agreement to better suit your Azure needs.</p>
                                                         </section>
                                                     </div>
                                                 </li>
                                             </ul> 
 										</div>			
-									</div>-->
+									</div>
 								</div>
                             </div>
                             
