@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="2" createDate="2017-09-06T07:49:24" updateDate="2017-09-07T10:41:59" urlName="storage-unmanaged-disks" writerName="content" creatorName="content">
+  <TextpageLeftNav template="2" createDate="2017-09-06T07:49:24" updateDate="2018-07-02T10:41:59" urlName="storage-unmanaged-disks" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="storage-unmanaged-disks-page-blobs" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -11,6 +11,7 @@
                 .cognitive-figure{
                     padding-bottom: 30px;
                     margin-bottom: 30px;
+                    border-bottom: 1px #ccc solid;
                     overflow: hidden;
                 }
                 .cognitive-figure .col-md-3{
@@ -49,10 +50,6 @@
                 .cognitive-icon-group li:last-child{
                     margin-bottom: 0 !important;
                 }
-                .cognitive-icon svg{
-                    max-width:100%;
-                    height:100px;
-                }
                 @media only screen and (max-width: 769px){
                     .cognitive-figure{
                         padding-bottom: 20px;
@@ -81,73 +78,73 @@
             <!-- BEGIN: storage-Content -->
             <div class="pricing-page-section">
                 <p>无论是需要高度可用的任务关键型工作负荷还是具成本效益选项的测试方案，通过 Azure 磁盘存储均可获得虚拟机所需的持久性、可用性和安全性。为 I/O 密集型应用程序（其中低延迟和高吞吐量非常关键）选择高级磁盘存储 (SSD)。由于测试需要快速扩展和缩减，因此可考虑使用标准磁盘存储 (HDD) 以降低成本。</p>
-				
-                <ul class="cognitive-icon-group">
-                    
-                    <li>
-                        <div class="cognitive-icon">
-                            <svg style="display:none; visibility:hidden;"><defs><symbol id="svg-management-storage" viewBox="0 0 172.364 123.898"> <path d="M85.657,111.821c-.077,0-.143.018-.219.02A12.608,12.608,0,0,0,64.757,99.164,16.55,16.55,0,0,0,32.3,101.972c-.138-.025-.274-.046-.412-.066a12.587,12.587,0,0,0-20.477,5.247A8.6,8.6,0,1,0,8.6,123.884H28.751a11.176,11.176,0,0,0,1.636.121h55.27a6.092,6.092,0,1,0,0-12.184Z" fill="#cbebf5"/> <path d="M82.722,43.079l.168-.031a9.906,9.906,0,0,0-1.712-19.663l-.1,0c.056-.63.087-1.266.087-1.909a21.476,21.476,0,0,0-41.839-6.827,14.677,14.677,0,1,0-4.8,28.548H82.044l-.01-.034c.209-.017.416-.042.62-.075Z" fill="#cbebf5" opacity="0.8"/> <path d="M165.614,84.938l.077-.014a4.515,4.515,0,0,0-.779-8.962h-.046c.025-.287.04-.578.04-.87a9.789,9.789,0,0,0-19.07-3.112,6.69,6.69,0,1,0-2.187,13.012H165.3l0-.015c.1-.008.189-.019.282-.034Z" fill="#cbebf5" opacity="0.8"/> <path d="M51.814,108.828a3.5,3.5,0,0,0,3.484,3.494h87.283a3.5,3.5,0,0,0,3.494-3.494l.008-62.48H51.814Z" fill="#a0a1a2"/> <path d="M142.589,32.023H55.3a3.5,3.5,0,0,0-3.484,3.5V46.35H146.08l0-10.832a3.506,3.506,0,0,0-3.495-3.5" fill="#7a7a7a"/> <rect x="58.792" y="52.974" width="38.404" height="24.429" fill="#0072c6"/> <rect x="58.792" y="80.893" width="38.404" height="24.449" fill="#0072c6"/> <rect x="100.692" y="52.974" width="38.365" height="24.429" fill="#fff"/> <rect x="100.692" y="80.893" width="38.365" height="24.449" fill="#0072c6"/> <path d="M55.6,31.975a3.785,3.785,0,0,0-3.785,3.784v72.813a3.788,3.788,0,0,0,3.785,3.786h4.125l74.318-80.383Z" fill="#fff" opacity="0.2"/> </symbol> </defs></svg><svg aria-hidden="true" role="presentation"><use xlink:href="#svg-management-storage"></use></svg>
-                        </div>
-                        <div class="cognitive-text">
-                            <h2>简单管理</h2>
-                            <p>指定存储类型（SSD 或 HDD）和所需磁盘大小创建托管磁盘，Azure 将为你创建并管理磁盘。</p>
-                            <p><a href="/home/features/storage/managed-disks/">托管磁盘概述</a></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cognitive-icon">
-                            <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-durability.png" />
-                        </div>
-                        <div class="cognitive-text">
-                            <h2>高度持久、可用和安全</h2>
-                            <p>Azure 磁盘具备 99.999% 的可用性。你的数据具有三个副本，高持久性让用户高枕无忧。如果一个或两个副本出现问题，剩下的副本有助于确保数据持久性和对故障的高耐受性。此架构有助于 Azure 为 IaaS 磁盘持续提供企业级持久性，年化故障率为 0%，达到行业领先水平。此外，还使用加密自动保护静态数据。</p>
-                            
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cognitive-icon">
-                            <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-why-choose.png" />
-                        </div>
-                        <div class="cognitive-text">
-                            <h2>为什么选择 Azure 磁盘存储？</h2>
-                            <p>所有云磁盘存储都有所不同。Azure 提供：</p>
-                            <p>1. 经认证的直接迁移 - 高级磁盘存储上的 Azure SQL 数据库、Microsoft Dynamics AX、Microsoft Dynamics CRM、Microsoft Exchange Server 和 Microsoft SharePoint 场均已经过验证，完全集成的部署解决方案值得信赖。</p>
-                            <p>2. 缓存增强的性能 - 使用高级磁盘存储和 DS 系列虚拟机时，独特的缓存架构可降低延迟从而改善性能。</p>
-                            <p>3. 跨平台 - 支持 Linux，并与受信任的 Microsoft 解决方案进行端到端集成，从而为用户提供经验证的选择。</p>                           
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cognitive-icon">
-                            <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-simple-scaling.png" />
-                        </div>
-                        <div class="cognitive-text">
-                            <h2>按需轻松扩展</h2>
-                            <p>将本地企业应用程序迁移到云，即可省去硬件和基础设施管理工作。按需扩展或缩减虚拟机存储，应对流量的意外激增或数据存储空间大小的增长。改进并变换整个基础设施模型（Windows 或 Linux），获取高度可缩放、全球可用的云存储。</p>
-                            
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cognitive-icon">
-                            <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-latency.png" />
-                        </div>
-                        <div class="cognitive-text">
-                            <h2>低延迟、高吞吐量的存储</h2>
-                            <p>性能至上的情况下，请使用高级磁盘存储 (SSD) 实现低延迟和高吞吐量。使用大型 Azure 虚拟机（GS 系列）构建高性能数据库，用户即可体验每虚拟机每秒高达 80,000 IOPS 和 2,000 MB 的最大磁盘吞吐量，甚至是更快的缓存速度（此缓存速度针对高要求的企业工作负荷）。</p>
-                            <p><a href="//docs.azure.cn/zh-cn/virtual-machines/windows/premium-storage/">高级存储概述</a></p>
-                            
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cognitive-icon">
-                            <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-cost-effective.png" />
-                        </div>
-                        <div class="cognitive-text">
-                            <h2>具成本效益的测试</h2>
-                            <p>以低于本地的成本，通过简单的云可扩展性支持 DevOps 目标、测试工作负荷。若不需要生产水平的性能，请将永久性数据保存在标准磁盘存储 (HDD) 中，然后按需启动测试虚拟机。</p>
-                            
-                        </div>
-                    </li>
-                </ul>
+            </div>
+            <div class="pricing-page-section">
+				<div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <svg style="display:none; visibility:hidden;"><defs><symbol id="svg-management-storage" viewBox="0 0 172.364 123.898"> <path d="M85.657,111.821c-.077,0-.143.018-.219.02A12.608,12.608,0,0,0,64.757,99.164,16.55,16.55,0,0,0,32.3,101.972c-.138-.025-.274-.046-.412-.066a12.587,12.587,0,0,0-20.477,5.247A8.6,8.6,0,1,0,8.6,123.884H28.751a11.176,11.176,0,0,0,1.636.121h55.27a6.092,6.092,0,1,0,0-12.184Z" fill="#cbebf5"/> <path d="M82.722,43.079l.168-.031a9.906,9.906,0,0,0-1.712-19.663l-.1,0c.056-.63.087-1.266.087-1.909a21.476,21.476,0,0,0-41.839-6.827,14.677,14.677,0,1,0-4.8,28.548H82.044l-.01-.034c.209-.017.416-.042.62-.075Z" fill="#cbebf5" opacity="0.8"/> <path d="M165.614,84.938l.077-.014a4.515,4.515,0,0,0-.779-8.962h-.046c.025-.287.04-.578.04-.87a9.789,9.789,0,0,0-19.07-3.112,6.69,6.69,0,1,0-2.187,13.012H165.3l0-.015c.1-.008.189-.019.282-.034Z" fill="#cbebf5" opacity="0.8"/> <path d="M51.814,108.828a3.5,3.5,0,0,0,3.484,3.494h87.283a3.5,3.5,0,0,0,3.494-3.494l.008-62.48H51.814Z" fill="#a0a1a2"/> <path d="M142.589,32.023H55.3a3.5,3.5,0,0,0-3.484,3.5V46.35H146.08l0-10.832a3.506,3.506,0,0,0-3.495-3.5" fill="#7a7a7a"/> <rect x="58.792" y="52.974" width="38.404" height="24.429" fill="#0072c6"/> <rect x="58.792" y="80.893" width="38.404" height="24.449" fill="#0072c6"/> <rect x="100.692" y="52.974" width="38.365" height="24.429" fill="#fff"/> <rect x="100.692" y="80.893" width="38.365" height="24.449" fill="#0072c6"/> <path d="M55.6,31.975a3.785,3.785,0,0,0-3.785,3.784v72.813a3.788,3.788,0,0,0,3.785,3.786h4.125l74.318-80.383Z" fill="#fff" opacity="0.2"/> </symbol> </defs></svg><svg aria-hidden="true" role="presentation" style="    max-width: 100%;"><use xlink:href="#svg-management-storage"></use></svg>
+                    </div>
+                    <div class="col-md-9">
+                        <h2>简单管理</h2>
+                        <p>指定存储类型（SSD 或 HDD）和所需磁盘大小创建托管磁盘，Azure 将为你创建并管理磁盘。</p>
+                        <p><a href="/home/features/storage/managed-disks/">托管磁盘概述</a></p>
+                    </div>
+                </div>
+
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-durability.png" />
+                    </div>
+                    <div class="col-md-9">
+                        <h2>高度持久、可用和安全</h2>
+                        <p>Azure 磁盘具备 99.999% 的可用性。你的数据具有三个副本，高持久性让用户高枕无忧。如果一个或两个副本出现问题，剩下的副本有助于确保数据持久性和对故障的高耐受性。此架构有助于 Azure 为 IaaS 磁盘持续提供企业级持久性，年化故障率为 0%，达到行业领先水平。此外，还使用加密自动保护静态数据。</p>
+                    </div>
+                </div>
+
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-why-choose.png" />
+                    </div>
+                    <div class="col-md-9">
+                        <h2>为什么选择 Azure 磁盘存储？</h2>
+                        <p>所有云磁盘存储都有所不同。Azure 提供：</p>
+                        <p>1. 经认证的直接迁移 - 高级磁盘存储上的 Azure SQL 数据库、Microsoft Dynamics AX、Microsoft Dynamics CRM、Microsoft Exchange Server 和 Microsoft SharePoint 场均已经过验证，完全集成的部署解决方案值得信赖。</p>
+                        <p>2. 缓存增强的性能 - 使用高级磁盘存储和 DS 系列虚拟机时，独特的缓存架构可降低延迟从而改善性能。</p>
+                        <p>3. 跨平台 - 支持 Linux，并与受信任的 Microsoft 解决方案进行端到端集成，从而为用户提供经验证的选择。</p>                           
+                    </div>
+                </div>
+
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-simple-scaling.png" />
+                    </div>
+                    <div class="col-md-9">
+                        <h2>按需轻松扩展</h2>
+                        <p>将本地企业应用程序迁移到云，即可省去硬件和基础设施管理工作。按需扩展或缩减虚拟机存储，应对流量的意外激增或数据存储空间大小的增长。改进并变换整个基础设施模型（Windows 或 Linux），获取高度可缩放、全球可用的云存储。</p>
+                    </div>
+                </div>
+
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-latency.png" />
+                    </div>
+                    <div class="col-md-9">
+                        <h2>低延迟、高吞吐量的存储</h2>
+                        <p>性能至上的情况下，请使用高级磁盘存储 (SSD) 实现低延迟和高吞吐量。使用大型 Azure 虚拟机（GS 系列）构建高性能数据库，用户即可体验每虚拟机每秒高达 80,000 IOPS 和 2,000 MB 的最大磁盘吞吐量，甚至是更快的缓存速度（此缓存速度针对高要求的企业工作负荷）。</p>
+                        <p><a href="//docs.azure.cn/zh-cn/virtual-machines/windows/premium-storage/">高级存储概述</a></p>
+                    </div>
+                </div>
+
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/unmanaged-disks-cost-effective.png" />
+                    </div>
+                    <div class="col-md-9">
+                        <h2>具成本效益的测试</h2>
+                        <p>以低于本地的成本，通过简单的云可扩展性支持 DevOps 目标、测试工作负荷。若不需要生产水平的性能，请将永久性数据保存在标准磁盘存储 (HDD) 中，然后按需启动测试虚拟机。</p>
+                    </div>
+                </div>
+
             </div>
             <!--BEGIN: Support and service code chunk-->
             <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
