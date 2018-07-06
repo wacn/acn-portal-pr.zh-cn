@@ -1,0 +1,561 @@
+[
+  {
+    "CategoryName": "Compute",
+    "Services": [
+      {
+        "ServiceName": "Virtual Machines",
+        "Slug": "virtual-machines",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Cloud Services",
+        "Slug": "cloud-services",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Virtual Machine Scale Sets",
+        "Slug": "virtual-machine-scale-sets",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Azure Functions",
+        "Slug": "functions",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Service Fabric",
+        "Slug": "service-fabric",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Networking",
+    "Services": [
+      {
+        "ServiceName": "Virtual Network",
+        "Slug": "virtual-network",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Load Balancer",
+        "Slug": "load-balancer",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Application Gateway",
+        "Slug": "application-gateway",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "CCS",
+        "Slug": "cloud-connection",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "VPN Gateway",
+        "Slug": "vpn-gateway",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "CDN",
+        "Slug": "azure-cdn",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Traffic Manager",
+        "Slug": "traffic-manager",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "ExpressRoute",
+        "Slug": "expressroute",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "ExpressRoute Circuits",
+            "Slug": "expressroute\\circuits"
+          },
+          {
+            "ServiceName": "ExpressRoute Gateways",
+            "Slug": "expressroute\\gateways"
+          }
+        ]
+      },
+      {
+        "ServiceName": "Network Watcher",
+        "Slug": "network-watcher",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Storage",
+    "Services": [
+      {
+        "ServiceName": "Storage",
+        "Slug": "storage",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Web",
+    "Services": [
+      {
+        "ServiceName": "App Service",
+        "Slug": "app-service",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "Web Apps",
+            "Slug": "app-service\\web"
+          },
+          {
+            "ServiceName": "Mobile Apps",
+            "Slug": "app-service\\mobile"
+          },
+          {
+            "ServiceName": "API Apps",
+            "Slug": "app-service\\api"
+          }
+        ]
+      },
+      {
+        "ServiceName": "API Management",
+        "Slug": "api-management",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Mobile",
+    "Services": [
+      {
+        "ServiceName": "Notification Hubs",
+        "Slug": "notification-hubs",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Containers",
+    "Services": [
+      {
+        "ServiceName": "Batch",
+        "Slug": "batch",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Databases",
+    "Services": [
+      {
+        "ServiceName": "SQL Data Warehouse",
+        "Slug": "sql-data-warehouse",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Cosmos DB",
+        "Slug": "cosmos-db",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Azure SQL Database",
+        "Slug": "sql-database",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Redis Cache",
+        "Slug": "redis-cache",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "SQL Server Stretch Database",
+        "Slug": "sql-server-stretch-database",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "MySQL Database on Azure",
+        "Slug": "mysql",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Analytics",
+    "Services": [
+      {
+        "ServiceName": "HDInsight",
+        "Slug": "hdinsight",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Stream Analytics",
+        "Slug": "stream-analytics",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Event Hubs",
+        "Slug": "event-hubs",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Power BI Workspace Collection",
+        "Slug": "power-bi-embedded",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Analysis Services",
+        "Slug": "analysis-services",
+        "Region": {
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "AI",
+    "Services": [
+      {
+        "ServiceName": "Cognitive Services",
+        "Slug": "cognitive-services",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "Computer Vision API",
+            "Slug": "computer-vision"
+          },
+          {
+            "ServiceName": "Emotion API",
+            "Slug": "emotion-api"
+          },
+          {
+            "ServiceName": "Face API",
+            "Slug": "face-api"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "CategoryName": "Internet of Things",
+    "Services": [
+      {
+        "ServiceName": "Azure IoT Hub",
+        "Slug": "iot-hub",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "IoT Suite",
+        "Slug": "iot-suite",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Integration",
+    "Services": [
+      {
+        "ServiceName": "Service Bus",
+        "Slug": "service-bus",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Identity",
+    "Services": [
+      {
+        "ServiceName": "Multi-Factor Authentication",
+        "Slug": "multi-factor-authentication",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Active Directory",
+        "Slug": "active-directory",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Security",
+    "Services": [
+      {
+        "ServiceName": "Key Vault",
+        "Slug": "key-vault",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Management Tool",
+    "Services": [
+      {
+        "ServiceName": "Site Recovery",
+        "Slug": "site-recovery",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Portal",
+        "Slug": "azure-portal",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Backup",
+        "Slug": "backup",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Advisor",
+        "Slug": "advisor",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Azure Policy",
+        "Slug": "azure-policy",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Azure Monitor",
+        "Slug": "monitor",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "Metrics",
+            "Slug": "metrics"
+          },
+          {
+            "ServiceName": "Activity Logs",
+            "Slug": "activity-log"
+          },
+          {
+            "ServiceName": "Diagnostic logs",
+            "Slug": "diagnostic-logs"
+          },
+          {
+            "ServiceName": "AutoScale",
+            "Slug": "autoscale"
+          },
+          {
+            "ServiceName": "Action Groups",
+            "Slug": "action-groups"
+          }
+        ]
+      },
+      {
+        "ServiceName": "Azure Resource Manager",
+        "Slug": "azure-resource-manager",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Scheduler",
+        "Slug": "scheduler",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "www.azure.cn",
+        "Slug": "azure-microsoft-cn",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Automation",
+        "Slug": "automation",
+        "Region": {
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Media",
+    "Services": [
+      {
+        "ServiceName": "Media Services",
+        "Slug": "media-services",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "Encoding",
+            "Slug": "media-services\\encoding"
+          },
+          {
+            "ServiceName": "Live and On-Demand Streaming",
+            "Slug": "media-services\\on-demand-streaming"
+          }
+        ]
+      }
+    ]
+  }
+]

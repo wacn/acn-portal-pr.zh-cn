@@ -1,0 +1,561 @@
+[
+  {
+    "CategoryName": "计算",
+    "Services": [
+      {
+        "ServiceName": "虚拟机",
+        "Slug": "virtual-machines",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "云服务",
+        "Slug": "cloud-services",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "虚拟机规模集",
+        "Slug": "virtual-machine-scale-sets",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Azure Functions",
+        "Slug": "functions",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Service Fabric",
+        "Slug": "service-fabric",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "网络",
+    "Services": [
+      {
+        "ServiceName": "虚拟网络",
+        "Slug": "virtual-network",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "负载均衡器",
+        "Slug": "load-balancer",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "应用程序网关",
+        "Slug": "application-gateway",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "云连接服务",
+        "Slug": "cloud-connection",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "VPN 网关",
+        "Slug": "vpn-gateway",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "CDN",
+        "Slug": "azure-cdn",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "流量管理器",
+        "Slug": "traffic-manager",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "ExpressRoute",
+        "Slug": "expressroute",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "ExpressRoute Circuits",
+            "Slug": "expressroute\\circuits"
+          },
+          {
+            "ServiceName": "ExpressRoute 网关",
+            "Slug": "expressroute\\gateways"
+          }
+        ]
+      },
+      {
+        "ServiceName": "Network Watcher",
+        "Slug": "network-watcher",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "存储",
+    "Services": [
+      {
+        "ServiceName": "存储",
+        "Slug": "storage",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "Web",
+    "Services": [
+      {
+        "ServiceName": "应用服务",
+        "Slug": "app-service",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "Web 应用",
+            "Slug": "app-service\\web"
+          },
+          {
+            "ServiceName": "移动应用",
+            "Slug": "app-service\\mobile"
+          },
+          {
+            "ServiceName": "API 应用",
+            "Slug": "app-service\\api"
+          }
+        ]
+      },
+      {
+        "ServiceName": "API 管理",
+        "Slug": "api-management",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "移动",
+    "Services": [
+      {
+        "ServiceName": "通知中心",
+        "Slug": "notification-hubs",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "容器",
+    "Services": [
+      {
+        "ServiceName": "批处理",
+        "Slug": "batch",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "数据库",
+    "Services": [
+      {
+        "ServiceName": "SQL 数据仓库",
+        "Slug": "sql-data-warehouse",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Cosmos DB",
+        "Slug": "cosmos-db",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "SQL 数据库",
+        "Slug": "sql-database",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Redis 缓存",
+        "Slug": "redis-cache",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "SQL Server Stretch Database",
+        "Slug": "sql-server-stretch-database",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "MySQL Database on Azure",
+        "Slug": "mysql",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "分析",
+    "Services": [
+      {
+        "ServiceName": "HDInsight",
+        "Slug": "hdinsight",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "流分析",
+        "Slug": "stream-analytics",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "事件中心",
+        "Slug": "event-hubs",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      },
+      {
+        "ServiceName": "Power BI 工作区集合",
+        "Slug": "power-bi-embedded",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Analysis Services",
+        "Slug": "analysis-services",
+        "Region": {
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "AI",
+    "Services": [
+      {
+        "ServiceName": "认知服务",
+        "Slug": "cognitive-services",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "计算机视觉 API",
+            "Slug": "computer-vision"
+          },
+          {
+            "ServiceName": "情绪识别 API",
+            "Slug": "emotion-api"
+          },
+          {
+            "ServiceName": "人脸识别 API",
+            "Slug": "face-api"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "CategoryName": "物联网",
+    "Services": [
+      {
+        "ServiceName": "Azure IoT 中心",
+        "Slug": "iot-hub",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure IoT 套件",
+        "Slug": "iot-suite",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "集成",
+    "Services": [
+      {
+        "ServiceName": "服务总线",
+        "Slug": "service-bus",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "身份",
+    "Services": [
+      {
+        "ServiceName": "多重身份验证",
+        "Slug": "multi-factor-authentication",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure Active Directory",
+        "Slug": "active-directory",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "安全",
+    "Services": [
+      {
+        "ServiceName": "密钥保管库",
+        "Slug": "key-vault",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "管理工具",
+    "Services": [
+      {
+        "ServiceName": "站点恢复",
+        "Slug": "site-recovery",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure 门户",
+        "Slug": "azure-portal",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "备份",
+        "Slug": "backup",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Azure 顾问",
+        "Slug": "advisor",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Azure 策略",
+        "Slug": "azure-policy",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "Azure 监控器",
+        "Slug": "monitor",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "度量值",
+            "Slug": "metrics"
+          },
+          {
+            "ServiceName": "活动日志",
+            "Slug": "activity-log"
+          },
+          {
+            "ServiceName": "诊断日志",
+            "Slug": "diagnostic-logs"
+          },
+          {
+            "ServiceName": "自动扩展",
+            "Slug": "autoscale"
+          },
+          {
+            "ServiceName": "操作组",
+            "Slug": "action-groups"
+          }
+        ]
+      },
+      {
+        "ServiceName": "Azure 资源管理器",
+        "Slug": "azure-resource-manager",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "计划程序",
+        "Slug": "scheduler",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "www.azure.cn",
+        "Slug": "azure-microsoft-cn",
+        "Region": {
+          "NonRegional": true
+        }
+      },
+      {
+        "ServiceName": "自动化",
+        "Slug": "automation",
+        "Region": {
+          "ChinaNorth": true
+        }
+      }
+    ]
+  },
+  {
+    "CategoryName": "媒体",
+    "Services": [
+      {
+        "ServiceName": "媒体服务",
+        "Slug": "media-services",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "媒体编码",
+            "Slug": "media-services\\encoding"
+          },
+          {
+            "ServiceName": "实时和点播流媒体",
+            "Slug": "media-services\\on-demand-streaming"
+          }
+        ]
+      }
+    ]
+  }
+]
