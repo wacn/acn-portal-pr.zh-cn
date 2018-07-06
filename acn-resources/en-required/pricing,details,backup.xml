@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-06T16:00:00" urlName="backup" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="backup" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -188,16 +188,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor1">采用了高级存储的虚拟机备份有何提示？ </a>
-                                <section>
-                                    <p>如果备份的虚拟机实例使用的磁盘类型为高级存储，那么在启动备份功能时，备份服务在高级存储帐户中会创建名为“AzureBackup-”的临时暂存位置。 暂存位置大小与恢复点快照大小相同。暂存的存储价格与高级存储价格一致。详情请参见：<a href="//docs.azure.cn/zh-cn/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup">结合使用高级存储 VM 和 Azure 备份</a>。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="Backup_price_stor2">我将在存储侧为哪些项付费? </a>
+                                <a id="Backup_price_stor1">我将在存储侧为哪些项付费? </a>
                                 <section>
                                     <p>使用 Azure 备份存储的所有数据均按上述备份存储费率进行计费。</p>
                                 </section>
@@ -206,7 +197,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor3">块 Blob 定价是否适用于 LRS 或 GRS 存储？ </a>
+                                <a id="Backup_price_stor2">块 Blob 定价是否适用于 LRS 或 GRS 存储？ </a>
                                 <section>
                                     <p>这取决于为备份保管库选择的存储选项。备份保管库的存储选项有：本地冗余存储 (LRS) 或异地冗余存储 (GRS)。</p>
                                 </section>
@@ -215,7 +206,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor4">我能否拥有两个不同的保管库 - 一个使用 LRS 另一个使用 GRS？</a>
+                                <a id="Backup_price_stor3">我能否拥有两个不同的保管库 - 一个使用 LRS 另一个使用 GRS？</a>
                                 <section>
                                     <p>可以。每个保管库中的备份数据将根据保管库所在区域的相应 LRS 或 GRS 块 Blob 费率计费。客户对选取了保管库选项的 Azure 存储器帐单具有完全控制。 </p>
                                 </section>
@@ -224,7 +215,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor5">什么有助于使用的备份存储？</a>
+                                <a id="Backup_price_stor4">什么有助于使用的备份存储？</a>
                                 <section>
                                     <p>为特定受保护实例保存在 Azure 备份中的总备份数据量（“后端大小”）根据以下因素变动：</p>
                                     <ul>
@@ -240,7 +231,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor6">我如何查明使用的备份存储量？</a>
+                                <a id="Backup_price_stor5">我如何查明使用的备份存储量？</a>
                                 <section>
                                     <p>备份保管库仪表板页面将显示注册到保管库的计算机中的总数据量。它还会显示用于备份保管库的存储类型。</p>
                                 </section>
