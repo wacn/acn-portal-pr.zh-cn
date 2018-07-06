@@ -1,147 +1,603 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<localize><umbTextpage id="18549" parentID="11978" level="2" writerID="104" creatorID="94" nodeType="1059" template="1052" sortOrder="5" createDate="2013-06-03T15:30:09" updateDate="2014-08-26T09:41:00" nodeName="downloads" urlName="downloads" writerName="kwkou" creatorName="xunfan" path="-1,11978,18549" isDoc=""><bodyText><![CDATA[
+<localize>
+  <umbTextpage id="18482" parentID="12022" level="3" writerID="106" creatorID="94" nodeType="1059" template="11" sortOrder="0" createDate="2013-05-05T16:51:50" updateDate="2014-11-11T02:23:53" nodeName="Overview" urlName="overview" writerName="content" creatorName="xunfan" path="-1,11978,12022,18482" isDoc="" isResponsive="true">
+    <bodyText>
+      <![CDATA[
+		    <style type="text/css">
+		      	
+		      	@media only screen and (max-width: 980px){
+				    .overview-content .nav_item{
+				      	margin-bottom:0;
+				      }
+		      	}
+		      	.clear{
+		      	clear:both;
+		      	}
+		      	.overview-content .nav_item{
+				      	margin-bottom:30px;
+				      }
+		      	.overview-content .nav_item{
+		      	height:auto;
+		      	background-color: inherit;
+		      	}
+		      	.tags-date {
+				    color: #89919c;
+				    margin-bottom: 20px;
+				}
+				.tags-date .wacn-date {
+				    font-size: 12px;
+				    display: inline-block;
+				}
+				.page_body_nav{
+				    padding-left: 12px;
+				    padding-right: 12px;
+				  }
+				.page_body_nav  h3{
+				margin-top: 14px;
+			    font-weight: 700;
+			    font-size: 14px;
+			    margin-bottom: 15px;
+			    color: #323a45;
+				}
+				.page_body_nav .nav_item h3{
+				font-weight:500;
+				font-size:14px;
+				}
+				.page_body_nav h2{
+					margin-top: 20px;
+				    margin-bottom: 15px;
+				    font-weight: 400;
+				    font-size: 20px;
+				    color: #323a45;
+				}
+				.page_body_nav p{
+					margin-top: 7px;
+				    margin-bottom: 7px;
+				    color: #5e6d81;
+				    word-wrap: break-word;
+				    line-height: 22px;
+		    		font-size: 14px;
+				}
+				.wa-note.wa-note-default {
+			    border-color: #78ab02;
+				}
+				.wa-note {
+				    padding: 20px;
+				    background-color: rgba(237,240,245,.6);
+				    margin-top: 15px;
+				    margin-bottom: 15px;
+				    border-left: 4px solid #78ab02;
+				}
+				.wa-note.wa-note-default h5 {
+				    color: #78ab02;
+				    margin-top: 0;
+				    margin-bottom: 7px;
+				    font-size: 14px;
+				    font-weight: 600;
+				}
+				.wa-note p {
+				    margin: 0;
+				    font-size: 14px;
+			        color: #5e6d81;
+		   			 word-wrap: break-word;
+				}
+				@media only screen and (min-width: 980px){
+		      		#nav_item_pri{
+				      	margin-right:14%;
+				      	height: auto!important;
+				      }
+		      	}
+		      	.overview-content .nav_item .nav_title {
+				    padding: 20px 20px 5px 0;
+				}
+				.overview-content .nav_item ul {
+				    padding: 0 20px 20px 0;
+				}
+				.overview-content .nav_item .nav_title {
+				    padding: 20px 20px 15px 0;
+				    margin: 0;
+				}
+				.col-md-3,col-xs-12,col-xs-6{
+					padding:0;
+				}
+				.page_body_nav .overview-content .nav_item{
+					height: auto!important;
+				}
+		    </style>
+			<div class="overview-content">
+				<div class="container">
+					<div id="downloads_nav" class="page_body_nav">
+						<div>
+						    <h1 style="margin-top:60px;">下载</h1>
+						    <div class="tags-date">
+						    	<div class="wacn-date">最后更新时间：2018年3月15日</div>
+						    </div>
+						    <h3>获取你所需的 SDK 和命令行工具</h3>
+						</div>
 
-<style>
-  ._banner-general {
-    background: #0070B8 url(http://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/support.png) center center no-repeat;
-    margin: 0;
-    text-align: left;
-  }
+						<div class="wa-note wa-note-default"><span class="wa-icon wa-icon-information"></span><h5><a name="note"></a>NOTE:</h5> <p> 本文涉及的 SDK 和工具应用于由微软运营的 Microsoft Azure 服务；在中国， Microsoft Azure 服务由世纪互联公司运营，如需使用，请参考 <a href="//docs.azure.cn/zh-cn/articles/guidance/developerdifferences/" class="single-link">Azure 应用程序开发说明</a>。</p> </div>
+						<div>
+							<h2>SDK</h2>
+							<p>为所选平台下载并安装语言特定的 SDK 和工具。</p>
+							<div style="height:auto;overflow:hidden;">
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_net" class="anchor"></a>
+										<h3 class="nav_title">
+											.NET
+										</h3>
+										<ul title=".NET" class="low-price">
+											<li>
+												<a id="downloads_net_visualstudio2017" href="//www.visualstudio.com/downloads/" class="single-link">
+													Visual Studio 2017
+												</a>
+											</li>
+											<li>
+												<a id="downloads_net_visualstudio2017-Fabric-sdk" href="//www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK/" class="single-link">
+													Visual Studio 2017 Service Fabric SDK
+												</a>
+											</li>
+											
+											<li>
+												<a id="downloads_net-visualstudio2015" href="//go.microsoft.com/fwlink/?LinkId=518003&clcid=0x804/" class="single-link">Visual Studio 2015</a>
+											</li>
+											
+											<li>
+												<a id="downloads_net-ServiceFabric-VS2015" href="//www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015/" class="single-link">Service Fabric SDK 和用于 Visual Studio 2015 的工具</a>
+											</li>
+											
+											<li>
+												<a id="downloads_net-visualstudio2013" href="//go.microsoft.com/fwlink/?LinkId=323510&clcid=0x804/" class="single-link">Visual Studio 2013</a>
+											</li>
+											
+											<li>
+												<a id="downloads_NET-Core" href="//www.nuget.org/packages?q=Author:Microsoft/" class="single-link">.NET Core</a>
+											</li>
+											<li>
+												<a id="downloads_NET-windowsazureofficial" href="//go.microsoft.com/fwlink/?LinkId=234674&clcid=0x804/" class="single-link">客户端库</a>
+											</li>
+											<li>
+												<a id="downloads_net-dotnet" href="//docs.azure.cn/zh-cn/dotnet/" class="single-link">文档</a>
+											</li>
+											<li>
+												<a id="downloads_net-dotnet" href="/downloads/archive-net-downloads/" class="single-link">以前的版本</a>
+											</li>
+											
+										</ul>
+									</div>
+								</div>
 
-  ._banner-h1,  ._banner-h2, ._banner-h3 {
-    width: 960px;
-    margin: 0 auto;
-  }
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_java" class="anchor"></a>
+										<h3 class="nav_title" >
+											Java
+										</h3>
+										<ul title="Java"  class="low-price">
+											<li>
+												<a id="downloads-java" href="//docs.azure.cn/zh-cn/java/" class="single-link">Azure SDK for Java</a>
+											</li>
+											<li>
+												<a id="downloads-java_develop-java" href="//azure.microsoft.com/zh-cn/develop/java/" class="single-link">文档</a>
+											</li>
+										</ul>
+									</div>
+								</div>									
 
-  .dev-nav {
-    margin: 0;
-    padding: 0;
-    float: none !important;
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-  }
-
-  .dev-content {
-    margin: 0;
-    float: none;
-    width: 600px;
-    display: inline-block;
-    text-align: left;
-    padding: 0 40px;
-  }
-
-  .main-container {
-    text-align: center;
-  }
-
-  .dev-tools {
-    text-align: left;
-  }
-
-  .page-downloads .downloads {
-    margin: 0 !important;
-  }
-
-  .page-downloads .dev-tools, .page-downloads .hero {
-    margin-bottom: 323px;
-    margin: 0 auto;
-    width: 1100px;
-  }
-</style>
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_node" class="anchor"></a>						
+										<h3 class="nav_title">
+											Node.js
+										</h3>
+										<ul title="Node.js"  class="low-price">
+											<li>
+												<a id="downloads-nodejs_windows-install" href="//go.microsoft.com/fwlink/?LinkId=254279&clcid=0x804/" class="single-link">Windows 安装</a>
+											</li>
+											<li>
+												<a id="downloads-nodejs_mac-install" href="//go.microsoft.com/fwlink/?LinkId=253471&clcid=0x804/" class="single-link">Mac 安装</a>
+											</li>
+											<li>
+												<a id="downloads-nodejs_linux-install" href="//go.microsoft.com/fwlink/?LinkId=253472&clcid=0x804/" class="single-link">Linux 安装</a>
+											</li>
+											<li>
+												<a id="downloads-nodejs_Cognitive-LUIS-Node" href="//github.com/Microsoft/Cognitive-LUIS-Node.js/" class="single-link">语言理解智能服务 Node JS SDK</a>
+											</li>
+											<li>
+												<a id="downloads-nodejs_develop-nodejs" href="//azure.microsoft.com/zh-cn/develop/nodejs/" class="single-link">文档</a>
+											</li>
+										</ul>
+									</div>
+								</div>	
 
 
-<div class="_banner-general" style="height: 100px;">
-<h1 class="_banner-h1">下载</h1>
-<h2 class=" _banner-h2">快速获取您所需的命令行工具和 SDK。</h2>
-</div>
-<div class="downloads">
-<div class="dev-nav">
-<h1>SDK</h1>
-<ul><!-- <li class="mobile">移动</li> -->
-<li class="net">.NET</li>
-<li class="node">Node.js</li>
-<li class="php">PHP</li>
-<li class="java">Java</li>
-<li class="python">Python</li>
-<li class="ruby">Ruby</li>
-<li class="media">媒体</li>
-</ul>
-</div>
-<div class="dev-content"><!-- <div class="mobile-cont">
-<div class="dev-cont-col1">
-<h3>移动 SDK</h3>
-<a href="   http://go.microsoft.com/fwlink/?LinkId=257545&amp;clcid=0x409"><span class="icon">-</span><span class="title">Windows 应用商店<span class="small">最后更新时间：2012 年 11 月</span></span></a> <a href="https://go.microsoft.com/fwLink/p/?LinkID=268375"><span class="icon">-</span><span class="title">Windows Phone 8<span class="small">最后更新时间：2012 年 11 月</span></span></a> <a href="https://go.microsoft.com/fwLink/p/?LinkID=266533"><span class="icon">-</span><span class="title">iOS<span class="small">最后更新时间：2012 年 11 月</span></span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<a href="/zh-cn/develop/mobile/tutorials/get-started/">入门教程</a> <a href="https://github.com/WindowsAzure/azure-mobile-services">源代码</a></div>
-</div> -->
-<div class="net-cont">
-<div class="dev-cont-col1">
-<h3>.NET SDK</h3>
-<a href="   http://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409"><span class="icon">-</span><span class="title">VS 2013</span></a> <a href="   http://go.microsoft.com/fwlink/p/?linkid=323511&amp;clcid=0x409"><span class="icon">-</span><span class="title">VS 2012</span></a> <a href="   http://go.microsoft.com/fwlink/?LinkID=254269&amp;clcid=0x409"><span class="icon">-</span><span class="title">VS 2010</span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<!--<a href="/zh-cn/develop/net/tutorials/get-started/">入门教程</a>--> <a href="   http://go.microsoft.com/fwlink/?LinkID=234674&amp;clcid=0x409">客户端库</a> <a href="http://www.github.com/WindowsAzure/azure-sdk-for-net">源代码</a> <a href="/zh-cn/downloads/archive-net-downloads/">存档</a></div>
-</div>
-<div class="node-cont">
-<div class="dev-cont-col1">
-<h3>Node.js SDK</h3>
-<a href="   http://go.microsoft.com/fwlink/?linkid=254279&amp;clcid=0x409"><span class="icon">-</span><span class="title">Windows</span></a> <a href="   http://go.microsoft.com/fwlink/?linkid=253471&amp;clcid=0x409"><span class="icon">-</span><span class="title">Mac</span></a> <a href="   http://go.microsoft.com/fwlink/?linkid=253472&amp;clcid=0x409"><span class="icon">-</span><span class="title">Linux</span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<!-- <a href="/zh-cn/develop/nodejs/tutorials/create-a-website-(mac)/">入门教程</a> --> <a href="https://github.com/WindowsAzure/azure-sdk-for-node">客户端库</a> <a href="http://www.github.com/WindowsAzure/azure-sdk-for-node">源代码</a></div>
-</div>
-<div class="php-cont">
-<div class="dev-cont-col1">
-<h3>PHP SDK</h3>
-<a href="   http://go.microsoft.com/fwlink/?LinkId=254280&amp;clcid=0x409"><span class="icon">-</span><span class="title">Windows</span></a> <a href="   http://go.microsoft.com/fwlink/?LinkId=253471&amp;clcid=0x409"><span class="icon">-</span><span class="title">Mac</span></a> <a href="   http://go.microsoft.com/fwlink/?LinkId=253472&amp;clcid=0x409"><span class="icon">-</span><span class="title">Linux</span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<!--<a href="/zh-cn/develop/php/tutorials/website-w-mysql-and-git/">入门教程</a> --><a href="   http://go.microsoft.com/fwlink/?LinkID=234677&amp;clcid=0x409">客户端库</a> <a href="http://www.github.com/WindowsAzure/azure-sdk-for-php">源代码</a></div>
-</div>
-<div class="java-cont">
-<div class="dev-cont-col1">
-<h3>Java SDK</h3>
-<a href="/zh-cn/develop/java/java-home/download-for-windows/"><span class="icon">-</span><span class="title">Windows </span></a> <a href="/zh-cn/develop/java/java-home/download-for-mac/"><span class="icon">-</span><span class="title">Mac </span></a> <a href="/zh-cn/develop/java/java-home/download-for-linux/"><span class="icon">-</span><span class="title">Linux </span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<a href="/zh-cn/develop/java/tutorials/tomcat-on-a-virtual-machine/">入门教程</a> <a href="   http://go.microsoft.com/fwlink/?LinkID=234676&amp;clcid=0x409">客户端库</a> <a href="http://www.github.com/WindowsAzure/azure-sdk-for-java">源代码</a></div>
-</div>
-<div class="python-cont">
-<div class="dev-cont-col1">
-<h3>Python SDK</h3>
-<a href="   http://go.microsoft.com/fwlink/?linkid=254281&amp;clcid=0x409"><span class="icon">-</span><span class="title">Windows </span></a> <a href="   http://go.microsoft.com/fwlink/?linkid=253471&amp;clcid=0x409"><span class="icon">-</span><span class="title">Mac </span></a> <a href="   http://go.microsoft.com/fwlink/?linkid=253472&amp;clcid=0x409"><span class="icon">-</span><span class="title">Linux </span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<!-- <a href="/zh-cn/develop/python/tutorials/web-sites-with-django/">入门教程</a> --> <a href="   http://go.microsoft.com/fwlink/?LinkID=253697&amp;clcid=0x409">客户端库</a> <a href="http://www.github.com/WindowsAzure/azure-sdk-for-python">源代码</a></div>
-</div>
-<div class="ruby-cont">
-<div class="dev-cont-col1">
-<h3>Ruby SDK</h3>
-</div>
-<div class="dev-cont-col1"><a href="   http://go.microsoft.com/fwlink/?linkid=296417&amp;clcid=0x409"><span class="icon">-</span><span class="title">Windows </span></a> <a href="   http://go.microsoft.com/fwlink/?linkid=253471&amp;clcid=0x409"><span class="icon">-</span><span class="title">Mac </span></a> <a href="   http://go.microsoft.com/fwlink/?linkid=253472&amp;clcid=0x409"><span class="icon">-</span><span class="title">Linux</span></a></div>
-</div>
-<div class="media-cont">
-<div class="dev-cont-col1">
-<h3>媒体 SDK</h3>
-<a href="http://playerframework.codeplex.com/releases/view/97333"><span class="icon">-</span><span class="title">Windows 8 的 SDK<span class="small">最后更新时间：2013 年 2 月</span></span></a> <a href="http://go.microsoft.com/fwlink/?linkid=299854&amp;clcid=0x409"><span class="icon">-</span><span class="title">OSMF 的插件<span class="small">最后更新时间：2014 年 6 月</span></span></a> <a href="https://github.com/WindowsAzure/azure-media-player-framework"><span class="icon">-</span><span class="title">iOS 媒体播放器框架<span class="small">最后更新时间：2013 年 6 月</span></span></a> <a href="http://smf.codeplex.com/releases/view/88970"><span class="icon">-</span><span class="title">Silverlight 和 Windows Phone 的 SDK<span class="small">最后更新时间：2012 年 6 月</span></span></a></div>
-<div class="dev-cont-col2">
-<h3>资源</h3>
-<a href="/zh-cn/develop/media-services/">入门教程</a> <a href="http://nuget.org/packages/windowsazure.mediaservices">.Net客户端库</a> <a href="https://github.com/Azure/azure-sdk-for-java">Java SDK客户端库</a></div>
-</div>
-</div>
-</div>
-<div class="dev-tools clearfix" style="margin-bottom: 323px;"><a id="cmd-line-tools"></a>
-<h1>命令行工具</h1>
-<div class="dev-tools-col1">
-<h3>Windows 下载</h3>
-<a href="http://go.microsoft.com/?linkid=9811175&amp;clcid=0x409"><span class="icon">-</span><span class="title">Windows Azure<br />Powershell </span></a> <a href="   http://go.microsoft.com/?linkid=9828653&amp;clcid=0x409"><span class="icon">-</span><span class="title">跨平台命令行接口 </span></a> <!-- <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/jj156055.aspx">入门教程</a> --><a href="https://github.com/WindowsAzure/azure-sdk-tools/wiki/Downloads">存档</a></div>
-<div>
-<h3>Mac</h3>
-<a href="   http://go.microsoft.com/fwlink/?linkid=253471&amp;clcid=0x409"><span class="icon">-</span><span class="title">命令行接口 </span></a> <!-- <a href="/zh-cn/manage/linux/how-to-guides/command-line-tools/">入门教程</a> --></div>
-<div>
-<h3>Linux</h3>
-<a href="   http://go.microsoft.com/fwlink/?linkid=253472&amp;clcid=0x409"><span class="icon">-</span><span class="title">命令行接口 </span></a> <!--<a href="/zh-cn/manage/linux/how-to-guides/command-line-tools/">入门教程</a> <a href="/zh-cn/manage/linux/other-resources/endorsed-distributions/">图像、驱动程序、代理</a>--></div>
-</div>
-<!--?UMBRACO_MACRO chunkpath="" hide="0" chunkname="Freetrial Bottom" macroAlias="AzureChunkDisplayer" ?-->]]></bodyText><umbracoNaviHide>0</umbracoNaviHide><pageTitle></pageTitle><metaKeywords></metaKeywords><metaDescription><![CDATA[]]></metaDescription><linkid>downloads</linkid><urlDisplayName>下载</urlDisplayName><headerExpose></headerExpose><footerExpose></footerExpose><disqusComments>0</disqusComments><metaCanonical></metaCanonical><isHeader>0</isHeader><pageTemplate></pageTemplate><localize>0</localize><localizePartial>0</localizePartial><sitemapHide>0</sitemapHide><headerText><![CDATA[]]></headerText></umbTextpage></localize>
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_PHP" class="anchor"></a>
+											<h3 class="nav_title">
+											PHP
+										</h3>
+										<ul title="PHP"  class="low-price">
+		                                    <li>
+												<a id="downloads-PHP_Windows-install" href="//go.microsoft.com/fwlink/?LinkId=254280&clcid=0x804/" class="single-link">Windows 安装</a>
+											</li>									
+											<li>
+												<a id="downloads-PHP_mac-install" href="//go.microsoft.com/fwlink/?LinkId=253471&clcid=0x804/" class="single-link">Mac 安装</a>
+											</li>
+											<li>
+												<a id="downloads-PHP_linux-install" href="//go.microsoft.com/fwlink/?LinkId=253472&clcid=0x804/" class="single-link">Linux 安装</a>
+											</li>
+											<li>
+												<a id="downloads-PHP_develop-php" href="//azure.microsoft.com/zh-cn/develop/php/" class="single-link">文档</a>
+											</li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>				
+							
+							<div style="height:auto;overflow:hidden;">
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item larger_item" id="nav_item_pri">
+										<a id="downloads-o_Python" class="anchor"></a>
+										<h3 class="nav_title">
+											Python
+										</h3>
+										<ul title="Python">
+											<li>
+												<a id="downloads-Python_Windows-install" href="//go.microsoft.com/fwlink/?LinkId=254281&clcid=0x804" class="single-link">Windows 安装</a>
+											</li>
+											<li>
+												<a id="downloads-Python_database_mac-install" href="//go.microsoft.com/fwlink/?LinkId=253471&clcid=0x804/" class="single-link">Mac 安装</a>
+											</li>
+											<li>
+												<a id="downloads-Python_linux-install" href="//go.microsoft.com/fwlink/?LinkId=253472&clcid=0x804/" class="single-link">Linux 安装</a>
+											</li>
+											<!-- <li>
+												<a id="downloads-Python_Cognitive-LUIS-Python" href="/github.com/Microsoft/Cognitive-LUIS-Python/" class="single-link">
+													语言理解智能服务 Python SDK
+												</a>
+											</li> -->									
+											<li>
+												<a id="downloads-Python_Cognitive-Face-Python" href="//github.com/Microsoft/Cognitive-Face-Python/" class="single-link">人脸 Python SDK</a>
+											</li>
+											<li>
+												<a id="downloads-Python_develop-python" href="//azure.microsoft.com/zh-cn/develop/python/" class="single-link">文档</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item larger_item" id="nav_item_pri">
+										<a id="downloads-o_Ruby" class="anchor"></a>
+										<h3 class="nav_title">
+											Ruby
+										</h3>
+										<ul title="Ruby">
+											
+											<li>
+												<a id="downloads-Ruby_windows-install" href="//go.microsoft.com/fwlink/?LinkId=296417&clcid=0x804/" class="single-link">Windows 安装</a>
+											</li>
+											<li>
+												<a id="downloads-Ruby_mac-install" href="//go.microsoft.com/fwlink/?LinkId=253471&clcid=0x804/" class="single-link">Mac 安装</a>
+											</li>
+											<li>
+												<a id="downloads-Ruby_Linux-install" href="//go.microsoft.com/fwlink/?LinkId=253472&clcid=0x804/" class="single-link">Linux 安装</a>
+											</li>
+											<li>
+												<a id="downloads-Ruby_develop-ruby" href="//azure.microsoft.com/zh-cn/develop/ruby/" class="single-link">文档</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item larger_item" id="nav_item_pri">
+										<a id="downloads-o_mobile" class="anchor"></a>
+										<h3 class="nav_title">
+											移动
+										</h3>
+										<ul title="移动">
+											<li>
+												<a id="downloads-mobile_ios-install" href="//go.microsoft.com/fwlink/?LinkId=529823&clcid=0x804/" class="single-link">iOS 安装</a>
+											</li>
+											<li>
+												<a id="downloads-mobile_Android-install" href="//go.microsoft.com/fwlink/?LinkId=280126&clcid=0x804/" class="single-link">Android 安装</a>
+											</li>
+											<li>
+												<a id="downloads-mobile_WindowsAzure-MobileServices" href="//www.nuget.org/packages/WindowsAzure.MobileServices/" class="single-link">Windows 应用商店 C# 安装</a>
+											</li>
+											<li>
+												<a id="downloads-mobile_WindowsAzure-MobileServices-WinJS" href="//www.nuget.org/packages/WindowsAzure.MobileServices.WinJS/" class="single-link">Windows 应用商店 JS 安装</a>
+											</li>
+											<li>
+												<a id="downloads-mobile_Windows8-install" href="//www.nuget.org/packages/WindowsAzure.MobileServices/" class="single-link">Windows Phone 8 安装</a>
+											</li>
+											<li>
+												<a id="downloads-mobile_appservice-mobileapps" href="//azure.microsoft.com/zh-cn/documentation/learning-paths/appservice-mobileapps/" class="single-link">文档</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_media" class="anchor"></a>
+										<h3 class="nav_title">
+											媒体
+										</h3>
+										<ul title="媒体">
+											<li>
+												<a id="downloads-media_Flash-OSMF-install" href="https://go.microsoft.com/fwlink/?LinkId=299854&clcid=0x804/" class="single-link">Flash OSMF 安装</a>
+											</li>
+											<li>
+												<a id="downloads-media_Windows8-install" href="//playerframework.codeplex.com/releases/view/97333" class="single-link">Windows 8 安装</a>
+											</li>
+											<li>
+												<a id="downloads-media_Silverlight-install" href="//smf.codeplex.com/releases/view/88970/" class="single-link">Silverlight 安装</a>
+											</li>
+											<li>
+												<a id="downloads-media_net-sdk-install" href="//www.nuget.org/packages/windowsazure.mediaservices/" class="single-link">.NET SDK 安装</a>
+											</li>
+											<li>
+												<a id="downloads-media_Java-sdk-install" href="//github.com/Azure/azure-sdk-for-java/" class="single-link">Java SDK 安装</a>
+											</li>
+											<li>
+												<a id="downloads-media_media-services" href="//docs.azure.cn/zh-cn/media-services/" class="single-link">文档</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div style="height:auto;overflow:hidden;">
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_Android" class="anchor"></a>
+										<h3 class="nav_title">
+											Android
+										</h3>
+										<ul title="Android">
+											<li>
+												<a id="downloads-Android_Cognitive-vision-android" href="//github.com/Microsoft/Cognitive-vision-android/" class="single-link">计算机影像 Android SDK</a>
+											</li>
+											<li>
+												<a id="downloads-Android_Cognitive-emotion-android" href="https://github.com/Microsoft/Cognitive-emotion-android/" class="single-link">
+													表情 Android SDK
+												</a>
+											</li>
+
+											<li>
+												<a id="downloads-Android_Cognitive-face-android" href="https://github.com/Microsoft/Cognitive-face-android/" class="single-link">人脸 Android SDK</a>
+											</li>								
+										</ul>
+									</div>
+								</div>
+
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_iOS" class="anchor"></a>
+										<h3 class="nav_title">
+											iOS
+										</h3>
+										<ul title="iOS">
+											<li>
+												<a id="downloads-iOS_Cognitive-face-ios" href="//github.com/Microsoft/Cognitive-face-ios/" class="single-link">人脸 iOS SDK</a>
+											</li>
+										</ul>
+									</div>
+							    </div>
+
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_Swift" class="anchor"></a>
+										<h3 class="nav_title">
+											Swift
+										</h3>
+										<ul title="Swift">
+										<li>
+												<a id="downloads-Swift_Cognitive-Services-Swift-SDK" href="//github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK/" class="single-link">认知服务 Swift SDK</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 col-xs-12">
+									<div class="nav_item" id="nav_item_pri">
+										<a id="downloads-o_Windows" class="anchor"></a>
+										<h3 class="nav_title">
+											Windows
+										</h3>
+										<ul title="Windows">
+											<li>
+												<a id="downloads-Swift_Cognitive-vision-windows" href="//github.com/Microsoft/Cognitive-vision-windows/" class="single-link">计算机影像 Windows SDK</a>
+											</li>
+											<li>
+												<a id="downloads-Swift_Cognitive-emotion-windows" href="//github.com/Microsoft/Cognitive-emotion-windows/" class="single-link">表情 Windows SDK</a>
+											</li>
+											<li>
+												<a id="downloads-Swift_Cognitive-face-windows" href="//github.com/Microsoft/Cognitive-face-windows/" class="single-link">人脸 Windows SDK</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="clear"></div>
+					
+						<div style="overflow:hidden;">
+							<h2>命令行工具</h2>
+							<p>从命令行使用脚本来管理 Azure 服务和应用。</p>
+
+							<div class="col-md-3 col-xs-12">
+								<div class="nav_item nav_item01" id="nav_item_pri">
+									<a id="Command-line-o_net" class="anchor"></a>
+									<h3 class="nav_title">
+										PowerShell
+									</h3>
+									<ul title="PowerShell" class="low-price">
+										<li>
+											<a id="Command-line_PowerShell_visualstudio2017" href="//www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids/" class="single-link">
+												Windows 安装
+											</a>
+										</li>
+										<li>
+											<a id="Command-line_PowerShell_articles-powershell-install-configure" href="//docs.microsoft.com/api/Redirect/zh-cn/documentation/articles/powershell-install-configure/" class="single-link">
+												文档
+											</a>
+										</li>
+										
+										<li>
+											<a id="Command-line_PowerShell-automation-runbook-gallery" href="//docs.azure.cn/zh-cn/automation/automation-runbook-gallery/" class="single-link">浏览脚本中心</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="col-md-3 col-xs-12">
+								<div class=" nav_item nav_item01" id="nav_item_pri">
+									<a id="Command-line-o_Azure-command-line-interface" class="anchor"></a>
+									<h3 class="nav_title" >
+										Azure 命令行接口
+									</h3>
+									<ul title="Azure 命令行接口"  class="low-price">
+										<li>
+											<a id="Command-line-Azure-command-line-interface_install-azure-cli" href="//docs.azure.cn/zh-cn/cli/install-azure-cli/" class="single-link">安装</a>
+										</li>
+										<li>
+											<a id="Command-line-Azure-command-line-interface_get-started-with-azure-cli" href="//docs.azure.cn/zh-cn/cli/get-started-with-azure-cli/" class="single-link">文档</a>
+										</li>
+									</ul>
+								</div>
+							</div>									
+
+							<div class="col-md-3 col-xs-12">
+								<div class="nav_item nav_item01" id="nav_item_pri">
+									<a id="Command-o_AzCopy-Command-Line-Tool-for-Azure-Storage" class="anchor"></a>						
+									<h3 class="nav_title">
+										适用于 Azure 存储器的 AzCopy 命令行工具
+									</h3>
+									<ul title="适用于 Azure 存储器的 AzCopy 命令行工具"  class="low-price">
+										<li>
+											<a id="Command-AzCopy-Command-Line-Tool-for-Azure-Storage_downloadazcopy-install" href="//aka.ms/downloadazcopy/" class="single-link">安装发行版</a>
+										</li>
+										<li>
+											<a id="Command-AzCopy-Command-Line-Tool-for-Azure-Storage_storage-use-azcopy" href="//docs.azure.cn/zh-cn/storage/common/storage-use-azcopy/" class="single-link">文档</a>
+										</li>
+									</ul>
+								</div>
+							</div>	
+
+
+							<div class="col-md-3 col-xs-12">
+								<div class="nav_item nav_item01" id="nav_item_pri">
+									<a id="Command-o_Azure-Storage-Emulator" class="anchor"></a>
+										<h3 class="nav_title">
+										Azure 存储模拟器
+									</h3>
+									<ul title="Azure 存储模拟器"  class="low-price">
+	                                    <li>
+											<a id="Command-Azure-Storage-Emulator_install" href="//go.microsoft.com/fwlink/?LinkId=717179&clcid=0x804/" class="single-link">安装</a>
+										</li>									
+										<li>
+											<a id="Command-Azure-Storage-Emulator_storage-use-emulator" href="//docs.azure.cn/zh-cn/storage/common/storage-use-emulator/" class="single-link">文档</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>					
+
+						<div class="clear"></div>
+						<div style="overflow:hidden;">
+							<h2>迁移工具</h2>
+	  						<p>将现有资源迁移到 Azure 上。</p>
+	  						<div class="col-md-3 col-xs-12">
+								<div class="nav_item" id="nav_item_pri">
+									<a id="Migration-Tools_Virtual-Machine-Assessment" class="anchor"></a>
+										<h3 class="nav_title">
+										虚拟机评估工具
+									</h3>
+									<ul title="虚拟机评估工具"  class="low-price">
+	                                    <li>
+											<a id="Migration-Tools_Virtual-Machine-Assessment_vm-readiness-assessment" href="//docs.azure.cn/zh-cn/downloads/vm-readiness-assessment" class="single-link">虚拟机就绪评估工具</a>
+										</li>									
+										<li>
+											<a id="Migration-Tools_Virtual-Machine-Assessment_vm-optimization-assessment" href="//docs.azure.cn/zh-cn/downloads/vm-optimization-assessment/" class="single-link">虚拟机优化评估</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-3 col-xs-12">
+								<div class="nav_item" id="nav_item_pri">
+									<a id="Migration-Tools_Azure-Websites-Migration-Assistant" class="anchor"></a>
+										<h3 class="nav_title">
+										Azure Websites Migration Assistant
+									</h3>
+									<ul title="Azure Websites Migration Assistant"  class="low-price">
+	                                    <li>
+											<a id="Migration-Tools_Azure-Websites-Migration-Assistant_install" href="//go.microsoft.com/?LinkID=9863189/" class="single-link">安装</a>
+										</li>									
+										<li>
+											<a id="Migration-Tools_Azure-Websites-Migration-Assistant_migration-assistant" href="//docs.azure.cn/zh-cn/downloads/migration-assistant/" class="single-link">文档</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="clear"></div>
+						<div style="overflow:hidden;">
+
+							<h2>独立工具</h2>
+	  						<p>从你选择的平台管理你的 Azure 资源。</p>
+	  						<div class="col-md-3 col-xs-12">
+								<div class="nav_item" id="nav_item_pri" style="margin-bottom:0;">
+									<a id="Standalone-Tools_Storage-Explorer" class="anchor"></a>
+										<h3 class="nav_title">
+										存储资源管理器
+									</h3>
+									<ul title="存储资源管理器"  class="low-price">
+	                                    <li>
+											<a id="Standalone-Tools_Storage-Explorer_Windows-install" href="//go.microsoft.com/fwlink/?linkid=698844&clcid=0x804" class="single-link">Windows 安装</a>
+										</li>									
+										<li>
+											<a id="Standalone-Tools_Storage-Explorer_mac-install" href="//go.microsoft.com/fwlink/?linkid=698845&clcid=0x804/" class="single-link">Mac 安装</a>
+										</li>
+										<li>
+											<a id="Standalone-Tools_Storage-Explorer_Linux-install" href="//go.microsoft.com/fwlink/?LinkId=722417&clcid=0x804/" class="single-link">Linux 安装</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="clear" style="margin-bottom: 60px;"></div>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+				
+			</div>		   
+		   ]]>
+    </bodyText>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <pageTitle>Azure工具下载服务管理中心–Azure云计算</pageTitle>
+    <metaKeywords>Azure工具下载</metaKeywords>
+    <metaDescription><![CDATA[Azure工具下载服务管理中心主要为用户提供SDK下载和用于管理部署的命令行工具。]]></metaDescription>
+    <linkid>downloads</linkid>
+    <urlDisplayName>下载和安装 Azure SDK工具</urlDisplayName>
+    <headerExpose></headerExpose>
+    <footerExpose></footerExpose>
+    <disqusComments>0</disqusComments>
+    <metaCanonical></metaCanonical>
+    <isHeader>0</isHeader>
+    <pageTemplate></pageTemplate>
+    <localize>0</localize>
+    <localizePartial>0</localizePartial>
+    <sitemapHide>1</sitemapHide>
+    <headerText><![CDATA[]]></headerText>
+    <forbidPublish>0</forbidPublish>
+  </umbTextpage>
+</localize>
