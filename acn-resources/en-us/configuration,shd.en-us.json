@@ -134,7 +134,13 @@
           },
           {
             "ServiceName": "ExpressRoute Gateways",
-            "Slug": "expressroute\\gateways"
+            "Slug": "expressroute\\gateways",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true,
+              "ChinaEast2": true,
+              "ChinaNorth2": true
+            }
           }
         ]
       },
@@ -370,14 +376,6 @@
           "ChinaEast": true,
           "ChinaNorth": true
         }
-      },
-      {
-        "ServiceName": "IoT Suite",
-        "Slug": "iot-suite",
-        "Region": {
-          "ChinaEast": true,
-          "ChinaNorth": true
-        }
       }
     ]
   },
@@ -403,16 +401,14 @@
         "ServiceName": "Multi-Factor Authentication",
         "Slug": "multi-factor-authentication",
         "Region": {
-          "ChinaEast": true,
-          "ChinaNorth": true
+          "NonRegional": true
         }
       },
       {
         "ServiceName": "Azure Active Directory",
         "Slug": "active-directory",
         "Region": {
-          "ChinaEast": true,
-          "ChinaNorth": true
+          "NonRegional": true
         }
       }
     ]
