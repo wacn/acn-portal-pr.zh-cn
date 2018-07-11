@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-06-29T11:30:24" updateDate="2018-06-12T16:00:00" urlName="cloud-services" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2016-06-29T11:30:24" updateDate="2018-07-02T16:00:00" urlName="cloud-services" writerName="content" creatorName="content">
     <bodyText><![CDATA[
        
             <style>
@@ -26,10 +26,10 @@
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">
-                <a href="javascript:void(0)" data-href="#tabContent1" id="cs_type_a" class="active">A-series</a> <a href="javascript:void(0)" data-href="#tabContent2" id="cs_type_b">D-series</a>
-                <div class="clearfix"></div>
+                
+                
                 <!-- BEGIN: TAB-CONTAINER-1 -->
-                <div class="tab-control-container tab-active" id="tabContent1">
+                
                     <!-- BEGIN: Table1-Content-->
                     <h3>Standard Instances</h3>
 					<p>Used for websites, small- and medium-sized databases, and other everyday applications.</p>
@@ -85,7 +85,7 @@
                     <!-- END: Table1-Content-->
 					
 					
-					 <h3>Av2 Standard</h3>
+					 <!-- <h3>Av2 Standard</h3> -->
                     <p>Av2 Standard is the latest generation A-series service. It has similar CPU performance to the A-series, but with faster disk speed. Av2 Standard is suitable for development workloads, build servers, code libraries, low-traffic websites, and web applications. It is also suitable for micro services, early product experiments, and small databases.
 					</p>
 					  <div class="tags-date">
@@ -191,12 +191,14 @@
                         </tr>
                     </table>
                     <!-- END: Table4-Content-->
-                </div>
-                <!-- END: TAB-CONTAINER-1 --> <!-- BEGIN: TAB-CONTAINER-2 -->
-                <div class="tab-control-container" id="tabContent2">
+                
+               
+                
                     <!-- BEGIN: Table1-Content-->
+                    <h3>Optimized compute</h3>
                     <p>D-series Virtual Machines feature solid state drives (SSDs) and faster processors than the A-series. They are also suitable for web or worker roles in Azure Cloud Services. This series is suitable for applications that demand faster CPUs, better local disk performance, or larger memories.</p>
                     <!--<p><a id="pricing_cloud_rea" href="https://docs.azure.cn/zh-cn/cloud-services/" style="color: #00a8d9; margin-left: 0;">云服务工作原理</a></p>-->
+                    <h3>General Purpose</h3>
                    
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
@@ -377,8 +379,28 @@
 							<td>￥ 18.79/hour<br />(about ¥ 13,979.76/month)</td>
                         </tr> 
                     </table>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>Instances</strong></th>
+                            <th align="left"><strong>Number of cores</strong></th>
+                            <th align="left"><strong>RAM</strong></th>
+                            <th align="left"><strong>Disk size</strong></th>
+                            <th align="left"><strong>Price</strong></th>
+                        </tr>
+                        <tr>
+                            <td>E64i v3</td>
+                            <td>64</td>
+                            <td>432.00 GB</td>
+                            <td>864 GB</td>
+                            <td>￥51.33/hour<br />( about ￥38,189.52/month )</td>
+                        </tr>
+                    </table>
                     <!-- END: Table5-Content--> 
-                </div>
+                
                 <!-- END: TAB-CONTAINER-2 -->   
             </div>
             <!-- END: TAB-CONTROL -->
