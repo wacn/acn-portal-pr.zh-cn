@@ -16,7 +16,70 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>Azure Batch is currently available through Cloud Services and is offered as a free tier service. There are no additional charges for using Batch services in free tier services. You only pay for the underlying computing resources consumed by the selected Cloud Service instance, and the cost will be billed according to the number of minutes of use. For more details on these rates, visit the <a href="/pricing/details/cloud-services/" href="javascript:void(0)"  id="ws-sla-services">Cloud Services</a> pricing page.</p>
+                <!-- <p>Azure Batch is currently available through Cloud Services and is offered as a free tier service. There are no additional charges for using Batch services in free tier services. You only pay for the underlying computing resources consumed by the selected Cloud Service instance, and the cost will be billed according to the number of minutes of use. For more details on these rates, visit the <a href="/pricing/details/cloud-services/" href="javascript:void(0)"  id="ws-sla-services">Cloud Services</a> pricing page.</p> -->
+                <p>Azure Batch provides job scheduling and cluster management, allowing applications or algorithms to run in parallel at scale.</p>
+                <p>There’s no charge for Batch itself, only the underlying compute and other resources consumed to run your batch jobs. For compute, Cloud Services, Linux Virtual Machines, or Windows Virtual Machines can be utilized by Batch. The standard rates for compute apply and can be viewed below. In addition, Batch allows low-priority virtual machines (VMs) to be used. Reserved Virtual Machine Instances are available when using the Azure Batch Service in User subscription pool application mode.</p>
+                <h3>Low-priority VMs in Batch</h3>
+                <p>Low-priority VMs are available for a much lower price than normal VMs and can significantly reduce the costs of running certain workloads, or allow much more work to be performed at a greater scale for the same cost. However, low-priority VMs do have different characteristics and are only suitable for certain types of applications and workloads. Low-priority VMs are allocated from surplus capacity and therefore availability varies—at times VMs may not be available to allocate, and allocated VMs may occasionally be preempted by higher-priority allocations. The availability SLA for normal VMs therefore does not apply to low-priority VMs.</p>
+                <p>If applications can tolerate interruption, then use of low-priority VMs can significantly lower compute costs. Suitable workloads include batch processing and HPC jobs, where the work is split into many asynchronous tasks. If VMs are pre-empted, then tasks can be interrupted and rerun—job completion time can also increase if capacity drops. Low-priority VMs are initially only available through Azure Batch, which provides job scheduling and resource management for batch processing workloads. Azure Batch pools can contain both normal and low-priority VMs. If low-priority VMs are pre-empted, then any interrupted tasks will be requeued, and the pool will automatically attempt to replace the lost capacity.</p>
+                <p>Virtual machines are billed per-second rounded down to the last minute.</p>
+                <h3>Windows Virtual Machines</h3>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <th align="left"><strong>Instance</strong></th>
+                        <th align="left"><strong>Cores</strong></th>
+                        <th align="left"><strong>RAM</strong></th>
+                        <th align="left"><strong>Disk</strong></th>
+                        <th align="left"><strong> Low Priority</strong></th>
+                    </tr>
+                    <tr>
+                        <td>E64i v3</td>
+                        <td>64</td>
+                        <td>432.00 GiB</td>
+                        <td>1,600 GiB</td>
+                        <td>￥20.532/hour
+                            <br />( about ￥15,275.808/month )</td>
+                    </tr>
+
+                </table>
+                <h3>Linux Virtual Machines</h3>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <th align="left"><strong>Instance</strong></th>
+                        <th align="left"><strong>Cores</strong></th>
+                        <th align="left"><strong>RAM</strong></th>
+                        <th align="left"><strong>Disk</strong></th>
+                        <th align="left"><strong> Low Priority</strong></th>
+                    </tr>
+                    <tr>
+                        <td>E64i v3</td>
+                        <td>64</td>
+                        <td>432.00 GiB</td>
+                        <td>1,600 GiB</td>
+                        <td>￥9.332/hour
+                            <br />( about ￥6,943.008/month )</td>
+                    </tr>
+
+                </table>
+                <h3>Cloud Services</h3>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <th align="left"><strong>Instance</strong></th>
+                        <th align="left"><strong>Cores</strong></th>
+                        <th align="left"><strong>RAM</strong></th>
+                        <th align="left"><strong>Disk</strong></th>
+                        <th align="left"><strong> Low Priority</strong></th>
+                    </tr>
+                    <tr>
+                        <td>E64i v3</td>
+                        <td>64</td>
+                        <td>432.00 GiB</td>
+                        <td>1,600 GiB</td>
+                        <td>￥20.532/hour
+                            <br />( about ￥15,275.808/month )</td>
+                    </tr>
+
+                </table>
             </div>
 
             <!-- <div class="pricing-page-section">

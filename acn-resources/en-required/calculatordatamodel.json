@@ -672,6 +672,12 @@
                         "PricePerTier": "25.66"
                     },
                     {
+                        "Name": "E64i v3/E64is v3",
+                        "Description": "64个内核，432GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "51.33"
+                    },
+                    {
                         "Name": "E64 v3/ES64 v3",
                         "Description": "64个内核，432GiB RAM",
                         "PriceTier": "PriceTierEnum.Fixed",
@@ -718,7 +724,7 @@
                     "MinUnit": "0",
                     "MaxUnit": "100",
                     "Sizes": [{
-                        Name:"D5 v2/DS5 v2",
+                        "Name":"D5 v2/DS5 v2",
                         "Description": "CalculatorConst.D5V2SizeDesc",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "8.56"
@@ -1181,6 +1187,12 @@
                         "PricePerTier": "23.33"
                     },
                     {
+                        "Name": "E64 v3/E64is v3",
+                        "Description": "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "46.66"
+                    },
+                    {
                         "Name": "E64 v3/ES64 v3",
                         "Description": "64个内核，432GiB RAM，1,600GiB 临时存储",
                         "PriceTier": "PriceTierEnum.Fixed",
@@ -1201,7 +1213,7 @@
                          "PricePerTier": "0.49"
                      },
                      {
-                         Name:"D2 v2/DS2 v2",
+                         "Name":"D2 v2/DS2 v2",
                          "Description": "CalculatorConst.D2V2SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
                          "PricePerTier": "1.02"
@@ -3619,49 +3631,49 @@
                         "Name": "CalculatorConst.A0Size",
                         "Description": "超小型虚拟机 (1个（共用）内核、0.75 GB RAM、20GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "0.11"
+                        "PricePerTier": "0.11",
                     },
                     {
                         "Name": "CalculatorConst.A1Size",
                         "Description": "小型虚拟机 (1个内核、1.75GB RAM、225GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "0.36"
+                        "PricePerTier": "0.36",
                     },
                     {
                         "Name": "CalculatorConst.A2Size",
                         "Description": "中型虚拟机 (2个内核、3.5GB RAM、490GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "0.94"
+                        "PricePerTier": "0.94",
                     },
                     {
                         "Name": "CalculatorConst.A3Size",
                         "Description": "大型虚拟机(4个内核，7GB RAM，1000GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "1.88"
+                        "PricePerTier": "1.88",
                     },
                     {
                         "Name": "CalculatorConst.A4Size",
                         "Description": "超大型虚拟机(8个内核，14GB RAM，2040GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "3.76"
+                        "PricePerTier": "3.76",
                     },
                     {
                         "Name": "CalculatorConst.A5Size",
                         "Description": "内存密集型虚拟机 (2个内核 CPU、14GB RAM、490GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "1.71"
+                        "PricePerTier": "1.71",
                     },
                     {
                         "Name": "CalculatorConst.A6Size",
                         "Description": "内存密集型虚拟机 (4个内核, 28GB RAM,1000 GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "3.43"
+                        "PricePerTier": "3.43",
                     },
                     {
                         "Name": "CalculatorConst.A7Size",
                         "Description": "内存密集型虚拟机 (8个内核、56GB RAM、2,040GB 存储)",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "6.85"
+                        "PricePerTier": "6.85",
                     }]
                 },
                 {
@@ -3675,25 +3687,25 @@
                         "Name": "CalculatorConst.A1v2Size",
                         "Description": "1个内核，2GB RAM，10GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "0.5405"
+                        "PricePerTier": "0.5405",
                     },
                     {
                         "Name": "CalculatorConst.A2v2Size",
                         "Description": "2个内核，4GB RAM，20GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "1.0833"
+                        "PricePerTier": "1.0833",
                     },
                     {
                         "Name": "CalculatorConst.A4v2Size",
                         "Description": "4个内核，8GB RAM，40GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "2.1666"
+                        "PricePerTier": "2.1666",
                     },
                     {
-                        "Name": "CalculatorConst.A8v2Size",
+                        "Name":" CalculatorConst.A8v2Size",
                         "Description": "8个内核，16GB RAM，80GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "4.3333"
+                        "PricePerTier": "4.3333",
                     }]
                 },
                 {
@@ -3707,19 +3719,19 @@
                         "Name": "CalculatorConst.A2mv2Size",
                         "Description": "2个内核，16GB RAM，20GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "1.9697"
+                        "PricePerTier": "1.9697",
                     },
                     {
                         "Name": "CalculatorConst.A4mv2Size",
                         "Description": "4个内核，32GB RAM，40GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "3.9394"
+                        "PricePerTier": "3.9394",
                     },
                     {
                         "Name": "CalculatorConst.A8mv2Size",
                         "Description": "8个内核，64GB RAM，80GB 磁盘",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "7.8787"
+                        "PricePerTier": "7.8787",
                     }]
                 },
                  {
@@ -3733,89 +3745,89 @@
                          "Name": "CalculatorConst.D1Size",
                          "Description": "CalculatorConst.D1SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "0.48"
+                         "PricePerTier": "0.48",
                      },
                      {
                          "Name": "CalculatorConst.D2Size",
                          "Description": "CalculatorConst.D2SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "1"
+                         "PricePerTier": "1",
                      },
                      {
                          "Name": "CalculatorConst.D3Size",
                          "Description": "CalculatorConst.D3SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "2.01"
+                         "PricePerTier": "2.01",
                      },
                      {
                          "Name": "CalculatorConst.D4Size",
                          "Description": "CalculatorConst.D4SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "4.05"
+                         "PricePerTier": "4.05",
                      },
                      {
                          "Name": "CalculatorConst.D11Size",
                          "Description": "CalculatorConst.D11SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "1.7"
+                         "PricePerTier": "1.7",
                      },
                      {
                          "Name": "CalculatorConst.D12Size",
                          "Description": "CalculatorConst.D12SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "3.41"
+                         "PricePerTier": "3.41",
                      },
                      {
                          "Name": "CalculatorConst.D13Size",
                          "Description": "CalculatorConst.D13SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "6.83"
+                         "PricePerTier": "6.83",
                      },
                      {
                          "Name": "CalculatorConst.D14Size",
                          "Description": "CalculatorConst.D14SizeDesc",
                          "PriceTier": "PriceTierEnum.Fixed",
-                         "PricePerTier": "13.67"
+                         "PricePerTier": "13.67",
                      }]
                  },
-             {
-                 "Name": " ",
-                 "Description": "D 2v系列",
-                 "PricePeriod": "PricePeriodEnum.Hourly",
-                 "PriceUnit": "台",
-                 "MinUnit": "0",
-                 "MaxUnit": "100",
-                 "Sizes": [{
-                     "Name": "CalculatorConst.D1V2Size",
-                     "Description": "CalculatorConst.D1V2SizeDesc",
-                     "PriceTier": "PriceTierEnum.Fixed",
-                     "PricePerTier": "0.53"
-                 },
                  {
-                     "Name": "CalculatorConst.D2V2Size",
-                     "Description": "CalculatorConst.D2V2SizeDesc",
-                     "PriceTier": "PriceTierEnum.Fixed",
-                     "PricePerTier": "1.11"
+                     "Name": " ",
+                     "Description": "D 2v系列",
+                     "PricePeriod": "PricePeriodEnum.Hourly",
+                     "PriceUnit": "台",
+                     "MinUnit": "0",
+                     "MaxUnit": "100",
+                     "Sizes": [{
+                         "Name": "CalculatorConst.D1V2Size",
+                         "Description": "CalculatorConst.D1V2SizeDesc",
+                         "PriceTier": "PriceTierEnum.Fixed",
+                         "PricePerTier": "0.53",
+                     },
+                     {
+                         "Name": "CalculatorConst.D2V2Size",
+                         "Description": "CalculatorConst.D2V2SizeDesc",
+                         "PriceTier": "PriceTierEnum.Fixed",
+                         "PricePerTier": "1.11",
+                     },
+                     {
+                         "Name": "CalculatorConst.D3V2Size",
+                         "Description": "CalculatorConst.D3V2SizeDesc",
+                         "PriceTier": "PriceTierEnum.Fixed",
+                         "PricePerTier": "2.22",
+                     },
+                     {
+                         "Name": "CalculatorConst.D4V2Size",
+                         "Description": "CalculatorConst.D4V2SizeDesc",
+                         "PriceTier": "PriceTierEnum.Fixed",
+                         "PricePerTier": "4.45",
+                     },
+                     {
+                         "Name": "CalculatorConst.D5V2Size",
+                         "Description": "CalculatorConst.D5V2SizeDesc",
+                         "PriceTier": "PriceTierEnum.Fixed",
+                         "PricePerTier": "8.56",
+                     }]
                  },
-                 {
-                     "Name": "CalculatorConst.D3V2Size",
-                     "Description": "CalculatorConst.D3V2SizeDesc",
-                     "PriceTier": "PriceTierEnum.Fixed",
-                     "PricePerTier": "2.22"
-                 },
-                 {
-                     "Name": "CalculatorConst.D4V2Size",
-                     "Description": "CalculatorConst.D4V2SizeDesc",
-                     "PriceTier": "PriceTierEnum.Fixed",
-                     "PricePerTier": "4.45"
-                 },
-                 {
-                     "Name": "CalculatorConst.D5V2Size",
-                     "Description": "CalculatorConst.D5V2SizeDesc",
-                     "PriceTier": "PriceTierEnum.Fixed",
-                     "PricePerTier": "8.56"
-                 }]
-             },
                 {
                     "Name": "Dv2 系列",
                     "Description": "D 2v系列",
@@ -3836,8 +3848,8 @@
                         "PricePerTier": "3.76"
                     },
                     {
-                        "Name": "CalculatorConst.D13V2Size",
-                        "Description": "CalculatorConst.D13V2SizeDesc",
+                        "Name": CalculatorConst.D13V2Size,
+                        "Description": CalculatorConst.D13V2SizeDesc,
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "7.51"
                     },
@@ -3846,15 +3858,27 @@
                         "Description": "CalculatorConst.D14V2SizeDesc",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "15.03"
-                    }
-                    ,
+                    },
                     {
                         "Name": "CalculatorConst.D15V2Size",
                         "Description": "CalculatorConst.D15V2SizeDesc",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "18.79"
-                    }
-                    ]
+                    }]
+                },
+                {
+                    "Name": "Ev3 系列",
+                    "Description": "Ev3 系列",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "台",
+                    "MinUnit": "0",
+                    "MaxUnit": "100",
+                    "Sizes": [{
+                        "Name": "E64i v3",
+                        "Description": "Ev3 系列 - E64i v3",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "51.33"
+                    }]
                 }]
             }]
         },
@@ -13046,7 +13070,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.219165",
                         "MinUnit": "0",
@@ -13279,6 +13303,58 @@
                     }]
                 }]
             }]
+        },
+        "batch": {
+            "Name": "批处理 - 低优先级",
+            "Types": [{
+                "Name": "Windows 虚拟机",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "台",
+                    "MinUnit": "0",
+                    "MaxUnit": "100",
+                    "Sizes": [{
+                        "Name": "E64i v3/E64is v3",
+                        "Description": "64个内核，432GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "20.532"
+                    }]
+                }]
+            },
+            {
+                "Name": "Linux 虚拟机",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "台",
+                    "MinUnit": "0",
+                    "MaxUnit": "100",
+                    "Sizes": [{
+                        "Name": "E64i v3/E64is v3",
+                        "Description": "64个内核，432GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "9.332"
+                    }]
+                }]
+            },
+            {
+                "Name": "云服务",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "台",
+                    "MinUnit": "0",
+                    "MaxUnit": "100",
+                    "Sizes": [{
+                        "Name": "E64i v3/E64is v3",
+                        "Description": "64个内核，432GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "20.532"
+                    }]
+                }]
+            }]
         }
+
     }
 }

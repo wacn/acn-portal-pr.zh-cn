@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="batch" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-02T16:00:00" urlName="batch" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="batch" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>                      
@@ -18,7 +18,68 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>Azure 批处理 ( Batch ) 目前已经可以通过云服务使用，并以免费层服务提供。在免费层服务中使用批处理 ( Batch ) 服务无需额外支付费用。您只需为所选云服务实例消耗的底层计算资源付费，成本将按照使用分钟数进行计费。有关这些费率的详情，请访问<a href="/pricing/details/cloud-services/" href="javascript:void(0)"  id="ws-sla-services">云服务</a>定价页面。</p>
+                <p>Azure 批处理提供作业计划和群集管理，允许应用程序或算法大规模并行运行。</p>
+                <p>对 Batch 本身不收费，仅对运行 Batch 作业所用的基础计算和其他资源收费，包括适用的软件许可费用。对于计算，批处理可以使用云服务、Linux 虚拟机或 Windows 虚拟机。收取标准的计算费率，可在下面的内容中查看。下文中还提供了批处理图形和呈现的软件许可费用。此外，Batch 允许使用低优先级虚拟机 (VM)。在用户订阅池应用程序模式下使用 Azure Batch 服务时，可使用保留虚拟机实例。</p>
+                <h3>Batch 中的低优先级 VM</h3>
+                <p>低优先级 VM 的价格比普通 VM 的价格要低得多，并且可以显著降低运行某些工作负荷的成本，或在成本相同的情况下允许以更大规模执行更多的工作。但是，低优先级 VM 确实具有不同的特性，并且仅适用于某些类型的应用程序和工作负荷。低优先级 VM 是从剩余容量中分配的，因此可用性会有所差异 - 有时可能无法分配 VM，分配的 VM 可能偶尔会被更高优先级的分配所占用。因此，普通 VM 的可用性 SLA 不适用于低优先级 VM。</p>
+                <p>如果应用程序可以容忍中断，则使用低优先级 VM 可以显著降低计算成本。合适的工作负荷包括批处理和 HPC 作业，在此情况下，工作将被拆分为许多异步的任务。如果 VM 被占用，则可以中断并重新运行任务 - 如果容量减少，作业完成时间也会相应增加。低优先级 VM 最初只能通过 Azure批处理使用，后者为批处理工作负荷提供作业计划和资源管理。Azure Batch 池可以包含普通和低优先级 VM。如果低优先级 VM 被占用，则将重新对任何中断的任务进行排队，并且池将自动尝试替代丢失的容量。</p>
+                <h3>Windows 虚拟机</h3>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <th align="left"><strong>实例</strong></th>
+                        <th align="left"><strong>内核数</strong></th>
+                        <th align="left"><strong>RAM</strong></th>
+                        <th align="left"><strong>临时存储</strong></th>
+                        <th align="left"><strong>低优先级</strong></th>
+                    </tr>
+                    <tr>
+                        <td>E64i v3</td>
+                        <td>64</td>
+                        <td>432.00 GiB</td>
+                        <td>1,600 GiB</td>
+                        <td>￥20.532/小时
+                            <br />( 约 ￥15,275.808/月 )</td>
+                    </tr>
+
+                </table>
+                <h3>Linux 虚拟机</h3>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <th align="left"><strong>实例</strong></th>
+                        <th align="left"><strong>内核数</strong></th>
+                        <th align="left"><strong>RAM</strong></th>
+                        <th align="left"><strong>临时存储</strong></th>
+                        <th align="left"><strong>低优先级</strong></th>
+                    </tr>
+                    <tr>
+                        <td>E64i v3</td>
+                        <td>64</td>
+                        <td>432.00 GiB</td>
+                        <td>1,600 GiB</td>
+                        <td>￥9.332/小时
+                            <br />( 约 ￥6,943.008/月 )</td>
+                    </tr>
+
+                </table>
+                <h3>云服务</h3>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <th align="left"><strong>实例</strong></th>
+                        <th align="left"><strong>内核数</strong></th>
+                        <th align="left"><strong>RAM</strong></th>
+                        <th align="left"><strong>临时存储</strong></th>
+                        <th align="left"><strong>低优先级</strong></th>
+                    </tr>
+                    <tr>
+                        <td>E64i v3</td>
+                        <td>64</td>
+                        <td>432.00 GiB</td>
+                        <td>1,600 GiB</td>
+                        <td>￥20.532/小时
+                            <br />( 约 ￥15,275.808/月 )</td>
+                    </tr>
+
+                </table>
             </div>
 
             <!-- <div class="pricing-page-section">

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-06-29T11:30:24" updateDate="2018-06-12T16:00:00" urlName="cloud-services" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2016-06-29T11:30:24" updateDate="2018-07-02T16:00:00" urlName="cloud-services" writerName="content" creatorName="content">
     <bodyText>
        <![CDATA[
             <style>
@@ -28,13 +28,11 @@
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">
-                <a href="javascript:void(0)" data-href="#tabContent1" id="cs_type_a" class="active">A 系列</a>
-                <a href="javascript:void(0)" data-href="#tabContent2" id="cs_type_b">D 系列</a>
-                <div class="clearfix"></div>
+                
                 <!-- BEGIN: TAB-CONTAINER-1 -->
-                <div class="tab-control-container tab-active" id="tabContent1">
+                
                     <!-- BEGIN: Table1-Content-->
-                    <h3>标准实例</h3>
+                    <h3>常规用途</h3>
 					<p>用于网站、中小型数据库，以及其他日常应用程序。</p>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
@@ -87,7 +85,7 @@
                     <!-- END: Table1-Content-->
 					
 					
-					 <h3>Av2 标准</h3>
+					<!-- <h3>Av2 标准</h3> -->
                     <p>Av2 标准是最新一代的 A 系列服务，与 A 系列 CPU 性能类似，但磁盘速度更快。 Av2 标准适用于开发工作负载、构建服务器、代码库、低流量网站和 Web 应用程序，也适用于微服务、早期产品实验和小型数据库。
 					</p>
 					  <div class="tags-date">
@@ -193,12 +191,12 @@
                         </tr>
                     </table>
                     <!-- END: Table4-Content-->
-                </div>
-                <!-- END: TAB-CONTAINER-1 -->
-                <!-- BEGIN: TAB-CONTAINER-2 -->
-                <div class="tab-control-container" id="tabContent2">
+               
+                
                     <!-- BEGIN: Table1-Content-->
+                    <h3>优化计算</h3>
                     <p>D 系列虚拟机的特色是固态硬盘 (SSD) 和比 A 系列更快的处理器，而且也适用于 Azure 云服务中的 Web 角色或辅助角色。此系列适用于需要更快的 CPU、更好的本地磁盘性能或更大的内存的应用程序。</p>
+                    <h3>常规用途</h3>
                     
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
@@ -382,8 +380,28 @@
 							<td>￥18.79/小时<br />( 约 ￥13,979.76/月 )</td>
                         </tr> 
                     </table>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>实例</strong></th>
+                            <th align="left"><strong>内核数</strong></th>
+                            <th align="left"><strong>RAM</strong></th>
+                            <th align="left"><strong>磁盘大小</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>E64i v3</td>
+                            <td>64</td>
+                            <td>432.00 GB</td>
+                            <td>864 GB</td>
+                            <td>￥51.33/小时<br />( 约 ￥38,189.52/月 )</td>
+                        </tr>
+                    </table>
                     <!-- END: Table5-Content--> 
-                </div>
+                
                 <!-- END: TAB-CONTAINER-2 -->   
             </div>
             <!-- END: TAB-CONTROL -->
