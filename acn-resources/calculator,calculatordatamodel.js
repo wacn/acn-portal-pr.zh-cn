@@ -7794,31 +7794,31 @@ var CalculatorData = {
                         Name: CalculatorConst.S4Size,
                         Description: CalculatorConst.S4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2414.0568",
+                        PricePerTier: "2011.7016",
                     },
                     {
                         Name: CalculatorConst.S6Size,
                         Description: CalculatorConst.S6SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4828.0392",
+                        PricePerTier: "4023.4032",
                     },
                     {
                         Name: CalculatorConst.S7Size,
                         Description: CalculatorConst.S7SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9656.0784",
+                        PricePerTier: "8046.732",
                     },
                     {
                         Name: CalculatorConst.S9Size,
                         Description: CalculatorConst.S9SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "19312.2312",
+                        PricePerTier: "16093.5384",
                     },
                     {
                         Name: CalculatorConst.S12Size,
                         Description: CalculatorConst.S12SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36210.4056",
+                        PricePerTier: "30175.3752",
                     }]
                 }]
             },
