@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="2" createDate="2014-08-05T07:49:24" updateDate="2018-07-24T10:41:59" urlName="mysqldatabaseonazure" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+           <tags ms.service="mysql" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/mysql-database%20on%20azure.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/mysql_database_on_azure_icon@2x.png" />
+                        <h2>MySQL <small>Database on Azure</small></h2>
+                        <h4>MySQL relational database service that provides a reliable, easy-to-use, and secure database platform</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_mysql_trial">Apply for 1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_mysql_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner --> <!-- BEGIN: Product-Detail-Content -->
+            <div class="pricing-page-section">
+                <p>MySQL Database on Azure is the MySQL cloud database service that we launched on the Azure platform.</p>
+                <h1>Provides managed MySQL database as a service (DBaaS)
+					<br>Key advantages:</h1>
+                    <p>MS basic version (MS1 - MS6):</p>
+                <ul>
+                    <li>Provides multiple local and remote data backups based on Azure Storage, ensuring data reliability with service level agreements that support 99.9% uptime and remote disaster recovery.</li>
+                    <li>Provides firewall functions and supports database access via SSL connections, guaranteeing that your data stays secure.</li>
+                    <li>Supports up to 30 days of system snapshot backups and 7 days of incremental backups, so users can choose to restore to any point in the last 7 days or restore to a specific snapshot.</li>
+                    <li>Supports master-subordinate replication and read-only instances, adding high availability and using read/write splitting to scale up operational capabilities.</li>
+                    <li>Provides multiple versions with different performance levels that support flexible upscaling/downscaling and simplify the purchase experience.</li>
+                    <li>Provides monitoring and logs for a variety of database performance metrics, making it easy and convenient to find out how your database is operating.</li>
+                    <li>Compatible with MySQL protocols (currently supports MySQL 5.5, 5.6 and 5.7), so you can use familiar MySQL platforms and technologies for development and integration.</li>
+                    <li>Supports syncing data from an enterprise’s local MySQL Database to MySQL Database on Azure, so you can better meet the requirements for businesses building hybrid clouds.</li>
+                </ul>
+                <p>Premium (MP1 - MP2):</p>
+                <ul>
+                    <li>Greatly increased IO performance based on Azure Premium Storage.</li>
+                    <li>The maximum number of connections to an individual database instance is as high as 6,000.</li>
+                    <li>System snapshot backup retention times are extended from 30 days to 35 days.</li>
+                    <li>System snapshot backup retention times are increased from 7 days to 35 days.</li>
+                </ul>
+                <h2>Supports flexible upscaling/downscaling and simplifies the purchase experience</h2>
+                <p>You no longer need to keep recalculating your database server configuration requirements, or worry about how to adjust various aspects of the configuration to achieve better database performance. The MySQL Database on Azure service is available in several different performance versions, so you can choose the version that matches your current performance requirements and then flexibly upscale or downscale as actual operating conditions change. Our services are charged by the hour with transparent billing that helps you to make efficient use of resources.</p>
+
+                <h2>Excellent database reliability and security</h2>
+                <p>Based on Azure’s geographic redundancy storage, MySQL Database on Azure provides high levels of data reliability, with automatic synchronous replication of 3 local copies in the same region, as well as asynchronous replication of 3 remote copies in regions over a thousand kilometers away, to ensure data reliability. In terms of data access security, the service provides firewall functions and also supports database access via SSL connections.</p>
+
+                <h2>Provides high availability, supports disaster recovery, and guarantees service continuity</h2>
+                <p>MySQL Database on Azure provides a 99.9% uptime Service Level Agreement (SLA) that guarantees high service availability and continuity for user services. Geographic redundancy-based data storage also provides support for remote disaster recovery, giving users appropriate protection in even the most extreme situations.</p>
+                <p>MySQL Database on Azure supports enabling readable standby databases, helping users to further increase the availability of MySQL instances. Once the user has enabled the readable standby instance function, Azure will automatically create a standby instance and data will be synced between the master and standby instances using replication technology. You can use the standby database for read-only use to meet high read demand from apps. If the master instance fails, Azure will automatically upgrade the standby instance to a master instance and create a new standby instance. Once you have enabled the readable standby instance function, recovery times are generally less than 60 seconds and there will be no data loss after a failover.</p>
+
+                <h2>Backups up to 35 days with easy data recall</h2>
+                <p>MySQL Database on Azure backs up your database (snapshot) every day at the time that you specify and backups are retained for as long as 35 days (30 days for the basic version). MySQL Database on Azure also supports incremental backups for the last 35 days (7 days for the basic version), and you can also create 10 instant snapshot backups. Backups do not count against the data storage quota allocated for the database. You can easily go back to any time point in the last 35 days (7 days for the basic version) or restore a specific snapshot stored within the system.</p>
+
+                <h2>Rapid deployment with no need for manual infrastructure maintenance</h2>
+                <p>MySQL Database on Azure makes it easy to deploy a MySQL Database server that has high availability in just one or two minutes. It also provides an automatic software patch function, which means that you don’t need to perform any infrastructure maintenance on the database service.</p>
+
+                <h2>Provides an excellent monitoring experience</h2>
+                <p>MySQL Database on Azure supports real-time monitoring of a variety of database metrics and historical data, helping you to better understand database usage, identify problems, and make adjustments in a timely manner. It also supports enabling database log downloads, so that database administrators can better manage and optimize databases.</p>
+
+                <h2>Supports familiar platforms and tools</h2>
+                <p>MySQL Database on Azure is compatible with MySQL protocols and supports MySQL versions 5.5, 5.6 and 5.7. You can use common platforms with MySQL support for development and integration, and you can also use familiar management tools such as Workbench and Navicat.</p>
+                
+                <h2>Supports remote database synchronization to meet enterprise needs for hybrid cloud construction</h2>
+                <p>MySQL Database on Azure supports remote database synchronization. For example, you can set a MySQL instance outside Azure as the master database and another instance running on Azure as the subordinate database. You can then use standard MySQL master or subordinate data-synchronization methods to sync the data to Azure. This method enables MySQL Database on Azure to meet the needs of a range of hybrid cloud scenarios for business. The database synchronization functions also help you to implement a more comprehensive and flexible cloud migration experience.</p>
+                
+            </div>
+            <!-- END: Product-Detail-Content --> <!-- BEGIN: Read-More -->
+            <div class="pricing-page-section link-group-container">
+                <h1>More</h1>
+                <ul>
+                    <li>
+                        <a href="https://docs.azure.cn/mysql/mysql-database-enable-secondary/" id="mysql_moreInfo_mysql-database-enable-secondary">Enable readable standby instances</a>
+                        <p>Enables the standby instance function with PowerShell.</p>
+                    </li>
+                    <li>
+                        <a id="mysql_moreInfo_serviceLayer" href="https://docs.azure.cn/mysql/mysql-database-read-replica/" target="_blank">MySQL master-subordinate replication</a>
+                        <p>Allows users to create subordinate instances for MySQL instances with support for read-write splitting.</p>
+                    </li>
+                    <li>
+                        <a id="mysql_moreInfo_serviceLayer" href="https://docs.azure.cn/mysql/mysql-database-performance-guidance-asdb-test-result/" target="_blank">Find out about service tiers and versions</a>
+                        <p>Find out about different versions of MySQL Database on Azure based on test data that uses ASDB standards.</p>
+                    </li>
+                    <li>
+                        <a id="mysql_moreInfo_databaseEntry" href="https://docs.azure.cn/mysql/mysql-database-get-started/" target="_blank">MySQL Database on Azure database basics</a>
+                        <p>Helps you to quickly understand and use MySQL Database on Azure.</p>
+                    </li>
+                    <li>
+                        <a id="mysql_moreInfo_MySQLServiceLimited" href="https://docs.azure.cn/mysql/mysql-database-operation-limitation/" target="_blank">Learn about MySQL Database on Azure service limitations</a>
+                        <p>Find out what the limitations of MySQL Database on Azure are.</p>
+                    </li>
+                    <li>
+                        <a id="mysql_moreInfo_commonFAQ" href="https://docs.azure.cn/mysql/mysql-database-tech-faq/" target="_blank">Technical FAQ</a>
+                        <p style="margin-bottom:45px;">Find out about issues including SLA guarantees, storage space quotas, service limitations, and MySQL version upgrades.</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- END: Read-More --> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->             
+    
+    ]]></bodyText>
+    <pageTitle>Azure MySQL Database_Managed Database Services - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>home-features-mysql</linkid>
+    <metaKeywords>Azure, Microsoft Cloud, MySQL Database on Azure, Features</metaKeywords>
+    <metaDescription><![CDATA[MySQL Database on Azure is compatible with the MySQL open source database platform, helping you to rapidly deploy databases that deliver high levels of reliability, security, availability, and value for money with support for disaster recovery and remote data synchronization to meet the needs of enterprises building hybrid clouds, reducing operating costs and enabling you to focus on innovative development.]]></metaDescription>
+    <urlDisplayName>MySQL Database on Azure</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2018-06-25T12:00:00" updateDate="2018-07-24T12:00:00" urlName="mysql" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-24T16:00:00" urlName="postgresql" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
-      <style type="text/css">
+        <style type="text/css">
             .pricing-detail-tab .tab-nav{
                 padding-left: 0!important;
                 margin-top: 5px;
@@ -51,34 +51,33 @@
             background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
             }
         </style>
-            <tags ms.service="mysql" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <tags ms.service="postgresql" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
             <!-- BEGIN: Product-Detail-TopBanner -->
-            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/mysql-database%20on%20azure.png','imageHeight':'auto'}">
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/service-banner-postgressql.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
-                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/mysql_database_on_azure_icon@2x.png" />
-                        <h2>Azure <small>Database for MySQL</small></h2>
-                        <h4>面向应用开发人员的托管 MySQL 数据库服务</h4>
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/postgressql_icon@2x.svg" />
+                        <h2>Azure <small>Database for PostgreSQL</small></h2>
+                        <h4>面向应用开发人员的托管 PostgreSQL 数据库服务</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_mysql_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
                         <a href="/pricing/pia/" id="home_mysql_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
                 </div>
             </div>
-            <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>Azure Database for MySQL 通过内置功能（包括高可用性）提供用于应用开发和部署的完全托管数据库服务，无需额外付费。</p>
+                <p>Azure Database for PostgreSQL 通过内置功能（包括高可用性）提供用于应用开发和部署的完全托管数据库服务，无需额外付费。</p>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector pricing-detail-tab">
                 <ul class="tab-nav">
                     <li class="active">
-                        <a href="javascript:void(0)" data-href="#tabContent1" id="home_mysql-basic" data-toggle="tab">基本</a>
+                        <a href="javascript:void(0)" data-href="#tabContent1" id="home_postgresql-basic" data-toggle="tab">基本</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" data-href="#tabContent2" id="home_mysql-general" data-toggle="tab">常规用途</a>
+                        <a href="javascript:void(0)" data-href="#tabContent2" id="home_postgresql-general" data-toggle="tab">常规用途</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" data-href="#tabContent3" id="home_mysql-memory" data-toggle="tab">内存优化</a>
+                        <a href="javascript:void(0)" data-href="#tabContent3" id="home_postgresql-memory" data-toggle="tab">内存优化</a>
                     </li>
                 </ul>
                 <!-- BEGIN: TAB-CONTAINER-1 -->
@@ -405,11 +404,12 @@
                     </ul>
                 </div>
             </div>
-              
-            <div class="pricing-page-section">
+            <!-- END: Product-Detail-TopBanner -->
+            
+             <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="mysql-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
-				 <p>我们保证，客户的 Azure Database for MySQL 服务器与我们的 Internet 网关至少可在 99.99% 的时间内保持连接。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/mysql/" id="pricing_mysql_sla">服务级别协议</a>页。</p>
+				 <p>MySQL Database on Azure 提供 99.9% 的运行时间服务级别协议，保证服务的高可用和用户业务的连续性。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/mysql/" id="pricing_mysql_sla">服务级别协议</a>页。</p>
             </div>
                 <!--BEGIN: Support and service code chunk-->
                 <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
@@ -420,11 +420,11 @@
             <!--END: Support and service code chunk-->                                                                      
     ]]>
     </bodyText>
-    <pageTitle>Azure Database for MySQL定价 - Azure云计算</pageTitle>
+    <pageTitle>Azure Database for PostgreSQL定价 - Azure云计算</pageTitle>
     <sitemapHide>0</sitemapHide>
-    <linkid>pricing-details-mysql</linkid>
-    <metaKeywords>Azure,  Azure Database for MySQL， 价格详情, 定价, 计费</metaKeywords>
-    <metaDescription><![CDATA[Azure Database for MySQL 服务定价层和详细信息。]]></metaDescription>
-    <urlDisplayName>价格详情 - MySQL Database on Azure</urlDisplayName>
+    <linkid>pricing-details-postgresql</linkid>
+    <metaKeywords>Azure, 微软云, MySQL Database on Azure, 价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[了解Azure Database for PostgreSQL的价格详情。Azure Database for PostgreSQL提供六个不同的版本，性能从低到高按倍数提高。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户。]]></metaDescription>
+    <urlDisplayName>价格详情 - Azure Database for PostgreSQL</urlDisplayName>
   </TextpageLeftNav>
 </localize>
