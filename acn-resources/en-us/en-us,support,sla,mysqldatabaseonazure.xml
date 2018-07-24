@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2018-06-28T11:20:07" updateDate="2018-07-24T11:20:07">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="03/2016" wacn.date="03/2016" wacn.lang="en"/></p>
 
-        <h1>SLA for Azure Database for MySQL</h1>
-        <div class="tags-date">
-            <div class="ms-date">Updated: 07/2018</div>
-        </div>
-        
-        <p>We guarantee at least 99.99% of the time customers will have connectivity between their Azure Database for MySQL Server and our Internet gateway.</p>
+        <h1>SLA for MySQL Database on Azure</h1><div class="tags-date"><div class="ms-date">Updated: 03/2016</div></div>
+        <p>MySQL Database on Azure provides 99.9% uptime Service Level Agreement, to ensure the high availability and user business continuity of our services.</p>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this “SLA”) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the “Agreement”).</p>
         <p>We provide financial backing to our commitment to achieve and maintain Service Levels for our Services. If we do not achieve and maintain the Service Levels for each Service as described in this SLA, then you may be eligible for a credit towards a portion of your monthly service fees. These terms will be fixed for term of your Agreement. If a subscription is renewed, the version of this SLA that is current at the time the renewal term commences will apply throughout the renewal term. We will provide at least 90 days' notice for adverse material changes to this SLA. You can review the most current version of this SLA at any time by visiting <a href="/support/legal/sla/">https://www.azure.cn/support/legal/sla/</a>.</p>
@@ -132,22 +128,24 @@
         </ol>
         <h2>The SLA details</h2>
         <h3>Additional Definitions</h3>
-        <p>&quot;<strong>Server</strong>&quot;  is any given Azure Database for MySQL server.</p>
-        <h3>Monthly Uptime Calculation and Service Levels for Azure Database for MySQL</h3>
+        <p>&quot;<strong>Database Server</strong>&quot; is a MySQL database server deployed by Customer within the MySQL Database on Azure Service.</p>
+        <h3>Monthly Uptime Calculation and Service Levels for the MySQL Database on Azure Service</h3>
         <ol>
         <li>
-        <p>&quot;<strong>Maximum Available Minutes</strong>&quot;is the total number of minutes for a given Server deployed by Customer in a Azure subscription during a billing month.</p>
+        <p>&quot;<strong>Deployment Minutes</strong>&quot; is the total number of minutes that a given Database Server has been deployed in Azure during a billing month. </p>
         </li>
         <li>
-        <p>&quot;<strong>Downtime</strong>&quot; is the total number of minutes within Maximum Available Minutes during which a Server is unavailable. A minute is considered unavailable if all continuous attempts by Customer to establish a connection to the Server returned an Error Code. </p>
+        <p>&quot;<strong>Maximum Available Minutes</strong>&quot; is the sum of all Deployment Minutes across all Database Servers for a given Azure subscription during a billing month.</p>
         </li>
         <li>
-        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; for the Azure Database for MySQL is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes.</p>
-        <p>Monthly Uptime Percentage is represented by the following formula:</p>
-        <p>Monthly Uptime % = (Maximum Available Minutes-Downtime) / Maximum Available Minutes X 100 </p>
+        <p>&quot;<strong>Downtime</strong>&quot; is the total accumulated Deployment Minutes across all Database Servers deployed by Customer in a given Azure subscription during which the Database Server is unavailable. A minute is considered unavailable for a given Database Server if all continuous attempts by Customer to establish a connection to the Database Server within the minute fail. </p>
         </li>
         <li>
-        <p>The following Service Levels and Service Credits are applicable to Customer’s use of the Azure Database for MySQL:</p>
+        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; for the MySQL Database on Azure Service is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes in a billing month for a given Azure subscription. Monthly Uptime Percentage is represented by the following formula:</p>
+        <p>Monthly Uptime % = ( Maximum Available Minutes − Downtime ) ÷ Maximum Available Minutes </p>
+        </li>
+        <li>
+        <p>The following Service Levels and Service Credits are applicable to Customer's use of the MySQL Database on Azure Service:</p>
         <table>
         <thead>
         <tr>
@@ -157,7 +155,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>&lt;99.99%</td>
+            <td>&lt;99.9%</td>
             <td>10%</td>
         </tr>
         <tr>
@@ -171,11 +169,11 @@
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
-    <pageTitle>SLA for Azure Database for MySQL | Azure</pageTitle>
+    <pageTitle>SLA for MySQL Database on Azure | Azure</pageTitle>
     <metaKeywords></metaKeywords>
     <metaDescription>
         <![CDATA[
-            SLA for Azure Database for MySQL
+            SLA for MySQL Database on Azure
         ]]>    
     </metaDescription>
     <linkid>0</linkid>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2018-06-28T11:20:07" updateDate="2018-06-28T11:20:07">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal" ms.date="03/2016" wacn.date="03/2016" wacn.lang="cn"/></p>
 
-        <h1>Azure Database for MySQL 的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2018年07月</div></div>
-        <p>我们保证，客户的Azure Database for MySQL 服务器与我们的 Internet 网关至少可在 99.99% 的时间内保持连接。</p>
+        <h1>MySQL Database on Azure 的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2016年03月</div></div>
+        <p>MySQL Database on Azure 提供 99.9% 的运行时间服务级别协议，保证服务的高可用和用户业务的连续性。</p>
         <h2>引言</h2>
         <p>本 Azure 服务级别协议（以下简称“服务级别协议”）由世纪互联制定，与客户从世纪互联处购买 Azure 服务所依据的协议（以下简称“协议”）相关并构成该协议的一部分。</p>
         <p>为了保证达到并保持所提供服务的服务级别，我们会提供财务方面的支持。如果我们未能达到和保持本服务级别协议中说明的每种服务的服务级别，则您有资格获得月度服务费用的部分服务费抵扣。在您的协议期间，这些条款都不会做任何变动。如果续展订购，则在续订期限开始时实行的本服务级别协议的版本将适用于整个续订期限。如果对本服务级别协议有任何重大不利变更，我们应至少提前九十 (90) 天进行通知。您可以随时访问 <a href="/support/legal/sla/">https://www.azure.cn/support/legal/sla/</a> 查看本服务级别协议的最新版本。</p>
@@ -127,30 +127,32 @@
         </li>
         </ol>
         <h2>SLA 详细信息</h2>
-        <h3>附加定义</h3>
-        <p>“<strong>服务器</strong>”是指任何指定的 Azure Database for MySQL 服务器。</p>
-        <h3>Azure Database for MySQL 的每月正常服务时间计算和服务级别</h3>
+        <h3>其他定义</h3>
+        <p>“<strong>数据库服务器</strong>”是指客户在 MySQL Database on Azure 服务中部署的 MySQL 数据库服务器。</p>
+        <h3>MySQL Database on Azure 服务的月度正常运行时间计算和服务级别</h3>
         <ol>
         <li>
-        <p>“<strong>最大可用分钟数</strong>” 是指在一个帐单月份期间，客户在Azure 订购中针对指定服务器部署的总分钟数。</p>
+        <p>“<strong>部署分钟数</strong>” 是指给定数据库服务器在计费月份期间部署在 Azure 中的总分钟数。 </p>
         </li>
         <li>
-        <p>“<strong>停机时间</strong>” 是指最大可用分钟数中服务器不可用的总分钟数。如果客户连续尝试与服务器建立连接但均返回错误代码，即该分钟视为不可用。 </p>
+        <p>“<strong>最大可用分钟数</strong>” 是指给定 Azure 订阅在计费月份期间跨所有数据库服务器的全部部署分钟数的总和。</p>
         </li>
         <li>
-        <p>Azure Database for MySQL 的“<strong>每月正常服务时间百分比</strong>”计算方法为：最大可用分钟数减去停机时间，再除以最大可用分钟数。</p>
-        <p>每月正常服务时间百分比计算公式如下所示：</p>
-        <p>每月正常服务时间 % =（最大可用分钟数 - 停机时间）/ 最大可用分钟数 X 100 </p>
+        <p>“<strong>停机时间</strong>” 是指数据库服务器不可用期间，客户在给定 Azure 订阅中部署的跨所有数据库服务器的累计总部署分钟数。如果客户在一分钟内与给定数据库服务器的所有连接尝试均失败，则该分钟对于给定数据库服务器而言视为不可用。 </p>
         </li>
         <li>
-        <p>以下服务级别和服务信用适用于客户对Azure Database for MySQL 的使用：</p>
+        <p>MySQL Database on Azure 服务的“<strong>月度正常运行时间百分比</strong>”计算方法为：给定 Azure 订阅在计费月份的最大可用分钟数减去停机时间，然后除以最大可用分钟数。月度正常运行时间百分比的计算公式如下：</p>
+        <p>每月正常服务时间百分比 % = (最大可用分钟数 − 停机时间) ÷ 最大可用分钟数 </p>
+        </li>
+        <li>
+        <p>客户在使用 MySQL Database on Azure 服务时适用以下服务级别和服务费抵扣：</p>
         <table>
           <tr>
           <th>月度正常运行时间百分比</th>
           <th>服务费抵扣</th>      
          </tr>  
         <tr>
-          <td><99.99% </td>
+          <td><99.9% </td>
           <td>10%</td>      
         </tr>
         <tr>
@@ -163,11 +165,11 @@
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
-    <pageTitle>Azure Database for MySQL 的服务级别协议 - Azure云计算</pageTitle>
+    <pageTitle>MySQL Database on Azure 的服务级别协议 | Azure</pageTitle>
     <metaKeywords></metaKeywords>
     <metaDescription>
         <![CDATA[
-            Azure Database for MySQL 的服务级别协议
+            MySQL Database on Azure 的服务级别协议
         ]]>    
     </metaDescription>
     <linkid>0</linkid>
