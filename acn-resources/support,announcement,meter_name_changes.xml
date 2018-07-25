@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-06-28T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-07-19T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="announcement" ms.date="05/2017" wacn.date="05/2017" wacn.lang="cn"/></p>
@@ -11,13 +11,65 @@
 		<p>2018 年 7 月起，随着中国新数据中心正式商用，现有的计量名称将一分为多。自 2018 年 10 月第一周起，我们将引入新的标准计量名称。</p>
         <p>有关名称更新的说明示例，请参阅下表：</p>
         <table>
-        <tr><th>计量ID</th><th>计量名称格式</th><th>计量类别</th><th>计量次类别</th><th>计量名称</th><th>计量单位</th><th>区域</th><th>产品</th><th>Microsoft部件号说明</th></tr>
-        <tr><td rowspan="2">a149966f-73b4-4e1d-b335-d2a572b1e6bd </td><td>原规范</td><td>数据服务</td><td>SQL数据库</td><td>标准S0数据库日</td><td>日</td><td></td><td>标准S0数据库日</td><td>Az Data Svcs SQL DB Std S0 DB D 10Days GA </td></tr>
-        <tr>         <td>新规范</td><td>SQL 数据库</td><td>单一标准 </td><td>S0 DTUs </td><td>1/日 </td><td></td><td>SQL 数据库 单一标准 - S0 - DTUs/日</td><td>SQL Database Single Standard - S0 - DTUs/Day</td></tr>
-        <tr><td rowspan="2">31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8 </td><td>原规范 </td><td>存储</td><td>本地冗余</td><td>高级 存储 - 页 Blob/P6 (单位) </td><td>单位</td><td></td><td>本地冗余 高级存储 - 页 Blob/P6</td><td>Az Storage Loc Red Pre Stor Pg BL P6 1Unit GA CN</td></tr>
-        <tr>         <td>新规范</td><td>存储</td><td>高级页 Blob</td><td>P6 磁盘</td><td>1/月 </td><td></td><td>高级页 Blob - P6 - 磁盘/月</td><td>高级页 Blob - P6 - 磁盘/月</td></tr>
+            <tr>
+                <th>计量 ID</th>
+                <th>计量名称格式</th>
+                <th>计量类别</th>
+                <th>计量次类别</th>
+                <th>计量名称</th>
+                <th>计量单位</th>
+                <th>区域</th>
+                <th>产品</th>
+                <th>Microsoft 部件号说明</th>
+            </tr>
+            <tr>
+                <td rowspan="2">a149966f-73b4-4e1d-b335-d2a572b1e6bd </td>
+                <td>原规范</td>
+                <td>数据服务</td>
+                <td>SQL 数据库</td>
+                <td>标准 S0 数据库日</td>
+                <td>日</td>
+                <td></td>
+                <td>标准 S0 数据库日</td>
+                <td>Az Data Svcs SQL DB Std S0 DB D 10Days GA </td>
+            </tr>
+            <tr>
+                <td>新规范</td>
+                <td>SQL 数据库</td>
+                <td>单一标准 </td>
+                <td>S0 DTUs </td>
+                <td>1/日 </td>
+                <td></td>
+                <td>SQL 数据库 单一标准 - S0 - DTUs/日</td>
+                <td>SQL Database Single Standard - S0 - DTUs/Day</td>
+            </tr>
+                <tr><td rowspan="2">31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8 </td>
+                <td>原规范 </td>
+                <td>存储</td>
+                <td>本地冗余</td>
+                <td>高级 存储 - 页 Blob/P6 (单位) </td>
+                <td>单位</td>
+                <td></td>
+                <td>本地冗余 高级存储 - 页 Blob/P6</td>
+                <td>Az Storage Loc Red Pre Stor Pg BL P6 1Unit GA CN</td>
+            </tr>
+            <tr>
+                <td>新规范</td>
+                <td>存储</td>
+                <td>高级页 Blob</td>
+                <td>P6 磁盘</td>
+                <td>1/月 </td>
+                <td></td>
+                <td>高级页 Blob - P6 - 磁盘/月</td>
+                <td>高级页 Blob - P6 - 磁盘/月</td>
+            </tr>
         </table>
-        <p>请点击<a id="meter_name_changes_China_meter_standardization-18.6.28" href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载</a>，下载包含所有计量名称及原/现属性值的详细电子表格（2018 年 7 月开始此文件会列出新的计量名称）。在所有更新发布（即 2018 年 10 月首周）之前，此表会每月更新一次，请定期查看更新。 如果您需继续应用包含旧名称的报表，请使用此文件的映射报表。</p>
+        <p>按照以下要求，下载一份电子数据表，其中包含所有计量名称及其前/后属性值（文件还给出了中国新型计量名称）。 </p>
+		<ul>
+            <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载网络直接客户计量名称映射文件。</a> </li>
+            <!-- <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/EA Customer - AzureMeterRename-zh-cn.xlsx">下载 EA 客户计量名称映射文件。</a></li> -->
+            </ul>
+        <p>在所有更新发布（即 2018 年 10 月首周）之前，此表会每月更新一次，请定期查看更新。 如果您需继续应用包含旧名称的报表，请使用此文件的映射报表。</p>
         <p>为方便过渡，我们为您提供了<a id="meter_name_changes_meter-update-reports-18.6.28" href="/support/meter-update-reports/">说明</a>，帮助您更新包含计量属性名称的报表。 如果您有任何疑问，请联系<a id="meter_name_changes_azure-support-team18.6.28" href="/support/contact/">Azure 支持</a>。 </p>
         <p>感谢您继续使用 Azure。 衷心希望这些改进可帮助您更好地利用Azure进行分析和报告。</p>
     ]]>
