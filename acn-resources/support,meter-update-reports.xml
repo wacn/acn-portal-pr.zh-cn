@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-06-28T08:57:21" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
+  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-07-19T08:57:21" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
     <bodyText>
       <![CDATA[
         <div class="section-component">
@@ -16,12 +16,16 @@
                                                 <li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-1" href="#">基于计量名称ID（Resource GUID）更新计量名称</a>
+                                                        <a id="q-1" href="#">基于计量名称 ID（Resource GUID）更新计量名称</a>
                                                         <section>
                                                             <p>以下步骤可用于筛选我们提供的映射电子表格，以便使其适用于您使用的计量名称。 若要了解更多有关计量名称的更新，请点击<a href="/support/announcement/meter_name_changes/">此处</a>。</p>
-															<p>1.点击<a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">此处</a>，下载标准计量名称列表，将该文件保存至本地（如c：\ AzureMeterMapping-zh-cn.xlsx）。</p>
-															<p>2. 从
-															<a href="https://portal.azure.cn/">Azure门户</a>下载使用详情总结，或基于某可用Azure API输出创建工作簿，将该文件保存至本地（如c：\ AzureUsage.xlsx）。 请参见下述从<a href="https://portal.azure.cn/">Azure门户</a>下载的使用详情csv文件示例。</p>
+															<p>1.下载标准计量名称列表，并在本地将文件另存为“AzureMeterMapping-zh-cn.xlsx”。</p>
+															<ul>
+																<li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载网络直接客户计量名称映射文件。</a> </li>
+																<!-- <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/EA Customer - AzureMeterRename-zh-cn.xlsx">下载 EA 客户计量名称映射文件。</a></li> -->
+																</ul> 
+															<p>2.从
+															<a href="https://portal.azure.cn/">Azure 门户</a>下载使用详情总结，或基于某可用 Azure API 输出创建工作簿，将该文件保存至本地（如 c：\ AzureUsage.xlsx）。 请参见下述从<a href="https://portal.azure.cn/">Azure 门户</a>下载的使用详情 csv 文件示例。</p>
 															<!--<ul>
 															<li>
 															如果您是标准预付费客户，请从<a href="//account.windowsazure.cn/" id="meter-renaming-q1_windowsazure-direct-customer">Azure 账户管理界面</a>下载 “Version 2 – Preview”
@@ -36,62 +40,62 @@
 															<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-1.png"/>-->
 															
 															<p>3. 打开 ' AzureUsage.xlsx' 文件，删除与日常使用无关的所有数据（如说明或配置状态信息）。 如该工作表尚未被命名为“Sheet 1”，请将其重命名为“Sheet 1”。</p>
-															<p>4. 运行vlookup 解释计量命名更改之前，请先清理“AzureUsage.xlsx”中的数据。</p>
-															<p>1) 为确保vlookups返回有效结果，请使用Excel的查找/替换功能，删除 ' AzureUsage.xlsx' 中计量名称 ID（Resource GUID）的引号。 接着将计量名称 ID（Resource GUID）列向左移动为A列，以便使用vlookups，最后保存该文件。请注意，下表表头所显示的计量属性名称的变化，取决于您具体的Azure 订阅。</p>
+															<p>4. 运行 vlookup 解释计量命名更改之前，请先清理“AzureUsage.xlsx”中的数据。</p>
+															<p>1) 为确保 vlookups 返回有效结果，请使用 Excel 的查找/替换功能，删除 ' AzureUsage.xlsx' 中计量名称 ID（Resource GUID）的引号。 接着将计量名称 ID（Resource GUID）列向左移动为A列，以便使用 vlookups，最后保存该文件。请注意，下表表头所显示的计量属性名称的变化，取决于您具体的 Azure 订阅。</p>
 															
 															<!--<img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/images/meter-renaming/meter-renaming-2.png"/>-->
 															
-															<p>5. 打开 ‘AzureMeterMapping-zh-cn.xlsx’ 文件，在计量名称 ID（Resource GUID）上<a href="https://support.office.com/en-us/article/VLOOKUP-When-and-how-to-use-it-9a86157a-5542-4148-a536-724823014785">生成 一份标准vlookup</a>至“AzureUsage.xlsx”文件中。</p>
+															<p>5. 打开 ‘AzureMeterMapping-zh-cn.xlsx’ 文件，在计量名称 ID（Resource GUID）上<a href="https://support.office.com/en-us/article/VLOOKUP-When-and-how-to-use-it-9a86157a-5542-4148-a536-724823014785">生成 一份标准 vlookup</a>至“AzureUsage.xlsx”文件中。</p>
 															<p>1) 在 ' AzureMeterMapping-zh-cn.xlsx' 文件的 A 列右侧添加一个列。</p>
 															<p>2) 在 B2 单元格 中输入 vlookup 函数：=VLOOKUP (A2, ' [AzureUsage.xls]Sheet 1 ' !$A:$A,1,FALSE)</p>
 															<p>3) 从 B 列筛选“N/A”值，以清除您不使用的计量名称。您更新后的文件应类似于以下示例。</p>
 															
 															<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量ID 或 资源 GUID</strong></th>
-								<th align="left"><strong></strong></th>
-								<th align="left"><strong>原规范 - 服务名称,名称,或 计量类别</strong></th>
-								<th align="left"><strong>原规范 - 服务类别, 类别, 或 计量子类别</strong></th>
-								<th align="left"><strong>原规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
-								<th align="left"><strong>原规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>原规范 - 单位或计量单位</strong></th>
-								<th align="left"><strong>新规范 - 服务名称,名称,或 计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别, 类别, 或 计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-								
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>数据服务 </td>
-								<td>SQL数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td>日</td>
-								<td>数据服务 </td>
-								<td>SQL 数据库</td>
-								<td>单一标准</td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>
-						
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>存储 </td>
-								<td>本地冗余 </td>
-								<td>高级储存 - 页Blob/P6 (单位) </td>
-								<td>单位</td>
-								<td>存储</td>
-								<td>存储</td>
-								<td>高级页 Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-							</tr>
-						</table>
+																<tr>
+																	<th align="left"><strong>计量 ID 或 资源 GUID</strong></th>
+																	<th align="left"><strong></strong></th>
+																	<th align="left"><strong>原规范 - 服务名称,名称,或 计量类别</strong></th>
+																	<th align="left"><strong>原规范 - 服务类别, 类别, 或 计量子类别</strong></th>
+																	<th align="left"><strong>原规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
+																	<th align="left"><strong>原规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>原规范 - 单位或计量单位</strong></th>
+																	<th align="left"><strong>新规范 - 服务名称,名称,或 计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别, 类别, 或 计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																	
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td>日</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库</td>
+																	<td>单一标准</td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>
+															
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>存储 </td>
+																	<td>本地冗余 </td>
+																	<td>高级储存 - 页Blob/P6 (单位) </td>
+																	<td>单位</td>
+																	<td>存储</td>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																</tr>
+															</table>
 															<p>4) “ AzureMeterMapping-zh-cn.xlsx” 文件仅显示使用报告中使用的计量名称。有关原计量命名规范，请参见 C-G 列；新计量命名规范，请查看 H-L 列。</p>
                                                         </section>
                                                     </div>
@@ -102,8 +106,12 @@
                                                         <a id="q-2" href="#">总结使用情况，在名称变更生效前使用枢轴表，查看某报表中显示的新旧名称</a>
                                                         <section>
                                                             <p>下述章节将为您提供相关指导，协助您将所使用的计量汇总成一份可显示新旧名称的合并报表。若您想了解新名称生效后的报表，请遵循此操作说明。如需了解更多有关计量名称变更的信息，请点击<a href="/support/announcement/meter_name_changes/">此处</a>。</p>
-															<p>1. 点击<a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">此处</a>，下载标准计量名称列表，并将文件保存在本地（e.g. c:\AzureMeterMapping-zh-cn.xlsx）。</p>
-															<p>2. 从<a href="https://portal.azure.cn/" id="azure-portal"> Azure 门户</a>下载使用详情总结，或基于某可用Azure API的输出，创建工作簿，并将该文件保存至本地（如c：\ AzureUsage.xlsx）。 请参见下述从<a href="https://portal.azure.cn/" id="azure-portal"> Azure 门户</a>中下载的csv使用详情文件示例。</p>
+															<p>1.下载标准计量名称列表，并在本地将文件另存为“AzureMeterMapping-zh-cn.xlsx”。</p>
+															<ul>
+																<li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载网络直接客户计量名称映射文件。</a> </li>
+																<!-- <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/EA Customer - AzureMeterRename-zh-cn.xlsx">下载 EA 客户计量名称映射文件。</a></li> -->
+															</ul> 
+															<p>2. 从<a href="https://portal.azure.cn/" id="azure-portal"> Azure 门户</a>下载使用详情总结，或基于某可用 Azure API 的输出，创建工作簿，并将该文件保存至本地（如 c：\ AzureUsage.xlsx）。 请参见下述从<a href="https://portal.azure.cn/" id="azure-portal"> Azure 门户</a>中下载的csv使用详情文件示例。</p>
 															<!--<ul>
 															<li>
 															如果您是标准预付费客户，请从<a href="//account.windowsazure.cn/" id="meter-renaming-q2_windowsazure-direct-customer">Azure 账户管理界面</a>下载 “Version 2 – Preview”
@@ -120,99 +128,99 @@
 															
 															<p>3.打开“AzureUsage.xls”文件，删除与日常使用无关的所有数据（如说明或配置状态信息）。</p>
 															<p>4.在运行 vlookup 解释计量命名更改之前，请先清理“AzureUsage.xls”中的数据。</p>
-															<p>1) 为确保vlookups返回有效结果，请使用Excel的查找/替换功能，删除 ' AzureUsage.xlsx' 中计量 ID（Resource GUID）的引号。 然后将计量 ID（Resouce GUID）列向左移动成为A列，以便使用vlookups，最后保存该文件。请注意，下表中列标题所显示的计量属性名称的变化，将取决于您具体的Azure订阅。</p>
+															<p>1) 为确保 vlookups 返回有效结果，请使用 Excel 的查找/替换功能，删除 ' AzureUsage.xlsx' 中计量 ID（Resource GUID）的引号。 然后将计量 ID（Resouce GUID）列向左移动成为A列，以便使用 vlookups，最后保存该文件。请注意，下表中列标题所显示的计量属性名称的变化，将取决于您具体的 Azure 订阅。</p>
 														
 															<p>5. 打开一份新的 Excel 文件，将其命名为“Usage Summary – New Names.xls”，保存在本地。</p>
 															<p>6. 按以下示例中的顺序，将“AzureUsage.xls”文件中的数据，复制并粘贴到“Usage Summary – New Names.xls”文件。</p>
 															
 															<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量 ID (Resource GUID)</strong></th>
-								<th align="left"><strong>使用日期</strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong>使用</strong></th>
-								
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>2017年12月21日</td>
-								<td>数据服务 </td>
-								<td>SQL数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日 </td>
-								<td>####.##</td>
-														
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>2017年12月21日</td>
-								<td>存储 </td>
-								<td>本地冗余 </td>
-								<td>高级储存 - 页Blob/P6 (单位) </td>
-								<td></td>
-								<td>单位</td>
-								<td>####.##</td>
-								
-							</tr>
-						</table>
+																<tr>
+																	<th align="left"><strong>计量 ID (Resource GUID)</strong></th>
+																	<th align="left"><strong>使用日期</strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong>使用</strong></th>
+																	
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日 </td>
+																	<td>####.##</td>
+																							
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>存储 </td>
+																	<td>本地冗余 </td>
+																	<td>高级储存 - 页Blob/P6 (单位) </td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>####.##</td>
+																	
+																</tr>
+															</table>
 															<p>7. 在“Usage Summary – New Names.xls”文件的 J-N列中，创建 vlookup，以便拉入“ AzureMeterMapping-zh-cn.xlsx”文件中的 G-K 列，标题也应包括在内。具体请参阅下方的屏幕截图示例。
 															
-																							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量 ID or Resource GUID</strong></th>
-								<th align="left"><strong>使用日期</strong></th>
-								<th align="left"><strong>服务名称、名称或计量类别</strong></th>
-								<th align="left"><strong>服务类别、类别或计量子类别</strong></th>
-								<th align="left"><strong>资源名称、资源、服务资源或计量名称</strong></th>
-								<th align="left"><strong>计量区域或区域</strong></th>
-								<th align="left"><strong>单位或计量单位</strong></th>
-								<th align="left"><strong>消耗</strong></th>
-								<th align="left"><strong>子区域</strong></th>
-								<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>2017年12月21日</td>
-								<td>数据服务 </td>
-								<td>SQL数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日 </td>
-								<td>####.##</td>
-								<td></td>
-								<td>SQL 数据库 </td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日 </td>
-														
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>2017年12月21日</td>
-								<td>存储 </td>
-								<td>本地冗余 </td>
-								<td>高级储存 - 页Blob/P6 (单位) </td>
-								<td></td>
-								<td>单位</td>
-								<td>####.##</td>
-								<td></td>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-							</tr>
-						</table>
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量 ID or Resource GUID</strong></th>
+																	<th align="left"><strong>使用日期</strong></th>
+																	<th align="left"><strong>服务名称、名称或计量类别</strong></th>
+																	<th align="left"><strong>服务类别、类别或计量子类别</strong></th>
+																	<th align="left"><strong>资源名称、资源、服务资源或计量名称</strong></th>
+																	<th align="left"><strong>计量区域或区域</strong></th>
+																	<th align="left"><strong>单位或计量单位</strong></th>
+																	<th align="left"><strong>消耗</strong></th>
+																	<th align="left"><strong>子区域</strong></th>
+																	<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日 </td>
+																	<td>####.##</td>
+																	<td></td>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日 </td>
+																							
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>存储 </td>
+																	<td>本地冗余 </td>
+																	<td>高级储存 - 页Blob/P6 (单位) </td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>####.##</td>
+																	<td></td>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																</tr>
+															</table>
 															
 															<p>8. 在 ' Usage Summary – New Names.xls' 文件中<a href="https://support.office.com/en-us/article/Create-PivotTables-74ce8afc-2446-4816-80ee-20ca7fb71793?ui=en-US&rs=en-US&ad=US" id="creat-excel"> 创建枢轴表</a>。</p>
 															<p>1) 若需创建上述枢轴表，请按以下步骤操作：</p>
@@ -236,49 +244,49 @@
 															<p>vii. 右键单击每个列标题，取消选中“小计<标题名称>”（如小计“计量类别（服务名称或名称）”）。</p>
 															<p>9. 最终输出应类似于以下示例：</p>
 															<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-								<th align="left"><strong>消耗总计</strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>数据服务 </td>
-								<td>SQL数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>
-								<td>SQL 数据库 </td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>
-								<td>####</td>						
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>存储</td>
-								<td>本地冗余</td>
-								<td>高级存储 - 页 Blob/P6 (单位)</td>
-								<td></td>
-								<td>单位</td>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-								<td>####</td>						
-							</tr>
-						</table>	
+																<tr>
+																	<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																	<th align="left"><strong>消耗总计</strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>
+																	<td>####</td>						
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>存储</td>
+																	<td>本地冗余</td>
+																	<td>高级存储 - 页 Blob/P6 (单位)</td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>存储</td>
+																	<td>高级页Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																	<td>####</td>						
+																</tr>
+															</table>	
 															
                                                         </section>
                                                     </div>
@@ -289,8 +297,12 @@
                                                         <a id="q-3" href="#">总结使用情况，在名称更改生效前使用枢轴表，查看某报表中显示的新旧名称</a>
                                                         <section>
                                                             <p>下述章节将为您提供相关指导，以协助您将所消耗的计量汇总成一份可显示新旧名称的合并报表。如在新名称实施后，您还需暂时继续在报表中使用旧名称，请遵循下述操作说明。如需了解更多有关计量名称改进的信息，请点击<a href="https://www.azure.cn/zh-cn/support/announcement/meter_name_changes/">此处</a>。</p>
-															<p>1. 请点击<a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">此处</a>，下载标准计量列表，并将文件保存在本地（e.g. c:\AzureMeterMapping-zh-cn.xlsx）。</p>
-															<p>2. 请从Azure门户下载使用详情总结，或基于某可用Azure API的输出创建工作簿，并将该文件保存至本地（如c：\ AzureUsage.xlsx）。 请参见下述使用详情csv文件（请从Azure管理门户中下载）的使用示例。</p>
+															<p>1.下载标准计量名称列表，并在本地将文件另存为“AzureMeterMapping-zh-cn.xlsx”。</p>
+															<ul>
+																<li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载网络直接客户计量名称映射文件。</a> </li>
+																<!-- <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/EA Customer - AzureMeterRename-zh-cn.xlsx">下载 EA 客户计量名称映射文件。</a></li> -->
+																</ul> 
+															<p>2. 请从 Azure 门户下载使用详情总结，或基于某可用 Azure API 的输出创建工作簿，并将该文件保存至本地（如 c：\ AzureUsage.xlsx）。 请参见下述使用详情 csv 文件（请从 Azure 管理门户中下载）的使用示例。</p>
 															<!--<ul>
 															<li>
 															如果您是标准预付费客户，请从<a href="//account.windowsazure.cn/" id="meter-renaming-q3_windowsazure-direct-customer">Azure 账户管理界面</a>下载 “Version 2 – Preview”
@@ -307,91 +319,91 @@
 															
 															<p>3. 打开一份新 Excel 文件，将其命名为“Usage Summary – Old Names.xls”，并将该文件保存至本地。</p>
 															<p>4.在运行 vlookup 解释计量命名更改之前，请先清理“AzureUsage.xls”中的数据。</p>
-															<p>1) 为确保vlookups返回有效结果，请使用Excel的查找/替换功能，删除 ' AzureUsage.xlsx' 中计量 ID（Resource GUID）的引号。 然后，将计量 ID（资源GUID）列向左移动成为A列，以便使用vlookups，最后保存该文件。请注意，下表中列标题所显示的计量属性名称中的变化，将取决于您具体的Azure订阅。</p>
+															<p>1) 为确保 vlookups 返回有效结果，请使用 Excel 的查找/替换功能，删除 ' AzureUsage.xlsx' 中计量 ID（Resource GUID）的引号。 然后，将计量 ID（资源 GUID）列向左移动成为A列，以便使用 vlookups，最后保存该文件。请注意，下表中列标题所显示的计量属性名称中的变化，将取决于您具体的 Azure 订阅。</p>
 															<p>2) 根据以下示例顺序，从“AzureUsage.xls”文件中，将数据复制并粘贴到“Usage Summary – Old Names.xls”文件中。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
-								<th align="left"><strong>使用日期</strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong>消耗</strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>2017年12月21日</td>
-								<td>SQL 数据库</td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>
-								<td>####.##</td>						
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>2017年12月21日</td>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-								<td>####.##</td>						
-							</tr>
-						</table>	
-						                                    <p>3) 在“Usage Summary – Old Names.xls”文件的 J-N 列中创建 vlookup，以便拉入“ AzureMeterMapping-zh-cn.xlsx”文件中的B-F 列，标题也应包括在内。具体请参阅下方屏幕截图示例。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
-								<th align="left"><strong>使用日期</strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong>消耗 Quantity</strong></th>
-								<th align="left"><strong>子区域</strong></th>
-								<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>2017年12月21日</td>
-								<td>SQL 数据库 </td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日 </td>
-								<td>####.##</td>
-								<td></td>
-								<td>数据服务 </td>
-								<td>SQL 数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日 </td>
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>2017年12月21日</td>
-								<td>存储 </td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-								<td>####.##</td>
-								<td></td>
-								<td>存储</td>
-								<td>本地冗余 </td>
-								<td>高级储存 - 页Blob/P6 (单位) </td>
-								<td></td>
-								<td>单位</td>
-							</tr>
-						</table>
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
+																	<th align="left"><strong>使用日期</strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong>消耗</strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>SQL 数据库</td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>
+																	<td>####.##</td>						
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																	<td>####.##</td>						
+																</tr>
+															</table>	
+						                                    <p>3) 在“Usage Summary – Old Names.xls”文件的 J-N 列中创建 vlookup，以便拉入“ AzureMeterMapping-zh-cn.xlsx”文件中的 B-F 列，标题也应包括在内。具体请参阅下方屏幕截图示例。</p>
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
+																	<th align="left"><strong>使用日期</strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong>消耗 Quantity</strong></th>
+																	<th align="left"><strong>子区域</strong></th>
+																	<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日 </td>
+																	<td>####.##</td>
+																	<td></td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日 </td>
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>2017 年 12 月 21 日</td>
+																	<td>存储 </td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																	<td>####.##</td>
+																	<td></td>
+																	<td>存储</td>
+																	<td>本地冗余 </td>
+																	<td>高级储存 - 页 Blob/P6 (单位) </td>
+																	<td></td>
+																	<td>单位</td>
+																</tr>
+															</table>
 															<p>4)在 ' Usage Summary – Old Names.xls' 文件中<a href="https://support.office.com/en-us/article/Create-PivotTables-74ce8afc-2446-4816-80ee-20ca7fb71793?ui=en-US&rs=en-US&ad=US">创建枢轴表</a>。</p>
 															<p>1.若需创建上述枢轴表，请按以下步骤操作：</p>
 															<p>i. 在 ' Usage Summary – New Names.xls' 文件工作簿中添加一份新工作表，将其命名为 ' After-Before Summary' 表。</p>
@@ -413,210 +425,215 @@
 															<p>vi.转到“设计”选项卡，单击“报表布局”。在下拉菜单中单击“以表格形式显示”。</p>
 															<p>vii. 右键单击每个列标题，并取消选中“小计<标题名称>”（如小计“计量类别（服务名称或名称）”）。</p>
 															<p>5. 最终输出应类似以下示例：</p>
-                            <table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-								<th align="left"><strong>消耗总计</strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>SQL 数据库 </td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>
-								<td>数据服务 </td>
-								<td>SQL 数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>
-								<td>###</td>						
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-								<td>存储</td>
-								<td>本地冗余</td>
-								<td>高级存储 - 页 Blob/P6 (单位)</td>
-								<td></td>
-								<td>单位</td>
-								<td>###</td>						
-							</tr>
-						</table>				
+								                            <table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量 ID (资源 GUID)</strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong>新规范 - 服务名称、名称或计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别、类别或计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称、资源、服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																	<th align="left"><strong>消耗总计</strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>
+																	<td>###</td>						
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																	<td>存储</td>
+																	<td>本地冗余</td>
+																	<td>高级存储 - 页 Blob/P6 (单位)</td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>###</td>						
+																</tr>
+															</table>				
                                                         </section>
                                                     </div>
                                                 </li>
 												<li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-4" href="#">在无需计量ID（资源 GUID）的情况下，将原名称更新为新名称</a>
+                                                        <a id="q-4" href="#">在无需计量 ID（资源 GUID）的情况下，将原名称更新为新名称</a>
                                                         <section>                                                       
 														
 															<p>以下概述步骤可用于筛选我们仅基于计量名称属性，而提供给您使用的计量映射电子表格。如果您没有包含计量 ID（Resource GUID）的使用文件，您可在名称更改生效前，按以下步骤操作。若要了解更多有关计量名称的改进信息，请点击<a href="https://www.azure.cn/zh-cn/support/announcement/meter_name_changes/">此处</a>。</p>	
-															<p>1. 请点击<a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">此处</a>，下载标准计量列表，并将文件保存在本地（e.g. c:\AzureMeterMapping-zh-cn.xlsx）。</p>
+															<p>1.下载标准计量名称列表，并在本地将文件另存为“AzureMeterMapping-zh-cn.xlsx”。</p>
+															<ul>
+																<li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载网络直接客户计量名称映射文件。</a> </li>
+																<!-- <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/EA Customer - AzureMeterRename-zh-cn.xlsx">下载 EA 客户计量名称映射文件。</a></li> -->
+																</ul> 
 															<p>2. 打开一份新 Excel 文件，并为其命名（如“Old Names.xls”）。将文件保存至本地。添加下列标题（您需基于 Azure 预定，自定义这些标题）。具体请参阅以下示例。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>	
-						</table>		
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																</tr>	
+															</table>		
 															
 															<p>3. 根据所创建的标题，从您的文件将原名称数据添加至“Old Names.xls”文件。具体请参阅下方示例屏幕截图。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-							</tr>
-							<tr>
-								<td>数据服务 </td>
-								<td>SQL 数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>					
-							</tr>
-							<tr>
-								<td>存储</td>
-								<td>本地冗余</td>
-								<td>高级存储 - 页 Blob/P6 (单位)</td>
-								<td></td>
-								<td>单位</td>					
-							</tr>
-						</table>				
-															
-															<p>4.您需在“Old Names.xls”文件的 F 列，链接各行数据。在F2单元格中输入下列公式：=CONCATENATE(A2," ",B2," ",C2," ",D2," ",E2)。具体请参阅以下示例截图。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong></strong></th>
-							</tr>
-							<tr>
-								<td>数据服务 </td>
-								<td>SQL 数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>	
-								<td>数据服务 SQL 数据库 标准S0数据库日</td>				
-							</tr>
-							<tr>
-								<td>存储</td>
-								<td>本地冗余</td>
-								<td>高级存储 - 页 Blob/P6 (单位)</td>
-								<td></td>
-								<td>单位</td>
-								<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)单位</td>						
-							</tr>
-						</table>	
-															
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																</tr>
+																<tr>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>					
+																</tr>
+																<tr>
+																	<td>存储</td>
+																	<td>本地冗余</td>
+																	<td>高级存储 - 页 Blob/P6 (单位)</td>
+																	<td></td>
+																	<td>单位</td>					
+																</tr>
+															</table>				
+																							
+															<p>4.您需在“Old Names.xls”文件的 F 列，链接各行数据。在 F2 单元格中输入下列公式：=CONCATENATE(A2," ",B2," ",C2," ",D2," ",E2)。具体请参阅以下示例截图。</p>
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong></strong></th>
+																</tr>
+																<tr>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>	
+																	<td>数据服务 SQL 数据库 标准 S0 数据库日</td>				
+																</tr>
+																<tr>
+																	<td>存储</td>
+																	<td>本地冗余</td>
+																	<td>高级存储 - 页 Blob/P6 (单位)</td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)单位</td>						
+																</tr>
+															</table>	
+																
 															<p>5. 将 F 列中的内容复制粘贴为纯文本，这样可删除公式并同时保留单元格中的结果。接着，将 F 列移动到 A 列。具体请参阅以下示例。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-							    <th align="left"><strong></strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-							</tr>
-							<tr>
-							    <td>数据服务 SQL 数据库标准S0数据库日</td>	
-								<td>数据服务 </td>
-								<td>SQL 数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>				
-							</tr>
-							<tr>
-								<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)单位</td>		
-								<td>存储</td>
-								<td>本地冗余</td>
-								<td>高级存储 - 页 Blob/P6 (单位)</td>
-								<td></td>
-								<td>单位</td>				
-							</tr>
-						</table>	
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																    <th align="left"><strong></strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																</tr>
+																<tr>
+																    <td>数据服务 SQL 数据库标准 S0 数据库日</td>	
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>				
+																</tr>
+																<tr>
+																	<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)单位</td>		
+																	<td>存储</td>
+																	<td>本地冗余</td>
+																	<td>高级存储 - 页 Blob/P6 (单位)</td>
+																	<td></td>
+																	<td>单位</td>				
+																</tr>
+															</table>	
 															
 															<p>6. 在 ‘AzureMeterMapping-zh-cn.xlsx’ 文件的 F 列之后，添加一个列。通过链接 ' AzureMeterMapping-zh-cn.xlsx' 文件中的 B-F 列，重复步骤4。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量ID 或 资源 GUID</strong></th>
-								<th align="left"><strong>原规范 - 服务名称,名称,或 计量类别</strong></th>
-								<th align="left"><strong>原规范 - 服务类别, 类别, 或 计量子类别</strong></th>
-								<th align="left"><strong>原规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
-								<th align="left"><strong>原规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>原规范 - 单位或计量单位</strong></th>
-								<th align="left"><strong></strong></th>
-								<th align="left"><strong></strong></th>
-								<th align="left"><strong>新规范 - 服务名称,名称,或 计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别, 类别, 或 计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>数据服务 </td>
-								<td>SQL数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>
-								<td>数据服务 SQL 数据库 标准S0数据库日</td>
-								<td>数据服务 SQL 数据库 标准S0数据库日</td>
-								<td>SQL 数据库</td>
-								<td>单一标准</td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>
-						
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>存储 </td>
-								<td>本地冗余 </td>
-								<td>高级储存 - 页Blob/P6 (单位) </td>
-								<td></td>
-								<td>单位</td>
-								<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)</td>
-								<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)</td>
-								<td>存储</td>
-								<td>高级页 Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-							</tr>
-						</table>
-															<p>7.在 ‘AzureMeterMapping-zh-cn.xlsx’ 文件H列上，<a href="https://support.office.com/en-us/article/VLOOKUP-When-and-how-to-use-it-9a86157a-5542-4148-a536-724823014785">创建标准 vlookup</a>至 ' Old Names.xlsx' 文件的 A 列中。 遗留名称可能会随时间更改，因此将不会显示匹配。如果未找到匹配项，请从<a href="https://portal.azure.cn/">Azure门户</a>中查看当前使用详情概要，以查找计量的当前名称。筛选 H 列，删除显示“N/A”的结果。筛选后， ' AzureMeterMapping-zh-cn.xlsx' 文件将仅显示在您 ' Old Names.xlsx' 文件中的计量。如需查看与“Old Names.xls”文件中计量对应的新名称，请滚动至工作簿右侧，查看 I-M 列。 具体请参阅以下示例中的结果。</p>	
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量 ID 或 资源 GUID</strong></th>
+																	<th align="left"><strong>原规范 - 服务名称,名称,或 计量类别</strong></th>
+																	<th align="left"><strong>原规范 - 服务类别, 类别, 或 计量子类别</strong></th>
+																	<th align="left"><strong>原规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
+																	<th align="left"><strong>原规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>原规范 - 单位或计量单位</strong></th>
+																	<th align="left"><strong></strong></th>
+																	<th align="left"><strong></strong></th>
+																	<th align="left"><strong>新规范 - 服务名称,名称,或 计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别, 类别, 或 计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>
+																	<td>数据服务 SQL 数据库 标准 S0 数据库日</td>
+																	<td>数据服务 SQL 数据库 标准 S0 数据库日</td>
+																	<td>SQL 数据库</td>
+																	<td>单一标准</td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>
+															
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>存储 </td>
+																	<td>本地冗余 </td>
+																	<td>高级储存 - 页Blob/P6 (单位) </td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)</td>
+																	<td>存储 本地冗余 高级存储 - 页 Blob/P6 (单位)</td>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																</tr>
+															</table>
+															<p>7.在 ‘AzureMeterMapping-zh-cn.xlsx’ 文件 H 列上，<a href="https://support.office.com/en-us/article/VLOOKUP-When-and-how-to-use-it-9a86157a-5542-4148-a536-724823014785">创建标准 vlookup</a>至 ' Old Names.xlsx' 文件的 A 列中。 遗留名称可能会随时间更改，因此将不会显示匹配。如果未找到匹配项，请从<a href="https://portal.azure.cn/">Azure
+															门户</a>中查看当前使用详情概要，以查找计量的当前名称。筛选 H 列，删除显示“N/A”的结果。筛选后， ' AzureMeterMapping-zh-cn.xlsx' 文件将仅显示在您 ' Old Names.xlsx' 文件中的计量。如需查看与“Old Names.xls”文件中计量对应的新名称，请滚动至工作簿右侧，查看 I-M 列。 具体请参阅以下示例中的结果。</p>	
 																												
                                                         </section>
                                                     </div>
@@ -624,159 +641,163 @@
 												<li>
                                                     <i class="icon icon-plus"></i>
                                                     <div>
-                                                        <a id="q-5" href="#">在无需计量ID（资源 GUID）的情况下，将新名称转换为原名称</a>
+                                                        <a id="q-5" href="#">在无需计量 ID（资源 GUID）的情况下，将新名称转换为原名称</a>
                                                         <section>                                                       																		
 															<p>以下概述步骤可用于筛选我们仅基于计量名称属性，而提供给您使用的计量映射电子表格。如果您没有包含计量 ID（Resource GUID）的使用文件，您可在名称更改生效前，按以下步骤操作。若要了解更多有关计量名称的改进信息，请点击<a href="https://www.azure.cn/zh-cn/support/announcement/meter_name_changes/">此处</a>。</p>
-															<p>1. 点击<a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">此处</a>，下载标准计量列表，并将文件保存在本地（e.g. c:\AzureMeterMapping-zh-cn.xlsx）。</p>
+															<p>1.下载标准计量名称列表，并在本地将文件另存为“AzureMeterMapping-zh-cn.xlsx”。</p>
+															<ul>
+																<li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/AzureMeterRename-zh-cn.xlsx">下载网络直接客户计量名称映射文件。</a> </li>
+																<!-- <li><a href="http://download.microsoft.com/download/0/C/B/0CB667B1-C365-48CD-8F7D-E84FD1935E46/EA Customer - AzureMeterRename-zh-cn.xlsx">下载 EA 客户计量名称映射文件。</a></li> -->
+																</ul> 
 															<p>2. 打开一份新 Excel 文件，并为其命名（如 ' New Names.xlsx' ）。将文件保存至本地。添加下列标题（您需基于 Azure 订阅，自定义这些标题）。具体请参阅以下示例。</p>
 															
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>	
-						</table>		
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																</tr>
+																<tr>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																</tr>	
+															</table>		
 															
 															<p>3. 根据所创建的标题，从您的文件将新名称数据添加至“New Names.xls”文件。具体请参阅下方示例。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-							</tr>
-							<tr>
-								<td>SQL 数据库 </td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>					
-							</tr>
-							<tr>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>					
-							</tr>
-						</table>				
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																</tr>
+																<tr>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>					
+																</tr>
+																<tr>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>					
+																</tr>
+															</table>				
 															
-															<p>4.您需在 ' New Names.xls' 文件 的F 列，链接各行数据。在F2单元格中输入下列公式：=CONCATENATE(A2," ",B2," ",C2," ",D2," ",E2)。具体请参阅以下示例。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-								<th align="left"><strong></strong></th>
-							</tr>
-							<tr>
-								<td>SQL 数据库 </td>
-								<td>单一标准  </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日 </td>	
-								<td>SQL 数据库 单一标准 S0 DTUs 1/日</td>				
-							</tr>
-							<tr>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-								<td>存储 高级页Blob P6 磁盘 1/月</td>						
-							</tr>
-						</table>	
+															<p>4.您需在 ' New Names.xls' 文件 的 F 列，链接各行数据。在 F2 单元格中输入下列公式：=CONCATENATE(A2," ",B2," ",C2," ",D2," ",E2)。具体请参阅以下示例。</p>
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																	<th align="left"><strong></strong></th>
+																</tr>
+																<tr>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准  </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日 </td>	
+																	<td>SQL 数据库 单一标准 S0 DTUs 1/日</td>				
+																</tr>
+																<tr>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																	<td>存储 高级页 Blob P6 磁盘 1/月</td>						
+																</tr>
+															</table>	
 															
 															<p>5.将 F 列中的内容复制粘贴为纯文本，这样可删除公式并同时保留单元格中的结果。接着，将 F 列移动到 A 列。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-							    <th align="left"><strong></strong></th>
-								<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
-								<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
-								<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
-								<th align="left"><strong>计量区域(区域)</strong></th>
-								<th align="left"><strong>单位(计量单位)</strong></th>
-							</tr>
-							<tr>
-							    <td>SQL 数据库 单一标准 S0 DTUs 1/日</td>	
-								<td>SQL 数据库 </td>
-								<td>单一标准 </td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日</td>				
-							</tr>
-							<tr>
-								<td>存储 高级页Blob P6 磁盘 1/月</td>		
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>				
-							</tr>
-						</table>	
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																    <th align="left"><strong></strong></th>
+																	<th align="left"><strong>计量类别 (服务名称或名称)</strong></th>
+																	<th align="left"><strong>计量子类别 (服务类别或类别)</strong></th>
+																	<th align="left"><strong>计量名称(资源名称、资源、服务资源)</strong></th>
+																	<th align="left"><strong>计量区域(区域)</strong></th>
+																	<th align="left"><strong>单位(计量单位)</strong></th>
+																</tr>
+																<tr>
+																    <td>SQL 数据库 单一标准 S0 DTUs 1/日</td>	
+																	<td>SQL 数据库 </td>
+																	<td>单一标准 </td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日</td>				
+																</tr>
+																<tr>
+																	<td>存储 高级页 Blob P6 磁盘 1/月</td>		
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>				
+																</tr>
+															</table>	
 															
-															<p>6.  在“AzureMeterMapping-zh-cn.xlsx”文件的L列中，通过链接 ‘AzureMeterMapping-zh-cn.xlsx’ 文件中的 G-K 列，重复步骤4。</p>
-							<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>计量ID 或 资源 GUID</strong></th>
-								<th align="left"><strong>原规范 - 服务名称,名称,或 计量类别</strong></th>
-								<th align="left"><strong>原规范 - 服务类别, 类别, 或 计量子类别</strong></th>
-								<th align="left"><strong>原规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
-								<th align="left"><strong>原规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>原规范 - 单位或计量单位</strong></th>
-								<th align="left"><strong>新规范 - 服务名称,名称,或 计量类别</strong></th>
-								<th align="left"><strong>新规范 - 服务类别, 类别, 或 计量子类别</strong></th>
-								<th align="left"><strong>新规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
-								<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
-								<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
-								<th align="left"><strong></strong></th>
-								<th align="left"><strong></strong></th>
-							</tr>
-							<tr>
-								<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
-								<td>数据服务 </td>
-								<td>SQL 数据库 </td>
-								<td>标准S0数据库日 </td>
-								<td></td>
-								<td>日</td>
-								<td>SQL 数据库 </td>
-								<td>单一标准</td>
-								<td>S0 DTUs </td>
-								<td></td>
-								<td>1/日 </td>
-								<td>SQL 数据库 单一标准 S0 DTUs 1/日</td>
-								<td>SQL 数据库 单一标准 S0 DTUs 1/日</td>
-							</tr>
-							<tr>
-								<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
-								<td>存储 </td>
-								<td>本地冗余 </td>
-								<td>高级储存 - 页Blob/P6 (单位) </td>
-								<td></td>
-								<td>单位</td>
-								<td>存储</td>
-								<td>高级页Blob</td>
-								<td>P6 磁盘</td>
-								<td></td>
-								<td>1/月</td>
-								<td>存储 高级页Blob P6 磁盘 1/月</td>
-								<td>存储 高级页Blob P6 磁盘 1/月</td>
-							</tr>
-						</table>
-															<p>7.在 ‘AzureMeterMapping-zh-cn.xlsx’ 文件M列上，<a href="https://support.office.com/en-us/article/VLOOKUP-When-and-how-to-use-it-9a86157a-5542-4148-a536-724823014785">创建标准 vlookup</a>至“New Names.xlsx”文件的 A 列中。筛选 L列，删除带“N/A”的结果。筛选后， 'AzureMeterMapping-zh-cn.xlsx' 文件将仅显示您 ' New Names.xlsx' 文件中的计量。 遗留名称可能会随时间更改，因此将不会显示匹配项。如果未找到匹配项，请从<a href="https://portal.azure.com/">Azure管理门户</a>中查看当前使用详情概要，以查找计量的当前名称。如需查看与“New Names.xls”文件中计量对应的旧名称，请滚动至工作簿左侧，查看 B-F 列。 具体请参阅以下示例中的结果。</p>	
+															<p>6.  在“AzureMeterMapping-zh-cn.xlsx”文件的 L 列中，通过链接 ‘AzureMeterMapping-zh-cn.xlsx’ 文件中的 G-K 列，重复步骤4。</p>
+															<table cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																	<th align="left"><strong>计量 ID 或 资源 GUID</strong></th>
+																	<th align="left"><strong>原规范 - 服务名称,名称,或 计量类别</strong></th>
+																	<th align="left"><strong>原规范 - 服务类别, 类别, 或 计量子类别</strong></th>
+																	<th align="left"><strong>原规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
+																	<th align="left"><strong>原规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>原规范 - 单位或计量单位</strong></th>
+																	<th align="left"><strong>新规范 - 服务名称,名称,或 计量类别</strong></th>
+																	<th align="left"><strong>新规范 - 服务类别, 类别, 或 计量子类别</strong></th>
+																	<th align="left"><strong>新规范 - 资源名称,资源, 服务资源或计量名称</strong></th>
+																	<th align="left"><strong>新规范 - 计量区域或区域</strong></th>
+																	<th align="left"><strong>新规范 - 单位或计量单位</strong></th>
+																	<th align="left"><strong></strong></th>
+																	<th align="left"><strong></strong></th>
+																</tr>
+																<tr>
+																	<td>a149966f-73b4-4e1d-b335-d2a572b1e6bd</td>
+																	<td>数据服务 </td>
+																	<td>SQL 数据库 </td>
+																	<td>标准 S0 数据库日 </td>
+																	<td></td>
+																	<td>日</td>
+																	<td>SQL 数据库 </td>
+																	<td>单一标准</td>
+																	<td>S0 DTUs </td>
+																	<td></td>
+																	<td>1/日 </td>
+																	<td>SQL 数据库 单一标准 S0 DTUs 1/日</td>
+																	<td>SQL 数据库 单一标准 S0 DTUs 1/日</td>
+																</tr>
+																<tr>
+																	<td>31780fc6-80fe-44d4-9b5f-f0ffcf25c2f8</td>
+																	<td>存储 </td>
+																	<td>本地冗余 </td>
+																	<td>高级储存 - 页 Blob/P6 (单位) </td>
+																	<td></td>
+																	<td>单位</td>
+																	<td>存储</td>
+																	<td>高级页 Blob</td>
+																	<td>P6 磁盘</td>
+																	<td></td>
+																	<td>1/月</td>
+																	<td>存储 高级页 Blob P6 磁盘 1/月</td>
+																	<td>存储 高级页 Blob P6 磁盘 1/月</td>
+																</tr>
+															</table>
+															<p>7.在 ‘AzureMeterMapping-zh-cn.xlsx’ 文件 M 列上，<a href="https://support.office.com/en-us/article/VLOOKUP-When-and-how-to-use-it-9a86157a-5542-4148-a536-724823014785">创建标准 vlookup</a>至“New Names.xlsx”文件的 A 列中。筛选 L 列，删除带“N/A”的结果。筛选后， 'AzureMeterMapping-zh-cn.xlsx' 文件将仅显示您 ' New Names.xlsx' 文件中的计量。 遗留名称可能会随时间更改，因此将不会显示匹配项。如果未找到匹配项，请从<a href="https://portal.azure.com/">Azure 管理门户</a>中查看当前使用详情概要，以查找计量的当前名称。如需查看与“New Names.xls”文件中计量对应的旧名称，请滚动至工作簿左侧，查看 B-F 列。 具体请参阅以下示例中的结果。</p>	
 															
 															
 															<p></p>
