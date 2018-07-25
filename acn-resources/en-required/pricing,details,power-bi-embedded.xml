@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-12-30T16:31:24" updateDate="2018-06-12T16:00:00" urlName="power-bi-embedded" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2016-12-30T16:31:24" updateDate="2018-07-25T12:00:00" urlName="power-bi-embedded" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="power-bi-embedded" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -10,7 +10,7 @@
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/power-bi-embedded.png" /> 
-                        <h2>Power BI 工作区集合<!--<sup style="color: #a5ce00; font-weight: bold; text-transform: uppercase; font-family: '微软雅黑'; font-size: 20px;" class="wa-previewTag">预览</sup>--><span>Power BI workspace collection</span></h2>
+                        <h2>Power BI Embedded</h2>
                         <h4>在应用程序中嵌入完整交互式的可视化数据</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_power-bi-embedded_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
                         <a href="/pricing/pia/" id="home_power-bi-embedded_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
@@ -20,7 +20,7 @@
             <!-- END: Product-Detail-TopBanner -->
 			
             <div class="pricing-page-section">
-                <p>Power BI 工作区集合在面向客户的智能应用中提供完整的交互式、令人惊叹的可视化效果，无需花费时间和成本从头生成。</p>
+                <p> Power BI Embedded 允许应用程序开发人员将出色的完全交互式报表和仪表板嵌入应用中，无需花费时间和费用从头开始构建自己的控件。</p>
             </div>
 			
             <!-- BEGIN: TAB-CONTROL -->
@@ -29,44 +29,99 @@
                 <div class="tab-control-container tab-active" id="tabContent1">
                     <!-- BEGIN: Table1-Content-->
                     <h2>定价详细信息</h2>
-                    <!--<p>Power BI 工作区集合已正式上线，自即日起至 3 月 31 日，将继续按照预览版价格（即以下标准价格的 50%）计费，4 月 1 日起恢复按标准价格计费。</p>-->
+                    <p>Power BI Embedded 的总成本取决于所选择的节点类型和部署的节点数量。节点类型因 V 核心和 RAM 数量而异，如下表中所述：</p>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />                        
                     </div>
 					
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <th align="left" width="35%"><strong></strong></th>
-							<th align="left"><strong>免费</strong></th>
-                            <th align="left"><strong>标准</strong></th>
+                            
+                            <th align="left"><strong>节点类型</strong></th>
+                            <th align="left"><strong>专用容量</strong></th>
+                            <th align="left"><strong>虚拟内核</strong></th>
+                            <th align="left"><strong>内存</strong></th>
+                            <th align="left"><strong>前端/后端内核数</strong></th>
+							<th align="left"><strong>峰值呈现数/小时</strong></th>
+                            <th align="left"><strong>价格</strong></th>
                         </tr>                     
-                       <tr>                         
-                           <td>按会话定价 （每 100 个会话）</td>
-						   <td>每月前 100 个会话免费</td>
-                           <td>￥ 32.86 /月</td>
+                       <tr>
+                           <td>A1</td>
+                           <td>否</td>
+                           <td>1</td>
+                           <td>3 GB RAM</td>
+                           <td>0.5 / 0.5</td>
+                           <td>300</td>
+                           <td>￥6.4115/小时<br/>( 约￥4,770.156/月 )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A2</td>
+                           <td>否</td>
+                           <td>2</td>
+                           <td>5 GB RAM</td>
+                           <td>1 / 1</td>
+                           <td>600</td>
+                           <td>￥12.7715/小时<br/>( 约￥9,501.996/月 )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A3</td>
+                           <td>是</td>
+                           <td>4</td>
+                           <td>10 GB RAM</td>
+                           <td>2 / 2</td>
+                           <td>1,200</td>
+                           <td>￥25.5939/小时<br/>( 约￥19,041.8616/月 )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A4</td>
+                           <td>是</td>
+                           <td>5</td>
+                           <td>25 GB RAM</td>
+                           <td>4 / 4</td>
+                           <td>2,400</td>
+                           <td>￥51.2393/小时<br/>( 约￥38,122.0392/月 )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A5</td>
+                           <td>是</td>
+                           <td>16</td>
+                           <td>50 GB RAM</td>
+                           <td>8 / 8</td>
+                           <td>4,800</td>
+                           <td>￥102.5296/小时<br/>( 约￥76,282.0224/月 )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A6</td>
+                           <td>是</td>
+                           <td>32</td>
+                           <td>100 GB RAM</td>
+                           <td>16 / 16</td>
+                           <td>9,600</td>
+                           <td>￥205.1138/小时<br/>( 约￥152,604.6672/月 )</td>
                        </tr>
                     </table>
 					
-					<!--
-					<table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong></strong></th>                       
-                            <th align="left"><strong>预览版</strong></th>
-                            <th align="left"><strong>标准版</strong></th>
-                        </tr>                     
-                       <tr>                         
-                           <td>按会话定价 （每 100 个会话）</td>
-                           <td>￥ 16.43 /月</td>
-                           <td>￥ 32.86 /月</td>
-                       </tr>
-                    </table>
-					-->
 
                     <div class="tags-date">
-						<p>(1) 将主要和重要功能添加到我们的服务中，应用程序从根本上不是任何 Power BI 服务的替代品，</p>
-						<p>(2) 提供给第三方使用，</p>
-						<p>仅当你的应用程序同时满足上述两个条件时，才可以在应用程序中使用 Power BI 工作区集合服务。</p>
-						<p>Power BI 工作区集合不用于组织的内部业务应用程序，内部用户具有 Power BI Pro 用户订阅许可证 (USL) 的情况除外。</p>
+						
+						<p>查看 Power BI 工作区集合的定价。</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*以下价格均为含税价格。</div><br />                        
+                        </div>
+                        
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left" width="35%"><strong></strong></th>
+                                <th align="left"><strong>免费</strong></th>
+                                <th align="left"><strong>标准</strong></th>
+                            </tr>                     
+                           <tr>                         
+                               <td>按会话定价 （每 100 个会话）</td>
+                               <td>每月前 100 个会话免费</td>
+                               <td>￥ 32.86 /月</td>
+                           </tr>
+                        </table>
+						<p>在下述应用程序中使用 Power BI Embedded 服务：这些程序向服务中增添主要及重要功能，它们从根本上而言并非任何 Power BI 服务的替代，并且它们供第三方使用。</p>
                     </div>
                     <!-- END: Table1-Content-->
                 </div>
@@ -82,9 +137,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="power-bi-embedded_faq_que1">什么是会话以及它是如何计费的？</a>
+                                <a id="power-bi-embedded_faq_que1">多久可更改已部署的节点类型？</a>
                                 <section>
-                                    <p>会话是指最终用户和 Power BI 工作区集合报表之间的一组交互活动。每次向用户显示 Power BI 工作区集合报表时，就会启动一个会话，并向订阅持有者收取使用会话的费用。会话按统一收费率计费，独立于报表中的视觉对象元素数量或报表内容的刷新频率。会话结束可以按用户关闭报表算，也可以按启动会话后一个小时算，以先发生者为准。</p>
+                                    <p>客户可根据需要更改部署的节点类型。</p>
                                 </section>
 
                             </div>
@@ -92,9 +147,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="power-bi-embedded_faq_que2">Power BI 工作区集合与 Power BI 服务有什么关系？</a>
+                                <a id="power-bi-embedded_faq_que2">Power BI Embedded 的使用情况如何体现在我的帐单上？</a>
                                 <section>
-                                    <p>Power BI 工作区集合和 Power BI 服务是单独的产品/服务。Power BI 工作区集合是通过 Azure 门户进行计费和部署的，针对的是 ISV 和企业在供第三方使用的应用程序中嵌入的仪表板。Power BI 服务是通过 O365 门户进行计费和部署的，是一个独立通用的 BI 产品，主要针对企业内部的使用。有关 Power BI 服务的详细信息，请访问<a href="https://www.microsoft.com/china/powerbi/" id="powe-bi-Embedded-pricing_powerbi-com" target="_blank" rel="nofollow">www.microsoft.com/china/powerbi</a>。</p>
+                                    <p>Power BI Embedded 根据部署的节点类型按可预测的小时费率计费。实际用量计算到秒，并按小时收费。例如，如果某个实例一个月内运行了 12 小时 15 分钟，则账单会显示使用了 12.25 小时。如果实例仅有 6 分钟处于活动状态，则账单会显示使用了 0.1 小时。</p>
                                 </section>
 
                             </div>
@@ -102,9 +157,49 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="power-bi-embedded_faq_que3">Power BI 工作区集合可以用于创建内部应用程序吗？</a>
+                                <a id="power-bi-embedded_faq_que3">若要将 BI 发布到 Power BI Embedded 节点中，是否还需要购买任何其他许可证？</a>
                                 <section>
-                                    <p>Power BI 工作区集合并不用于你组织的内部业务应用程序，除非内部用户也具有 Power BI Pro 用户订阅许可证 (USL)。Power BI 工作区集合仅用于为供第三方使用而提供的应用程序。如果想要使用 Power BI 工作区集合服务创建内部业务应用程序，则每个内部用户都需要具有一个 Power BI Pro USL，并且你的组织除需要支付 Power BI Pro USL 费用外，还需要支付使用 Power BI 工作区集合服务的费用。为避免产生 Power BI Pro USL 费和 Power BI 工作区集合用于内部应用程序的消耗费，Power BI 服务在 Power BI 工作区集合外提供了其自己的内容嵌入功能，而未额外增加 Power BI USL 持有者的成本。</p>
+                                    <p>是，发布 BI 内容的用户需要由 Power BI Pro 授权。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que4">是否需要向通过 Power BI Embedded 查看已发布 BI 的用户单独授权？</a>
+                                <section>
+                                    <p>否，不需要向查看内容的用户分配 Power BI 许可证。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que5">暂停服务后会发生什么？</a>
+                                <section>
+                                    <p>服务暂停时，嵌入的内容不会加载，也不会针对该服务向你收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que6">Power BI Embedded 与 Power BI 服务有什么关系？</a>
+                                <section>
+                                    <p>Power BI Embedded 适用于生成应用程序并想要使用第三方 BI 服务/产品对应用程序数据进行可视化（而非自行构建应用程序数据）的开发人员。开发人员使用 Power BI Embedded 将仪表板和报表功率嵌入应用程序。另一方面，Power BI 是一个服务型软件分析解决方案，为组织提供其最关键业务数据的单一视图。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que7">Power BI Embedded 可以用于创建内部应用程序吗？</a>
+                                <section>
+                                    <p>可以，但如果打算使用 Power BI SaaS 嵌入，则需要通过 Office 使用 Power BI Premium（EM1-EM3、P1-P3）。</p>
                                 </section>
 
                             </div>
@@ -131,7 +226,7 @@
 			<div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="pricing_power-bi-embedded_contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
-				<p>我们保证，用户执行  API  调用和嵌入报告时，Power BI 工作区集合的可用性不低于 99.9%。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/power-bi-embedded/" id="pricing_power-bi-embedded_sla">服务级别协议</a>页。</p> 
+				<p>我们保证，用户执行  API  调用和嵌入报告时，Power BI Embedded 的可用性不低于 99.9%。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/power-bi-embedded/" id="pricing_power-bi-embedded_sla">服务级别协议</a>页。</p> 
             </div>
             <!--  <?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />   -->
             <!-- BEGIN: Product-Detail-BottomBanner -->
@@ -139,11 +234,11 @@
             <!-- END: Product-Detail-BottomBanner -->                                                                                       
     ]]>
     </bodyText>
-    <pageTitle>Power BI 工作区集合数据分析服务定价 - Azure云计算</pageTitle>
+    <pageTitle>Power BI Embedded合数据分析服务定价 - Azure云计算</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-power-bi-embedded</linkid>
-    <metaKeywords>Azure, 微软云, Power BI 工作区集合, 价格详情, 定价, 计费</metaKeywords>
-    <metaDescription><![CDATA[了解Azure Power-Bi-Embedded的价格详情。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户。]]></metaDescription>
-    <urlDisplayName>价格详情 - Power BI 工作区集合</urlDisplayName>
+    <metaKeywords>Azure, 微软云, Power BI Embedded, 价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[了解Azure Power Bi Embedded的价格详情。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户。]]></metaDescription>
+    <urlDisplayName>价格详情 - Power BI Embedded</urlDisplayName>
   </TextpageLeftNav>
 </localize>

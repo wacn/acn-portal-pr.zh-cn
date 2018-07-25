@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-12-30T16:31:24" updateDate="2018-06-12T16:00:00" urlName="power-bi-embedded" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2016-12-30T16:31:24" updateDate="2018-07-25T12:00:00" urlName="power-bi-embedded" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
             <tags ms.service="power-bi-embedded" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
@@ -8,7 +8,7 @@
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//resource.cdn.azure.cn/marketing-resource/css/images/service/power-bi-embedded.png" /> 
-                        <h2><!--<sup style="color: #a5ce00; font-weight: bold; text-transform: uppercase; font-family: '微软雅黑'; font-size: 20px;" class="wa-previewTag">预览</sup>-->Power BI Workspace Collection</h2>
+                        <h2>Power BI Embedded</h2>
                         <h4>Embed fully interactive, stunning data visualizations in your applications</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_power-bi-embedded_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_power-bi-embedded_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
@@ -17,7 +17,7 @@
             <!-- END: Product-Detail-TopBanner -->
 			
             <div class="pricing-page-section">
-                <p>Power BI Workspace Collection offers complete interactive and amazing visual effects to client-side smart applications without spending any time or cost to build from scratch.</p>
+                <p>Power BI Embedded allows application developers to embed stunning, fully interactive reports and dashboards into apps without the time and expense of having to build your own controls from the ground-up.</p>
             </div>
 			
             <!-- BEGIN: TAB-CONTROL -->
@@ -26,46 +26,98 @@
                 <div class="tab-control-container tab-active" id="tabContent1">
                     <!-- BEGIN: Table1-Content-->
                     <h2>Pricing Details</h2>
-                    <!--<p>Power BI 工作区集合已正式上线，自即日起至 3 月 31 日，将继续按照预览版价格（即以下标准价格的 50%）计费，4 月 1 日起恢复按标准价格计费。</p>-->
+                    <p>The total cost of Power BI Embedded depends on the node type chosen and the number of nodes deployed. Node types differ based on number of V-cores and RAM as outlined in the table below:</p>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />                        
                     </div>
-					
-                    <table cellpadding="0" cellspacing="0" width="100%">
+					           <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <th align="left" width="35%"><strong></strong></th>
-							<th align="left"><strong>Free</strong></th>
-                            <th align="left"><strong>Standard</strong></th>
+                            
+                            <th align="left"><strong>Node type</strong></th>
+                            <th align="left"><strong>Dedicated capacity</strong></th>
+                            <th align="left"><strong>Virtual cores</strong></th>
+                            <th align="left"><strong>Memory</strong></th>
+                            <th align="left"><strong>Frontend / Backend cores</strong></th>
+                            <th align="left"><strong>Peak renders per hour</strong></th>
+                            <th align="left" width="27%"><strong>Price</strong></th>
                         </tr>                     
-                       <tr>                         
-                           <td>Pricing by Session (every 100 sessions)</td>
-						   <td>The first 100 sessions of every month are free of charge</td>
-                           <td>￥ 32.86 /month</td>
-
+                       <tr>
+                           <td>A1</td>
+                           <td>No</td>
+                           <td>1</td>
+                           <td>3 GB RAM</td>
+                           <td>0.5 / 0.5</td>
+                           <td>300</td>
+                           <td>￥6.4115/hour<br/>( about￥4,770.156/month )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A2</td>
+                           <td>No</td>
+                           <td>2</td>
+                           <td>5 GB RAM</td>
+                           <td>1 / 1</td>
+                           <td>600</td>
+                           <td>￥12.7715/hour<br/>( about￥9,501.996/month )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A3</td>
+                           <td>Yes</td>
+                           <td>4</td>
+                           <td>10 GB RAM</td>
+                           <td>2 / 2</td>
+                           <td>1,200</td>
+                           <td>￥25.5939/hour<br/>( about￥19,041.8616/month )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A4</td>
+                           <td>Yes</td>
+                           <td>5</td>
+                           <td>25 GB RAM</td>
+                           <td>4 / 4</td>
+                           <td>2,400</td>
+                           <td>￥51.2393/hour<br/>( about￥38,122.0392/month )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A5</td>
+                           <td>Yes</td>
+                           <td>16</td>
+                           <td>50 GB RAM</td>
+                           <td>8 / 8</td>
+                           <td>4,800</td>
+                           <td>￥102.5296/hour<br/>( about￥76,282.0224/month )</td>
+                       </tr>                    
+                       <tr>
+                           <td>A6</td>
+                           <td>Yes</td>
+                           <td>32</td>
+                           <td>100 GB RAM</td>
+                           <td>16 / 16</td>
+                           <td>9,600</td>
+                           <td>￥205.1138/hour<br/>( about￥15,2604.6672/month )</td>
                        </tr>
                     </table>
-					
-					<!--
-					<table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong></strong></th>                       
-                            <th align="left"><strong>预览版</strong></th>
-                            <th align="left"><strong>标准版</strong></th>
-                        </tr>                     
-                       <tr>                         
-                           <td>按会话定价 （每 100 个会话）</td>
-                           <td>￥ 16.43 /月</td>
-                           <td>￥ 32.86 /月</td>
-                       </tr>
-                    </table>
-					-->
-
                     <div class="tags-date">
-						<p>(1) Major and important features need to be added to our services. Application programs, in essence, are not alternatives to any Power BI services,</p>
-						<p>(2) Provided for third parties,</p>
-						<p>Only when your application programs meet the two conditions above can you use the Power BI Workspace Collection service in your applications.</p>
-						<p>Power BI Workspace Collection cannot be used for the internal business applications of an organization, unless an internal user has a Power BI Pro User Subscription License (USL).</p>
+                        
+                        <p>Review pricing for Power BI Workspace Collections.</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive</div><br />                        
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left" width="35%"><strong></strong></th>
+    							<th align="left"><strong>Free</strong></th>
+                                <th align="left"><strong>Standard</strong></th>
+                            </tr>                     
+                           <tr>                         
+                               <td>Pricing by Session (every 100 sessions)</td>
+    						   <td>The first 100 sessions of every month are free of charge</td>
+                               <td>￥ 32.86 /month</td>
+
+                           </tr>
+                        </table>
+                        <p>Use the Power BI Embedded service in your applications that add primary and significant functionality to our service and are not primarily a substitute for any Power BI service, and are provided for third-party use.</p>
                     </div>
+                   
                     <!-- END: Table1-Content-->
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
@@ -80,9 +132,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="power-bi-embedded_faq_que1">What is a session and how it is charged?</a>
+                                <a id="power-bi-embedded_faq_que1">How often can I change the node type I have deployed?</a>
                                 <section>
-                                    <p>A session refers to a set of interactive activities between the end-user and a Power BI Workspace Collection report. A session is established whenever Power BI Workspace Collection is displayed to the user and the subscriber is charged for using the session service. Session service is charged at a flat rate independent from the number of visual object elements in the report or the refresh rate of report contents. The end of a session occurs when a user closes the report or one hour after the session is enabled, whichever occurs first.</p>
+                                    <p>Customers can change the node type deployed as needed.</p>
                                 </section>
 
                             </div>
@@ -90,9 +142,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="power-bi-embedded_faq_que2">What is the relationship between Power BI Workspace Collection and Power BI service?</a>
+                                <a id="power-bi-embedded_faq_que2">How does the usage of Power BI Embedded show up on my bill?</a>
                                 <section>
-                                    <p>Power BI Workspace Collection and Power BI Service are two independent products/services. Power BI Workspace Collection is charged and deployed through Azure portal, specially designed for ISV and dash boards embedded by enterprises in their application programs for third-party usage. Power BI Service is charged and deployed through the O365 Portal. It is an independent, universal BI product, mainly for the internal use of enterprises. For further information about Power BI Service, please visit <a href="https://www.microsoft.com/china/powerbi/" id="powe-bi-Embedded-pricing_powerbi-com" target="_blank" rel="nofollow">www.microsoft.com/china/powerbi</a>.</p>
+                                    <p>Power BI Embedded bills on a predictable hourly rate based on the type of node(s) deployed. Actual usage is computed to the second and billed hourly. For example, if an instance exists for 12 hours and 15 minutes in a month, your bill will show usage of 12.25 hours. If your instance is only active for 6 minutes, your bill will show usage of 0.1 hour.</p>
                                 </section>
 
                             </div>
@@ -100,9 +152,49 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="power-bi-embedded_faq_que3">Can the Power BI Workspace Collection be used to establish internal applications?</a>
+                                <a id="power-bi-embedded_faq_que3">Do I need to purchase any additional licenses to publish BI into a Power BI Embedded node?</a>
                                 <section>
-                                    <p>Power BI Workspace Collection cannot be used for internal business applications of your enterprise, unless the internal users have the Power BI Pro User Subscription License (USL). Power BI Workspace Collection is only for applications provided for third parties. If you want to use Power BI Workspace Collection to develop internal business application programs, every internal user is expected to have a Power BI Pro USL and your organization has to pay for Power BI Workspace Collection apart from paying Power BI Pro USL fees. To avoid Power BI Pro USL fees and cost of using Power BI Workspace Collection in internal application programs, Power BI Service offers its own content embedding feature outside Power BI Workspace Collection without increasing extra costs for Power BI USL owners.</p>
+                                    <p>Yes, users who publish BI content need to be licensed with Power BI Pro.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que4">Do users who view BI published through Power BI Embedded need to be licensed separately?</a>
+                                <section>
+                                    <p>No, users viewing content do not need Power BI licenses assigned to them.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que5">What happens when I pause my service?</a>
+                                <section>
+                                    <p>When the service is paused the embedded content will not load, and you will not be charged for the service.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que6">How does Power BI Embedded relate to the Power BI service?</a>
+                                <section>
+                                    <p>Power BI Embedded is for developers who build applications and want to use a third-party BI offering to visualize application data instead of building it themselves. Developers embed dashboards and reports into applications using Power BI Embedded. Power BI, on the other hand, is a software-as-a-service analytics solution that gives organizations a single view of their most critical business data.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="power-bi-embedded_faq_que7">Can Power BI Embedded be used to create internal applications?</a>
+                                <section>
+                                    <p>Yes, however if you plan to use Power BI SaaS embedding you will need to use Power BI Premium through office (EM1-EM3; P1-P3).</p>
                                 </section>
 
                             </div>
@@ -129,17 +221,17 @@
 			<div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>
                 <p>If you have any questions or need help, please visit <a href="/support/contact/" id="pricing_power-bi-embedded_contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
-				<p>We guarantee at least 99.9% availability of Power BI Workspace Collection when users execute API to call or insert reports. To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/power-bi-embedded/" id="pricing_power-bi-embedded_sla">Service Level Agreements</a> page.</p> 
+				<p>We guarantee at least 99.9% availability of Power BI Embedded when users execute API to call or insert reports. To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/power-bi-embedded/" id="pricing_power-bi-embedded_sla">Service Level Agreements</a> page.</p> 
             </div>
             <!--  <?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />   -->
             <!-- BEGIN: Product-Detail-BottomBanner --> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!-- END: Product-Detail-BottomBanner -->                                                                                       
     
     ]]></bodyText>
-    <pageTitle>Power BI Workspace Collection Pricing Details - Azure Cloud Computing</pageTitle>
+    <pageTitle>Power BI Embedded Pricing Details - Azure Cloud Computing</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-power-bi-embedded</linkid>
-    <metaKeywords>Azure, Power BI Workspace Collection, pricing details, pricing, billing</metaKeywords>
+    <metaKeywords>Azure, Power BI Embedded, pricing details, pricing, billing</metaKeywords>
     <metaDescription><![CDATA[Learn about the pricing details of Azure Power-Bi-Embedded. A 1RMB Trial gets you ￥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer.]]></metaDescription>
-    <urlDisplayName>Pricing Details - Power BI Workspace Collection</urlDisplayName>
+    <urlDisplayName>Pricing Details - Power BI Embedded</urlDisplayName>
   </TextpageLeftNav>
 </localize>

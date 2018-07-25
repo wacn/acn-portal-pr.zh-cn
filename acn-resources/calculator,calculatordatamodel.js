@@ -8155,6 +8155,105 @@ var CalculatorData = {
             }]
         },
         "power-bi-embedded":{
+            Name: "Power BI Embedded",
+            Types: [{
+                Name: "A1",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "虚拟内核 1",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.4115"                     
+                    }]
+                }]
+            },
+            {
+                Name: "A2",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "虚拟内核 2",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.7715"                     
+                    }]
+                }]
+            },
+            {
+                Name: "A3",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "虚拟内核 4",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.5939"                     
+                    }]
+                }]
+            },
+            {
+                Name: "A4",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "虚拟内核 8",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "51.2393"                     
+                    }]
+                }]
+            },
+            {
+                Name: "A5",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "虚拟内核 16",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "102.5296"                     
+                    }]
+                }]
+            },
+            {
+                Name: "A6",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "虚拟内核 32",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "205.1138"                     
+                    }]
+                }]
+            }]
+        },
+        "power-bi-workspace-collections":{
             Name: "Power BI 工作区集合",
             Types: [{
                 Name: "default",
@@ -8177,7 +8276,6 @@ var CalculatorData = {
             }   
             ]
         },
-        
         
         "media-services-encoder": {
             Name: "媒体服务 - 编码 - 点播视频 (VoD) 编码",
