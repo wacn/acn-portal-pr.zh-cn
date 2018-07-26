@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-26T18:00:00" urlName="virtual-machine-scale-sets" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-26T18:00:00" urlName="virtual-machine-scale-sets" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
 		  	<style type="text/css">
@@ -252,7 +252,7 @@
 									</tr>
 								</table>
 								
-								<h3>B Series <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>B Series </h3>
 								<p>B-series are economical virtual machines that provide a low-cost option for workloads which typically run at a low to moderate baseline CPU performance, but sometimes need to burst to significantly higher CPU performance when the demand rises. These workloads don’t require the use of the full CPU all the time, but occasionally will need to burst to finish some tasks more quickly. Many applications such as development and test servers, low traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers, and code repositories fit into this model.</p>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div>
@@ -391,7 +391,7 @@
 									</tr>
 								</table>
 								
-								<h3>Dv3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>Dv3 </h3>
 								<p>Dv3 instances are the latest hyper-threaded generation of general purpose instances. Dv3 instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor, and can achieve 3.5 GHz with Intel Turbo Boost Technology 2.0. Dv3 instances offer the combination of CPU, memory, and local disk for most production workloads.</p>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div>
@@ -457,7 +457,7 @@
 									</tr>
 								</table>
 
-								<h3>Dsv3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>Dsv3 </h3>
 								<p>Dsv3-series support premium storage and are the latest hyper-threaded generation of general purpose instances based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. The Dsv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.</p>
 								<p>The VM pricing and billing meters for Dsv3 sizes are the same as Dv3-series. Persistent storage disks are billed separately from virtual machines. <a style="background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;" href="/pricing/details/storage/managed-disks/" id="vm-pricing_storage-managed-disks">See pricing for disks</a>.</p>
 								<div class="tags-date">
@@ -740,6 +740,79 @@
 							<!-- END: Tab level 2 content 1-1 --> <!-- BEGIN: Tab level 2 content 1-2 -->
 							<div class="tab-panel" id="tabContent1-2">
 								<h3>Computing optimization: high CPU to memory. Suitable for medium-traffic Web server, network device, batch processing and App Services</h3>
+								<h3>Fv2 Series <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<p>The Fv2-series virtual machines support 2-GiB RAM and 8 GB of local temporary storage (SSD) per vCPU, and are optimized for compute intensive workloads. The F-series is hyper-threaded and based on the 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) processor, which can achieve clock speeds as high as 3.7 GHz with the Intel Turbo Boost Technology 2.0. These virtual machines are suitable for scenarios like batch processing, web servers, analytics, and gaming.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div>
+									<br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Instances</strong></th>
+										<th align="left"><strong>vCPU</strong></th>
+										<th align="left"><strong>RAM</strong></th>
+										<th align="left"><strong>Temporary Storage</strong></th>
+										<th align="left"><strong>Price</strong></th>
+									</tr>
+									<tr>
+										<td>F2 v2</td>
+										<td>2</td>
+										<td>4.00 GiB</td>
+										<td>16 GiB</td>
+										<td>￥2.166/hour
+											<br />( about ￥1,611.504/month )</td>
+									</tr>
+									<tr>
+										<td>F4 v2</td>
+										<td>4</td>
+										<td>8.00 GiB</td>
+										<td>32 GiB</td>
+										<td>￥4.332/hour
+											<br />( about ￥3,223.008/month )</td>
+									</tr>
+									<tr>
+										<td>F8 v2</td>
+										<td>8</td>
+										<td>16.00 GiB</td>
+										<td>64 GiB</td>
+										<td>￥8.664/hour
+											<br />( about ￥6,446.016/month )</td>
+									</tr>
+									<tr>
+										<td>F16 v2</td>
+										<td>16</td>
+										<td>32.00 GiB</td>
+										<td>128 GiB</td>
+										<td>￥17.328/hour
+											<br />( about ￥12,892.032/month )</td>
+									</tr>
+									<tr>
+										<td>F32 v2</td>
+										<td>32</td>
+										<td>64.00 GiB</td>
+										<td>256 GiB</td>
+										<td>￥34.656/hour
+											<br />( about ￥25,784.064/month )</td>
+									</tr>
+									<tr>
+										<td>F64 v2</td>
+										<td>64</td>
+										<td>128.00 GiB</td>
+										<td>512 GiB</td>
+										<td>￥69.312/hour
+											<br />( about ￥51,568.128/month )</td>
+									</tr>
+									<tr>
+										<td>F72 v2</td>
+										<td>72</td>
+										<td>144.00 GiB</td>
+										<td>576 GiB</td>
+										<td>￥138.624/hour
+											<br />( about ￥103,136.256/month )</td>
+									</tr>
+								</table>
+
 								<h3>F series/FS series</h3>
 								<p>The F Series/FS Series Virtual Machine supports RAM of every CPU core 2 GiB and 16 GiB local solid state disk (SSD), and has been prioritized for computing-intensive workloads. The F Series/FS Series are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can reach up to a 3.2 GHz clock speed using Intel Turbo Boost Technology 2.0. These Virtual Machines are suitable for batch processing, Web servers, analysis and gaming programs, etc.
 									<br /> For persistent storage, please use the “FS” virtual machine, and purchase Premium Storage separately. The pricing and billing meters of the FS size are the same as the F Series. <!--FS虚拟机 目前只在中国东部区域提供服务。-->
@@ -806,7 +879,7 @@
 								<!-- BEGIN: Table1-1-3-Content-->
 								<h3>Memory prioritization: high memory to core ratio. Suitable for relational database servers, medium- and large-scale caches and memory analysis.</h3>
 
-								<h3>Ev3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>Ev3 </h3>
 								<p>Ev3 instances are the latest generation of hyper-threaded memory optimized instances. Ev3 instances are based on the 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processor and can achieve 3.5 GHz with Intel Turbo Boost Technology 2.0. Ev3 instances are ideal for memory-intensive enterprise applications.</p>
 								<p>Persistent storage disks are billed separately from virtual machines. To use premium storage disks, use the variant Esv3 virtual machines. The pricing and billing meters for Esv3 sizes are the same as Ev3-series. <a style="background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;" href="/pricing/details/storage/managed-disks/" id="vm-pricing_storage-managed-disks">See pricing for disks</a>.</p>
 								<div class="tags-date">
@@ -881,7 +954,7 @@
 									</tr>
 								</table>
 
-								<h3>ESv3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>ESv3 </h3>
 								<p>ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. Ev3-series instances are ideal for memory-intensive enterprise applications.</p>
 								<p>Persistent storage disks are billed separately from virtual machines. To use premium storage disks, use the variant Esv3 virtual machines. The pricing and billing meters for Esv3 sizes are the same as Ev3-series. <a style="background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;" href="/pricing/details/storage/managed-disks/" id="vm-pricing_storage-managed-disks">See pricing for disks</a>.</p>
 								<div class="tags-date">
@@ -1111,14 +1184,14 @@
 									</tr>
 								</table>
 								<h3>DS 11-15 v2</h3>
-								<p>For persistent storage, please use the “DSv2” virtual machine, and purchase Premium Storage separately. The pricing and billing meters of the DSv2 size are the same as the Dv2 Series.<br/>Of which DS13-2_v2<sup style="color:#e66102; font-weight: bold">new</sup> DS13-4_v2<sup style="color:#e66102; font-weight: bold">new</sup> DS14-4_v2<sup style="color:#e66102; font-weight: bold">new</sup> DS14-8_v2<sup style="color:#e66102; font-weight: bold">new</sup> are brand new instances. Compared with DS13 v2 and DS14 v2, they’ve reduced the number of cores and size of the vCPU, and saved on costs while guaranteeing the same memory, disk size and price.<!--DSv2虚拟机 目前只在中国东部区域提供服务。-->
+								<p>For persistent storage, please use the “DSv2” virtual machine, and purchase Premium Storage separately. The pricing and billing meters of the DSv2 size are the same as the Dv2 Series.<br/>Of which DS13-2_v2 DS13-4_v2 DS14-4_v2 DS14-8_v2 are brand new instances. Compared with DS13 v2 and DS14 v2, they’ve reduced the number of cores and size of the vCPU, and saved on costs while guaranteeing the same memory, disk size and price.<!--DSv2虚拟机 目前只在中国东部区域提供服务。-->
 								</p>
 								<!-- <p>从 2017 年 2 月 1 日起，Windows Dv2 系列实例价格下调，以下是下调前及下调后的价格列表：</p> -->
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div>
 									<br />
 									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div><br/>
-									<div class="ms-date">*The DS15 v2 instance is only applicable to data centers China East and China North. </div>
+									<div class="ms-date">*The DS15 v2 instance is only applicable to data centers in China East and China North. </div>
 								</div>
 								<table cellpadding="0" cellspacing="0" width="100%">
 									<tr>
@@ -1173,6 +1246,7 @@
 								<!-- END: Table1-1-3-Content-->
 							</div>
 							<!-- END: Tab level 2 content 1-3-->
+							
 						</div>
 						<!-- END: Tab level 2 content -->
 					</div>
@@ -1335,7 +1409,7 @@
 									</tr>
 								</table>
 								
-								<h3>B Series <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>B Series </h3>
 								<p>B-series are economical virtual machines that provide a low-cost option for workloads which typically run at a low to moderate baseline CPU performance, but sometimes need to burst to significantly higher CPU performance when the demand rises. These workloads don’t require the use of the full CPU all the time, but occasionally will need to burst to finish some tasks more quickly. Many applications such as development and test servers, low traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers, and code repositories fit into this model.</p>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div>
@@ -1474,7 +1548,7 @@
 									</tr>
 								</table>
 								
-								<h3>Dv3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>Dv3 </h3>
 								<p>Dv3 instances are the latest hyper-threaded generation of general purpose instances. Dv3 instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor, and can achieve 3.5 GHz with Intel Turbo Boost Technology 2.0. Dv3 instances offer the combination of CPU, memory, and local disk for most production workloads.</p>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div>
@@ -1540,7 +1614,7 @@
 									</tr>
 								</table>
 
-								<h3>Dsv3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>Dsv3 </h3>
 								<p>Dsv3-series support premium storage and are the latest hyper-threaded generation of general purpose instances based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. The Dsv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.</p>
 								<p>The VM pricing and billing meters for Dsv3 sizes are the same as Dv3-series. Persistent storage disks are billed separately from virtual machines. <a style="background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;" href="/pricing/details/storage/managed-disks/" id="vm-pricing_storage-managed-disks">See pricing for disks</a>.</p>
 								<div class="tags-date">
@@ -1823,6 +1897,80 @@
 							<!-- END: Tab level 2 content 2-1--> <!-- BEGIN: Tab level 2 content 2-2 -->
 							<div class="tab-panel" id="tabContent2-2">
 								<h3>Computing optimization: high CPU to memory. Suitable for medium-traffic Web server, network device, batch processing and App Services</h3>
+
+								<h3>Fv2 Series <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<p>The Fv2-series virtual machines support 2-GiB RAM and 8 GB of local temporary storage (SSD) per vCPU, and are optimized for compute intensive workloads. The F-series is hyper-threaded and based on the 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) processor, which can achieve clock speeds as high as 3.7 GHz with the Intel Turbo Boost Technology 2.0. These virtual machines are suitable for scenarios like batch processing, web servers, analytics, and gaming.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div>
+									<br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Instances</strong></th>
+										<th align="left"><strong>vCPU</strong></th>
+										<th align="left"><strong>RAM</strong></th>
+										<th align="left"><strong>Temporary Storage</strong></th>
+										<th align="left"><strong>Price</strong></th>
+									</tr>
+									<tr>
+										<td>F2 v2</td>
+										<td>2</td>
+										<td>4.00 GiB</td>
+										<td>16 GiB</td>
+										<td>￥1.083/hour
+											<br />( about ￥805.752/month )</td>
+									</tr>
+									<tr>
+										<td>F4 v2</td>
+										<td>4</td>
+										<td>8.00 GiB</td>
+										<td>32 GiB</td>
+										<td>￥2.166/hour
+											<br />( about ￥1,611.504/month )</td>
+									</tr>
+									<tr>
+										<td>F8 v2</td>
+										<td>8</td>
+										<td>16.00 GiB</td>
+										<td>64 GiB</td>
+										<td>￥4.332/hour
+											<br />( about ￥3,223.008/month )</td>
+									</tr>
+									<tr>
+										<td>F16 v2</td>
+										<td>16</td>
+										<td>32.00 GiB</td>
+										<td>128 GiB</td>
+										<td>￥8.664/hour
+											<br />( about ￥6,446.016/month )</td>
+									</tr>
+									<tr>
+										<td>F32 v2</td>
+										<td>32</td>
+										<td>64.00 GiB</td>
+										<td>256 GiB</td>
+										<td>￥17.328/hour
+											<br />( about ￥12,892.032/month )</td>
+									</tr>
+									<tr>
+										<td>F64 v2</td>
+										<td>64</td>
+										<td>128.00 GiB</td>
+										<td>512 GiB</td>
+										<td>￥34.656/hour
+											<br />( about ￥25,784.064/month )</td>
+									</tr>
+									<tr>
+										<td>F72 v2</td>
+										<td>72</td>
+										<td>144.00 GiB</td>
+										<td>576 GiB</td>
+										<td>￥69.312/hour
+											<br />( about ￥51,568.128/month )</td>
+									</tr>
+								</table>
+
 								<h3>F series/FS series</h3>
 								<p>The F Series/FS Series Virtual Machine supports RAM of every CPU core 2 GiB and 16 GiB local solid state disk (SSD), and has been prioritized for computing-intensive workloads. The F Series/FS Series are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can reach up to a 3.2 GHz clock speed using Intel Turbo Boost Technology 2.0. These Virtual Machines are suitable for batch processing, Web servers, analysis and gaming programs, etc.
 									<br /> For persistent storage, please use the “FS” virtual machine, and purchase Premium Storage separately. The pricing and billing meters of the FS size are the same as the F Series. <!--FS虚拟机 目前只在中国东部区域提供服务。-->
@@ -1888,7 +2036,7 @@
 							<div class="tab-panel" id="tabContent2-3">
 								<h3>Memory prioritization: high memory to core ratio. Suitable for relational database servers, medium- and large-scale caches and memory analysis.</h3>
 
-								<h3>Ev3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>Ev3 </h3>
 								<p>Ev3 instances are the latest generation of hyper-threaded memory optimized instances. Ev3 instances are based on the 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processor and can achieve 3.5 GHz with Intel Turbo Boost Technology 2.0. Ev3 instances are ideal for memory-intensive enterprise applications.</p>
 								<p>Persistent storage disks are billed separately from virtual machines. To use premium storage disks, use the variant Esv3 virtual machines. The pricing and billing meters for Esv3 sizes are the same as Ev3-series.<a style="background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;" href="/pricing/details/storage/" id="vm-pricing_storage">See pricing for disks</a>.</p>
 								<div class="tags-date">
@@ -1963,7 +2111,7 @@
 									</tr>
 								</table>
 
-								<h3>ESv3 <sup style="color:#e66102; font-weight: bold">new</sup></h3>
+								<h3>ESv3 </h3>
 								<p>ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. Ev3-series instances are ideal for memory-intensive enterprise applications.</p>
 								<p>Persistent storage disks are billed separately from virtual machines. To use premium storage disks, use the variant Esv3 virtual machines. The pricing and billing meters for Esv3 sizes are the same as Ev3-series.<a style="background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;" href="/pricing/details/storage/" id="vm-pricing_storage">See pricing for disks</a>.</p>
 								<div class="tags-date">
@@ -2943,7 +3091,7 @@
 								<p><sup>2 </sup>It’s recommended that SQL Enterprise Edition of standard D3 and the SQL Edition of standard D2 be employed as a minimum.</p>
 								
 								<h3>DS 11-15 v2</h3>
-								<p>For persistent storage, please use the “DSv2” virtual machine, and purchase Premium Storage separately. The pricing and billing meters of the DSv2 size are the same as the Dv2 Series.<br/>Of which, DS13-2_v2<sup style="color:#e66102; font-weight: bold">new</sup> DS13-4_v2<sup style="color:#e66102; font-weight: bold">new</sup> DS14-4_v2<sup style="color:#e66102; font-weight: bold">new</sup> DS14-8_v2<sup style="color:#e66102; font-weight: bold">new</sup> are brand new instances. Compared with DS13 v2 and DS14 v2, they’ve reduced the number of cores and size of the vCPU, and saved on costs while guaranteeing the same memory, disk size and price.<!--DSv2 虚拟机 目前只在中国东部区域提供服务。--></p>
+								<p>For persistent storage, please use the “DSv2” virtual machine, and purchase Premium Storage separately. The pricing and billing meters of the DSv2 size are the same as the Dv2 Series.<br/>Of which, DS13-2_v2 DS13-4_v2 DS14-4_v2 DS14-8_v2 are brand new instances. Compared with DS13 v2 and DS14 v2, they’ve reduced the number of cores and size of the vCPU, and saved on costs while guaranteeing the same memory, disk size and price.<!--DSv2 虚拟机 目前只在中国东部区域提供服务。--></p>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
 									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div><br />

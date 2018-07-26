@@ -1,8 +1,53 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-02T16:00:00" urlName="batch" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-26T16:00:00" urlName="batch" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
+            <style type="text/css">
+                .pricing-detail-tab .tab-nav{
+                    padding-left: 0!important;
+                    margin-top: 5px;
+                    margin-bottom: 0;
+                    overflow: hidden;
+                }
+                .pricing-detail-tab .tab-nav li {
+                    list-style: none;
+                    float: left;
+                }
+
+                .pricing-detail-tab .tab-nav li.active a {
+                    border-bottom: 4px solid #00a3d9;
+                }
+
+                .pricing-detail-tab .tab-nav li.active a:hover {
+                    border-bottom: 4px solid #00a3d9;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel{
+                    display: none;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel.show-md{
+                    display: block;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    color: #00a3d9;
+                    background-color: #FFF;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                    color: #FFF;
+                    background-color: #00a3d9;              
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                    color: #FFF;
+                    background-color: #00a3d9;              
+                }
+            </style>
             <tags ms.service="batch" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>                      
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/bacth.png','imageHeight':'auto'}">
@@ -23,63 +68,379 @@
                 <h3>Batch 中的低优先级 VM</h3>
                 <p>低优先级 VM 的价格比普通 VM 的价格要低得多，并且可以显著降低运行某些工作负荷的成本，或在成本相同的情况下允许以更大规模执行更多的工作。但是，低优先级 VM 确实具有不同的特性，并且仅适用于某些类型的应用程序和工作负荷。低优先级 VM 是从剩余容量中分配的，因此可用性会有所差异 - 有时可能无法分配 VM，分配的 VM 可能偶尔会被更高优先级的分配所占用。因此，普通 VM 的可用性 SLA 不适用于低优先级 VM。</p>
                 <p>如果应用程序可以容忍中断，则使用低优先级 VM 可以显著降低计算成本。合适的工作负荷包括批处理和 HPC 作业，在此情况下，工作将被拆分为许多异步的任务。如果 VM 被占用，则可以中断并重新运行任务 - 如果容量减少，作业完成时间也会相应增加。低优先级 VM 最初只能通过 Azure批处理使用，后者为批处理工作负荷提供作业计划和资源管理。Azure Batch 池可以包含普通和低优先级 VM。如果低优先级 VM 被占用，则将重新对任何中断的任务进行排队，并且池将自动尝试替代丢失的容量。</p>
-                <h3>Windows 虚拟机</h3>
-                <table cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <th align="left"><strong>实例</strong></th>
-                        <th align="left"><strong>内核数</strong></th>
-                        <th align="left"><strong>RAM</strong></th>
-                        <th align="left"><strong>临时存储</strong></th>
-                        <th align="left"><strong>低优先级</strong></th>
-                    </tr>
-                    <tr>
-                        <td>E64i v3</td>
-                        <td>64</td>
-                        <td>432.00 GiB</td>
-                        <td>1,600 GiB</td>
-                        <td>￥20.532/小时
-                            <br />( 约 ￥15,275.808/月 )</td>
-                    </tr>
+                <p>虚拟机按向下舍入到最后一分钟的秒数计费。</p>
 
-                </table>
-                <h3>Linux 虚拟机</h3>
-                <table cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <th align="left"><strong>实例</strong></th>
-                        <th align="left"><strong>内核数</strong></th>
-                        <th align="left"><strong>RAM</strong></th>
-                        <th align="left"><strong>临时存储</strong></th>
-                        <th align="left"><strong>低优先级</strong></th>
-                    </tr>
-                    <tr>
-                        <td>E64i v3</td>
-                        <td>64</td>
-                        <td>432.00 GiB</td>
-                        <td>1,600 GiB</td>
-                        <td>￥9.332/小时
-                            <br />( 约 ￥6,943.008/月 )</td>
-                    </tr>
+            </div>
+            <div class="technical-azure-selector pricing-detail-tab">
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="javascript:void(0)" data-href="#tabContent1" id="vm-vm-win" data-toggle="tab">Windows 虚拟机</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-href="#tabContent2" id="vm-vm-linux" data-toggle="tab">Linux 虚拟机</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-href="#tabContent3" id="vm-vm-cloud-service" data-toggle="tab">云服务</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-panel" id="tabContent1">
+                        <ul class="tab-nav">
+                            <li class="active">
+                                <a href="javascript:void(0)" data-href="#tabContent1-1"  data-toggle="tab" id="vm-vm-win-compute-optimized">计算优化</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent1-2"  data-toggle="tab" id="vm-vm-win-memory-optimized">内存优化</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-panel" id="tabContent1-1">
+                                <h3>计算优化: 高 CPU 与内存之比。适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。</h3>
+                                <h3>Fv2 系列</h3>
+                                <p>Fv2 系列虚拟机支持每个 vCPU 2 GiB RAM 和 8 GB 本地临时存储 (SSD)，并针对计算密集型工作负荷进行了优化。F 系列为超线程机，基于 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) 处理器，该处理器使用 Intel Turbo Boost Technology 2.0 可实现高达 3.7 GHz 的时钟速度。这些虚拟机适合批处理、Web 服务器、分析和游戏等方案。</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCPU</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>F2 v2</td>
+                                        <td>2</td>
+                                        <td>4.00 GiB</td>
+                                        <td>16 GiB</td>
+                                        <td>￥0.8664/小时
+                                            <br />( 约 ￥644.6016/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F4 v2</td>
+                                        <td>4</td>
+                                        <td>8.00 GiB</td>
+                                        <td>32 GiB</td>
+                                        <td>￥1.7328/小时
+                                            <br />( 约 ￥1,289.2032/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F8 v2</td>
+                                        <td>8</td>
+                                        <td>16.00 GiB</td>
+                                        <td>64 GiB</td>
+                                        <td>￥3.4656/小时
+                                            <br />( 约 ￥2,578.4064/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F16 v2</td>
+                                        <td>16</td>
+                                        <td>32.00 GiB</td>
+                                        <td>128 GiB</td>
+                                        <td>￥6.9312/小时
+                                            <br />( 约 ￥5,156.8128/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F32 v2</td>
+                                        <td>32</td>
+                                        <td>64.00 GiB</td>
+                                        <td>256 GiB</td>
+                                        <td>￥13.8624/小时
+                                            <br />( 约 ￥10,313.6256/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F64 v2</td>
+                                        <td>64</td>
+                                        <td>128.00 GiB</td>
+                                        <td>512 GiB</td>
+                                        <td>￥27.7248/小时
+                                            <br />( 约 ￥20,627.2512/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F72 v2</td>
+                                        <td>72</td>
+                                        <td>144.00 GiB</td>
+                                        <td>576 GiB</td>
+                                        <td>￥55.4496/小时
+                                            <br />( 约 ￥41,254.5024/月 )</td>
+                                    </tr>
 
-                </table>
-                <h3>云服务</h3>
-                <table cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <th align="left"><strong>实例</strong></th>
-                        <th align="left"><strong>内核数</strong></th>
-                        <th align="left"><strong>RAM</strong></th>
-                        <th align="left"><strong>临时存储</strong></th>
-                        <th align="left"><strong>低优先级</strong></th>
-                    </tr>
-                    <tr>
-                        <td>E64i v3</td>
-                        <td>64</td>
-                        <td>432.00 GiB</td>
-                        <td>1,600 GiB</td>
-                        <td>￥20.532/小时
-                            <br />( 约 ￥15,275.808/月 )</td>
-                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-panel" id="tabContent1-2">
+                                <h3>内存优化: 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。</h3>
+                                <h3>E2 64 v3</h3>
+                                <p>E2-64 v3 实例是最新一代超线程内存优化实例。E2-64 v3 实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz。E2-64 v3 实例适用于内存密集型企业应用程序。</p>
+                                
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCPU</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>E64i v3</td>
+                                        <td>64</td>
+                                        <td>432.00 GiB</td>
+                                        <td>1,600 GiB</td>
+                                        <td>￥20.532/小时
+                                            <br />( 约 ￥15,275.808/月 )</td>
+                                    </tr>
 
-                </table>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-panel" id="tabContent2">
+                        <ul class="tab-nav">
+                            <li class="active">
+                                <a href="javascript:void(0)" data-href="#tabContent2-1"  data-toggle="tab" id="vm-vm-linux-compute-optimized">计算优化</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent2-2"  data-toggle="tab" id="vm-vm-linux-memory-optimized">内存优化</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-panel" id="tabContent2-1">
+                                <h3>计算优化: 高 CPU 与内存之比。适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。</h3>
+                                <h3>Fv2 系列</h3>
+                                <p>Fv2 系列虚拟机支持每个 vCPU 2 GiB RAM 和 8 GB 本地临时存储 (SSD)，并针对计算密集型工作负荷进行了优化。F 系列为超线程机，基于 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) 处理器，该处理器使用 Intel Turbo Boost Technology 2.0 可实现高达 3.7 GHz 的时钟速度。这些虚拟机适合批处理、Web 服务器、分析和游戏等方案。</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCPU</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>F2 v2</td>
+                                        <td>2</td>
+                                        <td>4.00 GiB</td>
+                                        <td>16 GiB</td>
+                                        <td>￥0.2166/小时
+                                            <br />( 约 ￥161.1504/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F4 v2</td>
+                                        <td>4</td>
+                                        <td>8.00 GiB</td>
+                                        <td>32 GiB</td>
+                                        <td>￥0.4332/小时
+                                            <br />( 约 ￥322.3008/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F8 v2</td>
+                                        <td>8</td>
+                                        <td>16.00 GiB</td>
+                                        <td>64 GiB</td>
+                                        <td>￥0.8664/小时
+                                            <br />( 约 ￥644.6016/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F16 v2</td>
+                                        <td>16</td>
+                                        <td>32.00 GiB</td>
+                                        <td>128 GiB</td>
+                                        <td>￥1.7328/小时
+                                            <br />( 约 ￥1,289.2032/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F32 v2</td>
+                                        <td>32</td>
+                                        <td>64.00 GiB</td>
+                                        <td>256 GiB</td>
+                                        <td>￥3.4656/小时
+                                            <br />( 约 ￥2,578.4064/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F64 v2</td>
+                                        <td>64</td>
+                                        <td>128.00 GiB</td>
+                                        <td>512 GiB</td>
+                                        <td>￥6.9312/小时
+                                            <br />( 约 ￥5,156.8128/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F72 v2</td>
+                                        <td>72</td>
+                                        <td>144.00 GiB</td>
+                                        <td>576 GiB</td>
+                                        <td>￥13.8624/小时
+                                            <br />( 约 ￥10,313.6256/月 )</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="tab-panel" id="tabContent2-2">
+                                <h3>内存优化: 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。</h3>
+                                <h3>E2 64 v3</h3>
+                                <p>E2-64 v3 实例是最新一代超线程内存优化实例。E2-64 v3 实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz。E2-64 v3 实例适用于内存密集型企业应用程序。</p>
+                                
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCPU</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>E64i v3</td>
+                                        <td>64</td>
+                                        <td>432.00 GiB</td>
+                                        <td>1,600 GiB</td>
+                                        <td>￥9.332/小时
+                                            <br />( 约 ￥6,943.008/月 )</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="tab-panel" id="tabContent3">
+                        <ul class="tab-nav">
+                            <li class="active">
+                                <a href="javascript:void(0)" data-href="#tabContent3-1"  data-toggle="tab" id="vm-vm-cloud-service-compute-optimized">计算优化</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent3-2"  data-toggle="tab" id="vm-vm-cloud-service-memory-optimized">内存优化</a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-panel" id="tabContent3-1">
+                                <h3>计算优化: 高 CPU 与内存之比。适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。</h3>
+                                <h3>Fv2 系列</h3>
+                                <p>Fv2 系列虚拟机支持每个 vCPU 2 GiB RAM 和 8 GB 本地临时存储 (SSD)，并针对计算密集型工作负荷进行了优化。F 系列为超线程机，基于 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) 处理器，该处理器使用 Intel Turbo Boost Technology 2.0 可实现高达 3.7 GHz 的时钟速度。这些虚拟机适合批处理、Web 服务器、分析和游戏等方案。</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCPU</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>F2 v2</td>
+                                        <td>2</td>
+                                        <td>4.00 GiB</td>
+                                        <td>16 GiB</td>
+                                        <td>￥0.8664/小时
+                                            <br />( 约 ￥644.6016/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F4 v2</td>
+                                        <td>4</td>
+                                        <td>8.00 GiB</td>
+                                        <td>32 GiB</td>
+                                        <td>￥1.7328/小时
+                                            <br />( 约 ￥1,289.2032/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F8 v2</td>
+                                        <td>8</td>
+                                        <td>16.00 GiB</td>
+                                        <td>64 GiB</td>
+                                        <td>￥3.4656/小时
+                                            <br />( 约 ￥2,578.4064/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F16 v2</td>
+                                        <td>16</td>
+                                        <td>32.00 GiB</td>
+                                        <td>128 GiB</td>
+                                        <td>￥6.9312/小时
+                                            <br />( 约 ￥5,156.8128/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F32 v2</td>
+                                        <td>32</td>
+                                        <td>64.00 GiB</td>
+                                        <td>256 GiB</td>
+                                        <td>￥13.8624/小时
+                                            <br />( 约 ￥10,313.6256/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F64 v2</td>
+                                        <td>64</td>
+                                        <td>128.00 GiB</td>
+                                        <td>512 GiB</td>
+                                        <td>￥27.7248/小时
+                                            <br />( 约 ￥20,627.2512/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F72 v2</td>
+                                        <td>72</td>
+                                        <td>144.00 GiB</td>
+                                        <td>576 GiB</td>
+                                        <td>￥55.4496/小时
+                                            <br />( 约 ￥41,254.5024/月 )</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="tab-panel" id="tabContent3-2">
+                                <h3>内存优化: 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。</h3>
+                                <h3>E2 64 v3</h3>
+                                <p>E2-64 v3 实例是最新一代超线程内存优化实例。E2-64 v3 实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz。E2-64 v3 实例适用于内存密集型企业应用程序。</p>
+                                
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCPU</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>E64i v3</td>
+                                        <td>64</td>
+                                        <td>432.00 GiB</td>
+                                        <td>1,600 GiB</td>
+                                        <td>￥20.532/小时
+                                            <br />( 约 ￥15,275.808/月 )</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
 
             <!-- <div class="pricing-page-section">
