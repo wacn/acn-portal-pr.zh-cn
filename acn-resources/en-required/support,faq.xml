@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-07-11T15:00:00" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
+  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-07-27T17:00:00" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
     <bodyText>
       <![CDATA[
         <div class="section-component">
@@ -276,6 +276,7 @@
                                                 </ul>
                                                 <p>在<a href="//social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs">Azure 论坛</a>中发布问题和搜索问题。</p>
                                                 <p>在<a href="//school.azure.cn/">Azure School</a>中浏览 Azure 相关课程和专家专栏。</p>
+                                                <p>在<a href="//docs.azure.cn/zh-cn/articles/azure-operations-guide/">常用操作指南</a>中查看 Azure 支持中的常见问题与解答。</p>
                                             </section>
                                         </div>
                                     </li>
@@ -285,7 +286,7 @@
                                         <div>
                                             <a id="q-1-15" href="#q-1-15">Azure 中存储的数据是否都是加密的？</a>
                                             <section>
-                                                <p>关于数据加密， Azure 提供包括 AES-256 在内的各种加密功能，便于客户采用满足自己需求的最佳方法。</p>
+                                                <p>存储在 Azure Storage 中的数据全是加密的，详情请参见<a href="//docs.azure.cn/zh-cn/storage/common/storage-service-encryption">静态数据的 Azure 存储服务加密</a>。</p>
                                             </section>
                                         </div>
                                     </li>
@@ -854,7 +855,7 @@
                             <div class="more-detail">
                                 <h2>技术问题</h2>
                                 <ul>
-                                    <li>
+                                    <!-- <li>
                                         <i class="icon icon-plus"></i>
                                         <div>
                                             <a id="q-4-1" href="#q-4-1">维护时段期间，单个 IaaS 虚拟机或 PaaS 角色实例要保持多长时间的脱机状态？</a>
@@ -864,8 +865,8 @@
                                                 </p>
                                             </section>
                                         </div>
-                                    </li>
-                                    <li>
+                                    </li> -->
+                                    <!-- <li>
                                         <i class="icon icon-plus"></i>
                                         <div>
                                             <a id="q-4-2" href="#q-4-2">如果我的虚拟机受影响时间相对较短，我是否可以自定维护时间点？</a>
@@ -875,7 +876,7 @@
                                                 </p>
                                             </section>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <!-- <li>
                                         <i class="icon icon-plus"></i>
                                         <div>
@@ -912,7 +913,7 @@
                                         <div>
                                             <a id="q-4-6" href="#q-4-6">我是否可以在 Azure Virtual Machine 中再创建虚拟机呢？</a>
                                             <section>
-                                                <p>目前，还不可以。Azure 虚拟机的 Dv3 和 Ev3 系列是支持嵌套虚拟化的，但是目前中国区 Azure 暂时还不支持创建该系列虚拟机。</p>
+                                                <p>Azure 虚拟机的 Dv3 和 Ev3 系列是支持嵌套虚拟化的，但是目前只有 Chinaeast2 和 Chinanorth2 支持创建该系列虚拟机，客户可以在这两个区域创建 Dv3 或 Ev3 的虚拟机以实现该需求。</p>
                                             </section>
                                         </div>
                                     </li>
@@ -977,11 +978,10 @@
                                                         <td>存储服务</td>
                                                         <td>3份，Active-Active</td>
                                                         <td>无</td>
-                                                        <td>异步复制到异地，RPO=30分钟，无RTO</td>
+                                                        <td>异步复制到异地，无RTO</td>
                                                         <td>
                                                             <ol>
                                                                 <li>本地冗余存储（LRS）</li>
-                                                                <li>区域冗余存储空间（ZRS）</li>
                                                                 <li>异地冗余存储（GRS）</li>
                                                                 <li>读取访问异地冗余存储（RA-GRS）</li>
                                                                 <li><a href="//docs.azure.cn/zh-cn/articles/azure-operations-guide/storage/aog-storage-how-to-use-azcopy">使用 AzCopy</a></li>
@@ -1049,7 +1049,7 @@
                                         <div>
                                             <a id="q-4-12" href="#q-4-12">使用虚拟机运行业务应用有什么需要注意的地方？</a>
                                             <section>
-                                                <p>Azure 会周期性地更新主机环境，以确保平台上运行的所有应用程序和虚拟机始终处于安全的环境。此更新过程可能会导致您的虚拟机重新启动。虚拟机重新启动的过程中会导致运行在此虚拟机上的应用程序离线。</p>
+                                                <p>Azure 会周期性地更新主机环境，以确保平台上运行的所有应用程序和虚拟机始终处于安全的环境。</p>
                                                 <p>虚拟机迁移时可能会发生数据丢失情况。虚拟机迁移的一些原因如下：</p>
                                                 <ul>
                                                     <li>调整虚拟机大小</li>
@@ -1138,9 +1138,15 @@
                                         <div>
                                             <a id="q-4-19" href="#q-4-19">Azure 存储服务安全性如何？</a>
                                             <section>
-                                                <p>Azure 存储服务会分配给用户两个访问密钥：主访问密钥和辅助访问密钥。该访问密钥是256个字节的字符串，用户使用该访问密钥来验证每一个对 Azure 存储服务的数据访问请求。</p>
-                                                <p>两个访问密钥的功能相同都可以访问数据。之所以有两个是为了方便用户切换访问密钥。比如，在通常情况下用户使用主访问密钥，如果一旦主访问密钥被泄露，用户可以把主访问密钥在最短的时间内失效（重新生成一个新的主访问密钥），然后切换到使用辅访问密钥。用户不需要为此修改代码，而只需要更改服务配置文件即可，同时更新服务配置文件也没有宕机时间。此外，另外一种有效的做法是应用程序代码可以先使用主访问密钥来访问数据，如果验证失败，代码自动使用辅访问密钥，这样用户在切换访问密钥时就不会有宕机时间了。</p>
-                                                <p>为了进一步提高对 Blob 数据访问控制的灵活度，Azure 数据存储服务还提供了另外一种叫做 Shared Access Signature 的数据访问控制方式。使用 Shared Access Signature ，管理员可以为其他用户生成一个临时的数据访问请求，该临时数据访问请求包含有效的数字签名，所以它可以通过数据验证。该临时数据访问请求也包含该用户可以访问哪些数据和操作权限等信息，而且该临时数据访问请求只会在指定时间内有效。这样管理员既可以允许其他用户访问数据，又不会泄露访问密钥。</p>
+                                                <p>Azure 存储提供配套的安全功能：</p>
+                                                <ol>
+                                                    <li>存储帐户可以通过基于角色的访问控制和 Azure Active Directory 来保护。</li>
+                                                    <li>在应用程序和 Azure 之间传输数据时，可以使用客户端加密、HTTPS 或 SMB 3.0 来保护数据。</li>
+                                                    <li>使用存储服务加密写入 Azure 存储时，可将数据设置为自动加密。</li>
+                                                    <li>可以使用共享访问签名来授予对 Azure 存储中数据对象的委派访问权限。</li>
+                                                    <li>可以使用存储分析来跟踪某人访问存储时使用的身份验证方法。</li>
+                                                </ol>
+                                                <p>详情请参阅我们的 <a href="//docs.azure.cn/zh-cn/security/security-storage-overview">Azure 存储安全概述</a>了解最新内容。</p>
                                             </section>
                                         </div>
                                     </li>
@@ -1149,7 +1155,7 @@
                                         <div>
                                             <a id="q-4-20" href="#q-4-20">SQL Azure Database 与传统 SQL Server Database 有什么不同？</a>
                                             <section>
-                                                <p>尽管 SQL Server 和 Azure SQL Database 有时处理相同的应用程序工作负荷，但一个是采用软件许可模式的传统数据库服务器，而另一个是服务形式的云数据库，它在<span>世纪互联</span>的数据中心运行，以即付即用模式或承付款率计划模式提供。您可以通过这两种产品轻松选择最符合您的技术需求的平台和业务模型。</p>
+                                                <p>尽管 SQL Server 和 Azure SQL Database 有时处理相同的应用程序工作负荷，但一个是采用软件许可模式的传统数据库服务器，而另一个是服务形式的云数据库，Azure SQL Database 在<span>世纪互联</span>的数据中心运行，以即付即用模式或承付款率计划模式提供。您可以通过这两种产品轻松选择最符合您的技术需求的平台和业务模型。</p>
                                                 <table cellpadding="0" cellspacing="0" width="100%">
                                                     <tr>
                                                         <th align="left"><strong>SQL Server</strong></th>
@@ -1174,9 +1180,17 @@
                                                     <li>本地冗余存储（LRS）：我们在一个区域内维护数据的多个副本以提供高持久性。</li>
                                                     <li>异地冗余存储（GRS）：我们通过在同一地域内相隔数百英里的两个区域之间进行复制来异步提供额外的数据持久性。在两个区域中，我们维护数据的多个副本。</li>
                                                     <li>读取访问异地冗余存储（RA-GRS）：除了异地冗余的存储服务外，我们提供对辅助区域（它具有主存储系统中数据的最终一致的版本）中存储帐户的只读访问。当主区域中的存储帐户不可用时，客户可以使用此服务访问其数据。</li>
-                                                    <li>区域冗余存储（ZRS）：除了像 LRS 一样存储三个副本，区域冗余存储空间 还会在一两个区域的数据中心之间异步复制数据，提供高于 LRS 的持久性。</li>
                                                 </ul>
                                                 <p>有关 Azure 冗余存储的详细信息，请参考<a href="//docs.azure.cn/storage/common/storage-introduction">Azure 存储简介</a>以及<a href="/pricing/details/storage/">价格详情</a>。</p>
+                                            </section>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="icon icon-plus"></i>
+                                        <div>
+                                            <a id="q-4-22" href="#q-4-22">还有更多更详细的 Azure 热点问题操作指南吗？</a>
+                                            <section>
+                                                <p>您可以浏览<a href="//docs.azure.cn/zh-cn/articles/azure-operations-guide/">常用操作指南</a>，查看 Azure 支持中的常见问题与解答。</p>
                                             </section>
                                         </div>
                                     </li>
