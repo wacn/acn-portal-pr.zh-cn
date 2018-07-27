@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-07-05T15:00:00" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
+  <umbTextpage id="12103" parentID="12095" level="3" writerID="106" creatorID="22" nodeType="1059" template="15" sortOrder="3" createDate="2012-05-29T21:04:52" updateDate="2018-07-27T17:00:00" nodeName="FAQ" urlName="faq" writerName="content" creatorName="Brad" path="-1,11978,12095,12103" isDoc="">
     <bodyText><![CDATA[
       
         <div class="section-component">
@@ -276,6 +276,7 @@
                                                 </ul>
                                                 <p>Publish and search questions in the <a href="//social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs">Azure Forum</a>.</p>
                                                 <p>Browse the <a href="//school.azure.cn/">Azure School</a> for related Azure courses and expert columns.</p>
+                                                <p>Browse <a href="//docs.azure.cn/zh-cn/articles/azure-operations-guide/">Azure Operations Guide</a> for Azure common questions and instructions.</p>
                                             </section>
                                         </div>
                                     </li>
@@ -284,7 +285,8 @@
                                         <div>
                                             <a id="q-1-15" href="#q-1-15">Are all data stored in Azure encrypted? </a>
                                             <section>
-                                                <p>Regarding data encryption, Azure provides all kinds of encryption functions including AES-256, allowing customers to choose the best solutions based on their requirements.</p>
+                                                <p>Azure provides Storage Service Encryption for all new and existing storage accounts. Your data is secured by default. For more information, see<a href="//docs.azure.cn/zh-cn/storage/common/storage-service-encryption">Azure Storage Service Encryption for Static Data</a>(Chinese).</p>
+                                                
                                             </section>
                                         </div>
                                     </li>
@@ -852,7 +854,7 @@
                             <div class="more-detail">
                                 <h2>Technical</h2>
                                 <ul>
-                                    <li>
+                                    <!-- <li>
                                         <i class="icon icon-plus"></i>
                                         <div>
                                             <a id="q-4-1" href="#q-4-1">During the maintenance period, how long will a single IaaS virtual machine or single PaaS role instance stay offline?</a>
@@ -862,8 +864,8 @@
                                                 </p>
                                             </section>
                                         </div>
-                                    </li>
-                                    <li>
+                                    </li> -->
+                                    <!-- <li>
                                         <i class="icon icon-plus"></i>
                                         <div>
                                             <a id="q-4-2" href="#q-4-2">If my Virtual Machine is impacted for a relatively short time, can I define the maintenance time on my own?</a>
@@ -873,7 +875,7 @@
                                                 </p>
                                             </section>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <!-- <li>
                                         <i class="icon icon-plus"></i>
                                         <div>
@@ -910,7 +912,7 @@
                                         <div>
                                             <a id="q-4-6" href="#q-4-6">Can I create a virtual machine inside Azure Virtual Machine?</a>
                                             <section>
-                                                <p>No, you cannot create it at present. The Dv3 and Ev3 series Azure Virtual Machine support nested virtualization, but as of now, Azure China does not support creating virtual machines of these series for the time being.</p>
+                                                <p>The Dv3 and Dv3 VM sizes support nested virtualization. Both VM sizes are available on China East2 and China North2 region.</p>
                                             </section>
                                         </div>
                                     </li>
@@ -975,11 +977,10 @@
                                                         <td>Storage service</td>
                                                         <td>3 copies, Active-Active</td>
                                                         <td>None</td>
-                                                        <td>Asynchronous replication to the remote location, RPO=30 minutes, no RTO</td>
+                                                        <td>Asynchronous replication to the remote location, no RTO</td>
                                                         <td>
                                                             <ol>
                                                                 <li>Local Redundant Storage (LRS)</li>
-                                                                <li>Zone Redundant Storage (ZRS)</li>
                                                                 <li>Geo-Redundant Storage (GRS)</li>
                                                                 <li>Read/Access Geo-Redundant Storage (RA-GRS)</li>
                                                                 <li><a href="//docs.azure.cn/zh-cn/articles/azure-operations-guide/storage/aog-storage-how-to-use-azcopy">Use AzCopy</a></li>
@@ -1047,7 +1048,7 @@
                                         <div>
                                             <a id="q-4-12" href="#q-4-12">What should I be aware of when running a business application on a virtual machine?</a>
                                             <section>
-                                                <p>Azure will regularly update the host environment to ensure that all the applications and virtual machines on the platform are always in a secure environment. This update process may cause your virtual machines to reboot. Rebooting of the virtual machines will cause applications on these virtual machines to go offline.</p>
+                                                <p>Azure will regularly update the host environment to ensure that all the applications and virtual machines on the platform are always in a secure environment.</p>
                                                 <p>There may be data lost during virtual machine migration. Some reasons for virtual machine migration are as follows:</p>
                                                 <ul>
                                                     <li>Adjusting the size of the virtual machine</li>
@@ -1136,9 +1137,15 @@
                                         <div>
                                             <a id="q-4-19" href="#q-4-19">How about the security of the Azure Storage service?</a>
                                             <section>
-                                                <p>Azure Storage service will allocate two access keys to users: the primary and secondary access keys. Each of the access keys is a character string with 256 bytes, and user can use it to verify every data access request for Azure Storage services.</p>
-                                                <p>Both access keys have the same function and are able to access the data. The main purpose of having two keys is to for users' convenience when switching access keys. For instance, users will normally use the primary access key. If the primary access key is stolen, user can set the primary access key immediately (a new primary access key will be generated), and then switch over to the secondary access key. Meanwhile, user does not have to revise code for this, but only needs to change the service configuration file, without any downtime. Moreover, another effective way is, application code can use the primary access key to access data, and if the verification fails, the code will automatically use the secondary access key. This way, there will be no downtime when user switches access keys.</p>
-                                                <p>In order to further increase flexibility of access control for Blob data, Azure Data Storage service provides another data access control method, Shared Access Signature. Administrators can use Shared Access Signature to generate a temporary data access request for other users, which contains valid digital signatures, and can thus pass the data verification. It also contains information about user's permission for data access and operation. The temporary request will only be effective within the specified timespan. This way, administrators can allow other users to access data, without leaking the access key.</p>
+                                                <p>Azure Storage provides a comprehensive set of security capabilities. You can:</p>
+                                                <ol>
+                                                    <li>Secure the storage account by using Role-Based Access Control (RBAC) and Azure Active Directory.</li>
+                                                    <li>Secure data in transit between an application and Azure by using client-side encryption, HTTPS, or SMB 3.0.</li>
+                                                    <li>Set data to be automatically encrypted when it's written to Azure Storage by using Storage Service Encryption.</li>
+                                                    <li>Set OS and data disks used by virtual machines (VMs) to be encrypted by using Azure Disk Encryption.</li>
+                                                    <li>Grant delegated access to the data objects in Azure Storage by using shared access signatures (SASs).</li>
+                                                </ol>
+                                                <p>You may refer to<a href="//docs.microsoft.com/en-us/azure/security/security-storage-overview/"> Azure Storage security overview</a>for the latest information.</p>
                                             </section>
                                         </div>
                                     </li>
@@ -1172,9 +1179,17 @@
                                                     <li>Local Redundant Storage (LRS): we maintain multiple data replica in a region so as to provide high durability.</li>
                                                     <li>Geo-Redundant Storage(GRS): we provide extra data durability through asynchronous replication between two regions hundreds of miles apart. In the two regions, we maintain multiple data replicas.</li>
                                                     <li>Read-Access Geo-Redundant Storage (RA-GRS): in addition to GRS services, we provide read-only access to the storage account in the secondary region (which has a final edition consistent with data in the primary region). When the storage account in the primary region is not available, customers can use this service to access the data.</li>
-                                                    <li>Zone Redundant Storage (ZRS): in addition to storing three replicas like LRS, ZRS replicates data asynchronously between data centers of one or two zones, providing a higher durability than LRS.</li>
                                                 </ul>
                                                 <p>For details on Azure Redundant Storage, please refer to <a href="//docs.azure.cn/storage/common/storage-introduction">Introduction to Azure Storage</a> and <a href="/pricing/details/storage/">Pricing Details</a>.</p>
+                                            </section>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="icon icon-plus"></i>
+                                        <div>
+                                            <a id="q-4-22" href="#q-4-22">Are there any other detailed self-help information on Azure hot topics?</a>
+                                            <section>
+                                                <p>You may refer to<a href="//docs.azure.cn/zh-cn/articles/azure-operations-guide/"> Azure Operations Guide</a>(Chinese) for Azure common questions and instructions.</p>
                                             </section>
                                         </div>
                                     </li>
