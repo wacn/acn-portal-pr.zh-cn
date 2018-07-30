@@ -12500,60 +12500,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        //"virtual-network": {
-        //    Name: "虚拟网关",
-        //    Types: [{
-        //        Name: "default",
-        //        Features: [{
-        //            Name: "静态/动态路由 VPN 网关",
-        //            PricePeriod: PricePeriodEnum.Monthly,
-        //            PriceUnit: "个",
-        //            MinUnit: "0",
-        //            MaxUnit: "20",
-        //            Sizes: [{
-        //                Name: "default",
-        //                Description: "静态/动态路由 VPN 网关",
-        //                PriceTier: PriceTierEnum.Linear,
-        //                PricePerTier: "186",
-        //                MinUnit: "0",
-        //                MaxUnit: "2000",
-        //                PriceUnit: "个"
-        //            }]
-        //        },
-        //        {
-        //            Name: "高性能 VPN 网关",
-        //            PricePeriod: PricePeriodEnum.Monthly,
-        //            PriceUnit: "个",
-        //            MinUnit: "0",
-        //            MaxUnit: "20",
-        //            Sizes: [{
-        //                Name: "default",
-        //                Description: "高性能 VPN 网关",
-        //                PriceTier: PriceTierEnum.Linear,
-        //                PricePerTier: "2328.72",
-        //                MinUnit: "0",
-        //                MaxUnit: "2000",
-        //                PriceUnit: "个"
-        //            }]
-        //        },
-        //        {
-        //            Name: "传出 VNET 间数据传输",
-        //            PricePeriod: PricePeriodEnum.Monthly,
-        //            PriceUnit: "个",
-        //            MinUnit: "0",
-        //            MaxUnit: "20",
-        //            Sizes: [{
-        //                Name: "default",
-        //                Description: "传出 VNET 间数据传输",
-        //                PriceTier: PriceTierEnum.Linear,
-        //                PricePerTier: "0.16",
-        //                MinUnit: "0",
-        //                MaxUnit: "2000",
-        //                PriceUnit: "GB"
-        //            }]
-        //        }]
-        //    }]
-        //},
+        
         "ExpressRoute-virtual-network": {
             Name: "ExpressRoute 网关",
             Types: [{
@@ -12621,7 +12568,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        "virtual-network": {
+        "vpn-gateway": {
             Name: "VPN 网关",
             Types: [{
                 Name: "基本",
@@ -12690,7 +12637,7 @@ var CalculatorData = {
         },
         
         
-        "virtual-network-data-transfer": {
+        "vpn-gateway-data-transfer": {
             Name: "VPN 网关 - 出站虚拟网络间数据传输",
             Types: [{
                 Name: "default",
@@ -12949,12 +12896,28 @@ var CalculatorData = {
             }]
         },
         
-         "networking-inbound": {
-            Name: "虚拟网络对等互连 (VNET Peering) - 入站数据传输",
+        "virtual-network": {
+            Name: "虚拟网络",
             Types: [{
-                Name: "default",
+                Name: "虚拟网络对等互连",
                 Features: [{
-                    Name: "default",
+                    Name: "虚拟网络对等互连 (VNET Peering) - 入站数据传输",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.06572",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "虚拟网络对等互连 (VNET Peering) - 出站数据传输",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12971,29 +12934,6 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-         "networking-outbound": {
-            Name: "虚拟网络对等互连 (VNET Peering) - 出站数据传输",
-            Types: [{
-                Name: "default",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.06572",
-                        MinUnit: "0",
-                        MaxUnit: "2000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },      
         
         
         "application-gateway-basic": {
