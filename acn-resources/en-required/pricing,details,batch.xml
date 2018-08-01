@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-26T16:00:00" urlName="batch" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-08-01T18:00:00" urlName="batch" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <style type="text/css">
@@ -91,6 +91,9 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0)" data-href="#tabContent1-2"  data-toggle="tab" id="vm-vm-win-memory-optimized">内存优化</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent1-3"  data-toggle="tab" id="vm-vm-win-GPU">GPU</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -199,6 +202,64 @@
 
                                 </table>
                             </div>
+                            <div class="tab-panel" id="tabContent1-3">
+                                <h3>GPU: 专门针对大量图形绘制和视频编辑的虚拟机，可选择单个或多个 GPU。</h3>
+                                <h3>NCv3 系列</h3>
+                                <p>NCv3 系列虚拟机是 GPU 产品系列（该系列提供受欢迎的新一代 NC 系列虚拟机）的新成员，由 NVIDIA Tesla V100 GPU 提供支持。客户可将这些更新的 GPU 用于传统的 HPC 工作负荷，使其通过性能提升获利，为油藏模拟、DNA 测序、蛋白质分析、Monte Carlo 模拟和其他方案提供支持。这些新 GPU 可提供当前 NCv2 系列的 1.5 倍计算性能。与其他 NC 系列一样，我们为需要快速互连的工作负荷（例如石油与天然气、汽车和基因组学）提供具有 InfiniBand 网络的配置和 NC24r v3，以加快横向扩展功能并提升单个实例性能。</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
+                                    <div class="ms-date">*NCv3 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>内核数</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>GPU</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>NC6 v3</td>
+                                        <td>6</td>
+                                        <td>112.00 GiB</td>
+                                        <td>336 GiB</td>
+                                        <td>1X V100</td>
+                                        <td>￥10.465/小时
+                                            <br />( 约 ￥7,785.96/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NC12 v3</td>
+                                        <td>12</td>
+                                        <td>224.00 GiB</td>
+                                        <td>672 GiB</td>
+                                        <td>2X V100</td>
+                                        <td>￥20.93/小时
+                                            <br />( 约 ￥15,571.92/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NC24 v3</td>
+                                        <td>24</td>
+                                        <td>448.00 GiB</td>
+                                        <td>1,344 GiB</td>
+                                        <td>4X V100</td>
+                                        <td>￥41.86/小时
+                                            <br />( 约 ￥31,143.84/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NC24r v3</td>
+                                        <td>24</td>
+                                        <td>448.00 GiB</td>
+                                        <td>1,344 GiB</td>
+                                        <td>4X V100</td>
+                                        <td>￥46.0454/小时
+                                            <br />( 约 ￥34,257.7776/月 )</td>
+                                    </tr>
+
+                                </table>
+                            </div>
                         </div>
 
                     </div>
@@ -209,6 +270,9 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0)" data-href="#tabContent2-2"  data-toggle="tab" id="vm-vm-linux-memory-optimized">内存优化</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-href="#tabContent2-3"  data-toggle="tab" id="vm-vm-linux-GPU">GPU</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -316,6 +380,65 @@
                                     </tr>
 
                                 </table>
+                            </div>
+                            <div class="tab-panel" id="tabContent2-3">
+                                <h3>GPU: 专门针对大量图形绘制和视频编辑的虚拟机，可选择单个或多个 GPU。</h3>
+                                <h3>NCv3 系列</h3>
+                                <p>NCv3 系列虚拟机是 GPU 产品系列（该系列提供受欢迎的新一代 NC 系列虚拟机）的新成员，由 NVIDIA Tesla V100 GPU 提供支持。客户可将这些更新的 GPU 用于传统的 HPC 工作负荷，使其通过性能提升获利，为油藏模拟、DNA 测序、蛋白质分析、Monte Carlo 模拟和其他方案提供支持。这些新 GPU 可提供当前 NCv2 系列的 1.5 倍计算性能。与其他 NC 系列一样，我们为需要快速互连的工作负荷（例如石油与天然气、汽车和基因组学）提供具有 InfiniBand 网络的配置和 NC24r v3，以加快横向扩展功能并提升单个实例性能。</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                    <br />
+                                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
+                                    <div class="ms-date">*NCv3 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>内核数</strong></th>
+                                        <th align="left"><strong>RAM</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>GPU</strong></th>
+                                        <th align="left"><strong>低优先级</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>NC6 v3</td>
+                                        <td>6</td>
+                                        <td>112.00 GiB</td>
+                                        <td>336 GiB</td>
+                                        <td>1X V100</td>
+                                        <td>￥4.6708/小时
+                                            <br />( 约 ￥3,475.0752/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NC12 v3</td>
+                                        <td>12</td>
+                                        <td>224.00 GiB</td>
+                                        <td>672 GiB</td>
+                                        <td>2X V100</td>
+                                        <td>￥9.3416/小时
+                                            <br />( 约 ￥6,950.1504/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NC24 v3</td>
+                                        <td>24</td>
+                                        <td>448.00 GiB</td>
+                                        <td>1,344 GiB</td>
+                                        <td>4X V100</td>
+                                        <td>￥18.6831/小时
+                                            <br />( 约 ￥13,900.2264/月 )</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NC24r v3</td>
+                                        <td>24</td>
+                                        <td>448.00 GiB</td>
+                                        <td>1,344 GiB</td>
+                                        <td>4X V100</td>
+                                        <td>￥20.5515/小时
+                                            <br />( 约 ￥15,290.316/月 )</td>
+                                    </tr>
+
+                                </table>
+
                             </div>
                         </div>
                         
