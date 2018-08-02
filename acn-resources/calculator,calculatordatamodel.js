@@ -876,32 +876,32 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "NCv3 系列",
-                    Description: "NCv3 系列",
+                    Name: "NCsv3 系列",
+                    Description: "NCsv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "NC6 v3",
+                        Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "26.16"
                     },
                     {
-                        Name: "NC12 v3",
+                        Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "52.32"
                     },
                     {
-                        Name: "NC24 v3",
+                        Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "104.65"
                     },
                     {
-                        Name: "NC24r v3",
+                        Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "115.11"
@@ -1482,32 +1482,32 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "NCv3 系列",
-                    Description: "NCv3 系列",
+                    Name: "NCsv3 系列",
+                    Description: "NCsv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "NC6 v3",
+                        Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "23.35"
                     },
                     {
-                        Name: "NC12 v3",
+                        Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "46.71"
                     },
                     {
-                        Name: "NC24 v3",
+                        Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "93.42"
                     },
                     {
-                        Name: "NC24r v3",
+                        Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "102.76"
@@ -14730,32 +14730,32 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "NCv3 系列",
-                    Description: "NCv3 系列",
+                    Name: "NCsv3 系列",
+                    Description: "NCsv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "NC6 v3",
+                        Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.465"
                     },
                     {
-                        Name: "NC12 v3",
+                        Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "20.93"
                     },
                     {
-                        Name: "NC24 v3",
+                        Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "41.86"
                     },
                     {
-                        Name: "NC24r v3",
+                        Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "46.0454"
@@ -14837,32 +14837,32 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "NCv3 系列",
-                    Description: "NCv3 系列",
+                    Name: "NCsv3 系列",
+                    Description: "NCsv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "NC6 v3",
+                        Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.6708"
                     },
                     {
-                        Name: "NC12 v3",
+                        Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.3416"
                     },
                     {
-                        Name: "NC24 v3",
+                        Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "18.6831"
                     },
                     {
-                        Name: "NC24r v3",
+                        Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "20.5515"
