@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-24T16:00:00" urlName="hdinsight" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-08-07T15:00:00" urlName="hdinsight" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="hdinsight" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -18,838 +18,543 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>Azure HDInsight 提供完全托管、 100% 受支持的 Apache Hadoop®、Spark、HBase 和 Storm 群集。只需单击几下，几分钟之内就可以快速启动并运行这些工作负荷，无需购买硬件，也无需租用大数据基础结构等操作团队。</p>
-                <p>HDInsight 的 Hadoop 群集可部署两种角色：</p>
-                <ul>
-                    <li>头节点（2 个节点）</li>
-                    <li>数据节点（至少 1 个节点）</li>
-                </ul>
-                <p>HDInsight 的 HBase 群集可部署三种角色：</p>
-                <ul>
-                    <li>控制服务器（2 个节点）</li>
-                    <li>区域服务器（至少 1 个节点）</li>
-                    <li>主节点/Zookeeper 节点（3 个节点）</li>
-                </ul>
-                <p>HDInsight 的 Storm 群集可部署三种角色：</p>
-                <ul>
-                    <li>Nimbus 节点（2 个节点）</li>
-                    <li>监管服务器（至少 1 个节点）</li>
-                    <li>Zookeeper 节点（3 个节点）</li>
-                </ul>
-				<p>HDInsight 的 Spark 群集可部署三种角色：</p>
-                <ul>
-                    <li>头节点（2 个节点）</li>
-                    <li>工作进程节点（至少 1 个节点）</li>
-					<li>Zookeeper 节点（3 个节点）（A1 Zookeeper 免费）</li>
-                </ul>
-				<!--<p>除了群集部署结构，使用 R Server 还将会产生一个边缘节点。</p>-->
-				<br/>
-				<h3>Azure 云数据平台</h3>
-				<table cellpadding="0" cellspacing="0" width="80%">
-					<tr>
-                        <th align="left" width="25%"><strong>HDInsight 功能</strong></th>
-                        <th align="left" width="30%"><strong>标准<br />基本价格/节点-小时</strong></th>
-                        <!--
-						<th align="left" width="30%"><strong>高级</strong>（预览）<br /><strong>基本价格/节点-小时 + ￥ 0.13/核-小时<br /></strong></th>
-						-->
-                    </tr>
-                    <tr>
-						<td>无限制缩放</td>
-                        <td>√</td>
-                        <!--
-						<td>√</td>
-						-->
-                    </tr>
-					<tr>
-                        <td>灵活缩放</td>
-                        <td>√</td>
-						<!--
-                        <td>√</td>
-						-->
-                    </tr>
-					<tr>
-                        <td>轻松配置</td>
-                        <td>√</td>
-						<!--
-                        <td>√</td>
-						-->
-                    </tr>
-					<tr>
-                        <td>高可用性</td>
-                        <td>√</td>
-						<!--
-                        <td>√</td>
-						-->
-                    </tr>
-					<tr>
-                        <td>服务级别协议</td>
-                        <td>√</td>
-						<!--
-                        <td>√</td>
-						-->
-                    </tr>
-				</table>
-				<h3>企业就绪情况</h3>
-				<table cellpadding="0" cellspacing="0" width="80%">
-					<tr>
-                        <th align="left" width="25%"><strong>HDInsight 功能</strong></th>
-                        <th align="left" width="30%"><strong>标准<br />基本价格/节点-小时</strong></th>
-                    </tr>
-                    <tr>
-                     <td>基本监视</td>
-                        <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                    </tr>
-						<tr>
-                            <td>Hadoop 版本升级和修补</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>静态数据加密</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>安全网关和 Zookeeper 节点</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>Ranger（安全 Hadoop）+ AD 集成</td>
-                            <td></td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-				</table>
-				<h3>群集类型</h3>
-				<table cellpadding="0" cellspacing="0" width="80%">
-					<tr>
-                        <th align="left" width="25%"><strong>HDInsight 功能</strong></th>
-                        <th align="left" width="30%"><strong>标准<br />基本价格/节点-小时</strong></th>
-                    </tr>
-						<tr>
-							<td>Hadoop（Hive、Pig、Storm）</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>带 LLAP 的 Hadoop（交互式查询）  </td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>用于 NoSQL 数据库的 HBase</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>用于实时流分析的 Storm</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-						<tr>
-                            <td>用于内存中 SQL 查询、ML 和实时流分析的 Spark</td>
-                            <td>√</td>
-							<!--
-                            <td>√</td>
-							-->
-                        </tr>
-                </table>
+                <p>Azure HDInsight 是完全托管的云服务，通过它，可以轻松、快捷、经济地处理大量数据。使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、 HBase 等常见开源框架。Azure HDInsight 允许实现许多方案，例如 ETL、数据仓库存储、及其 IoT 等。</p>
+                <h2>服务特征</h2>
+                <p>针对不同大数据方案优化的预配置群集</p>
+                <p>对群集提供 99.9 % 服务级别协议</p>
+                <p>高可用性</p>
+                <p>云缩放的成本效益</p>
+                <p>网络安全：保护网关 Azure VNET 支持</p>
+                <p>数据安全：对存储进行加密和基于角色的访问控制</p>
+                <p>集成：Azure Cosmos DB 和其他 Azure 数据服务</p>
+
+				<h3>组件</h3>
+				<p>Hadoop</p>
+				<p>Spark</p>
+				<p>交互查询</p>
+				<p>Kafka</p>
+				<p>HBase</p>
+				<p>Storm</p>
+				<p>扩展 HDInsight 以安装任何开源引擎<sup>1</sup></p>
+				<div class="tags-date">
+					<div class="ms-date">1 由世纪互联运营的 Microsoft Azure 不对这些开源应用提供服务级别协议支持。仅为以上工作负荷提供支持和服务级别协议。</div>
+				</div>
+				<h2>定价特征</h2>
+				<h3>Azure HDInsight 群集</h3>
+				<p>群集运行一组依赖于组件的节点，按分钟计费。节点因组（例如辅助节点、头节点等）、数量和实例类型（例如 D1v2）而异。</p>
+				<p>请参阅以下常见问题解答，了解有关工作负荷和所需节点的详细信息。在群集的生命周期内，客户为每个节点付费。</p>
+				
             </div>
-			
 			
             <!-- BEGIN: TAB-CONTROL -->
 			
-            <div class="technical-azure-selector tab-control-selector">
-                <!-- BEGIN: TAB-CONTAINER-1 -->
-                
-                    <!-- BEGIN: Table1-Content-->
-                    <h2>定价详细信息</h2>
-					<a href="javascript:void(0)" data-href="#tabContentlinux" id="hdinsight-linux" class="active">Linux</a>
-					<div class="clearfix">
-					<a href="javascript:void(0)" data-href="#tabContentwin" id="hdinsight-win">Windows</a></div>
-					<!-- BEGIN: TAB-CONTAINER-Linux -->
-					<div class="tab-control-container tab-active" id="tabContentlinux">
-						<p>HDInsight 群集由一组节点组成。在群集的生命周期内，用户需要付费使用这些节点。计费从创建群集开始，到删除群集结束，每分钟按比例计费。<!-- 此外，如果客户选择 R Server 群集，还需针对此特定工作负荷收取额外附加费。--></p>
-						<!-- 
-						用户可以选择标准版或高级版群集类型。高级版价格需在标准版价格基础上增加额外的附加费。
-						以下价格中，高级版价格为预览价格，提供 50% 的价格优惠。</p> 
-						-->
-						<p>HDinsight Linux 群集已正式发布，价格与 Windows 群集相同。</p>
-						<p>HDInsight Kafka 现处于预览状态，不收取其他额外费用。</p>
-						<!-- 
-						<p>高级版功能仅适用于 Linux Hadoop 群集。</p>
-						-->
-						<!-- 
-						<h3>定价方式</h3>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong></strong></th>
-								<th align="left"><strong>Hadoop</strong></th>
-								<th align="left"><strong>HBase、Storm、Spark</strong></th>
-								<th align="left"><strong>R Server</strong></th>
-							</tr>
-							<tr>
-								<td>标准群集</td>
-								<td>基本价格/节点-小时</td>
-								<td>基本价格/节点-小时</td>
-								<td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>
-							</tr>
-							<tr>
-								<td>高级群集（预览）</td>
-								<td>基本价格/节点-小时 + ￥ 0.13/核-小时</td>
-								<td></td>
-								<td></td>
-							</tr>
-							</tr>
-						</table>
-						-->
-						<h3>定价方式</h3>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left" width="30%"><strong></strong></th>					
-								<th align="left"><strong>Hadoop、HBase、Storm、Spark</strong></th>
-								<!--<th align="left"><strong>R Server</strong></th>-->
-								<th align="left"><strong>KAFKA</strong>（预览）</th>
-							</tr>
-							<tr>
-								<td>标准群集</td>								
-								<td>基本价格/节点-小时</td>
-								<!--<td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>-->
-								<td>基本价格/节点-小时 + ￥0/核心-小时 + 存储<sup>1</sup></td>
-							</tr>							
-							</tr>
-						</table>
-						<div class="tags-date">
-							<div class="ms-date"><sup>1</sup> Kafka 需要托管磁盘。客户可在标准托管磁盘或高级托管磁盘间选择，托管磁盘价格请查看<a href="/pricing/details/storage/">Azure 存储价格详情</a>页面。</div>
-						</div>
-						<h3>A 系列通用节点</h3>
-						<p>A3、A4<!--、A6、A7--> 是适合许多通用需求的实惠选择。在 Hadoop 上运行基础查询应用程序和模式的客户将因使用 A 系列而受益。</p>
-						<p>A1 节点只能用作 Storm 的 Zookeeper 节点。A2 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。<!--使用 R Server 的边缘节点仅在 A6、A7 上可用。--></p>
-						<p>A 系列不能用作 Linux 群集中的数据节点，只能用作头节点和 Zookeepers 节点，并且只有 A1、 A2、 A3 可用。</p>
-						<!-- <p>从 2016 年 4 月 1 日起，Web 应用的价格下调 25.5%，以下是下调后的新价格：</p>-->
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>RAM</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>每节点价格</strong></th>
-							</tr>
-							<tr>
-								<td>A1</td>
-								<td>1</td>
-								<td>1.75GB</td>
-								<td>70GB</td>
-								<td>￥0.3981 /小时<br /> （约合￥296.1864 /月）</td>
-							</tr>
-							<tr>
-								<td>A2</td>
-								<td>2</td>
-								<td>3.5GB</td>
-								<td>135GB</td>
-								<td>￥0.9662 /小时<br /> （约合￥718.8528 /月）</td>
-							</tr>
-							<tr>
-								<td>A3</td>
-								<td>4</td>
-								<td>7GB</td>
-								<td>285GB</td>
-								<td>￥1.9425 /小时<br /> （约合￥1,445.22 /月）</td>
-							</tr>
-							<!--
-							<tr>
-								<td>A4</td>
-								<td>8</td>
-								<td>14GB</td>
-								<td>285GB</td>
-								<td>￥3.87496 /小时<br /> （约合￥2,882.97024 /月）</td>
-							</tr>
-							<tr>
-								<td>A6</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>285GB</td>
-								<td>￥3.43 /小时<br /> （约合￥2,551.92 /月）</td>
-							</tr>
-							<tr>
-								<td>A7</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>605GB</td>
-								<td>￥6.85 /小时<br /> （约合￥5,096.40 /月）</td>
-							</tr>
-							-->
-						</table>
-						<!-- END: Table1-Content-->
-						<!-- BEGIN: Table2-Content-->
-						<h3>D 系列节点：CPU 提速 60%，更大内存，本地 SSD</h3>
-						<p>D1、D2、D11 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。</p>
-						<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>内存数</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>原价格</strong></th>
-								<th align="left"><strong>新价格 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
-							</tr>
-							<tr>
-								<td>D1</td>
-								<td>1</td>
-								<td>3.5GB</td>
-								<td>50GB</td>
-								<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
-								<td>￥0.5981 /小时<br />（约合￥444.9864 /月）</td>
-							</tr>
-							<tr>
-								<td>D2</td>
-								<td>2</td>
-								<td>7GB</td>
-								<td>100GB</td>
-								<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
-								<td>￥1.2362 /小时<br />（约合￥919.7328 /月）</td>
-							</tr>
-							<tr>
-								<td>D3</td>
-								<td>4</td>
-								<td>14GB</td>
-								<td>200GB</td>
-								<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
-								<td>￥2.4725 /小时<br />（约合￥1,839.54 /月）</td>
-							</tr>
-							<tr>
-								<td>D4</td>
-								<td>8</td>
-								<td>28GB</td>
-								<td>400GB</td>
-								<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
-								<td>￥4.965 /小时<br />（约合￥3,693.96 /月）</td>
-							</tr>
-							<tr>
-								<td>D5</td>
-								<td>16</td>
-								<td>56GB</td>
-								<td>800GB</td>
-								<td>￥16.07 /小时<br />（约合￥11,956.08 /月）</td>
-								<td>￥9.8999 /小时<br />（约合￥7,365.5256 /月）</td>
-							</tr>
-							<tr>
-								<td>D11</td>
-								<td>2</td>
-								<td>14GB</td>
-								<td>100GB</td>
-								<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
-								<td>￥1.9717 /小时<br />（约合￥1,466.9448 /月）</td>
-							</tr>
-							<tr>
-								<td>D12</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>200GB</td>
-								<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
-								<td>￥3.9434 /小时<br />（约合￥2,933.8896 /月）</td>
-							</tr>
-							<tr>
-								<td>D13</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>400GB</td>
-								<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
-								<td>￥7.8867 /小时<br />（约合￥5,867.7048 /月）</td>
-							</tr>
-							<tr>
-								<td>D14</td>
-								<td>16</td>
-								<td>112GB</td>
-								<td>800 GB</td>
-								<td>￥11.2234 /小时<br />（约合￥8,350.2096 /月）</td>
-								<td></td>
-							</tr>
-						</table>
-						<!-- END: Table2-Content-->
-						
-						<!-- BEGIN: Table3-Content-->
-						<h3>Dv2 系列优化节点：最新一代的 CPU</h3>
-						<p>Dv2 系列是附带更强大 CPU 的新一代 D 系列实例，内存和磁盘配置与 D 系列相同。Dv2 系列实例基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.2 GHz。Dv2 系列可以满足需要低延迟、本地 SSD 访问或较快 CPU 来运行应用程序的用户；D系列和Dv2 系列的较高内存能够为使用 HDInsight HBase 的客户提高性能；使用 HDInsight Storm 和 Spark 的用户可通过它更大的内存加载更大的参考数据，并利用它更快的 CPU 实现更高的吞吐量。</p>
-						<p>D 系列将继续适用，但建议使用 DV2 系列。<!-- 使用 R Server 的边缘节点仅在 D4 v2、D12 v2、D13 v2、D14 v2 上可用。--></p>
-						<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。<br/>*HDInsight Dv2 系列定价和计费标准与 HDInsight D 系列相同，在账单中，HDInsight Dv2 系列会以 HDInsight D 系列名称进行显示。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>内存数</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>原价格</strong></th>
-								<th align="left"><strong>新价格 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
-							</tr>
-							<tr>
-								<td>D1 v2</td>
-								<td>1</td>
-								<td>3.5GB</td>
-								<td>50GB</td>
-								<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
-								<td>￥0.5981 /小时<br />（约合￥444.9864 /月）</td>
-							</tr>
-							<tr>
-								<td>D2 v2</td>
-								<td>2</td>
-								<td>7GB</td>
-								<td>100GB</td>
-								<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
-								<td>￥1.2362 /小时<br />（约合￥919.7328 /月）</td>
-							</tr>
-							<tr>
-								<td>D3 v2</td>
-								<td>4</td>
-								<td>14GB</td>
-								<td>200GB</td>
-								<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
-								<td>￥2.4725 /小时<br />（约合￥1,839.54 /月）</td>
-							</tr>
-							<tr>
-								<td>D4 v2</td>
-								<td>8</td>
-								<td>28GB</td>
-								<td>400GB</td>
-								<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
-								<td>￥4.965 /小时<br />（约合￥3,693.96 /月）</td>
-							</tr>
-							<tr>
-								<td>D5 v2</td>
-								<td>16</td>
-								<td>56GB</td>
-								<td>800GB</td>
-								<td>￥16.07 /小时<br />（约合￥11,956.08 /月）</td>
-								<td>￥9.8999 /小时<br />（约合￥7,365.5256 /月）</td>
-							</tr>
-							<tr>
-								<td>D11 v2</td>
-								<td>2</td>
-								<td>14GB</td>
-								<td>100GB</td>
-								<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
-								<td>￥1.9717 /小时<br />（约合￥1,466.9448 /月）</td>
-							</tr>
-							<tr>
-								<td>D12 v2</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>200GB</td>
-								<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
-								<td>￥3.9434 /小时<br />（约合￥2,933.8896 /月）</td>
-							</tr>
-							<tr>
-								<td>D13 v2</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>400GB</td>
-								<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
-								<td>￥7.8867 /小时<br />（约合￥5,867.7048 /月）</td>
-							</tr>
-							<tr>
-								<td>D14 v2</td>
-								<td>16</td>
-								<td>112GB</td>
-								<td>800 GB</td>
-								<td>￥11.2234 /小时<br />（约合￥8,350.2096 /月）</td>
-								<td></td>
-							</tr>
-						</table>
-						<!-- END: Table3-Content-->
-						<!--
-						BEGIN: Table4-Content
-						<h3>Linux 群集正式发布</h3>
-						<p>HDinsight Linux 群集已正式发布，价格与 Windows 群集相同。</p>
-						<p>A 系列不能用作 Linux 群集中的数据节点，只能用作头节点和 Zookeepers 节点，并且只有 A1、 A2、 A3 可用。</p>
-						<p>高级版功能仅适用于 Linux 群集。</p>
-						<p>Linux 群集 Dv2 系列价格与 D 系列相同。</p>
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>内存数</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>每节点价格</strong></th>
-							</tr>
-							<tr>
-								<td>A1</td>
-								<td>1</td>
-								<td>1.75GB</td>
-								<td>70GB</td>
-								<td>￥0.51 /小时<br /> （约合￥379.44 /月）</td>
-							</tr>
-							<tr>
-								<td>A2</td>
-								<td>2</td>
-								<td>3.5GB</td>
-								<td>135GB</td>
-								<td>￥1.01 /小时<br /> （约合￥751.44 /月）</td>
-							</tr>
-							<tr>
-								<td>A3</td>
-								<td>4</td>
-								<td>7GB</td>
-								<td>285GB</td>
-								<td>￥2.03 /小时<br /> （约合￥1,510.32 /月）</td>
-							</tr>
-							<tr>
-								<td>D1</td>
-								<td>1</td>
-								<td>3.5GB</td>
-								<td>50GB</td>
-								<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
-							</tr>
-							<tr>
-								<td>D2</td>
-								<td>2</td>
-								<td>7GB</td>
-								<td>100GB</td>
-								<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
-							</tr>
-							<tr>
-								<td>D3</td>
-								<td>4</td>
-								<td>14GB</td>
-								<td>200GB</td>
-								<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
-							</tr>
-							<tr>
-								<td>D4</td>
-								<td>8</td>
-								<td>28GB</td>
-								<td>400GB</td>
-								<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
-							</tr>
-							<tr>
-								<td>D5</td>
-								<td>16</td>
-								<td>56GB</td>
-								<td>800GB</td>
-								<td>￥16.07 /小时<br />（约合￥11,956.08 /月）</td>
-							</tr>
-							<tr>
-								<td>D11</td>
-								<td>2</td>
-								<td>14GB</td>
-								<td>100GB</td>
-								<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
-							</tr>
-							<tr>
-								<td>D12</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>200GB</td>
-								<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
-							</tr>
-							<tr>
-								<td>D13</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>400GB</td>
-								<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
-							</tr>
-							<tr>
-								<td>D14</td>
-								<td>16</td>
-								<td>112GB</td>
-								<td>800 GB</td>
-								<td>￥17.29 /小时<br />（约合￥12,863.76 /月）</td>
-							</tr>
-						</table>
-						END: Table4-Content
-						-->
-					</div>
-					<!-- END: TAB-CONTAINER-Linux -->
-					<!-- BEGIN: TAB-CONTAINER-Windows -->
-					<div class="tab-control-container" id="tabContentwin">
-						<p><strong>* 如果您有在 HDInsight Windows 运行的群集（3.3及更早版本），请在 2018 年 7 月 31 日前将其迁移至 HDInsight Linux(3.5 及更新版本)，以保持创建或调整 HDI 群集的能力。请查看文档<a href="//docs.azure.cn/zh-cn/hdinsight/hdinsight-migrate-from-windows-to-linux">从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集</a>获取更多信息。</strong></p>
-						<p>
-							HDInsight 群集由一组节点组成。在群集的生命周期内，用户需要付费使用这些节点。计费从创建群集开始，到删除群集结束，每分钟按比例计费。
-							<!-- 用户可以选择标准版或高级版群集类型。高级版价格需在标准版价格基础上增加额外的附加费。此外，如果客户选择 R Server 群集，还需针对此特定工作负荷收取额外附加费。以下价格中，高级版价格为预览价格，提供 50% 的价格优惠。-->
-						</p>
-						
-						<h3>定价方式</h3>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left" width="50%"><strong></strong></th>
-								<th align="left"><strong>Hadoop、HBase、Storm</strong></th>
-								<!-- <th align="left"><strong>R-Server</strong></th> -->
-							</tr>
-							<tr>
-								<td>标准群集</td>
-								<td>基本价格/节点-小时</td>
-								<!--  <td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>  -->
-							</tr>
-							<!--
-							<tr>
-								<td>高级群集（预览）</td>
-								<td>基本价格/节点-小时 + ￥ 0.13/核-小时</td>
-								<td></td>
-							</tr>
-							-->
-						</table>
-						
-						<h3>A 系列通用节点</h3>
-						<p>A3、A4、A6、A7 是适合许多通用需求的实惠选择。在 Hadoop 上运行基础查询应用程序和模式的客户将因使用 A 系列而受益。</p>
-						<p>A1 节点只能用作 Storm 的 Zookeeper 节点。A2、A5 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。
-						<!-- 使用 R-Server 的边缘节点仅在 A6、A7 上可用。--></p>
-						<!-- <p>从 2016 年 4 月 1 日起，Web 应用的价格下调 25.5%，以下是下调后的新价格：</p>-->
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>内存数</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>每节点价格</strong></th>
-							</tr>
-							<tr>
-								<td>A1</td>
-								<td>1</td>
-								<td>1.75GB</td>
-								<td>70GB</td>
-								<td>￥0.51 /小时<br /> （约合￥379.44 /月）</td>
-							</tr>
-							<tr>
-								<td>A2</td>
-								<td>2</td>
-								<td>3.5GB</td>
-								<td>135GB</td>
-								<td>￥1.01 /小时<br /> （约合￥751.44 /月）</td>
-							</tr>
-							<tr>
-								<td>A3</td>
-								<td>4</td>
-								<td>7GB</td>
-								<td>285GB</td>
-								<td>￥2.03 /小时<br /> （约合￥1,510.32 /月）</td>
-							</tr>
-							<tr>
-								<td>A4</td>
-								<td>8</td>
-								<td>14GB</td>
-								<td>605GB</td>
-								<td>￥4.05 /小时<br /> （约合￥3,013.20 /月）</td>
-							</tr>
-							<tr>
-								<td>A5</td>
-								<td>2</td>
-								<td>14GB</td>
-								<td>135GB</td>
-								<td>￥1.71 /小时<br /> （约合￥1,272.24 /月）</td>
-							</tr>
-							<tr>
-								<td>A6</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>285GB</td>
-								<td>￥3.43 /小时<br /> （约合￥2,551.92 /月）</td>
-							</tr>
-							<tr>
-								<td>A7</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>605GB</td>
-								<td>￥6.85 /小时<br /> （约合￥5,096.40 /月）</td>
-							</tr>
-						</table>
-						<!-- END: Table1-Content-->
-						<!-- BEGIN: Table2-Content-->
-						<h3>D 系列节点：CPU 提速 60%，更大内存，本地 SSD</h3>
-						<p>D1、D2、D11 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。</p>
-						<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>内存数</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>每节点价格</strong></th>
-							</tr>
-							<tr>
-								<td>D1</td>
-								<td>1</td>
-								<td>3.5GB</td>
-								<td>50GB</td>
-								<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
-							</tr>
-							<tr>
-								<td>D2</td>
-								<td>2</td>
-								<td>7GB</td>
-								<td>100GB</td>
-								<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
-							</tr>
-							<tr>
-								<td>D3</td>
-								<td>4</td>
-								<td>14GB</td>
-								<td>200GB</td>
-								<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
-							</tr>
-							<tr>
-								<td>D4</td>
-								<td>8</td>
-								<td>28GB</td>
-								<td>400GB</td>
-								<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
-							</tr>
-							<tr>
-								<td>D11</td>
-								<td>2</td>
-								<td>14GB</td>
-								<td>100GB</td>
-								<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
-							</tr>
-							<tr>
-								<td>D12</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>200GB</td>
-								<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
-							</tr>
-							<tr>
-								<td>D13</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>400GB</td>
-								<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
-							</tr>
-							<tr>
-								<td>D14</td>
-								<td>16</td>
-								<td>112GB</td>
-								<td>800 GB</td>
-								<td>￥17.29 /小时<br />（约合￥12,863.76 /月）</td>
-							</tr>
-						</table>
-						<!-- END: Table2-Content-->
-						
-						<!-- BEGIN: Table3-Content-->
-						<h3>Dv2 系列优化节点：最新一代的 CPU</h3>
-						<p>Dv2 系列是附带更强大 CPU 的新一代 D 系列实例，内存和磁盘配置与 D 系列相同。Dv2 系列实例基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.2 GHz。Dv2 系列可以满足需要低延迟、本地 SSD 访问或较快 CPU 来运行应用程序的用户；D系列和Dv2 系列的较高内存能够为使用 HDInsight HBase 的客户提高性能；使用 HDInsight Storm <!-- 和 Spark -->的用户可通过它更大的内存加载更大的参考数据，并利用它更快的 CPU 实现更高的吞吐量。</p>
-						<p>D 系列将继续适用，但建议使用 DV2 系列。<!--使用 R-Server 的边缘节点仅在 D4 v2、D12 v2、D13 v2、D14 v2 上可用。--></p>
-						<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
-						<div class="tags-date">
-							<div class="ms-date">*以下价格均为含税价格。</div><br />
-							<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-						</div>
-						<table cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<th align="left"><strong>实例</strong></th>
-								<th align="left"><strong>内核数</strong></th>
-								<th align="left"><strong>内存数</strong></th>
-								<th align="left"><strong>磁盘大小</strong></th>
-								<th align="left"><strong>每节点价格</strong></th>
-							</tr>
-							<tr>
-								<td>D1 v2</td>
-								<td>1</td>
-								<td>3.5GB</td>
-								<td>50GB</td>
-								<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
-							</tr>
-							<tr>
-								<td>D2 v2</td>
-								<td>2</td>
-								<td>7GB</td>
-								<td>100GB</td>
-								<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
-							</tr>
-							<tr>
-								<td>D3 v2</td>
-								<td>4</td>
-								<td>14GB</td>
-								<td>200GB</td>
-								<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
-							</tr>
-							<tr>
-								<td>D4 v2</td>
-								<td>8</td>
-								<td>28GB</td>
-								<td>400GB</td>
-								<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
-							</tr>
-							<tr>
-								<td>D11 v2</td>
-								<td>2</td>
-								<td>14GB</td>
-								<td>100GB</td>
-								<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
-							</tr>
-							<tr>
-								<td>D12 v2</td>
-								<td>4</td>
-								<td>28GB</td>
-								<td>200GB</td>
-								<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
-							</tr>
-							<tr>
-								<td>D13 v2</td>
-								<td>8</td>
-								<td>56GB</td>
-								<td>400GB</td>
-								<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
-							</tr>
-							<tr>
-								<td>D14 v2</td>
-								<td>16</td>
-								<td>112GB</td>
-								<td>800 GB</td>
-								<td>￥17.29 /小时<br />（约合￥12,863.76 /月）</td>
-							</tr>
-						</table>
-						<!-- END: Table3-Content-->
+        	<div class="pricing-page-section">
+                <h2>定价详细信息</h2>
+				<p>HDInsight 群集由一组节点组成。在群集的生命周期内，用户需要付费使用这些节点。计费从创建群集开始，到删除群集结束，每分钟按比例计费。</p>
+				<p>HDInsight Kafka 现处于预览状态，不收取其他额外费用。</p>
+				
+				<h3>定价方式</h3>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left" width="30%"><strong></strong></th>					
+						<th align="left"><strong>Hadoop、HBase、Storm、Spark</strong></th>
+						<!--<th align="left"><strong>R Server</strong></th>-->
+						<th align="left"><strong>KAFKA</strong>（预览）</th>
+					</tr>
+					<tr>
+						<td>标准群集</td>								
+						<td>基本价格/节点-小时</td>
+						<!--<td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>-->
+						<td>基本价格/节点-小时 + ￥0/核心-小时 + 存储<sup>1</sup></td>
+					</tr>							
+					</tr>
+				</table>
+				<div class="tags-date">
+					<div class="ms-date"><sup>1</sup> Kafka 需要托管磁盘。客户可在标准托管磁盘或高级托管磁盘间选择，托管磁盘价格请查看<a href="/pricing/details/storage/">Azure 存储价格详情</a>页面。</div>
+				</div>
+				<h3>A 系列通用节点</h3>
+				<p>A3<!--、A6、A7--> 是适合许多通用需求的实惠选择。在 Hadoop 上运行基础查询应用程序和模式的客户将因使用 A 系列而受益。</p>
+				<p>A1 节点只能用作 Storm 的 Zookeeper 节点。A2 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。<!--使用 R Server 的边缘节点仅在 A6、A7 上可用。--></p>
+				<p>A 系列不能用作 Linux 群集中的数据节点，只能用作头节点和 Zookeepers 节点，并且只有 A1、 A2、 A3 可用。</p>
+				<!-- <p>从 2016 年 4 月 1 日起，Web 应用的价格下调 25.5%，以下是下调后的新价格：</p>-->
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>RAM</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>每节点价格</strong></th>
+					</tr>
+					<tr>
+						<td>A1</td>
+						<td>1</td>
+						<td>1.75GB</td>
+						<td>70GB</td>
+						<td>￥0.3981 /小时<br /> （约合￥296.1864 /月）</td>
+					</tr>
+					<tr>
+						<td>A2</td>
+						<td>2</td>
+						<td>3.5GB</td>
+						<td>135GB</td>
+						<td>￥0.9662 /小时<br /> （约合￥718.8528 /月）</td>
+					</tr>
+					<tr>
+						<td>A3</td>
+						<td>4</td>
+						<td>7GB</td>
+						<td>285GB</td>
+						<td>￥1.9425 /小时<br /> （约合￥1,445.22 /月）</td>
+					</tr>
+					<!--
+					<tr>
+						<td>A4</td>
+						<td>8</td>
+						<td>14GB</td>
+						<td>285GB</td>
+						<td>￥3.87496 /小时<br /> （约合￥2,882.97024 /月）</td>
+					</tr>
+					<tr>
+						<td>A6</td>
+						<td>4</td>
+						<td>28GB</td>
+						<td>285GB</td>
+						<td>￥3.43 /小时<br /> （约合￥2,551.92 /月）</td>
+					</tr>
+					<tr>
+						<td>A7</td>
+						<td>8</td>
+						<td>56GB</td>
+						<td>605GB</td>
+						<td>￥6.85 /小时<br /> （约合￥5,096.40 /月）</td>
+					</tr>
+					-->
+				</table>
+				<!-- END: Table1-Content-->
+				<!-- BEGIN: Table2-Content-->
+				<h3>D 系列节点：CPU 提速 60%，更大内存，本地 SSD</h3>
+				<p>D1、D2、D11 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。</p>
+				<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>内存数</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>原价格</strong></th>
+						<th align="left"><strong>新价格 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
+					</tr>
+					<tr>
+						<td>D1</td>
+						<td>1</td>
+						<td>3.5GB</td>
+						<td>50GB</td>
+						<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
+						<td>￥0.5981 /小时<br />（约合￥444.9864 /月）</td>
+					</tr>
+					<tr>
+						<td>D2</td>
+						<td>2</td>
+						<td>7GB</td>
+						<td>100GB</td>
+						<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
+						<td>￥1.2362 /小时<br />（约合￥919.7328 /月）</td>
+					</tr>
+					<tr>
+						<td>D3</td>
+						<td>4</td>
+						<td>14GB</td>
+						<td>200GB</td>
+						<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
+						<td>￥2.4725 /小时<br />（约合￥1,839.54 /月）</td>
+					</tr>
+					<tr>
+						<td>D4</td>
+						<td>8</td>
+						<td>28GB</td>
+						<td>400GB</td>
+						<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
+						<td>￥4.965 /小时<br />（约合￥3,693.96 /月）</td>
+					</tr>
+					<tr>
+						<td>D5</td>
+						<td>16</td>
+						<td>56GB</td>
+						<td>800GB</td>
+						<td>￥16.07 /小时<br />（约合￥11,956.08 /月）</td>
+						<td>￥9.8999 /小时<br />（约合￥7,365.5256 /月）</td>
+					</tr>
+					<tr>
+						<td>D11</td>
+						<td>2</td>
+						<td>14GB</td>
+						<td>100GB</td>
+						<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
+						<td>￥1.9717 /小时<br />（约合￥1,466.9448 /月）</td>
+					</tr>
+					<tr>
+						<td>D12</td>
+						<td>4</td>
+						<td>28GB</td>
+						<td>200GB</td>
+						<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
+						<td>￥3.9434 /小时<br />（约合￥2,933.8896 /月）</td>
+					</tr>
+					<tr>
+						<td>D13</td>
+						<td>8</td>
+						<td>56GB</td>
+						<td>400GB</td>
+						<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
+						<td>￥7.8867 /小时<br />（约合￥5,867.7048 /月）</td>
+					</tr>
+					<tr>
+						<td>D14</td>
+						<td>16</td>
+						<td>112GB</td>
+						<td>800 GB</td>
+						<td>￥11.2234 /小时<br />（约合￥8,350.2096 /月）</td>
+						<td></td>
+					</tr>
+				</table>
+				<!-- END: Table2-Content-->
+				
+				<!-- BEGIN: Table3-Content-->
+				<h3>Dv2 系列优化节点：最新一代的 CPU</h3>
+				<p>Dv2 系列是附带更强大 CPU 的新一代 D 系列实例，内存和磁盘配置与 D 系列相同。Dv2 系列实例基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.2 GHz。Dv2 系列可以满足需要低延迟、本地 SSD 访问或较快 CPU 来运行应用程序的用户；D系列和Dv2 系列的较高内存能够为使用 HDInsight HBase 的客户提高性能；使用 HDInsight Storm 和 Spark 的用户可通过它更大的内存加载更大的参考数据，并利用它更快的 CPU 实现更高的吞吐量。</p>
+				<p>D 系列将继续适用，但建议使用 DV2 系列。<!-- 使用 R Server 的边缘节点仅在 D4 v2、D12 v2、D13 v2、D14 v2 上可用。--></p>
+				<!-- <p>从2016 年 4 月 1 日起，SSL 连接的价格下调 25.5%，以下是下调后的新价格：</p>-->
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。<br/>*HDInsight Dv2 系列定价和计费标准与 HDInsight D 系列相同，在账单中，HDInsight Dv2 系列会以 HDInsight D 系列名称进行显示。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>内存数</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>原价格</strong></th>
+						<th align="left"><strong>新价格 <sup style="color:#e66102; font-weight: bold">new</sup></strong></th>
+					</tr>
+					<tr>
+						<td>D1 v2</td>
+						<td>1</td>
+						<td>3.5GB</td>
+						<td>50GB</td>
+						<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
+						<td>￥0.5981 /小时<br />（约合￥444.9864 /月）</td>
+					</tr>
+					<tr>
+						<td>D2 v2</td>
+						<td>2</td>
+						<td>7GB</td>
+						<td>100GB</td>
+						<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
+						<td>￥1.2362 /小时<br />（约合￥919.7328 /月）</td>
+					</tr>
+					<tr>
+						<td>D3 v2</td>
+						<td>4</td>
+						<td>14GB</td>
+						<td>200GB</td>
+						<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
+						<td>￥2.4725 /小时<br />（约合￥1,839.54 /月）</td>
+					</tr>
+					<tr>
+						<td>D4 v2</td>
+						<td>8</td>
+						<td>28GB</td>
+						<td>400GB</td>
+						<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
+						<td>￥4.965 /小时<br />（约合￥3,693.96 /月）</td>
+					</tr>
+					<tr>
+						<td>D5 v2</td>
+						<td>16</td>
+						<td>56GB</td>
+						<td>800GB</td>
+						<td>￥16.07 /小时<br />（约合￥11,956.08 /月）</td>
+						<td>￥9.8999 /小时<br />（约合￥7,365.5256 /月）</td>
+					</tr>
+					<tr>
+						<td>D11 v2</td>
+						<td>2</td>
+						<td>14GB</td>
+						<td>100GB</td>
+						<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
+						<td>￥1.9717 /小时<br />（约合￥1,466.9448 /月）</td>
+					</tr>
+					<tr>
+						<td>D12 v2</td>
+						<td>4</td>
+						<td>28GB</td>
+						<td>200GB</td>
+						<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
+						<td>￥3.9434 /小时<br />（约合￥2,933.8896 /月）</td>
+					</tr>
+					<tr>
+						<td>D13 v2</td>
+						<td>8</td>
+						<td>56GB</td>
+						<td>400GB</td>
+						<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
+						<td>￥7.8867 /小时<br />（约合￥5,867.7048 /月）</td>
+					</tr>
+					<tr>
+						<td>D14 v2</td>
+						<td>16</td>
+						<td>112GB</td>
+						<td>800 GB</td>
+						<td>￥11.2234 /小时<br />（约合￥8,350.2096 /月）</td>
+						<td></td>
+					</tr>
+				</table>
 
-					</div>
-					<!-- END: TAB-CONTAINER-Windows -->
+        	</div>
+        	<!-- BEGIN: TAB-CONTAINER-Windows -->
+			<!-- <div class="tab-control-container" id="tabContentwin">
+				<p><strong>* 如果您有在 HDInsight Windows 运行的群集（3.3及更早版本），请在 2018 年 7 月 31 日前将其迁移至 HDInsight Linux(3.5 及更新版本)，以保持创建或调整 HDI 群集的能力。请查看文档<a href="//docs.azure.cn/zh-cn/hdinsight/hdinsight-migrate-from-windows-to-linux">从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集</a>获取更多信息。</strong></p>
+				<p>
+					HDInsight 群集由一组节点组成。在群集的生命周期内，用户需要付费使用这些节点。计费从创建群集开始，到删除群集结束，每分钟按比例计费。
 					
-					
-				<!-- END: TAB-CONTAINER-1 -->
-            </div>
+				</p>
+				
+				<h3>定价方式</h3>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left" width="50%"><strong></strong></th>
+						<th align="left"><strong>Hadoop、HBase、Storm</strong></th>
+						
+					</tr>
+					<tr>
+						<td>标准群集</td>
+						<td>基本价格/节点-小时</td>
+						
+					</tr>
+				</table>
+				
+				<h3>A 系列通用节点</h3>
+				<p>A3、A4、A6、A7 是适合许多通用需求的实惠选择。在 Hadoop 上运行基础查询应用程序和模式的客户将因使用 A 系列而受益。</p>
+				<p>A1 节点只能用作 Storm 的 Zookeeper 节点。A2、A5 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。
+				
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>内存数</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>每节点价格</strong></th>
+					</tr>
+					<tr>
+						<td>A1</td>
+						<td>1</td>
+						<td>1.75GB</td>
+						<td>70GB</td>
+						<td>￥0.51 /小时<br /> （约合￥379.44 /月）</td>
+					</tr>
+					<tr>
+						<td>A2</td>
+						<td>2</td>
+						<td>3.5GB</td>
+						<td>135GB</td>
+						<td>￥1.01 /小时<br /> （约合￥751.44 /月）</td>
+					</tr>
+					<tr>
+						<td>A3</td>
+						<td>4</td>
+						<td>7GB</td>
+						<td>285GB</td>
+						<td>￥2.03 /小时<br /> （约合￥1,510.32 /月）</td>
+					</tr>
+					<tr>
+						<td>A4</td>
+						<td>8</td>
+						<td>14GB</td>
+						<td>605GB</td>
+						<td>￥4.05 /小时<br /> （约合￥3,013.20 /月）</td>
+					</tr>
+					<tr>
+						<td>A5</td>
+						<td>2</td>
+						<td>14GB</td>
+						<td>135GB</td>
+						<td>￥1.71 /小时<br /> （约合￥1,272.24 /月）</td>
+					</tr>
+					<tr>
+						<td>A6</td>
+						<td>4</td>
+						<td>28GB</td>
+						<td>285GB</td>
+						<td>￥3.43 /小时<br /> （约合￥2,551.92 /月）</td>
+					</tr>
+					<tr>
+						<td>A7</td>
+						<td>8</td>
+						<td>56GB</td>
+						<td>605GB</td>
+						<td>￥6.85 /小时<br /> （约合￥5,096.40 /月）</td>
+					</tr>
+				</table>
+				<h3>D 系列节点：CPU 提速 60%，更大内存，本地 SSD</h3>
+				<p>D1、D2、D11 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。</p>
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>内存数</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>每节点价格</strong></th>
+					</tr>
+					<tr>
+						<td>D1</td>
+						<td>1</td>
+						<td>3.5GB</td>
+						<td>50GB</td>
+						<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
+					</tr>
+					<tr>
+						<td>D2</td>
+						<td>2</td>
+						<td>7GB</td>
+						<td>100GB</td>
+						<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
+					</tr>
+					<tr>
+						<td>D3</td>
+						<td>4</td>
+						<td>14GB</td>
+						<td>200GB</td>
+						<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
+					</tr>
+					<tr>
+						<td>D4</td>
+						<td>8</td>
+						<td>28GB</td>
+						<td>400GB</td>
+						<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
+					</tr>
+					<tr>
+						<td>D11</td>
+						<td>2</td>
+						<td>14GB</td>
+						<td>100GB</td>
+						<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
+					</tr>
+					<tr>
+						<td>D12</td>
+						<td>4</td>
+						<td>28GB</td>
+						<td>200GB</td>
+						<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
+					</tr>
+					<tr>
+						<td>D13</td>
+						<td>8</td>
+						<td>56GB</td>
+						<td>400GB</td>
+						<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
+					</tr>
+					<tr>
+						<td>D14</td>
+						<td>16</td>
+						<td>112GB</td>
+						<td>800 GB</td>
+						<td>￥17.29 /小时<br />（约合￥12,863.76 /月）</td>
+					</tr>
+				</table>
+				<h3>Dv2 系列优化节点：最新一代的 CPU</h3>
+				<p>Dv2 系列是附带更强大 CPU 的新一代 D 系列实例，内存和磁盘配置与 D 系列相同。Dv2 系列实例基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.2 GHz。Dv2 系列可以满足需要低延迟、本地 SSD 访问或较快 CPU 来运行应用程序的用户；D系列和Dv2 系列的较高内存能够为使用 HDInsight HBase 的客户提高性能；使用 HDInsight Storm 的用户可通过它更大的内存加载更大的参考数据，并利用它更快的 CPU 实现更高的吞吐量。</p>
+				<p>D 系列将继续适用，但建议使用 DV2 系列。</p>
+				
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>内存数</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>每节点价格</strong></th>
+					</tr>
+					<tr>
+						<td>D1 v2</td>
+						<td>1</td>
+						<td>3.5GB</td>
+						<td>50GB</td>
+						<td>￥1.12 /小时<br />（约合￥833.28 /月）</td>
+					</tr>
+					<tr>
+						<td>D2 v2</td>
+						<td>2</td>
+						<td>7GB</td>
+						<td>100GB</td>
+						<td>￥2.23 /小时<br />（约合￥1,659.12 /月）</td>
+					</tr>
+					<tr>
+						<td>D3 v2</td>
+						<td>4</td>
+						<td>14GB</td>
+						<td>200GB</td>
+						<td>￥4.47 /小时<br />（约合￥3,325.68 /月）</td>
+					</tr>
+					<tr>
+						<td>D4 v2</td>
+						<td>8</td>
+						<td>28GB</td>
+						<td>400GB</td>
+						<td>￥8.94 /小时<br />（约合￥6,651.36 /月）</td>
+					</tr>
+					<tr>
+						<td>D11 v2</td>
+						<td>2</td>
+						<td>14GB</td>
+						<td>100GB</td>
+						<td>￥2.67 /小时<br />（约合￥1,986.48 /月）</td>
+					</tr>
+					<tr>
+						<td>D12 v2</td>
+						<td>4</td>
+						<td>28GB</td>
+						<td>200GB</td>
+						<td>￥5.34 /小时<br />（约合￥3,972.96 /月）</td>
+					</tr>
+					<tr>
+						<td>D13 v2</td>
+						<td>8</td>
+						<td>56GB</td>
+						<td>400GB</td>
+						<td>￥9.61 /小时<br />（约合￥7,149.84 /月）</td>
+					</tr>
+					<tr>
+						<td>D14 v2</td>
+						<td>16</td>
+						<td>112GB</td>
+						<td>800 GB</td>
+						<td>￥17.29 /小时<br />（约合￥12,863.76 /月）</td>
+					</tr>
+				</table>
+
+			</div> -->
+			<!-- END: TAB-CONTAINER-Windows -->
             <!-- END: TAB-CONTROL -->
 
             <div class="pricing-page-section">
@@ -860,9 +565,32 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question1">如果我的群集运行时间不到一小时，需要支付多少费用？</a>
+                                <a id="HDInsight_question1">不同的 HDInsight 群集类型是如何计费的？</a>
                                 <section>
-                                    <p>我们将按照群集运行的分钟数收费，并按照最接近的分钟数而非小时数进行四舍五入。</p>
+                                    <p>HDInsight 针对每个群集类型部署不同数量的节点。在给定群集类型中有用于各种节点的不同角色，使客户能够将给定角色中的节点大小调整为适合其工作负载详情。例如，如果执行的分析类型大量占用内存，那么 Hadoop 群集可将其工作节点设置为具有大量内存。</p>
+                                    <p>适用于 HDInsight 的 Hadoop 群集部署有两个角色：</p>
+					                <ul>
+					                    <li>头节点（2 个节点）</li>
+					                    <li>数据节点（至少 1 个节点）</li>
+					                </ul>
+					                <p>适用于 HDInsight 的 HBase 群集部署有三个角色：</p>
+					                <ul>
+					                    <li>控制服务器（2 个节点）</li>
+					                    <li>区域服务器（至少 1 个节点）</li>
+					                    <li>主节点/Zookeeper 节点（3 个节点）</li>
+					                </ul>
+					                <p>适用于 HDInsight 的 Storm 群集部署有三个角色：</p>
+					                <ul>
+					                    <li>Nimbus 节点（2 个节点）</li>
+					                    <li>监管服务器（至少 1 个节点）</li>
+					                    <li>Zookeeper 节点（3 个节点）</li>
+					                </ul>
+									<p>适用于 HDInsight 的 Spark 群集部署有三个角色：</p>
+					                <ul>
+					                    <li>头节点（2 个节点）</li>
+					                    <li>工作进程节点（至少 1 个节点）</li>
+										<li>Zookeeper 节点（3 个节点）（A1 Zookeeper 免费）</li>
+					                </ul>
                                 </section>
 
                             </div>
@@ -870,9 +598,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question2">如何确定我已经将 HDInsight 群集彻底停止，并且不再计费？</a>
+                                <a id="HDInsight_question2">如果我的群集运行不到一小时，将会向我收费多少？</a>
                                 <section>
-                                    <p>要停止 HDInsight 群集，您必须删除该群集。默认情况下，HDInsight 群集运行所需的全部数据都位于 Blob 存储中，因此删除群集不会影响数据。如果您希望保留 Hive 元数据（表、架构），则应使用外部元数据存储设置群集。详情请参阅<a id="HDInsight_price_clu" style="color: #00a8d9;" href="https://docs.azure.cn/hdinsight/hdinsight-hadoop-provision-linux-clusters/">这篇文档</a>。</p>
+                                    <p>收费针对的是群集运行的分钟数（四舍五入到最接近的分钟），而不是小时。</p>
                                 </section>
 
                             </div>
@@ -880,58 +608,37 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question3">不同规模的实例如何计费？</a>
+                                <a id="HDInsight_question3">可否提供有关计费如何工作的相关示例？</a>
                                 <section>
-                                    <p>对于 A3、A4 节点，在构建账单时，会将小时数转换为小实例的小时数。</p>
-                                    <table width="100%">
-                                        <thead>
-                                            <tr>
-                                            <th align="left">节点规模</th>
-                                            <th align="left">时钟小时数</th>
-                                            <th align="left">小实例小时数</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>大（A3）</td>
-                                                <td>1</td>
-                                                <td>4 小时</td>
-                                            </tr>
-                                            <tr>
-                                                <td>特大（A4）</td>
-                                                <td>1</td>
-                                                <td>8 小时</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <p>对于所有其他节点，节点小时数将按照与节点的时钟小时数相同的费率计费。</p>
+                                    <p>如果使用 2 个 D13 v2 头节点、3 个 D12 v2 数据节点和 3 个 D11 v2 Zookeepers 运行群集 100 个小时，将有以下计费方案：</p>
+                                    <p>在标准 HDInsight 群集上—100 小时 x (2 x ￥7.8867/小时 + 3 x ￥3.9434/小时 + 3 x ￥1.9717/小时) = ￥3351.87</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question4">上述定价是否含税？</a>
+                                <a id="HDInsight_question4">如何检查是否已正确停止 HDInsight 群集并且将不对其计费？</a>
                                 <section>
-                                    <p>上述价格均为含税价格</p>
+                                    <p>若要停止 HDInsight 群集，则必须删除该群集。默认情况下，HDInsight 群集操作的所有数据均位于 Azure Blob 存储中，因此数据将不受影响。如果希望保留 Hive 元数据（表、架构），则应该借助外部元数据商店设置群集。你可以在<a id="HDInsight_price_clu" style="color: #00a8d9;" href="https://docs.azure.cn/hdinsight/hdinsight-hadoop-provision-linux-clusters/">这篇文档</a>中找到更多详细信息。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question5">我的 HDInsight 群集需要几个数据节点？</a>
+                                <a id="HDInsight_question5">我的 HDInsight 群集需要多少个数据节点？</a>
                                 <section>
-                                    <p>数据节点的数量取决于具体需求。鉴于 Azure 云服务有着非常高的弹性，您可以尝试使用不同规模的群集，以确定对您来说最适合的性能和成本组合，并且任何时间里只需要针对实际使用的资源付费。为满足您工作负载的需求，群集还可以按需扩大或缩小。</p>
+                                    <p>数据节点数量视你的需求而变化。凭借 Azure 云服务的良好灵活性，你可以尝试多种不同的群集大小，以确定性能和成本的最佳组合，只需为在特定时间使用的服务付费。也可以按需缩放群集，以满足工作负载的要求。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="HDInsight_question6">如果我需要的 HDInsight 数据节点数量超过订阅允许使用的上限该怎么办？</a>
+                                <a id="HDInsight_question6">如果我需要的 HDInsight 数据节点数超过了订阅允许的节点数，该怎么办？</a>
                                 <section>
-                                    <p>每个订阅允许创建的 HDInsight 数据节点数量都有默认上限。如果您需要创建更大规模的 HDInsight 群集，或需要创建多个 HDInsight 群集，导致数据节点的总数超过了当前订阅允许的最大值，您可以申请提高订阅的记账限额。您可以<a id="HDInsight_price_suppert" style="color: #00a8d9;" href="/support/support-ticket-form/?l=zh-cn">在线申请支持</a> ，也可以通过服务热线联系我们。取决于您所申请的订阅节点最大数值，为了帮助我们优化您的部署，您可能需要提供额外的信息。</p>
+                                    <p>对于所能创建的 HDInsight 数据节点的数目，每个订阅均有默认限制。如果你需要创建较大的 HDInsight 群集或多个 HDInsight 群集，其节点总数超过了当前订阅的最大值，则可以请求提高订阅的计费限制。请打开“支持类型”进行相关操作。根据你请求的每订阅最大节点数，我们可能要求你提供更多信息，以便我们能够优化你的部署。</p>
                                 </section>
                             </div>
                         </li>
@@ -940,7 +647,7 @@
                             <div>
                                 <a id="HDInsight_question7">包含“x”个数据节点的群集需要支付多少钱？</a>
                                 <section>
-                                    <p>要估算不同规模群集的成本，请使用 <a id="pricing_hdinsight_cal" href="/pricing/calculator/">Azure 计算器</a></p>
+                                    <p>要估算不同规模群集的成本，请使用 <a id="pricing_hdinsight_cal" href="/pricing/calculator/">Azure 计算器</a>。</p>
                                 </section>
                             </div>
                         </li>
