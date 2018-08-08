@@ -13473,7 +13473,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "证书续订",
+                    Name: "证书操作 - 续订",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -13486,6 +13486,22 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "续订请求"
+                    }]
+                },
+                {
+                    Name: "证书操作 - 所有其他操作",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.20",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10,000 个操作"
                     }]
                 }]
             }]
