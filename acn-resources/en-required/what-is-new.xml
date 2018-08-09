@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage id="19341" parentID="11978" level="2" writerID="106" creatorID="94" nodeType="1059" template="16" sortOrder="14" createDate="2013-10-29T16:12:26" updateDate="2018-08-06T13:00:00" nodeName="What Is New" urlName="what-is-new" writerName="content" creatorName="xunfan" path="-1,11978,19341" isDoc="">
+  <umbTextpage id="19341" parentID="11978" level="2" writerID="106" creatorID="94" nodeType="1059" template="16" sortOrder="14" createDate="2013-10-29T16:12:26" updateDate="2018-08-09T18:00:00" nodeName="What Is New" urlName="what-is-new" writerName="content" creatorName="xunfan" path="-1,11978,19341" isDoc="">
     <bodyText>
       <![CDATA[
          <div class="section-component">
             <div class="more-detail">
             	 <h1>重要通知</h1>
+            	 <h3>2018年8月</h3>
+            	 <ul>
+            	 	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2018-august-linux"><span>8/9</span>风险提示：Linux 拒绝服务漏洞 <i class="icon icon-update"></i></a>
+							<section>
+								<p>我们注意到一个新近披露的安全漏洞（<a target="_blank" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5390">CVE-2018-5390</a>）可能会导致 Linux 操作系统暂时陷入“拒绝服务（DoS）”状态。运行 Linux 操作系统的虚拟机将可能易受攻击，Azure 宿主平台不受该漏洞影响。我们正在与众多 Linux 发行版本的提供方合作来协助他们解决该安全问题。</p>
+								<p>您可以通过各 Linux 发行版本的提供方获取应对<a target="_blank"  href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5390">CVE-2018-5390</a>安全漏洞的指导建议。关于该漏洞的更多信息，请访问漏洞信息数据库<a target="_blank" href="https://www.kb.cert.org/vuls/id/962459">https://www.kb.cert.org/vuls/id/962459</a>。</p>
+								<p>我们会随事态发展持续更新本安全通告。</p>
+							</section>
+						</div>
+					</li>
+            	 </ul>
             	 <h3>2018年7月</h3>
             	 <ul>
             	 	<li>
@@ -92,7 +106,7 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2018-march_azure-site-recovery"><span>3/20</span>请在 2018 年 3 月 31 日前更新使用访问控制身份验证的 Azure 站点恢复<i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2018-march_azure-site-recovery"><span>3/20</span>请在 2018 年 3 月 31 日前更新使用访问控制身份验证的 Azure 站点恢复</a>
 							<section>
 								<p>Azure 站点恢复（Azure Site Recovery）有助于协调复制，保护运行中的工作负荷。Site Recovery Provider（也称为 DRA）和恢复服务（也称为 MARS）代理的旧版本使用的访问控制身份验证服务即将停用。为避免中断，请在 2018 年 3 月 31 日之前更新这些旧版本。</p>
 								<p>早期版本的 DRA（5.1.2700 之前）和 MARS 代理（2.0.9096 之前）依赖于访问控制服务功能进行身份验证，此服务计划将在 2018 年四月全面弃用。新版本的 DRA（5.1.2700 或更高版本）和 MARS 代理（2.0.9096 或更高版本）使用最新的 Azure Active Directory 身份验证机制，其中包含基于角色的控制和更精细的访问功能。对于现在仍使用 5.1.2700 之前的 DRA 版本和/或 2.0.9096 之前的 MARS 代理、将服务器复制到一个或多个恢复服务保管库的用户，请更新您的旧版本，以便继续使用站点恢复服务及其即将推出的功能。如果您已执行这些更新，无需执行其他操作。新版本依赖于 Azure Active Directory 而非访问控制。</p>
