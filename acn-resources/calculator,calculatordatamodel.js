@@ -715,7 +715,7 @@ var CalculatorData = {
                          PricePerTier: "1.11"
                      },
                      {
-                         Name: "D2 v2/DS2 v2",
+                         Name: "D3 v2/DS3 v2",
                          Description: CalculatorConst.D3V2SizeDesc,
                          PriceTier: PriceTierEnum.Fixed,
                          PricePerTier: "2.22"
