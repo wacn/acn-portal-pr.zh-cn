@@ -1027,12 +1027,6 @@ var CalculatorData = {
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.048",
-                    },
-                    {
-                        Name: "B1m/BS1m",
-                        Description: "1个内核，2GiB RAM",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.024"
                     }]
                 },
                 {
@@ -1614,6 +1608,58 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "B 系列/BS 系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1/BS1",
+                        Description: "1个内核，1GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.238",
+                    },
+                    {
+                        Name: "B2/BS2",
+                        Description: "2个内核，4GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.286",
+                    },
+                    {
+                        Name: "B1m/BS1m",
+                        Description: "1个内核，2GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.252"
+                    }]
+                },
+                {
+                    Name: "B系列 / BS系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B2m/BS2m",
+                        Description: "2个内核，8GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.342"
+                    },
+                    {
+                        Name: "B4m/BS4m",
+                        Description: "4个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.45"
+                    },
+                    {
+                        Name: "B8m/BS8m",
+                        Description: "8个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.888"
+                    }]
+                },
+                {
                     Name: "Av2 系列",
                     Description: "Av2 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -1940,6 +1986,58 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "B 系列/BS 系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1/BS1",
+                        Description: "1个内核，1GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.778",
+                    },
+                    {
+                        Name: "B2/BS2",
+                        Description: "2个内核，4GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.826",
+                    },
+                    {
+                        Name: "B1m/BS1m",
+                        Description: "1个内核，2GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.792"
+                    }]
+                },
+                {
+                    Name: "B系列 / BS系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B2m/BS2m",
+                        Description: "2个内核，8GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.882"
+                    },
+                    {
+                        Name: "B4m/BS4m",
+                        Description: "4个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.99"
+                    },
+                    {
+                        Name: "B8m/BS8m",
+                        Description: "8个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.948"
+                    }]
+                },
+                {
                     Name: "Av2 系列",
                     Description: "Av2 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -2263,6 +2361,58 @@ var CalculatorData = {
                         Description: "8个内核，56GiB RAM，605GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "27.7",
+                    }]
+                },
+                {
+                    Name: "B 系列/BS 系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B1/BS1",
+                        Description: "1个内核，1GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.448",
+                    },
+                    {
+                        Name: "B2/BS2",
+                        Description: "2个内核，4GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.496",
+                    },
+                    {
+                        Name: "B1m/BS1m",
+                        Description: "1个内核，2GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.462"
+                    }]
+                },
+                {
+                    Name: "B系列 / BS系列",
+                    Description: "B 系列/BS 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "B2m/BS2m",
+                        Description: "2个内核，8GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.552"
+                    },
+                    {
+                        Name: "B4m/BS4m",
+                        Description: "4个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.66"
+                    },
+                    {
+                        Name: "B8m/BS8m",
+                        Description: "8个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "21.288"
                     }]
                 },
                 {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-08-02T12:00:00" urlName="virtual-machine-scale-sets" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-08-24T13:00:00" urlName="virtual-machine-scale-sets" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
 		  	<style type="text/css">
@@ -2709,6 +2709,79 @@
 								</table>
 								
 								<p><sup>2 </sup>It’s recommended that the SQL Enterprise Edition of standard A3 and the SQL Edition of standard A2 be employed as a minimum.</p>	
+								<h3>B-series </h3>
+								<p>B-series are economical virtual machines that provide a low-cost option for workloads that typically run at a low to moderate baseline CPU performance, but sometimes need to burst to significantly higher CPU performance when the demand rises. These workloads don’t require the use of the full CPU all the time, but occasionally will need to burst to finish some tasks more quickly. Many applications such as development and test servers, low traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers, and code repositories fit into this model.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div>
+									<br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div><br />
+									<div class="ms-date">*B Series is only applicable to data centers in China East 2 and China North 2 .</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>Instances</strong></th>
+										<th align="left"><strong>Number of cores</strong></th>
+										<th align="left"><strong>RAM</strong></th>
+										<th align="left"><strong>Temporary Storage</strong></th>
+										<th align="left"><strong>SQL WEB</strong></th>
+										<th align="left"><strong>SQL Standard Edition</strong></th>
+										<th align="left"><strong>SQL Enterprise Edition</strong></th>
+									</tr>
+									<tr>
+										<td>B1S</td>
+										<td>1</td>
+										<td>1.00 GiB</td>
+										<td>2 GiB</td>
+										<td>￥0.238/hour<br />( about ￥177.072/month )</td>
+										<td>￥2.778/hour<br />( about ￥2,066.832/month )</td>
+										<td>￥10.448/hour<br />( about ￥7,773.312/month )</td>
+									</tr>
+									<tr>
+										<td>B2S</td>
+										<td>2</td>
+										<td>4.00 GiB</td>
+										<td>8 GiB</td>
+										<td>￥0.286/hour<br />( about ￥212.784/month )</td>
+										<td>￥2.826/hour<br />( about ￥2,102.544/month )</td>
+										<td>￥10.496/hour<br />( about ￥7,809.024/month )</td>
+									</tr>
+									<tr>
+										<td>B1MS</td>
+										<td>1</td>
+										<td>2.00 GiB</td>
+										<td>4 GiB</td>
+										<td>￥0.252/hour<br />( about ￥187.488/month )</td>
+										<td>￥2.792/hour<br />( about ￥2,077.248/month )</td>
+										<td>￥10.462/hour<br />( about ￥7,783.728/month )</td>
+									</tr>
+									<tr>
+										<td>B2MS</td>
+										<td>2</td>
+										<td>8.00 GiB</td>
+										<td>16 GiB</td>
+										<td>￥0.342/hour<br />( about ￥254.448/month )</td>
+										<td>￥2.882/hour<br />( about ￥2,144.208/month )</td>
+										<td>￥10.552/hour<br />( about ￥7,850.688/month )</td>
+									</tr>
+									<tr>
+										<td>B4MS</td>
+										<td>4</td>
+										<td>16.00 GiB</td>
+										<td>32 GiB</td>
+										<td>￥0.45/hour<br />( about ￥334.8/month )</td>
+										<td>￥2.99/hour<br />( about ￥2,224.56/month )</td>
+										<td>￥10.66/hour<br />( about ￥7,931.04/month )</td>
+									</tr>
+									<tr>
+										<td>B8MS</td>
+										<td>8</td>
+										<td>32.00 GiB</td>
+										<td>64 GiB</td>
+										<td>￥0.888/hour<br />( about ￥660.672/month )</td>
+										<td>￥5.948/hour<br />( about ￥4,425.312/month )</td>
+										<td>￥21.288/hour<br />( about ￥15,838.272/month )</td>
+									</tr>
+								</table>
 								<h3>Av2 Standard</h3>			
 								<p>The Av2 Standard Virtual Machine is the latest generation of A Series Virtual Machine, which has similar CPU performance but a faster disk speed. These Virtual Machines are suitable for developing workloads, generating servers, code memory, low-traffic website and Web Apps, microservices, early product trials, and small databases. The same as the previous A Standard, Av2 Virtual Machines will include load balancing and autoscaling, and with no extra fees.</p>
 								<div class="tags-date">
