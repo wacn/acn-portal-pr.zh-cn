@@ -12885,7 +12885,7 @@ var CalculatorData = {
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "小时",
                     MinUnit: "0",
-                    MaxUnit: "20",
+                    MaxUnit: "744",
                     Sizes: [{
                         Name: "default",
                         Description: "公共 IP 地址 - 动态 ¥0.026/IP/小时*744小时",
@@ -12901,7 +12901,7 @@ var CalculatorData = {
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "小时",
                     MinUnit: "0",
-                    MaxUnit: "20",
+                    MaxUnit: "744",
                     Sizes: [{
                         Name: "default",
                         Description: "0-5，¥0.026/IP/小时*744小时，第 6 个开始 ¥0.052/IP/小时*744小时",
@@ -12917,7 +12917,7 @@ var CalculatorData = {
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "小时",
                     MinUnit: "0",
-                    MaxUnit: "20",
+                    MaxUnit: "744",
                     Sizes: [{
                         Name: "default",
                         Description: "第 1 个免费，云服务 VIP ¥0.026/IP/小时*744小时",
@@ -12933,7 +12933,7 @@ var CalculatorData = {
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "小时",
                     MinUnit: "0",
-                    MaxUnit: "1000",
+                    MaxUnit: "744",
                     Sizes: [{
                         Name: "default",
                         Description: "0-5免费 超过6个¥0.026 /IP/小时*744小时",
@@ -12949,7 +12949,7 @@ var CalculatorData = {
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "小时",
                     MinUnit: "0",
-                    MaxUnit: "20",
+                    MaxUnit: "744",
                     Sizes: [{
                         Name: "default",
                         Description: "实例层级 IP 地址 ¥0.026/IP/小时*744小时",
@@ -12965,7 +12965,7 @@ var CalculatorData = {
                      PricePeriod: PricePeriodEnum.Monthly,
                      PriceUnit: "小时",
                      MinUnit: "0",
-                     MaxUnit: "1000",
+                     MaxUnit: "744",
                      Sizes: [{
                          Name: "default",
                          Description: " 0-100免费 之后￥0.456/重新映射*744小时",
