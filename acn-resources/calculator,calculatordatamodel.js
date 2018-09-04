@@ -780,58 +780,66 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "Fv2系列",
-                    Description: "Fv2系列",
+                    Name: "Fv2系列/FSv2系列",
+                    Description: "Fv2系列/FSv2系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "F2 v2",
+                        Name: "F2 v2/FS2 v2",
                         Description: "2 vCPU，4 GiB RAM，16 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.166"
                     },
                     {
-                        Name: "F4 v2",
+                        Name: "F4 v2/FS4 v2",
                         Description: "4 vCPU，8 GiB RAM，32 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.332"
                     },
                     {
-                        Name: "F8 v2",
+                        Name: "F8 v2/FS8 v2",
                         Description: "8 vCPU，16 GiB RAM，64 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.664"
-                    },
-                    {
-                        Name: "F16 v2",
-                        Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.328"
                     }]
                 },
                 {
-                    Name: "Fv2 系列",
-                    Description: "Fv2 系列",
+                    Name: "Fv2系列 / FSv2系列",
+                    Description: "Fv2系列 / FSv2系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "F32 v2",
+                        Name: "F16 v2/FS16 v2",
+                        Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "17.328"
+                    },
+                    {
+                        Name: "F32 v2/FS32 v2",
                         Description: "32 vCPU，64 GiB RAM，256 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "34.656"
-                    },
-                    {
-                        Name: "F64 v2",
+                    }]
+                },
+                {
+                    Name: "Fv2 系列/FSv2 系列",
+                    Description: "Fv2 系列/FSv2 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "F64 v2/FS64 v2",
                         Description: "64 vCPU，128 GiB RAM，512 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "69.312"
                     },
                     {
-                        Name: "F72 v2",
+                        Name: "F72 v2/FS72 v2",
                         Description: "72 vCPU，144 GiB RAM，576 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "138.624"
@@ -1380,58 +1388,66 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "Fv2系列",
-                    Description: "Fv2系列",
+                    Name: "Fv2系列/FSv2系列",
+                    Description: "Fv2系列/FSv2系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "F2 v2",
+                        Name: "F2 v2/FS2 v2",
                         Description: "2 vCPU，4 GiB RAM，16 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.083"
                     },
                     {
-                        Name: "F4 v2",
+                        Name: "F4 v2/FS4 v2",
                         Description: "4 vCPU，8 GiB RAM，32 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.166"
                     },
                     {
-                        Name: "F8 v2",
+                        Name: "F8 v2/FS8 v2",
                         Description: "8 vCPU，16 GiB RAM，64 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.332"
-                    },
-                    {
-                        Name: "F16 v2",
-                        Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.664"
                     }]
                 },
                 {
-                    Name: "Fv2 系列",
-                    Description: "Fv2 系列",
+                    Name: "Fv2系列 / FSv2系列",
+                    Description: "Fv2系列/FSv2系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "F32 v2",
+                        Name: "F16 v2/FS16 v2",
+                        Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "8.664"
+                    },
+                    {
+                        Name: "F32 v2/FS32 v2",
                         Description: "32 vCPU，64 GiB RAM，256 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "17.328"
-                    },
-                    {
-                        Name: "F64 v2",
+                    }]
+                },
+                {
+                    Name: "Fv2 系列/FSv2 系列",
+                    Description: "Fv2 系列/FSv2 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "F64 v2/FS64 v2",
                         Description: "64 vCPU，128 GiB RAM，512 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "34.656"
                     },
                     {
-                        Name: "F72 v2",
+                        Name: "F72 v2/FS72 v2",
                         Description: "72 vCPU，144 GiB RAM，576 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "69.312"
