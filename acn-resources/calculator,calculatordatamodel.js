@@ -11774,6 +11774,18 @@ var CalculatorData = {
                     MinUnit: "2",
                     MaxUnit: "2",
                     Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1HDSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.5981",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2HDSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.2362",
+                    },
+                    {
                         Name: CalculatorConst.D3V2Size,
                         Description: CalculatorConst.D3HDSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -11798,24 +11810,29 @@ var CalculatorData = {
                     PriceUnit: "个",
                     MinUnit: "2",
                     MaxUnit: "2",
-                    Sizes: [
+                    Sizes: [{
+                        Name: CalculatorConst.D11V2Size,
+                        Description: CalculatorConst.D11HDSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.9717"
+                    },
                     {
                         Name: CalculatorConst.D12V2Size,
                         Description: CalculatorConst.D12HDSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.9434",
+                        PricePerTier: "3.9434"
                     },
                     {
                         Name: CalculatorConst.D13V2Size,
                         Description: CalculatorConst.D13HDSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.8867",
+                        PricePerTier: "7.8867"
                     },
                     {
                         Name: CalculatorConst.D14V2Size,
                         Description: CalculatorConst.D14HDSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.2234",
+                        PricePerTier: "11.2234"
                     }]
                 }]
             }]
