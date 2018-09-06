@@ -15353,39 +15353,41 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "20.532"
                     }]
-                },
-                {
-                    Name: "NCsv3 系列",
-                    Description: "NCsv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
-                        Name: "NC6s v3",
-                        Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.465"
-                    },
-                    {
-                        Name: "NC12s v3",
-                        Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "20.93"
-                    },
-                    {
-                        Name: "NC24s v3",
-                        Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "41.86"
-                    },
-                    {
-                        Name: "NC24rs v3",
-                        Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "46.0454"
-                    }]
-                }]
+                }
+                // ,
+                // {
+                //     Name: "NCsv3 系列",
+                //     Description: "NCsv3 系列",
+                //     PricePeriod: PricePeriodEnum.Hourly,
+                //     PriceUnit: "台",
+                //     MinUnit: "0",
+                //     MaxUnit: "100",
+                //     Sizes: [{
+                //         Name: "NC6s v3",
+                //         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "10.465"
+                //     },
+                //     {
+                //         Name: "NC12s v3",
+                //         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "20.93"
+                //     },
+                //     {
+                //         Name: "NC24s v3",
+                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "41.86"
+                //     },
+                //     {
+                //         Name: "NC24rs v3",
+                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "46.0454"
+                //     }]
+                // }
+                ]
             },
             {
                 Name: "Linux 虚拟机",
@@ -15460,39 +15462,41 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.332"
                     }]
-                },
-                {
-                    Name: "NCsv3 系列",
-                    Description: "NCsv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
-                        Name: "NC6s v3",
-                        Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.6708"
-                    },
-                    {
-                        Name: "NC12s v3",
-                        Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.3416"
-                    },
-                    {
-                        Name: "NC24s v3",
-                        Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.6831"
-                    },
-                    {
-                        Name: "NC24rs v3",
-                        Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "20.5515"
-                    }]
-                }]
+                }
+                // ,
+                // {
+                //     Name: "NCsv3 系列",
+                //     Description: "NCsv3 系列",
+                //     PricePeriod: PricePeriodEnum.Hourly,
+                //     PriceUnit: "台",
+                //     MinUnit: "0",
+                //     MaxUnit: "100",
+                //     Sizes: [{
+                //         Name: "NC6s v3",
+                //         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "4.6708"
+                //     },
+                //     {
+                //         Name: "NC12s v3",
+                //         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "9.3416"
+                //     },
+                //     {
+                //         Name: "NC24s v3",
+                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "18.6831"
+                //     },
+                //     {
+                //         Name: "NC24rs v3",
+                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PricePerTier: "20.5515"
+                //     }]
+                // }
+                ]
             },
             {
                 Name: "云服务",
