@@ -5207,6 +5207,66 @@ var CalculatorData = {
                 }]
             }]
         },
+        "storage-general-purpose-gpv2-cool-block-blob-early-delete": {
+            Name: "存储 - 块 blob - 常规用途 v2 - 冷提前删除",
+            Types: [{
+                Name: "LRS",
+                Features: [{
+                    Name: "冷提前删除",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.1018",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "冷提前删除",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.2035",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "冷提前删除",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.2544",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
         
         "storage-general-purpose-block-blob-access": {
             Name: "存储 - 块 Blob - 常规用途 v1 - 操作和数据传输价格",
