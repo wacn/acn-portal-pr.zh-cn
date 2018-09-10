@@ -1868,32 +1868,32 @@
                         "PricePerTier": "13.74"
                     }]
                 },
-             "   {"
-                    Name: "Ev3 系列 / ESv3 系列",
-                    "Description: "Ev3 系列/ESv3 系列",
-                    "PricePeriod: "PricePeriodEnum.Hourly,
-                    "PriceUnit: "台",
-                    "MinUnit: "0",
-                    "MaxUnit: "100",
-                    "Sizes: [{
-                        Name: "E32 v3/E32s v3",
-                        "Description: "32个内核，256GiB RAM",
-                        "PriceTier: "PriceTierEnum.Fixed,
-                        "PricePerTier: "27.46"
+                {
+                    "Name": "Ev3 系列 / ESv3 系列",
+                    "Description": "Ev3 系列/ESv3 系列",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "台",
+                    "MinUnit": "0",
+                    "MaxUnit": "100",
+                    "Sizes": [{
+                        "Name": "E32 v3/E32s v3",
+                        "Description": "32个内核，256GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "27.46"
                     },
                     {
-                        Name: "E64i v3/E64is v3",
-                        "Description: "64个内核，432GiB RAM",
-                        "PriceTier: "PriceTierEnum.Fixed,
-                        "PricePerTier: "54.93"
+                        "Name": "E64i v3/E64is v3",
+                        "Description": "64个内核，432GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "54.93"
                     },
                     {
-                        Name: "E64 v3/E64s v3",
-                        "Description: "64个内核，432GiB RAM",
-                        "PriceTier: "PriceTierEnum.Fixed,
-                        "PricePerTier: "54.93"
+                        "Name": "E64 v3/E64s v3",
+                        "Description": "64个内核，432GiB RAM",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "54.93"
                     }]
-   "  """ " "  "" "      },"
+                },
              {
                  "Name": " ",
                  "Description": "D 2v系列",
@@ -5202,7 +5202,66 @@
                 }]
             }]
         },
-        
+        "storage-general-purpose-gpv2-cool-block-blob-early-delete": {
+            "Name": "存储 - 块 blob - 常规用途 v2 - 冷提前删除",
+            "Types": [{
+                "Name": "LRS",
+                "Features": [{
+                    "Name": "冷提前删除",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,512000",
+                        "PricePerTier": "0.1018",
+                        "MinUnit": "0",
+                        "MaxUnit": "100000",
+                        "PriceUnit": "GB"
+                    }]
+                }]
+            },
+            {
+                "Name": "GRS",
+                "Features": [{
+                    "Name": "冷提前删除",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,512000",
+                        "PricePerTier": "0.2035",
+                        "MinUnit": "0",
+                        "MaxUnit": "100000",
+                        "PriceUnit": "GB"
+                    }]
+                }]
+            },
+            {
+                "Name": "RA-GRS",
+                "Features": [{
+                    "Name": "冷提前删除",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,512000",
+                        "PricePerTier": "0.2544",
+                        "MinUnit": "0",
+                        "MaxUnit": "100000",
+                        "PriceUnit": "GB"
+                    }]
+                }]
+            }]
+        },
         "storage-general-purpose-block-blob-access": {
             "Name": "存储 - 块 Blob - 常规用途 v1 - 操作和数据传输价格",
             "Types": [{
