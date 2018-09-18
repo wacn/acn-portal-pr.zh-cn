@@ -8325,7 +8325,7 @@ var CalculatorData = {
             {
                 Name: "额外存储",
                 Features: [{
-                    Name: "default",
+                    Name: "标准",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8333,14 +8333,26 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "标准",
                         Description: "额外存储 - 标准",
-                        PriceTier: PriceTierEnum.Fixed,
+                        PriceTier: "0,5000",
                         PricePerTier: "0.5406",
-                    },
-                    {
-                        Name: "高级和高级 RS",
+                        MinUnit:"0",
+                        MaxUnit:"5000",
+                        PriceUnit:"GB"
+                    }]
+                },{
+                    Name: "高级和高级 RS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "高级",
                         Description: "额外存储 - 高级和高级 RS",
-                        PriceTier: PriceTierEnum.Fixed,
+                        PriceTier: "0,5000",
                         PricePerTier: "1.0812",
+                        MinUnit:"0",
+                        MaxUnit:"5000",
+                        PriceUnit:"GB"
                     }]
                 }]
             },
