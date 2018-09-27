@@ -49,6 +49,7 @@
 				}
 			</style>
 			<tags ms.service="virtual-machines" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+			<div class="hide-info" style="display:none;"><div class="cover-bg"><div class="pricing-unavailable-message">所选区域不可用</div></div></div>
 			<!-- BEGIN: Product-Detail-TopBanner -->
 			<div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/production/virtual_machine.png','imageHeight':'auto'}">
 				<div class="common-banner-image">
@@ -69,46 +70,82 @@
 			</div>
 
 			<!-- BEGIN: TAB-CONTROL -->
-			<div class="technical-azure-selector pricing-detail-tab">
+			<div class="technical-azure-selector pricing-detail-tab tab-dropdown">
 				<!-- BEGIN: Level 1 tab navigator -->
-				<ul class="tab-nav">
-					<li class="active">
-						<a href="javascript:void(0)" data-href="#tabContent1" id="vm-vm-win" data-toggle="tab">Windows</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" data-href="#tabContent2" id="vm-vm-linux" data-toggle="tab">Linux</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" data-href="#tabContent3" id="vm-vm-sql" data-toggle="tab">SQL Server for Windows</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" data-href="#tabContent4" id="vm-vm-rlinux" data-toggle="tab">SQL Server Ubuntu Linux</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" data-href="#tabContent5" id="vm-vm-ml-server" data-toggle="tab">Machine Learning Server</a>
-					</li>
-					
-				</ul>
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Windows</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="vm-vm-win">Windows</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent2" id="vm-vm-linux">Linux</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent3" id="vm-vm-sql">SQL Server for Windows</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent4" id="vm-vm-rlinux">SQL Server Ubuntu Linux</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent5" id="vm-vm-ml-server">Machine Learning Server</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+							<option selected="selected" data-href="#tabContent1" value="Windows">Windows</option>
+							<option data-href="#tabContent2" value="Linux">Linux</option>
+							<option data-href="#tabContent3" value="SQL Server for Windows">SQL Server for Windows</option>
+							<option data-href="#tabContent4" value="SQL Server Ubuntu Linux">SQL Server Ubuntu Linux</option>
+							<option data-href="#tabContent5" value="Machine Learning Server">Machine Learning Server</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
 				<!-- END: Level 1 tab navigator  -->
 				<!-- BEGIN: Level 1 tab content -->
 				<div class="tab-content">
 					<!-- BEGIN: Level 1 tab content panel 1 -->
 					<div class="tab-panel" id="tabContent1">
 						<!-- BEGIN: Tab level 2 navigator 1 -->
-						<ul class="tab-nav">
-							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent1-1" data-toggle="tab" id="vm-vm-win-general-purpose">常规用途</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent1-2"  data-toggle="tab" id="vm-vm-win-compute-optimized">计算优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent1-3"  data-toggle="tab" id="vm-vm-win-memory-optimized">内存优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent1-4"  data-toggle="tab" id="vm-vm-win-GPU">GPU</a>
-							</li>
+						<div class="category-container-container">
+						<div class="category-container-box">
+						<div class="category-container">
+						<span class="category-title hidden-lg hidden-md">类别：</span>
+						<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+							<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-0" id="vm-vm-win-all">全部</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-1" id="vm-vm-win-general-purpose">常规用途</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="vm-vm-win-compute-optimized">计算优化</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-3" id="vm-vm-win-memory-optimized">内存优化</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-4" id="vm-vm-win-GPU">GPU</a></li>
 						</ul>
+						<select class="dropdown-select category-tabs hidden-lg hidden-md">
+							 <option data-href="#tabContent1-0" id="vm-vm-win-all" value="all">全部</option>
+							 <option data-href="#tabContent1-1" id="vm-vm-win-general-purpose" value="general-purpose">常规用途</option>
+							 <option data-href="#tabContent1-2" id="vm-vm-win-compute-optimized" value="compute-optimized">计算优化</option>
+							 <option data-href="#tabContent1-3" id="vm-vm-win-memory-optimized" value="memory-optimized">内存优化</option>
+							 <option data-href="#tabContent1-4" id="vm-vm-win-GPU" value="GPU">GPU</option>
+						</select>
+					</div>
+					</div>
+					</div>
 						<!-- END: Tab level 2 navigator 1 -->
 						<!-- BEGIN: Tab level 2 content -->
 						<div class="tab-content">
@@ -123,7 +160,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -181,7 +218,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -261,9 +298,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*B 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -276,48 +312,48 @@
 										<td>1</td>
 										<td>1.00 GiB</td>
 										<td>2 GiB</td>
-										<td>￥0.018/小时
-											<br />( 约 ￥13.392/月 )</td>
+										<td>￥0.17/小时
+											<br />( 约 ￥126.48/月 )</td>
 									</tr>
 									<tr>
 										<td>B2S</td>
 										<td>2</td>
 										<td>4.00 GiB</td>
 										<td>8 GiB</td>
-										<td>￥0.066/小时
-											<br />( 约 ￥49.104/月 )</td>
+										<td>￥0.66/小时
+											<br />( 约 ￥491.04/月 )</td>
 									</tr>
 									<tr>
 										<td>B1MS</td>
 										<td>1</td>
 										<td>2.00 GiB</td>
 										<td>4 GiB</td>
-										<td>￥0.032/小时
-											<br />( 约 ￥23.808/月 )</td>
+										<td>￥0.28/小时
+											<br />( 约 ￥208.32/月 )</td>
 									</tr>
 									<tr>
 										<td>B2MS</td>
 										<td>2</td>
 										<td>8.00 GiB</td>
 										<td>16 GiB</td>
-										<td>￥0.122/小时
-											<br />( 约 ￥90.768/月 )</td>
+										<td>￥1.12/小时
+											<br />( 约 ￥833.28/月 )</td>
 									</tr>
 									<tr>
 										<td>B4MS</td>
 										<td>4</td>
 										<td>16.00 GiB</td>
 										<td>32 GiB</td>
-										<td>￥0.23/小时
-											<br />( 约 ￥171.12/月 )</td>
+										<td>￥2.23/小时
+											<br />( 约 ￥1659.12/月 )</td>
 									</tr>
 									<tr>
 										<td>B8MS</td>
 										<td>8</td>
 										<td>32.00 GiB</td>
 										<td>64 GiB</td>
-										<td>￥0.438/小时
-											<br />( 约 ￥325.872/月 )</td>
+										<td>￥4.46/小时
+											<br />( 约 ￥3318.24/月 )</td>
 									</tr>
 								</table>
 
@@ -328,7 +364,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -400,9 +436,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Dv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -467,9 +502,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*DSv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-6">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -536,7 +570,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-7">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -632,7 +666,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-8">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -691,7 +725,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-1-9">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -753,7 +787,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-2-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>vCPU</strong></th>
@@ -830,7 +864,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-2-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -894,9 +928,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Ev3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-3-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -970,9 +1003,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Esv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-3-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1047,7 +1079,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-3-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1145,7 +1177,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-3-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1203,9 +1235,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br/>
-									<div class="ms-date">*DS15 v2 实例仅适用于中国东部和中国北部数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-3-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1268,9 +1299,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*NCsv3 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table1-4-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>核心</strong></th>
@@ -1328,20 +1358,26 @@
 					<!-- BEGIN: Level 1 tab content panel 2 -->
 					<div class="tab-panel" id="tabContent2">
 						<!-- BEGIN: Tab level 2 navigator 2 -->
-						<ul class="tab-nav">
-							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent2-1" data-toggle="tab" id="vm-vm-linux-general-purpose">常规用途</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent2-2" data-toggle="tab" id="vm-vm-linux-compute-optimized">计算优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent2-3" data-toggle="tab" id="vm-vm-linux-memory-optimized">内存优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent2-4"  data-toggle="tab" id="vm-vm-linux-GPU">GPU</a>
-							</li>
-						</ul>
+						<div class="category-container-container">
+				<div class="category-container-box">
+						<div class="category-container">
+							<span class="category-title hidden-lg hidden-md">类别：</span>
+							<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+								<li class="active"><a href="javascript:void(0)" data-href="#tabContent2-0" id="vm-vm-linux-all">全部</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent2-1" id="vm-vm-linux-general-purpose">常规用途</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent2-2" id="vm-vm-linux-compute-optimized">计算优化</a> </li>
+								<li><a href="javascript:void(0)" data-href="#tabContent2-3" id="vm-vm-linux-memory-optimized">内存优化</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent2-4" id="vm-vm-linux-GPU">GPU</a></li>
+							</ul>
+							<select class="dropdown-select category-tabs hidden-lg hidden-md">
+								<option data-href="#tabContent2-0" id="vm-vm-linux-all" value="all">全部</option>
+								<option data-href="#tabContent2-1" id="vm-vm-linux-general-purpose" value="general-purpose">常规用途</option>
+								<option data-href="#tabContent2-2" id="vm-vm-linux-compute-optimized" value="compute-optimized">计算优化</option>
+								<option data-href="#tabContent2-3" id="vm-vm-linux-memory-optimized" value="memory-optimized">内存优化</option>
+								<option data-href="#tabContent2-4" id="vm-vm-linux-GPU" value="GPU">GPU</option>
+							</select>
+						</div>
+						</div></div>
 						<!-- END: Tab level 2 navigator 2 -->
 						<!-- BEGIN: Tab level 2 content 2 -->
 						<div class="tab-content">
@@ -1356,7 +1392,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1414,7 +1450,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1494,9 +1530,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*B 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1509,48 +1544,48 @@
 										<td>1</td>
 										<td>1.00 GiB</td>
 										<td>2 GiB</td>
-										<td>￥0.012/小时
-											<br />( 约 ￥8.928/月 )</td>
+										<td>￥0.12/小时
+											<br />( 约 ￥89.28/月 )</td>
 									</tr>
 									<tr>
 										<td>B2S</td>
 										<td>2</td>
 										<td>4.00 GiB</td>
 										<td>8 GiB</td>
-										<td>￥0.048/小时
-											<br />( 约 ￥35.712/月 )</td>
+										<td>￥0.48/小时
+											<br />( 约 ￥357.12/月 )</td>
 									</tr>
 									<tr>
 										<td>B1MS</td>
 										<td>1</td>
 										<td>2.00 GiB</td>
 										<td>4 GiB</td>
-										<td>￥0.024/小时
-											<br />( 约 ￥17.856/月 )</td>
+										<td>￥0.23/小时
+											<br />( 约 ￥171.12/月 )</td>
 									</tr>
 									<tr>
 										<td>B2MS</td>
 										<td>2</td>
 										<td>8.00 GiB</td>
 										<td>16 GiB</td>
-										<td>￥0.122/小时
-											<br />( 约 ￥90.768/月 )</td>
+										<td>￥0.96/小时
+											<br />( 约 ￥714.24/月 )</td>
 									</tr>
 									<tr>
 										<td>B4MS</td>
 										<td>4</td>
 										<td>16.00 GiB</td>
 										<td>32 GiB</td>
-										<td>￥0.23/小时
-											<br />( 约 ￥171.12/月 )</td>
+										<td>￥1.89/小时
+											<br />( 约 ￥1406.14/月 )</td>
 									</tr>
 									<tr>
 										<td>B8MS</td>
 										<td>8</td>
 										<td>32.00 GiB</td>
 										<td>64 GiB</td>
-										<td>￥0.376/小时
-											<br />( 约 ￥279.744/月 )</td>
+										<td>￥3.79/小时
+											<br />( 约 ￥2819.76/月 )</td>
 									</tr>
 								</table>
 
@@ -1561,7 +1596,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1633,9 +1668,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Dv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1700,9 +1734,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Dsv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-6">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1769,7 +1802,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-7">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1865,7 +1898,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-8">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1923,7 +1956,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-1-9">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -1986,7 +2019,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-2-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>vCPU</strong></th>
@@ -2063,7 +2096,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-2-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2125,9 +2158,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Ev3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-3-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2200,9 +2232,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*ESv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-3-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2277,7 +2308,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-3-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2373,7 +2404,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-3-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2431,9 +2462,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br/>
-									<div class="ms-date">*DS15 v2 实例仅适用于中国东部和中国北部数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-3-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2494,9 +2524,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*NCsv3 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table2-4-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>核心</strong></th>
@@ -2554,20 +2583,27 @@
 					<!-- BEGIN: Level 1 tab content panel 3 -->
 					<div class="tab-panel" id="tabContent3">
 						<!-- BEGIN: Tab level 2 navigator 3 -->
-						<ul class="tab-nav">
-							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent3-1" data-toggle="tab" id="vm-vm-sql-general-purpose">常规用途</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent3-2"  data-toggle="tab" id="vm-vm-win-compute-optimized">计算优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent3-3"  data-toggle="tab" id="vm-vm-sql-memory-optimized">内存优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent3-4"  data-toggle="tab" id="vm-vm-sql-GPU">GPU</a>
-							</li>
-						</ul>
+<div class="category-container-container">
+				<div class="category-container-box">
+						<div class="category-container">
+							<span class="category-title hidden-lg hidden-md">类别：</span>
+							<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+								<li class="active"><a href="javascript:void(0)" data-href="#tabContent3-0" id="vm-vm-sql-all">全部</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent3-1" id="vm-vm-sql-general-purpose">常规用途</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent3-2" id="vm-vm-sql-compute-optimized">计算优化</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent3-3" id="vm-vm-sql-memory-optimized">内存优化</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent3-4" id="vm-vm-sql-GPU">GPU</a></li>
+							</ul>
+							<select class="dropdown-select category-tabs hidden-lg hidden-md">
+								<option data-href="#tabContent3-0" id="vm-vm-sql-all" value="all">全部</option>
+								<option data-href="#tabContent3-1" id="vm-vm-sql-general-purpose" value="general-purpose">常规用途</option>
+								<option data-href="#tabContent3-2" id="vm-vm-sql-compute-optimized" value="compute-optimized">计算优化</option>
+								<option data-href="#tabContent3-3" id="vm-vm-sql-memory-optimized" value="memory-optimized">内存优化</option>
+								<option data-href="#tabContent3-4" id="vm-vm-sql-GPU" value="GPU">GPU</option>
+							</select>
+						</div>
+						</div>
+						</div>
 						<!-- END: Tab level 2 navigator 3 -->
 						<!-- BEGIN: Tab level 2 content 3 -->
 						<div class="tab-content">
@@ -2582,7 +2618,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2648,7 +2684,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2739,9 +2775,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*B 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2814,7 +2849,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2915,9 +2950,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Dv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -2990,9 +3024,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Dsv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-6">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3065,7 +3098,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-7">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3123,7 +3156,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-8">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3190,7 +3223,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-1-9">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3264,7 +3297,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-2-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3349,9 +3382,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Ev3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-3-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3434,9 +3466,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*Esv3 实例仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-3-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3516,7 +3547,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-3-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3573,7 +3604,7 @@
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-3-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3638,9 +3669,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div><br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
 									<div class="ms-date">*以下价格包含了 Windows 虚拟机的价格和 SQL Server 的价格。</div><br/>
-									<div class="ms-date">*DS15 v2 实例仅适用于中国东部和中国北部数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-3-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3710,9 +3740,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br />
-									<div class="ms-date">*NCsv3 系列仅适用于中国东部 2 和中国北部 2 数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table3-4-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>核心</strong></th>
@@ -3773,17 +3802,24 @@
 					<!-- BEGIN: Level 1 tab content panel 4 -->
 					<div class="tab-panel" id="tabContent4">
 						<!-- BEGIN: Tab level 2 navigator 4 -->
-						<ul class="tab-nav">
-							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent4-1" data-toggle="tab" id="vm-vm-r-server-linux-general-purpose">常规用途</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent4-2"  data-toggle="tab" id="vm-vm-r-server-linux-compute-optimized">计算优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent4-3"  data-toggle="tab" id="vm-vm-r-server-linux-memory-optimized">内存优化</a>
-							</li>
-						</ul>
+						<div class="category-container-container">
+				<div class="category-container-box">
+						<div class="category-container">
+							<span class="category-title hidden-lg hidden-md">类别：</span>
+							<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+								<li class="active"><a href="javascript:void(0)" data-href="#tabContent4-0" id="vm-vm-r-server-linux-all">全部</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent4-1" id="vm-vm-r-server-linux-general-purpose">常规用途</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent4-2" id="vm-vm-r-server-linux-compute-optimized">计算优化</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent4-3" id="vm-vm-r-server-linux-memory-optimized">内存优化</a></li>
+							</ul>
+							<select class="dropdown-select category-tabs hidden-lg hidden-md">
+								<option data-href="#tabContent4-0" id="vm-vm-r-server-linux-all" value="all">全部</option>
+								<option data-href="#tabContent4-1" id="vm-vm-r-server-linux-general-purpose" value="general-purpose">常规用途</option>
+								<option data-href="#tabContent4-2" id="vm-vm-r-server-linux-compute-optimized" value="compute-optimized">计算优化</option>
+								<option data-href="#tabContent4-3" id="vm-vm-r-server-linux-memory-optimized" value="memory-optimized">内存优化</option>
+							</select>
+						</div>
+						</div></div>
 						<!-- END: Tab level 2 navigator 4 -->
 						<!-- BEGIN: Tab level 2 content 4 -->
 						<div class="tab-content">
@@ -3797,7 +3833,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-1-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3876,7 +3912,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-1-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -3991,7 +4027,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-1-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4095,7 +4131,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-1-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4219,7 +4255,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-1-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4301,7 +4337,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-1-6">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4390,7 +4426,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-2-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4476,7 +4512,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-3-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4600,7 +4636,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-3-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4680,9 +4716,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br/>
-									<div class="ms-date">*DS15 v2 实例仅适用于中国东部和中国北部数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table4-3-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4763,17 +4798,24 @@
 					<!-- BEGIN: Level 1 tab content panel 5 -->
 					<div class="tab-panel" id="tabContent5">
 						<!-- BEGIN: Tab level 2 navigator 5 -->
-						<ul class="tab-nav">
-							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent5-1" data-toggle="tab" id="vm-vm-r-server-linux-general-purpose">常规用途</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent5-2"  data-toggle="tab" id="vm-vm-r-server-linux-compute-optimized">计算优化</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)" data-href="#tabContent5-3"  data-toggle="tab" id="vm-vm-r-server-linux-memory-optimized">内存优化</a>
-							</li>
-						</ul>
+						<div class="category-container-container">
+				<div class="category-container-box">
+						<div class="category-container">
+							<span class="category-title hidden-lg hidden-md">类别：</span>
+							<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+								<li class="active"><a href="javascript:void(0)" data-href="#tabContent5-0" id="vm-vm-r-server-learn-all">全部</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent5-1" id="vm-vm-r-server-learn-general-purpose">常规用途</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent5-2" id="vm-vm-r-server-learn-compute-optimized">计算优化</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent5-3" id="vm-vm-r-server-learn-memory-optimized">内存优化</a></li>
+							</ul>
+							<select class="dropdown-select category-tabs hidden-lg hidden-md">
+								<option data-href="#tabContent5-0" id="vm-vm-r-server-learn-all" value="all">全部</option>
+								<option data-href="#tabContent5-1" id="vm-vm-r-server-learn-general-purpose" value="general-purpose">常规用途</option>
+								<option data-href="#tabContent5-2" id="vm-vm-r-server-learn-compute-optimized" value="compute-optimized">计算优化</option>
+								<option data-href="#tabContent5-3" id="vm-vm-r-server-learn-memory-optimized" value="memory-optimized">内存优化</option>
+							</select>
+						</div>
+						</div></div>
 						<!-- END: Tab level 2 navigator 4 -->
 						<!-- BEGIN: Tab level 2 content 5 -->
 						<div class="tab-content">
@@ -4787,7 +4829,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-1-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4844,7 +4886,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-1-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4925,7 +4967,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-1-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -4999,7 +5041,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-1-4">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -5105,7 +5147,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-1-5">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -5165,7 +5207,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-1-6">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -5232,7 +5274,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-2-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -5296,7 +5338,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-3-1">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -5402,7 +5444,7 @@
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-3-2">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>
@@ -5460,9 +5502,8 @@
 									<div class="ms-date">*以下价格均为含税价格。</div>
 									<br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div><br/>
-									<div class="ms-date">*DS15 v2 实例仅适用于中国东部和中国北部数据中心。</div>
 								</div>
-								<table cellpadding="0" cellspacing="0" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" id="vm-table5-3-3">
 									<tr>
 										<th align="left"><strong>实例</strong></th>
 										<th align="left"><strong>内核数</strong></th>

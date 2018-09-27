@@ -422,13 +422,13 @@ var CalculatorData = {
                         Name: "B1/BS1",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.018"
+                        PricePerTier: "0.17"
                     },
                     {
                         Name: "B2/BS2",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.066"
+                        PricePerTier: "0.66"
                     }]
                 },
                 {
@@ -442,25 +442,25 @@ var CalculatorData = {
                         Name: "B1m/BS1m",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.032"
+                        PricePerTier: "0.28"
                     },
                     {
                         Name: "B2m/BS2m",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.122"
+                        PricePerTier: "1.12"
                     },
                     {
                         Name: "B4m/BS4m",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.23"
+                        PricePerTier: "2.23"
                     },
                     {
                         Name: "B8m/BS8m",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.438"
+                        PricePerTier: "4.46"
                     }]
                 },
                 {
@@ -1028,13 +1028,13 @@ var CalculatorData = {
                         Name: "B1/BS1",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.012",
+                        PricePerTier: "0.12",
                     },
                     {
                         Name: "B2/BS2",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.048",
+                        PricePerTier: "0.48",
                     }]
                 },
                 {
@@ -1048,25 +1048,25 @@ var CalculatorData = {
                         Name: "B1m/BS1m",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.024"
+                        PricePerTier: "0.23"
                     },
                     {
                         Name: "B2m/BS2m",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.122"
+                        PricePerTier: "0.96"
                     },
                     {
                         Name: "B4m/BS4m",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.23"
+                        PricePerTier: "1.89"
                     },
                     {
                         Name: "B8m/BS8m",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.376"
+                        PricePerTier: "3.79"
                     }]
                 },
                 {
