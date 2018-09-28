@@ -677,6 +677,12 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
+                        Name: "E20 v3/ES20 v3",
+                        Description: "20个内核，160GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "16"
+                    },
+                    {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
@@ -1284,6 +1290,12 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
+                        Name: "E20 v3/ES20 v3",
+                        Description: "20个内核，160GiB RAM，500GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.5"
+                    },
+                    {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
