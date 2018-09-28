@@ -59,8 +59,14 @@
                     }
                 }
                 .column{
-                    height:240px;
+                    height:330px;
+					overflow: hidden;
                 }
+				@media only screen and (max-width: 979px){
+					.column{
+						height:auto;
+					}
+				}
             </style>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
