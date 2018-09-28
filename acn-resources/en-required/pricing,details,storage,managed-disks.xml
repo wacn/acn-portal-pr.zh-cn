@@ -69,48 +69,12 @@
 			
 	            <h2>定价详细信息</h2>
 				<div class="technical-azure-selector pricing-detail-tab">
-					<ul class="tab-nav">
+					<ul class="tab-nav" style="display:none">
 							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent1" id="gpv2" data-toggle="tab">常规用途 v2</a>
-							</li>
-							<li>
 								<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">常规用途 v1</a>
 							</li>
 						</ul>
 					<div class="tab-content">
-						<div class="tab-panel" id="tabContent1">
-							<h4>操作和数据传输价格</h4>
-							<div class="tags-date">
-								<div class="ms-date">*以下价格均为含税价格。</div><br />
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong></strong></th>
-									<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
-									<th align="left"><strong>异地冗余存储 (GRS)</th>
-									<th align="left"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
-								  
-								</tr>						
-								<tr>
-									<td>写入操作（按 10,000 计）</td>
-									<td align="left">￥0.0051</td>
-									<td align="left">￥0.0051</td>						   
-									<td align="left">￥0.0051</td>			   
-								</tr>
-								<tr>
-									<td>读取操作（按 10,000 计）</td>
-									<td align="left">￥0.0051</td>
-									<td align="left">￥0.0051</td>						   
-									<td align="left">￥0.0051</td>						   
-								</tr>
-								<tr>
-									<td>删除操作（按 10,000 计）</td>	
-									<td align="left">￥0.0051</td>
-									<td align="left">￥0.0051</td>						   
-									<td align="left">￥0.0051</td>					   
-								</tr>
-							</table>
-						</div>
 						<div class="tab-panel" id="tabContent2">
 			                <h4>高级托管磁盘</h4>
 							<p>高级托管磁盘是基于高性能固态驱动器 (SSD) 的存储，旨在支持 I/O 密集型工作负荷，具有非常高的吞吐量和低延迟。借助高级托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>

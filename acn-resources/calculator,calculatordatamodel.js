@@ -5219,66 +5219,66 @@ var CalculatorData = {
                 }]
             }]
         },
-        "storage-general-purpose-gpv2-cool-block-blob-early-delete": {
-            Name: "存储 - 块 blob - 常规用途 v2 - 冷提前删除",
-            Types: [{
-                Name: "LRS",
-                Features: [{
-                    Name: "冷提前删除",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,512000",
-                        PricePerTier: "0.1018",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "冷提前删除",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,512000",
-                        PricePerTier: "0.2035",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "RA-GRS",
-                Features: [{
-                    Name: "冷提前删除",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,512000",
-                        PricePerTier: "0.2544",
-                        MinUnit: "0",
-                        MaxUnit: "100000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },
+        // "storage-general-purpose-gpv2-cool-block-blob-early-delete": {
+        //     Name: "存储 - 块 blob - 常规用途 v2 - 冷提前删除",
+        //     Types: [{
+        //         Name: "LRS",
+        //         Features: [{
+        //             Name: "冷提前删除",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,512000",
+        //                 PricePerTier: "0.1018",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "100000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "冷提前删除",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,512000",
+        //                 PricePerTier: "0.2035",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "100000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "RA-GRS",
+        //         Features: [{
+        //             Name: "冷提前删除",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,512000",
+        //                 PricePerTier: "0.2544",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "100000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // },
         
         "storage-general-purpose-block-blob-access": {
             Name: "存储 - 块 Blob - 常规用途 v1 - 操作和数据传输价格",
@@ -5783,162 +5783,162 @@ var CalculatorData = {
             }]
         },
 
-        "storage-manager-disk-gpv2-access": {
-            Name: "存储 - 托管磁盘 - 常规用途 v2 - 操作和数据传输价格",
-            Types: [{
-                Name: "LRS",
-                Features: [{
-                    Name: "写入操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "删除操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "写入操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "删除操作",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            },
-            {
-                Name: "RA-GRS",
-                Features: [{
-                    Name: "写入操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "删除操作",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            }]
-        }, 
+        // "storage-manager-disk-gpv2-access": {
+        //     Name: "存储 - 托管磁盘 - 常规用途 v2 - 操作和数据传输价格",
+        //     Types: [{
+        //         Name: "LRS",
+        //         Features: [{
+        //             Name: "写入操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "删除操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "写入操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "删除操作",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "RA-GRS",
+        //         Features: [{
+        //             Name: "写入操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "删除操作",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     }]
+        // }, 
         "storage-manager-disk-gpv1-premium": {
             Name: "存储 - 高级托管磁盘 - 常规用途 v1",
             Types: [{
@@ -6289,292 +6289,292 @@ var CalculatorData = {
                 }]
             }]
         },  
-        "storage-page-blobs-gpv2-standard": {
-            Name: "存储 - 标准页 Blob - 常规用途 v2 - 数据存储价格",
-            Types: [{
-                Name: "LRS",
-                Features: [{
-                    Name: "页 Blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.4579",
-                        MinUnit: "0",
-                        MaxUnit: "20000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "页 Blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.6106",
-                        MinUnit: "0",
-                        MaxUnit: "20000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "页 Blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.7632",
-                        MinUnit: "0",
-                        MaxUnit: "20000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },
-        "storage-page-blobs-gpv2-unmanager-disk-standard-access": {
-            Name: "存储 - 非托管磁盘的页 Blob - 常规用途 v2 - 数据传输价格",
-            Types: [{
-                Name: "default",
-                Features: [{
-                    Name: "读取、写入和删除等操作",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0051",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            }]
-        }, 
-        "storage-page-blobs-gpv2-page-blobs-access": {
-            Name: "存储 - 页 Blob（非磁盘） - 常规用途 v2 - 操作价格",
-            Types: [{
-                Name: "LRS",
-                Features: [{
-                    Name: "写入操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0153",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "写入额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0237",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0153",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0017",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "写入操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.3053",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "写入额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0474",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0153",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0017",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            },
-            {
-                Name: "RA-GRS",
-                Features: [{
-                    Name: "写入操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.3053",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "写入额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0474",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0153",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "读取额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0017",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            }]
-        },
+        // "storage-page-blobs-gpv2-standard": {
+        //     Name: "存储 - 标准页 Blob - 常规用途 v2 - 数据存储价格",
+        //     Types: [{
+        //         Name: "LRS",
+        //         Features: [{
+        //             Name: "页 Blob",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Linear,
+        //                 PricePerTier: "0.4579",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "页 Blob",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Linear,
+        //                 PricePerTier: "0.6106",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "页 Blob",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Linear,
+        //                 PricePerTier: "0.7632",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // },
+        // "storage-page-blobs-gpv2-unmanager-disk-standard-access": {
+        //     Name: "存储 - 非托管磁盘的页 Blob - 常规用途 v2 - 数据传输价格",
+        //     Types: [{
+        //         Name: "default",
+        //         Features: [{
+        //             Name: "读取、写入和删除等操作",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0051",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     }]
+        // }, 
+        // "storage-page-blobs-gpv2-page-blobs-access": {
+        //     Name: "存储 - 页 Blob（非磁盘） - 常规用途 v2 - 操作价格",
+        //     Types: [{
+        //         Name: "LRS",
+        //         Features: [{
+        //             Name: "写入操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0153",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "写入额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0237",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0153",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0017",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "写入操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.3053",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "写入额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0474",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0153",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0017",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "RA-GRS",
+        //         Features: [{
+        //             Name: "写入操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.3053",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "写入额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0474",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0153",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "读取额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0017",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     }]
+        // },
         "storage-page-blobs-gpv1-ummanager-disk-premium": {
             Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1",
             Types: [{
@@ -7338,302 +7338,302 @@ var CalculatorData = {
                 }]
             }]
         },
-        "storage-queues-gpv2": {
-            Name: "存储 - 队列 - 常规用途 v2 - 数据存储价格",
-            Types: [{
-                Name: "LRS",
-                Features: [{
-                    Name: "页 Blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.4579",
-                        MinUnit: "0",
-                        MaxUnit: "20000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "页 Blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.6106",
-                        MinUnit: "0",
-                        MaxUnit: "20000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "RA-GRS",
-                Features: [{
-                    Name: "页 Blob",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.7632",
-                        MinUnit: "0",
-                        MaxUnit: "20000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },
-        "storage-queues-gpv2-access": {
-            Name: "存储 - 队列 - 常规用途 v2 - 操作和数据传输价格",
-            Types: [{
-                Name: "LRS",
-                Features: [{
-                    Name: "队列类别 1 操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0407",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 2 操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0407",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 1 操作额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0407",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 2 操作额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0407",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            },
-            {
-                Name: "GRS",
-                Features: [{
-                    Name: "队列类别 1 操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0814",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 2 操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0407",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 1 操作额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0814",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 2 操作额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0814",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "异地复制数据传输（按 GB）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.2035",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            },
-            {
-                Name: "RA-GRS",
-                Features: [{
-                    Name: "队列类别 1 操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0814",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 2 操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0407",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 1 操作额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0814",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "队列类别 2 操作额外 IO 单位（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.0814",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "异地复制数据传输（按 GB）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.2035",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                }]
-            }]
-        },
+        // "storage-queues-gpv2": {
+        //     Name: "存储 - 队列 - 常规用途 v2 - 数据存储价格",
+        //     Types: [{
+        //         Name: "LRS",
+        //         Features: [{
+        //             Name: "页 Blob",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Linear,
+        //                 PricePerTier: "0.4579",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "页 Blob",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Linear,
+        //                 PricePerTier: "0.6106",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "RA-GRS",
+        //         Features: [{
+        //             Name: "页 Blob",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Linear,
+        //                 PricePerTier: "0.7632",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // },
+        // "storage-queues-gpv2-access": {
+        //     Name: "存储 - 队列 - 常规用途 v2 - 操作和数据传输价格",
+        //     Types: [{
+        //         Name: "LRS",
+        //         Features: [{
+        //             Name: "队列类别 1 操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0407",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 2 操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0407",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 1 操作额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0407",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 2 操作额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0407",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "GRS",
+        //         Features: [{
+        //             Name: "队列类别 1 操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0814",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 2 操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0407",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 1 操作额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0814",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 2 操作额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0814",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "异地复制数据传输（按 GB）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.2035",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "RA-GRS",
+        //         Features: [{
+        //             Name: "队列类别 1 操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0814",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 2 操作（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0407",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 1 操作额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0814",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "队列类别 2 操作额外 IO 单位（按 10,000 计）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.0814",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         },
+        //         {
+        //             Name: "异地复制数据传输（按 GB）",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000",
+        //                 PricePerTier: "0.2035",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000",
+        //                 PriceUnit: "10000 个"
+        //             }]
+        //         }]
+        //     }]
+        // },
         
         "storage-general-purpose-queues": {
             Name: "存储 - 队列 - 常规用途 v1 - 数据存储价格",
