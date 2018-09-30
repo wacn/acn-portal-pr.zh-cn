@@ -134,7 +134,7 @@ var CalculatorData = {
             }]
         },
 
-                
+
         "app-service": {
             Name: "应用服务",
             Types: [{
@@ -251,8 +251,8 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-        
+
+
         "app-service-custom-domain": {
             Name: "应用服务 - 自定义域",
             Types: [{
@@ -272,8 +272,8 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-        
+
+
         "app-service-ssl": {
             Name: "应用服务 - SSL 连接",
             Types: [{
@@ -778,36 +778,36 @@ var CalculatorData = {
                     }]
                 },
                 {
-                     Name: "Dv2系列/DSv2系列",
-                     Description: "Dv2系列/DSv2系列",
-                     PricePeriod: PricePeriodEnum.Hourly,
-                     PriceUnit: "台",
-                     MinUnit: "0",
-                     MaxUnit: "100",
-                     Sizes: [{
-                         Name: "D1 v2/DS1 v2",
-                         Description: CalculatorConst.D1V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "0.53"
-                     },
-                     {
-                         Name: "D2 v2/DS2 v2",
-                         Description: CalculatorConst.D2V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "1.11"
-                     },
-                     {
-                         Name: "D3 v2/DS3 v2",
-                         Description: CalculatorConst.D3V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "2.22"
-                     },
-                     {
-                         Name: "D4 v2/DS4 v2",
-                         Description: CalculatorConst.D4V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "4.45"
-                     }]
+                    Name: "Dv2系列/DSv2系列",
+                    Description: "Dv2系列/DSv2系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D1 v2/DS1 v2",
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.53"
+                    },
+                    {
+                        Name: "D2 v2/DS2 v2",
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.11"
+                    },
+                    {
+                        Name: "D3 v2/DS3 v2",
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.22"
+                    },
+                    {
+                        Name: "D4 v2/DS4 v2",
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.45"
+                    }]
                 },
                 {
                     Name: "Dv2 系列 / DSv2 系列",
@@ -817,7 +817,7 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name:"D5 v2/DS5 v2",
+                        Name: "D5 v2/DS5 v2",
                         Description: CalculatorConst.D5V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.56"
@@ -853,7 +853,7 @@ var CalculatorData = {
                         Description: CalculatorConst.D14V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "15.03"
-                    }, 
+                    },
                     {
                         Name: "D15 v2/DS15 v2",
                         Description: CalculatorConst.D15V2SizeDesc,
@@ -1467,36 +1467,36 @@ var CalculatorData = {
                     }]
                 },
                 {
-                     Name: "Dv2系列/DSv2系列",
-                     Description: "Dv2系列/DSv2系列",
-                     PricePeriod: PricePeriodEnum.Hourly,
-                     PriceUnit: "台",
-                     MinUnit: "0",
-                     MaxUnit: "100",
-                     Sizes: [{
-                         Name: "D1 v2/DS1 v2",
-                         Description: CalculatorConst.D1V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "0.49"
-                     },
-                     {
-                         Name:"D2 v2/DS2 v2",
-                         Description: CalculatorConst.D2V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "1.02"
-                     },
-                     {
-                         Name: "D3 v2/DS3 v2",
-                         Description: CalculatorConst.D3V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "2.04"
-                     },
-                     {
-                         Name: "D4 v2/DS4 v2",
-                         Description: CalculatorConst.D4V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "4.1"
-                     }]
+                    Name: "Dv2系列/DSv2系列",
+                    Description: "Dv2系列/DSv2系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "D1 v2/DS1 v2",
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.49"
+                    },
+                    {
+                        Name: "D2 v2/DS2 v2",
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.02"
+                    },
+                    {
+                        Name: "D3 v2/DS3 v2",
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.04"
+                    },
+                    {
+                        Name: "D4 v2/DS4 v2",
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.1"
+                    }]
                 },
                 {
                     Name: "Dv2 系列 / DSv2 系列",
@@ -1506,33 +1506,33 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [
-                     {
-                         Name: "D5 v2/DS5 v2",
-                         Description: CalculatorConst.D5V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "8.17"
-                     },
-                     {
-                        Name: "D11 v2/DS11 v2",
-                        Description: CalculatorConst.D11V2SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.73"
-                    },
-                    {
-                        Name: "D12 v2/DS12 v2",
-                        Description: CalculatorConst.D12V2SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.46"
-                    }]
+                        {
+                            Name: "D5 v2/DS5 v2",
+                            Description: CalculatorConst.D5V2SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "8.17"
+                        },
+                        {
+                            Name: "D11 v2/DS11 v2",
+                            Description: CalculatorConst.D11V2SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1.73"
+                        },
+                        {
+                            Name: "D12 v2/DS12 v2",
+                            Description: CalculatorConst.D12V2SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3.46"
+                        }]
                 },
                 {
-                     Name: "Dv2系列 /DSv2系列 ",
-                     Description: "Dv2系列/DSv2系列",
-                     PricePeriod: PricePeriodEnum.Hourly,
-                     PriceUnit: "台",
-                     MinUnit: "0",
-                     MaxUnit: "100",
-                     Sizes: [{
+                    Name: "Dv2系列 /DSv2系列 ",
+                    Description: "Dv2系列/DSv2系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
                         Name: "D13 v2/DS13 v2",
                         Description: CalculatorConst.D13V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -1543,7 +1543,7 @@ var CalculatorData = {
                         Description: CalculatorConst.D14V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "13.83"
-                    }, 
+                    },
                     {
                         Name: "D15 v2/DS15 v2",
                         Description: CalculatorConst.D15V2SizeDesc,
@@ -1691,7 +1691,7 @@ var CalculatorData = {
         },
         "sql-server-standard": {
             Name: "虚拟机 - SQL Server For Windows",
-            Types: [ {
+            Types: [{
                 Name: "Web 版",
                 Features: [{
                     Name: "A 系列 - 基本",
@@ -2063,44 +2063,44 @@ var CalculatorData = {
                         PricePerTier: "54.93"
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "0.75",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "1.33",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "2.44",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "4.9",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "9.45",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.75",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.33",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.44",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.9",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.45",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -2132,7 +2132,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "15.92",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -2171,7 +2171,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.36",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -2583,44 +2583,44 @@ var CalculatorData = {
                         PricePerTier: "95.41"
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "3.29",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "3.87",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "4.98",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "9.96",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "19.58",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.29",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.87",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.98",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.96",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "19.58",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -2652,7 +2652,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "26.05",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -2691,7 +2691,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.42",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -3045,7 +3045,7 @@ var CalculatorData = {
                         PricePerTier: "55.37",
                     }]
                 },
-                 {
+                {
                     Name: "Ev3 系列/ESv3 系列",
                     Description: "Ev3 系列/ESv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -3103,44 +3103,44 @@ var CalculatorData = {
                         PricePerTier: "218.13"
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "10.96",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "11.54",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "12.65",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "25.3",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "50.26",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.96",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.54",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.65",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.3",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "50.26",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -3172,7 +3172,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "56.73",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -3211,7 +3211,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.76",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -3254,7 +3254,7 @@ var CalculatorData = {
         },
         "virtual-machines-sql-server-ubuntu-linux": {
             Name: "虚拟机 - SQL Server Ubuntu Linux",
-            Types: [ {
+            Types: [{
                 Name: "Web 版",
                 Features: [{
                     Name: "A 系列 - 基本",
@@ -3464,44 +3464,44 @@ var CalculatorData = {
                         PricePerTier: "13.47",
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "0.71",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "1.24",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "2.26",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "4.55",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "9.06",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.71",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.24",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.26",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.55",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.06",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -3533,7 +3533,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "14.72",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -3572,7 +3572,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.06",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -3790,44 +3790,44 @@ var CalculatorData = {
                         PricePerTier: "23.6",
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "3.25",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "3.78",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "4.8",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "9.61",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "19.19",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.25",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.78",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.8",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.61",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "19.19",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -3859,7 +3859,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.85",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -3898,7 +3898,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.12",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -4116,44 +4116,44 @@ var CalculatorData = {
                         PricePerTier: "54.28",
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "10.92",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "11.45",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "12.47",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "24.95",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "49.87",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.92",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.45",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.47",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.95",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "49.87",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -4185,7 +4185,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "55.53",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -4224,7 +4224,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.46",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -4445,44 +4445,44 @@ var CalculatorData = {
                         PricePerTier: "54.28",
                     }]
                 },
-             {
-                 Name: " ",
-                 Description: "D 2v系列",
-                 PricePeriod: PricePeriodEnum.Hourly,
-                 PriceUnit: "台",
-                 MinUnit: "0",
-                 MaxUnit: "100",
-                 Sizes: [{
-                     Name: CalculatorConst.D1V2Size,
-                     Description: CalculatorConst.D1V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "10.92",
-                 },
-                 {
-                     Name: CalculatorConst.D2V2Size,
-                     Description: CalculatorConst.D2V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "11.45",
-                 },
-                 {
-                     Name: CalculatorConst.D3V2Size,
-                     Description: CalculatorConst.D3V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "12.47",
-                 },
-                 {
-                     Name: CalculatorConst.D4V2Size,
-                     Description: CalculatorConst.D4V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "24.95",
-                 },
-                 {
-                     Name: CalculatorConst.D5V2Size,
-                     Description: CalculatorConst.D5V2SizeDesc,
-                     PriceTier: PriceTierEnum.Fixed,
-                     PricePerTier: "49.87",
-                 }]
-             },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.92",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.45",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.47",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.95",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "49.87",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -4514,7 +4514,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "55.53",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -4553,7 +4553,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "24.46",
                     }
-                    , {
+                        , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -4681,100 +4681,100 @@ var CalculatorData = {
                         PricePerTier: "7.8787",
                     }]
                 },
-                 {
-                     Name: "D系列",
-                     Description: "D系列",
-                     PricePeriod: PricePeriodEnum.Hourly,
-                     PriceUnit: "个",
-                     MinUnit: "0",
-                     MaxUnit: "100",
-                     Sizes: [{
-                         Name: CalculatorConst.D1Size,
-                         Description: CalculatorConst.D1SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "0.48",
-                     },
-                     {
-                         Name: CalculatorConst.D2Size,
-                         Description: CalculatorConst.D2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "1",
-                     },
-                     {
-                         Name: CalculatorConst.D3Size,
-                         Description: CalculatorConst.D3SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "2.01",
-                     },
-                     {
-                         Name: CalculatorConst.D4Size,
-                         Description: CalculatorConst.D4SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "4.05",
-                     },
-                     {
-                         Name: CalculatorConst.D11Size,
-                         Description: CalculatorConst.D11SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "1.7",
-                     },
-                     {
-                         Name: CalculatorConst.D12Size,
-                         Description: CalculatorConst.D12SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "3.41",
-                     },
-                     {
-                         Name: CalculatorConst.D13Size,
-                         Description: CalculatorConst.D13SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "6.83",
-                     },
-                     {
-                         Name: CalculatorConst.D14Size,
-                         Description: CalculatorConst.D14SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "13.67",
-                     }]
-                 },
-                 {
-                     Name: " ",
-                     Description: "D 2v系列",
-                     PricePeriod: PricePeriodEnum.Hourly,
-                     PriceUnit: "台",
-                     MinUnit: "0",
-                     MaxUnit: "100",
-                     Sizes: [{
-                         Name: CalculatorConst.D1V2Size,
-                         Description: CalculatorConst.D1V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "0.53",
-                     },
-                     {
-                         Name: CalculatorConst.D2V2Size,
-                         Description: CalculatorConst.D2V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "1.11",
-                     },
-                     {
-                         Name: CalculatorConst.D3V2Size,
-                         Description: CalculatorConst.D3V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "2.22",
-                     },
-                     {
-                         Name: CalculatorConst.D4V2Size,
-                         Description: CalculatorConst.D4V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "4.45",
-                     },
-                     {
-                         Name: CalculatorConst.D5V2Size,
-                         Description: CalculatorConst.D5V2SizeDesc,
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "8.56",
-                     }]
-                 },
+                {
+                    Name: "D系列",
+                    Description: "D系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1Size,
+                        Description: CalculatorConst.D1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.48",
+                    },
+                    {
+                        Name: CalculatorConst.D2Size,
+                        Description: CalculatorConst.D2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1",
+                    },
+                    {
+                        Name: CalculatorConst.D3Size,
+                        Description: CalculatorConst.D3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.01",
+                    },
+                    {
+                        Name: CalculatorConst.D4Size,
+                        Description: CalculatorConst.D4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.05",
+                    },
+                    {
+                        Name: CalculatorConst.D11Size,
+                        Description: CalculatorConst.D11SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.7",
+                    },
+                    {
+                        Name: CalculatorConst.D12Size,
+                        Description: CalculatorConst.D12SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.41",
+                    },
+                    {
+                        Name: CalculatorConst.D13Size,
+                        Description: CalculatorConst.D13SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.83",
+                    },
+                    {
+                        Name: CalculatorConst.D14Size,
+                        Description: CalculatorConst.D14SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "13.67",
+                    }]
+                },
+                {
+                    Name: " ",
+                    Description: "D 2v系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.53",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.11",
+                    },
+                    {
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.22",
+                    },
+                    {
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.45",
+                    },
+                    {
+                        Name: CalculatorConst.D5V2Size,
+                        Description: CalculatorConst.D5V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "8.56",
+                    }]
+                },
                 {
                     Name: "Dv2 系列",
                     Description: "D 2v系列",
@@ -5048,20 +5048,20 @@ var CalculatorData = {
                     }]
                 },
                 {
-                     Name: "读取操作（按 10,000 计）(热)",
-                     PricePeriod: PricePeriodEnum.Monthly,
-                     PriceUnit: "个",
-                     MinUnit: "0",
-                     MaxUnit: "20",
-                     Sizes: [{
-                         Name: "default",
-                         Description: "default",
-                         PriceTier: "0,5000",
-                         PricePerTier: "0.015",
-                         MinUnit: "0",
-                         MaxUnit: "5000",
-                         PriceUnit: "10000 个"
-                     }]
+                    Name: "读取操作（按 10,000 计）(热)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
                 },
                 {
                     Name: "除删除（此操作免费）之外的其他操作（按 10,000 计）(冷)",
@@ -5094,7 +5094,7 @@ var CalculatorData = {
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
                     }]
-                 },
+                },
                 {
                     Name: "数据检索 (冷)",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -5178,22 +5178,22 @@ var CalculatorData = {
                         PriceUnit: "10000 个"
                     }]
                 },
-                 {
-                     Name: "读取操作（按 10,000 计）(热)",
-                     PricePeriod: PricePeriodEnum.Monthly,
-                     PriceUnit: "个",
-                     MinUnit: "0",
-                     MaxUnit: "20",
-                     Sizes: [{
-                         Name: "default",
-                         Description: "default",
-                         PriceTier: "0,5000",
-                         PricePerTier: "0.015",
-                         MinUnit: "0",
-                         MaxUnit: "5000",
-                         PriceUnit: "10000 个"
-                     }]
-                 },
+                {
+                    Name: "读取操作（按 10,000 计）(热)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
                 {
                     Name: "除删除（此操作免费）之外的其他操作（按 10,000 计）(冷)",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -5210,22 +5210,22 @@ var CalculatorData = {
                         PriceUnit: "10000 个"
                     }]
                 },
-                 {
-                     Name: "除删除（此操作免费）之外的其他操作（按 10,000 计）(热)",
-                     PricePeriod: PricePeriodEnum.Monthly,
-                     PriceUnit: "个",
-                     MinUnit: "0",
-                     MaxUnit: "20",
-                     Sizes: [{
-                         Name: "default",
-                         Description: "default",
-                         PriceTier: "0,5000",
-                         PricePerTier: "0.015",
-                         MinUnit: "0",
-                         MaxUnit: "5000",
-                         PriceUnit: "10000 个"
-                     }]
-                 },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作（按 10,000 计）(热)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
                 {
                     Name: "数据检索 (冷)",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -5258,22 +5258,22 @@ var CalculatorData = {
                         PriceUnit: "GB"
                     }]
                 },
-               {
-                   Name: "异地复制数据传输 (冷)",
-                   PricePeriod: PricePeriodEnum.Monthly,
-                   PriceUnit: "个",
-                   MinUnit: "0",
-                   MaxUnit: "20",
-                   Sizes: [{
-                       Name: "default",
-                       Description: "default",
-                       PriceTier: "0,5000",
-                       PricePerTier: "0.67",
-                       MinUnit: "0",
-                       MaxUnit: "5000",
-                       PriceUnit: "GB"
-                   }]
-               },
+                {
+                    Name: "异地复制数据传输 (冷)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.67",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
                 {
                     Name: "异地复制数据传输 (热)",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -5371,7 +5371,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-block-blob-access": {
             Name: "存储 - 块 Blob - 常规用途 v1 - 操作和数据传输价格",
             Types: [{
@@ -5574,7 +5574,7 @@ var CalculatorData = {
                         PriceUnit: "10000 个"
                     }]
                 }]
-            },{
+            }, {
                 Name: "RA-GRS",
                 Features: [{
                     Name: "写入操作（按 10,000 计）",
@@ -5642,8 +5642,8 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-        
+
+
         "storage-general-purpose-file": {
             Name: "存储 - 常规用途存储账户 - 文件 - 数据存储价格",
             Types: [{
@@ -5685,7 +5685,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-file-access": {
             Name: "存储 - 常规用途存储账户 - 文件 - 操作和数据传输价格",
             Types: [{
@@ -6004,7 +6004,7 @@ var CalculatorData = {
                     }]
                 }]
             }]
-        },  
+        },
 
         "storage-manager-disk-gpv1-premium-snapshots": {
             Name: "存储 - 高级托管磁盘 - 常规用途 v1 - 快照",
@@ -6027,8 +6027,8 @@ var CalculatorData = {
                     }]
                 }]
             }]
-        },  
-        
+        },
+
         "storage-manager-disk-gpv1-standard": {
             Name: "存储 - 标准托管磁盘 - 常规用途 v1",
             Types: [{
@@ -6158,26 +6158,26 @@ var CalculatorData = {
                         PricePerTier: "1105.92",
                     }]
                 }]
-                }
-            //  ,
-            //    {
-            //       Name: "S60",
-            //       Features: [{
-            //           Name: "default",
-            //           PricePeriod: PricePeriodEnum.Monthly,
-            //           PriceUnit: "个",
-            //           MinUnit: "0",
-            //           MaxUnit: "20",
-            //           Sizes: [{
-            //               Name: "default",
-            //               Description: "磁盘大小 8TB",
-            //               PriceTier: PriceTierEnum.Fixed,
-            //               PricePerTier: "2211.84",
-            //           }]
-            //       }]
-            //}
+            }
+                //  ,
+                //    {
+                //       Name: "S60",
+                //       Features: [{
+                //           Name: "default",
+                //           PricePeriod: PricePeriodEnum.Monthly,
+                //           PriceUnit: "个",
+                //           MinUnit: "0",
+                //           MaxUnit: "20",
+                //           Sizes: [{
+                //               Name: "default",
+                //               Description: "磁盘大小 8TB",
+                //               PriceTier: PriceTierEnum.Fixed,
+                //               PricePerTier: "2211.84",
+                //           }]
+                //       }]
+                //}
             ]
-        },          
+        },
 
         "storage-manager-disk-gpv1-standard-snapshots": {
             Name: "存储 - 标准托管磁盘 - 常规用途 v1 - 快照",
@@ -6223,7 +6223,7 @@ var CalculatorData = {
                     }]
                 }]
             }]
-        },  
+        },
         "storage-page-blobs-gpv1-ummanager-disk-premium": {
             Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1",
             Types: [{
@@ -6354,7 +6354,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,1024,1025,51200,51201,512000,512001,1024000,1024001,5120000",
-                        PricePerTier: "0.44,0.3667,0.33,0.2933,0.275",      
+                        PricePerTier: "0.44,0.3667,0.33,0.2933,0.275",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -6400,7 +6400,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-page-blobs-gpv1-ummanager-disk-blob": {
             Name: "存储 - 标准非托管磁盘和页 Blob - 常规用途 v1 - 操作和数据传输价格",
             Types: [{
@@ -6556,8 +6556,8 @@ var CalculatorData = {
                     }]
                 }]
             }]
-        },       
-        
+        },
+
         "storage-general-purpose-page-blob-disk": {
             Name: "存储 - 常规用途存储账户 - 页 Blob 和磁盘",
             Types: [{
@@ -6572,7 +6572,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,1024,1025,51200,51201,512000,512001,1024000,1024001,5120000",
-                        PricePerTier: "0.44,0.3667,0.33,0.2933,0.275",      
+                        PricePerTier: "0.44,0.3667,0.33,0.2933,0.275",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -6618,7 +6618,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-page-blob-access": {
             Name: "存储 - 常规用途存储账户 - 页 Blob - 操作和数据传输价格",
             Types: [{
@@ -6724,7 +6724,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-table": {
             Name: "存储 - 常规用途存储账户 - 表 - 数据存储价格",
             Types: [{
@@ -6785,7 +6785,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-table-access": {
             Name: "存储 - 常规用途存储账户 - 表 - 操作和数据传输价格",
             Types: [{
@@ -6987,7 +6987,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-queues": {
             Name: "存储 - 队列 - 常规用途 v1 - 数据存储价格",
             Types: [{
@@ -7048,7 +7048,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "storage-general-purpose-queues-access": {
             Name: "存储 - 队列 - 常规用途 v1 - 操作和数据传输价格",
             Types: [{
@@ -7157,7 +7157,7 @@ var CalculatorData = {
                 }]
             }]
         },
-       
+
         "storage-import-export": {
             Name: "存储 - 导入与导出",
             Types: [{
@@ -7287,7 +7287,7 @@ var CalculatorData = {
                     }]
                 },
 
-                {    
+                {
                     Name: "存储",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -7414,7 +7414,7 @@ var CalculatorData = {
                         PricePerTier: "49.5669",
                     }]
                 },
-                {    
+                {
                     Name: "存储",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -7435,311 +7435,311 @@ var CalculatorData = {
         "sql-database-elastic-dtu": {
             Name: "SQL 数据库 - 弹性数据库 - DTU",
             Types: [
-            {
-                Name: "基本 ",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "2000",
-                    Sizes: [{
-                        Name: CalculatorConst.Number50,
-                        Description: CalculatorConst.Sql11SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "961.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number100,
-                        Description: CalculatorConst.Sql12SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1922.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number200,
-                        Description: CalculatorConst.Sql13SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3844.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number300,
-                        Description: CalculatorConst.Sql14SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5766.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number400,
-                        Description: CalculatorConst.Sql15SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7688.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number800,
-                        Description: CalculatorConst.Sql16SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "15376.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1200,
-                        Description: CalculatorConst.Sql17SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23064.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1600,
-                        Description: CalculatorConst.Sql18SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "30752.00",
-                    }]
-                }]
-            },
-            {
-                Name: "标准",
-                Features: [{
-                    Name: "小于等于 400",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "2000",
-                    Sizes: [{
-                        Name: CalculatorConst.Number50,
-                        Description: CalculatorConst.Sql21SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1426.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number100,
-                        Description: CalculatorConst.Sql22SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2852.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number200,
-                        Description: CalculatorConst.Sql23SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5704.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number300,
-                        Description: CalculatorConst.Sql24SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11408.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number400,
-                        Description: CalculatorConst.Sql25SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11408.00",
-                    }]
-                },
                 {
-                    Name: "大于 800",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "2000",
-                    Sizes: [{
-                        Name: CalculatorConst.Number800,
-                        Description: CalculatorConst.Sql26SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22816.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1200,
-                        Description: CalculatorConst.Sql27SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34224.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1600,
-                        Description: CalculatorConst.Sql28SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "45632.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number2000,
-                        Description: CalculatorConst.Sql29SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "57040.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number2500,
-                        Description: CalculatorConst.Sql210SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "71300.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number3000,
-                        Description: CalculatorConst.Sql211SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "85560.00",
-                    }]
-                }]
-            },
-            {
-                Name: "高级 RS",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "2000",
-                    Sizes: [{
-                        Name: CalculatorConst.Number125,
-                        Description: CalculatorConst.Sql31SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2208.75",
-                    },
-                    {
-                        Name: CalculatorConst.Number250,
-                        Description: CalculatorConst.Sql32SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4417.5",
-                    },
-                    {
-                        Name: CalculatorConst.Number500,
-                        Description: CalculatorConst.Sql33SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8835.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1000,
-                        Description: CalculatorConst.Sql34SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17670.00",
-                    }]
-                }]
-            },
-            {
-                Name: "高级",
-                Features: [{
-                    Name: "小于等于 1500",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "2000",
-                    Sizes: [{
-                        Name: CalculatorConst.Number125,
-                        Description: CalculatorConst.Sql41SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8835.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number250,
-                        Description: CalculatorConst.Sql42SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17670.00/",
-                    },
-                    {
-                        Name: CalculatorConst.Number500,
-                        Description: CalculatorConst.Sql43SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "35340.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1000,
-                        Description: CalculatorConst.Sql44SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "70680.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number1500,
-                        Description: CalculatorConst.Sql45SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "106020.00",
-                    }]
-                },
-                {
-                    Name: "大于 1500",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "2000",
-                    Sizes: [{
-                        Name: CalculatorConst.Number2000,
-                        Description: CalculatorConst.Sql46SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "141360.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number2500,
-                        Description: CalculatorConst.Sql47SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "176700.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number3000,
-                        Description: CalculatorConst.Sql48SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "212040.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number3500,
-                        Description: CalculatorConst.Sql49SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "247380.00",
-                    },
-                    {
-                        Name: CalculatorConst.Number4000,
-                        Description: CalculatorConst.Sql410SizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "282720.00",
-                    }]
-                }]
-            },
-            {
-                Name: "额外存储",
-                Features: [{
-                    Name: "标准",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
-                        Name: "标准",
-                        Description: "额外存储 - 标准",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.5406",
-                        MinUnit:"0",
-                        MaxUnit:"5000",
-                        PriceUnit:"GB"
-                    }]
-                },{
-                    Name: "高级和高级 RS",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
-                        Name: "高级",
-                        Description: "额外存储 - 高级和高级 RS",
-                        PriceTier: "0,5000",
-                        PricePerTier: "1.0812",
-                        MinUnit:"0",
-                        MaxUnit:"5000",
-                        PriceUnit:"GB"
-                    }]
-                }]
-            },
-            {
-                Name: "长期保留存储",
-                Features: [{
-                    Name: "长期保留存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
+                    Name: "基本 ",
+                    Features: [{
                         Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.4681",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
+                        MaxUnit: "2000",
+                        Sizes: [{
+                            Name: CalculatorConst.Number50,
+                            Description: CalculatorConst.Sql11SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "961.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number100,
+                            Description: CalculatorConst.Sql12SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1922.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number200,
+                            Description: CalculatorConst.Sql13SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3844.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number300,
+                            Description: CalculatorConst.Sql14SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "5766.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number400,
+                            Description: CalculatorConst.Sql15SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "7688.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number800,
+                            Description: CalculatorConst.Sql16SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "15376.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1200,
+                            Description: CalculatorConst.Sql17SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "23064.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1600,
+                            Description: CalculatorConst.Sql18SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "30752.00",
+                        }]
+                    }]
+                },
+                {
+                    Name: "标准",
+                    Features: [{
+                        Name: "小于等于 400",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        Sizes: [{
+                            Name: CalculatorConst.Number50,
+                            Description: CalculatorConst.Sql21SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1426.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number100,
+                            Description: CalculatorConst.Sql22SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "2852.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number200,
+                            Description: CalculatorConst.Sql23SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "5704.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number300,
+                            Description: CalculatorConst.Sql24SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "11408.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number400,
+                            Description: CalculatorConst.Sql25SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "11408.00",
+                        }]
+                    },
+                    {
+                        Name: "大于 800",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        Sizes: [{
+                            Name: CalculatorConst.Number800,
+                            Description: CalculatorConst.Sql26SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "22816.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1200,
+                            Description: CalculatorConst.Sql27SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "34224.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1600,
+                            Description: CalculatorConst.Sql28SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "45632.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number2000,
+                            Description: CalculatorConst.Sql29SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "57040.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number2500,
+                            Description: CalculatorConst.Sql210SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "71300.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number3000,
+                            Description: CalculatorConst.Sql211SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "85560.00",
+                        }]
+                    }]
+                },
+                {
+                    Name: "高级 RS",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        Sizes: [{
+                            Name: CalculatorConst.Number125,
+                            Description: CalculatorConst.Sql31SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "2208.75",
+                        },
+                        {
+                            Name: CalculatorConst.Number250,
+                            Description: CalculatorConst.Sql32SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "4417.5",
+                        },
+                        {
+                            Name: CalculatorConst.Number500,
+                            Description: CalculatorConst.Sql33SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "8835.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1000,
+                            Description: CalculatorConst.Sql34SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "17670.00",
+                        }]
+                    }]
+                },
+                {
+                    Name: "高级",
+                    Features: [{
+                        Name: "小于等于 1500",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        Sizes: [{
+                            Name: CalculatorConst.Number125,
+                            Description: CalculatorConst.Sql41SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "8835.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number250,
+                            Description: CalculatorConst.Sql42SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "17670.00/",
+                        },
+                        {
+                            Name: CalculatorConst.Number500,
+                            Description: CalculatorConst.Sql43SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "35340.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1000,
+                            Description: CalculatorConst.Sql44SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "70680.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number1500,
+                            Description: CalculatorConst.Sql45SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "106020.00",
+                        }]
+                    },
+                    {
+                        Name: "大于 1500",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        Sizes: [{
+                            Name: CalculatorConst.Number2000,
+                            Description: CalculatorConst.Sql46SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "141360.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number2500,
+                            Description: CalculatorConst.Sql47SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "176700.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number3000,
+                            Description: CalculatorConst.Sql48SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "212040.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number3500,
+                            Description: CalculatorConst.Sql49SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "247380.00",
+                        },
+                        {
+                            Name: CalculatorConst.Number4000,
+                            Description: CalculatorConst.Sql410SizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "282720.00",
+                        }]
+                    }]
+                },
+                {
+                    Name: "额外存储",
+                    Features: [{
+                        Name: "标准",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "100",
+                        Sizes: [{
+                            Name: "标准",
+                            Description: "额外存储 - 标准",
+                            PriceTier: "0,5000",
+                            PricePerTier: "0.5406",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "GB"
+                        }]
+                    }, {
+                        Name: "高级和高级 RS",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "100",
+                        Sizes: [{
+                            Name: "高级",
+                            Description: "额外存储 - 高级和高级 RS",
+                            PriceTier: "0,5000",
+                            PricePerTier: "1.0812",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "GB"
+                        }]
+                    }]
+                },
+                {
+                    Name: "长期保留存储",
+                    Features: [{
+                        Name: "长期保留存储",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,5000",
+                            PricePerTier: "0.4681",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "GB"
+                        }]
                     }]
                 }]
-            }]
         },
         "sql-database-single-vcore": {
             Name: "SQL 数据库 - 单个数据库 - vCore - Gen 4",
@@ -7826,35 +7826,35 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [
-                    {
-                        Name: "vCore 1",
-                        Description: "1 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.9139",
-                    },{
-                        Name: "vCore 2",
-                        Description: "2 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13.8279",
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.6557",
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "55.3114",
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "110.6229",
-                    }]
+                        {
+                            Name: "vCore 1",
+                            Description: "1 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "6.9139",
+                        }, {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "13.8279",
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "27.6557",
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "55.3114",
+                        },
+                        {
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "110.6229",
+                        }]
                 },
                 {
                     Name: "存储",
@@ -7864,7 +7864,7 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [{
                         Name: "default",
-                    Description: "default",
+                        Description: "default",
                         PriceTier: "0,5000",
                         PricePerTier: "2.544",
                         MinUnit: "0",
@@ -7959,35 +7959,35 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [
-                    {
-                        Name: "vCore 1",
-                        Description: "1 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.0979",
-                    },{
-                        Name: "vCore 2",
-                        Description: "2 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.1959",
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.3917",
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24.7834",
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "49.5669",
-                    }]
+                        {
+                            Name: "vCore 1",
+                            Description: "1 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3.0979",
+                        }, {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "6.1959",
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "12.3917",
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "24.7834",
+                        },
+                        {
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "49.5669",
+                        }]
                 },
                 {
                     Name: "存储",
@@ -7997,7 +7997,7 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [{
                         Name: "default",
-                    Description: "default",
+                        Description: "default",
                         PriceTier: "0,5000",
                         PricePerTier: "2.544",
                         MinUnit: "0",
@@ -8182,11 +8182,11 @@ var CalculatorData = {
                         Description: "额外存储 - 标准",
                         PriceTier: "0,5000",
                         PricePerTier: "0.5406",
-                        MinUnit:"0",
-                        MaxUnit:"5000",
-                        PriceUnit:"GB"
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
                     }]
-                },{
+                }, {
                     Name: "高级和高级 RS",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -8197,9 +8197,9 @@ var CalculatorData = {
                         Description: "额外存储 - 高级和高级 RS",
                         PriceTier: "0,5000",
                         PricePerTier: "1.0812",
-                        MinUnit:"0",
-                        MaxUnit:"5000",
-                        PriceUnit:"GB"
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
                     }]
                 }]
             },
@@ -8223,7 +8223,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "database-web-and-business": {
             Name: "SQL 数据库 - Web 和企业版",
             Types: [{
@@ -8405,12 +8405,12 @@ var CalculatorData = {
                         PricePerTier: "183.6,0,0,0,45.9",
                         MinUnit: "0",
                         MaxUnit: "2000",
-                       PriceUnit: "小时"
+                        PriceUnit: "小时"
                     }]
                 }]
             }]
         },
-        
+
         "automation": {
             Name: "自动化",
             Types: [{
@@ -8433,7 +8433,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        "power-bi-embedded":{
+        "power-bi-embedded": {
             Name: "Power BI Embedded",
             Types: [{
                 Name: "A1",
@@ -8447,7 +8447,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "虚拟内核 1",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.4115"                     
+                        PricePerTier: "6.4115"
                     }]
                 }]
             },
@@ -8463,7 +8463,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "虚拟内核 2",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.7715"                     
+                        PricePerTier: "12.7715"
                     }]
                 }]
             },
@@ -8479,7 +8479,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "虚拟内核 4",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "25.5939"                     
+                        PricePerTier: "25.5939"
                     }]
                 }]
             },
@@ -8495,7 +8495,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "虚拟内核 8",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "51.2393"                     
+                        PricePerTier: "51.2393"
                     }]
                 }]
             },
@@ -8511,7 +8511,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "虚拟内核 16",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "102.5296"                     
+                        PricePerTier: "102.5296"
                     }]
                 }]
             },
@@ -8527,12 +8527,12 @@ var CalculatorData = {
                         Name: "default",
                         Description: "虚拟内核 32",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "205.1138"                     
+                        PricePerTier: "205.1138"
                     }]
                 }]
             }]
         },
-        "power-bi-workspace-collections":{
+        "power-bi-workspace-collections": {
             Name: "Power BI 工作区集合",
             Types: [{
                 Name: "default",
@@ -8549,13 +8549,13 @@ var CalculatorData = {
                         PricePerTier: "0,32.86",
                         MinUnit: "0",
                         MaxUnit: "1000000",
-                        PriceUnit: "百个会话"                       
+                        PriceUnit: "百个会话"
                     }]
                 }]
-            }   
+            }
             ]
         },
-        
+
         "media-services-encoder": {
             Name: "媒体服务 - 编码 - 点播视频 (VoD) 编码",
             Types: [{
@@ -8594,155 +8594,155 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "media-services-media-reserved-unit": {
             Name: "媒体服务 - 编码 - 媒体保留单元",
             Types: [
-            {
-                Name: "S1",
-                Features: [{
-                    Name: "媒体保留单元",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,10000000",
-                        PricePerTier: "0.13144",
+                {
+                    Name: "S1",
+                    Features: [{
+                        Name: "媒体保留单元",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "10000000",
-                        PriceUnit: "小时"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "0.13144",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "小时"
+                        }]
                     }]
-                }]
-            },
-            {
-                Name: "S2",
-                Features: [{
-                    Name: "媒体保留单元",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,10000000",
-                        PricePerTier: "0.26288",
+                },
+                {
+                    Name: "S2",
+                    Features: [{
+                        Name: "媒体保留单元",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "10000000",
-                        PriceUnit: "小时"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "0.26288",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "小时"
+                        }]
                     }]
-                }]
-            },
-            {
-                Name: "S3",
-                Features: [{
-                    Name: "媒体保留单元",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,10000000",
-                        PricePerTier: "0.52576",
+                },
+                {
+                    Name: "S3",
+                    Features: [{
+                        Name: "媒体保留单元",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "10000000",
-                        PriceUnit: "小时"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "0.52576",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "小时"
+                        }]
                     }]
-                }]
-            }
+                }
             ]
         },
         "media-services-indexing": {
             Name: "媒体服务 - 媒体分析 - 索引编制",
             Types: [
-            {
-                Name: "索引编制",
-                Features: [{
-                    Name: "索引器",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,20000 ,20001,200000,200001,1000000,1000001,10000000",
-                        PricePerTier: "0.34,0.33,0.29,0.26",
+                {
+                    Name: "索引编制",
+                    Features: [{
+                        Name: "索引器",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "10000000",
-                        PriceUnit: "分钟"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,20000 ,20001,200000,200001,1000000,1000001,10000000",
+                            PricePerTier: "0.34,0.33,0.29,0.26",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "分钟"
+                        }]
                     }]
                 }]
-            }]
         },
         "media-services-media-reserved-redactor": {
             Name: "媒体服务 - 媒体分析 - 编修器",
             Types: [
-            {
-                Name: "S1",
-                Features: [{
-                    Name: "编修器",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,50000,50001,100000,1000001,100000000",
-                        PricePerTier: "0.212,0.197,0.172",
+                {
+                    Name: "S1",
+                    Features: [{
+                        Name: "编修器",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "100000000",
-                        PriceUnit: "分钟"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,50000,50001,100000,1000001,100000000",
+                            PricePerTier: "0.212,0.197,0.172",
+                            MinUnit: "0",
+                            MaxUnit: "100000000",
+                            PriceUnit: "分钟"
+                        }]
                     }]
-                }]
-            },
-            {
-                Name: "S2",
-                Features: [{
-                    Name: "编修器",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,50000,50001,100000,1000001,100000000",
-                        PricePerTier: "0.424,0.394,0.344",
+                },
+                {
+                    Name: "S2",
+                    Features: [{
+                        Name: "编修器",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "100000000",
-                        PriceUnit: "分钟"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,50000,50001,100000,1000001,100000000",
+                            PricePerTier: "0.424,0.394,0.344",
+                            MinUnit: "0",
+                            MaxUnit: "100000000",
+                            PriceUnit: "分钟"
+                        }]
                     }]
-                }]
-            },
-            {
-                Name: "S3",
-                Features: [{
-                    Name: "编修器",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,50000,50001,100000,1000001,100000000",
-                        PricePerTier: "0.848,0.788,0.688",
+                },
+                {
+                    Name: "S3",
+                    Features: [{
+                        Name: "编修器",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "100000000",
-                        PriceUnit: "分钟"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,50000,50001,100000,1000001,100000000",
+                            PricePerTier: "0.848,0.788,0.688",
+                            MinUnit: "0",
+                            MaxUnit: "100000000",
+                            PriceUnit: "分钟"
+                        }]
                     }]
-                }]
-            }
+                }
             ]
         },
-        
+
         "media-services-stream": {
             Name: "媒体服务 - 流式处理",
             Types: [{
@@ -8789,38 +8789,38 @@ var CalculatorData = {
             Types: [{
                 Name: "default",
                 Features: [
-                {
-                    Name: "未编码的实时频道",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "未编码的实时频道",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "6.4",
+                    {
+                        Name: "未编码的实时频道",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "小时"
-                    }]
-                },
-                {
-                    Name: "使用实时编码的实时频道",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "使用实时编码的实时频道",
-                        PriceTier: "0,20,21,100,101,250,251,1000",
-                        PricePerTier: "24.74,21.14,20.69,20.25",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "未编码的实时频道",
+                            PriceTier: PriceTierEnum.Linear,
+                            PricePerTier: "6.4",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "小时"
+                        }]
+                    },
+                    {
+                        Name: "使用实时编码的实时频道",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "小时"
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "使用实时编码的实时频道",
+                            PriceTier: "0,20,21,100,101,250,251,1000",
+                            PricePerTier: "24.74,21.14,20.69,20.25",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "小时"
+                        }]
                     }]
-                }]
             }]
         },
         "media-services-content-protect": {
@@ -9067,7 +9067,7 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "1000",
                     Sizes: [{
-                         Name: "I/O",
+                        Name: "I/O",
                         Description: "I/O",
                         PriceTier: "0,5120000",
                         PricePerTier: "0.7938",
@@ -9366,7 +9366,7 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "1000",
                     Sizes: [{
-                         Name: "I/O",
+                        Name: "I/O",
                         Description: "I/O",
                         PriceTier: "0,5120000",
                         PricePerTier: "0.7938",
@@ -9715,7 +9715,7 @@ var CalculatorData = {
                 },
                 ]
             }
-            ,
+                ,
             {
                 Name: "高级",
                 Features: [{
@@ -10167,7 +10167,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-hadoop-head": {
             Name: "HDInsight - Linux - Hadoop 群集 - 头节点",
             Types: [{
@@ -10280,7 +10280,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-hadoop-data": {
             Name: "HDInsight - Linux - Hadoop 群集 - 数据节点",
             Types: [{
@@ -10386,8 +10386,8 @@ var CalculatorData = {
                 }]
             }]
         },
-    
-        
+
+
         "hdinsight-windows-hbase-head": {
             Name: "HDInsight - Windows - HBase 群集 - 控制服务器",
             Types: [{
@@ -10486,28 +10486,28 @@ var CalculatorData = {
                     MinUnit: "2",
                     MaxUnit: "2",
                     Sizes: [
-                    {
-                        Name: CalculatorConst.D12V2Size,
-                        Description: CalculatorConst.D12HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.34",
-                    },
-                    {
-                        Name: CalculatorConst.D13V2Size,
-                        Description: CalculatorConst.D13HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.61",
-                    },
-                    {
-                        Name: CalculatorConst.D14V2Size,
-                        Description: CalculatorConst.D14HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.29",
-                    }]
+                        {
+                            Name: CalculatorConst.D12V2Size,
+                            Description: CalculatorConst.D12HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "5.34",
+                        },
+                        {
+                            Name: CalculatorConst.D13V2Size,
+                            Description: CalculatorConst.D13HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "9.61",
+                        },
+                        {
+                            Name: CalculatorConst.D14V2Size,
+                            Description: CalculatorConst.D14HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "17.29",
+                        }]
                 }]
             }]
         },
-        
+
         "hdinsight-windows-hbase-region": {
             Name: "HDInsight - Windows - HBase 群集 - 区域服务器",
             Types: [{
@@ -10606,28 +10606,28 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [
-                    {
-                        Name: CalculatorConst.D12V2Size,
-                        Description: CalculatorConst.D12HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.34",
-                    },
-                    {
-                        Name: CalculatorConst.D13V2Size,
-                        Description: CalculatorConst.D13HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.61",
-                    },
-                    {
-                        Name: CalculatorConst.D14V2Size,
-                        Description: CalculatorConst.D14HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.29",
-                    }]
+                        {
+                            Name: CalculatorConst.D12V2Size,
+                            Description: CalculatorConst.D12HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "5.34",
+                        },
+                        {
+                            Name: CalculatorConst.D13V2Size,
+                            Description: CalculatorConst.D13HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "9.61",
+                        },
+                        {
+                            Name: CalculatorConst.D14V2Size,
+                            Description: CalculatorConst.D14HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "17.29",
+                        }]
                 }]
             }]
         },
-        
+
         "hdinsight-windows-hbase-zookeeper": {
             Name: "HDInsight - Windows - HBase 群集 - 主节点/Zookeeper 节点",
             Types: [{
@@ -10723,7 +10723,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.61",
                     },
-                    
+
                     {
                         Name: CalculatorConst.D14Size,
                         Description: CalculatorConst.D14HDSizeDesc,
@@ -10795,7 +10795,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-hbase-head": {
             Name: "HDInsight - Linux - HBase 群集 - 控制服务器",
             Types: [{
@@ -10888,29 +10888,29 @@ var CalculatorData = {
                     MinUnit: "2",
                     MaxUnit: "2",
                     Sizes: [
-                    {
-                        Name: CalculatorConst.D12V2Size,
-                        Description: CalculatorConst.D12HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.9434",
-                    },
-                    {
-                        Name: CalculatorConst.D13V2Size,
-                        Description: CalculatorConst.D13HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.8867",
-                    },
-                    {
-                        Name: CalculatorConst.D14V2Size,
-                        Description: CalculatorConst.D14HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.2234",
-                    }]
+                        {
+                            Name: CalculatorConst.D12V2Size,
+                            Description: CalculatorConst.D12HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3.9434",
+                        },
+                        {
+                            Name: CalculatorConst.D13V2Size,
+                            Description: CalculatorConst.D13HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "7.8867",
+                        },
+                        {
+                            Name: CalculatorConst.D14V2Size,
+                            Description: CalculatorConst.D14HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "11.2234",
+                        }]
                 }]
             }]
         },
 
-        
+
         "hdinsight-linux-hbase-region": {
             Name: "HDInsight - Linux - HBase 群集 - 区域服务器",
             Types: [{
@@ -11003,29 +11003,29 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [
-                    {
-                        Name: CalculatorConst.D12V2Size,
-                        Description: CalculatorConst.D12HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.9434",
-                    },
-                    {
-                        Name: CalculatorConst.D13V2Size,
-                        Description: CalculatorConst.D13HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.8867",
-                    },
-                    {
-                        Name: CalculatorConst.D14V2Size,
-                        Description: CalculatorConst.D14HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.2234",
-                    }]
+                        {
+                            Name: CalculatorConst.D12V2Size,
+                            Description: CalculatorConst.D12HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3.9434",
+                        },
+                        {
+                            Name: CalculatorConst.D13V2Size,
+                            Description: CalculatorConst.D13HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "7.8867",
+                        },
+                        {
+                            Name: CalculatorConst.D14V2Size,
+                            Description: CalculatorConst.D14HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "11.2234",
+                        }]
                 }]
             }]
         },
 
-        
+
         "hdinsight-linux-hbase-zookeeper": {
             Name: "HDInsight - Linux - HBase 群集 - 主节点/Zookeeper 节点",
             Types: [{
@@ -11103,7 +11103,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.8867",
                     },
-                    
+
                     {
                         Name: CalculatorConst.D14Size,
                         Description: CalculatorConst.D14HDSizeDesc,
@@ -11181,7 +11181,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-windows-storm-nimbus": {
             Name: "HDInsight - Windows - Storm 群集 - Nimbus 节点",
             Types: [{
@@ -11280,28 +11280,28 @@ var CalculatorData = {
                     MinUnit: "2",
                     MaxUnit: "2",
                     Sizes: [
-                    {
-                        Name: CalculatorConst.D12V2Size,
-                        Description: CalculatorConst.D12HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.34",
-                    },
-                    {
-                        Name: CalculatorConst.D13V2Size,
-                        Description: CalculatorConst.D13HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.61",
-                    },
-                    {
-                        Name: CalculatorConst.D14V2Size,
-                        Description: CalculatorConst.D14HDSizeDesc,
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.29",
-                    }]
+                        {
+                            Name: CalculatorConst.D12V2Size,
+                            Description: CalculatorConst.D12HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "5.34",
+                        },
+                        {
+                            Name: CalculatorConst.D13V2Size,
+                            Description: CalculatorConst.D13HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "9.61",
+                        },
+                        {
+                            Name: CalculatorConst.D14V2Size,
+                            Description: CalculatorConst.D14HDSizeDesc,
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "17.29",
+                        }]
                 }]
             }]
         },
-        
+
         "hdinsight-windows-storm-supervisor": {
             Name: "HDInsight - Windows - Storm 群集 - 监管服务器",
             Types: [{
@@ -11522,7 +11522,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "9.61",
                     },
-                    
+
                     {
                         Name: CalculatorConst.D14Size,
                         Description: CalculatorConst.D14HDSizeDesc,
@@ -11594,7 +11594,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-storm-nimbus": {
             Name: "HDInsight - Linux - Storm 群集 - Nimbus 节点",
             Types: [{
@@ -11712,7 +11712,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-storm-supervisor": {
             Name: "HDInsight - Linux - Storm 群集 - 监管服务器",
             Types: [{
@@ -11896,7 +11896,7 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.8867",
                     },
-                    
+
                     {
                         Name: CalculatorConst.D14Size,
                         Description: CalculatorConst.D14HDSizeDesc,
@@ -11974,7 +11974,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-spark-head": {
             Name: "HDInsight - Linux - Spark 群集 - 头节点",
             Types: [{
@@ -12087,7 +12087,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-spark-worker": {
             Name: "HDInsight - Linux - Spark 群集 - 工作进程节点",
             Types: [{
@@ -12187,7 +12187,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "hdinsight-linux-spark-r-server-edge": {
             Name: "HDInsight - Linux - Spark 群集 - 使用 R Server 的边缘节点",
             Types: [{
@@ -12308,7 +12308,7 @@ var CalculatorData = {
                     }]
                 }]
             }]
-        },     
+        },
 
         "cdn": {
             Name: "CDN",
@@ -12397,22 +12397,22 @@ var CalculatorData = {
                     }]
                 }]
             },
-             {
-                 Name: "高级 P20",
-                 Features: [{
-                     Name: "default",
-                     PricePeriod: PricePeriodEnum.Monthly,
-                     PriceUnit: "单元",
-                     MinUnit: "0",
-                     MaxUnit: "100",
-                     Sizes: [{
-                         Name: "default",
-                         Description: "高级单元将在每创建 5,000 个作业集合（或其中一部分）后进行计费，同样按小时分摊。所有地域运行的作业将汇总后计费。",
-                         PriceTier: PriceTierEnum.Fixed,
-                         PricePerTier: "10300",
-                     }]
-                 }]
-             }]
+            {
+                Name: "高级 P20",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "单元",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "高级单元将在每创建 5,000 个作业集合（或其中一部分）后进行计费，同样按小时分摊。所有地域运行的作业将汇总后计费。",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10300",
+                    }]
+                }]
+            }]
         },
 
         "backup": {
@@ -12622,26 +12622,26 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "ExpressRoute-virtual-network": {
             Name: "ExpressRoute 网关",
             Types: [{
-            //     Name: "基本",
-            //     Features: [{
-            //         Name: "default",
-            //         PricePeriod: PricePeriodEnum.Hourly,
-            //         PriceUnit: "个",
-            //         MinUnit: "0",
-            //         MaxUnit: "2000",
-            //         Sizes: [{
-            //             Name: "default",
-            //             Description: "基本 VPN 或 ExpressRoute 网关",
-            //             PriceTier: PriceTierEnum.Fixed,
-            //             PricePerTier: "0.25",
-            //         }]
-            //     }]
-            // },
-            // {
+                //     Name: "基本",
+                //     Features: [{
+                //         Name: "default",
+                //         PricePeriod: PricePeriodEnum.Hourly,
+                //         PriceUnit: "个",
+                //         MinUnit: "0",
+                //         MaxUnit: "2000",
+                //         Sizes: [{
+                //             Name: "default",
+                //             Description: "基本 VPN 或 ExpressRoute 网关",
+                //             PriceTier: PriceTierEnum.Fixed,
+                //             PricePerTier: "0.25",
+                //         }]
+                //     }]
+                // },
+                // {
                 Name: "标准",
                 Features: [{
                     Name: "default",
@@ -12757,8 +12757,8 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-        
+
+
         "vpn-gateway-data-transfer": {
             Name: "VPN 网关 - 出站虚拟网络间数据传输",
             Types: [{
@@ -12781,109 +12781,109 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-        
+
+
         "ip-address": {
             Name: "IP 地址",
             Types: [{
                 Name: "default",
                 Features: [
-                {
-                    Name: "公共 IP 地址 - 动态",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "小时",
-                    MinUnit: "0",
-                    MaxUnit: "744",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "公共 IP 地址 - 动态 ¥0.026/IP/小时*744小时",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.026",
+                    {
+                        Name: "公共 IP 地址 - 动态",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "小时",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "个"
-                    }]
-                },
-                {
-                    Name: "公共 IP 地址 - 静态",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "小时",
-                    MinUnit: "0",
-                    MaxUnit: "744",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "0-5，¥0.026/IP/小时*744小时，第 6 个开始 ¥0.052/IP/小时*744小时",
-                        PriceTier: "0,5,6,1000",
-                        PricePerTier: "0.026,0.052",
+                        MaxUnit: "744",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "公共 IP 地址 - 动态 ¥0.026/IP/小时*744小时",
+                            PriceTier: PriceTierEnum.Linear,
+                            PricePerTier: "0.026",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "个"
+                        }]
+                    },
+                    {
+                        Name: "公共 IP 地址 - 静态",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "小时",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "个"
-                    }]
-                },
-                {
-                    Name: "云服务 VIP",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "小时",
-                    MinUnit: "0",
-                    MaxUnit: "744",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "第 1 个免费，云服务 VIP ¥0.026/IP/小时*744小时",
-                        PriceTier: "0,1,2,1000",
-                        PricePerTier: "0,0.026",
+                        MaxUnit: "744",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "0-5，¥0.026/IP/小时*744小时，第 6 个开始 ¥0.052/IP/小时*744小时",
+                            PriceTier: "0,5,6,1000",
+                            PricePerTier: "0.026,0.052",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "个"
+                        }]
+                    },
+                    {
+                        Name: "云服务 VIP",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "小时",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "个"
-                    }]
-                },
-                {
-                    Name: "IP 地址 - 保留的 IP 地址",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "小时",
-                    MinUnit: "0",
-                    MaxUnit: "744",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "0-5免费 超过6个¥0.026 /IP/小时*744小时",
-                        PriceTier: "0,5,6,1000",
-                        PricePerTier: "0,0.026",
+                        MaxUnit: "744",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "第 1 个免费，云服务 VIP ¥0.026/IP/小时*744小时",
+                            PriceTier: "0,1,2,1000",
+                            PricePerTier: "0,0.026",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "个"
+                        }]
+                    },
+                    {
+                        Name: "IP 地址 - 保留的 IP 地址",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "小时",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "个"
-                    }]
-                },
-                {
-                    Name: "IP 地址 - 实例层级 IP 地址",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "小时",
-                    MinUnit: "0",
-                    MaxUnit: "744",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "实例层级 IP 地址 ¥0.026/IP/小时*744小时",
-                        PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.026",
+                        MaxUnit: "744",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "0-5免费 超过6个¥0.026 /IP/小时*744小时",
+                            PriceTier: "0,5,6,1000",
+                            PricePerTier: "0,0.026",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "个"
+                        }]
+                    },
+                    {
+                        Name: "IP 地址 - 实例层级 IP 地址",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "小时",
                         MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "个"
+                        MaxUnit: "744",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "实例层级 IP 地址 ¥0.026/IP/小时*744小时",
+                            PriceTier: PriceTierEnum.Linear,
+                            PricePerTier: "0.026",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "个"
+                        }]
+                    },
+                    {
+                        Name: "IP 地址 - IP 地址重新映射",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "小时",
+                        MinUnit: "0",
+                        MaxUnit: "744",
+                        Sizes: [{
+                            Name: "default",
+                            Description: " 0-100免费 之后￥0.456/重新映射*744小时",
+                            PriceTier: "0,100,101,1000",
+                            PricePerTier: "0,0.456",
+                            MinUnit: "0",
+                            MaxUnit: "1000",
+                            PriceUnit: "个"
+                        }]
                     }]
-                },
-                {
-                     Name: "IP 地址 - IP 地址重新映射",
-                     PricePeriod: PricePeriodEnum.Monthly,
-                     PriceUnit: "小时",
-                     MinUnit: "0",
-                     MaxUnit: "744",
-                     Sizes: [{
-                         Name: "default",
-                         Description: " 0-100免费 之后￥0.456/重新映射*744小时",
-                         PriceTier: "0,100,101,1000",
-                         PricePerTier: "0,0.456",
-                         MinUnit: "0",
-                         MaxUnit: "1000",
-                         PriceUnit: "个"
-                     }]
-                 }]
             }]
         },
 
@@ -13017,7 +13017,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "virtual-network": {
             Name: "虚拟网络",
             Types: [{
@@ -13056,8 +13056,8 @@ var CalculatorData = {
                 }]
             }]
         },
-        
-        
+
+
         "application-gateway-basic": {
             Name: "应用程序网关 - 基本",
             Types: [{
@@ -13109,7 +13109,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "application-gateway-waf": {
             Name: "应用程序网关 - Web 应用程序防火墙 (WAF) ",
             Types: [{
@@ -13144,9 +13144,9 @@ var CalculatorData = {
                     }]
                 }]
             }]
-        },      
-        
-        
+        },
+
+
         "application-gateway-data-process": {
             Name: "应用程序网关 - 数据处理",
             Types: [{
@@ -13564,7 +13564,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         "sql-data-warehouse": {
             Name: "SQL 数据仓库",
             Types: [{
@@ -13610,6 +13610,22 @@ var CalculatorData = {
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "48.3",
+                    }]
+                },
+                {
+                    Name: "存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120",
+                        PricePerTier: "906.2894",
+                        MinUnit: "0",
+                        MaxUnit: "5120",
+                        PriceUnit: "TB"
                     }]
                 }]
             },
@@ -13657,6 +13673,22 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "483",
                     }]
+                },
+                {
+                    Name: "存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120",
+                        PricePerTier: "906.2894",
+                        MinUnit: "0",
+                        MaxUnit: "5120",
+                        PriceUnit: "TB"
+                    }]
                 }]
             }]
         },
@@ -13667,7 +13699,7 @@ var CalculatorData = {
             Types: [{
                 Name: "基本",
                 Features: [{
-                    Name:  "default",
+                    Name: "default",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -13686,7 +13718,7 @@ var CalculatorData = {
                     },
                     {
                         Name: "B3",
-                         Description: "消费总数每天为 300000000，消费计算大小为 4KB",
+                        Description: "消费总数每天为 300000000，消费计算大小为 4KB",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "5088",
                     }]
@@ -13720,7 +13752,7 @@ var CalculatorData = {
                     },
                     {
                         Name: "S3",
-                         Description: "消费总数每天为 300000000，消费计算大小为 4KB",
+                        Description: "消费总数每天为 300000000，消费计算大小为 4KB",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "38880",
                     }]
@@ -13895,9 +13927,9 @@ var CalculatorData = {
                 }]
             }]
         },
-        
- 
-       "cognitive-services-face": {
+
+
+        "cognitive-services-face": {
             Name: "认知服务 - 人脸 API",
             Types: [{
                 Name: "免费",
@@ -13927,7 +13959,7 @@ var CalculatorData = {
                         MaxUnit: "1000000",
                         PriceUnit: "每 1000 个事务"
                     }]
-                    
+
                 }]
             },
             {
@@ -13947,7 +13979,7 @@ var CalculatorData = {
                 }]
             }]
         },
-        
+
         // "cognitive-services-emotion": {
         //     Name: "认知服务 - 情绪识别 API",
         //     Types: [{
@@ -13996,7 +14028,7 @@ var CalculatorData = {
         //     }]
         // },
 
-       "cognitive-services-computer-vision": {
+        "cognitive-services-computer-vision": {
             Name: "认知服务 - 计算机影像 API",
             Types: [{
                 Name: "免费",
@@ -14025,7 +14057,7 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "每 1000 个事务"
-                    }] 
+                    }]
                 }]
             },
             {
@@ -14043,7 +14075,7 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "每 1000 个事务"
-                    }] 
+                    }]
                 }]
             },
             {
@@ -14061,7 +14093,7 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "每 1000 个事务"
-                    }] 
+                    }]
                 }]
             }]
         },
@@ -14307,14 +14339,14 @@ var CalculatorData = {
         //     }]
         // },
         "api-management": {
-           Name: "API 管理",
+            Name: "API 管理",
             Types: [{
                 Name: "开发人员",
                 Features: [{
                     Name: "default",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
-                   MinUnit: "0",
+                    MinUnit: "0",
                     MaxUnit: "2000",
                     Sizes: [{
                         Name: "default",
@@ -14371,7 +14403,7 @@ var CalculatorData = {
                         PricePerTier: "29.2229",
                     }]
                 }]
-             }]
+            }]
         },
         "network-watcher": {
             Name: "网络观察程序",
@@ -14390,7 +14422,7 @@ var CalculatorData = {
                         PricePerTier: "0,0,0,0,0,5.09",
                         MinUnit: "0",
                         MaxUnit: "2000",
-                       PriceUnit: "GB"
+                        PriceUnit: "GB"
                     }]
                 }]
             },
@@ -14548,7 +14580,7 @@ var CalculatorData = {
                         MaxUnit: "5000",
                         PriceUnit: "每条短信"
                     }]
-                },    
+                },
                 {
                     Name: "短信 - 法国（+ 33）",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -14803,39 +14835,39 @@ var CalculatorData = {
                         PricePerTier: "20.532"
                     }]
                 }
-                // ,
-                // {
-                //     Name: "NCsv3 系列",
-                //     Description: "NCsv3 系列",
-                //     PricePeriod: PricePeriodEnum.Hourly,
-                //     PriceUnit: "台",
-                //     MinUnit: "0",
-                //     MaxUnit: "100",
-                //     Sizes: [{
-                //         Name: "NC6s v3",
-                //         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "10.465"
-                //     },
-                //     {
-                //         Name: "NC12s v3",
-                //         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "20.93"
-                //     },
-                //     {
-                //         Name: "NC24s v3",
-                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "41.86"
-                //     },
-                //     {
-                //         Name: "NC24rs v3",
-                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "46.0454"
-                //     }]
-                // }
+                    // ,
+                    // {
+                    //     Name: "NCsv3 系列",
+                    //     Description: "NCsv3 系列",
+                    //     PricePeriod: PricePeriodEnum.Hourly,
+                    //     PriceUnit: "台",
+                    //     MinUnit: "0",
+                    //     MaxUnit: "100",
+                    //     Sizes: [{
+                    //         Name: "NC6s v3",
+                    //         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "10.465"
+                    //     },
+                    //     {
+                    //         Name: "NC12s v3",
+                    //         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "20.93"
+                    //     },
+                    //     {
+                    //         Name: "NC24s v3",
+                    //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "41.86"
+                    //     },
+                    //     {
+                    //         Name: "NC24rs v3",
+                    //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "46.0454"
+                    //     }]
+                    // }
                 ]
             },
             {
@@ -14912,39 +14944,39 @@ var CalculatorData = {
                         PricePerTier: "9.332"
                     }]
                 }
-                // ,
-                // {
-                //     Name: "NCsv3 系列",
-                //     Description: "NCsv3 系列",
-                //     PricePeriod: PricePeriodEnum.Hourly,
-                //     PriceUnit: "台",
-                //     MinUnit: "0",
-                //     MaxUnit: "100",
-                //     Sizes: [{
-                //         Name: "NC6s v3",
-                //         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "4.6708"
-                //     },
-                //     {
-                //         Name: "NC12s v3",
-                //         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "9.3416"
-                //     },
-                //     {
-                //         Name: "NC24s v3",
-                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "18.6831"
-                //     },
-                //     {
-                //         Name: "NC24rs v3",
-                //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PricePerTier: "20.5515"
-                //     }]
-                // }
+                    // ,
+                    // {
+                    //     Name: "NCsv3 系列",
+                    //     Description: "NCsv3 系列",
+                    //     PricePeriod: PricePeriodEnum.Hourly,
+                    //     PriceUnit: "台",
+                    //     MinUnit: "0",
+                    //     MaxUnit: "100",
+                    //     Sizes: [{
+                    //         Name: "NC6s v3",
+                    //         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "4.6708"
+                    //     },
+                    //     {
+                    //         Name: "NC12s v3",
+                    //         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "9.3416"
+                    //     },
+                    //     {
+                    //         Name: "NC24s v3",
+                    //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "18.6831"
+                    //     },
+                    //     {
+                    //         Name: "NC24rs v3",
+                    //         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
+                    //         PriceTier: PriceTierEnum.Fixed,
+                    //         PricePerTier: "20.5515"
+                    //     }]
+                    // }
                 ]
             },
             {
