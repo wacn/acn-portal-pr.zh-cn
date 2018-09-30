@@ -12324,7 +12324,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-                        PricePerTier: "0.272,0.266,0.24,0.203",
+                        PricePerTier: "0.19,0.16,0.13,0.1",
                         MinUnit: "0",
                         MaxUnit: "5000000",
                         PriceUnit: "GB"
