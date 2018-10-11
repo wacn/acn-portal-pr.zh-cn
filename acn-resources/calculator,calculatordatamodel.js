@@ -9568,16 +9568,32 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "备份",
+                    Name: "备份 - 本地冗余",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "1000",
                     Sizes: [{
-                        Name: "备份",
-                        Description: "备份",
+                        Name: "本地冗余",
+                        Description: "本地冗余",
                         PriceTier: "0,5120000",
                         PricePerTier: "0.7938",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "备份 - 异地冗余",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "异地冗余",
+                        Description: "异地冗余",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "1.5875",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -9596,7 +9612,7 @@ var CalculatorData = {
                         PricePerTier: "0.7938",
                         MinUnit: "0",
                         MaxUnit: "5120000",
-                        PriceUnit: "GB"
+                        PriceUnit: "百万"
                     }]
                 }]
             },
