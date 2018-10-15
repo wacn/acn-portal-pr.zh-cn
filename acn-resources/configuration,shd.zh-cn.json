@@ -68,7 +68,7 @@
         }
       },
       {
-        "ServiceName": "负载均衡器",
+        "ServiceName": "负载均衡器 — 基本",
         "Slug": "load-balancer",
         "Region": {
           "ChinaEast": true,
@@ -124,13 +124,21 @@
         "Slug": "expressroute",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         },
         "HasInnerServices": true,
         "InnerServices": [
           {
-            "ServiceName": "ExpressRoute Circuits",
-            "Slug": "expressroute\\circuits"
+            "ServiceName": "ExpressRoute 线路",
+            "Slug": "expressroute\\circuits",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true,
+              "ChinaEast2": true,
+              "ChinaNorth2": true
+            }
           },
           {
             "ServiceName": "ExpressRoute 网关",
@@ -145,11 +153,13 @@
         ]
       },
       {
-        "ServiceName": "Network Watcher",
+        "ServiceName": "网络观察程序",
         "Slug": "network-watcher",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       }
     ]
@@ -202,7 +212,9 @@
         "Slug": "api-management",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       }
     ]
@@ -228,7 +240,9 @@
         "Slug": "batch",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       },
       {
@@ -243,7 +257,7 @@
   {
     "CategoryName": "数据库",
     "Services": [
-      {
+     {
         "ServiceName": "SQL 数据仓库",
         "Slug": "sql-data-warehouse",
         "Region": {
@@ -262,8 +276,8 @@
         }
       },
       {
-        "ServiceName": "SQL 数据库",
-        "Slug": "sql-database",
+        "ServiceName": "Azure SQL 数据库",
+        "Slug": "Azure SQL Database",
         "Region": {
           "ChinaEast": true,
           "ChinaNorth": true,
@@ -349,7 +363,7 @@
         }
       },
       {
-        "ServiceName": "Power BI 工作区集合",
+        "ServiceName": "Power BI Embedded",
         "Slug": "power-bi-embedded",
         "Region": {
           "ChinaEast": true,
@@ -403,6 +417,14 @@
           "ChinaEast": true,
           "ChinaNorth": true
         }
+      },
+      {
+        "ServiceName": "逻辑应用",
+        "Slug": "logic-apps",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
       }
     ]
   },
@@ -444,7 +466,7 @@
     "CategoryName": "安全",
     "Services": [
       {
-        "ServiceName": "密钥保管库",
+        "ServiceName": "Key Vault 密钥保管库",
         "Slug": "key-vault",
         "Region": {
           "ChinaEast": true,
@@ -463,7 +485,9 @@
         "Slug": "site-recovery",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       },
       {
@@ -478,7 +502,9 @@
         "Slug": "backup",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       },
       {
@@ -500,29 +526,51 @@
         "Slug": "monitor",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         },
         "HasInnerServices": true,
         "InnerServices": [
           {
             "ServiceName": "度量值",
-            "Slug": "metrics"
+            "Slug": "metrics",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "活动日志",
-            "Slug": "activity-log"
+            "Slug": "activity-log",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "诊断日志",
-            "Slug": "diagnostic-logs"
+            "Slug": "diagnostic-logs",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "自动扩展",
-            "Slug": "autoscale"
+            "Slug": "autoscale",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "操作组",
-            "Slug": "action-groups"
+            "Slug": "action-groups",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           }
         ]
       },
@@ -552,7 +600,9 @@
         "ServiceName": "自动化",
         "Slug": "automation",
         "Region": {
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       }
     ]
