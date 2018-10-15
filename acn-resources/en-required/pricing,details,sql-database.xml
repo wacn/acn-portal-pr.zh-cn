@@ -52,6 +52,7 @@
             }
         </style> 
             <tags ms.service="sql-database" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+			<div class="hide-info" style="display:none;"><div class="cover-bg"><div class="pricing-unavailable-message">所选区域不可用</div></div></div>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/sql-server.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -70,28 +71,70 @@
                 <h2>定价详细信息</h2>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
-            <div class="technical-azure-selector pricing-detail-tab">
-                <ul class="tab-nav">
-                    <li class="active">
-                        <a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database" data-toggle="tab">弹性数据库</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" data-href="#tabContent2" id="home_single_database" data-toggle="tab">单个数据库</a>
-                    </li>
-                </ul>
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">弹性数据库</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database">弹性数据库</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent2" id="home_single_database">单个数据库</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+							<option selected="selected" data-href="#tabContent1" value="Elastic Database">弹性数据库</option>
+							<option data-href="#tabContent2" value="Single database">单个数据库</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
                 <!-- BEGIN: TAB-CONTAINER-1 -->
                 <div class="tab-content">
                     <!-- BEGIN: Level 1 tab content panel 1 -->
                     <div class="tab-panel" id="tabContent1">
                         <!-- BEGIN: Tab level 2 navigator 1 -->
-                        <ul class="tab-nav">
-                            <li class="active">
-                                <a href="javascript:void(0)" data-href="#tabContent1-1" data-toggle="tab" id="elastic_database-VCore">vCore</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" data-href="#tabContent1-2"  data-toggle="tab" id="elastic_database-DTU">DTU</a>
-                            </li>
-                        </ul>
+						<div class="category-container-container">
+						<div class="category-container-box">
+					<div class="category-container">
+						<span class="category-title hidden-lg hidden-md">类别：</span>
+						<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+							<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-0" id="elastic_database-all">全部</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-1" id="elastic_database-VCore">vCore</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="elastic_database-DTU">DTU</a></li>
+						</ul>
+						<select class="dropdown-select category-tabs hidden-lg hidden-md">
+							 <option data-href="#tabContent1-0" id="elastic_database-all" value="all">全部</option>
+							 <option data-href="#tabContent1-1" id="elastic_database-VCore" value="vCore">vCore</option>
+							 <option data-href="#tabContent1-2" id="elastic_database-DTU" value="DTU">DTU</option>
+						</select>
+					</div>
+					</div>
+					</div>
                         <!-- END: Tab level 2 navigator 1 -->
                         <!-- BEGIN: Tab level 2 content -->
                         <div class="tab-content">
@@ -633,15 +676,23 @@
                     <!-- BEGIN: TAB-CONTAINER-2 -->
                     <div class="tab-panel" id="tabContent2">
                         <!-- BEGIN: Tab level 2 navigator 2 -->
-                        <ul class="tab-nav">
-                            <li class="active">
-                                <a href="javascript:void(0)" data-href="#tabContent2-1" data-toggle="tab" id="single_database-vcore">vCore</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" data-href="#tabContent2-2" data-toggle="tab" id="single_database-dtu">DTU</a>
-                            </li>
-                            </li>
-                        </ul>
+						<div class="category-container-container">
+						<div class="category-container-box">
+					<div class="category-container">
+						<span class="category-title hidden-lg hidden-md">类别：</span>
+						<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
+							<li class="active"><a href="javascript:void(0)" data-href="#tabContent2-0" id="single_database-all">全部</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent2-1" id="single_database-vcore">vCore</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent2-2" id="single_database-dtu">DTU</a></li>
+						</ul>
+						<select class="dropdown-select category-tabs hidden-lg hidden-md">
+							 <option data-href="#tabContent2-0" id="single_database-all" value="all">全部</option>
+							 <option data-href="#tabContent2-1" id="single_database-vcore" value="vCore">vCore</option>
+							 <option data-href="#tabContent2-2" id="single_database-dtu" value="DTU">DTU</option>
+						</select>
+					</div>
+					</div>
+					</div>
                         <!-- BEGIN: Tab level 2 content 2 --> 
                         <div class="tab-content">
                             <p>SQL 数据库最适用于具有可预测模式和相对稳定工作负荷的应用程序。</p>
@@ -1098,7 +1149,7 @@
                 
                 <!-- END: Table5-Content-->
             </div>
-            <div>
+			 <div>
                 <!-- BEGIN: Table6-Content-->
                 <h3>高级威胁防护(预览)</h3>
                 <p>SQL 高级威胁防护 (ATP) 在预览期间免费，详细信息请查看文档 <a href="https://docs.azure.cn/zh-cn/sql-database/sql-advanced-threat-protection" target="_blank">Azure SQL 数据库的高级威胁防护</a>。</p>
