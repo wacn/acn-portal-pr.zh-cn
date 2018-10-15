@@ -68,7 +68,7 @@
         }
       },
       {
-        "ServiceName": "Load Balancer",
+        "ServiceName": "Load Balancer - basic",
         "Slug": "load-balancer",
         "Region": {
           "ChinaEast": true,
@@ -124,7 +124,9 @@
         "Slug": "expressroute",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         },
         "HasInnerServices": true,
         "InnerServices": [
@@ -135,12 +137,6 @@
           {
             "ServiceName": "ExpressRoute Gateways",
             "Slug": "expressroute\\gateways",
-            "Region": {
-              "ChinaEast": true,
-              "ChinaNorth": true,
-              "ChinaEast2": true,
-              "ChinaNorth2": true
-            }
           }
         ]
       },
@@ -149,7 +145,9 @@
         "Slug": "network-watcher",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       }
     ]
@@ -202,7 +200,9 @@
         "Slug": "api-management",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       }
     ]
@@ -228,7 +228,9 @@
         "Slug": "batch",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       },
       {
@@ -263,7 +265,7 @@
       },
       {
         "ServiceName": "Azure SQL Database",
-        "Slug": "sql-database",
+        "Slug": "Azure SQL Database",
         "Region": {
           "ChinaEast": true,
           "ChinaNorth": true,
@@ -349,7 +351,7 @@
         }
       },
       {
-        "ServiceName": "Power BI Workspace Collection",
+        "ServiceName": "Power BI Embedded",
         "Slug": "power-bi-embedded",
         "Region": {
           "ChinaEast": true,
@@ -399,6 +401,14 @@
       {
         "ServiceName": "Azure IoT Hub",
         "Slug": "iot-hub",
+        "Region": {
+          "ChinaEast": true,
+          "ChinaNorth": true
+        }
+      },
+      {
+        "ServiceName": "Logic Apps",
+        "Slug": "logic-apps",
         "Region": {
           "ChinaEast": true,
           "ChinaNorth": true
@@ -463,7 +473,9 @@
         "Slug": "site-recovery",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       },
       {
@@ -478,7 +490,9 @@
         "Slug": "backup",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       },
       {
@@ -500,29 +514,51 @@
         "Slug": "monitor",
         "Region": {
           "ChinaEast": true,
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         },
         "HasInnerServices": true,
         "InnerServices": [
           {
             "ServiceName": "Metrics",
-            "Slug": "metrics"
+            "Slug": "metrics",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "Activity Logs",
-            "Slug": "activity-log"
+            "Slug": "activity-log",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "Diagnostic logs",
-            "Slug": "diagnostic-logs"
+            "Slug": "diagnostic-logs",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "AutoScale",
-            "Slug": "autoscale"
+            "Slug": "autoscale",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "Action Groups",
-            "Slug": "action-groups"
+            "Slug": "action-groups",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           }
         ]
       },
@@ -552,7 +588,9 @@
         "ServiceName": "Automation",
         "Slug": "automation",
         "Region": {
-          "ChinaNorth": true
+          "ChinaNorth": true,
+          "ChinaEast2": true,
+          "ChinaNorth2": true
         }
       }
     ]
