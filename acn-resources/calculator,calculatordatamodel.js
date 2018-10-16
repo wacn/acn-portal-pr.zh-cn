@@ -15593,6 +15593,114 @@ var CalculatorData = {
                     }]
                 }]
             }]
+        },
+        "logic-apps": {
+            Name: "逻辑应用",
+            Types: [{
+                Name: "操作",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "逻辑应用 - 操作 - 每次执行价格",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.000254"
+                    }]
+                }]
+            },
+            {
+                Name: "标准连接器",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "逻辑应用 - 标准连接器 - 每次执行价格",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.001272"
+                    }]
+                }]
+            },
+            {
+                Name: "企业连接器",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "逻辑应用 - 企业连接器 - 每次执行价格",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.010176"
+                    }]
+                }]
+            }]
+        },
+        "logic-apps-data-retention": {
+            Name: "逻辑应用 - 数据保留",
+            Types: [{
+                Name: "数据保留",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "逻辑应用 - 数据保留",
+                        PriceTier: "0,10000",
+                        PricePerTier: "1.2211",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+        "logic-apps-integration-account": {
+           Name: "逻辑应用 - 集成帐户",
+            Types: [{
+                Name: "基本",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "逻辑应用 - 集成帐户 - 基本",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.1049"
+                    }]
+                }]
+            },
+            {
+                Name: "标准",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "逻辑应用 - 集成帐户 - 标准",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "13.7163"
+                    }]
+                }]
+            }]
         }
     }
 };
