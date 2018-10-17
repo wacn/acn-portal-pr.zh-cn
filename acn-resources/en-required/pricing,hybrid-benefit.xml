@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <localize>
   <TextpageLeftNav template="15" createDate="2016-06-29T15:44:24" updateDate="2016-06-29T15:44:24" urlName="hybird-benefit" writerName="content" creatorName="content">
     <bodyText>
@@ -197,13 +197,15 @@
             <div class="pricing-page-section">
                 <div class="more-detail">
                     <h1>常见问题</h1>
-                    <em>全部展开</em>
+                    <span class="faq-floder"><em>全部展开</em></span>
+                     </div>
+                    <div class="more-detail floder-layer">
                     <ul>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="home_azure-hybrid-benefit-sql1">什么是 vCore？</a>
-                                <section>
+                                <section style="display: none;">
                                      <p>虚拟核心 (vCore) 表示服务器可用的逻辑 CPU，并提供两代硬件供客户选择。对于使用 Gen4 vCore 创建的服务器，vCore 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。对于使用 Gen5 vCore 创建的服务器，vCore 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。</p>
                                 </section>
                             </div>
@@ -212,7 +214,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql2">Azure SQL 数据库中基于 vCore 的模型有哪些优势？</a>
-                                <section>
+                                <section style="display: none;">
                                     <p>通过基于 vCore 的购买模型，可灵活、受控而直接地将本地工作负荷要求转换到云。允许根据工作负荷需求，独立缩放计算和存储资源。</p>
                                     <p>基于 vCore 的模型适用于 SQL 数据库托管实例、单一数据库和弹性池部署选项，且这些选项都可使用适用于 SQL Server 的 Azure 混合权益。因此，无论是否使用混合权益，基于 vCore 的模型内部的定价都适用：</p>
                                     <ul>
@@ -226,7 +228,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql3">面向 SQL Server 的 Azure 混合权益是什么？我有资格使用它吗？</a>
-                                <section>
+                                <section style="display: none;">
                                     <p>面向 SQL Server 的 Azure 混合权益可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。Azure 混合权益 SQL Server 是基于 Azure 的混合权益，可通过它使用具有软件保障的 SQL Server 许可证，从而支付更少的 SQL 数据库费用（“基准费率”）。通过适用于 SQL Server 的 Azure 混合权益，可使用所有基于 vCore 的选项：SQL 数据库托管实例、单一数据库和弹性池。即使 SKU 是活动的也可以应用此权益，但请注意，从你在门户中进行选择时起，就会应用基准费率。不会补发信用额度。</p>
                                     <p>通过在 Azure 门户证明你有足够的具有软件保障的有效许可证，即可激活 Azure 混合权益。Azure 混合权益的工作原理如下：</p>
                                     <ul>
@@ -242,7 +244,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql4">什么是虚拟化权益？</a>
-                                <section>
+                                <section style="display: none;">
                                      <p>虚拟化权益适用于基于 vCore 的 Azure SQL 数据库上的虚拟化工作负荷。可使用它通过有效的软件保障转换 SQL Enterprise Edition 的 1 个核心，以按照基准费率获得最多 4 个常规用途 vCore。这样，就可以采用极具成本效益的方式将虚拟化应用程序迁移到基于 vCore 的 SQL 数据库。例如，如果有 SQL Enterprise Edition 的 4 个核心许可证，就可以按基准费率获得最多 16 个常规用途 vCore。</p>
                                 </section>
 
@@ -252,7 +254,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql5">能否在本地和云中使用 SQL Server 许可证？</a>
-                                <section>
+                                <section style="display: none;">
                                    <p>必须在本地或云中使用许可证，但有 180 天的宽限期，此期间可在本地和云同时使用许可证以促进迁移。</p>
                                 </section>
 
@@ -262,7 +264,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql6">能否以追溯方式应用面向 SQL Server 的 Azure 混合权益？</a>
-                                <section>
+                                <section style="display: none;">
                                      <p>否。Azure 混合权益不能以追溯方式进行应用。</p>    
                                 </section>
 
@@ -272,7 +274,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql7">如果软件保障到期，面向 SQL Server 的 Azure 混合权益会发生什么情况？</a>
-                                <section>
+                                <section style="display: none;">
                                      <p>若要使用面向 SQL Server 的 Azure 混合权益，需要有效的软件保障。如果软件保障到期并且你没有续订，则系统会将你转到相应 SKU 的“包含许可证”定价。</p>    
                                 </section>
 
@@ -282,7 +284,7 @@
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="azure-hybrid-benefit-sql8">哪种产品有资格使用面向 SQL Server 的 Azure 混合权益？</a>
-                                <section>
+                                <section style="display: none;">
                                      <p>此混合权益仅适用于 SQL Server 集成服务 (SSIS) 和基于 vCore 的Azure SQL 数据库选项：托管实例、单一数据库和弹性池。</p>    
                                 </section>
 
@@ -315,7 +317,7 @@
     <metaKeywords>Azure 混合权益</metaKeywords>
     <banner><![CDATA[
       <!-- BEGIN: Banner -->
-          <div class="common-banner" id="azure-hybired-contact-banner">      
+          <div class="common-banner" id="azure-hybired-contact-banner" data-config="{'backgroundColor':'', 'backgroundImage':'','imageHeight':''}" >      
             <div class="common-banner-image">
                 <div class="common-banner-title">
                     <h1>Azure 混合权益<span>（Azure Hybrid Benefit）</span></h1>
