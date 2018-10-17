@@ -1,15 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="sql-data-warehouse" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-10-17T11:00:00" urlName="sql-data-warehouse" writerName="content" creatorName="content">
     <bodyText>
             <![CDATA[
-      
+            <style type="text/css">
+                .pricing-detail-tab .tab-nav{
+                    padding-left: 0!important;
+                    margin-top: 5px;
+                    margin-bottom: 0;
+                    overflow: hidden;
+                }
+                .pricing-detail-tab .tab-nav li {
+                    list-style: none;
+                    float: left;
+                }
+
+                .pricing-detail-tab .tab-nav li.active a {
+                    border-bottom: 4px solid #00a3d9;
+                }
+
+                .pricing-detail-tab .tab-nav li.active a:hover {
+                    border-bottom: 4px solid #00a3d9;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel{
+                    display: none;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel.show-md{
+                    display: block;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    color: #00a3d9;
+                    background-color: #FFF;
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                    color: #FFF;
+                    background-color: #00a3d9;              
+                }
+
+                .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                    color: #FFF;
+                    background-color: #00a3d9;              
+                }
+                .pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+                background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+                }
+            </style>
             <tags ms.service="sql-data-warehouse" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/sql_database_warehouse.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//resource.cdn.azure.cn/marketing-resource/media/images/production/SQL_DW_icon.png" />
-                        <h2><!-- <sup style="color: #a5ce00; font-weight: bold; text-transform: uppercase; font-family: '微软雅黑'; font-size: 20px;" class="wa-previewTag">预览 --> </sup>SQL Data Warehouse</h2>
+                        <h2><!-- <sup style="color: #a5ce00; font-weight: bold; text-transform: uppercase; font-family: '微软雅黑'; font-size: 20px;" class="wa-previewTag">预览 </sup>--> SQL Data Warehouse</h2>
                         <h4>Elastic data warehouse as a service with enterprise-class features</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_warehouse_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_warehouse_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
@@ -17,87 +64,193 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>Azure SQL Data Warehouse is a data columnar storage service that is elastic, scalable, fully entrusted and extendable to one trillion bytes. It is completely compatible and integrated with SQL Server ecological system. This is the first cloud data warehouse that allows users to expand or shrink calculating capacity within seconds, which is absolutely exclusive in the industry. SQL Data Warehouse can independently extend or shrink storage and computing capacity, enabling users to pay for querying performance only when needed.</p>
+                <p>Azure SQL data Warehouse lets you quickly implement a high-performance, globally available, and secure cloud data warehouse. You can independently scale compute and storage, while pausing and resuming your data warehouse within minutes through a massively parallel processing architecture designed for the cloud. Seamlessly create your hub for analytics along with native connectivity with data integration and visualization services, all while using your existing SQL and BI skills.</p>
+           
+                <p>SQL Data Warehouse offers guaranteed 99.9 percent availability, regulatory compliance, built-in advanced security features, and data sovereignty across more than 30 regions so you can build a data warehouse that meets your business needs. SQL Data Warehouse adapts to your workload using intelligent caching to accelerate data access and query performance to handle the most demanding data warehousing workloads. Azure SQL Data Warehouse is available in 2 Compute Optimized SKUs: Gen1 and Gen2.</p>
+
+                 <h2>Pricing Details</h2>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
-            <div class="technical-azure-selector tab-control-selector">
+            <div class="technical-azure-selector pricing-detail-tab">
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="javascript:void(0)" data-href="#tabContent1" id="home_sql-dw-gen2" data-toggle="tab">Compute Optimized Gen2</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-href="#tabContent2" id="home_sql-dw-gen1" data-toggle="tab">Compute Optimized Gen1</a>
+                    </li>
+                </ul>
                 <!-- BEGIN: TAB-CONTAINER-1 -->
-                <div class="tab-control-container tab-active" id="tabContent1">
-                    <!-- BEGIN: Table1-Content-->
-                    <h2>Pricing Details</h2>
-                    <p>Computing and storage are independently charged. Since the usage about computing capacity is displayed in DWU (Data Warehouse Units), the customer can expand or shrink performance as needed through DWU. When data warehouse is not used, computing can be paused so as to save on costs.</p>
-                    <!-- <p>存储费率基于标准 <a id="pricing_warehouse_storage" target="_blank" href="/pricing/details/storage/"> RA-GRS 页·Blob 费率</a>。客户只需支付存储的数据，无需存储交易费。</p> --> <!-- <p>Azure SQL 数据仓库现已正式上线，自即日起至 2 月 28 日，将继续按照预览版价格（即以下标准价格的 50%）计费，3 月 1 日起恢复按标准价格计费。</p> -->
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                <div class="tab-content">
+
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Table1-Content-->
+                        <p>Includes adaptive caching to deliver enhanced performance for workloads with consistent compute requirements. Designed for intensive workloads with higher query performance and compute scalability needs.</p>
+                        <h3>Compute Optimized Gen2</h3>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left"><strong>Service Level</strong></th>
+                                <th align="left"><strong>cDWU</strong></th>
+                                <th align="left"><strong>Pricing</strong></th>
+                            </tr>
+                             <tr>
+                                <td>DW500c</td>
+                                <td>500</td>
+                                <td>￥ 40.25/hour (about ¥29,946.0/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW1000c</td>
+                                <td>1000</td>
+                                <td>￥ 80.5/hour (about ¥59,892/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW1500c</td>
+                                <td>1500</td>
+                                <td>￥ 120.75/hour (about ¥89,838/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW2000c</td>
+                                <td>2000</td>
+                                <td>￥ 161/hour (about ¥119,784/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW2500c</td>
+                                <td>2500</td>
+                                <td>￥ 201.25/hour (about ¥149,730/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW3000c</td>
+                                <td>3000</td>
+                                <td>￥ 241.5/hour (about ¥179,676/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW5000c</td>
+                                <td>5000</td>
+                                <td>￥ 402.5/hour (about ¥299,460/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW6,000c</td>
+                                <td>6,000</td>
+                                <td>￥ 483/hour (about ¥359,352/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW7500c</td>
+                                <td>7500</td>
+                                <td>￥ 603.75/hour (about ¥449,190/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW10000c</td>
+                                <td>10000</td>
+                                <td>￥ 805/hour (about ¥598,920/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW15000c</td>
+                                <td>15000</td>
+                                <td>￥ 1,207.5/hour (about ¥898,380/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW30,000c</td>
+                                <td>30,000</td>
+                                <td>￥ 2,415/hour (about ¥1,796,760/month)</td>
+                            </tr>
+                        </table>
+                        <!-- END: Table1-Content-->
                     </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"></th>
-                            <th align="left"><strong>Pricing</strong></th>
-                        </tr>
-                        <tr>
-                            <td>100 DWU</td>
-                            <td>¥8.05/hour (about ¥5,989.2/month)</td>
-                        </tr>
-                        <tr>
-                            <td>200 DWU</td>
-                            <td>¥16.1/hour (about ¥11,978.4/month)</td>
-                        </tr>
-                        <tr>
-                            <td>300 DWU</td>
-                            <td>¥24.15/hour (about ¥17,967.6/month)</td>
-                        </tr>
-                        <tr>
-                            <td>400 DWU</td>
-                            <td>¥32.2/hour (about ¥23,956.8/month)</td>
-                        </tr>
-                        <tr>
-                            <td>500 DWU</td>
-                            <td>¥40.25/hour (about ¥29,946.0/month)</td>
-                        </tr>
-                        <tr>
-                            <td>600 DWU</td>
-                            <td>¥48.3/hour (about ¥35,935.2/month)</td>
-                        </tr>
-                        <tr>
-                            <td>1,000 DWU</td>
-                            <td>¥80.5/hour (about ¥59,892.0/month)</td>
-                        </tr>
-                        <tr>
-                            <td>1,200 DWU</td>
-                            <td>¥96.6/hour (about ¥71,870.4/month)</td>
-                        </tr>
-                        <tr>
-                            <td>1,500 DWU</td>
-                            <td>¥120.75/hour (about ¥89,838.0/month)</td>
-                        </tr>
-                        <tr>
-                            <td>2,000 DWU</td>
-                            <td>¥161/hour (about ¥119,784.0/month)</td>
-                        </tr>
-						<tr>
-                            <td>3,000 DWU</td>
-                            <td>¥241.5/hour (about ¥179,676.0/month)</td>
-                        </tr>
-						<tr>
-                            <td>6,000 DWU</td>
-                            <td>¥483/hour (about ¥359,352.0/month)</td>
-                        </tr>
-                    </table>
-                    <div class="tags-date">
-                        <div class="ms-date">*When Azure SQL Data Warehouse is commonly used, a higher extension limit can be applied.</div>
+                    <div class="tab-panel" id="tabContent2">
+                        <!-- BEGIN: Table1-Content-->
+                        <p>Separates compute and storage for independent, elastic sizing of resources. Designed for frequent scaling operations to manage compute spend and cloud “burst” scenarios. Offers lowest starting scale point.</p>
+                        <h3>Compute Optimized Gen1</h3>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left"><strong>Service Level</strong></th>
+                                <th align="left"><strong>DWU</strong></th>
+                                <th align="left"><strong>Pricing</strong></th>
+                            </tr>
+                            <tr>
+                                <td>DW 100</td>
+                                <td>100</td>
+                                <td>¥8.05/hour (about ¥5,989.2/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 200</td>
+                                <td>200</td>
+                                <td>¥16.1/hour (about ¥11,978.4/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 300</td>
+                                <td>300</td>
+                                <td>¥24.15/hour (about ¥17,967.6/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 400</td>
+                                <td>400</td>
+                                <td>¥32.2/hour (about ¥23,956.8/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 500</td>
+                                <td>500</td>
+                                <td>¥40.25/hour (about ¥29,946.0/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 600</td>
+                                <td>600</td>
+                                <td>¥48.3/hour (about ¥35,935.2/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 1,000</td>
+                                <td>1,000</td>
+                                <td>¥80.5/hour (about ¥59,892.0/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 1200</td>
+                                <td>1200</td>
+                                <td>¥96.6/hour (about ¥71,870.4/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 1500</td>
+                                <td>1500</td>
+                                <td>¥120.75/hour (about ¥89,838.0/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 2000</td>
+                                <td>2000</td>
+                                <td>¥161/hour (about ¥119,784.0/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 3000</td>
+                                <td>3000</td>
+                                <td>¥241.5/hour (about ¥179,676.0/month)</td>
+                            </tr>
+                            <tr>
+                                <td>DW 6000</td>
+                                <td>6000</td>
+                                <td>¥483/hour (about ¥359,352.0/month)</td>
+                            </tr>
+                        </table>
+                        <!-- END: Table1-Content-->
+                        
                     </div>
-                    <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
-                    <h3>Storage</h3>
-					<h3>Data Storage and Snapshots</h3>
-                    <p>Data storage service is charged at the rate of <a id="pricing_warehouse_storage" target="_blank" href="/pricing/details/storage/">Azure Premium Storage</a> i.e. ¥906.29/TB/month (¥1.22/TB/hour). Data storage service covers data warehouse storage and 7 days of incremental snapshot storage.</p>
-					<p><strong>Note:</strong> Storage transactions are free of charge. In other words, you only need to pay for the data storage service, and no transaction fees are needed.</p>
-					<h3>Geo-Redundant Disaster Recovery</h3>
-                    <p>Data warehouse can be copied into Geo-Redundant Storage (GRS) for disaster recovery. Storage for Geo-Redundant copies will be charged based on the <a id="pricing_warehouse_storage-disk" target="_blank" href="/pricing/details/storage/">rate</a> of the Azure standard disk RA-GRS rate of ¥1.056/GB/month.</p>
-                    <!-- END: Table2-Content-->
+                    <div class="tags-date">
+                        <div class="ms-date"><p>*Standard <a href="/pricing/details/data-transfer/">outbound data transfers</a> charges apply.</p></div>
+                    </div>
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
+                <h3>Storage</h3>
+                <p>Storage pricing below reflects general availability pricing.</p>
+                <h3>Data Storage and Snapshots</h3>
+                <p>Data storage service is charged at the rate of <a id="pricing_warehouse_storage" target="_blank" href="/pricing/details/storage/">Azure Premium Storage</a> i.e. ¥906.29/1TB/month (¥1.22/1TB/hour). Data storage service covers data warehouse storage and 7 days of incremental snapshot storage.</p>
+                <p><strong>Note:</strong> Storage transactions are free of charge. In other words, you only need to pay for the data storage service, and no transaction fees are needed.</p>
+                <h3>Geo-Redundant Disaster Recovery</h3>
+                <p>Data warehouse can be copied into Geo-Redundant Storage (GRS) for disaster recovery. Storage for Geo-Redundant copies will be charged based on the <a id="pricing_warehouse_storage-disk" target="_blank" href="/pricing/details/storage/">rate</a> of the Azure standard disk RA-GRS rate of ¥1.056/GB/month.</p>
+                
             </div>
             <!-- END: TAB-CONTROL -->
            
@@ -109,9 +262,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="warehouse_quation_what_is_dwu">What is a DWU (Data Warehouse Unit)?</a>
+                                <a id="warehouse_quation_1">When I create a data warehouse, am I charged immediately?</a>
                                 <section>
-                                    <p>The Data Warehouse Unit (DWU) has been introduced into SQL Data Warehouse to offer customers a more predictable performance experience. DWU represents potent query performance and is quantified through workload objectives: how fast you can scan, load, and copy rows. This metric helps customers assess the relative performance required by their SQL Data Warehouse.</p>
+                                    <p>Yes, once the data warehouse is created, you will be billed hourly for compute and storage. Compute is billed at ￥ 5,989.2/100 DWUs/month, unless the data warehouse is paused. Storage is billed at ￥906.29/1 TB/month.</p>
                                 </section>
 
                             </div>
@@ -119,9 +272,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="warehouse_quation_bill">How is SQL Data Warehouse usage reflected in my bill?</a>
+                                <a id="warehouse_quation_2">When I pause my data warehouse, what am I charged for?</a>
                                 <section>
-                                    <p>Your bill will be composed of a predictable monthly storage fee and a changeable computing fee. The computing fee may vary from month to month, depending on the amount of used computing resources and duration (DWU). Storage and computing are two separate items on the bill so that you can easily figure out the level of computing resources used.</p>
+                                    <p>ausing the data warehouse pauses compute. If your data warehouse was paused for the entire hour, you will not be charged compute during that hour. If your data warehouse was active and then changed to pause during the hour, then you will be charged for that hour of compute. When your data warehouse is paused, you will be charged for storage that includes data warehouse files, 7-days' worth of incremental backups, and geo redundant copy, if opted in. To learn more, please refer to the <a href="//docs.azure.cn/zh-cn/sql-data-warehouse/backup-and-restore">documentation</a>.</p>
                                 </section>
 
                             </div>
@@ -129,9 +282,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="warehouse_quation_one_hour">What if the duration of my DWU usage is less than one hour?</a>
+                                <a id="warehouse_quation_3">How are compute and data storage billed?</a>
                                 <section>
-                                    <p>As long as your database is active (not paused), DWU is charged by the hour. If the activity time of DWU is less than one hour, the bill will reflect the fee for a whole hour. If the database is stopped for one hour, no fees will be charged for that period of time.</p>
+                                    <p>Compute and storage are billed separately to make it easier for you to see the level of compute resources consumed. Compute usage is charged on an hourly basis. For example, if your data warehouse is active for 12 hours in a month, you will only be billed for the 12 hours that your data warehouse existed. If your data warehouse exists for only 30 minutes in a month, you will be billed for 1 hour.</p>
                                 </section>
 
                             </div>
@@ -139,9 +292,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="warehouse_quation_different_levels">What if I use DWUs of different levels within one hour?</a>
+                                <a id="warehouse_quation_4">What does my data storage bill look like?</a>
                                 <section>
-                                    <p>DWU will be charged by the hour based on the unit pricing of the highest-grade performance used within the hour.</p>
+                                    <p>Your data storage charge is inclusive of the size of your primary database, plus 7 days of incremental snapshots. Charges are rounded to the nearest TB. For example, if your data warehouse is 1.5 TB and you have 100 GB of snapshots, you will be billed for 2 TB of data at a rate of ￥906.29/1 TB/month.</p>
                                 </section>
 
                             </div>
@@ -149,9 +302,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="warehouse_quation_pause">What is the pause feature?</a>
+                                <a id="warehouse_quation_5">What do I do if I need more than 1 TB of storage?</a>
                                 <section>
-                                 <p>SQL Data Warehouse has the exclusive capacity of pausing and recovering computing. If your team does not use the data warehouse instance for a period of time, e.g., at night, on weekends, on holidays or for other reasons, you can pause the data warehouse instances and then choose where you left off after you return. Note: since storage is separate from computing, your storage service will not be paused in such cases. For more information about pauses, please refer to <a id="documentation_warehouse_ms_sql-data-warehouse-performance-scale" href="//docs.azure.cn/sql-data-warehouse/sql-data-warehouse-manage-compute-overview#pausing-compute-resources" target="_blank">Documentation</a>.</p>
+                                    <p>Storage is sold in 1 TB allocations. If you grow beyond 1 TB of storage, your storage account will automatically grow to 2 TBs.</p>
                                 </section>
 
                             </div>
@@ -159,28 +312,26 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="warehouse_quation_account">Can I use a regular Azure Storage account together with SQL Data Warehouse?</a>
+                                <a id="warehouse_quation_6">Can I opt-out of snapshots?</a>
                                 <section>
-                                   <p>If you have regular Azure storage account (Web Blob or Block Blob), you should just import it into SQL Data Warehouse by using Polybase. Supported file layouts include texts with separators, Hive RCFile or Hive ORC.</p>
+                                 <p>You cannot opt out of snapshots, as this capability provides your data warehouse with data loss and corruption protection.</p>
                                 </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="warehouse_quation_7">What does my storage bill look like if I opt into geo-redundant disaster recovery?</a>
+                                <section>
+                                 <p>Your data warehouse is copied to geo-redundant storage for disaster recovery. Storage for geo-redundant copies is billed at Azure Standard Disk read-access geo-redundant storage of ¥1.056/GB/month.</p>
+                                </section>
+
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <!-- <div class="pricing-page-section">
-                <h2>Region</h2>
-                <p>SQL Data Warehouse is available in the following regions:</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>Territory</strong></th>
-                        <th align="left"><strong>Region</strong></th>
-                    </tr>
-                    <tr>
-                        <td>Mainland China</td>
-                        <td>China North, China East</td>
-                    </tr>
-                </table> -->
                 
            <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>

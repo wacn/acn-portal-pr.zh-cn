@@ -14107,48 +14107,98 @@ var CalculatorData = {
         "sql-data-warehouse": {
             Name: "SQL 数据仓库",
             Types: [{
-                Name: "小于等于 600",
+                Name: "计算优化的 Gen2",
                 Features: [{
-                    Name: "DWU",
+                    Name: "cDWU",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
-                        Name: "100",
+                        Name: "DW500c",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.05",
+                        PricePerTier: "40.25"
                     },
                     {
-                        Name: "200",
+                        Name: "DW1000c",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "16.1",
+                        PricePerTier: "80.5"
                     },
                     {
-                        Name: "300",
+                        Name: "DW1500c",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24.15",
+                        PricePerTier: "120.75"
                     },
                     {
-                        Name: "400",
+                        Name: "DW2000c",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "32.2",
+                        PricePerTier: "161"
+                    }]
+                },
+                {
+                    Name: "cDWU ",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "DW2500c",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "201.25"
                     },
                     {
-                        Name: "500",
+                        Name: "DW3000c",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "40.25",
+                        PricePerTier: "241.5"
                     },
                     {
-                        Name: "600",
+                        Name: "DW5000c",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "48.3",
+                        PricePerTier: "402.5"
+                    },
+                    {
+                        Name: "DW6000c",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "483"
+                    }]
+                },
+                {
+                    Name: " cDWU ",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "DW7500c",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "603.75"
+                    },
+                    {
+                        Name: "DW10000c",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "805"
+                    },
+                    {
+                        Name: "DW15000c",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1207.5"
+                    },
+                    {
+                        Name: "DW30000c",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2415"
                     }]
                 },
                 {
@@ -14166,10 +14216,26 @@ var CalculatorData = {
                         MaxUnit: "5120",
                         PriceUnit: "TB"
                     }]
+                },
+                {
+                    Name: "异地冗余灾难恢复",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120",
+                        PricePerTier: "1.056",
+                        MinUnit: "0",
+                        MaxUnit: "5120",
+                        PriceUnit: "TB"
+                    }]
                 }]
             },
             {
-                Name: "大于等于 1000",
+                Name: "计算优化的 Gen1",
                 Features: [{
                     Name: "DWU",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -14177,40 +14243,90 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
-                        Name: "1000",
+                        Name: "DW100",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "80.5",
+                        PricePerTier: "8.05"
                     },
                     {
-                        Name: "1200",
+                        Name: "DW200",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "96.6",
+                        PricePerTier: "16.1"
                     },
                     {
-                        Name: "1500",
+                        Name: "DW300",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "120.75",
+                        PricePerTier: "24.15"
                     },
                     {
-                        Name: "2000",
+                        Name: "DWU400",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "161",
+                        PricePerTier: "32.2"
                     },
                     {
-                        Name: "3000",
+                        Name: "DW500",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "241.5",
+                        PricePerTier: "40.25"
+                    }]
+                },
+                {
+                    Name: " DWU ",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "DW600",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "48.3"
                     },
                     {
-                        Name: "6000",
+                        Name: "DW1000",
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "483",
+                        PricePerTier: "80.5"
+                    },
+                    {
+                        Name: "DW1200",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "96.6"
+                    },
+                    {
+                        Name: "DW1500",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "120.75"
+                    }]
+                },
+                {
+                    Name: "DWU ",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "DW2000",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "161"
+                    },
+                    {
+                        Name: "DW3000",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "241.5"
+                    },
+                    {
+                        Name: "DW6000",
+                        Description: "",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "483"
                     }]
                 },
                 {
@@ -14224,6 +14340,22 @@ var CalculatorData = {
                         Description: "default",
                         PriceTier: "0,5120",
                         PricePerTier: "906.2894",
+                        MinUnit: "0",
+                        MaxUnit: "5120",
+                        PriceUnit: "TB"
+                    }]
+                },
+                {
+                    Name: "异地冗余灾难恢复",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120",
+                        PricePerTier: "1.056",
                         MinUnit: "0",
                         MaxUnit: "5120",
                         PriceUnit: "TB"
@@ -15590,114 +15722,6 @@ var CalculatorData = {
                         Description: "E64i v3：64 vCPU，432GiB RAM，1600 GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "20.532"
-                    }]
-                }]
-            }]
-        },
-        "logic-apps": {
-            Name: "逻辑应用",
-            Types: [{
-                Name: "操作",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "逻辑应用 - 操作 - 每次执行价格",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.000254"
-                    }]
-                }]
-            },
-            {
-                Name: "标准连接器",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "逻辑应用 - 标准连接器 - 每次执行价格",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.001272"
-                    }]
-                }]
-            },
-            {
-                Name: "企业连接器",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "逻辑应用 - 企业连接器 - 每次执行价格",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.010176"
-                    }]
-                }]
-            }]
-        },
-        "logic-apps-data-retention": {
-            Name: "逻辑应用 - 数据保留",
-            Types: [{
-                Name: "数据保留",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "逻辑应用 - 数据保留",
-                        PriceTier: "0,10000",
-                        PricePerTier: "1.2211",
-                        MinUnit: "0",
-                        MaxUnit: "2000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },
-        "logic-apps-integration-account": {
-           Name: "逻辑应用 - 集成帐户",
-            Types: [{
-                Name: "基本",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "逻辑应用 - 集成帐户 - 基本",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.1049"
-                    }]
-                }]
-            },
-            {
-                Name: "标准",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "逻辑应用 - 集成帐户 - 标准",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13.7163"
                     }]
                 }]
             }]

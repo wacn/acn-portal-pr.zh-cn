@@ -13956,53 +13956,135 @@
         "sql-data-warehouse": {
             "Name": "SQL 数据仓库",
             "Types": [{
-                "Name": "小于等于 600",
+                "Name": "计算优化的 Gen2",
                 "Features": [{
-                    "Name": "DWU",
+                    "Name": "cDWU",
                     "PricePeriod": "PricePeriodEnum.Hourly",
                     "PriceUnit": "个",
                     "MinUnit": "0",
                     "MaxUnit": "20",
                     "Sizes": [{
-                        "Name": "100",
-                        "Description": ",
-                        "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "8.05"
-                    },
-                    {
-                        "Name": "200",
-                        "Description": ",
-                        "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "16.1"
-                    },
-                    {
-                        "Name": "300",
-                        "Description": ",
-                        "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "24.15"
-                    },
-                    {
-                        "Name": "400",
-                        "Description": ",
-                        "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "32.2"
-                    },
-                    {
-                        "Name": "500",
-                        "Description": ",
+                        "Name": "DW500c",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "40.25"
                     },
                     {
-                        "Name": "600",
-                        "Description": ",
+                        "Name": "DW1000c",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "48.3"
+                        "PricePerTier": "80.5"
+                    },
+                    {
+                        "Name": "DW1500c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "120.75"
+                    },
+                    {
+                        "Name": "DW2000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "161"
+                    }]
+                },
+                {
+                    "Name": "cDWU ",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "DW2500c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "201.25"
+                    },
+                    {
+                        "Name": "DW3000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "241.5"
+                    },
+                    {
+                        "Name": "DW5000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "402.5"
+                    },
+                    {
+                        "Name": "DW6000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "483"
+                    }]
+                },
+                {
+                    "Name": " cDWU ",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "DW7500c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "603.75"
+                    },
+                    {
+                        "Name": "DW10000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "805"
+                    },
+                    {
+                        "Name": "DW15000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "1207.5"
+                    },
+                    {
+                        "Name": "DW30000c",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "2415"
+                    }]
+                },
+                {
+                    "Name": "存储",
+                    "PricePeriod": PricePeriodEnum.Monthly,
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,5120",
+                        "PricePerTier": "906.2894",
+                        "MinUnit": "0",
+                        "MaxUnit": "5120",
+                        "PriceUnit": "TB"
+                    }]
+                },
+                {
+                    "Name": "异地冗余灾难恢复",
+                    "PricePeriod": PricePeriodEnum.Monthly,
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,5120",
+                        "PricePerTier": "1.056",
+                        "MinUnit": "0",
+                        "MaxUnit": "5120",
+                        "PriceUnit": "TB"
                     }]
                 }]
             },
             {
-                "Name": "大于等于 1000",
+                "Name": "计算优化的 Gen1",
                 "Features": [{
                     "Name": "DWU",
                     "PricePeriod": "PricePeriodEnum.Hourly",
@@ -14010,40 +14092,122 @@
                     "MinUnit": "0",
                     "MaxUnit": "20",
                     "Sizes": [{
-                        "Name": "1000",
-                        "Description": ",
+                        "Name": "DW100",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "8.05"
+                    },
+                    {
+                        "Name": "DW200",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "16.1"
+                    },
+                    {
+                        "Name": "DW300",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "24.15"
+                    },
+                    {
+                        "Name": "DWU400",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "32.2"
+                    },
+                    {
+                        "Name": "DW500",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "40.25"
+                    }]
+                },
+                {
+                    "Name": " DWU ",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "DW600",
+                        "Description": "",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "48.3"
+                    },
+                    {
+                        "Name": "DW1000",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "80.5"
                     },
                     {
-                        "Name": "1200",
-                        "Description": ",
+                        "Name": "DW1200",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "96.6"
                     },
                     {
-                        "Name": "1500",
-                        "Description": ",
+                        "Name": "DW1500",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "120.75"
-                    },
-                    {
-                        "Name": "2000",
-                        "Description": ",
+                    }]
+                },
+                {
+                    "Name": "DWU ",
+                    "PricePeriod": "PricePeriodEnum.Hourly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "DW2000",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "161"
                     },
                     {
-                        "Name": "3000",
-                        "Description": ",
+                        "Name": "DW3000",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "241.5"
                     },
                     {
-                        "Name": "6000",
-                        "Description": ",
+                        "Name": "DW6000",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "483"
+                    }]
+                },
+                {
+                    "Name": "存储",
+                    "PricePeriod": PricePeriodEnum.Monthly,
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,5120",
+                        "PricePerTier": "906.2894",
+                        "MinUnit": "0",
+                        "MaxUnit": "5120",
+                        "PriceUnit": "TB"
+                    }]
+                },
+                {
+                    "Name": "异地冗余灾难恢复",
+                    "PricePeriod": PricePeriodEnum.Monthly,
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,5120",
+                        "PricePerTier": "1.056",
+                        "MinUnit": "0",
+                        "MaxUnit": "5120",
+                        "PriceUnit": "TB"
                     }]
                 }]
             }]
@@ -14200,37 +14364,37 @@
                     "MaxUnit": "100",
                     "Sizes": [{
                         "Name": "100",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "22.51"
                     },
                     {
                         "Name": "200",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "45.02"
                     },
                     {
                         "Name": "300",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "67.53"
                     },
                     {
                         "Name": "400",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "90.04"
                     },
                     {
                         "Name": "500",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "112.55"
                     },
                     {
                         "Name": "600",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "135.06"
                     }]
@@ -14246,37 +14410,37 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "1000",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "225.1"
                     },
                     {
                         "Name": "1200",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "270.12"
                     },
                     {
                         "Name": "1500",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "337.65"
                     },
                     {
                         "Name": "2000",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "450.2"
                     },
                     {
                         "Name": "3000",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "675.3"
                     },
                     {
                         "Name": "6000",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "PriceTierEnum.Fixed",
                         "PricePerTier": "1350.6"
                     }]
@@ -14710,7 +14874,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "中国香港特别行政区（+ 852）",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.179988",
                         "MinUnit": "0",
@@ -14726,7 +14890,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.36252",
                         "MinUnit": "0",
@@ -14742,7 +14906,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.148188",
                         "MinUnit": "0",
@@ -14758,7 +14922,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.34344",
                         "MinUnit": "0",
@@ -14774,7 +14938,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.634855",
                         "MinUnit": "0",
@@ -14790,7 +14954,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.026711",
                         "MinUnit": "0",
@@ -14806,7 +14970,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.251856",
                         "MinUnit": "0",
@@ -14822,7 +14986,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.29256",
                         "MinUnit": "0",
@@ -14838,7 +15002,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.8586",
                         "MinUnit": "0",
@@ -14854,7 +15018,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.197605",
                         "MinUnit": "0",
@@ -14870,7 +15034,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.158491",
                         "MinUnit": "0",
@@ -14886,7 +15050,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.29892",
                         "MinUnit": "0",
@@ -14902,7 +15066,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,5000",
                         "PricePerTier": "0.22896",
                         "MinUnit": "0",
@@ -14918,7 +15082,7 @@
                     "MaxUnit": "20",
                     "Sizes": [{
                         "Name": "default",
-                        "Description": ",
+                        "Description": "",
                         "PriceTier": "0,100,101,5000",
                         "PricePerTier": "0,0.065635",
                         "MinUnit": "0",
