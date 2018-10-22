@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2018-08-03T16:00:00" urlName="sql-database" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2018-10-22T16:00:00" urlName="sql-database" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
         <style type="text/css">
@@ -67,7 +67,7 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>Azure SQL 数据库是为<strong>应用开发人员</strong>构建的云数据库服务。该数据库即服务独一无二，<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-service-tiers" id="home-sql_sql-database-service-tiers">无需停机即可实时缩放</a>，帮助你高效交付多租户应用，进而让你有更多时间进行创新，加快产品投入市场的速度。SQL 数据库的<strong>内置智能</strong>将快速<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-advisor" id="home-sql_sql-database-advisor">了解应用的独特特征并进行动态调整</a>，从而最大化其性能、可靠性和数据保护能力。你可使用<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-develop-overview" id="home-sql_sql-database-develop-overview">喜欢的语言和平台生成安全的应用</a>并连接到 SQL 数据库。</p>
+                <p>Azure SQL 数据库是完全托管的关系数据库，其内置智能支持自我驱动功能，例如性能调优和威胁警报。Microsoft 执行代码库的所有修补和更新工作，并为你管理基础架构，使你节省时间和资源。凭借 SQL Server 高兼容性，还可以将数据库迁移到 SQL 数据库托管实例，而无需更改应用。</p>
                 <h2>定价详细信息</h2>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
@@ -138,65 +138,70 @@
                         <!-- END: Tab level 2 navigator 1 -->
                         <!-- BEGIN: Tab level 2 content -->
                         <div class="tab-content">
-                            <p>弹性数据库是一种共享资源模型，可提高资源利用效率，同时弹性池中的所有数据库都在同一池中共享预定义资源。 工作负载模式已经很好定义，并且在多租户方案中具有极高的成本效益。 弹性池最适合新的 SaaS 应用程序或将现有应用程序升级到 SaaS。</p>
+                            <p>SQL 数据库弹性池是一个共享的资源模型，可提高资源利用效率，并可让弹性池内的所有数据库共享同一池中的预定义资源。工作负荷模式已明确定义，并在多租户方案中具有极高的成本效益。弹性池最适用于新的 SaaS 应用，或将现有应用更新到 SaaS。</p>
                             <!-- BEGIN: Tab level 2 content 1-1 -->
                             <div class="tab-panel" id="tabContent1-1">
-                                <p>如果需要灵活、可控制且透明的独立资源使用，基于 vCore 的购买模型最适合。此模型允许基于工作负荷需求缩放计算、内存和存储，并提供直接的方式来将本地工作负荷要求转换到云。vCore 模型处于预览状态。价格反映了正式版费用。</p>
+                                <p>如果需要灵活、可控制且透明的独立资源使用，基于 vCore 的购买模型最适合。此模型允许基于工作负荷需求缩放计算、内存和存储，并提供直接的方式来将本地工作负荷要求转换到云。</p>
                                 <h3>常规用途</h3>
                                 <p>适用于大多数业务工作负荷，提供均衡、可缩放的计算和存储选项。</p>
-                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>1 vCore = 1 个物理 CPU</p>
-                                <p>第 4 代 CPU 基于 Intel E5-2673 v3（Haswell）2.4 GHz 处理器。</p>
+                                <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
                                         <th align="left"><strong>每个池的最大数据库数</th>
-                                        <th align="left"><strong>包含许可证的价格<sup> 1</sup></strong></th>
-                                        <th align="left"><strong>Azure 混合优惠<sup> 2</sup><br/>价格（节省率）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
                                         <td>7</td>
                                         <td>100</td>
-                                        <td>￥2.5662/小时<br/>( 约￥1,909.2528/月 )</td>
-                                        <td>￥1.549/小时<br/>( 约￥1,152.456/月 )（~40%）</td>
+                                        <td>￥1.7781/小时<br/>( 约￥1,322.9064/月 )</td>
+                                        <td>￥1.1424/小时<br/>( 约￥849.9456/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>14</td>
                                         <td>200</td>
-                                        <td>￥5.1324/小时<br/>( 约￥3,818.5056/月 )</td>
-                                        <td>￥3.0979/小时<br/>( 约￥2,304.8376/月 )（~40%）</td>
+                                        <td>￥3.5563/小时<br/>( 约￥2,645.8872/月 )</td>
+                                        <td>￥2.2847/小时<br/>( 约￥1,699.8168/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>28</td>
                                         <td>500</td>
-                                        <td>￥10.2649/小时<br/>( 约￥7,637.0856/月 )</td>
-                                        <td>￥6.1958/小时<br/>( 约￥4,609.6752/月 )（~40%）</td>
+                                        <td>￥7.1126/小时<br/>( 约￥5,291.7744/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
                                         <td>56</td>
                                         <td>500</td>
-                                        <td>￥20.5297/小时<br/>( 约￥15,274.0968/月 )</td>
-                                        <td>￥12.3917/小时<br/>( 约￥9,219.4248/月 )（~40%）</td>
+                                        <td>￥14.2251/小时<br/>( 约￥10,583.4744/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>16</td>
                                         <td>112</td>
                                         <td>500</td>
-                                        <td>￥41.0594/小时<br/>( 约￥30,548.1936/月 )</td>
-                                        <td>￥24.7834/小时<br/>( 约￥18,438.8496/月 )（~40%）</td>
+                                        <td>￥28.4503/小时<br/>( 约￥21,167.0232/月 )</td>
+                                        <td>￥18.2777/小时<br/>( 约￥13,598.6088/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>168</td>
+                                        <td>500</td>
+                                        <td>￥42.6754/小时<br/>( 约￥31,750.4976/月 )</td>
+                                        <td>￥27.4166/小时<br/>( 约￥20,397.9504/月 )（~36%）</td>
                                     </tr>
                                 </table>
                                 <div class="tags-date">
-                                    <div class="ms-date"><sup>1 </sup>vCore 模型处于预览状态。价格反映了正式版费用。</div><br />
-                                    <div class="ms-date"><sup>2 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
-                                <h4>存储<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>存储</h4>
                                 <p>在常规用途层中，将对为数据库或弹性池配置的高级 Blob 存储收费。存储可配置在 5 GB 到 4 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -205,10 +210,10 @@
                                     </tr>
                                     <tr>
                                         <td>GB/月</td>
-                                        <td>￥ 1.17024</td>
+                                        <td>￥ 0.8631</td>
                                     </tr>
                                 </table>
-                                <h4>备份存储空间<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>备份存储空间</h4>
                                 <p>数据库的 7 天自动备份会复制到 RA-GRS 标准 Blob 存储。由每周完整备份、每日差异备份和没 5 分钟复制一次的交易日志备份使用存储。备份成本因数据库变化率而异。提供与 100% 数据库大小相等的最小存储，不收取额外费用。超出此部分的其他备份存储空间按 GB/月收费。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -216,60 +221,86 @@
                                         <th align="left"><strong>价格</strong></th>
                                     </tr>
                                     <tr>
-                                        <td>GB/月</td>
-                                        <td>预览阶段免费</td>
+                                        <td>RA-GRS</td>
+                                        <td>￥ 2.0352</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZRS</td>
+                                        <td>￥ 1.272</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LRS</td>
+                                        <td>￥ 1.0176</td>
                                     </tr>
                                 </table>
-                                <h4>I/O<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>预览阶段免费</p>
+
+                                <h4>I/O</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">I/O 费率</th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>每 100 万次请求</td>
+                                        <td>￥ 1.501</td>
+                                    </tr>
+                                </table>
+
                                 <h3>业务关键</h3>
                                 <p>IO 要求高的商业应用程序。使用多个独立副本，提供最高级别的故障恢复能力。</p>
-                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>1 vCore = 1 个物理 CPU</p>
-                                <p>第 4 代 CPU 基于 Intel E5-2673 v3（Haswell）2.4 GHz 处理器。</p>
+
+                                <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
                                         <th align="left"><strong>每个池的最大数据库数</th>
-                                        <th align="left"><strong>包含许可证的价格<sup> 1</sup></strong></th>
-                                        <th align="left"><strong>Azure 混合优惠<sup> 2</sup><br/>价格（节省率）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>14</td>
                                         <td>50</td>
-                                        <td>￥13.8279/小时<br/>( 约￥10,287.9576/月 )</td>
-                                        <td>￥6.1959/小时<br/>( 约￥4,609.7496/月 )（~55%）</td>
+                                        <td>￥9.3394/小时<br/>( 约￥6,948.5136/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~55%）</td>
                                     </tr>
                                    <tr>
                                         <td>4</td>
                                         <td>28</td>
                                         <td>100</td>
-                                        <td>￥27.6557/小时<br/>( 约￥20,575.8408/月 )</td>
-                                        <td>￥12.3917/小时<br/>( 约￥9,219.4248/月 )（~55%）</td>
+                                        <td>￥18.6789/小时<br/>( 约￥13,897.1016/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~55%）</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
                                         <td>56</td>
                                         <td>100</td>
-                                        <td>￥55.3114/小时<br/>( 约￥41,151.6816/月 )</td>
-                                        <td>￥24.7834/小时<br/>( 约￥18,438.8496/月 )（~55%）</td>
+                                        <td>￥37.3578/小时<br/>( 约￥27,794.2032/月 )</td>
+                                        <td>￥18.2778/小时<br/>( 约￥13,598.6832/月 )（~55%）</td>
                                     </tr>
                                     <tr>
                                         <td>16</td>
                                         <td>112</td>
                                         <td>100</td>
-                                        <td>￥110.6229/小时<br/>( 约￥82,303.4376/月 )</td>
-                                        <td>￥49.5669/小时<br/>( 约￥36,877.7736/月 )（~55%）</td>
+                                        <td>￥74.7156/小时<br/>( 约￥55,588.4064/月 )</td>
+                                        <td>￥36.5556/小时<br/>( 约￥27,197.3664/月 )（~55%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>168</td>
+                                        <td>100</td>
+                                        <td>￥112.0734/小时<br/>( 约￥83,382.6096/月 )</td>
+                                        <td>￥54.8334/小时<br/>( 约￥40,796.0496/月 )（~55%）</td>
+                                        
                                     </tr>
                                 </table>
                                 <div class="tags-date">
-                                    <div class="ms-date"><sup>1 </sup>vCore 模型处于预览状态。价格反映了正式版费用。</div><br />
-                                    <div class="ms-date"><sup>2 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
-                                <h4>存储<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>存储</h4>
                                 <p>在业务关键层中，将对为数据库或弹性池配置的 SSD 存储收费。存储可配置在 5 GB 到 1 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -278,10 +309,10 @@
                                     </tr>
                                     <tr>
                                         <td>GB/月</td>
-                                        <td>￥ 2.544</td>
+                                        <td>￥ 1.8762</td>
                                     </tr>
                                 </table>
-                                <h4>备份存储空间<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>备份存储空间</h4>
                                 <p>数据库的 7 天自动备份会复制到 RA-GRS 标准 Blob 存储。由每周完整备份、每日差异备份和没 5 分钟复制一次的交易日志备份使用存储。备份成本因数据库变化率而异。提供与 100% 数据库大小相等的最小存储，不收取额外费用。超出此部分的其他备份存储空间按 GB/月收费。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -289,12 +320,29 @@
                                         <th align="left"><strong>价格</strong></th>
                                     </tr>
                                     <tr>
-                                        <td>GB/月</td>
-                                        <td>预览阶段免费</td>
+                                        <td>RA-GRS</td>
+                                        <td>￥ 2.0352</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZRS</td>
+                                        <td>￥ 1.272</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LRS</td>
+                                        <td>￥ 1.0176</td>
                                     </tr>
                                 </table>
-                                <h4>I/O<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>预览阶段免费</p>
+                                <h4>I/O</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">I/O 费率</th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>每 100 万次请求</td>
+                                        <td>￥ 1.501</td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="tab-panel" id="tabContent1-2"> 
                                 <h3>弹性数据库模型</h3>
@@ -492,7 +540,7 @@
                                     <div class="ms-date">*以下价格均为含税价格。</div><br />
                                     <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
                                 </div>
-                                 <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"><strong>eDTU /每个池</strong></th>
                                         <th align="left"><strong>每个池包含的存储</strong></th>
@@ -632,24 +680,23 @@
                                     </tr>
                                 </table>
                                 <!-- END: Table4-Content-->
-                                <h3>额外数据存储<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h3>
-                                <p>以下价格为预览版价格。</p>
+                                <h3>额外数据存储</h3>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
                                             <strong></strong>
                                         </th>
                                         <th align="left">
-                                            <strong>价格</strong>（预览）
+                                            <strong>价格</strong>
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>标准</td>
-                                        <td>¥0.5406/GB/月</td>
+                                        <td>¥1.0812/月</td>
                                     </tr>
                                     <tr>
-                                        <td>高级和高级 RS</td>
-                                        <td>¥1.0812/GB/月</td>
+                                        <td>高级</td>
+                                        <td>¥2.1624/月</td>
                                     </tr>
                                 </table>
                                 <p>额外存储仅适用于标准和高级服务层。</p>
@@ -699,56 +746,60 @@
                             <!-- BEGIN: Tab level 2 content 2-1 -->
 
                             <div class="tab-panel" id="tabContent2-1">
-                                <p>如果需要灵活、可控制且透明的独立资源使用，基于 vCore 的购买模型最适合。此模型允许基于工作负荷需求缩放计算、内存和存储，并提供直接的方式来将本地工作负荷要求转换到云。vCore 模型处于预览状态。价格反映了正式版费用。</p>
+                                <p>如果需要灵活、可控制且透明的独立资源使用，基于 vCore 的购买模型最适合。此模型允许基于工作负荷需求缩放计算、内存和存储，并提供直接的方式来将本地工作负荷要求转换到云。</p>
                                 <h3>常规用途</h3>
                                 <p>适用于大多数业务工作负荷，提供均衡、可缩放的计算和存储选项。</p>
-                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>1 vCore = 1 个物理 CPU</p>
-                                <p>第 4 代 CPU 基于 Intel E5-2673 v3（Haswell）2.4 GHz 处理器。</p>
+                                <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
-                                        <th align="left"><strong>包含许可证的价格<sup> 1</sup></strong></th>
-                                        <th align="left"><strong>Azure 混合优惠<sup> 2</sup><br/>价格（节省率）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
                                         <td>7</td>
-                                        <td>￥2.5662/小时<br/>( 约￥1,909.2528/月 )</td>
-                                        <td>￥1.549/小时<br/>( 约￥1,152.456/月 )（~40%）</td>
+                                        <td>￥1.7781/小时<br/>( 约￥1,322.9064/月 )</td>
+                                        <td>￥1.1424/小时<br/>( 约￥849.9456/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>14</td>
-                                        <td>￥5.1324/小时<br/>( 约￥3,818.5056/月 )</td>
-                                        <td>￥3.0979/小时<br/>( 约￥2,304.8376/月 )（~40%）</td>
+                                        <td>￥3.5563/小时<br/>( 约￥2,645.8872/月 )</td>
+                                        <td>￥2.2847/小时<br/>( 约￥1,699.8168/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>28</td>
-                                        <td>￥10.2649/小时<br/>( 约￥7,637.0856/月 )</td>
-                                        <td>￥6.1958/小时<br/>( 约￥4,609.6752/月 )（~40%）</td>
+                                        <td>￥7.1126/小时<br/>( 约￥5,291.7744/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
                                         <td>56</td>
-                                        <td>￥20.5297/小时<br/>( 约￥15,274.0968/月 )</td>
-                                        <td>￥12.3917/小时<br/>( 约￥9,219.4248/月 )（~40%）</td>
+                                        <td>￥14.2251/小时<br/>( 约￥10,583.4744/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~36%）</td>
                                     </tr>
                                     <tr>
                                         <td>16</td>
                                         <td>112</td>
-                                        <td>￥41.0594/小时<br/>( 约￥30,548.1936/月 )</td>
-                                        <td>￥24.7834/小时<br/>( 约￥18,438.8496/月 )（~40%）</td>
+                                        <td>￥28.4503/小时<br/>( 约￥21,167.0232/月 )</td>
+                                        <td>￥18.2777/小时<br/>( 约￥13,598.6088/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>164</td>
+                                        <td>￥42.6754/小时<br/>( 约￥31,750.4976/月 )</td>
+                                        <td>￥27.4166/小时<br/>( 约￥20,397.9504/月 )（~36%）</td>
                                     </tr>
                                 </table>
                                 <div class="tags-date">
-                                    <div class="ms-date"><sup>1 </sup>vCore 模型处于预览状态。价格反映了正式版费用。</div><br />
-                                    <div class="ms-date"><sup>2 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
-                                <h4>存储<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>存储</h4>
                                 <p>在常规用途层中，将对为数据库或弹性池配置的高级 Blob 存储收费。存储可配置在 5 GB 到 4 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -757,10 +808,10 @@
                                     </tr>
                                     <tr>
                                         <td>GB/月</td>
-                                        <td>￥ 1.17024</td>
+                                        <td>￥ 0.8631</td>
                                     </tr>
                                 </table>
-                                <h4>备份存储空间<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>备份存储空间</h4>
                                 <p>数据库的 7 天自动备份会复制到 RA-GRS 标准 Blob 存储。由每周完整备份、每日差异备份和没 5 分钟复制一次的交易日志备份使用存储。备份成本因数据库变化率而异。提供与 100% 数据库大小相等的最小存储，不收取额外费用。超出此部分的其他备份存储空间按 GB/月收费。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -768,62 +819,83 @@
                                         <th align="left"><strong>价格</strong></th>
                                     </tr>
                                     <tr>
-                                        <td>GB/月</td>
-                                        <td>预览阶段免费</td>
+                                        <td>RA-GRS</td>
+                                        <td>￥ 2.0352</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZRS</td>
+                                        <td>￥ 1.272</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LRS</td>
+                                        <td>￥ 1.0176</td>
                                     </tr>
                                 </table>
-                                <h4>I/O<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>预览阶段免费</p>
+                                <h4>I/O</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">I/O 费率</th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>每 100 万次请求</td>
+                                        <td>￥ 1.501</td>
+                                    </tr>
+                                </table>
 
                                 <h3>业务关键</h3>
                                 <p>IO 要求高的商业应用程序。使用多个独立副本，提供最高级别的故障恢复能力。</p>
-                                <h4>Gen 4<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>1 vCore = 1 个物理 CPU</p>
-                                <p>第 4 代 CPU 基于 Intel E5-2673 v3（Haswell）2.4 GHz 处理器。</p>
+                                <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
-                                        <th align="left"><strong>包含许可证的价格<sup> 1</sup></strong></th>
-                                        <th align="left"><strong>Azure 混合优惠<sup> 2</sup><br/>价格（节省率）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
                                         <td>7</td>
-                                        <td>￥6.9139/小时<br/>( 约￥5,143.9416/月 )</td>
-                                        <td>￥3.0979/小时<br/>( 约￥2,304.8376/月 )（~55%）</td>
+                                        <td>￥4.6697/小时<br/>( 约￥3,474.2568/月 )</td>
+                                        <td>￥2.2847/小时<br/>( 约￥1,699.8168/月 )（~51%）</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>14</td>
-                                        <td>￥13.8279/小时<br/>( 约￥10,287.9576/月 )</td>
-                                        <td>￥6.1959/小时<br/>( 约￥4,609.7496/月 )（~55%）</td>
+                                        <td>￥9.3394//小时<br/>( 约￥6,948.5136/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~51%）</td>
                                     </tr>
                                    <tr>
                                         <td>4</td>
                                         <td>28</td>
-                                        <td>￥27.6557/小时<br/>( 约￥20,575.8408/月 )</td>
-                                        <td>￥12.3917/小时<br/>( 约￥9,219.4248/月 )（~55%）</td>
+                                        <td>￥18.6789/小时<br/>( 约￥13,897.1016/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~51%）</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
                                         <td>56</td>
-                                        <td>￥55.3114/小时<br/>( 约￥41,151.6816/月 )</td>
-                                        <td>￥24.7834/小时<br/>( 约￥18,438.8496/月 )（~55%）</td>
+                                        <td>￥37.3578/小时<br/>( 约￥27,794.2032/月 )</td>
+                                        <td>￥18.2778/小时<br/>( 约￥13,598.6832/月 )（~51%）</td>
                                     </tr>
                                     <tr>
                                         <td>16</td>
                                         <td>112</td>
-                                        <td>￥110.6229/小时<br/>( 约￥82,303.4376/月 )</td>
-                                        <td>￥49.5669/小时<br/>( 约￥36,877.7736/月 )（~55%）</td>
+                                        <td>￥74.7156/小时<br/>( 约￥55,588.4064/月 )</td>
+                                        <td>￥36.5556/小时<br/>( 约￥27,197.3664/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>168</td>
+                                        <td>￥54.8328/小时<br/>( 约￥83,382.6096/月 )</td>
+                                        <td>￥54.8334/小时<br/>( 约￥40,796.0496/月 )（~51%）</td>
                                     </tr>
                                 </table>
                                 <div class="tags-date">
-                                    <div class="ms-date"><sup>1 </sup>vCore 模型处于预览状态。价格反映了正式版费用。</div><br />
-                                    <div class="ms-date"><sup>2 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
-                                <h4>存储<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>存储</h4>
                                 <p>在业务关键层中，将对为数据库或弹性池配置的 SSD 存储收费。存储可配置在 5 GB 到 1 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -832,10 +904,10 @@
                                     </tr>
                                     <tr>
                                         <td>GB/月</td>
-                                        <td>￥ 2.544</td>
+                                        <td>￥ 1.8762</td>
                                     </tr>
                                 </table>
-                                <h4>备份存储空间<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
+                                <h4>备份存储空间</h4>
                                 <p>数据库的 7 天自动备份会复制到 RA-GRS 标准 Blob 存储。由每周完整备份、每日差异备份和没 5 分钟复制一次的交易日志备份使用存储。备份成本因数据库变化率而异。提供与 100% 数据库大小相等的最小存储，不收取额外费用。超出此部分的其他备份存储空间按 GB/月收费。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -843,12 +915,30 @@
                                         <th align="left"><strong>价格</strong></th>
                                     </tr>
                                     <tr>
-                                        <td>GB/月</td>
-                                        <td>预览阶段免费</td>
+                                        <td>RA-GRS</td>
+                                        <td>￥ 2.0352</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZRS</td>
+                                        <td>￥ 1.272</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LRS</td>
+                                        <td>￥ 1.0176</td>
                                     </tr>
                                 </table>
-                                <h4>I/O<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h4>
-                                <p>预览阶段免费</p>
+
+                                <h4>I/O</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">I/O 费率</th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>每 100 万次请求</td>
+                                        <td>￥ 1.501</td>
+                                    </tr>
+                                </table>
                             </div>
                             <!-- END: Tab level 2 content 2-1-->
                             <!-- BEGIN: Tab level 2 content 2-2 -->
@@ -1097,24 +1187,23 @@
                                
                                 <p>注意：传出和传入的数据将按照常规<a id="SQL_Database_chuanshu" style="color: #00a8d9;" href="/pricing/details/data-transfer/" target="_blank">数据传输</a>费率收费。</p>
                                 
-                                <h3>额外数据存储<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h3>
-                                <p>以下价格为预览版价格。</p>
+                                <h3>额外数据存储</h3>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
                                             <strong></strong>
                                         </th>
                                         <th align="left">
-                                            <strong>价格</strong>（预览）
+                                            <strong>价格</strong>
                                         </th>
                                     </tr>
                                     <tr>
                                         <td>标准</td>
-                                        <td>¥0.5406/GB/月</td>
+                                        <td>¥1.0812/月</td>
                                     </tr>
                                     <tr>
-                                        <td>高级和高级 RS</td>
-                                        <td>¥1.0812/GB/月</td>
+                                        <td>高级</td>
+                                        <td>¥2.1624/月</td>
                                     </tr>
                                 </table>
                                 <p>额外存储仅适用于标准和高级服务层。</p>
@@ -1314,7 +1403,7 @@
                             <div>
                                 <a id="home_sql_database_question15">基于 DTU 的模型中的定价示例，用于预配了额外存储单个数据库</a>
                                 <section>
-                                     <p>假设 S3 数据库预配了 1 TB。S3 包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。预览期间，标准层中的额外存储的单价约为 ¥0.5406/GB/月，因此额外的存储价格为 774 GB * ¥0.5406/GB/月 = ¥402.2064/月。因此，S3 数据库的总价为 eDTU ¥969.37/月 + 额外存储 ¥402.2064/月 = ¥1,371.5764/月。</p>
+                                     <p>假设 S3 数据库预配了 1 TB。S3 包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。标准层中的额外存储的单价约为 ¥1.0812/GB/月，因此额外的存储价格为 774 GB * ¥1.0812/GB/月 = ¥804.4128/月。因此，S3 数据库的总价为 eDTU ¥969.37/月 + 额外存储 ¥804.4128/月 = ¥1,773.7828/月。</p>
                                 </section>
                             </div>
                         </li>
@@ -1323,7 +1412,7 @@
                             <div>
                                 <a id="home_sql_database_question16">基于 DTU 的模型中的定价示例，用于预配了额外存储的弹性池</a>
                                 <section>
-                                     <p>假设 125 eDTU 高级池预配了 1 TB。125 eDTU 高级池包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。预览期间，高级池中的额外存储的单价约为 ¥0.5406/GB/月，因此额外的存储价格为 774 GB * ¥0.5406/GB/月 = ¥402.2064/月。因此，该池的总价为池 eDTU ¥2,208.75/月 + 额外存储 ¥402.2064/月 = ¥2,610.9564/月。</p>
+                                     <p>假设 125 eDTU 高级池预配了 1 TB。125 eDTU 高级池包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。高级池中的额外存储的单价约为 ¥2.1624/GB/月，因此额外的存储价格为 774 GB * ¥2.1624/GB/月 = ¥1,608.8256/月。因此，该池的总价为池 eDTU ¥2,208.75/月 + 额外存储 ¥1,608.8256/月 = ¥3,817.5756/月。</p>
                                 </section>
                             </div>
                         </li>
