@@ -7714,37 +7714,37 @@ var CalculatorData = {
                         Name: "vCore 1",
                         Description: "1 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.7781",
+                        PricePerTier: "2.1596"
                     },
                     {
                         Name: "vCore 2",
                         Description: "2 个内核，每个池最大数据库 200 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.5563",
+                        PricePerTier: "4.3192"
                     },
                     {
                         Name: "vCore 4",
                         Description: "4 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.1126",
+                        PricePerTier: "8.6384"
                     },
                     {
                         Name: "vCore 8",
                         Description: "8 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "14.2251",
+                        PricePerTier: "17.2769"
                     },
                     {
                         Name: "vCore 16",
                         Description: "16 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "28.4503"
+                        PricePerTier: "34.5538"
                     },
                     {
                         Name: "vCore 24",
                         Description: "24 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "42.6754"
+                        PricePerTier: "51.8307"
                     }]
                 },
                 {
@@ -7805,7 +7805,7 @@ var CalculatorData = {
                         Name: "LRS",
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
-                        PricePerTier: "1.0176",
+                        PricePerTier: "0.7505",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -7836,31 +7836,31 @@ var CalculatorData = {
                         Name: "vCore 2",
                         Description: "2 个内核，每个池最大数据库 50 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.3394",
+                        PricePerTier: "12.2014"
                     },
                     {
                         Name: "vCore 4",
                         Description: "4 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.6789",
+                        PricePerTier: "24.4029"
                     },
                     {
                         Name: "vCore 8",
                         Description: "8 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "37.3578",
+                        PricePerTier: "48.8058"
                     },
                     {
                         Name: "vCore 16",
                         Description: "16 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "74.7156",
+                        PricePerTier: "97.6116"
                     },
                     {
                         Name: "vCore 24",
                         Description: "24 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "112.0734"
+                        PricePerTier: "146.4174"
                     }]
                 },
 
@@ -7922,7 +7922,7 @@ var CalculatorData = {
                         Name: "LRS",
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
-                        PricePerTier: "1.0176",
+                        PricePerTier: "0.7505",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -7956,25 +7956,25 @@ var CalculatorData = {
                         Name: "vCore 1",
                         Description: "1 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.1424",
+                        PricePerTier: "1.1424"
                     },
                     {
                         Name: "vCore 2",
                         Description: "2 个内核，每个池最大数据库 200 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.2847",
+                        PricePerTier: "2.2847"
                     },
                     {
                         Name: "vCore 4",
                         Description: "4 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694",
+                        PricePerTier: "4.5694"
                     },
                     {
                         Name: "vCore 8",
                         Description: "8 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389",
+                        PricePerTier: "9.1389"
                     },
                     {
                         Name: "vCore 16",
@@ -8018,31 +8018,31 @@ var CalculatorData = {
                         Name: "vCore 2",
                         Description: "2 个内核，每个池最大数据库 50 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694",
+                        PricePerTier: "4.5694"
                     },
                     {
                         Name: "vCore 4",
                         Description: "4 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389",
+                        PricePerTier: "9.1389"
                     },
                     {
                         Name: "vCore 8",
                         Description: "8 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2778",
+                        PricePerTier: "18.2778"
                     },
                     {
                         Name: "vCore 16",
                         Description: "16 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.5556",
+                        PricePerTier: "36.5556"
                     },
                     {
                         Name: "vCore 24",
                         Description: "24 个内核，每个池最大数据库 100 个",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "54.8334",
+                        PricePerTier: "54.8334"
                     }]
                 },
                 {
@@ -8078,49 +8078,49 @@ var CalculatorData = {
                             Name: CalculatorConst.Number50,
                             Description: CalculatorConst.Sql11SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "961.00",
+                            PricePerTier: "961.00"
                         },
                         {
                             Name: CalculatorConst.Number100,
                             Description: CalculatorConst.Sql12SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "1922.00",
+                            PricePerTier: "1922.00"
                         },
                         {
                             Name: CalculatorConst.Number200,
                             Description: CalculatorConst.Sql13SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "3844.00",
+                            PricePerTier: "3844.00"
                         },
                         {
                             Name: CalculatorConst.Number300,
                             Description: CalculatorConst.Sql14SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "5766.00",
+                            PricePerTier: "5766.00"
                         },
                         {
                             Name: CalculatorConst.Number400,
                             Description: CalculatorConst.Sql15SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "7688.00",
+                            PricePerTier: "7688.00"
                         },
                         {
                             Name: CalculatorConst.Number800,
                             Description: CalculatorConst.Sql16SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "15376.00",
+                            PricePerTier: "15376.00"
                         },
                         {
                             Name: CalculatorConst.Number1200,
                             Description: CalculatorConst.Sql17SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "23064.00",
+                            PricePerTier: "23064.00"
                         },
                         {
                             Name: CalculatorConst.Number1600,
                             Description: CalculatorConst.Sql18SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "30752.00",
+                            PricePerTier: "30752.00"
                         }]
                     }]
                 },
@@ -8136,31 +8136,31 @@ var CalculatorData = {
                             Name: CalculatorConst.Number50,
                             Description: CalculatorConst.Sql21SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "1426.00",
+                            PricePerTier: "1426.00"
                         },
                         {
                             Name: CalculatorConst.Number100,
                             Description: CalculatorConst.Sql22SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "2852.00",
+                            PricePerTier: "2852.00"
                         },
                         {
                             Name: CalculatorConst.Number200,
                             Description: CalculatorConst.Sql23SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "5704.00",
+                            PricePerTier: "5704.00"
                         },
                         {
                             Name: CalculatorConst.Number300,
                             Description: CalculatorConst.Sql24SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "11408.00",
+                            PricePerTier: "11408.00"
                         },
                         {
                             Name: CalculatorConst.Number400,
                             Description: CalculatorConst.Sql25SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "11408.00",
+                            PricePerTier: "11408.00"
                         }]
                     },
                     {
@@ -8173,37 +8173,37 @@ var CalculatorData = {
                             Name: CalculatorConst.Number800,
                             Description: CalculatorConst.Sql26SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "22816.00",
+                            PricePerTier: "22816.00"
                         },
                         {
                             Name: CalculatorConst.Number1200,
                             Description: CalculatorConst.Sql27SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "34224.00",
+                            PricePerTier: "34224.00"
                         },
                         {
                             Name: CalculatorConst.Number1600,
                             Description: CalculatorConst.Sql28SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "45632.00",
+                            PricePerTier: "45632.00"
                         },
                         {
                             Name: CalculatorConst.Number2000,
                             Description: CalculatorConst.Sql29SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "57040.00",
+                            PricePerTier: "57040.00"
                         },
                         {
                             Name: CalculatorConst.Number2500,
                             Description: CalculatorConst.Sql210SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "71300.00",
+                            PricePerTier: "71300.00"
                         },
                         {
                             Name: CalculatorConst.Number3000,
                             Description: CalculatorConst.Sql211SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "85560.00",
+                            PricePerTier: "85560.00"
                         }]
                     }]
                 },
@@ -8219,25 +8219,25 @@ var CalculatorData = {
                             Name: CalculatorConst.Number125,
                             Description: CalculatorConst.Sql31SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "2208.75",
+                            PricePerTier: "2208.75"
                         },
                         {
                             Name: CalculatorConst.Number250,
                             Description: CalculatorConst.Sql32SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4417.5",
+                            PricePerTier: "4417.5"
                         },
                         {
                             Name: CalculatorConst.Number500,
                             Description: CalculatorConst.Sql33SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "8835.00",
+                            PricePerTier: "8835.00"
                         },
                         {
                             Name: CalculatorConst.Number1000,
                             Description: CalculatorConst.Sql34SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "17670.00",
+                            PricePerTier: "17670.00"
                         }]
                     }]
                 },
@@ -8253,31 +8253,31 @@ var CalculatorData = {
                             Name: CalculatorConst.Number125,
                             Description: CalculatorConst.Sql41SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "8835.00",
+                            PricePerTier: "8835.00"
                         },
                         {
                             Name: CalculatorConst.Number250,
                             Description: CalculatorConst.Sql42SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "17670.00/",
+                            PricePerTier: "17670.00/"
                         },
                         {
                             Name: CalculatorConst.Number500,
                             Description: CalculatorConst.Sql43SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "35340.00",
+                            PricePerTier: "35340.00"
                         },
                         {
                             Name: CalculatorConst.Number1000,
                             Description: CalculatorConst.Sql44SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "70680.00",
+                            PricePerTier: "70680.00"
                         },
                         {
                             Name: CalculatorConst.Number1500,
                             Description: CalculatorConst.Sql45SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "106020.00",
+                            PricePerTier: "106020.00"
                         }]
                     },
                     {
@@ -8290,31 +8290,31 @@ var CalculatorData = {
                             Name: CalculatorConst.Number2000,
                             Description: CalculatorConst.Sql46SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "141360.00",
+                            PricePerTier: "141360.00"
                         },
                         {
                             Name: CalculatorConst.Number2500,
                             Description: CalculatorConst.Sql47SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "176700.00",
+                            PricePerTier: "176700.00"
                         },
                         {
                             Name: CalculatorConst.Number3000,
                             Description: CalculatorConst.Sql48SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "212040.00",
+                            PricePerTier: "212040.00"
                         },
                         {
                             Name: CalculatorConst.Number3500,
                             Description: CalculatorConst.Sql49SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "247380.00",
+                            PricePerTier: "247380.00"
                         },
                         {
                             Name: CalculatorConst.Number4000,
                             Description: CalculatorConst.Sql410SizeDesc,
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "282720.00",
+                            PricePerTier: "282720.00"
                         }]
                     }]
                 },
@@ -8386,37 +8386,37 @@ var CalculatorData = {
                         Name: "vCore 1",
                         Description: "1 个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.7781",
+                        PricePerTier: "2.1596"
                     },
                     {
                         Name: "vCore 2",
                         Description: "2 个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.5563",
+                        PricePerTier: "4.3192"
                     },
                     {
                         Name: "vCore 4",
                         Description: "4  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.1126",
+                        PricePerTier: "8.6384"
                     },
                     {
                         Name: "vCore 8",
                         Description: "8  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "14.2251",
+                        PricePerTier: "17.2769"
                     },
                     {
                         Name: "vCore 16",
                         Description: "16  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "28.4503",
+                        PricePerTier: "34.5538"
                     },
                     {
                         Name: "vCore 24",
                         Description: "24 个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "42.6754",
+                        PricePerTier: "51.8307"
                     }]
                 },
                 {
@@ -8477,7 +8477,7 @@ var CalculatorData = {
                         Name: "LRS",
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
-                        PricePerTier: "1.0176",
+                        PricePerTier: "0.7505",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -8509,36 +8509,36 @@ var CalculatorData = {
                             Name: "vCore 1",
                             Description: "1 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4.6697",
+                            PricePerTier: "6.1007"
                         }, {
                             Name: "vCore 2",
                             Description: "2 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "9.3394",
+                            PricePerTier: "12.2014"
                         },
                         {
                             Name: "vCore 4",
                             Description: "4 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.6789",
+                            PricePerTier: "24.4029"
                         },
                         {
                             Name: "vCore 8",
                             Description: "8 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "37.3578",
+                            PricePerTier: "48.8058"
                         },
                         {
                             Name: "vCore 16",
                             Description: "16 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "74.7156",
+                            PricePerTier: "97.6116"
                         },
                         {
                             Name: "vCore 24",
                             Description: "24 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "54.8328",
+                            PricePerTier: "146.4174"
                         }]
                 },
                 {
@@ -8599,7 +8599,7 @@ var CalculatorData = {
                         Name: "LRS",
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
-                        PricePerTier: "1.0176",
+                        PricePerTier: "0.7505",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -8633,37 +8633,37 @@ var CalculatorData = {
                         Name: "vCore 1",
                         Description: "1 个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.1424",
+                        PricePerTier: "1.1424"
                     },
                     {
                         Name: "vCore 2",
                         Description: "2 个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.2847",
+                        PricePerTier: "2.2847"
                     },
                     {
                         Name: "vCore 4",
                         Description: "4  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694",
+                        PricePerTier: "4.5694"
                     },
                     {
                         Name: "vCore 8",
                         Description: "8  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389",
+                        PricePerTier: "9.1389"
                     },
                     {
                         Name: "vCore 16",
                         Description: "16  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2777",
+                        PricePerTier: "18.2777"
                     },
                     {
                         Name: "vCore 24",
                         Description: "24  个内核",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.4166",
+                        PricePerTier: "27.4166"
                     }]
                 },
                 {
@@ -8696,36 +8696,36 @@ var CalculatorData = {
                             Name: "vCore 1",
                             Description: "1 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "2.2847",
+                            PricePerTier: "2.2847"
                         }, {
                             Name: "vCore 2",
                             Description: "2 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4.5694",
+                            PricePerTier: "4.5694"
                         },
                         {
                             Name: "vCore 4",
                             Description: "4 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "9.1389",
+                            PricePerTier: "9.1389"
                         },
                         {
                             Name: "vCore 8",
                             Description: "8 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.2778",
+                            PricePerTier: "18.2778"
                         },
                         {
                             Name: "vCore 16",
                             Description: "16 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "36.5556",
+                            PricePerTier: "36.5556"
                         },
                         {
                             Name: "vCore 24",
                             Description: "24 个内核",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "54.8334",
+                            PricePerTier: "54.8334"
                         }]
                 },
                 {
@@ -8760,7 +8760,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "数据库大小限制 2GB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "32.24",
+                        PricePerTier: "32.24"
                     }]
                 }]
             },
@@ -8776,55 +8776,55 @@ var CalculatorData = {
                         Name: CalculatorConst.S0Size,
                         Description: CalculatorConst.S0SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "97.03",
+                        PricePerTier: "97.03"
                     },
                     {
                         Name: CalculatorConst.S1Size,
                         Description: CalculatorConst.S1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "193.44",
+                        PricePerTier: "193.44"
                     },
                     {
                         Name: CalculatorConst.S2Size,
                         Description: CalculatorConst.S2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "485.15",
+                        PricePerTier: "485.15"
                     },
                     {
                         Name: CalculatorConst.S3Size,
                         Description: CalculatorConst.S3SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "969.37",
+                        PricePerTier: "969.37"
                     },
                     {
                         Name: CalculatorConst.S4Size,
                         Description: CalculatorConst.S4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2011.7016",
+                        PricePerTier: "2011.7016"
                     },
                     {
                         Name: CalculatorConst.S6Size,
                         Description: CalculatorConst.S6SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4023.4032",
+                        PricePerTier: "4023.4032"
                     },
                     {
                         Name: CalculatorConst.S7Size,
                         Description: CalculatorConst.S7SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8046.732",
+                        PricePerTier: "8046.732"
                     },
                     {
                         Name: CalculatorConst.S9Size,
                         Description: CalculatorConst.S9SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "16093.5384",
+                        PricePerTier: "16093.5384"
                     },
                     {
                         Name: CalculatorConst.S12Size,
                         Description: CalculatorConst.S12SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "30175.3752",
+                        PricePerTier: "30175.3752"
                     }]
                 }]
             },
@@ -8840,25 +8840,25 @@ var CalculatorData = {
                         Name: CalculatorConst.PRS1Size,
                         Description: CalculatorConst.PRS1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "750.28",
+                        PricePerTier: "750.28"
                     },
                     {
                         Name: CalculatorConst.PRS2Size,
                         Description: CalculatorConst.PRS2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1500.56",
+                        PricePerTier: "1500.56"
                     },
                     {
                         Name: CalculatorConst.PRS4Size,
                         Description: CalculatorConst.PRS4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3001.10",
+                        PricePerTier: "3001.10"
                     },
                     {
                         Name: CalculatorConst.PRS6Size,
                         Description: CalculatorConst.PRS6SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6002.13",
+                        PricePerTier: "6002.13"
                     }]
                 }]
             },
@@ -8874,37 +8874,37 @@ var CalculatorData = {
                         Name: CalculatorConst.P1Size,
                         Description: CalculatorConst.P1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3001.11",
+                        PricePerTier: "3001.11"
                     },
                     {
                         Name: CalculatorConst.P2Size,
                         Description: CalculatorConst.P2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6002.22",
+                        PricePerTier: "6002.22"
                     },
                     {
                         Name: CalculatorConst.P4Size,
                         Description: CalculatorConst.P4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12004.44",
+                        PricePerTier: "12004.44"
                     },
                     {
                         Name: CalculatorConst.P6Size,
                         Description: CalculatorConst.P6SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24008.57",
+                        PricePerTier: "24008.57"
                     },
                     {
                         Name: CalculatorConst.P11Size,
                         Description: CalculatorConst.P11SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "45131.66",
+                        PricePerTier: "45131.66"
                     },
                     {
                         Name: CalculatorConst.P15Size,
                         Description: CalculatorConst.P15SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "103155.91",
+                        PricePerTier: "103155.91"
                     }]
                 }]
             },
