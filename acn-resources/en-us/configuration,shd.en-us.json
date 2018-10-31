@@ -132,7 +132,11 @@
         "InnerServices": [
           {
             "ServiceName": "ExpressRoute Circuits",
-            "Slug": "expressroute\\circuits"
+            "Slug": "expressroute\\circuits",
+            "Region": {
+              "ChinaEast": true,
+              "ChinaNorth": true
+            }
           },
           {
             "ServiceName": "ExpressRoute Gateways",
@@ -217,6 +221,30 @@
           "ChinaEast": true,
           "ChinaNorth": true
         }
+      },
+      {
+        "ServiceName": "Customer Engagement Fabric",
+        "Slug": "customer-engagement-fabric",
+        "Region": {
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "SMS",
+            "Slug": "cef-sms",
+            "Region": {
+              "ChinaNorth": true
+            }
+          },
+          {
+            "ServiceName": "Social Login",
+            "Slug": "cef-social-login",
+            "Region": {
+              "ChinaNorth": true
+            }
+          }
+        ]
       }
     ]
   },
