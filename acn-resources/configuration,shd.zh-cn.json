@@ -229,6 +229,30 @@
           "ChinaEast": true,
           "ChinaNorth": true
         }
+      },
+      {
+        "ServiceName": "用户连接服务",
+        "Slug": "customer-engagement-fabric",
+        "Region": {
+          "ChinaNorth": true
+        },
+        "HasInnerServices": true,
+        "InnerServices": [
+          {
+            "ServiceName": "短信通知",
+            "Slug": "cef-sms",
+            "Region": {
+              "ChinaNorth": true
+            }
+          },
+          {
+            "ServiceName": "第三方登录",
+            "Slug": "cef-social-login",
+            "Region": {
+              "ChinaNorth": true
+            }
+          }
+        ]
       }
     ]
   },

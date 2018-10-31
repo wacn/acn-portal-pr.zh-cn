@@ -15934,6 +15934,56 @@
                     }]
                 }]
             }]
+        },
+        "customer-engagement-fabric": {
+            "Name": "用户连接服务",
+            "Types": [{
+                "Name": "短信价格",
+                "Features": [{
+                    "Name": "行业短信/验证码",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,100000,100001,500000,500001,1000000,1000001,3000000,3000001,10000000",
+                        "PricePerTier": "0.042,0.040,0.038,0.037,0.036",
+                        "MinUnit": "0",
+                        "MaxUnit": "10000000",
+                        "PriceUnit": "条"
+                    }]
+                },
+                {
+                    "Name": "会员营销短信",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,100000,100001,500000,500001,1000000,1000001,3000000,3000001,10000000",
+                        "PricePerTier": "0.052,0.050,0.048,0.047,0.046",
+                        "MinUnit": "0",
+                        "MaxUnit": "10000000",
+                        "PriceUnit": "条"
+                    }]
+                }]
+            },
+            {
+                "Name": "第三方登录",
+                "Features": [{
+                    "Name": "default",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "目前为免费服务。每个月可支持10万MAU。",
+                        "PriceTier": "PriceTierEnum.Free",
+                        "PricePerTier": "0",
+                    }]
+                }]
+            }]
         }
     }
 }
