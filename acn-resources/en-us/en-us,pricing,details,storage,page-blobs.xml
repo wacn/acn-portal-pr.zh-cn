@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="data-transfer" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-11-02T12:00:00" urlName="data-transfer" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
       	<style type="text/css">
@@ -80,6 +80,101 @@
 							<!-- BEGIN: Table1-Content-->	
 							<div class="tab-panel" id="tabContent1">
 								<p>General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the lowest GB storage prices. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.</p>
+								<h3>Premium Non-Managed Disk and Page Blob</h3>
+								<p>Premium Non-Managed Disk, a high-performance storage based on a solid state drive (SSD), aims to support I/O intensive workloads through extremely large throughput and extremely low delay. With the help of Premium Non-Managed Disk, we can set permanent disk and configure its size and performance characteristics. </p>
+								<p>The total expenses of Premium Non-Managed Disk depends on the disk size and quantity, and is subjected to the <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">outgoing data transmission</a>. The disk size provides different input/output operations per second (IOP), throughput limit and monthly pricing per GB. We can select necessary options most appropriate to applications, including storage size, IOP and throughput. We can add several permanent disks onto the VM and configure at most 64 TB storage space to every VM. The disk throughput of every VM can reach up to 80,000 (number of input/output operations per second) and 1600 MB/second, with a read delay of less than 1 millisecond. Premium Non-Managed Disk is supported by the sizes of the DS Series, DSv2 Series and FS Series VMs exclusively used for Premium Disk. The pricing and billing standards of DS Series VMs are the same as the D Series VMs. </p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>PAGE BLOB TYPES</strong></th>
+										<th align="left"><strong>P10</strong></th>
+										<th align="left"><strong>P20</strong></th>
+										<th align="left"><strong>P30</strong></th>
+										<th align="left"><strong>P40</strong></th>
+										<th align="left"><strong>P50</strong></th>
+										<th align="left"><strong>P60<sup>1</sup></strong></th>
+									</tr>
+									<tr>
+										<td>Disk sizes</td>
+										<td>128 GB</td>
+										<td>512 GB</td>
+										<td>1 TB</td>
+										<td>2 TB</td>
+										<td>4 TB</td>
+										<td>8 TB</td>
+									</tr>
+									<tr>
+										<td>Monthly pricing</td>
+										<td>￥ 132.15</td>
+										<td>￥ 490.93</td>
+										<td>￥ 906.29</td>
+										<td>￥ 1,736.83</td>
+										<td>¥ 3,322.63</td>
+										<td>¥ 6,343.21</td>
+									</tr>
+									<tr>
+										<td>IOP of every disk</td>
+										<td>500</td>
+										<td>2,300</td>
+										<td>5,000</td>
+										<td>7,500</td>
+										<td>7,500</td>
+										<td>7,500</td>
+									</tr>
+									<tr>
+										<td>Throughput of every disk</td>
+										<td>100 MB /second</td>								<td>150 MB /second</td>
+										<td>200 MB /second</td>
+										<td>250 MB /second</td>
+										<td>250 MB /second</td>
+										<td>250 MB /second</td>
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date">Premium Disk has no transaction processing expenses.</div></br>
+									<div class="ms-date"><sup>1 </sup>Azure does not support P60 serving as the disk of the Virtual Machine. Page Blob supports accessing P60 through REST.</div>
+								</div>
+								<p>We also support three additional page blob types that require you to deploy with Blob Tier set explicitly. If you deploy the page blob or unmanaged disks only specifying the target size, it will be rounded up to the supported page blob types listed in the table above.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"></th>
+										<th align="left"><strong>P4</strong></th>
+										<th align="left"><strong>P6</strong></th>
+										<th align="left"><strong>P15</strong></th>
+									</tr>
+									<tr>
+										<td>Disk Size</td>
+										<td>32 GB</td>
+										<td>64 GB</td>
+										<td>256 GB</td>
+									</tr>
+									<tr>
+										<td>Price per month</td>
+										<td>¥ 47.53</td>
+										<td>¥ 91.9</td>
+										<td>¥ 254.86</td>
+									</tr>
+									<tr>
+										<td>IOPs per disk</td>
+										<td>120</td>
+										<td>240</td>
+										<td>1,100</td>
+									</tr>
+									<tr>
+										<td>Throughput per disk</td>
+										<td>25 MB/second</td>
+										<td>50 MB/second</td>
+										<td>125 MB/second</td>
+									</tr>
+								</table>
+								<p>The pricing of screenshots is charged at the rate of ￥ 2.35/GB per month. </p>
 								<h4>Data storage prices for Standard Page Blobs</h4>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div><br/>
@@ -159,12 +254,10 @@
 									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
 									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
 								</div>
-								<p>The pricing of screenshots is charged at the rate of ￥ 2.35/GB per month. </p>
 								<table cellpadding="0" cellspacing="0" width="100%">
 									<tr>
-										<th align="left"><strong>Disk Types</strong></th>
+										<th align="left"><strong>PAGE BLOB TYPES</strong></th>
 										<th align="left"><strong>P10</strong></th>
-										<th align="left"><strong>P15</strong></th>
 										<th align="left"><strong>P20</strong></th>
 										<th align="left"><strong>P30</strong></th>
 										<th align="left"><strong>P40</strong></th>
@@ -174,7 +267,6 @@
 									<tr>
 										<td>Disk sizes</td>
 										<td>128 GB</td>
-										<td>256 GB</td>
 										<td>512 GB</td>
 										<td>1 TB</td>
 										<td>2 TB</td>
@@ -184,7 +276,6 @@
 									<tr>
 										<td>Monthly pricing</td>
 										<td>￥ 132.15</td>
-										<td>￥ 254.86</td>
 										<td>￥ 490.93</td>
 										<td>￥ 906.29</td>
 										<td>￥ 1,736.83</td>
@@ -194,7 +285,6 @@
 									<tr>
 										<td>IOP of every disk</td>
 										<td>500</td>
-										<td>1,100</td>
 										<td>2,300</td>
 										<td>5,000</td>
 										<td>7,500</td>
@@ -203,9 +293,7 @@
 									</tr>
 									<tr>
 										<td>Throughput of every disk</td>
-										<td>100 MB /second</td>
-										<td>125 MB /second</td>									
-										<td>150 MB /second</td>
+										<td>100 MB /second</td>								<td>150 MB /second</td>
 										<td>200 MB /second</td>
 										<td>250 MB /second</td>
 										<td>250 MB /second</td>
@@ -216,6 +304,44 @@
 									<div class="ms-date">Premium Disk has no transaction processing expenses.</div></br>
 									<div class="ms-date"><sup>1 </sup>Azure does not support P60 serving as the disk of the Virtual Machine. Page Blob supports accessing P60 through REST.</div>
 								</div>
+								<p>We also support three additional page blob types that require you to deploy with Blob Tier set explicitly. If you deploy the page blob or unmanaged disks only specifying the target size, it will be rounded up to the supported page blob types listed in the table above.</p>
+								<div class="tags-date">
+									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"></th>
+										<th align="left"><strong>P4</strong></th>
+										<th align="left"><strong>P6</strong></th>
+										<th align="left"><strong>P15</strong></th>
+									</tr>
+									<tr>
+										<td>Disk Size</td>
+										<td>32 GB</td>
+										<td>64 GB</td>
+										<td>256 GB</td>
+									</tr>
+									<tr>
+										<td>Price per month</td>
+										<td>¥ 47.53</td>
+										<td>¥ 91.9</td>
+										<td>¥ 254.86</td>
+									</tr>
+									<tr>
+										<td>IOPs per disk</td>
+										<td>120</td>
+										<td>240</td>
+										<td>1,100</td>
+									</tr>
+									<tr>
+										<td>Throughput per disk</td>
+										<td>25 MB/second</td>
+										<td>50 MB/second</td>
+										<td>125 MB/second</td>
+									</tr>
+								</table>
+								<p>The pricing of screenshots is charged at the rate of ￥ 2.35/GB per month. </p>
 								<h4>Standard Non-Managed Disk and Page Blob</h4>
 								<p>Standard Disks employ a hard disk drive (HDD)-based storage medium. They are most suitable for development/testing not sensitive to performance changes and other non-frequent access workloads.</p>
 								<p>Standard unmanaged disk storage charges for stored data size (GB) , quantity of transactions and <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">outgoing data transmission</a>.</p>

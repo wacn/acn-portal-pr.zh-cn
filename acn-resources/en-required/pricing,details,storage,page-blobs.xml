@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="data-transfer" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-11-02T12:00:00" urlName="data-transfer" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
       	<style type="text/css">
@@ -81,6 +81,102 @@
 							<!-- BEGIN: Table1-Content-->	
 							<div class="tab-panel" id="tabContent1">
 								<p>常规用途 v2 的定价针对 GB 存储最低价格进行了优化，通过它可以访问最新的 Azure 存储功能，包括冷存储和存档存储。使用这些帐户可访问块 Blob、页 Blob、文件和队列。</p>
+								<h4>高级非托管磁盘和页 Blob</h4>
+								<p>高级非托管磁盘是基于固态硬盘 (SSD) 的高性能存储器，旨在通过极大吞吐量和极低延迟来支持 I/O 密集型工作负荷。借助高级非托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
+								<p>高级非托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量限制和每 GB 每月价格。可选择最符合应用程序的所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对于每个 VM 配置最多 64 TB 的存储，，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级非托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、 FS 系列 VM 大小的支持。DS 系列虚拟机的定价和计费标准与 D 系列虚拟机相同。</p>
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br />
+									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"><strong>页 BLOB 类型</strong></th>
+										<th align="left"><strong>P10</strong></th>
+										<th align="left"><strong>P20</strong></th>
+										<th align="left"><strong>P30</strong></th>
+										<th align="left"><strong>P40</strong></th>
+										<th align="left"><strong>P50</strong></th>
+										<th align="left"><strong>P60<sup>1</sup></strong></th>
+									</tr>
+									<tr>
+										<td>磁盘大小</td>
+										<td>128 GB</td>
+										<td>512 GB</td>
+										<td>1 TB</td>
+										<td>2 TB</td>
+										<td>4 TB</td>
+										<td>8 TB</td>
+									</tr>
+									<tr>
+										<td>每月价格</td>
+										<td>￥132.15</td>
+										<td>￥490.93</td>
+										<td>￥906.29</td>
+										<td>￥1,736.83</td>
+										<td>￥3,322.63</td>
+										<td>￥6,343.21</td>
+									</tr>
+									<tr>
+										<td>每个磁盘的 IOP</td>
+										<td>500</td>
+										<td>2,300</td>
+										<td>5,000</td>
+										<td>7,500</td>
+										<td>7,500</td>
+										<td>7,500</td>
+									</tr>
+									<tr>
+										<td>每个磁盘的吞吐量</td>
+										<td>100 MB / 秒</td>
+										<td>150 MB / 秒</td>
+										<td>200 MB / 秒</td>
+										<td>250 MB / 秒</td>
+										<td>250 MB / 秒</td>
+										<td>250 MB / 秒</td>
+									</tr>
+								</table>
+								<div class="tags-date">
+									<div class="ms-date">高级磁盘没有事务处理费用。</div></br>
+									<div class="ms-date"><sup>1 </sup>Azure 不支持将 P60 作为虚拟机的磁盘。 页 Blob 支持通过 REST 访问 P60。</div>
+								</div>
+								<p>我们还额外支持三个页 blob 类型，这要求你使用 Blob 层集进行显式部署。如果你部署了仅指定目标大小的页 blob 或未托管磁盘，则将向上舍入到上表中列出的受支持的页 blob 类型。</p>
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br />
+									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"></th>
+										<th align="left"><strong>P4</strong></th>
+										<th align="left"><strong>P6</strong></th>
+										<th align="left"><strong>P15</strong></th>
+									</tr>
+									<tr>
+										<td>磁盘大小</td>
+										<td>32 GB</td>
+										<td>64 GB</td>
+										<td>256 GB</td>
+									</tr>
+									<tr>
+										<td>每月价格</td>
+										<td>¥ 47.53</td>
+										<td>¥ 91.9</td>
+										<td>¥ 254.86</td>
+									</tr>
+									<tr>
+										<td>每个磁盘的 IOP</td>
+										<td>120</td>
+										<td>240</td>
+										<td>1,100</td>
+									</tr>
+									<tr>
+										<td>每个磁盘的吞吐量</td>
+										<td>25 MB/秒</td>
+										<td>50 MB/秒</td>
+										<td>125 MB/秒</td>
+									</tr>
+								</table>
+								<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
 								<h4>标准页 Blob 的数据存储价格</h4>
 								<div class="tags-date">
 									<div class="ms-date">*以下价格均为含税价格。</div><br/>
@@ -159,12 +255,10 @@
 									<div class="ms-date">*以下价格均为含税价格。</div><br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
 								</div>
-								<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
 								<table cellpadding="0" cellspacing="0" width="100%">
 									<tr>
-										<th align="left"><strong>磁盘类型</strong></th>
+										<th align="left"><strong>页 BLOB 类型</strong></th>
 										<th align="left"><strong>P10</strong></th>
-										<th align="left"><strong>P15</strong></th>
 										<th align="left"><strong>P20</strong></th>
 										<th align="left"><strong>P30</strong></th>
 										<th align="left"><strong>P40</strong></th>
@@ -174,7 +268,6 @@
 									<tr>
 										<td>磁盘大小</td>
 										<td>128 GB</td>
-										<td>256 GB</td>
 										<td>512 GB</td>
 										<td>1 TB</td>
 										<td>2 TB</td>
@@ -184,7 +277,6 @@
 									<tr>
 										<td>每月价格</td>
 										<td>￥132.15</td>
-										<td>￥254.86</td>
 										<td>￥490.93</td>
 										<td>￥906.29</td>
 										<td>￥1,736.83</td>
@@ -194,7 +286,6 @@
 									<tr>
 										<td>每个磁盘的 IOP</td>
 										<td>500</td>
-										<td>1,100</td>
 										<td>2,300</td>
 										<td>5,000</td>
 										<td>7,500</td>
@@ -204,7 +295,6 @@
 									<tr>
 										<td>每个磁盘的吞吐量</td>
 										<td>100 MB / 秒</td>
-										<td>125 MB / 秒</td>									
 										<td>150 MB / 秒</td>
 										<td>200 MB / 秒</td>
 										<td>250 MB / 秒</td>
@@ -216,6 +306,44 @@
 									<div class="ms-date">高级磁盘没有事务处理费用。</div></br>
 									<div class="ms-date"><sup>1 </sup>Azure 不支持将 P60 作为虚拟机的磁盘。 页 Blob 支持通过 REST 访问 P60。</div>
 								</div>
+								<p>我们还额外支持三个页 blob 类型，这要求你使用 Blob 层集进行显式部署。如果你部署了仅指定目标大小的页 blob 或未托管磁盘，则将向上舍入到上表中列出的受支持的页 blob 类型。</p>
+								<div class="tags-date">
+									<div class="ms-date">*以下价格均为含税价格。</div><br />
+									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+								</div>
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<th align="left"></th>
+										<th align="left"><strong>P4</strong></th>
+										<th align="left"><strong>P6</strong></th>
+										<th align="left"><strong>P15</strong></th>
+									</tr>
+									<tr>
+										<td>磁盘大小</td>
+										<td>32 GB</td>
+										<td>64 GB</td>
+										<td>256 GB</td>
+									</tr>
+									<tr>
+										<td>每月价格</td>
+										<td>¥ 47.53</td>
+										<td>¥ 91.9</td>
+										<td>¥ 254.86</td>
+									</tr>
+									<tr>
+										<td>每个磁盘的 IOP</td>
+										<td>120</td>
+										<td>240</td>
+										<td>1,100</td>
+									</tr>
+									<tr>
+										<td>每个磁盘的吞吐量</td>
+										<td>25 MB/秒</td>
+										<td>50 MB/秒</td>
+										<td>125 MB/秒</td>
+									</tr>
+								</table>
+								<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
 								<h4>标准非托管磁盘和页 Blob</h4>
 								<p>标准磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
 								<p>标准非托管磁盘存储按存储的数据大小 (GB) 、事务数量以及<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">出站数据传输</a>量收费。</p>
