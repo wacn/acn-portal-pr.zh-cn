@@ -6702,6 +6702,28 @@ var CalculatorData = {
                 }]
             }]
         },
+        "storage-page-blobs-gpv1-premium-snapshots": {
+            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1 - 快照",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "快照",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "2.35",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
 
         "storage-manager-disk-gpv1-standard": {
             Name: "存储 - 标准托管磁盘 - 常规用途 v1",
@@ -6898,8 +6920,8 @@ var CalculatorData = {
                 }]
             }]
         },
-        "storage-page-blobs-gpv1-ummanager-disk-premium": {
-            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1",
+        "storage-page-blobs-gpv2-ummanager-disk-premium": {
+            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2",
             Types: [{
                 Name: "P10",
                 Features: [{
@@ -6913,22 +6935,6 @@ var CalculatorData = {
                         Description: "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "132.15",
-                    }]
-                }]
-            },
-            {
-                Name: "P15",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "磁盘大小 256GB，磁盘读写 (IOPS)1000，磁盘吞吐 125MB/sec",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "254.86",
                     }]
                 }]
             },
@@ -6976,7 +6982,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 2TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1736.83",
+                        PricePerTier: "1736.83"
                     }]
                 }]
             },
@@ -6992,7 +6998,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 4TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3322.63",
+                        PricePerTier: "3322.63"
                     }]
                 }]
             },
@@ -7011,9 +7017,512 @@ var CalculatorData = {
                         PricePerTier: "6343.21",
                     }]
                 }]
+            },
+            {
+                Name: "P4",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 32 GB，磁盘读写 (IOPS)120，磁盘吞吐 25MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "47.53",
+                    }]
+                }]
+            },
+            {
+                Name: "P6",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 64 GB，磁盘读写 (IOPS)240，磁盘吞吐 50MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "91.9",
+                    }]
+                }]
+            },
+            {
+                Name: "P15",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 256GB，磁盘读写 (IOPS)1000，磁盘吞吐 125MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "254.86",
+                    }]
+                }]
             }]
         },
-
+        "storage-page-blobs-gpv2-premium-snapshots": {
+            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2 - 快照",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "快照",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "2.35",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+        "storage-page-blobs-gpv2-standard": {
+            Name: "存储 - 标准页 Blob - 常规用途 v2 - 数据存储价格",
+            Types: [{
+                Name: "LRS",
+                Features: [{
+                    Name: "页 Blob",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.4579",
+                        MinUnit: "0",
+                        MaxUnit: "20000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "页 Blob",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.6106",
+                        MinUnit: "0",
+                        MaxUnit: "20000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "页 Blob",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.7632",
+                        MinUnit: "0",
+                        MaxUnit: "20000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+        "storage-page-blobs-gpv2-unmanager-disk-standard-access": {
+            Name: "存储 - 非托管磁盘的页 Blob - 常规用途 v2 - 数据传输价格",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "读取、写入和删除等操作",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0051",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            }]
+        }, 
+        "storage-page-blobs-gpv2-page-blobs-access": {
+            Name: "存储 - 页 Blob（非磁盘） - 常规用途 v2 - 操作价格",
+            Types: [{
+                Name: "LRS",
+                Features: [{
+                    Name: "写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0153",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "写入额外 IO 单位（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0237",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0153",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取额外 IO 单位（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0017",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.3053",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "写入额外 IO 单位（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0474",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0153",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取额外 IO 单位（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0017",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.3053",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "写入额外 IO 单位（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0474",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0153",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
+                    Name: "读取额外 IO 单位（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0017",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            }]
+        },
+        "storage-page-blobs-gpv1-ummanager-disk-premium": {
+            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1",
+            Types: [{
+                Name: "P10",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "132.15",
+                    }]
+                }]
+            },
+            {
+                Name: "P20",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 512GB，磁盘读写 (IOPS)2300，磁盘吞吐 150MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "490.93",
+                    }]
+                }]
+            },
+            {
+                Name: "P30",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 1TB，磁盘读写 (IOPS)5000，磁盘吞吐 200MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "906.29",
+                    }]
+                }]
+            },
+            {
+                Name: "P40",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 2TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1736.83"
+                    }]
+                }]
+            },
+            {
+                Name: "P50",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 4TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3322.63"
+                    }]
+                }]
+            },
+            {
+                Name: "P60",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 8TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6343.21",
+                    }]
+                }]
+            },
+            {
+                Name: "P4",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 32 GB，磁盘读写 (IOPS)120，磁盘吞吐 25MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "47.53",
+                    }]
+                }]
+            },
+            {
+                Name: "P6",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 64 GB，磁盘读写 (IOPS)240，磁盘吞吐 50MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "91.9",
+                    }]
+                }]
+            },
+            {
+                Name: "P15",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 256GB，磁盘读写 (IOPS)1000，磁盘吞吐 125MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "254.86",
+                    }]
+                }]
+            }]
+        },
+        
         "storage-page-blobs-gpv1-ummanager-disk-standard": {
             Name: "存储 - 标准非托管磁盘和页 Blob - 常规用途 v1",
             Types: [{

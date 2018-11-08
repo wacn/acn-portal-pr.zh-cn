@@ -5861,7 +5861,7 @@
             }]
         },
 
-         "storage-manager-disk-gpv2-access": {
+        "storage-manager-disk-gpv2-access": {
             "Name": "存储 - 托管磁盘 - 常规用途 v2 - 操作和数据传输价格",
             "Types": [{
                 "Name": "LRS",
@@ -6366,7 +6366,176 @@
                     }]
                 }]
             }]
-        },  
+        }, 
+        "storage-page-blobs-gpv2-ummanager-disk-premium": {
+            "Name": "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2",
+            "Types": [{
+                "Name": "P10",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "132.15",
+                    }]
+                }]
+            },
+            {
+                "Name": "P20",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 512GB，磁盘读写 (IOPS)2300，磁盘吞吐 150MB/sec",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "490.93",
+                    }]
+                }]
+            },
+            {
+                "Name": "P30",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 1TB，磁盘读写 (IOPS)5000，磁盘吞吐 200MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "906.29",
+                    }]
+                }]
+            },
+            {
+                "Name": "P40",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 2TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "1736.83"
+                    }]
+                }]
+            },
+            {
+                "Name": "P50",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 4TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "3322.63"
+                    }]
+                }]
+            },
+            {
+                "Name": "P60",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 8TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "6343.21",
+                    }]
+                }]
+            },
+            {
+                "Name": "P4",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 32 GB，磁盘读写 (IOPS)120，磁盘吞吐 25MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "47.53",
+                    }]
+                }]
+            },
+            {
+                "Name": "P6",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 64 GB，磁盘读写 (IOPS)240，磁盘吞吐 50MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "91.9",
+                    }]
+                }]
+            },
+            {
+                "Name": "P15",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 256GB，磁盘读写 (IOPS)1000，磁盘吞吐 125MB/sec",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "254.86",
+                    }]
+                }]
+            }]
+        },
+        "storage-page-blobs-gpv2-premium-snapshots": {
+            "Name": "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2 - 快照",
+            "Types": [{
+                "Name": "default",
+                "Features": [{
+                    "Name": "快照",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,5000",
+                        "PricePerTier": "2.35",
+                        "MinUnit": "0",
+                        "MaxUnit": "5000",
+                        "PriceUnit": "GB"
+                    }]
+                }]
+            }]
+        },
         "storage-page-blobs-gpv2-standard": {
             "Name": "存储 - 标准页 Blob - 常规用途 v2 - 数据存储价格",
             "Types": [{
@@ -6667,23 +6836,7 @@
                         "Name": "default",
                         "Description": "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "132.15"
-                    }]
-                }]
-            },
-            {
-                "Name": "P15",
-                "Features": [{
-                    "Name": "default",
-                    "PricePeriod": "PricePeriodEnum.Monthly",
-                    "PriceUnit": "个",
-                    "MinUnit": "0",
-                    "MaxUnit": "20",
-                    "Sizes": [{
-                        "Name": "default",
-                        "Description": "磁盘大小 256GB，磁盘读写 (IOPS)1000，磁盘吞吐 125MB/sec",
-                        "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "254.86"
+                        "PricePerTier": "132.15",
                     }]
                 }]
             },
@@ -6699,7 +6852,7 @@
                         "Name": "default",
                         "Description": "磁盘大小 512GB，磁盘读写 (IOPS)2300，磁盘吞吐 150MB/sec",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "490.93"
+                        "PricePerTier": "490.93",
                     }]
                 }]
             },
@@ -6715,7 +6868,7 @@
                         "Name": "default",
                         "Description": "磁盘大小 1TB，磁盘读写 (IOPS)5000，磁盘吞吐 200MB/sec ",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "906.29"
+                        "PricePerTier": "906.29",
                     }]
                 }]
             },
@@ -6763,7 +6916,77 @@
                         "Name": "default",
                         "Description": "磁盘大小 8TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
                         "PriceTier": "PriceTierEnum.Fixed",
-                        "PricePerTier": "6343.21"
+                        "PricePerTier": "6343.21",
+                    }]
+                }]
+            },
+            {
+                "Name": "P4",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 32 GB，磁盘读写 (IOPS)120，磁盘吞吐 25MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "47.53",
+                    }]
+                }]
+            },
+            {
+                "Name": "P6",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 64 GB，磁盘读写 (IOPS)240，磁盘吞吐 50MB/sec ",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "91.9",
+                    }]
+                }]
+            },
+            {
+                "Name": "P15",
+                "Features": [{
+                    "Name": "default",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "磁盘大小 256GB，磁盘读写 (IOPS)1000，磁盘吞吐 125MB/sec",
+                        "PriceTier": "PriceTierEnum.Fixed",
+                        "PricePerTier": "254.86",
+                    }]
+                }]
+            }]
+        },
+        "storage-page-blobs-gpv1-premium-snapshots": {
+            "Name": "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1 - 快照",
+            "Types": [{
+                "Name": "default",
+                "Features": [{
+                    "Name": "快照",
+                    "PricePeriod": "PricePeriodEnum.Monthly",
+                    "PriceUnit": "个",
+                    "MinUnit": "0",
+                    "MaxUnit": "20",
+                    "Sizes": [{
+                        "Name": "default",
+                        "Description": "default",
+                        "PriceTier": "0,5000",
+                        "PricePerTier": "2.35",
+                        "MinUnit": "0",
+                        "MaxUnit": "5000",
+                        "PriceUnit": "GB"
                     }]
                 }]
             }]
