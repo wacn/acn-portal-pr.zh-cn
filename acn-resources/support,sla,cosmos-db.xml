@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-08T15:00:00">
     <bodyText>
     <![CDATA[
          <p><tags ms.service="legal" ms.date="12/2017" wacn.date="12/2017" wacn.lang="cn"/></p>
 
-        <h1>Azure Cosmos DB 的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2017年12月</div></div>
+        <h1>Azure Cosmos DB 的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2018年11月</div></div>
         <p>在中国由世纪互联运营的<a href="/home/features/cosmos-db/">Azure Cosmos DB</a>是<a href="//docs.azure.cn/zh-cn/cosmos-db/distribute-data-globally/">分布式</a>多模型数据库服务。它在中国不同 Azure 数据中心提供统包数据分发，无论您的用户位于何处，其均可以透明方式调整及复制您的数据。该服务提供全面的 99.99% 服务级别协议，包括对配置有五种一致性水平中任意一种的单个 Azure 区域的 Cosmos DB 数据库帐户，或是配置有四种松散一致性水平中任意一种的跨多个 Azure 区域的数据库帐户的吞吐量、一致性、可用性和延迟保证。此外，除一致性水平选择之外，Cosmos DB 还提供跨两个或多个 Azure 区域数据库帐户的读取可用性为 99.999% 的服务级别协议。</p>
         <h2>引言</h2>
         <p>本 Azure 服务级别协议（以下简称“服务级别协议”）由世纪互联制定，与客户从世纪互联处购买 Azure 服务所依据的协议（以下简称“协议”）相关并构成该协议的一部分。</p>
@@ -210,8 +210,6 @@
             <li>
                 <p>Azure Cosmos DB 服务的“<strong>每月可用性百分比</strong>”通过以下方式计算：100% 减去指定 Azure 订购在一个帐单月份中的平均错误率，其中该服务可通过配置有五种一致性水平中任意一种的单个区域的 Cosmos DB 数据库帐户，或是配置有四种松散一致性水平中任意一种的跨多个区域的数据库帐户进行部署。每月可用性百分比计算公式如下所示：</p>
                 <p>每月正常服务时间 % = 100% - 平均错误率</p>
-            </li>
-            <li>
                 <p>服务费抵扣：</p>
                 <table>
                     <thead>
@@ -235,13 +233,34 @@
             <li>
                 <p>Azure Cosmos DB 服务“<strong>每月读取可用性百分比</strong>”通过以下方式计算：100% 减去指定 Azure 订购在一个帐单月份中的平均读取错误率，其中该服务可通过配置为跨两个或多个区域的数据库帐户进行部署。每月读取可用性百分比计算公式如下所示：</p>
                 <p>每月读取可用性正常服务时间 % = 100% - 平均读取错误率</p>
-            </li>
-            <li>
                 <p>服务费抵扣：</p>
                 <table>
                     <thead>
                     <tr>
                         <th>每月读取可用性百分比</th>
+                        <th>服务费抵扣</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.999%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <p>Azure Cosmos DB 服务“<strong>每月多重写入位置可用性百分比</strong>”通过以下方式计算：100% 减去指定 Azure 订购在一个帐单月份中的平均错误率，其中该服务可通过配置为跨多个 Azure 区域有多个可写位置的数据库帐户进行部署。每月可用性百分比计算公式如下所示：</p>
+                <p>每月正常服务时间 % = 100% - 平均错误率</p>
+                <p>服务费抵扣：</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>每月多重写入位置可用性百分比</th>
                         <th>服务费抵扣</th>
                     </tr>
                     </thead>
