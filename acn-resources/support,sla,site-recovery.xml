@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-08T15:00:00">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal" ms.date="03/2016" wacn.date="03/2016" wacn.lang="cn"/></p>
 
-        <h1>站点恢复的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2016年03月</div></div>
+        <h1>站点恢复的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2018年11月</div></div>
         <p>对于为本地到本地的故障转移配置的每个受保护的实例，我们都保证站点恢复服务至少有 99.9% 的可用性。</p>
         <p>对于本地部署到 Azure 的计划和非计划故障转移的每个受保护实例，我们保证未加密受保护实例的恢复时间为 4 小时，加密受保护实例为 6 小时，由受保护实例的大小而定。</p>
         <h2>引言</h2>
@@ -187,29 +187,48 @@
         <p>“<strong>恢复时间目标 (RTO)</strong>”是指从客户对于出现了本地到 Azure 复制中断（可能是计划中的也可能是非计划的）的受保护实例，发起故障转移之时起，至该受保护实例在Azure 中作为虚拟机开始运行时为止的一段时间，不包括与手动操作或执行客户脚本相关的任何时间。</p>
         </li>
         <li>
-        <p>关于在指定帐单月份期间配置为进行本地到 Azure 复制的特定受保护实例的“<strong>每月恢复时间目标</strong>”，对于未加密的受保护实例该时间目标为四 (4) 小时，对于加密的受保护实例该时间目标为六 (6) 小时。每超过初始 100GB 受保护实例大小 25GB，每月恢复时间目标就将增加一小时。</p>
+        <p>在一个指定帐单月份期间，为本地到 Azure 的复制配置的特定受保护实例的“<strong>每月恢复时间目标</strong>”为两小时。</p>
         </li>
         <li>
-        <p>以下服务级别和服务费抵扣适用于客户对本地到 Azure 故障转移站点恢复服务内的每个受保护实例的使用，假设受保护实例的大小为 100GB 或更小：</p>
+        <p>以下服务级别和服务费抵扣适用于客户对本地到 Azure 故障转移站点恢复服务内的每个受保护实例的使用。</p>
         </li>
         </ol>
         <table>
         <thead>
         <tr>
-            <th>受保护实例</th>
             <th>每月恢复时间目标</th>
             <th>服务费抵扣</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>未加密</td>
-            <td>&gt; 4 个小时</td>
+            <td>&gt; 2 个小时</td>
             <td>100%</td>
         </tr>
+        </tbody>
+        </table>
+        <h3>Azure 到 Azure 故障转移的每月恢复时间目标和服务级别</h3>
+        <ol>
+        <li>
+        <p>“<strong>恢复时间目标 (RTO)</strong>”是指从客户针对 Azure 到 Azure 复制发起受保护实例的故障转移之时起，至该受保护实例在辅助 Azure 区中作为虚拟机开始运行时为止的一段时间，不包括与手动操作或执行客户脚本相关的任何时间。</p>
+        </li>
+        <li>
+        <p>在一个指定帐单月份期间，为 Azure 到 Azure 的复制配置的特定受保护实例的"每月恢复时间目标"为两小时。</p>
+        </li>
+        <li>
+        <p>以下服务级别和服务费抵扣适用于客户对 Azure 到 Azure 故障转移站点恢复服务内的每个受保护实例的使用。</p>
+        </li>
+        </ol>
+        <table>
+        <thead>
         <tr>
-            <td>加密</td>
-            <td>&gt; 6 个小时</td>
+            <th>每月恢复时间目标</th>
+            <th>服务费抵扣</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&gt; 2 个小时</td>
             <td>100%</td>
         </tr>
         </tbody>

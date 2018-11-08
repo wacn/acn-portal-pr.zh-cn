@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-08T15:00:00">
     <bodyText>
     <![CDATA[
          <p><tags ms.service="legal-en" ms.date="12/2017" wacn.date="12/2017" wacn.lang="en"/></p>
 
-        <h1>SLA for Azure Cosmos DB</h1><div class="tags-date"><div class="ms-date">Updated: 12/2017</div></div>
+        <h1>SLA for Azure Cosmos DB</h1><div class="tags-date"><div class="ms-date">Updated: 11/2018</div></div>
         <p><a href="/home/features/cosmos-db/">Azure Cosmos DB</a>, operated by 21Vianet in China, is <a href="//docs.azure.cn/zh-cn/cosmos-db/distribute-data-globally/">a distributed</a> multi-model database service. It offers turnkey  distribution across any number of Azure regions in China by transparently scaling and replicating your data wherever your users are. The service offers comprehensive 99.99% SLAs which covers the guarantees for throughput, consistency, availability and latency for the Cosmos DB Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning multiple Azure regions, configured with any of the four relaxed Consistency Levels. Furthermore, independent of the choice of a Consistency Level, Cosmos DB offers 99.999% SLA for read availability for Database Accounts spanning two or more Azure regions.</p>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this &quot;SLA&quot;) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the &quot;Agreement&quot;).</p>
@@ -210,8 +210,6 @@
             <li>
                 <p>&quot;<strong>Monthly Availability Percentage</strong> for the Azure Cosmos DB Service deployed via Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning multiple regions, configured with any of the four relaxed Consistency Levels is calculated by subtracting from 100% the Average Error Rate for a given Azure subscription in a billing month. Monthly Availability Percentage is represented by the following formula:</p>
                 <p>Monthly Uptime % = 100% - Average Error Rate</p>
-            </li>
-            <li>
                 <p>Service Credit:</p>
                 <table>
                     <thead>
@@ -235,13 +233,34 @@
             <li>
                 <p>&quot;<strong>Monthly Read Availability Percentage</strong>&quot; for the Azure Cosmos DB service deployed via Database Account configured to span two or more regions is calculated by subtracting from 100% the Average Read Error Rate for a given Azure subscription in a billing month. Monthly Read Availability Percentage is represented by the following formula:</p>
                 <p>Monthly Read Availability Uptime % = 100% - Average Read Error Rate</p>
-            </li>
-            <li>
                 <p>Service Credit:</p>
                 <table>
                     <thead>
                     <tr>
                         <th>MONTHLY READ AVAILABILITY PERCENTAGE</th>
+                        <th>SERVICE CREDIT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>&lt;99.999%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;99%</td>
+                        <td>25%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <p>&quot;<strong>Monthly Multiple Write Locations Availability Percentage</strong>&quot; for the Azure Cosmos DB Service deployed via Database Accounts configured to span multiple Azure regions with multiple writable locations, is calculated by subtracting from 100% the Average Error Rate for a given Microsoft Azure subscription in a billing month. Monthly Availability Percentage is represented by the following formula:</p>
+                <p>Monthly Uptime % = 100% - Average Error Rate</p>
+                <p>Service Credit:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>MONTHLY MULTIPLE WRITE LOCATIONS AVAILABILITY PERCENTAGE</th>
                         <th>SERVICE CREDIT</th>
                     </tr>
                     </thead>
