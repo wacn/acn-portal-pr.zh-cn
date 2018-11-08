@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-08T15:00:00">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="03/2016" wacn.date="03/2016" wacn.lang="en"/></p>
 
-        <h1>SLA for Site Recovery</h1><div class="tags-date"><div class="ms-date">Updated: 03/2016</div></div>
+        <h1>SLA for Site Recovery</h1><div class="tags-date"><div class="ms-date">Updated: 11/2018</div></div>
         <p>For each Protected Instance configured for On-Premises-to-On-Premises Failover, we guarantee at least 99.9% availability of the Site Recovery service.</p>
         <p>For each Protected Instance configured for On-Premises-to-Azure planned and unplanned Failover, we guarantee a four-hour Recovery Time Objective for unencrypted Protected Instances, and a six-hour Recovery Time Objective for encrypted Protected Instance, depending on the size of the Protected Instance.</p>
         <h2>Introduction</h2>
@@ -187,29 +187,48 @@
         <p>&quot;<strong>Recovery Time Objective (RTO)</strong>&quot; means the period of time beginning when Customer initiates a Failover of a Protected Instance experiencing either a planned or unplanned outage for On-Premises-to-Azure replication to the time when the Protected Instance is running as a virtual machine in Azure, excluding any time associated with manual action or the execution of Customer scripts. </p>
         </li>
         <li>
-        <p>&quot;<strong>Monthly Recovery Time Objective</strong>&quot; for a specific Protected Instance configured for On-Premises-to-Azure replication in a given billing month is four hours for an unencrypted Protected Instance and six hours for an encrypted Protected Instance. One hour will be added to the monthly Recovery Time Objective for each additional 25GB over the initial 100GB Protected Instance size. </p>
+        <p>&quot;<strong>Monthly Recovery Time Objective</strong>&quot; for a specific Protected Instance configured for On-Premises-to-Azure replication in a given billing month is 2 hours. </p>
         </li>
         <li>
-        <p>The following Service Levels and Service Credits are applicable to Customer's use of each Protected Instance within the Site Recovery Service for On-Premises-to-Azure Failover, assuming Protected Instance sizes of 100GB or less:</p>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of each Protected Instance within the Site Recovery Service for On-Premises-to-Azure Failover.</p>
         </li>
         </ol>
         <table>
         <thead>
         <tr>
-            <th>Protected Instance Monthly</th>
-            <th>Recovery Time Objective</th>
-            <th>Service Credit</th>
+            <th>MONTHLY RECOVERY TIME OBJECTIVE</th>
+            <th>SERVICE CREDIT</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>Unencrypted</td>
-            <td>&gt; 4 hours</td>
+            <td>&gt; 2 hours</td>
             <td>100%</td>
         </tr>
+        </tbody>
+        </table>
+        <h3>Monthly Recovery Time Objective and Service Levels for Azure-to-Azure Failover</h3>
+        <ol>
+        <li>
+        <p>&quot;<strong>Recovery Time Objective (RTO)</strong>&quot; means the period of time beginning when Customer initiates a Failover of a Protected Instance for Azure-to-Azure replication to the time when the Protected Instance is running as a virtual machine in secondary Azure region, excluding any time associated with manual action or the execution of Customer scripts.</p>
+        </li>
+        <li>
+        <p>&quot;<strong>Monthly Recovery Time Objective</strong>&quot; for a specific Protected Instance configured for Azure-to-Azure replication in a given billing month is 2 hours. </p>
+        </li>
+        <li>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of each Protected Instance within the Site Recovery Service for Azure-to-Azure Failover.</p>
+        </li>
+        </ol>
+        <table>
+        <thead>
         <tr>
-            <td>Encrypted</td>
-            <td>&gt; 6 hours</td>
+            <th>MONTHLY RECOVERY TIME OBJECTIVE</th>
+            <th>SERVICE CREDIT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&gt; 2 hours</td>
             <td>100%</td>
         </tr>
         </tbody>
