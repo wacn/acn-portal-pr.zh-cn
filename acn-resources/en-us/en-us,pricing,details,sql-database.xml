@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2018-11-01T15:00:00" urlName="sql-database" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2016-06-29T15:44:24" updateDate="2018-11-08T17:00:00" urlName="sql-database" writerName="content" creatorName="content">
     <bodyText><![CDATA[
         <style type="text/css">
             .pricing-detail-tab .tab-nav{
@@ -235,6 +235,19 @@
                                     </tr>
                                 </table>
 
+                                <h4>Long Term Retention Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Preview Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Long Term Retention Storage</td>
+                                        <td>￥ 0.4681/GB/month</td>
+                                    </tr>
+                                </table>
+
                                 <h4>I/Os</h4>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -329,6 +342,19 @@
                                     <tr>
                                         <td>LRS</td>
                                         <td>￥ 0.7505</td>
+                                    </tr>
+                                </table>
+
+                                <h4>Long Term Retention Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Preview Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Long Term Retention Storage</td>
+                                        <td>￥ 0.4681/GB/month</td>
                                     </tr>
                                 </table>
 
@@ -829,6 +855,19 @@
                                         <td>￥ 0.7505</td>
                                     </tr>
                                 </table>
+                                
+                                <h4>Long Term Retention Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Preview Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Long Term Retention Storage</td>
+                                        <td>￥ 0.4681/GB/month</td>
+                                    </tr>
+                                </table>
 
                                 <h4>I/Os</h4>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -925,6 +964,19 @@
                                     <tr>
                                         <td>LRS</td>
                                         <td>￥ 0.7505</td>
+                                    </tr>
+                                </table>
+
+                                <h4>Long Term Retention Storage<span style="font-family: '微软雅黑',regular;font-weight:normal;">（Preview）</span></h4>
+                                
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Preview Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Long Term Retention Storage</td>
+                                        <td>￥ 0.4681/GB/month</td>
                                     </tr>
                                 </table>
 
@@ -1407,6 +1459,15 @@
                                 <a id="home_sql_database_question16">Pricing example in DTU based model for an elastic pool with extra storage provisioned</a>
                                 <section>
                                     <p>Suppose a 125 eDTU Premium pool has provisioned 1 TB. The amount of storage included for a 125 eDTU Premium pool is 250 GB, and so the extra storage amount is 1024 GB – 250 GB = 774 GB. The unit price for extra storage in the Premium tier is approximately ¥2.1624/GB/month, and so the extra storage price is 774 GB * ¥2.1624/GB/month = ¥1608.8256/month. Therefore, the total price for the pool is ¥2,208.75/month for pool eDTUs + ¥1,608.8256/month for extra storage = ¥3,817.5756/month.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_question17">How does the storage usage show in my bill when I select DTU based model?</a>
+                                <section>
+                                     <p>The storage usage fee will be calculated per Max Size a customer allocated. For example, when choosing S3 DTU based model database, Storage Included is 250 GB, Max storage allowed is 1 TB, while actual usage is 500 GB. In this case, the storage usage will be charged for 1024 GB - 250 GB = 774 GB.</p>
                                 </section>
                             </div>
                         </li>
