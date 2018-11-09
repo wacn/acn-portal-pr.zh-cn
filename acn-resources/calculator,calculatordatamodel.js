@@ -8472,6 +8472,22 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "长期保留存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.4681",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
                     Name: "I/O",
                     Sizes: [{
                         Name: "I/O",
@@ -8583,6 +8599,22 @@ var CalculatorData = {
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
                         PricePerTier: "0.7505",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "长期保留存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.4681",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -9144,6 +9176,22 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "长期保留存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.4681",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
                     Name: "I/O",
                     Sizes: [{
                         Name: "I/O",
@@ -9260,6 +9308,22 @@ var CalculatorData = {
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
                         PricePerTier: "0.7505",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "长期保留存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.4681",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
