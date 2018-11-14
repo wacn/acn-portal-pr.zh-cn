@@ -1221,19 +1221,19 @@ var CalculatorData = {
                         Name: "D2 v3/DS2 v3",
                         Description: "2个内核，8GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.14"
+                        PricePerTier: "0.85"
                     },
                     {
                         Name: "D4 v3/DS4 v3",
                         Description: "4个内核，16GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.29"
+                        PricePerTier: "1.68"
                     },
                     {
                         Name: "D8 v3/DS8 v3",
                         Description: "8个内核，32GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.58"
+                        PricePerTier: "3.36"
                     }]
                 },
                 {
@@ -1247,19 +1247,19 @@ var CalculatorData = {
                         Name: "D16 v3/DS16 v3",
                         Description: "16个内核，64GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.16"
+                        PricePerTier: "6.73"
                     },
                     {
                         Name: "D32 v3/DS32 v3",
                         Description: "32个内核，128GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.32"
+                        PricePerTier: "13.46"
                     },
                     {
                         Name: "D64 v3/DS64 v3",
                         Description: "64个内核，256GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.64"
+                        PricePerTier: "26.91"
                     }]
                 },
                 {
@@ -1405,25 +1405,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.45"
+                        PricePerTier: "1.07"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.92"
+                        PricePerTier: "2.15"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.83"
+                        PricePerTier: "4.3"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.67"
+                        PricePerTier: "8.61"
                     }]
                 },
                 {
@@ -1443,7 +1443,7 @@ var CalculatorData = {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23.33"
+                        PricePerTier: "17.21"
                     }]
                 },
                 {
@@ -1457,13 +1457,13 @@ var CalculatorData = {
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "46.66"
+                        PricePerTier: "34.41"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "46.66"
+                        PricePerTier: "34.41"
                     }]
                 },
                 {
@@ -1628,31 +1628,31 @@ var CalculatorData = {
                         Name: "F1/FS1",
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.43"
+                        PricePerTier: "0.41"
                     },
                     {
                         Name: "F2/FS2",
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.9"
+                        PricePerTier: "0.86"
                     },
                     {
                         Name: "F4/FS4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8"
+                        PricePerTier: "1.71"
                     },
                     {
                         Name: "F8/FS8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.61"
+                        PricePerTier: "3.42"
                     },
                     {
                         Name: "F16/FS16",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.19"
+                        PricePerTier: "6.83"
                     }]
                 },
                 {
