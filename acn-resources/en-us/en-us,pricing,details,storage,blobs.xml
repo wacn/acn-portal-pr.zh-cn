@@ -115,7 +115,7 @@
 							<tr>
 								<th align="left"><strong></strong></th>
 								<th align="center" colspan="2"><strong>Local Redundant Storage (LRS)</strong></th>
-								<th align="center" colspan="2"><strong>Zone Redundant Storage</strong> (ZRS)</th>
+								<th align="center" colspan="2"><strong>Zone Redundant Storage (ZRS)</strong></th>
 								<th align="center" colspan="2"><strong>Geo-Redundant Storage (GRS)</strong></th>
 								<th align="center" colspan="2"><strong>Read/Access Geo-Redundant Storage (RA-GRS)</strong></th>
 							</tr>
@@ -264,11 +264,11 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td align="center">Cold</td>
+								<td align="center">Cool</td>
 								<td align="center">Hot</td>
-								<td align="center">Cold</td>
+								<td align="center">Cool</td>
 								<td align="center">Hot</td>
-								<td align="center">Cold</td>
+								<td align="center">Cool</td>
 								<td align="center">Hot</td>
 							</tr>
 							<tr>
@@ -307,7 +307,7 @@
 						</table>
 						<p><strong><sup>1 </sup></strong>1 TB = 1,024GB</p>
 						<h4>Operation and Data Transmission Pricing</h4>
-						<p>The following are HTTP operation costs of Block Blob data and the costs of retrieving data from Block Blob or writing data into Block Blob. These pricing may vary from the access layer of Block Blob Storage (“hot” or “cold”) and the redundancy options you select. </p>
+						<p>The following are HTTP operation costs of Block Blob data and the costs of retrieving data from Block Blob or writing data into Block Blob. These pricing may vary from the access layer of Block Blob Storage (“hot” or “cool”) and the redundancy options you select. </p>
 						<div class="tags-date">
 							<div class="ms-date">*The following prices are tax-inclusive.</div><br />
 						</div>
@@ -320,9 +320,9 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td align="center">Cold</td>
+								<td align="center">Cool</td>
 								<td align="center">Hot</td>
-								<td align="center">Cold</td>
+								<td align="center">Cool</td>
 								<td align="center">Hot</td>
 							</tr>
 							<tr>
@@ -517,7 +517,7 @@
 			                <div>
 			                    <a id="Storage_question3">When viewing the Azure bill, how can we distinguish whether paying for Blob in the Blob Storage account or general-purpose Storage account is required?</a>
 			                    <section>
-			                        <p>If “Hot” or “Cold” is in the resource name, this means that this expense is related to the Blob Storage account. For instance, if it’s “Standard IO - Cold Block Blob (GB)”, it means you used the Blob Storage account and need to pay for this account, while “Standard IO – Block Blob (GB)” is charged in relation to the Block Blob in the general-purpose Storage account. </p>
+			                        <p>If “Hot” or “Cool” is in the resource name, this means that this expense is related to the Blob Storage account. For instance, if it’s “Standard IO - Cool Block Blob (GB)”, it means you used the Blob Storage account and need to pay for this account, while “Standard IO – Block Blob (GB)” is charged in relation to the Block Blob in the general-purpose Storage account. </p>
 			                    </section>
 
 			                </div>
@@ -525,9 +525,9 @@
 						<li>
 			                <i class="icon icon-plus"></i>
 			                <div>
-			                    <a id="Storage_question4">What are “Hot” and “Cold” access layers and how do we ascertain which one is to be used?</a>
+			                    <a id="Storage_question4">What are “Hot” and “Cool” access layers and how do we ascertain which one is to be used?</a>
 			                    <section>
-									<p>In the Blob Storage account, we could set Blob’s access layer to “Hot” and “Cold”. The storage GB pricing increases in the sequence of “Cold” and “Hot” layer. The data access expense increases in the sequence of “Hot” and “Cold” layer. The “Hot” and “Cold” layers are separately applied to data with almost no access and occasional access, and the availability of Service Level Agreement of these data has a lower requirement. If you don’t know the data access mode, it’s recommended that you use the “Hot” layer for at least one month in the beginning, then decide if it’s necessary to shift to “Cold” storage to save costs where applicable. </p>
+									<p>In the Blob Storage account, we could set Blob’s access layer to “Hot” and “Cool”. The storage GB pricing increases in the sequence of “Cool” and “Hot” layer. The data access expense increases in the sequence of “Hot” and “Cool” layer. The “Hot” and “Cool” layers are separately applied to data with almost no access and occasional access, and the availability of Service Level Agreement of these data has a lower requirement. If you don’t know the data access mode, it’s recommended that you use the “Hot” layer for at least one month in the beginning, then decide if it’s necessary to shift to “Cool” storage to save costs where applicable. </p>
 
 			                    </section>
 
@@ -536,9 +536,9 @@
 						<li>
 			                <i class="icon icon-plus"></i>
 			                <div>
-			                    <a id="Storage_question5">Is paying the data write expense of switching a Blob Storage account from “Cold” to “Hot” required?</a>
+			                    <a id="Storage_question5">Is paying the data write expense of switching a Blob Storage account from “Cool” to “Hot” required?</a>
 			                    <section>
-			                        <p>We will charge the data retrieval of the Blob Storage account when it’s switched from “Cold” to “Hot”. For instance, if the Blob Storage account has 100 GB data, when the account is switched from “Cold” to “Hot”, you will be charged with a data retrieval fee of 100 * ¥ 0.0657 = ¥ 6.57.</p>
+			                        <p>We will charge the data retrieval of the Blob Storage account when it’s switched from “Cool” to “Hot”. For instance, if the Blob Storage account has 100 GB data, when the account is switched from “Cool” to “Hot”, you will be charged with a data retrieval fee of 100 * ¥ 0.0657 = ¥ 6.57.</p>
 			                    </section>
 
 			                </div>
@@ -546,9 +546,9 @@
 						<li>
 			                <i class="icon icon-plus"></i>
 			                <div>
-			                    <a id="Storage_question6">Is paying for data writes required when the Blob Storage account is switched from “Hot” to “Cold”?</a>
+			                    <a id="Storage_question6">Is paying for data writes required when the Blob Storage account is switched from “Hot” to “Cool”?</a>
 			                    <section>
-			                        <p>No. Paying for data writes is not required when your account is switched from “Hot” to “Cold”. If you write directly data into the “Cold” access layer of the Blob Storage account, only paying the data writing expense is required. </p>
+			                        <p>No. Paying for data writes is not required when your account is switched from “Hot” to “Cool”. If you write directly data into the “Cool” access layer of the Blob Storage account, only paying the data writing expense is required. </p>
 			                    </section>
 
 			                </div>
