@@ -15353,7 +15353,7 @@ var CalculatorData = {
                         Name: "S1",
                         Description: "消费总数每天为 400000，消费计算大小为 4KB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "388",
+                        PricePerTier: "254.4",
                     },
                     {
                         Name: "S2",
