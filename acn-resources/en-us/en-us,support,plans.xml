@@ -5,139 +5,257 @@
     
       	<style>
 			.common-banner .common-banner-image{background-size:contain;}
+			.support-plans-table,.support-plans-table p{text-align:center}
+			.support-plans-table-td-left{text-align:left}
+			.support-plans-table-td-bg{background-color:#CEECF5}
+			.support-plans-table-td-bg p,.support-plans-table-td-bg{color:black;}
       	</style>
-        <div class="section-component">                   
-            
-			<h2>Support from Azure</h2>
-			<!-- <div class="tags-date"><div class="ms-date">上线日期：XXXX 年 X 月</div></div> -->
-			<p>We provide users with the following free support services:</p>
-			<div class="scroll-table"><div><table cellpadding="0" cellspacing="0" class="table-col6">
-                <tbody><tr>
-                    <th align="left">&#160;</th>
-                    <th align="left"><strong>Supported or not</strong></th>
-                </tr>
-                <tr>
-                    <td>Billing and Subscription Management</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>Service Dashboard</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>Web Event Submission</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>Unlimited Disruption/Restoration</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>Telephone Support</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>ICP Filing Support</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-			</tbody></table></div></div> 
-			
-										
-			<h2>Support Scope</h2>
-			<ul>
-				<li>Break-fix issues are technical problems you experience while using Azure services. "Break-fix" is an industry term that refers to “work involved in supporting a technology when it fails in the normal course of its function, which requires intervention by a support organization to be restored to working order."</li>
-				<li>We support all the Azure services that are publicly available online, as well as non-Microsoft technologies (e.g. the sample codes of Azure SDK and Python ) provided by Microsoft as part of Azure product functions.</li>
-				<li>For more information about support scope, please visit <a href="/support/faq/#support">Support FAQ</a>.</li>
-			</ul>
-			
-			<h2>Working Time</h2>
-                <ul>
-                <li>Technical Support:
-					<ul>
-						<li style="list-style-type:circle;">The severity category is Level A (emergency event): 24 x 7;</li>
-						<li style="list-style-type:circle;">The severity category is Level B/C:
-							<ul>
-								<li>Technical support of the platform: 09:00–00:00 (all year round);</li>
-								<li>Technical support of development: 09:00–00:00 (business days only).</li>
-							</ul>
-					</ul>
-				</li>               
-                <li>Billing, subscription and quota management support; product consulting and pre-sales support; ICP filing support: 9:00 a.m. to 6:00 p.m. on business days.</li>
-                </ul>
-				<p>Note: The time above is Beijing time (UTC + 8)</p>
-			
-			<h2>Severity and Response Time</h2>
-			<div class="scroll-table"><div><table cellpadding="0" cellspacing="0" width="100%">
+		  <div class="section-component">         
+		  <p>Note: The support plan will take effect since Dec15<sup>th</sup>, 2018. </p>     
+		  </br>     
+			<div class="scroll-table"><div><table class="support-plans-table" cellpadding="0" cellspacing="0" width="80%">
 				<tr>
-				<th align="left" style="width: 10%;">Severity<sup>2</sup></th>
-				<th align="left" style="width: 30%;">Customer Status</th>
-				<th align="left" style="width: 30%;">Expected 21Vianet Response</th>
-				<th align="left" style="width: 30%;">Expected Customer Response</th>
+				<th align="center" style="width: 20%;"><b>SUPPORT PLANS</b></th>
+				<th align="center" style="width: 25%;"><b>DEVELOPER<sup>1</sup></b></th>
+				<th align="center" style="width: 25%;"><b>STANDARD<sup>2</sup></b></th>
+				<th align="center" style="width: 25%;"><b>PREMIER<sup>3</sup></b></th>
 				</tr>
 				<tr>
-				<td class="left_align">A<sup>1</sup></td>
-				<td class="left_align">
-				<p>Key Business Impacts:</p>
-				<p>Customer’s business or service level is significantly reduced</p>
-				<p>Immediate attention required</p>
-				</td>
-				<td class="left_align">
-				<p>Initial response:</p>
-				<p>2 hours or less</p>
-				<p>Works continuously all day</p>
-				</td>
-				<td class="left_align">
-				<p>Allocates appropriate resources to keep working continuously all day</p>
-				<p>Accurate case owner contact information</p>
-				</td>
+					<td class="left_align support-plans-table-td-left"><b>Self-help and Community</b></td>
+					<td class="left_align">
+						<a href="https://docs.azure.cn/zh-cn/articles/azure-operations-guide/">Online self-help</a>,
+						<a href="https://docs.azure.cn/">Documentation </a>and
+						<a href="https://social.msdn.microsoft.com/Forums/zh-cn/home">MSDN forum</a></td>
+					</td>
+					<td class="left_align">
+						<a href="https://docs.azure.cn/zh-cn/articles/azure-operations-guide/">Online self-help</a>,
+						<a href="https://docs.azure.cn/">Documentation </a>and
+						<a href="https://social.msdn.microsoft.com/Forums/zh-cn/home">MSDN forum</a></td>
+					</td>
+					<td class="left_align">
+						<a href="https://docs.azure.cn/zh-cn/articles/azure-operations-guide/">Online self-help</a>,
+						<a href="https://docs.azure.cn/">Documentation </a>and
+						<a href="https://social.msdn.microsoft.com/Forums/zh-cn/home">MSDN forum</a></td>
+					</td>
 				</tr>
 				<tr>
-				<td class="left_align">B</td>
-				<td class="left_align">
-				<p>Moderate business impact:</p>
-				<p>The level of customer business or service has decreased, but work can continue reasonably, with only efficiency reduced</p>
-				</td>
-				<td class="left_align">
-				<p>Initial response:</p>
-				<p>4 hours or less</p>
-				</td>
-				<td class="left_align">
-				<p>Allocate appropriate resources to keep working continuously</p>
-				<p>Accurate case owner contact information</p>
-				</td>
+					<td class="left_align support-plans-table-td-left"><b>Best Practice </b></td>
+					<td class="left_align">
+						Access to full set of <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade">Azure Advisor</a> recommendations
+					</td>
+					<td class="left_align">
+						Access to full set of <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade">Azure Advisor</a> recommendations
+					</td>
+					<td class="left_align">
+						Access to full set of <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade">Azure Advisor</a> recommendations
+					</td>
 				</tr>
 				<tr>
-				<td class="left_align">C</td>
-				<td class="left_align">
-				<p>Minimum business impact:</p>
-				<p>The customer's business is running smoothly with or without service barriers</p>
-				</td>
-				<td class="left_align">
-				<p>Initial response:</p>
-				<p>8 hours or less</p>
-				</td>
-				<td class="left_align">
-				<p>Accurate case owner contact information</p>
-				</td>
+					<td class="left_align support-plans-table-td-left"><b>Health Status</b></td>
+					<td class="left_align">
+						Access to <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade">personalized Service Health Dashboard</a>
+					</td>
+					<td class="left_align">
+						Access to <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade">personalized Service Health Dashboard</a>
+					</td>
+					<td class="left_align">
+						Access to <a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade">personalized Service Health Dashboard</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>ICP Support</b></td>
+					<td class="left_align">
+						√
+					</td>
+					<td class="left_align">
+						√
+					</td>
+					<td class="left_align">
+						√
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Billing, Subscription & Quota Support </b></td>
+					<td class="left_align">
+						< 4 business hours initial response 
+					</td>
+					<td class="left_align">
+						< 4 business hours initial response 
+					</td>
+					<td class="left_align">
+						< 4 business hours initial response 
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Technical Support</b></td>
+					<td class="left_align"></td>
+					<td class="left_align"></td>
+					<td class="left_align"></td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;•	Working Hours</b></td>
+					<td class="left_align">
+						Business hours  access
+					</td>
+					<td class="left_align">
+						24*7 for Sev A
+					</td>
+					<td class="left_align">
+						24*7 for Sev A
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;•	Maximum Severity</b></td>
+					<td class="left_align">
+						B
+					</td>
+					<td class="left_align">
+						A
+					</td>
+					<td class="left_align">
+						A
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;•	Third-Party &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Software Support</b></td>
+					<td class="left_align">
+						×
+					</td>
+					<td class="left_align">
+						Interoperability & configuration guidance and troubleshooting
+					</td>
+					<td class="left_align">
+						Interoperability & configuration guidance and troubleshooting
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;• <a href="./response">Case &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Severity/Response &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Times</a></b></td>
+					<td class="left_align">
+						<p>Minimal business impact (Sev C): <8 business hours </p>
+						<p>Moderate business impact (Sev B): <4 business hours </p>
+					</td>
+					<td class="left_align">
+						<p>Minimal business impact (Sev C): <8 business hours </p>
+						<p>Moderate business impact (Sev B): <4 business hours </p>
+						<p>Critical business impact (Sev A): <1 hour </p>
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						<p>Minimal business impact (Sev C): <4 business hours </p>
+						<p>Moderate business impact (Sev B): <2 business hours </p>
+						<p>Critical business impact (Sev A): <1 hour </p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;•	Delivery Resource </b></td>
+					<td class="left_align">
+						Support engineer
+					</td>
+					<td class="left_align">
+						Support engineer
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Senior support engineer<p>(from technology licensor)</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>How to contact support</b></td>
+					<td class="left_align">
+						<a href="https://support.azure.cn/support/support-azure/">Web Submission </a>
+					</td>
+					<td class="left_align">
+						<a href="https://support.azure.cn/support/support-azure/">Web Submission</a>, Phone<sup>4</sup>
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Web Submission, Phone<p>(from technology licensor)</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Who Can Open Cases</b></td>
+					<td class="left_align">
+						One primary contact/<p>Unlimited cases</p>
+					</td>
+					<td class="left_align">
+						Unlimited contacts/<p>Unlimited cases</p>
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Unlimited contacts/<p>Unlimited cases</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Architecture/Advisory Support</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+						General guidance 
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Customer specific architectural support such as design reviews, performance tuning, configuration and implementation assistance delivered by Microsoft Azure technical specialists.
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Training </b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Azure web seminars, on-demand training
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Onsite Support</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						√
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Proactive Guidance</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						√
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>Price</b></td>
+					<td class="left_align">
+						Free
+					</td>
+					<td class="left_align">
+						Free
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Items highlighted in blue are <b>paid advanced services</b>. 
+					</td>
 				</tr>
 			</table></div></div>
-			<p><span class="common_serial_num"> 1 </span> <span> Class A severity support is available only to customers who have signed the 21Vianet Premium online service agreement (purchasing services through the sales team). </span></p>
-			<p><span class="common_serial_num"> 2 </span> <span> 21Vianet may reduce the severity level if the customer fails to provide sufficient resources or respond appropriately to enable 21Vianet to continue to address the issue. </span></p>
-						
-			<p>&#160;</p>
-			<p><a href="/support/contact/" id="support_plans_contact" class="single-link">Contact us<i class="icon icon-arrow-right-thin"></i></a></p>
-            
+			<p><span><sup>1</sup> Customers purchasing through Online Service Standard Agreement (OSSA) are eligible for Developer support plan, at no charge. For whom the account charge amount accumulate above RMB50,000 in 3 contiguously months (since Dec 15th, 2018) will be qualified to use Azure Standard support for 1 year. </span></p>
+			<p><span><sup>2</sup> Customers purchasing through Online Service Premier Agreement (OSPA) are eligible for Standard support plan, at no charge. </span></p>
+			<p><span><sup>3</sup> Advanced services in Premier support plan (highlighted in blue above) should be purchased through 21vianet technology licensor,  please contact your account manager for details.  </span></p>		
+			<p><span><sup>4</sup> Phone submission working hours is from 9am to 9pm, Mon-Sun.</span></p>	
+			</br>
+			<p><a href="https://www.azure.cn/en-ussupport/contact/" id="support_plans_contact" class="single-link">Contact Us<i class="icon icon-arrow-right-thin"></i></a></p>
+			<p><a href="https://www.azure.cn/en-us/support/faq/#support" id="support_faq" class="single-link">Support FAQs<i class="icon icon-arrow-right-thin"></i></a></p>
+			<p><a href="./response/" id="support_plans_response" class="single-link">Support scope, responsiveness and working hours <i class="icon icon-arrow-right-thin"></i></a></p>
         </div>
-          <h2>Version history</h2>
-	        <p>1.1 Updated: September 2016</p>
-	        <p>Update description: Added “Working Time.”</p>
-	        <p>1.0 Online: September 2014</p>
-    
     ]]></bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
-    <pageTitle>Azure Support – Azure Cloud Computing</pageTitle>
+    <pageTitle>Azure support plans – Azure Cloud Computing</pageTitle>
     <metaKeywords>Azure Support</metaKeywords>
-    <metaDescription><![CDATA[Azure Support offers users features including free billing and subscription management, service dashboards, web events, unrestricted interrupt/repair, telephone support, ICP filing support, and other related solutions.]]></metaDescription>
+    <metaDescription><![CDATA[Compare features of Azure support plans for customers from developers, starting in the cloud to enterprises deploying critical, and strategic business applications in Azure.]]></metaDescription>
     <linkid>support-plans</linkid>
     <urlDisplayName>Azure Support Plan</urlDisplayName>
     <headerExpose></headerExpose>
@@ -150,10 +268,10 @@
     <localizePartial>0</localizePartial>
     <sitemapHide>0</sitemapHide>
     <banner><![CDATA[
-      <!-- BEGIN: Banner -->
-           <div class=”common-banner” data-config=”{'backgroundColor':'#002050', 'backgroundImage':'//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/images/support/banner-supportplan@2x.png','imageHeight':'180'}” id=”banner”>   
-              <div class=”common-banner-image”>
-                <div class=”common-banner-title”>
+		<!-- BEGIN: Banner -->
+           <div class="common-banner" data-config="{'backgroundColor':'#002050', 'backgroundImage':'//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/images/support/banner-supportplan@2x.png','imageHeight':'180'}" id="banner">   
+              <div class="common-banner-image">
+                <div class="common-banner-title">
                   <h1>Azure Support Plan</h1>
                 </div>
               </div>
