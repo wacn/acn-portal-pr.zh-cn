@@ -5,141 +5,273 @@
     <![CDATA[
       	<style>
 			.common-banner .common-banner-image{background-size:contain;}
+			.support-plans-table,.support-plans-table p{text-align:center}
+			.support-plans-table-td-left{text-align:left}
+			.support-plans-table-td-bg{background-color:#CEECF5}
+			.support-plans-table-td-bg p,.support-plans-table-td-bg{color:black;}
       	</style>
-        <div class="section-component">                   
-            
-			<h2>Azure 支持功能</h2>
-			<!-- <div class="tags-date"><div class="ms-date">上线日期：XXXX 年 X 月</div></div> -->
-			<p>我们免费向用户提供以下支持服务：</p>
-			<div class="scroll-table"><div><table cellpadding="0" cellspacing="0" class="table-col6">
-                <tbody><tr>
-                    <th align="left">&nbsp;</th>
-                    <th align="left"><strong>是否支持</strong></th>
-                </tr>
-                <tr>
-                    <td>计费和订阅管理</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>服务仪表板</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>Web事件提交</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>中断/修复不受限制</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>电话支持</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-                <tr>
-                    <td>ICP备案支持</td>
-                    <td><i class="icon icon-tick"></i></td>
-                </tr>
-			</tbody></table></div></div> 
-			
-										
-			<h2>支持范围</h2>
-			<ul>
-				<li>中断-修复问题是您在使用 Azure 服务时遇到的技术问题。“中断-修复”是一个行业术语，指“当某项技术在其正常运转过程中运行失败需要得到的支持工作，这需要一个支持团队采取干预动作才能使其恢复工作秩序”。</li>
-				<li>我们支持所有公开上线的 Azure 服务，以及由 Microsoft 作为 Azure 产品功能的一部分提供的非 Microsoft 技术（如 Azure SDK 和 Python 的示例代码）。</li>
-				<li>有关支持范围的更多信息，请访问<a href="/support/faq/#support"> 支持常见问题</a>。</li>
-			</ul>
-			
-			<h2>工作时间</h2>
-                <ul>
-                <li>技术支持：
-					<ul>
-						<li style="list-style-type:circle;">严重性级别为 A (紧急事件): 24 X 7 ；</li>
-						<li style="list-style-type:circle;">严重性级别为 B/C :
-							<ul>
-								<li>平台技术支持： 9：00 ~ 24：00 （全年无休）；</li>
-								<li>开发技术支持： 9：00 ~ 24：00 （仅工作日）。</li>
-							</ul>
-					</ul>
-				</li>               
-                <li>计费订阅及配额管理支持，产品咨询和售前支持，ICP 备案支持：工作日上午 9：00 到下午 6：00。</li>
-                </ul>
-				<p>注：以上均为北京时间 (UTC+8)</p>
-			
-			<h2>严重性和响应时间</h2>
-			<div class="scroll-table"><div><table cellpadding="0" cellspacing="0" width="100%">
+        <div class="section-component">
+		<p>注：以下计划将于12月15日开始生效。</p>
+		</br>            
+			<div class="scroll-table"><div><table class="support-plans-table" cellpadding="0" cellspacing="0" width="80%">
 				<tr>
-				<th align="left" style="width: 10%;">严重性<sup>2</sup></th>
-				<th align="left" style="width: 30%;">客户情形</th>
-				<th align="left" style="width: 30%;">预期世纪互联响应</th>
-				<th align="left" style="width: 30%;">预期客户响应</th>
+				<th align="center" style="width: 20%;"><b>支持计划</b></th>
+				<th align="center" style="width: 25%;"><b>开发人员<sup>1</sup></b></th>
+				<th align="center" style="width: 25%;"><b>标准<sup>2</sup></b></th>
+				<th align="center" style="width: 25%;"><b>企业级<sup>3</sup></b></th>
 				</tr>
 				<tr>
-				<td class="left_align">A<sup>1</sup></td>
-				<td class="left_align">
-				<p>关键业务影响：</p>
-				<p>客户业务明显减少或服务水平明显下降</p>
-				<p>需要立即注意</p>
-				</td>
-				<td class="left_align">
-				<p>初始响应：</p>
-				<p>2 小时或更短时间</p>
-				<p>每天全天连续工作</p>
-				</td>
-				<td class="left_align">
-				<p>分配相应资源以保持每天全天连续工作</p>
-				<p>有关案例所有者的准确联系信息</p>
-				</td>
+					<td class="left_align support-plans-table-td-left"><b>自助服务，论坛</b></td>
+					<td class="left_align">
+						<a href="https://docs.azure.cn/zh-cn/articles/azure-operations-guide/">自助服务</a>，
+						<a href="https://docs.azure.cn/">文档中心</a>，
+						<a href="https://social.msdn.microsoft.com/Forums/zh-cn/home">论坛</a></td>
+					</td>
+					<td class="left_align">
+						<a href="https://docs.azure.cn/zh-cn/articles/azure-operations-guide/">自助服务</a>，
+						<a href="https://docs.azure.cn/">文档中心</a>，
+						<a href="https://social.msdn.microsoft.com/Forums/zh-cn/home">论坛</a></td>
+					</td>
+					<td class="left_align">
+						<a href="https://docs.azure.cn/zh-cn/articles/azure-operations-guide/">自助服务</a>，
+						<a href="https://docs.azure.cn/">文档中心</a>，
+						<a href="https://social.msdn.microsoft.com/Forums/zh-cn/home">论坛</a></td>
+					</td>
 				</tr>
 				<tr>
-				<td class="left_align">B</td>
-				<td class="left_align">
-				<p>中等业务影响：</p>
-				<p>客户业务或服务水平有所降低，但工作仍可以合理地继续，只是效率有所降低</p>
-				</td>
-				<td class="left_align">
-				<p>初始响应：</p>
-				<p>4 小时或更短时间</p>
-				</td>
-				<td class="left_align">
-				<p>分配相应资源以保持连续工作</p>
-				<p>有关案例所有者的准确联系信息</p>
-				</td>
+					<td class="left_align support-plans-table-td-left"><b>最佳实践</b></td>
+					<td class="left_align">
+						<a href="https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade">Azure Advisor</a> 的全套检查与建议
+					</td>
+					<td class="left_align">
+						<a href="https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade">Azure Advisor</a> 的全套检查与建议
+					</td>
+					<td class="left_align">
+						<a href="https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade">Azure Advisor</a> 的全套检查与建议
+					</td>
 				</tr>
 				<tr>
-				<td class="left_align">C</td>
-				<td class="left_align">
-				<p>最小业务影响：</p>
-				<p>客户业务运转顺利，遇到一些服务障碍或无服务障碍</p>
-				</td>
-				<td class="left_align">
-				<p>初始响应：</p>
-				<p>8 小时或更短时间</p>
-				</td>
-				<td class="left_align">
-				<p>有关案例所有者的准确联系信息</p>
-				</td>
+					<td class="left_align support-plans-table-td-left"><b>运行状况</b></td>
+					<td class="left_align">
+						<a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade">个性化服务运行状况仪表板</a>
+					</td>
+					<td class="left_align">
+						<a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade">个性化服务运行状况仪表板</a>
+					</td>
+					<td class="left_align">
+						<a href="https://portal.azure.cn/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade">个性化服务运行状况仪表板</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b><a href="https://support.azure.cn/zh-cn/support/support-azure/">在线客服</a></b></td>
+					<td class="left_align">
+						常见问题即时解答
+					</td>
+					<td class="left_align">
+						常见问题即时解答
+					</td>
+					<td class="left_align">
+						常见问题即时解答
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>ICP 备案支持</b></td>
+					<td class="left_align">
+						√
+					</td>
+					<td class="left_align">
+						√
+					</td>
+					<td class="left_align">
+						√
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>账单，订阅和配额支持</b></td>
+					<td class="left_align">
+						< 4 小时<sup>4</sup>
+					</td>
+					<td class="left_align">
+						< 4 小时<sup>4</sup>
+					</td>
+					<td class="left_align">
+						< 4 小时<sup>4</sup>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>技术中断修复支持</b></td>
+					<td class="left_align"></td>
+					<td class="left_align"></td>
+					<td class="left_align"></td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;• 服务时间</b></td>
+					<td class="left_align">
+						营业时间
+					</td>
+					<td class="left_align">
+						24*7 ( A级案例 )
+					</td>
+					<td class="left_align">
+						24*7 ( A级案例 )
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;• 最高优先级</b></td>
+					<td class="left_align">
+						B
+					</td>
+					<td class="left_align">
+						A
+					</td>
+					<td class="left_align">
+						A
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;• 第三方软件支持</b></td>
+					<td class="left_align">
+						×
+					</td>
+					<td class="left_align">
+						配置指南及故障排查
+					</td>
+					<td class="left_align">
+						配置指南及故障排查
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;• <a href="./response">案例严重性/ </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;响应时间</a></b></td>
+					<td class="left_align">
+						<p>最低业务影响 (Sev C)： <8 小时<sup>4</sup></p>
+						<p>中等业务影响 (Sev B)： <4 小时<sup>4</sup></p>
+					</td>
+					<td class="left_align">
+						<p>最低业务影响 (Sev C)： <8 小时<sup>4</sup></p>
+						<p>中等业务影响 (Sev B)： <4 小时<sup>4</sup></p>
+						<p>关键业务影响 (Sev A)： <1 小时</p>
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						<p>最低业务影响 (Sev C)： <4 小时<sup>4</sup></p>
+						<p>中等业务影响 (Sev B)： <2 小时<sup>4</sup></p>
+						<p>关键业务影响 (Sev A)： <1 小时</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>&nbsp;&nbsp;&nbsp;&nbsp;• 处理人员</b></td>
+					<td class="left_align">
+						售后工程师
+					</td>
+					<td class="left_align">
+						售后工程师
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						资深售后工程师<p>（由技术许可方提供）</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>获取支持方式</b></td>
+					<td class="left_align">
+						<a href="https://support.azure.cn/support/support-azure/">在线工单</a>
+					</td>
+					<td class="left_align">
+						<a href="https://support.azure.cn/support/support-azure/">在线工单</a>、电话<sup>5</sup>
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						工单、电话<p>（由技术许可方提供）</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>谁可开案例</b></td>
+					<td class="left_align">
+						一个主要联系人/<p>无限制数量的案例</p>
+					</td>
+					<td class="left_align">
+						任意数量联系人/<p>无限制数量的案例</p>
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						任意数量联系人/<p>无限制数量的案例</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>咨询服务、体系架构</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+						常见指南
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						特定于客户的体系结构支持，例如由Azure 技术专家提供的设计评审、性能优化、配置和实施帮助。
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>培训</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						Azure 工程师主导的 web 研讨会，按需培训
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>现场服务</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						√
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>主动式指导</b></td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align">
+					×
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						√
+					</td>
+				</tr>
+				<tr>
+					<td class="left_align support-plans-table-td-left"><b>价格</b></td>
+					<td class="left_align">
+						免费
+					</td>
+					<td class="left_align">
+						免费
+					</td>
+					<td class="left_align support-plans-table-td-bg">
+						蓝色区域为<b>升级服务</b>，需另行付费
+					</td>
 				</tr>
 			</table></div></div>
-			<p><span class="common_serial_num">1 </span> <span>严重性 A 支持仅提供给签署了世纪互联在线服务高级协议的客户(通过销售团队购买服务)。</span></p>
-			<p><span class="common_serial_num">2 </span> <span>如果客户无法提供足够资源或做出适当响应来使世纪互联继续处理问题，则世纪互联可能降低严重性级别。</span></p>
-						
-			<p>&nbsp;</p>
-			<p><a href="/support/contact/" id="support_plans_contact" class="single-link">联系我们<i class="icon icon-arrow-right-thin"></i></a></p>
-            
+			<p><span><sup>1</sup> 购买在线服务标准协议 (OSSA) 的客户将可以获得”开发人员”支持计划, 并且不收取任何费用。对于账户费用在3个连续月内（自2018年12月15日起）累积充值超过人民币 50, 000 元的人, 将可以通过联系客服申请 “标准”支持计划1年。</span></p>
+			<p><span><sup>2</sup> 购买在线服务高级协议 (OSPA) 的客户可以获得“标准”支持计划, 不收取任何费用。</span></p>
+			<p><span><sup>3</sup> “企业级”支持计划的升级服务（蓝色区域部分）由世纪互联的技术许可方提供，需另行付费购买, 请联系您的客户经理了解详情。</span></p>		
+			<p><span><sup>4</sup> 指营业时间内的响应小时。</span></p>
+			<p><span><sup>5</sup> 电话服务时间为上午九点至晚间九点，周一至周日。</span></p>	
+			</br>
+			<p><a href="https://www.azure.cn/zh-cn/support/contact/" id="support_plans_contact" class="single-link">联系我们<i class="icon icon-arrow-right-thin"></i></a></p>
+			<p><a href="https://www.azure.cn/zh-cn/support/faq/#support" id="support_faq" class="single-link">售后支持常见问题<i class="icon icon-arrow-right-thin"></i></a></p>
+			<p><a href="./response/" id="support_plans_response" class="single-link">支持范围、响应及营业时间<i class="icon icon-arrow-right-thin"></i></a></p>
         </div>
-          <h2>版本历史记录</h2>
-	        <p>1.1 更新日期：2016 年 9 月</p>
-	        <p>更新说明：添加“工作时间”。</p>
-	        <p>1.0 上线日期：2014 年 9 月</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
-    <pageTitle>Azure 支持 - Azure云计算</pageTitle>
-    <metaKeywords>Azure 支持</metaKeywords>
-    <metaDescription><![CDATA[Azure 支持免费向用户提供计费和订阅管理，服务仪表板，Web 事件提，中断/修复不受限制，电话支持，ICP 备案支持等功能，并提供了相应的解决方案。]]></metaDescription>
+    <pageTitle>Azure 售后支持计划 - Azure云计算</pageTitle>
+    <metaKeywords>Azure 售后支持计划</metaKeywords>
+    <metaDescription><![CDATA[站在开发人员的角度为客户比较 Azure 支持计划的功能，从云到企业在 Azure 中部署关键和战略性商业应用程序开始。]]></metaDescription>
     <linkid>support-plans</linkid>
-    <urlDisplayName>Azure 支持计划</urlDisplayName>
+    <urlDisplayName>Azure 售后支持计划</urlDisplayName>
     <headerExpose></headerExpose>
     <footerExpose></footerExpose>
     <disqusComments>0</disqusComments>
@@ -154,7 +286,7 @@
            <div class="common-banner" data-config="{'backgroundColor':'#002050', 'backgroundImage':'//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/media/images/support/banner-supportplan@2x.png','imageHeight':'180'}" id="banner">   
               <div class="common-banner-image">
                 <div class="common-banner-title">
-                  <h1>Azure 支持计划</h1>
+                  <h1>Azure 售后支持计划</h1>
                 </div>
               </div>
           </div>  
