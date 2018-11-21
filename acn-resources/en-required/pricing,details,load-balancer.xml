@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="load-balancer" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-11-21T16:00:00" urlName="load-balancer" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="load-balancer" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -25,12 +25,31 @@
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">                               
                 <div class="tab-control-container tab-active" id="tabContent1">                   
-                    <h3>公共负载均衡</h3>
+                    <h3>基本公共负载均衡</h3>
                     <p>每个云服务都可以获得一个免费的公共负载均衡 IP (VIP)。如果要在多个 VIP 上加载均衡，你可以以<a href="/pricing/details/ip-addresses/" id="ip-addresses">此处</a>列出的象征性收费标准获得额外的 VIP。</p>
                     <p>你可向你的负载均衡器分配最多 5 个额外的 IP。</p>
                    
-                    <h3>内部负载均衡</h3>
-                    <p>驻留在虚拟网络内的各虚拟机之间的负载均衡（内部负载均衡）免费。目前不支持将额外的 VIP 添加到内部负载均衡器。</p>                                                                            
+                    <h3>基本内部负载均衡</h3>
+                    <p>驻留在虚拟网络内的各虚拟机之间的负载均衡（内部负载均衡）免费。目前不支持将额外的 VIP 添加到内部负载均衡器。</p>         
+
+                    <h3>标准负载均衡器</h3>
+                    <p>与基本负载均衡器相比，标准负载均衡器能为客户带来多重优势：</p>       
+                    <ul>
+                        <li>更灵活、更大的后端池</li>
+                        <li>针对网络虚拟设备及其他方案提供缩放和恢复能力的 HA 端口规则</li>
+                        <li>AZ 方案包括跨区域负载均衡、自动区域冗余后端和出站流，使用单个区域性 IP 地质</li>
+                        <li>集成监视（流量计数器、运行状况探测、TCP 连接尝试、出站连接）和持续数据平面运行状况度量</li>
+                    </ul>         
+                    <p>标准负载均衡器的定价基于配置的规则（负载均衡器规则和 NAT 规则）数量和处理的数据量。</p>                                                  
+                    <p>但是，没有配置规则时，标准负载均衡器自身并不按小时收费。</p>
+                    <p>负载均衡规则:</p>
+                    <p>前 5 条规则: ￥ 0.159/小时</p>
+                    <p>其他规则: ￥ 0.0636/规则/小时</p>
+                    <p>NAT 规则:</p>
+                    <p>NAT 规则是免费的。</p>
+                    <p>已处理的数据:</p>
+                    <p>￥ 0.0318/GB</p>
+                    <b><p>以上价格自2019/1/1起生效，2019/1/1前可免费使用</p></b>
                 </div>                
             </div>
             <!-- END: TAB-CONTROL -->
