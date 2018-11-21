@@ -991,6 +991,104 @@
                                         <td>￥ 1.501</td>
                                     </tr>
                                 </table>
+
+                                <h3>Hyperscale</h3>
+                                <p>Hyperscale provides rapid, dynamic storage scaling up to 100 TB to help you optimize database resources for your workload’s needs. During Preview, an additional read replica is automatically provisioned and is billed at the Azure Hybrid Benefit pricing. The below pricing is for the primary instance.</p>
+                                <h4>Gen 4</h4>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Memory（GB）</strong></th>
+                                        <th align="left"><strong>License included price</th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>7</td>
+                                        <td>￥1.2473/hour<br/>( about￥927.9912/month )</td>
+                                        <td>￥0.9294/hour<br/>( about￥691.4736/month )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>14</td>
+                                        <td>￥2.4945/hour<br/>( about￥1,855.908/month )</td>
+                                        <td>￥1.8587/hour<br/>( about￥1,382.8728/month )（~25%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>28</td>
+                                        <td>￥4.9891/hour<br/>( about￥3,711.8904/month )</td>
+                                        <td>￥3.7175/hour<br/>( about￥2,765.82/month )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>￥9.9781/hour<br/>( about￥7,423.7064/month )</td>
+                                        <td>￥7.435/hour<br/>( about￥5,531.64/month )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>￥19.9562/hour<br/>( about￥14,847.4128/month )</td>
+                                        <td>￥14.87/hour<br/>( about￥11,063.28/month )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>168</td>
+                                        <td>￥29.9344/hour<br/>( about￥22,271.1936/month )</td>
+                                        <td>￥22.305/hour<br/>( about ￥16,594.92/month )（~25%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+                                <h4>Storage</h4>
+                                <p>In the Business Critical tier, you are charged for local SSD storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 1 TB with 1 GB increments.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/month</td>
+                                        <td>￥ 1.0176</td>
+                                    </tr>
+                                </table>
+
+                                <h4>Backup Storage</h4>
+                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>RA-GRS</td>
+                                        <td>￥ 2.0352</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZRS</td>
+                                        <td>￥ 1.272</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LRS</td>
+                                        <td>￥ 1.0176</td>
+                                    </tr>
+                                </table>
+
+                                <h4>I/Os</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">I/O Rate</th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Per million request</td>
+                                        <td>￥ 1.0716</td>
+                                    </tr>
+                                </table>
                                
                             </div>
                             <!-- END: Tab level 2 content 2-1-->
