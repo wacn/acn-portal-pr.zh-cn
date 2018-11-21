@@ -9341,6 +9341,127 @@ var CalculatorData = {
                         PriceUnit: "每 100 万次请求"
                     }]
                 }]
+            },{
+                Name: "超大规模",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                        {
+                            Name: "vCore 1",
+                            Description: "1 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1.2473"
+                        }, {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "2.4945"
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "4.9891"
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "9.9781"
+                        },
+                        {
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "19.9562"
+                        },
+                        {
+                            Name: "vCore 24",
+                            Description: "24 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "29.9344"
+                        }]
+                },
+                {
+                    Name: "存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.0176",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "备份存储空间 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "备份存储空间 - RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "2.0352",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "备份存储空间 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "备份存储空间 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.272",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "备份存储空间 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "备份存储空间 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.0176",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "I/O",
+                    Sizes: [{
+                        Name: "I/O",
+                        Description: "I/O 费率",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.0176",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每 100 万次请求"
+                    }]
+                }]
             }]
         },
         "sql-database-single-vcore-hybrid": {
@@ -9468,7 +9589,70 @@ var CalculatorData = {
                         PriceUnit: "GB"
                     }]
                 }]
-            }]
+            },
+            {
+                Name: "超大规模",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                        {
+                            Name: "vCore 1",
+                            Description: "1 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "0.9294"
+                        }, {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1.8587"
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3.7175"
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "7.435"
+                        },
+                        {
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "14.87"
+                        },
+                        {
+                            Name: "vCore 24",
+                            Description: "24 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "22.305"
+                        }]
+                },
+                {
+                    Name: "存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.0176",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }
+        ]
         },
         "sql-database-single-dtu": {
             Name: "SQL 数据库 - 单个数据库 - DTU",
@@ -16823,8 +17007,80 @@ var CalculatorData = {
                     }]
                 }]
             }]
+        },
+
+        "load-balancer": {
+            Name: "负载均衡器",
+            Types: [
+            //     {
+            //     Name: "标准",
+            //     Features: [
+            //         {
+            //             Name: "每条规则价格",
+            //             PricePeriod: PricePeriodEnum.Hourly,
+            //             PriceUnit: "个",
+            //             MinUnit: "0",
+            //             MaxUnit: "20",
+            //             Sizes: [{
+            //                 Name: "rules pricing",
+            //                 Description: "每条规则每小时的价格",
+            //                 PriceTier: "0,5,6,100000",
+            //                 PricePerTier: "0.159,0.0636",
+            //                 MinUnit: "0",
+            //                 MaxUnit: "100000",
+            //                 PriceUnit: "每条规则/小时"
+            //             }]
+            //         },
+            //         {
+            //         Name: "已处理数据",
+            //         PricePeriod: PricePeriodEnum.Monthly,
+            //         PriceUnit: "个",
+            //         MinUnit: "0",
+            //         MaxUnit: "20",
+            //         Sizes: [{
+            //             Name: "default",
+            //             Description: "default",
+            //             PriceTier: "0,500000",
+            //             PricePerTier: "0.0318",
+            //             MinUnit: "0",
+            //             MaxUnit: "500000",
+            //             PriceUnit: "GB"
+            //         }]
+            //     }]
+            // },
+            {
+                Name: "标准",
+                Features: [{
+                    Name: "标准",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "0",
+                    Sizes: [{
+                        Name: "标准",
+                        Description: "标准负载均衡器在2019/1/1前可免费使用",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0"
+                    }]
+                }]
+            },
+            {
+                Name: "基本",
+                Features: [{
+                    Name: "基本",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "0",
+                    Sizes: [{
+                        Name: "基本",
+                        Description: "基本负载均衡器是免费的",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0"
+                    }]
+                }]
+            }]
         }
-        
     }
 };
 //  return CalculatorData;

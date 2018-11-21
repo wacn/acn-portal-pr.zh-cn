@@ -990,6 +990,102 @@
                                         <td>￥ 1.501</td>
                                     </tr>
                                 </table>
+                                <h3>超大规模</h3>
+                                <p>超大规模提供可扩展至 100 TB 的快速动态存储，有助于根据工作负荷需求来优化数据库资源。预览期间将自动预配一个额外只读副本，按 Azure 混合权益定价收费。以下定价适用于主要实例。</p>
+                                <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>7</td>
+                                        <td>￥1.2473/小时<br/>( 约￥927.9912/月 )</td>
+                                        <td>￥0.9284/小时<br/>( 约￥691.4736/月 )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>14</td>
+                                        <td>￥2.4945/小时<br/>( 约￥1,855.908/月 )</td>
+                                        <td>￥1.8587/小时<br/>( 约￥1,382.8728/月 )（~25%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>28</td>
+                                        <td>￥4.9891/小时<br/>( 约￥3,711.8904/月 )</td>
+                                        <td>￥3.7175/小时<br/>( 约￥2,765.82/月 )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>￥9.9781/小时<br/>( 约￥7,423.7064/月 )</td>
+                                        <td>￥7.435/小时<br/>( 约￥5,531.64/月 )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>￥19.9562/小时<br/>( 约￥14,847.4128/月 )</td>
+                                        <td>￥14.87/小时<br/>( 约￥11,063.28/月 )（~25%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>168</td>
+                                        <td>29.9344/小时<br/>( 约￥22,271.1936/月 )</td>
+                                        <td>￥22.305/小时<br/>( 约￥19,594.92/月 )（~25%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
+                                </div>
+                                <h4>存储</h4>
+                                <p>超大规模层中根据实际用量收取数据库存储费用。存储将动态分配在 5 GB 到 100 TB 之间，增量为 1 GB。</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>GB/月</td>
+                                        <td>￥ 1.0176</td>
+                                    </tr>
+                                </table>
+                                <h4>备份存储空间</h4>
+                                <p>默认情况下，数据库的 7 天自动备份会复制到 RA-GRS 标准 Blob 存储。由每周完整备份、每日差异备份和没 5 分钟复制一次的交易日志备份使用存储。备份成本因数据库变化率而异。提供与 100% 数据库大小相等的最小存储，不收取额外费用。超出此部分的其他备份存储空间按 GB/月收费。</p>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"> </th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>RA-GRS</td>
+                                        <td>￥ 2.0352</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ZRS</td>
+                                        <td>￥ 1.272</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LRS</td>
+                                        <td>￥ 1.0176</td>
+                                    </tr>
+                                </table>
+
+                                <h4>I/O</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left">I/O 费率</th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>每 100 万次请求</td>
+                                        <td>￥ 1.0176</td>
+                                    </tr>
+                                </table>
                             </div>
                             <!-- END: Tab level 2 content 2-1-->
                             <!-- BEGIN: Tab level 2 content 2-2 -->

@@ -23,12 +23,32 @@
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">                               
                 <div class="tab-control-container tab-active" id="tabContent1">                   
-                    <h3>Public load balancing</h3>
+                    <h3>Classic public load balancing</h3>
                     <p>Every cloud service can obtain a free public load balancing IP (VIP). If you want to load balance on multiple VIPs, you may obtain extra VIPs for the nominal charges listed <a href="/pricing/details/ip-addresses/" id="ip-addresses">here</a>.</p>
                     <p>You may distribute at most 5 extra IPs to your Load Balancer.</p>
                    
-                    <h3>Internal Load Balancing</h3>
+                    <h3>Classic internal Load Balancing</h3>
                     <p>Load balancing between Virtual Machines that reside inside of a Virtual Network (Internal Load Balancing) is free of charge. Currently, adding extra VIP to Internal Load Balancing is not supported.</p>                                                                            
+
+                    <h3>Standard Load Balancer</h3>
+                    <p>The Standard Load Balancer offers customers several benefits over the Basic Load balancer:</p>       
+                    <ul>
+                        <li>More flexible and larger backend pools</li>
+                        <li>HA Ports rules for scale and resiliency of Network Virtual Appliances and other scenarios</li>
+                        <li>AZ scenarios including cross-zone load balancing, automatic zone-redundant frontends and outbound flows with a single regional IP address</li>
+                        <li>Integrated monitoring (traffic counters, health probe, TCP connection attempts, outbound connections) and continuous data plane health measurements</li>
+                    </ul>         
+                    <p>The pricing for Standard Load Balancer is based on number of rules configured (load balancer rules and NAT rules) and data processed.</p>                                                  
+                    <p>However, there is no hourly charge for the Standard load balancer itself when no rules are configured.</p>
+                    <p>Load Balancing rules:</p>
+                    <p>First 5 rules: ￥ 0.159/hour</p>
+                    <p>Additional rules: ￥ 0.0636/rule/hour</p>
+                    <p>NAT rules:</p>
+                    <p>NAT rules are free.</p>
+                    <p>Data processed:</p>
+                    <p>￥ 0.0318 per GB</p>
+                    <b><p>The billing will be effective from 1/1/2019 and before that Standard Load Balancer can be used for free </p></b>
+                    
                 </div>                
             </div>
             <!-- END: TAB-CONTROL -->
