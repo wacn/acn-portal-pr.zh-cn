@@ -9589,7 +9589,8 @@ var CalculatorData = {
                         PriceUnit: "GB"
                     }]
                 }]
-            },{
+            },
+            {
                 Name: "超大规模",
                 Features: [{
                     Name: "default",
@@ -9650,7 +9651,8 @@ var CalculatorData = {
                         PriceUnit: "GB"
                     }]
                 }]
-            }]
+            }
+        ]
         },
         "sql-database-single-dtu": {
             Name: "SQL 数据库 - 单个数据库 - DTU",
@@ -17005,8 +17007,80 @@ var CalculatorData = {
                     }]
                 }]
             }]
+        },
+
+        "load-balancer": {
+            Name: "负载均衡器",
+            Types: [
+            //     {
+            //     Name: "标准",
+            //     Features: [
+            //         {
+            //             Name: "每条规则价格",
+            //             PricePeriod: PricePeriodEnum.Hourly,
+            //             PriceUnit: "个",
+            //             MinUnit: "0",
+            //             MaxUnit: "20",
+            //             Sizes: [{
+            //                 Name: "rules pricing",
+            //                 Description: "每条规则每小时的价格",
+            //                 PriceTier: "0,5,6,100000",
+            //                 PricePerTier: "0.159,0.0636",
+            //                 MinUnit: "0",
+            //                 MaxUnit: "100000",
+            //                 PriceUnit: "每条规则/小时"
+            //             }]
+            //         },
+            //         {
+            //         Name: "已处理数据",
+            //         PricePeriod: PricePeriodEnum.Monthly,
+            //         PriceUnit: "个",
+            //         MinUnit: "0",
+            //         MaxUnit: "20",
+            //         Sizes: [{
+            //             Name: "default",
+            //             Description: "default",
+            //             PriceTier: "0,500000",
+            //             PricePerTier: "0.0318",
+            //             MinUnit: "0",
+            //             MaxUnit: "500000",
+            //             PriceUnit: "GB"
+            //         }]
+            //     }]
+            // },
+            {
+                Name: "标准",
+                Features: [{
+                    Name: "标准",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "0",
+                    Sizes: [{
+                        Name: "标准",
+                        Description: "标准负载均衡器在2019/1/1前可免费使用",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0"
+                    }]
+                }]
+            },
+            {
+                Name: "基本",
+                Features: [{
+                    Name: "基本",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "0",
+                    Sizes: [{
+                        Name: "基本",
+                        Description: "基本负载均衡器是免费的",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0"
+                    }]
+                }]
+            }]
         }
-        
     }
 };
 //  return CalculatorData;
