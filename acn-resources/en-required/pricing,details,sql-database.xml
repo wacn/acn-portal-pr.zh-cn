@@ -149,7 +149,7 @@
                                 <p>适用于大多数业务工作负荷，提供均衡、可缩放的计算和存储选项。</p>
                                 <h4>Gen 4</h4>
                                 <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-general-purpose-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
@@ -204,6 +204,80 @@
                                     <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
+
+                                <h4>Gen 5</h4>
+                                <p>生成 5 逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。在第 5 代中，1 vCore = 1 个超线程</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-general-purpose-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>每个池的最大数据库数</th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>200</td>
+                                        <td>￥3.5563/小时<br/>( 约￥2,645.8872/月 )</td>
+                                        <td>￥2.2847/小时<br/>( 约￥1,699.8168/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>500</td>
+                                        <td>￥7.1126/小时<br/>( 约￥5,291.7744/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>500</td>
+                                        <td>￥14.2251/小时<br/>( 约￥10,583.4744/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>500</td>
+                                        <td>￥28.4503/小时<br/>( 约￥21,167.0232/月 )</td>
+                                        <td>￥18.2777/小时<br/>( 约￥13,598.6088/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>500</td>
+                                        <td>￥42.6754/小时<br/>( 约￥31,750.4976/月 )</td>
+                                        <td>￥27.4166/小时<br/>( 约￥20,397.9504/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>500</td>
+                                        <td>￥56.9006/小时<br/>( 约￥42,334.0464/月 )</td>
+                                        <td>￥36.5555/小时<br/>( 约￥27,197.292/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>500</td>
+                                        <td>￥71.1257/小时<br/>( 约￥52,917.5208/月 )</td>
+                                        <td>￥45.6944/小时<br/>( 约￥33,996.6336/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>440</td>
+                                        <td>500</td>
+                                        <td>￥142.2514/小时<br/>( 约￥10,5835.0416/月 )</td>
+                                        <td>￥91.3888/小时<br/>( 约￥67,993.2672/月 )（~36%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
+                                </div>
+
+
                                 <h4>存储</h4>
                                 <p>在常规用途层中，将对为数据库或弹性池配置的高级 Blob 存储收费。存储可配置在 5 GB 到 4 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -266,7 +340,7 @@
 
                                 <h4>Gen 4</h4>
                                 <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-business-critical-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
@@ -315,6 +389,74 @@
                                     <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
+
+                                <h4>Gen 5</h4>
+                                <p>生成 5 逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。在第 5 代中，1 vCore = 1 个超线程</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-business-critical-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>每个池的最大数据库数</th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>50</td>
+                                        <td>￥18.6789/小时<br/>( 约￥13,897.1016/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>100</td>
+                                        <td>￥37.3578/小时<br/>( 约￥27,794.2032/月 )</td>
+                                        <td>￥18.2778/小时<br/>( 约￥13,598.6832/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>100</td>
+                                        <td>￥74.7156/小时<br/>( 约￥55,588.4064/月 )</td>
+                                        <td>￥36.5556/小时<br/>( 约￥27,197.3664/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>100</td>
+                                        <td>￥112.0734/小时<br/>( 约￥83,382.6096/月 )</td>
+                                        <td>￥54.8334/小时<br/>( 约￥40,796.0496/月 )（~51%）</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>100</td>
+                                        <td>￥149.4312/小时<br/>( 约￥111,176.8128/月 )</td>
+                                        <td>￥73.112/小时<br/>( 约￥54,394.7328/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>100</td>
+                                        <td>￥186.789/小时<br/>( 约￥139,971.016/月 )</td>
+                                        <td>￥91.389/小时<br/>( 约￥67,993.416/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>100</td>
+                                        <td>￥373.5779/小时<br/>( 约￥277,941.9576/月 )</td>
+                                        <td>￥182.7779/小时<br/>( 约￥135,986.7576/月 )（~51%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
+                                </div>
+
+
                                 <h4>存储</h4>
                                 <p>在业务关键层中，将对为数据库或弹性池配置的 SSD 存储收费。存储可配置在 5 GB 到 1 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -778,7 +920,7 @@
                                 <p>适用于大多数业务工作负荷，提供均衡、可缩放的计算和存储选项。</p>
                                 <h4>Gen 4</h4>
                                 <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-general-purpose-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
@@ -826,6 +968,71 @@
                                     <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
+                                
+                                <h4>Gen 5</h4>
+                                <p>生成 5 逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。在第 5 代中，1 vCore = 1 个超线程</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-general-purpose-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>￥3.5563/小时<br/>( 约￥2,645.8872/月 )</td>
+                                        <td>￥2.2847/小时<br/>( 约￥1,699.8168/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>￥7.1126/小时<br/>( 约￥5,291.7744/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>￥14.2251/小时<br/>( 约￥10,583.4744/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>￥28.4503/小时<br/>( 约￥21,167.0232/月 )</td>
+                                        <td>￥18.2777/小时<br/>( 约￥13,598.6088/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>￥42.6754/小时<br/>( 约￥31,750.4976/月 )</td>
+                                        <td>￥27.4166/小时<br/>( 约￥20,397.9504/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>￥56.9006/小时<br/>( 约￥42,334.0464/月 )</td>
+                                        <td>￥36.5555/小时<br/>( 约￥27,197.292/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>￥71.1257/小时<br/>( 约￥52,917.5208/月 )</td>
+                                        <td>￥45.6944/小时<br/>( 约￥33,996.6336/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>￥142.2514/小时<br/>( 约￥10,5835.0416/月 )</td>
+                                        <td>￥91.3888/小时<br/>( 约￥67,993.2672/月 )（~36%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
+                                </div>
+
+
                                 <h4>存储</h4>
                                 <p>在常规用途层中，将对为数据库或弹性池配置的高级 Blob 存储收费。存储可配置在 5 GB 到 4 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -886,7 +1093,7 @@
                                 <p>IO 要求高的商业应用程序。使用多个独立副本，提供最高级别的故障恢复能力。</p>
                                 <h4>Gen 4</h4>
                                 <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-business-critical-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>内存（GB）</strong></th>
@@ -934,6 +1141,70 @@
                                     <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
                                     <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
                                 </div>
+                                <h4>Gen 5</h4>
+                                <p>生成 5 逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。在第 5 代中，1 vCore = 1 个超线程</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-business-critical-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>￥9.3394/小时<br/>( 约￥6,948.5136/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~51%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>￥18.6789/小时<br/>( 约￥13,897.1016/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>￥37.3578/小时<br/>( 约￥27,794.2032/月 )</td>
+                                        <td>￥18.2778/小时<br/>( 约￥13,598.6832/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>￥74.7156/小时<br/>( 约￥55,588.4064/月 )</td>
+                                        <td>￥36.5556/小时<br/>( 约￥27,197.3664/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>￥112.0734/小时<br/>( 约￥83,382.6096/月 )</td>
+                                        <td>￥54.8334/小时<br/>( 约￥40,796.0496/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>￥149.431/小时<br/>( 约￥111,176.664/月 )</td>
+                                        <td>￥73.111/小时<br/>( 约￥54，394.584/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>￥186.7888/小时<br/>( 约￥138,970.8672/月 )</td>
+                                        <td>￥91.3888/小时<br/>( 约￥67,993.2672/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>￥373.5776/小时<br/>( 约￥277,941.7344/月 )</td>
+                                        <td>￥182.7776/小时<br/>( 约￥135,986.5344/月 )（~51%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">计算配置在虚拟内核（vCore）中，可选择各代计算机。</div>
+                                </div>
+
+
                                 <h4>存储</h4>
                                 <p>在业务关键层中，将对为数据库或弹性池配置的 SSD 存储收费。存储可配置在 5 GB 到 1 TB 之间（以 1 GB 为增量）。</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
