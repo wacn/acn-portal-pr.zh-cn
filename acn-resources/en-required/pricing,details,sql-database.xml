@@ -1667,11 +1667,69 @@
                 <div class="more-detail">
                     <h2>常见问题</h2>
                     <em>全部展开</em>
+                    <h3>DTU</h3>
                     <ul>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question1">什么是 vCore？</a>
+                                <a id="home_sql_database_dtu_question1">基于 DTU 的模型会怎么样？</a>
+                                <section>
+                                     <p>基于 DTU 和 vCore 的模型将继续共存。我们应客户要求推出了基于 vCore 的模型，这些客户希望对数据库资源获得更大的透明度，并可分别缩放计算和存储。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question2">基于 DTU 的 SQL Database 存储价格是如何计费的？</a>
+                                <section>
+                                     <p>是按照客户预设的值，而不是实际的占用量。例如：客户设置的最大存储是 750GB，实际占用量是 418GB，P4 包含的存储量为 500GB，那么实际会收取 750-500=250 的费用。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question3">基于 DTU 的模型中的定价示例，用于预配了额外存储单个数据库</a>
+                                <section>
+                                     <p>假设 S3 数据库预配了 1 TB。S3 包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。标准层中的额外存储的单价约为 ¥1.0812/GB/月，因此额外的存储价格为 774 GB * ¥1.0812/GB/月 = ¥804.4128/月。因此，S3 数据库的总价为 eDTU ¥969.37/月 + 额外存储 ¥804.4128/月 = ¥1,773.7828/月。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question4">基于 DTU 的模型中的定价示例，用于预配了额外存储的弹性池</a>
+                                <section>
+                                     <p>假设 125 eDTU 高级池预配了 1 TB。125 eDTU 高级池包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。高级池中的额外存储的单价约为 ¥2.1624/GB/月，因此额外的存储价格为 774 GB * ¥2.1624/GB/月 = ¥1,608.8256/月。因此，该池的总价为池 eDTU ¥2,208.75/月 + 额外存储 ¥1,608.8256/月 = ¥3,817.5756/月。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question5">DTU模式的数据库，自动备份是否是收费的？</a>
+                                <section>
+                                     <p>自动备份是免费的，相关信息请参考链接：<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-automated-backups">https://docs.azure.cn/zh-cn/sql-database/sql-database-automated-backups</a></p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question6">DTU模式下的长期保留备份是否有提供免费量？</a>
+                                <section>
+                                     <p>长期保留备份是不包含免费量的。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>VCore</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_vcore_question1">什么是 vCore？</a>
                                 <section>
                                      <p>虚拟核心（vCore）表示服务器可用的逻辑 CPU，并提供两代硬件供客户选择。对于使用 Gen4 vCore 创建的服务器，vCore 基于 Intel E5-2673 v3（Haswell）2.4 GHz 处理器。</p>
                                 </section>
@@ -1680,7 +1738,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question2">基于 vCore 的模型有哪些优势？</a>
+                                <a id="home_sql_database_vcore_question2">基于 vCore 的模型有哪些优势？</a>
                                 <section>
                                      <p>通过基于 vCore 的购买模型，可灵活、受控而直接地将本地工作负荷要求转换到云。允许根据工作负荷需求，独立缩放计算和存储资源。</p>
                                      <p>基于 vCore 的模型适用于 SQL 数据库托管实例、单一数据库和弹性池部署选项，且这些选项都可使用适用于 SQL Server 的 Azure 混合权益。因此，无论是否使用混合权益，基于 vCore 的模型内部的定价都适用：</p>
@@ -1694,81 +1752,34 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question3">必须移动到基于 vCore 的模型吗？</a>
+                                <a id="home_sql_database_vcore_question3">什么是虚拟化权益？</a>
                                 <section>
-                                     <p>不需要移动到基于 vCore 的模型。弹性池和单一数据库的基于 vCore 的部署选项简介体现了我们对客户选择和灵活性的承诺。如果希望继续使用基于 DTU 的模型，不需要采取任何操作，你的体验和计费方式都会保持不变。除基于 vCore 的模型外，基于 DTU 的模型仍是购买 SQL 数据库的可行选择。</p>
+                                     <p>虚拟化权益适用于基于 vCore 的 Azure SQL 数据库上的虚拟化工作负荷。使用它通过有效的软件保障转换 SQL Enterprise Edition 的 1 个许可证核心，以按照基准费率获得最多 4 个托管实例常规用途 vCore。这样，就可以采用极具成本效益的方式将虚拟化应用程序迁移到基于 vCore 的 SQL 数据库。例如，如果有 SQL Enterprise Edition 的 4 个核心许可证，就可以按基准费率获得最多 16 个常规用途 vCore。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question4">基于 DTU 的模型会怎么样？</a>
+                                <a id="home_sql_database_vcore_question4">SQL Database许可证是否收费？</a>
                                 <section>
-                                     <p>基于 DTU 和 vCore 的模型将继续共存。我们应客户要求推出了基于 vCore 的模型，这些客户希望对数据库资源获得更大的透明度，并可分别缩放计算和存储。</p>
+                                     <p>收费，且SQL数据库官网公示的价格已经包含了许可证的费用。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question5">如何选择基于 DTU 或 vCore 的模型？</a>
+                                <a id="home_sql_database_vcore_question5">能否在本地和云中使用 SQL Server 许可证？</a>
                                 <section>
-                                     <p>数据传输单元（DTU）基于 CPU、内存、读取和写入的混合衡量。基于 DTU 的性能级别代表驱动不同级别应用程序性能的预配资源捆绑。如果不想担心底层资源，而希望使用简单的预配捆绑而每月支付固定费用，基于 DTU 的模型可能更能满足你的需求。</p>
-                                     <!-- <p>如果需要更深入了解底层资源，或对其进行独立缩放以实现最优性能，继续 vCore 的模型是最佳选择。此外，如果为 SQL Server 激活软件保障（SA）可通过适用于 SQL Server 的 Azure 混合权益利用现有投资并节省 30% 的费用。两种购买模型都能提供完全托管的服务的权益，例如自动化备份、软件更新和补丁。</p> -->
+                                     <p>必须在本地或云中使用许可证，但有 180 天的宽限期，此期间可在本地和云同时使用许可证以促进迁移。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question6">是否需要将应用程序脱机，才能将基于 DTU 的数据库转换为基于 vCore 的服务层？</a>
-                                <section>
-                                     <p>新的服务层是简单的在线对话方式，与现有标准和高级服务层间的升级和降级过程类似。可使用门户、ARM、PowerShell、Azure CLI 或 T-SQL 启动门户。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question7">帐单中如何显示使用情况？</a>
-                                <section>
-                                     <p>在基于 vCore 的模型中，服务根据中 vCore 预配的计算、预配的存储（GB/月）及使用的备份存储，按可预测的每小时费率计费。如果备份超过数据库总大小（即数据库大小的 100%），将产生额外费用。 vCore 小时数、已配置数据库存储、已使用 IO 和备份存储在帐单中逐项列出，让你可以更轻松地看到所用资源的详细信息。包含最大数据库大小的至多 100% 的备份存储，超过后按每月使用的 GB 数计费。</p>
-                                     <p>例如：</p>
-                                     <ul><li>如果 SQL 数据库在一个月内存在 12 小时，帐单将显示使用 vCore 12 小时的费用。如果 SQL 数据库预配了额外的 100 GB，则帐单会以 GB/月为单位显示按小时分摊的存储使用情况及一个月内使用的 IO 数。</li></ul>
-                                     <p>如果 SQL 数据库运行时间少于 1 小时，则根据该小时内所用的最高服务层和预配存储和 IO 来计算数据库每小时运行的费用，而不考虑使用情况或数据库运行时间是否少于 1 小时。</p>
-                                     <p>例如：</p>
-                                     <ul>
-                                        <li>如果创建托管实例并在 5 分钟后删除，则按 1 数据库小时收费。</li>
-                                        <li>如果在常规用途层创建一个具有 8 个 vCore 的托管实例，并立即将其升级为 16 个 vCore，则第一个小时按 16 个 vCore 收费。</li>
-                                     </ul>
-                                     <p>请注意：在 2018 年 6 月 30 日之前的有限期内，将不收取备份费用和 IO 费用。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question8">如何计算备份费用？</a>
-                                <section>
-                                     <p>备份存储与实例的自动备份相关。增长备份保留期会使实例使用的备份存储空间增大。如果备份存储空间未超过 100% 的总预配服务器存储空间，则无需额外付费。超出此部分的其他备份存储空间按 GB/月收费。例如，如果数据库存储空间大小为 100 GB，则可以获得 100 GB 的备份，无需额外付费。但如果备份为 110 GB，则需额外支付 10 GB 存储空间的费用。</p>
-                                     <p>请注意：在 2018 年 6 月 30 日之前的有限期内，将不收取备份费用。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question9">是否需要承担任何网络数据传输费用？</a>
-                                <section>
-                                     <p>公共预览期间网络数据入口或出口不收取任何附加费用。正式发布后将收取附加费用。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question10">什么是面向 SQL Server 的 Azure 混合权益？我有资格使用它吗？</a>
+                                <a id="home_sql_database_vcore_question6">什么是面向 SQL Server 的 Azure 混合权益？我有资格使用它吗？</a>
                                 <section>
                                      <p>面向 SQL Server 的 Azure 混合权益可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。Azure 混合权益 SQL Server 是基于 Azure 的混合权益，可通过它使用具有软件保障的 SQL Server 许可证，从而支付更少的 SQL 数据库费用（“基准费率”）。通过适用于 SQL Server 的 Azure 混合权益，可使用所有基于 vCore 的选项：SQL 数据库托管实例、单一数据库和弹性池。即使 SKU 是活动的也可以应用此权益，但请注意，从你在门户中进行选择时起，就会应用基准费率。不会补发信用额度。</p>
                                      <p>通过在 Azure 门户证明你有足够的具有软件保障的有效许可证，即可激活 Azure 混合权益。Azure 混合权益的工作原理如下：</p>
@@ -1783,25 +1794,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question11">什么是虚拟化权益？</a>
-                                <section>
-                                     <p>虚拟化权益适用于基于 vCore 的 Azure SQL 数据库上的虚拟化工作负荷。使用它通过有效的软件保障转换 SQL Enterprise Edition 的 1 个许可证核心，以按照基准费率获得最多 4 个托管实例常规用途 vCore。这样，就可以采用极具成本效益的方式将虚拟化应用程序迁移到基于 vCore 的 SQL 数据库。例如，如果有 SQL Enterprise Edition 的 4 个核心许可证，就可以按基准费率获得最多 16 个常规用途 vCore。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question12">能否在本地和云中使用 SQL Server 许可证？</a>
-                                <section>
-                                     <p>必须在本地或云中使用许可证，但有 180 天的宽限期，此期间可在本地和云同时使用许可证以促进迁移。</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question13">能否以追溯方式应用面向 SQL Server 的 Azure 混合权益？</a>
+                                <a id="home_sql_database_vcore_question7">能否以追溯方式应用面向 SQL Server 的 Azure 混合权益？</a>
                                 <section>
                                      <p>否。Azure 混合权益不能以追溯方式进行应用。</p>
                                 </section>
@@ -1810,7 +1803,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question14">如果软件保障到期，面向 SQL Server 的 Azure 混合权益会发生什么情况？</a>
+                                <a id="home_sql_database_vcore_question8">如果软件保障到期，面向 SQL Server 的 Azure 混合权益会发生什么情况？</a>
                                 <section>
                                      <p>若要使用面向 SQL Server 的 Azure 混合权益，需要有效的软件保障。如果软件保障到期并且你没有续订，则系统会将你转到相应 SKU 的“包含许可证”定价。</p>
                                 </section>
@@ -1819,31 +1812,82 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question15">基于 DTU 的模型中的定价示例，用于预配了额外存储单个数据库</a>
+                                <a id="home_sql_database_vcore_question9">帐单中如何显示使用情况？</a>
                                 <section>
-                                     <p>假设 S3 数据库预配了 1 TB。S3 包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。标准层中的额外存储的单价约为 ¥1.0812/GB/月，因此额外的存储价格为 774 GB * ¥1.0812/GB/月 = ¥804.4128/月。因此，S3 数据库的总价为 eDTU ¥969.37/月 + 额外存储 ¥804.4128/月 = ¥1,773.7828/月。</p>
+                                     <p>在基于 vCore 的模型中，服务根据中 vCore 预配的计算、预配的存储（GB/月）及使用的备份存储，按可预测的每小时费率计费。如果备份超过数据库总大小（即数据库大小的 100%），将产生额外费用。 vCore 小时数、已配置数据库存储、已使用 IO 和备份存储在帐单中逐项列出，让你可以更轻松地看到所用资源的详细信息。包含最大数据库大小的至多 100% 的备份存储，超过后按每月使用的 GB 数计费。</p>
+                                     <p>例如：</p>
+                                     <ul><li>如果 SQL 数据库在一个月内存在 12 小时，帐单将显示使用 vCore 12 小时的费用。如果 SQL 数据库预配了额外的 100 GB，则帐单会以 GB/月为单位显示按小时分摊的存储使用情况及一个月内使用的 IO 数。</li></ul>
+                                     <p>如果 SQL 数据库运行时间少于 1 小时，则根据该小时内所用的最高服务层和预配存储和 IO 来计算数据库每小时运行的费用，而不考虑使用情况或数据库运行时间是否少于 1 小时。</p>
+                                     <p>例如：</p>
+                                     <ul>
+                                        <li>如果创建托管实例并在 5 分钟后删除，则按 1 数据库小时收费。</li>
+                                        <li>如果在常规用途层创建一个具有 8 个 vCore 的托管实例，并立即将其升级为 16 个 vCore，则第一个小时按 16 个 vCore 收费。</li>
+                                     </ul>
+                                     <p>请注意：在 2018 年 6 月 30 日之前的有限期内，将不收取备份费用和 IO 费用。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>综合</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_general_question1">数据库如何停止计费？</a>
+                                <section>
+                                     <p>删除数据库后计费停止。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question16">基于 DTU 的模型中的定价示例，用于预配了额外存储的弹性池</a>
+                                <a id="home_sql_database_general_question2">是否需要承担任何网络数据传输费用？</a>
                                 <section>
-                                     <p>假设 125 eDTU 高级池预配了 1 TB。125 eDTU 高级池包含的存储量为 250 GB，因此额外的存储量为 1024 GB - 250 GB = 774 GB。高级池中的额外存储的单价约为 ¥2.1624/GB/月，因此额外的存储价格为 774 GB * ¥2.1624/GB/月 = ¥1,608.8256/月。因此，该池的总价为池 eDTU ¥2,208.75/月 + 额外存储 ¥1,608.8256/月 = ¥3,817.5756/月。</p>
+                                     <p>公共预览期间网络数据入口或出口不收取任何附加费用。正式发布后将收取附加费用。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question17">DTU 模式下，存储的收费是按实际占用量计费还是按照客户预设的存储量计费？</a>
+                                <a id="home_sql_database_general_question3">如何计算备份费用？</a>
                                 <section>
-                                     <p>是按客户预设的存储量计费，例如：DTU 形式的 S3 数据库，包含存储量 250 GB，设置最大存储量为 1TB，实际占用量为 500 GB，那么计费量为： 1024 GB - 250 GB = 774 GB。</p>
+                                     <p>备份存储与实例的自动备份相关。增长备份保留期会使实例使用的备份存储空间增大。如果备份存储空间未超过 100% 的总预配服务器存储空间，则无需额外付费。超出此部分的其他备份存储空间按 GB/月收费。例如，如果数据库存储空间大小为 100 GB，则可以获得 100 GB 的备份，无需额外付费。但如果备份为 110 GB，则需额外支付 10 GB 存储空间的费用。</p>
+                                     <p>请注意：在 2018 年 6 月 30 日之前的有限期内，将不收取备份费用。</p>
                                 </section>
                             </div>
                         </li>
-                    </ul> 
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_general_question4">必须移动到基于 vCore 的模型吗？</a>
+                                <section>
+                                     <p>不需要移动到基于 vCore 的模型。弹性池和单一数据库的基于 vCore 的部署选项简介体现了我们对客户选择和灵活性的承诺。如果希望继续使用基于 DTU 的模型，不需要采取任何操作，你的体验和计费方式都会保持不变。除基于 vCore 的模型外，基于 DTU 的模型仍是购买 SQL 数据库的可行选择。</p>
+                                </section>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_general_question5">如何选择基于 DTU 或 vCore 的模型？</a>
+                                <section>
+                                     <p>数据传输单元（DTU）基于 CPU、内存、读取和写入的混合衡量。基于 DTU 的性能级别代表驱动不同级别应用程序性能的预配资源捆绑。如果不想担心底层资源，而希望使用简单的预配捆绑而每月支付固定费用，基于 DTU 的模型可能更能满足你的需求。</p>
+                                     <!-- <p>如果需要更深入了解底层资源，或对其进行独立缩放以实现最优性能，继续 vCore 的模型是最佳选择。此外，如果为 SQL Server 激活软件保障（SA）可通过适用于 SQL Server 的 Azure 混合权益利用现有投资并节省 30% 的费用。两种购买模型都能提供完全托管的服务的权益，例如自动化备份、软件更新和补丁。</p> -->
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_general_question6">是否需要将应用程序脱机，才能将基于 DTU 的数据库转换为基于 vCore 的服务层？</a>
+                                <section>
+                                     <p>新的服务层是简单的在线对话方式，与现有标准和高级服务层间的升级和降级过程类似。可使用门户、ARM、PowerShell、Azure CLI 或 T-SQL 启动门户。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <p>请参阅文档中的<a href="//docs.azure.cn/zh-cn/sql-database/sql-database-faq/">SQL 数据库常见问题</a>。</p>
             </div>

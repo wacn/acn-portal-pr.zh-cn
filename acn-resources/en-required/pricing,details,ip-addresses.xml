@@ -78,17 +78,7 @@
                     <h2>常见问题</h2>
                     <em>全部展开</em>
                     <ul>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="public_IP_question8">虚拟机处于“已停止解除分配”状态时，是否会向我收取公共 IP 地址的费用？</a>
-                                <section>
-                                    <p>在 ARM 部署模型中，相关 VM 处于“已停止解除分配”时，不对“动态”公共 IP 地址收费。但是无论相关资源为何，都会向“静态”公共 IP 地址收费（除非它是该区域中前 5 个“静态”公共 IP 地址之一）。有关静态与动态分配方法的详细信息，请查看<a id="public_IP_us2" style="color: #00a8d9;" href="https://docs.azure.cn/virtual-network/virtual-network-ip-addresses-overview-arm/">Azure 中的 IP 地址</a>。</p>
-									<p>在 ASM 部署模型中，VM 处于“已停止解除分配”时，不对实例层级公共 IP（ILPIP）地址收费。</p>
-                                </section>
-
-                            </div>
-                        </li>
+                        
 						<!--
 						<li>
                             <i class="icon icon-plus"></i>
@@ -101,18 +91,6 @@
                             </div>
                         </li>
 						-->
-						
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="public_IP_question2">针对公共 IP 地址的计费时钟何时开始和停止？</a>
-                                <section>
-                                    <p>对于 ARM 部署模型中的“静态”公共 IP 地址和 ASM 部署模型中的“保留” IP 地址，计费时钟将从您创建 IP 地址后的第 2 个小时开始，以便留出时间来相应分配 IP 地址。在您删除 IP 地址后计费时钟将停止。</p>
-									<p>对于所有其他公共 IP 地址，时钟在启动相关资源时开始，在删除或停止解除分配相关资源时停止。 </p>	
-                                </section>
-
-                            </div>
-                        </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
@@ -138,12 +116,43 @@
                             <div>
                                 <a id="public_IP_question4">什么是未使用的保留 IP 地址？</a>
                                 <section>
-                                    <p>这是未在正在运行的部署中使用的保留 IP 地址。我们象征性地对未使用的保留 IP 地址收取费用（参见定价表）。</p>
+                                    <p>这是未在正在运行的部署中使用的保留 IP 地址。我们象征性地对未使用的保留 IP 地址收取费用（参见本页定价表）。</p>
                                 </section>
 
                             </div>
                         </li>
-						
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question2">针对公共 IP 地址的计费时钟何时开始和停止？</a>
+                                <section>
+                                    <p>对于 ARM 部署模型中的“静态”公共 IP 地址和 ASM 部署模型中的“保留” IP 地址，计费时钟将从您创建 IP 地址后的第 2 个小时开始，以便留出时间来相应分配 IP 地址。在您删除 IP 地址后计费时钟将停止。</p>
+									<p>对于所有其他公共 IP 地址，时钟在启动相关资源时开始，在删除或停止解除分配相关资源时停止。 </p>	
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question7">在ARM模式下，虚拟机运行时的静态IP前五个是否收取保留费用？</a>
+                                <section>
+                                    <p>收取使用费用，不收取保留费用</p>
+                                </section>
+
+                            </div>
+                        </li>
+						<li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question8">虚拟机处于“已停止解除分配”状态时，是否会向我收取公共 IP 地址的费用？</a>
+                                <section>
+                                    <p>在 ARM 部署模型中，相关 VM 处于“已停止解除分配”时，不对“动态”公共 IP 地址收费。但是无论相关资源为何，都会向“静态”公共 IP 地址收费（除非它是该区域中前 5 个“静态”公共 IP 地址之一）。有关静态与动态分配方法的详细信息，请查看<a id="public_IP_us2" style="color: #00a8d9;" href="https://docs.azure.cn/virtual-network/virtual-network-ip-addresses-overview-arm/">Azure 中的 IP 地址</a>。</p>
+									<p>在 ASM 部署模型中，VM 处于“已停止解除分配”时，不对实例层级公共 IP（ILPIP）地址收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>

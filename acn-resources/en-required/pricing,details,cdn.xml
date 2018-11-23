@@ -108,27 +108,6 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="CDN_price_premium-version">高级版和标准版 CDN 服务的区别？</a>
-                                <section>
-                                    <p>标准版 CDN 是指静态内容加速，包括网页加速，下载加速，点播加速。</p>
-                                    <p>高级版 CDN 服务是指需要开通 Azure CDN 标准版以外的定制化加速场景，包括动态加速和直播加速。</p>
-                                </section>
-
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="CDN_price_higher-data-transmission">在每月传输的数据超过 10TB 后，是否按更高等级的费率对所有数据传输计费？</a>
-                                <section>
-                                    <p>不。属于每个等级的使用量将按照针对该等级的费率计费。例如，如果您在区域 1 产生了 50TB 的标准版 CDN 数据传输，前 10TB 将按照每 GB ¥ 0.272 的费率计费，剩下的 40TB 将按照每 GB ¥ 0.266 的费率计费。</p>
-                                </section>
-
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
                                 <a id="CDN_price_question2">我是否可以指定用来为最终用户提供服务的 CDN 数据中心？ </a>
                                 <section>
                                    <p>不可以。该服务将根据最终用户的网络配置选择 CDN 数据中心，开发人员不能决定所用 CDN 数据中心。服务将按用户 ISP 首选的位置或从逻辑上判断“更近”（不一定是物理接近）的节点为用户提供服务。</p>
@@ -139,9 +118,10 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="CDN_price_question3">CDN 收费中是否包含对存储进行请求，以便检索数据并将数据从存储传输到 CDN 位置的费用？ </a>
+                                <a id="CDN_price_premium-version">高级版和标准版 CDN 服务的区别？</a>
                                 <section>
-                                    <p>不包含。当 CDN 收到针对非位于边缘位置的对象请求时，将向 Azure 存储发出请求以获取数据。从存储读取数据以及将数据从存储传输到 CDN 的操作将按照标准的<a id="CDN_price_data" href="/pricing/details/data-transfer/">数据传输</a>费率收费。</p>
+                                    <p>标准版 CDN 是指静态内容加速，包括网页加速，下载加速，点播加速。</p>
+                                    <p>高级版 CDN 服务是指需要开通 Azure CDN 标准版以外的定制化加速场景，包括动态加速和直播加速。</p>
                                 </section>
 
                             </div>
@@ -164,6 +144,48 @@
                                 </section>
                             </div>
                         </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="CDN_price_higher-data-transmission">在每月传输的数据超过 10TB 后，是否按更高等级的费率对所有数据传输计费？</a>
+                                <section>
+                                    <p>不。属于每个等级的使用量将按照针对该等级的费率计费。例如，如果您在区域 1 产生了 50TB 的标准版 CDN 数据传输，前 10TB 将按照每 GB ¥ 0.272 的费率计费，剩下的 40TB 将按照每 GB ¥ 0.266 的费率计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="CDN_price_question3">CDN 收费中是否包含对存储进行请求，以便检索数据并将数据从存储传输到 CDN 位置的费用？ </a>
+                                <section>
+                                    <p>不包含。当 CDN 收到针对非位于边缘位置的对象请求时，将向 Azure 存储发出请求以获取数据。从存储读取数据以及将数据从存储传输到 CDN 的操作将按照标准的<a id="CDN_price_data" href="/pricing/details/data-transfer/">数据传输</a>费率收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="CDN_price_question7">CDN 收费是否包括标准数据传输的费用？</a>
+                                <section>
+                                    <p>CDN 回源请求会产生标准数据流量，即当 CDN 节点没有客户请求的内容时会直接向原站（Azure 存储）请求数据，从存储读取数据以及将数据传出到 CDN 节点的操作产生的流量就是普通流量，请求数据为入站流量，服务器（Azure 存储）响应客户端请求为出站流量。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="CDN_price_question8">什么时候会产生 CDN 的流量?</a>
+                                <section>
+                                    <p>当客户端向 CDN 节点发出请求（传入）或 CDN 节点响应客户端的请求时（传出），会产生 CDN 流量。CDN 入站流量和 CDN 节点间流量不计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
