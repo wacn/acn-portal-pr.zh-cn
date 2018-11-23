@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="backup" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-06T16:00:00" urlName="backup" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
             <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
@@ -280,7 +280,16 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor1">With regard to storage, which content am I being charged for?</a>
+                                <a id="Backup_price_stor1">Any notes if I backup VMs used Premium Storage?</a>
+                                <section>
+                                    <p>While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article <a href="//docs.azure.cn/zh-cn/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup">Using Premium Storage VMs with Azure Backup</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="Backup_price_stor2">With regard to storage, which content am I being charged for?</a>
                                 <section>
                                     <p>After using the new pricing, the backup data (also called "back-end size") stored in Azure will be charged according to the Block Blob rate in the corresponding region.</p>
                                 </section>
@@ -289,7 +298,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor2">Does Block Blob pricing apply to LRS or GRS storage?</a>
+                                <a id="Backup_price_stor4">Does Block Blob pricing apply to LRS or GRS storage?</a>
                                 <section>
                                     <p>This depends on the storage options selected for the backup vault. The storage options for backup vaults include: locally redundant storage (LRS) or geo-redundant storage (GRS).</p>
                                 </section>
@@ -298,7 +307,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor3">Can I have two different vaults, namely, one using LRS and the other using GRS?</a>
+                                <a id="Backup_price_stor5">Can I have two different vaults, namely, one using LRS and the other using GRS?</a>
                                 <section>
                                     <p>Yes, this is supported. The backup data in every vault will be charged by the corresponding LRS or GRS Block Blob rate in the vault’s region. Customers have full control over Azure storage space billing for selected vault options. </p>
                                 </section>
@@ -307,7 +316,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor4">When should I select LRS storage and when should I obtain GRS storage?</a>
+                                <a id="Backup_price_stor5">When should I select LRS storage and when should I obtain GRS storage?</a>
                                 <section>
                                     <p>The Azure <a id="bp_pri_stor4" href="/home/features/storage/#pricing">Storage Pricing Page</a> provides basic guidance relating to the value of LRS and GRS storage types.</p>
                                     <p>In ideal conditions, the backup data should be placed on GRS if the recovered object needs to be used immediately. This ensures that there are always copies of other backup data for time-critical recovery.</p>
@@ -318,7 +327,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Backup_price_stor5">Which factors will affect the backup storage capacity used?</a>
+                                <a id="Backup_price_stor6">Which factors will affect the backup storage capacity used?</a>
                                 <section>
                                     <p>The total backup data size ("back-end size") maintained in Azure Backup for specific protected instances may vary according to the following factors:</p>
                                     <ul>
