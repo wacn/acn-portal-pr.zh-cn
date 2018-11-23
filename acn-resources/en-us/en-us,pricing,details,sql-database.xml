@@ -147,7 +147,7 @@
                                 <p>Ideal for most business workloads, offering balanced and scalable compute and storage options.</p>
                                 <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%"
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-general-purpose-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>Meomry（GB）</strong></th>
@@ -202,6 +202,79 @@
                                     <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
                                     <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
                                 </div>
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-general-purpose-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Meomry（GB）</strong></th>
+                                        <th align="left"><strong>Max number of databases per pool</th>
+                                        <th align="left"><strong>License included price</th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>200</td>
+                                        <td>￥3.5563/hour<br/>( about ￥2,645.8872/month )</td>
+                                        <td>￥2.2847/hour<br/>( about ￥1,699.8168/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>500</td>
+                                        <td>￥7.1126/hour<br/>( about ￥5,291.7744/month )</td>
+                                        <td>￥4.5694/hour<br/>( about ￥3,399.6336/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>500</td>
+                                        <td>￥14.2251/hour<br/>( about ￥10,583.4744/month )</td>
+                                        <td>￥9.1389/hour<br/>( about ￥6,799.3416/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>500</td>
+                                        <td>￥28.4503/hour<br/>( about ￥21,167.0232/month )</td>
+                                        <td>￥18.2777/hour<br/>( about ￥13,598.6088/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>500</td>
+                                        <td>￥42.6754/hour<br/>( about ￥31,750.4976/month )</td>
+                                        <td>￥27.4166/hour<br/>( about ￥20,397.9504/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>500</td>
+                                        <td>￥56.9006/hour<br/>( about ￥42,334.0464/month )</td>
+                                        <td>￥36.5555/hour<br/>( about ￥27,197.292/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>500</td>
+                                        <td>￥71.1257/hour<br/>( about ￥52,917.5208/month )</td>
+                                        <td>￥45.6944/hour<br/>( about ￥33,996.6336/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>440</td>
+                                        <td>500</td>
+                                        <td>￥142.2514/hour<br/>( about ￥10,5835.0416/month )</td>
+                                        <td>￥91.3888/hour<br/>( about ￥67,993.2672/month )（~36%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+
+
                                 <h4>Storage</h4>
                                 <p>In the General Purpose tier, you are charged for Premium blob storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 4 TB with 1 GB increments.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -264,7 +337,7 @@
                                 <p>Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.</p>
                                 <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-business-critical-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>Memory（GB）</strong></th>
@@ -312,6 +385,73 @@
                                     <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
                                     <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
                                 </div>
+
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-business-critical-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Memory（GB）</strong></th>
+                                        <th align="left"><strong>Max number of databases per pool</th>
+                                        <th align="left"><strong>License included price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>50</td>
+                                        <td>￥18.6789/hour<br/>( about ￥13,897.1016/month )</td>
+                                        <td>￥9.1389/hour<br/>( about ￥6,799.3416/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>100</td>
+                                        <td>￥37.3578/hour<br/>( about ￥27,794.2032/month )</td>
+                                        <td>￥18.2778/hour<br/>( about ￥13,598.6832/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>100</td>
+                                        <td>￥74.7156/hour<br/>( about ￥55,588.4064/month )</td>
+                                        <td>￥36.5556/hour<br/>( about ￥27,197.3664/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>100</td>
+                                        <td>￥112.0734/hour<br/>( about ￥83,382.6096/month )</td>
+                                        <td>￥54.8334/hour<br/>( about ￥40,796.0496/month )（~51%）</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>100</td>
+                                        <td>￥149.4312/hour<br/>( about ￥111,176.8128/month )</td>
+                                        <td>￥73.112/hour<br/>( about ￥54,394.7328/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>100</td>
+                                        <td>￥186.789/hour<br/>( about ￥139,971.016/month )</td>
+                                        <td>￥91.389/hour<br/>( about ￥67,993.416/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>100</td>
+                                        <td>￥373.5779/hour<br/>( about ￥277,941.9576/month )</td>
+                                        <td>￥182.7779/hour<br/>( about ￥135,986.7576/month )（~51%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+
                                 <h4>Storage</h4>
                                 <p>In the Business Critical tier, you are charged for local SSD storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 1 TB with 1 GB increments.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -775,7 +915,7 @@
                                 <p>Ideal for most business workloads, offering balanced and scalable compute and storage options.</p>
                                 <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-general-purpose-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>Meomry（GB）</strong></th>
@@ -823,6 +963,71 @@
                                     <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
                                     <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
                                 </div>
+
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-general-purpose-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Meomry（GB）</strong></th>
+                                        <th align="left"><strong>License included price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>￥3.5563/hour<br/>( about ￥2,645.8872/month )</td>
+                                        <td>￥2.2847/hour<br/>( about ￥1,699.8168/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>￥7.1126/hour<br/>( about ￥5,291.7744/month )</td>
+                                        <td>￥4.5694/hour<br/>( about ￥3,399.6336/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>￥14.2251/hour<br/>( about ￥10,583.4744/month )</td>
+                                        <td>￥9.1389/hour<br/>( about ￥6,799.3416/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>￥28.4503/hour<br/>( about ￥21,167.0232/month )</td>
+                                        <td>￥18.2777/hour<br/>( about ￥13,598.6088/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>￥42.6754/hour<br/>( about ￥31,750.4976/month )</td>
+                                        <td>￥27.4166/hour<br/>( about ￥20,397.9504/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>￥56.9006/hour<br/>( about ￥42,334.0464/month )</td>
+                                        <td>￥36.5555/hour<br/>( about ￥27,197.292/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>￥71.1257/hour<br/>( about ￥52,917.5208/month )</td>
+                                        <td>￥45.6944/hour<br/>( about ￥33,996.6336/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>￥142.2514/hour<br/>( about ￥10,5835.0416/month )</td>
+                                        <td>￥91.3888/hour<br/>( about ￥67,993.2672/month )（~36%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+
+                                
                                 <h4>Storage</h4>
                                 <p>In the General Purpose tier, you are charged for Premium blob storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 4 TB with 1 GB increments.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
@@ -885,7 +1090,7 @@
                                 <p>Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.</p>
                                 <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-business-critical-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
                                         <th align="left"><strong>Memory（GB）</strong></th>
@@ -933,6 +1138,70 @@
                                     <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
                                     <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
                                 </div>
+
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-business-critical-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Memory（GB）</strong></th>
+                                        <th align="left"><strong>License included price</th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>￥9.3394/hour<br/>( about ￥6,948.5136/month )</td>
+                                        <td>￥4.5694/hour<br/>( about ￥3,399.6336/month )（~51%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>￥18.6789/hour<br/>( about ￥13,897.1016/month )</td>
+                                        <td>￥9.1389/hour<br/>( about ￥6,799.3416/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>￥37.3578/hour<br/>( about ￥27,794.2032/month )</td>
+                                        <td>￥18.2778/hour<br/>( about ￥13,598.6832/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>￥74.7156/hour<br/>( about ￥55,588.4064/month )</td>
+                                        <td>￥36.5556/hour<br/>( about ￥27,197.3664/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>￥112.0734/hour<br/>( about ￥83,382.6096/month )</td>
+                                        <td>￥54.8334/hour<br/>( about ￥40,796.0496/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>￥149.431/hour<br/>( about ￥111,176.664/month )</td>
+                                        <td>￥73.111/hour<br/>( about ￥54，394.584/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>￥186.7888/hour<br/>( about ￥138,970.8672/month )</td>
+                                        <td>￥91.3888/hour<br/>( about ￥67,993.2672/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>￥373.5776/hour<br/>( about ￥277,941.7344/month )</td>
+                                        <td>￥182.7776/hour<br/>( about ￥135,986.5344/month )（~51%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+
                                 <h4>Storage</h4>
                                 <p>In the Business Critical tier, you are charged for local SSD storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 1 TB with 1 GB increments.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
