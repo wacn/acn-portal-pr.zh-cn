@@ -1640,7 +1640,7 @@ var CalculatorData = {
                         Name: "F4/FS4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.71"
+                        PricePerTier: "1.8"
                     },
                     {
                         Name: "F8/FS8",
