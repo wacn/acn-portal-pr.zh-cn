@@ -1628,13 +1628,13 @@ var CalculatorData = {
                         Name: "F1/FS1",
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.41"
+                        PricePerTier: "0.43"
                     },
                     {
                         Name: "F2/FS2",
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.86"
+                        PricePerTier: "0.9"
                     },
                     {
                         Name: "F4/FS4",
@@ -1646,13 +1646,13 @@ var CalculatorData = {
                         Name: "F8/FS8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.42"
+                        PricePerTier: "3.61"
                     },
                     {
                         Name: "F16/FS16",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.83"
+                        PricePerTier: "7.19"
                     }]
                 },
                 {
