@@ -362,7 +362,7 @@
                                  <section>
                                         <p>MySQL Database on Azure 包括一个叫做“免费数据库容量”的免费储存空间。该免费数据库容量根据版本不同而有所不同（MS1、MS2、MS3、MS4、MS5、MS6、MP1或MP2）。</p>
                                         <p><b>Azure Database for MySQL</b> 不包括免费储存空间。相反，Azure Database for MySQL 会对每小时以 vCores 计费的计算和配置储存空间单独收费。每个从 MySQL Database on Azure 迁移到 Azure Database for MySQL 上的用户都将配置一个相当于 MySQL Database on Azure 上免费数据库空间的最小储存空间。例如，如果您是 MS1 客户，您的数据库将配备至少 100 GB 的储存空间。</p>
-                                        <p>为了使 MySQL Database on Azure 迁移到 Azure Database for MySQL 上的用户维持相同的每月账单，我们将使用专用“遗留”计算和储存计量器来为迁移的用户维持每月总账单。这些“遗留”计量器的定价是为了抵消 MySQL Database on Azure 中包含的“免费数据库容量”的损失。 </p>
+                                        <p>为了使 MySQL Database on Azure 迁移到 Azure Database for MySQL 上的用户维持相同的每月账单，我们将使用专用“旧式”计算和储存计量器来为迁移的用户维持每月总账单。这些“旧式”计量器的定价是为了抵消 MySQL Database on Azure 中包含的“免费数据库容量”的损失。 </p>
                                     </section>
                                 </div>
                             </li>
@@ -416,7 +416,7 @@
                                 <div>
                                     <a id="pricing_mysql_question13">如果我使用 mysqldump 和 mysqlrestore 迁移会怎么样？</a>
                                     <section>
-                                        <p>您可以使用 mysqldump 和 mysqlrestore 迁移，但是，您将无法继续使用”遗留 ”计量器来维持确切的价格点。您的收费将使用新的定价模式。</p>
+                                        <p>您可以使用 mysqldump 和 mysqlrestore 迁移，但是，您将无法继续使用“旧式”计量器来维持确切的价格点。您的收费将使用新的定价模式。</p>
                                     </section>
                                 </div>
                             </li>
@@ -425,7 +425,7 @@
                                 <div>
                                     <a id="pricing_mysql_question14">如果我想在迁移后更改性能等级，我需要做什么（例如：我从 MS5 迁移至通用 4 vCore，然后我想要升级至通用8 vCore）？</a>
                                     <section>
-                                        <p>如果您决定在迁移至 Azure Database for MySQL 后增加您的数据库容量，你将不在享受“遗留”价格，而是更改为<a href="https://www.azure.cn/en-us/pricing/details/mysql/">此处</a>显示的 Azure Database for MySQL 价格。</p>
+                                        <p>如果您决定在迁移至 Azure Database for MySQL 后增加您的数据库容量，你将不在享受“旧式”价格，而是更改为<a href="https://www.azure.cn/en-us/pricing/details/mysql/">此处</a>显示的 Azure Database for MySQL 价格。</p>
                                     </section>
                                 </div>
                             </li>
