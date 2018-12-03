@@ -79,8 +79,8 @@
                     <h3>高吞吐量和低延迟查询</h3>
                     <p>借助 Azure Cosmos DB，在写入持续的数据量时，将通过为固态硬盘 (SSD) 和低延迟访问而设计的写入优化、免闩锁数据库引擎，同步对这些数据进行索引以提供一致的 SQL 查询。当数据分布时，读取和写入请求总是源自本地区域。通过<a id="pricing-cosmos-db_docs-documentdb-indexing-policies" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-indexing-policies/">自定义自动索引行为</a>，可进一步优化性能。</p>
                     
-                    <h3>具有预定义性能和大小的集合</h3>
-                    <p>2017 年 8 月 1 日前，S1、S2 或 S3 大小的集合可以继续将这些功能用于预定义的 10GB 存储和吞吐量，这些量可以随实例大小变化： S1（250 RU 数/秒 按 ¥0.15/小时计费）、S2（1000 RU 数/秒按 ¥0.30/小时计费） 或 S3（2500 RU 数/秒 按 ¥0.60/小时计费） 吞吐量的集合。若想要重新配置这些集合的吞吐量，请查看<a id="pricing-cosmos-db_docs-documentdb-performance-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">使用 Azure 门户更改性能级别</a>。若想要使用无限存储容器，需要对先前创建的 S1、S2 或 S3 集合进行转换，以使用上面所述的无限吞吐量和存储空间规模，如<a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Azure Cosmos DB 中的分区和缩放</a>所述。</p>
+                    <!-- <h3>具有预定义性能和大小的集合</h3>
+                    <p>2017 年 8 月 1 日前，S1、S2 或 S3 大小的集合可以继续将这些功能用于预定义的 10GB 存储和吞吐量，这些量可以随实例大小变化： S1（250 RU 数/秒 按 ¥0.15/小时计费）、S2（1000 RU 数/秒按 ¥0.30/小时计费） 或 S3（2500 RU 数/秒 按 ¥0.60/小时计费） 吞吐量的集合。若想要重新配置这些集合的吞吐量，请查看<a id="pricing-cosmos-db_docs-documentdb-performance-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">使用 Azure 门户更改性能级别</a>。若想要使用无限存储容器，需要对先前创建的 S1、S2 或 S3 集合进行转换，以使用上面所述的无限吞吐量和存储空间规模，如<a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Azure Cosmos DB 中的分区和缩放</a>所述。</p> -->
                     <!-- END: Table2-Content-->
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
@@ -147,7 +147,7 @@
 
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="Storage_question5">在我升级容器后，收费率何时更改？</a>
@@ -157,7 +157,7 @@
                                 </section>
 
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
@@ -178,7 +178,7 @@
                             </div>
                         </li>
 						-->
-                        <li>
+                        <!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="Storage_question8">如何从 S1/S2/S3 集合移动到单个分区？</a>
@@ -187,8 +187,8 @@
                                      <p>若要将现有的单个集合移动到无限存储容器中，请查看<a id="pricing-cosmos-db_docs-documentdb-partition-data-2" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Azure Cosmos DB 中的分区和缩放</a>。</p>
                                 </section>
                             </div>
-                        </li>
-						<li>
+                        </li> -->
+						<!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="Storage_question10">利用 10 GB 容器取代 S1/S2/S3 集合时，可以享有哪些优势？</a>
@@ -196,7 +196,7 @@
                                      <p>在某个入口点，单个分区的吞吐量将超过 S1 (400 RU/秒对比 250 RU/秒)，并且价格更低。也可以增加到 10,000 RU/秒，对比 S3 的 2,500 RU/秒。新预配模型的好处是可以按 100 RU/秒的增量增加，因此当你仅需要 1,200 RU/秒 时，不必付款购买 S3 的 2,500 RU/秒。</p>
                                 </section>
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
