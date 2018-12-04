@@ -6725,6 +6725,202 @@ var CalculatorData = {
             }]
         },
 
+        "storage-ssd-manager-disk-gpv1-standard": {
+            Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1",
+            Types: [{
+                Name: "E10",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 128 GB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "97.69",
+                    }]
+                }]
+            },
+            {
+                Name: "E15",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 256GB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "195.379",
+                    }]
+                }]
+            },
+            {
+                Name: "E20",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 512 GB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "390.758",
+                    }]
+                }]
+            },
+            {
+                Name: "E30",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 1 TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "781.517",
+                    }]
+                }]
+            },
+            {
+                Name: "E40",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 2TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1563.034",
+                    }]
+                }]
+            },
+            {
+                Name: "E50",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 4TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3126.067",
+                    }]
+                }]
+            },
+            {
+                Name: "S40",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 2TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "552.96",
+                    }]
+                }]
+            },
+            {
+                Name: "S50",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 4TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1105.92",
+                    }]
+                }]
+            }
+                //  ,
+                //    {
+                //       Name: "S60",
+                //       Features: [{
+                //           Name: "default",
+                //           PricePeriod: PricePeriodEnum.Monthly,
+                //           PriceUnit: "个",
+                //           MinUnit: "0",
+                //           MaxUnit: "20",
+                //           Sizes: [{
+                //               Name: "default",
+                //               Description: "磁盘大小 8TB",
+                //               PriceTier: PriceTierEnum.Fixed,
+                //               PricePerTier: "2211.84",
+                //           }]
+                //       }]
+                //}
+            ]
+        },
+
+        "storage-ssd-manager-disk-gpv1-standard-snapshots": {
+            Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1 - 快照",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "快照",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.2211",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+
+        "storage-ssd-manager-disk-gpv1-standard-access": {
+            Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1 - 操作和数据传输价格",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "读取、写入和删除等操作",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0204",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            }]
+        },
+
         "storage-manager-disk-gpv1-standard": {
             Name: "存储 - 标准托管磁盘 - 常规用途 v1",
             Types: [{
@@ -6920,6 +7116,7 @@ var CalculatorData = {
                 }]
             }]
         },
+
         "storage-page-blobs-gpv2-ummanager-disk-premium": {
             Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2",
             Types: [{
@@ -18219,6 +18416,45 @@ var CalculatorData = {
                 }]
             }]
         }
+        // ,
+        // "dns": {
+        //     Name: "DNS",
+        //     Types: [
+        //     {
+        //         Name: "公共区域",
+        //         Features: [{
+        //             Name: "托管 DNS 区域",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,20000",
+        //                 PricePerTier: "3.98",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "2000",
+        //                 PriceUnit: "个"
+        //             }]
+        //         },{
+        //             Name: "DNS 查询",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,20000",
+        //                 PricePerTier: "4.07",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "20000",
+        //                 PriceUnit: "百万"
+        //             }]
+        //         }]
+        //     }]
+        // }
     }
 };
 //  return CalculatorData;

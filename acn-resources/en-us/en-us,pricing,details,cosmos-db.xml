@@ -74,8 +74,8 @@
                     <h3>High throughput and low-latency queries</h3>
                     <p>When writing a sustained amount of data with Azure Cosmos DB, the data is indexed synchronously to provide consistent SQL queries using a write-optimized, latch-free database engine designed for solid-state drives (SSDs) and low-latency access. When data is distributed, read and write requests always originate from the local region. Performance can be further optimized by <a id="pricing-cosmos-db_docs-documentdb-indexing-policies" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-indexing-policies/">customizing automatic index behavior</a>.</p>
                     
-                    <h3>Collections with predefined performance and size</h3>
-                    <p>Before August 1, 2017, S1, S2, or S3 size collections can continue to use these features for a predefined 10 GB of storage and throughput, which can vary with the size of the instance: S1 (250 RU/second billed at ¥0.15/hour), S2 (1,000 RU/second billed at ¥0.30/hour), or S3 (2,500 RU/second billed at ¥0.60/hour) throughput collections. If you want to reconfigure the throughput of these collections, please see <a id="pricing-cosmos-db_docs-documentdb-performance-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">Changing performance levels using the Azure portal</a>. If you want to use an unlimited container, you need to convert previously created S1, S2, or S3 collections to use the unlimited throughput and storage sizes described above, as described in <a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Partitioning and scaling in Azure Cosmos DB</a>.</p>
+                    <!-- <h3>Collections with predefined performance and size</h3>
+                    <p>Before August 1, 2017, S1, S2, or S3 size collections can continue to use these features for a predefined 10 GB of storage and throughput, which can vary with the size of the instance: S1 (250 RU/second billed at ¥0.15/hour), S2 (1,000 RU/second billed at ¥0.30/hour), or S3 (2,500 RU/second billed at ¥0.60/hour) throughput collections. If you want to reconfigure the throughput of these collections, please see <a id="pricing-cosmos-db_docs-documentdb-performance-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-performance-levels/">Changing performance levels using the Azure portal</a>. If you want to use an unlimited container, you need to convert previously created S1, S2, or S3 collections to use the unlimited throughput and storage sizes described above, as described in <a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Partitioning and scaling in Azure Cosmos DB</a>.</p> -->
                     <!-- END: Table2-Content-->
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
@@ -142,7 +142,7 @@
 
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="Storage_question5">When does the billing rate change after I have upgraded a container?</a>
@@ -152,7 +152,7 @@
                                 </section>
 
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
@@ -173,7 +173,7 @@
                             </div>
                         </li>
 						-->
-                        <li>
+                        <!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="Storage_question8">How can I move from an S1/S2/S3 collection to a single partition?</a>
@@ -182,8 +182,8 @@
                                      <p>If you want to move an existing single collection into an unlimited container, please see <a id="pricing-cosmos-db_docs-documentdb-partition-data-2" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-partition-data/">Partitioning and scaling in Azure Cosmos DB</a>.</p>
                                 </section>
                             </div>
-                        </li>
-						<li>
+                        </li> -->
+						<!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="Storage_question10">What are the advantages of replacing an S1/S2/S3 collection with a 10 GB container?</a>
@@ -191,7 +191,7 @@
                                      <p>At an entry point, the throughput of a single partition will exceed S1 (400 RU/second compared to 250 RU/second) and the price will be lower. It can also be increased to 10,000 RU/second compared to 2,500 RU/second for S3. The advantage of the new provisioning model is that it can be increased in increments of 100 RU/second, so you do not have to pay to buy 2,500 RU/second of S3 when you only need 1,200 RU/second.</p>
                                 </section>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
