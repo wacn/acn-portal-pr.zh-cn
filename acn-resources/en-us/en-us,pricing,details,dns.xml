@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2018-12-01T07:49:24" updateDate="2018-12-01T15:00:00" urlName="dns" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+            <tags ms.service="dns" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product_banner_dns.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product-icon-dns@2x.png" />
+                        <h2>DNS</h2>
+                        <h4>Ensure secure, reliable content delivery with broad reach</h4>                        
+						<em><a href="/pricing/1rmb-trial/" id="home_dns_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_dns_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Azure DNS allows you to host your DNS domain in Azure, so you can manage your DNS records using the same credentials, billing, and support contract as your other Azure services. Zones can be either public or private, where Private DNS Zones (in Managed Preview) are only visible to VMs that are in your virtual network. Our global network of name servers uses Anycast routing to provide outstanding performance and availability.</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <h2>Pricing Details</h2>
+                <p>Azure DNS billing is based on the number of DNS zones hosted in Azure and the number of DNS queries received.</p>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>DNS</strong></th>
+                            <th align="left"><strong>PUBLIC ZONES</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">Hosted DNS zones</td>
+                                <td class="left_align">￥3.98 per zone per month<sup>1</sup></td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">DNS queries/month</td>
+                                <td class="left_align">￥4.07/per million <sup>2</sup></td>
+                            </tr>
+                        </tbody>
+                    </table>                 
+                    <p><sup>1 </sup>Per-zone charge is calculated daily; partial months are pro-rated.</p>
+                    <p><sup>2 </sup>Queries are aggregated within an Azure subscription for billing purposes.</p>
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->  
+            </div>
+            <!-- END: TAB-CONTROL --> 
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="dns-que-q1">What is a DNS zone? Is it the same as a DNS domain?</a>
+                                <section>
+                                    <p>A domain is a unique name in the domain name system, for example “contoso.com”.</p>
+                                    <p>A DNS zone is used to host the DNS records for a particular domain. For example, the domain contoso.com may contain a number of DNS records, such as mail.contoso.com (for a mail server) and www.contoso.com (for a web site).</p>
+                                    <p>Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="dns-que-q2">Do I need to purchase a DNS domain name to use Azure DNS?</a>
+                                <section>
+                                    <p>Not necessarily.</p>
+                                    <p>You do not need to purchase a domain to host a DNS zone in Azure DNS. You can create a DNS zone at any time without owning the domain name.</p>
+                                    <p>However, you will need to purchase the domain name if you want to link your DNS zone into the global DNS hierarchy—this enables DNS queries from anywhere in the world to find your DNS zone and be answered with your DNS records.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="dns-que-q3">Does Azure DNS allow me to purchase a DNS domain name?</a>
+                                <section>
+                                    <p>No, Azure DNS does not currently support purchasing of domain names. To purchase domains, you should use a third-party domain name registrar, who will typically charge a small annual fee.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+               <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/plans/" id="dns-contact-page">Azure Support</a> to select self-service or any other method to contact us for support.</p>
+				 <p>We guarantee that DNS queries will receive a valid response from at least one of our Azure DNS name server clusters at least 99.99% of the time. If you want to learn more about the details of our server level agreement, please visit the <a href="/support/sla/dns/" id="pricing_dns_sla">Service Level Agreement</a> page.</p>
+                </div>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                      
+    
+    ]]></bodyText>
+    <pageTitle>DNS Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-dns</linkid>
+    <metaKeywords>dns, microsoft azure, azure</metaKeywords>
+    <metaDescription><![CDATA[Learn more about the pricing details for Azure DNS. A 1RMB Trial gets you ￥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer to enjoy a Service Level Agreement of up to 99.99%.]]></metaDescription>
+    <urlDisplayName>Pricing Details - DNS</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

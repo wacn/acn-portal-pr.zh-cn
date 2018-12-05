@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2018-12-01T07:49:24" updateDate="2018-12-01T15:00:00" urlName="dns" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="dns" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product_banner_dns.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product-icon-dns@2x.png" />
+                        <h2>DNS</h2>
+                        <h4>在 Azure 中托管你的域以获取卓越的性能和高可用性。</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_dns_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_dns_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>通过 Azure DNS，可以在 Azure 中托管 DNS 域，这样就能使用与其他 Azure 服务相同的凭据、计费方式和支持合同来管理 DNS。区域可以为公用，也可以为专用，但专用 DNS 区域（处于托管预览状态）只对虚拟网络中的 VM 可见。名称服务器的全球网络使用 Anycast 路由可提供卓越的性能和可用性。</p>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector tab-control-selector">
+                <h2>定价详细信息</h2>
+                <p>Azure DNS 基于在 Azure 中托管的 DNS 区域数和接收的 DNS 查询数进行计费。</p>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->					
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br>
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>DNS</strong></th>
+                            <th align="left"><strong>公用区域</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">托管的 DNS 区域</td>
+                                <td class="left_align">￥3.98 每月每区域 <sup>1</sup></td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">DNS 查询/月</td>
+                                <td class="left_align">￥4.07/百万 <sup>2</sup></td>
+                            </tr>
+                        </tbody>
+                    </table>                 
+                    <p><sup>1 </sup>每个区域的费用按日计算；不足一月则按比例收费。</p>
+                    <p><sup>2 </sup>出于计费的目的，将对 Azure 订阅内的查询进行合计。</p>
+
+                    <!-- END: Table1-Content-->
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->  
+            </div>
+            <!-- END: TAB-CONTROL --> 
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                     <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="dns-que-q1">什么是“DNS 区域”？它是否与 DNS 域相同？</a>
+                                <section>
+                                    <p>域是域名系统中的唯一名称，例如“contoso.com”。</p>
+                                    <p>DNS 区域用于托管某个特定域的 DNS 记录。例如，域“contoso.com”可能包含许多 DNS 记录，例如“mail.contoso.com”（用于邮件服务器）和“www.contoso.com”（用于网站）。</p>
+                                    <p>通过 Azure DNS，你可以托管 DNS 区域，从而管理 Azure 中域的 DNS 记录。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="dns-que-q2">我是否需要购买 DNS 域名才能使用 Azure DNS？</a>
+                                <section>
+                                    <p>不一定。</p>
+                                    <p>你无需购买域便可托管 Azure DNS 中的 DNS。即使没有域名称，你也可以随时创建 DNS 区域。</p>
+                                    <p>但是，如果想要将 DNS 域链接到全球 DNS 层级（此层级可从全球任意位置启用 DNS 查询以查找 DNS 区域和使用 DNS 记录回答），则需要购买域名。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="dns-que-q3">我是否可以通过 Azure DNS 购买 DNS 域名？</a>
+                                <section>
+                                    <p>不需要。Azure DNS 当前不支持购买域名。要购买域，必须使用第三方域名注册商，该注册商通常会收取少量的年费。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            
+           <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/plans/" id="dns-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				 <p>我们保证 DNS 查询至少在 99.99% 的时间将从至少其中一个 Azure DNS 名称服务器群集收到有效响应。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/dns/" id="pricing_dns_sla">服务级别协议</a>页。</p>
+            </div>
+                <!--BEGIN: Support and service code chunk-->
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
+                <!--END: Support and service code chunk--> 
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                       
+            <!--END: Support and service code chunk-->                                                                                      
+    ]]>
+    </bodyText>
+    <pageTitle>Azure DNS 价格_Azure DNS 价格估算 -  Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-dns</linkid>
+    <metaKeywords>Azure, 微软云, Azure DNS, 价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure DNS 的价格详情。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
+    <urlDisplayName>价格详情 - DNS</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
