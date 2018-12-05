@@ -2980,13 +2980,13 @@ var CalculatorData = {
                         Name: "D32 v3/DS32 v3",
                         Description: "32个内核，128GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "103.55"
+                        PricePerTier: "96.47"
                     },
                     {
                         Name: "D64 v3/DS64 v3",
                         Description: "64个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "207.1"
+                        PricePerTier: "192.94"
                     }]
                 },
                 {
@@ -3088,19 +3088,19 @@ var CalculatorData = {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "109.06"
+                        PricePerTier: "101.98"
                     },
                     {
                         Name: "E64i v3/E64is v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "218.13"
+                        PricePerTier: "203.97"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "218.13"
+                        PricePerTier: "203.97"
                     }]
                 },
                 {
@@ -18415,46 +18415,45 @@ var CalculatorData = {
                     }]
                 }]
             }]
+        },
+        "dns": {
+            Name: "DNS",
+            Types: [
+            {
+                Name: "公共区域",
+                Features: [{
+                    Name: "托管 DNS 区域",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,20000",
+                        PricePerTier: "3.98",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "DNS 查询",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,20000",
+                        PricePerTier: "4.07",
+                        MinUnit: "0",
+                        MaxUnit: "20000",
+                        PriceUnit: "百万"
+                    }]
+                }]
+            }]
         }
-        // ,
-        // "dns": {
-        //     Name: "DNS",
-        //     Types: [
-        //     {
-        //         Name: "公共区域",
-        //         Features: [{
-        //             Name: "托管 DNS 区域",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,20000",
-        //                 PricePerTier: "3.98",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "2000",
-        //                 PriceUnit: "个"
-        //             }]
-        //         },{
-        //             Name: "DNS 查询",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,20000",
-        //                 PricePerTier: "4.07",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "20000",
-        //                 PriceUnit: "百万"
-        //             }]
-        //         }]
-        //     }]
-        // }
     }
 };
 //  return CalculatorData;
