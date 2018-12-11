@@ -5560,6 +5560,22 @@ var CalculatorData = {
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
                     }]
+                },
+                {
+                    Name: "异地复制数据传输",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,50000",
+                        PricePerTier: "0.67",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
                 }
             ]
             }]
@@ -18454,6 +18470,168 @@ var CalculatorData = {
                 }]
             }]
         }
+        // ,
+        // "container-registry": {
+        //     Name: "容器注册表",
+        //     Types: [
+        //     {
+        //         Name: "基本",
+        //         Features: [{
+        //             Name: "容器注册表 - 基本",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "100",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Fixed,
+        //                 PricePerTier: "52.555",
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "标准",
+        //         Features: [{
+        //             Name: "容器注册表 - 标准",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "100",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Fixed,
+        //                 PricePerTier: "210.3038",
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "高级",
+        //         Features: [{
+        //             Name: "容器注册表 - 高级",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "100",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: PriceTierEnum.Fixed,
+        //                 PricePerTier: "525.76",
+        //             }]
+        //         }]
+        //     }]
+        // },
+        // "container-registry-additional-storage-container-build": {
+        //     Name: "容器注册表 - 附加存储 - 容器内部版本价格",
+        //     Types: [{
+        //         Name: "基本",
+        //         Features: [
+        //         {
+        //             Name: "附加存储",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5120000",
+        //                 PricePerTier: "1.0176",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5120000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         },
+        //         {
+        //             Name: "容器内部版本",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,1024000",
+        //                 PricePerTier: "1.8288",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5120000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: " 标准",
+        //         Features: [{
+        //             Name: "附加存储",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5120000",
+        //                 PricePerTier: "1.0176",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5120000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         },
+        //         {
+        //             Name: "容器内部版本",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,1024000",
+        //                 PricePerTier: "1.8288",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5120000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "高级",
+        //         Features: [{
+        //             Name: "附加存储",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5120000",
+        //                 PricePerTier: "1.0176",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5120000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         },
+        //         {
+        //             Name: "容器内部版本",
+        //             PricePeriod: PricePeriodEnum.Hourly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,1024000",
+        //                 PricePerTier: "1.8288",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5120000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // }
     }
 };
 //  return CalculatorData;

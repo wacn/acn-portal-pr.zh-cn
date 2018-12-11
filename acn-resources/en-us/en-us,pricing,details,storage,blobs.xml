@@ -246,6 +246,19 @@
 							<div class="ms-date">For blobs in Archive, the only valid operations are GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob. Setting the tier from Archive to Hot or Cool typically takes up to 15 hours to complete.</div>
 						</div>
 
+						<h4>Data transfer prices for Block Blobs (per GB)</h4>
+						<p>When you write data into GRS accounts, that data will be replicated to another Azure region. The Geo-Replication Data Transfer charge is for the bandwidth of replicating that data to another Azure region. This charge also applies when you change the account replication setting from LRS to GRS or RA-GRS.</p>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong>LRS OR ZRS</strong></th>
+								<th align="left"><strong>GRS OR RA-GRS</strong></th>
+							</tr>
+							<tr>
+								<td>N/A</td>
+								<td>￥0.67/GB</td>
+							</tr>
+						</table>
+
 						<!-- END: Table1-Content-1 -->
 					</div>
                     <div class="tab-panel" id="tabContent2">

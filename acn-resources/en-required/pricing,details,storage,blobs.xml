@@ -249,6 +249,19 @@
 							<div class="ms-date">**以下 API 调用视为读取操作：GetBlob 和 SetBlobTier（将 blob 从“存档”移到“冷”，从“冷”移到“热”或从“存档”移到“热”。）。</div><br />
 							<div class="ms-date">对于“存档”中的 blob，仅以下操作有效：GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。将“存档”层设置为“热”层或“冷”层通常需要 15 小时才能完成。</div>
 						</div>
+
+						<h4>块 Blob 的数据传输价格（每 GB）</h4>
+						<p>将数据写入到 GRS 帐户时，该数据将被复制到另一个 Azure 区域。异地复制数据传输费用是将数据复制到另一个 Azure 区域的带宽成本。 将帐户复制设置从 LRS 更改为 GRS 或 RA-GRS 时，仍需收取此费用。</p>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<th align="left"><strong>本地冗余存储 (LRS) 或 区域冗余存储 (ZRS)</strong></th>
+								<th align="left"><strong>异地冗余存储 (GRS) 和 读取访问跨异地冗余存储(RA-GRS)</strong></th>
+							</tr>
+							<tr>
+								<td>不适用</td>
+								<td>￥0.67/GB</td>
+							</tr>
+						</table>
 					</div>
 					<!-- BEGIN: Level 1 tab content panel 2 -->
                     <div class="tab-panel" id="tabContent2">
