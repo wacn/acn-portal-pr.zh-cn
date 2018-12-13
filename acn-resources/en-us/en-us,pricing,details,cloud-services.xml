@@ -7,6 +7,12 @@
                 .pure-content table tr td{
                     line-height: 20px;
                 }
+                .pricing-detail-tab .tab-content .tab-panel.show-md {
+                    display: block;
+                }
+                .pricing-detail-tab .tab-content .tab-panel {
+                    display: none;
+                }
             </style>
             <tags ms.service="cloud-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
 			<div class="hide-info" style="display:none;">
@@ -79,557 +85,583 @@
 					<div class="category-container">
 						<span class="category-title hidden-lg hidden-md">Category:</span>
 						<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
-							<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-1" id="" target="_blank">Standard Instances</a></li>
-							
-							
+							<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-0" id="cloudservice-all">All</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-1" id="cloudservice-general-purpose">General Purpose</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="cloudservice-memory-intensive">Memory Intensive</a></li>
+							<li><a href="javascript:void(0)" data-href="#tabContent1-3" id="cloudservice-compute-intensive">Compute Intensive</a></li>
 						</ul>
 						<select class="dropdown-select category-tabs hidden-lg hidden-md">
-							 <option data-href="#tabContent1-1" id="" value="Standard Instances">Standard Instances</option>
+							<option data-href="#tabContent1-0" id="cloudservice-all" value="all">All</option>
+							<option data-href="#tabContent1-1" id="cloudservice-general-purpose" value="general-purpose">General Purpose</option>
+							<option data-href="#tabContent1-2" id="cloudservice-memory-intensive" value="memory-intensive">Memory Intensive</option>
+							<option data-href="#tabContent1-3" id="cloudservice-compute-intensive" value="compute-intensive">Compute Intensive</option>
 						</select>
 					</div>
 					</div>
 					</div>
     
-    <div class="tab-content">
-					<p>Used for websites, small- and medium-sized databases, and other everyday applications.</p>
-                    
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                <div class="tab-content">
+                    <div class="tab-panel" id="tabContent1-1">
+                    <h2>General Purpose</h2>
+                        <p>Used for websites, small- and medium-sized databases, and other everyday applications.</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-generalpurpose-A0-A4">
+                            <tbody><tr>
+                                <th align="left"><strong>Standard Instance name</strong></th>
+                                <th align="left"><strong>CPU core</strong></th>
+                                <th align="left"><strong>Memory</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>A0</td>
+                                <td>1</td>
+                                <td>0.75 GB</td>
+                                <td>20 GB</td>
+                                <td>¥ 0.11/hour<br>(about ¥ 81.84/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A1</td>
+                                <td>1</td>
+                                <td>1.75 GB</td>
+                                <td>225 GB</td>
+                                <td>￥ 0.36/hour<br>(about ¥ 267.84/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A2</td>
+                                <td>2</td>
+                                <td>3.5 GB</td>
+                                <td>490 GB</td>
+                                <td>¥ 0.94/hour<br>(about ¥ 699.36/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A3</td>
+                                <td>4</td>
+                                <td>7 GB</td>
+                                <td>1000 GB</td>
+                                <td>¥ 1.88/hour<br>(about ¥ 1,398.72/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A4</td>
+                                <td>8</td>
+                                <td>14 GB</td>
+                                <td>2040 GB</td>
+                                <td>¥ 3.76/hour<br>(about ¥ 2,797.44/month)</td>
+                            </tr>
+                        </tbody></table>
+                        <!-- END: Table1-Content-->
+                        
+                        
+                        <!-- <h3>Av2 Standard</h3> -->
+                        <p>Av2 Standard is the latest generation A-series service. It has similar CPU performance to the A-series, but with faster disk speed. Av2 Standard is suitable for development workloads, build servers, code libraries, low-traffic websites, and web applications. It is also suitable for micro services, early product experiments, and small databases.
+                        </p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-generalpurpose-A1v2-A8mv2">
+                            <tbody><tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>Number of cores</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>A1 v2</td>
+                                <td>1</td>
+                                <td>2 GB</td>
+                                <td>10 GB</td>
+                                <td>¥ 0.5405/hour<br>(about ¥ 402.132/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A2 v2</td>
+                                <td>2</td>
+                                <td>4 GB</td>
+                                <td>20 GB</td>
+                                <td>¥ 1.0833/hour<br>(about ¥ 805.9752/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A4 v2</td>
+                                <td>4</td>
+                                <td>8 GB</td>
+                                <td>40 GB</td>
+                                <td>¥ 2.1666/hour<br>(about ¥ 1,611.9504/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A8 v2</td>
+                                <td>8</td>
+                                <td>16 GB</td>
+                                <td>80 GB</td>
+                                <td>¥ 4.3333/hour<br>(about ¥ 3,223.9752/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A2m v2</td>
+                                <td>2</td>
+                                <td>16 GB</td>
+                                <td>20 GB</td>
+                                <td>¥ 1.9697/hour<br>(about ¥ 1,465.4568/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A4m v2</td>
+                                <td>4</td>
+                                <td>32 GB</td>
+                                <td>40 GB</td>
+                                <td>¥ 3.9394/hour<br>(about ¥ 2,930.9136/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A8m v2</td>
+                                <td>8</td>
+                                <td>64 GB</td>
+                                <td>80 GB</td>
+                                <td>¥ 7.8787/hour<br>(about ¥ 5,861.7528/month)</td>
+                            </tr>
+                        </tbody></table>
                     </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-1">
-                        <tbody><tr>
-                            <th align="left"><strong>Standard Instance name</strong></th>
-                            <th align="left"><strong>CPU core</strong></th>
-                            <th align="left"><strong>Memory</strong></th>
-                            <th align="left"><strong>Disk size</strong></th>
-							<th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>Extra small (A0)</td>
-                            <td>1 (global)</td>
-                            <td>0.75 GB</td>
-                            <td>20 GB</td>
-							<td>¥ 0.11/hour<br>(about ¥ 81.84/month)</td>
-                        </tr>
-                        <tr>
-                            <td>Small (A1)</td>
-                            <td>1</td>
-                            <td>1.75 GB</td>
-                            <td>225 GB</td>
-							<td>￥ 0.36/hour<br>(about ¥ 267.84/month)</td>
-                        </tr>
-                        <tr>
-                            <td>Medium (A2)</td>
-                            <td>2</td>
-                            <td>3.5 GB</td>
-                            <td>490 GB</td>
-							<td>¥ 0.94/hour<br>(about ¥ 699.36/month)</td>
-                        </tr>
-                        <tr>
-                            <td>Large (A3)</td>
-                            <td>4</td>
-                            <td>7 GB</td>
-                            <td>1000 GB</td>
-							<td>¥ 1.88/hour<br>(about ¥ 1,398.72/month)</td>
-                        </tr>
-                        <tr>
-                            <td>Extra large (A4)</td>
-                            <td>8</td>
-                            <td>14 GB</td>
-                            <td>2040 GB</td>
-							<td>¥ 3.76/hour<br>(about ¥ 2,797.44/month)</td>
-                        </tr>
-                    </tbody></table>
-                    <!-- END: Table1-Content-->
+
+                    <div class="tab-panel" id="tabContent1-2">
+                        <!-- BEGIN: Table2-Content-->
+                        <h2>Memory Intensive</h2>
+                        <p>Used for large databases, SharePoint server farms, and high-throughput applications.</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-memoryintensive-A5-A7">
+                            <tbody><tr>
+                                <th align="left"><strong>Standard Instance name</strong></th>
+                                <th align="left"><strong>CPU core</strong></th>
+                                <th align="left"><strong>Memory</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>A5</td>
+                                <td>2</td>
+                                <td>14 GB</td>
+                                <td>490 GB</td>
+                                <td>¥ 1.71/hour<br>(about ¥ 1,272.24/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A6</td>
+                                <td>4</td>
+                                <td>28 GB</td>
+                                <td>1000 GB</td>
+                                <td>¥ 3.43/hour<br>(about ¥ 2,551.92/month)</td>
+                            </tr>
+                            <tr>
+                                <td>A7</td>
+                                <td>8</td>
+                                <td>56 GB</td>
+                                <td>2,040 GB</td>
+                                <td>¥ 6.85/hour<br>(about ¥ 5,096.40/month)</td>
+                            </tr>
+                        </tbody></table>
+                        <!-- END: Table4-Content-->
+                    </div>
 					
-					
-					 <!-- <h3>Av2 Standard</h3> -->
-                    <p>Av2 Standard is the latest generation A-series service. It has similar CPU performance to the A-series, but with faster disk speed. Av2 Standard is suitable for development workloads, build servers, code libraries, low-traffic websites, and web applications. It is also suitable for micro services, early product experiments, and small databases.
-					</p>
-					  <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                    <div class="tab-panel" id="tabContent1-3">
+                        <!-- BEGIN: Table1-Content-->
+                        <h2>Optimized compute——60% faster than A-Series, more memory, and local SSD</h2>
+                        <p>D-series Virtual Machines feature solid state drives (SSDs) and faster processors than the A-series. They are also suitable for web or worker roles in Azure Cloud Services. This series is suitable for applications that demand faster CPUs, better local disk performance, or larger memories.</p>
+                        <!--<p><a id="pricing_cloud_rea" href="https://docs.azure.cn/zh-cn/cloud-services/" style="color: #00a8d9; margin-left: 0;">云服务工作原理</a></p>-->
+                        
+                        <h3>General Purpose</h3>
+                        <p>For websites, small-to-medium databases, and other everyday applications.</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-computeintensive-optimizedcompute-generalpurpose-D1-D4">
+                            <tbody>
+                            <tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>Number of cores</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>D1</td>
+                                <td>1</td>
+                                <td>3.50 GB</td>
+                                <td>50 GB</td>
+                                <td>¥ 0.48/hour<br>(about ¥ 357.12/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D2</td>
+                                <td>2</td>
+                                <td>7.00 GB</td>
+                                <td>100 GB</td>
+                                <td>¥ 1/hour<br>(about ¥ 744/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D3</td>
+                                <td>4</td>
+                                <td>14.00 GB</td>
+                                <td>200 GB</td>
+                                <td>¥ 2.01/hour<br>(about ¥ 1,495.44/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D4</td>
+                                <td>8</td>
+                                <td>28.00 GB</td>
+                                <td>400 GB</td>
+                                <td>4.05/hour<br>(about ¥ 3,013.20/month)</td>
+                            </tr>
+                        </tbody></table>
+
+                        <h3>Memory Intensive</h3>
+                        <p>For large databases, SharePoint server farms, and high-throughput applications.</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudsiervice-table-computeintensive-optimizedcompute-memoryintensive-D11-D14">
+                            <tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>Number of cores</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>D11</td>
+                                <td>2</td>
+                                <td>14.00 GB</td>
+                                <td>100 GB</td>
+                                <td>1.7/hour<br>(about ¥ 1,264.80/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D12</td>
+                                <td>4</td>
+                                <td>28.00 GB</td>
+                                <td>200 GB</td>
+                                <td>3.41/hour<br>(about RMB2,537.04/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D13</td>
+                                <td>8</td>
+                                <td>56.00 GB</td>
+                                <td>400 GB</td>
+                                <td>6.83/hour<br>(about ¥ 5,081.52/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D14</td>
+                                <td>16</td>
+                                <td>112.00 GB</td>
+                                <td>800 GB</td>
+                                <td>13.67/hour <br>(about ¥ 10,170.48/month)</td>
+                            </tr>
+                        </table>
+
+                        <!-- END: Table2-Content--> <!-- BEGIN: Table3-Content-->
+                        <h2>Optimized compute—35% faster than D-Series, latest generation of CPU</h2>
+                        <p>Dv2-series instances are the next generation of D-series instances. They can be used as Virtual Machines or Cloud Services. Dv2-series instances will carry more powerful CPUs and the same memory and disk configurations as the D-series. Dv2-series instances are based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and can go to 3.2 GHz with Intel Turbo Boost Technology 2.0. The Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or higher memories, and offer a powerful combination for many enterprise-grade applications.</p>
+                        <!-- END: Table3-Content--> <!-- BEGIN: Table4-Content-->
+                        <h3>General Purpose</h3>
+                        <p>Used for websites, small- and medium-sized databases, and other everyday applications.</p>
+                        
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-computeintensive-optimizedcompute-generalpurpose-D1v2-D5v2">
+                            <tbody><tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>Number of cores</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>D1 v2</td>
+                                <td>1</td>
+                                <td>3.5 GB</td>
+                                <td>50 GB</td>
+                                <td>¥ 0.53/hour<br>(about ¥ 394.32/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D2 v2</td>
+                                <td>2</td>
+                                <td>7 GB</td>
+                                <td>100 GB</td>
+                                <td>¥ 1.11/hour<br>(about ¥ 825.84/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D3 v2</td>
+                                <td>4</td>
+                                <td>14 GB</td>
+                                <td>200 GB</td>
+                                <td>¥ 2.22/hour<br>(about ¥ 1,651.68/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D4 v2</td>
+                                <td>8</td>
+                                <td>28 GB</td>
+                                <td>400 GB</td>
+                                <td>¥ 4.45/hour<br>(about ￥ 3,310.8/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D5 v2</td>
+                                <td>16</td>
+                                <td>56 GB</td>
+                                <td>800 GB</td>
+                                <td>¥ 8.56/hour<br>(about ￥ 6,368.64/month)</td>
+                            </tr> 
+                        </tbody></table>
+
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div><br>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-computeintensive-optimizedcompute-generalpurpose-D2v3-D64v3">
+                            <tbody><tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>vCPU</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Temporary Storage</strong></th>
+                                <th align="left"><strong>Pricing</strong></th>
+                            </tr>
+                            <tr>
+                                <td>D2 v3</td>
+                                <td>2</td>
+                                <td>8.00 GB</td>
+                                <td>50 GB</td>
+                                <td>¥ 1.25/hour<br>( about ¥ 930/month )</td>
+                            </tr>
+                            <tr>
+                                <td>D4 v3</td>
+                                <td>4</td>
+                                <td>16.00 GB</td>
+                                <td>100 GB</td>
+                                <td>¥ 2.52/hour<br>( about ¥ 1,874.88/month )</td>
+                            </tr>
+                            <tr>
+                                <td>D8 v3</td>
+                                <td>8</td>
+                                <td>32.00 GB</td>
+                                <td>200 GB</td>
+                                <td>¥ 5.04/hour<br>( about ¥ 3,749.76/month )</td>
+                            </tr>
+                            <tr>
+                                <td>D16 v3</td>
+                                <td>16</td>
+                                <td>64.00 GB</td>
+                                <td>400 GB</td>
+                                <td>¥ 10.08/hour<br>( about ¥ 7,499.52/month )</td>
+                            </tr>
+                            <tr>
+                                <td>D32 v3</td>
+                                <td>32</td>
+                                <td>128.00 GB</td>
+                                <td>800 GB</td>
+                                <td>¥ 20.15/hour<br>( about ¥ 14,991.6/month )</td>
+                            </tr> 
+                            <tr>
+                                <td>D64 v3</td>
+                                <td>64</td>
+                                <td>256.00 GB</td>
+                                <td>1,600 GB</td>
+                                <td>¥ 40.3/hour<br>( about ¥ 29,983.2/month )</td>
+                            </tr> 
+                        </tbody></table>
+                        <!-- END: Table4-Content--> <!-- BEGIN: Table5-Content-->
+                        <h3>Memory Intensive</h3>
+                        <p>Used for large databases, SharePoint server farms, and high-throughput applications.</p>
+                        
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-optimizedcompute-memoryintensive-D11v2-D15v2">
+                            <tbody><tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>Number of cores</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Disk size</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>D11 v2</td>
+                                <td>2</td>
+                                <td>3.5 GB</td>
+                                <td>14 GB</td>
+                                <td>¥ 1.88/hour<br>(about ￥ 1,398.72/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D12 v2</td>
+                                <td>4</td>
+                                <td>28 GB</td>
+                                <td>200 GB</td>
+                                <td>¥ 3.76/hour<br>(about ￥ 2,797.44/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D13 v2</td>
+                                <td>8</td>
+                                <td>56 GB</td>
+                                <td>400 GB</td>
+                                <td>¥ 7.51/hour<br>(about ¥ 5,587.44/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D14 v2</td>
+                                <td>16</td>
+                                <td>112 GB</td>
+                                <td>800 GB</td>
+                                <td>￥ 15.03/hour<br>(about ¥ 11,182.32/month)</td>
+                            </tr>
+                            <tr>
+                                <td>D15 v2</td>
+                                <td>20</td>
+                                <td>140 GB</td>
+                                <td>1,000 GB</td>
+                                <td>￥ 18.79/hour<br>(about ¥ 13,979.76/month)</td>
+                            </tr> 
+                        </tbody></table>
+                        
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                            <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div><br>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-optimizedcompute-memoryintensive-E2v3-E64v3">
+                            <tbody><tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>vCPU</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Temporary Storage</strong></th>
+                                <th align="left"><strong>Pricing</strong></th>
+                            </tr>
+                            <tr>
+                                <td>E2 v3</td>
+                                <td>2</td>
+                                <td>16.00 GB</td>
+                                <td>50 GB</td>
+                                <td>¥ 1.6/hour<br>( about ¥ 1,190.4/month )</td>
+                            </tr>
+                            <tr>
+                                <td>E4 v3</td>
+                                <td>4</td>
+                                <td>32.00 GB</td>
+                                <td>100 GB</td>
+                                <td>¥ 3.21/hour<br>( about ¥ 2,388.24/month )</td>
+                            </tr>
+                            <tr>
+                                <td>E8 v3</td>
+                                <td>8</td>
+                                <td>64.00 GB</td>
+                                <td>200 GB</td>
+                                <td>¥ 6.41/hour<br>( about ¥ 4,769.04/month )</td>
+                            </tr>
+                            <tr>
+                                <td>E16 v3</td>
+                                <td>16</td>
+                                <td>128.00 GB</td>
+                                <td>400 GB</td>
+                                <td>¥ 12.84/hour<br>( about ¥ 9,552.96/month )</td>
+                            </tr>
+                            <tr>
+                                <td>E32 v3</td>
+                                <td>32</td>
+                                <td>256.00 GB</td>
+                                <td>800 GB</td>
+                                <td>¥ 25.66/hour<br>( about ¥ 19,091.04/month )</td>
+                            </tr>
+                            <tr>
+                                <td>E64i v3</td>
+                                <td>64</td>
+                                <td>432.00 GB</td>
+                                <td>864 GB</td>
+                                <td>¥ 51.33/hour<br>( about ¥ 38,189.52/month )</td>
+                            </tr>
+                            <tr>
+                                <td>E64 v3</td>
+                                <td>64</td>
+                                <td>432.00 GB</td>
+                                <td>864 GB</td>
+                                <td>¥ 51.33/hour<br>( about ¥ 38,189.52/month )</td>
+                            </tr>
+                        </tbody></table>
+
+                        <!-- END: Table5-Content--> 
+                        <h2>Compute optimized</h2>
+
+                        <h3>Fv2 Series</h3>
+                        <p>The Fv2-series virtual machines support 2-GiB RAM and 8 GB of local temporary storage (SSD) per vCPU, and are optimized for compute intensive workloads. The F-series is hyper-threaded and based on the 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) processor, which can achieve clock speeds as high as 3.7 GHz with the Intel Turbo Boost Technology 2.0. These virtual machines are suitable for scenarios like batch processing, web servers, analytics, and gaming.</p>
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div>
+                            <br>
+                            <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table-computeoptimized-F2v2-F72v2">
+                            <tbody><tr>
+                                <th align="left"><strong>Instances</strong></th>
+                                <th align="left"><strong>vCPU</strong></th>
+                                <th align="left"><strong>RAM</strong></th>
+                                <th align="left"><strong>Temporary Storage</strong></th>
+                                <th align="left"><strong>Price</strong></th>
+                            </tr>
+                            <tr>
+                                <td>F2 v2</td>
+                                <td>2</td>
+                                <td>4.00 GiB</td>
+                                <td>16 GiB</td>
+                                <td>￥1.083/hour
+                                    <br>( about ￥805.752/month )</td>
+                            </tr>
+                            <tr>
+                                <td>F4 v2</td>
+                                <td>4</td>
+                                <td>8.00 GiB</td>
+                                <td>32 GiB</td>
+                                <td>￥2.166/hour
+                                    <br>( about ￥1,611.504/month )</td>
+                            </tr>
+                            <tr>
+                                <td>F8 v2</td>
+                                <td>8</td>
+                                <td>16.00 GiB</td>
+                                <td>64 GiB</td>
+                                <td>￥4.332/hour
+                                    <br>( about ￥3,223.008/month )</td>
+                            </tr>
+                            <tr>
+                                <td>F16 v2</td>
+                                <td>16</td>
+                                <td>32.00 GiB</td>
+                                <td>128 GiB</td>
+                                <td>￥8.664/hour
+                                    <br>( about ￥6,446.016/month )</td>
+                            </tr>
+                            <tr>
+                                <td>F32 v2</td>
+                                <td>32</td>
+                                <td>64.00 GiB</td>
+                                <td>256 GiB</td>
+                                <td>￥17.328/hour
+                                    <br>( about ￥12,892.032/month )</td>
+                            </tr>
+                            <tr>
+                                <td>F64 v2</td>
+                                <td>64</td>
+                                <td>128.00 GiB</td>
+                                <td>512 GiB</td>
+                                <td>￥34.656/hour
+                                    <br>( about ￥25,784.064/month )</td>
+                            </tr>
+                            <tr>
+                                <td>F72 v2</td>
+                                <td>72</td>
+                                <td>144.00 GiB</td>
+                                <td>576 GiB</td>
+                                <td>￥69.312/hour
+                                    <br>( about ￥51,568.128/month )</td>
+                            </tr>
+                        </tbody></table>
                     </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-2">
-                        <tbody><tr>
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>Number of cores</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Disk size</strong></th>
-                            <th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>A1 v2</td>
-                            <td>1</td>
-                            <td>2 GB</td>
-                            <td>10 GB</td>
-                            <td>¥ 0.5405/hour<br>(about ¥ 402.132/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A2 v2</td>
-                            <td>2</td>
-                            <td>4 GB</td>
-                            <td>20 GB</td>
-                            <td>¥ 1.0833/hour<br>(about ¥ 805.9752/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A4 v2</td>
-                            <td>4</td>
-                            <td>8 GB</td>
-                            <td>40 GB</td>
-                            <td>¥ 2.1666/hour<br>(about ¥ 1,611.9504/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A8 v2</td>
-                            <td>8</td>
-                            <td>16 GB</td>
-                            <td>80 GB</td>
-                            <td>¥ 4.3333/hour<br>(about ¥ 3,223.9752/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A2m v2</td>
-                            <td>2</td>
-                            <td>16 GB</td>
-                            <td>20 GB</td>
-                            <td>¥ 1.9697/hour<br>(about ¥ 1,465.4568/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A4m v2</td>
-                            <td>4</td>
-                            <td>32 GB</td>
-                            <td>40 GB</td>
-                            <td>¥ 3.9394/hour<br>(about ¥ 2,930.9136/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A8m v2</td>
-                            <td>8</td>
-                            <td>64 GB</td>
-                            <td>80 GB</td>
-                            <td>¥ 7.8787/hour<br>(about ¥ 5,861.7528/month)</td>
-                        </tr>
-                    </tbody></table>
-					
-					
-					
-                    <!-- BEGIN: Table2-Content-->
-                    <h3>Memory Intensive</h3>
-                    <p>Used for large databases, SharePoint server farms, and high-throughput applications.</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-3">
-                        <tbody><tr>
-                            <th align="left"><strong>Standard Instance name</strong></th>
-                            <th align="left"><strong>CPU core</strong></th>
-                            <th align="left"><strong>Memory</strong></th>
-                            <th align="left"><strong>Disk size</strong></th>
-                            <th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>A5</td>
-                            <td>2</td>
-                            <td>14 GB</td>
-                            <td>490 GB</td>
-                            <td>¥ 1.71/hour<br>(about ¥ 1,272.24/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A6</td>
-                            <td>4</td>
-                            <td>28 GB</td>
-                            <td>1000 GB</td>
-                            <td>¥ 3.43/hour<br>(about ¥ 2,551.92/month)</td>
-                        </tr>
-                        <tr>
-                            <td>A7</td>
-                            <td>8</td>
-                            <td>56 GB</td>
-                            <td>2,040 GB</td>
-                            <td>¥ 6.85/hour<br>(about ¥ 5,096.40/month)</td>
-                        </tr>
-                    </tbody></table>
-                    <!-- END: Table4-Content-->
-                
-               
-                
-                    <!-- BEGIN: Table1-Content-->
-                    <h3>Optimized compute</h3>
-                    <p>D-series Virtual Machines feature solid state drives (SSDs) and faster processors than the A-series. They are also suitable for web or worker roles in Azure Cloud Services. This series is suitable for applications that demand faster CPUs, better local disk performance, or larger memories.</p>
-                    <!--<p><a id="pricing_cloud_rea" href="https://docs.azure.cn/zh-cn/cloud-services/" style="color: #00a8d9; margin-left: 0;">云服务工作原理</a></p>-->
-                    <h3>General Purpose</h3>
-                   
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-4">
-                        <tbody><tr>
-                            <th class="left" width="20%"></th>    
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>Number of cores</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Disk size</strong></th>
-							<th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td rowspan="4"><strong>General Purpose</strong><br>Used for websites, small- and medium-sized databases, and other everyday applications</td>
-                            <td>D1</td>
-                            <td>1</td>
-                            <td>3.50 GB</td>
-                            <td>50 GB</td>
-							<td>¥ 0.48/hour<br>(about ¥ 357.12/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D2</td>
-                            <td>2</td>
-                            <td>7.00 GB</td>
-                            <td>100 GB</td>
-							<td>¥ 1/hour<br>(about ¥ 744/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D3</td>
-                            <td>4</td>
-                            <td>14.00 GB</td>
-                            <td>200 GB</td>
-							<td>¥ 2.01/hour<br>(about ¥ 1,495.44/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D4</td>
-                            <td>8</td>
-                            <td>28.00 GB</td>
-                            <td>400 GB</td>
-							<td>4.05/hour<br>(about ¥ 3,013.20/month)</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="4"><strong>Memory Intensive</strong><br>Used for large databases, SharePoint server farms, and high-throughput applications.</td>
-                            <td>D11</td>
-                            <td>2</td>
-                            <td>14.00 GB</td>
-                            <td>100 GB</td>
-							<td>1.7/hour<br>(about ¥ 1,264.80/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D12</td>
-                            <td>4</td>
-                            <td>28.00 GB</td>
-                            <td>200 GB</td>
-							<td>3.41/hour<br>(about RMB2,537.04/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D13</td>
-                            <td>8</td>
-                            <td>56.00 GB</td>
-                            <td>400 GB</td>
-							<td>6.83/hour<br>(about ¥ 5,081.52/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D14</td>
-                            <td>16</td>
-                            <td>112.00 GB</td>
-                            <td>800 GB</td>
-							<td>13.67/hour <br>(about ¥ 10,170.48/month)</td>
-                        </tr>
-                    </tbody></table>
-                    <!-- END: Table2-Content--> <!-- BEGIN: Table3-Content-->
-                    <h3>Optimized compute: latest generation CPU</h3>
-                    <p>Dv2-series instances are the next generation of D-series instances. They can be used as Virtual Machines or Cloud Services. Dv2-series instances will carry more powerful CPUs and the same memory and disk configurations as the D-series. Dv2-series instances are based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and can go to 3.2 GHz with Intel Turbo Boost Technology 2.0. The Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or higher memories, and offer a powerful combination for many enterprise-grade applications.</p>
-                    <!-- END: Table3-Content--> <!-- BEGIN: Table4-Content-->
-                    <h3>General Purpose</h3>
-                    <p>Used for websites, small- and medium-sized databases, and other everyday applications.</p>
-					
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-5">
-                        <tbody><tr>
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>Number of cores</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Disk size</strong></th>
-							<th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>D1 v2</td>
-                            <td>1</td>
-                            <td>3.5 GB</td>
-                            <td>50 GB</td>
-							<td>¥ 0.53/hour<br>(about ¥ 394.32/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D2 v2</td>
-                            <td>2</td>
-                            <td>7 GB</td>
-                            <td>100 GB</td>
-							<td>¥ 1.11/hour<br>(about ¥ 825.84/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D3 v2</td>
-                            <td>4</td>
-                            <td>14 GB</td>
-                            <td>200 GB</td>
-							<td>¥ 2.22/hour<br>(about ¥ 1,651.68/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D4 v2</td>
-                            <td>8</td>
-                            <td>28 GB</td>
-                            <td>400 GB</td>
-							<td>¥ 4.45/hour<br>(about ￥ 3,310.8/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D5 v2</td>
-                            <td>16</td>
-                            <td>56 GB</td>
-                            <td>800 GB</td>
-							<td>¥ 8.56/hour<br>(about ￥ 6,368.64/month)</td>
-                        </tr> 
-                    </tbody></table>
-                    <!-- END: Table4-Content--> <!-- BEGIN: Table5-Content-->
-                    <h3>Memory Intensive</h3>
-                    <p>Used for large databases, SharePoint server farms, and high-throughput applications.</p>
-					<div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div><br>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-6">
-                        <tbody><tr>
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>vCPU</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Temporary Storage</strong></th>
-                            <th align="left"><strong>Pricing</strong></th>
-                        </tr>
-                        <tr>
-                            <td>D2 v3</td>
-                            <td>2</td>
-                            <td>8.00 GB</td>
-                            <td>50 GB</td>
-                            <td>¥ 1.25/hour<br>( about ¥ 930/month )</td>
-                        </tr>
-                        <tr>
-                            <td>D4 v3</td>
-                            <td>4</td>
-                            <td>16.00 GB</td>
-                            <td>100 GB</td>
-                            <td>¥ 2.52/hour<br>( about ¥ 1,874.88/month )</td>
-                        </tr>
-                        <tr>
-                            <td>D8 v3</td>
-                            <td>8</td>
-                            <td>32.00 GB</td>
-                            <td>200 GB</td>
-                            <td>¥ 5.04/hour<br>( about ¥ 3,749.76/month )</td>
-                        </tr>
-                        <tr>
-                            <td>D16 v3</td>
-                            <td>16</td>
-                            <td>64.00 GB</td>
-                            <td>400 GB</td>
-                            <td>¥ 10.08/hour<br>( about ¥ 7,499.52/month )</td>
-                        </tr>
-                        <tr>
-                            <td>D32 v3</td>
-                            <td>32</td>
-                            <td>128.00 GB</td>
-                            <td>800 GB</td>
-                            <td>¥ 20.15/hour<br>( about ¥ 14,991.6/month )</td>
-                        </tr> 
-                        <tr>
-                            <td>D64 v3</td>
-                            <td>64</td>
-                            <td>256.00 GB</td>
-                            <td>1,600 GB</td>
-                            <td>¥ 40.3/hour<br>( about ¥ 29,983.2/month )</td>
-                        </tr> 
-                    </tbody></table>
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-7">
-                        <tbody><tr>
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>Number of cores</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Disk size</strong></th>
-							<th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>D11 v2</td>
-                            <td>2</td>
-                            <td>3.5 GB</td>
-                            <td>14 GB</td>
-							<td>¥ 1.88/hour<br>(about ￥ 1,398.72/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D12 v2</td>
-                            <td>4</td>
-                            <td>28 GB</td>
-                            <td>200 GB</td>
-							<td>¥ 3.76/hour<br>(about ￥ 2,797.44/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D13 v2</td>
-                            <td>8</td>
-                            <td>56 GB</td>
-                            <td>400 GB</td>
-							<td>¥ 7.51/hour<br>(about ¥ 5,587.44/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D14 v2</td>
-                            <td>16</td>
-                            <td>112 GB</td>
-                            <td>800 GB</td>
-							<td>￥ 15.03/hour<br>(about ¥ 11,182.32/month)</td>
-                        </tr>
-                        <tr>
-                            <td>D15 v2</td>
-                            <td>20</td>
-                            <td>140 GB</td>
-                            <td>1,000 GB</td>
-							<td>￥ 18.79/hour<br>(about ¥ 13,979.76/month)</td>
-                        </tr> 
-                    </tbody></table>
-                    
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div><br>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-8">
-                        <tbody><tr>
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>vCPU</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Temporary Storage</strong></th>
-                            <th align="left"><strong>Pricing</strong></th>
-                        </tr>
-                        <tr>
-                            <td>E2 v3</td>
-                            <td>2</td>
-                            <td>16.00 GB</td>
-                            <td>50 GB</td>
-                            <td>¥ 1.6/hour<br>( about ¥ 1,190.4/month )</td>
-                        </tr>
-                        <tr>
-                            <td>E4 v3</td>
-                            <td>4</td>
-                            <td>32.00 GB</td>
-                            <td>100 GB</td>
-                            <td>¥ 3.21/hour<br>( about ¥ 2,388.24/month )</td>
-                        </tr>
-                        <tr>
-                            <td>E8 v3</td>
-                            <td>8</td>
-                            <td>64.00 GB</td>
-                            <td>200 GB</td>
-                            <td>¥ 6.41/hour<br>( about ¥ 4,769.04/month )</td>
-                        </tr>
-                        <tr>
-                            <td>E16 v3</td>
-                            <td>16</td>
-                            <td>128.00 GB</td>
-                            <td>400 GB</td>
-                            <td>¥ 12.84/hour<br>( about ¥ 9,552.96/month )</td>
-                        </tr>
-                        <tr>
-                            <td>E32 v3</td>
-                            <td>32</td>
-                            <td>256.00 GB</td>
-                            <td>800 GB</td>
-                            <td>¥ 25.66/hour<br>( about ¥ 19,091.04/month )</td>
-                        </tr>
-                        <tr>
-                            <td>E64i v3</td>
-                            <td>64</td>
-                            <td>432.00 GB</td>
-                            <td>864 GB</td>
-                            <td>¥ 51.33/hour<br>( about ¥ 38,189.52/month )</td>
-                        </tr>
-                        <tr>
-                            <td>E64 v3</td>
-                            <td>64</td>
-                            <td>432.00 GB</td>
-                            <td>864 GB</td>
-                            <td>¥ 51.33/hour<br>( about ¥ 38,189.52/month )</td>
-                        </tr>
-                    </tbody></table>
-                    <!-- END: Table5-Content--> 
-                    <h3>Compute optimized</h3>
-                    <h3>Fv2 Series</h3>
-                    <p>The Fv2-series virtual machines support 2-GiB RAM and 8 GB of local temporary storage (SSD) per vCPU, and are optimized for compute intensive workloads. The F-series is hyper-threaded and based on the 2.7 GHz Intel Xeon® Platinum 8168 (SkyLake) processor, which can achieve clock speeds as high as 3.7 GHz with the Intel Turbo Boost Technology 2.0. These virtual machines are suitable for scenarios like batch processing, web servers, analytics, and gaming.</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div>
-                        <br>
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%" id="cloudservice-table1-1-9">
-                        <tbody><tr>
-                            <th align="left"><strong>Instances</strong></th>
-                            <th align="left"><strong>vCPU</strong></th>
-                            <th align="left"><strong>RAM</strong></th>
-                            <th align="left"><strong>Temporary Storage</strong></th>
-                            <th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>F2 v2</td>
-                            <td>2</td>
-                            <td>4.00 GiB</td>
-                            <td>16 GiB</td>
-                            <td>￥1.083/hour
-                                <br>( about ￥805.752/month )</td>
-                        </tr>
-                        <tr>
-                            <td>F4 v2</td>
-                            <td>4</td>
-                            <td>8.00 GiB</td>
-                            <td>32 GiB</td>
-                            <td>￥2.166/hour
-                                <br>( about ￥1,611.504/month )</td>
-                        </tr>
-                        <tr>
-                            <td>F8 v2</td>
-                            <td>8</td>
-                            <td>16.00 GiB</td>
-                            <td>64 GiB</td>
-                            <td>￥4.332/hour
-                                <br>( about ￥3,223.008/month )</td>
-                        </tr>
-                        <tr>
-                            <td>F16 v2</td>
-                            <td>16</td>
-                            <td>32.00 GiB</td>
-                            <td>128 GiB</td>
-                            <td>￥8.664/hour
-                                <br>( about ￥6,446.016/month )</td>
-                        </tr>
-                        <tr>
-                            <td>F32 v2</td>
-                            <td>32</td>
-                            <td>64.00 GiB</td>
-                            <td>256 GiB</td>
-                            <td>￥17.328/hour
-                                <br>( about ￥12,892.032/month )</td>
-                        </tr>
-                        <tr>
-                            <td>F64 v2</td>
-                            <td>64</td>
-                            <td>128.00 GiB</td>
-                            <td>512 GiB</td>
-                            <td>￥34.656/hour
-                                <br>( about ￥25,784.064/month )</td>
-                        </tr>
-                        <tr>
-                            <td>F72 v2</td>
-                            <td>72</td>
-                            <td>144.00 GiB</td>
-                            <td>576 GiB</td>
-                            <td>￥69.312/hour
-                                <br>( about ￥51,568.128/month )</td>
-                        </tr>
-                    </tbody></table>
-                
+            
                 <!-- END: TAB-CONTAINER-2 -->   
             </div>
     </div>
