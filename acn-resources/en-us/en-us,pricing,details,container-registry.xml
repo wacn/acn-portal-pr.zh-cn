@@ -1,51 +1,191 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2018-08-21T10:00:00" updateDate="2018-08-22T15:00:00" urlName="container-registry" writerName="content" creatorName="content">
-    <bodyText>
-      <![CDATA[
-            <tags ms.service="container-registry" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
-            <!-- BEGIN: Product-Detail-TopBanner -->
+  <TextpageLeftNav template="5" createDate="2018-12-10T07:49:24" updateDate="2018-12-10T16:00:00" urlName="container-registry" writerName="content" creatorName="content">
+    <bodyText><![CDATA[
+      
+            <tags ms.service="container-registry" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/production/container-registry_banner.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
-                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/production/container-registry.svg" alt=""/>
-                        <h2>Container Registry<span style="color: #4d4d4d;font-family: '微软雅黑',regular;font-size: 20px;top: -6px;position: relative;display: inline;">（Preview）</span><span>Container Registry</span></h2>
-                        <h4>Store and manage container images across all types of Azure deployments</h4>
-                        <em><a href="/pricing/1rmb-trial/" id="home_container-registry_trial">Apply for 1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em>
-                        <a href="/pricing/pia/" id="home_container-registry_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/production/container-registry.svg" />
+                        <h2>Container Registry<!--span>App Service</span--></h2>
+                        <h4>Manage a Private Docker Registry as a first-class Azure resource</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_vm_trial">1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_vm_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
                 </div>
             </div>
-            <!-- END: Product-Detail-TopBanner -->
-            <div class="pricing-page-section">
-                <p>Azure Container Registry provides storage of private Docker container images, enabling fast, scalable retrieval, and network-close deployment of container workloads on Azure. Azure Container Registry also provides additional capabilities, such as Azure Active Directory-based authentication, webhook support, and delete operations.</p>
-            </div>
-            <!-- BEGIN: TAB-CONTROL -->
+            <!-- END: Product-Detail-TopBanner --> <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">
-                
                 <!-- BEGIN: TAB-CONTAINER-1 -->
-                <p>Free during the Azure Container Registry preview.</p>
-                <!-- END: TAB-CONTAINER-1 -->  
+                <div class="tab-control-container tab-active" id="tabContent1">
+                    <!-- BEGIN: Table1-Content-->
+					<div class="pricing-page-section">
+						<p>Azure Container Registry provides storage of private Docker container images, enabling fast, scalable retrieval, and network-close deployment of container workloads on Azure. Additional capabilities include geo-replication, image signing with Docker Content Trust, Helm Chart Repositories and Task base compute for building, testing, patching container workloads.</p>
+                    </div>
+					<h3>Pricing details</h3>	
+                    <div class="tags-date">
+						<div class="ms-date">*The following prices are tax-inclusive.</div>
+						<br>
+						<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+						</div>
+                    <div class="scroll-table">
+                        <table  cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                            <th align="left" width="25%">&nbsp;</th>
+                            <th align="left" width="25%"><strong>BASIC</strong></th>
+                            <th align="left" width="25%"><strong>STANDARD</strong></th>
+							<th align="left"><strong>PREMIUM</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">Price per day</td>
+                                <td class="left_align">1.6953</td>
+                                <td class="left_align">6.784</td>
+								<td class="left_align">16.96</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">Included storage (GB)</td>
+                                <td class="left_align">10 GB</td>
+                                <td class="left_align">100 GB</td>
+								<td class="left_align">500</br>Premium offers enhanced throughput for docker pulls across multiple, concurrent nodes</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">Total web hooks</td>
+                                <td class="left_align">2</td>
+                                <td class="left_align">10</td>
+								<td class="left_align">100</br>(additional available upon request)</td>
+                            </tr>
+                            <!-- <tr>
+                                <td class="left_align">Geo Replication</td>
+                                <td class="left_align">Not Supported</td>
+                                <td class="left_align">Not Supported</td>
+								<td class="left_align">Supported</br>$1.6671/per replicated region</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    </div>
+                    <p>Standard networking charges apply.</p>
+
+                    <h3>Additional storage</h3>	
+                    <p>Additional storage is available at a daily rate for all service tiers. You're not prevented from storing more than the included storage limits for each tier, but you are charged a daily rate for image storage beyond the specified limits.</p>
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th align="left">TIER</th>
+                                <th align="left">PRICE PER GB</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Basic, Standard, Premium</td>
+                                <td>
+                                    ￥1.0176/day
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Container Build</h3>	
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th align="left">TIER</th>
+                                <th align="left">PRICE PER CPU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Basic, Standard, Premium</td>
+                                <td>
+                                    ￥0.000508/second
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- END: Table2-Content-->
+                </div>
+                <!-- END: TAB-CONTAINER-1 -->
             </div>
-            <!-- END: TAB-CONTROL --> 
-           <div class="pricing-page-section">
+            <!-- END: TAB-CONTROL -->
+			
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em id="ws_unfolded_all">Expand all</em>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="container-registry-que-q1">Can I exceed the usage limit on each tier? If yes, how does billing work for overage usage? If no, what happens to service when I reach the limit?</a>
+                                <section>
+                                    <p>Basic, Standard and Premium tiers include an amount of storage as part of their pricing. As storage exceeds the included amount, registries are charged for their additional storage.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="container-registry-que-q2">Can I upgrade or downgrade the service tier? If yes, how does that impact my billing?</a>
+                                <section>
+                                    <p>Yes, it’s possible to change the SKU in the managed tier using the Azure CLI. Users will be charged at the price for the previous SKU up until the point of the change, and with the new SKU price after the change is made.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="container-registry-que-q3">How does the usage show up on my bill?</a>
+                                <section>
+                                    <p>The bill will display the cost of each managed registry based on the SKU of the registry, as well as any network charges.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="container-registry-que-q4">Do I incur data transfer charges?</a>
+                                <section>
+                                    <p>Standard networking fees apply to network egress from or between azure data centers. We recommend maintaining a registry in the same datacenter as your container deployments. See the geo-replication preview feature to manage multiple regions as one, providing network-close deployments across multiple regions.</p>
+                                </section>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Region</h2>
+                <p>App Service is available in the following regions:</p>
+                <table cellpadding="0" cellspacing="0" class="table-col6">
+                    <tr>
+                        <th align="left"><strong>Territory</strong></th>
+                        <th align="left"><strong>Region</strong></th>
+                    </tr>
+                    <tr>
+                        <td>Mainland China</td>
+                        <td>China North</td>
+                    </tr>
+                </table>
+                
+             <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>
-                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="batch-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
-				<p>Azure Container Registry doesn’t offer a Service Level Agreement during the preview period. If you want to learn more about the details of our server level agreement, please visit the <a href="/support/legal/sla/" id="pricing_batch_sla">Service Level Agreement</a> page.</p>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="app-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				 <p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/container-registry/" id="pricing_app_sla">Service Level Agreements</a> page.</p>
             </div>
-                <!--BEGIN: Support and service code chunk-->
-                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />-->
-                <!--END: Support and service code chunk--> 
-            <!--BEGIN: Support and service code chunk-->
-            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                       
-            <!--END: Support and service code chunk-->                                                                                      
-    ]]>
-    </bodyText>
-    <pageTitle>Container Registry services quotes_price budgeting - Azure Cloud Computing</pageTitle>
+                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                             
+    
+    ]]></bodyText>
+    <pageTitle>Container Registry Pricing Details - Azure Cloud Computing</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-container-registry</linkid>
-    <metaKeywords>Azure, Azure Container Registry, 价格</metaKeywords>
-    <metaDescription><![CDATA[Learn more about the pricing details for Azure Container Registry. Azure Container Registry is currently available through Cloud Services and is offered as a free tier service. There are no additional charges for using Container Registry services in free tier services. You only pay for the underlying computing resources consumed by the selected Cloud Services instance, and the cost will be billed according to the number of minutes of use. A 1RMB Trial gets you ¥ 1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer.]]></metaDescription>
-    <urlDisplayName>Pricing details - Container Registry</urlDisplayName>
+    <metaKeywords>Azure, Microsoft Cloud, Azure Container Registry, Container Registry pricing details, pricing, billing</metaKeywords>
+    <metaDescription><![CDATA[Azure Container Registry is a service to manage private Docker registries for common storage across all your Azure container deployments. Begin a free trial today. A 1RMB Trial gets you ￥1,500 in service credits. You can also make a direct purchase and become a Pay-in-Advance Azure customer.]]></metaDescription>
+    <urlDisplayName>Pricing Details - Container Registry</urlDisplayName>
   </TextpageLeftNav>
 </localize>
