@@ -17373,18 +17373,6 @@ var CalculatorData = {
                         Description: "",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "450.2",
-                    },
-                    {
-                        Name: "3000",
-                        Description: "",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "675.3",
-                    },
-                    {
-                        Name: "6000",
-                        Description: "",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1350.6",
                     }]
                 }]
             }]
