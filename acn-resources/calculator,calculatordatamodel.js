@@ -18701,6 +18701,22 @@ var CalculatorData = {
             //             MaxUnit: "500000",
             //             PriceUnit: "GB"
             //         }]
+            //     },
+            //     {
+            //         Name: "每个 NAT 的价格",
+            //         PricePeriod: PricePeriodEnum.Fixed,
+            //         PriceUnit: "个",
+            //         MinUnit: "0",
+            //         MaxUnit: "20",
+            //         Sizes: [{
+            //             Name: "nat pricing",
+            //             Description: "每个 NAT 的价格",
+            //             PriceTier: "0,100000",
+            //             PricePerTier: "0.0636",
+            //             MinUnit: "0",
+            //             MaxUnit: "100000",
+            //             PriceUnit: "每个"
+            //         }]
             //     }]
             // },
             {
