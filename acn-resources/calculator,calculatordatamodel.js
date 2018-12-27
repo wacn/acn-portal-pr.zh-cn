@@ -18752,45 +18752,44 @@ var CalculatorData = {
                 }]
             }]
         },
-        // "dns": {
-        //     Name: "DNS",
-        //     Types: [
-        //     {
-        //         Name: "公共区域",
-        //         Features: [{
-        //             Name: "托管 DNS 区域",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,20000",
-        //                 PricePerTier: "3.98",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "2000",
-        //                 PriceUnit: "个"
-        //             }]
-        //         },{
-        //             Name: "DNS 查询",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,20000",
-        //                 PricePerTier: "4.07",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "20000",
-        //                 PriceUnit: "百万"
-        //             }]
-        //         }]
-        //     }]
-        // }
-        // ,
+        "dns": {
+            Name: "DNS",
+            Types: [
+            {
+                Name: "公共区域",
+                Features: [{
+                    Name: "托管 DNS 区域",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,20000",
+                        PricePerTier: "3.98",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "DNS 查询",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,20000",
+                        PricePerTier: "4.07",
+                        MinUnit: "0",
+                        MaxUnit: "20000",
+                        PriceUnit: "百万"
+                    }]
+                }]
+            }]
+        },
         "container-registry": {
             Name: "容器注册表",
             Types: [
