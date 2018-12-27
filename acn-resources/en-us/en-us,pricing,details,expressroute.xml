@@ -17,8 +17,7 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>ExpressRoute is a service that enables you to create a private connection between Azure Datacenters and your on-premises or co-located infrastructure. ExpressRoute connections do not go over the public Internet, and are more reliable, faster, and more secure, with lower latency compared with typical connections over the Internet.</p>
-                <p>The private connection between the ExpressRoute service and Azure can be established through the ExpressRoute connection service provider. Customers can choose a pricing plan based on their own needs: an unlimited data plan or a metered data plan. The costs associated with these two plans are different. The cost of 2 ports (on 2 routers) is included in the monthly price to provide redundancy.</p>
+                <p>ExpressRoute is a service that enables you to create private connections between Azure datacenters and infrastructure that’s on your premises or in a colocation environment. ExpressRoute connections don't go over the public internet, and offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the internet.</p>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <h2>Pricing Details</h2>
@@ -100,21 +99,9 @@
                             <td>Unlimited</td>
                         </tr>
                     </table>
-                    <p>Note: ExpressRoute <span>connection service providers may charge other fees not included in the fees listed above.</span></p>
-                    <h3>ExpressRoute Premium Add-on</h3>
-                    <p>ExpressRoute Premium is an add-on over the ExpressRoute Unlimited Data Plan/Metered Data Plan Charges. Customers will be able to get more routing tables and support from Azure, and use the Chinese Azure network to connect to different regions. The ExpressRoute Premium Add-on provides the following features:</p>
-                    <ul>
-                        <li>Increased route limits for public and private peering from 4,000 routes to 10,000 routes.</li>
-                        <li>Increased number of VNets that can be connected to an ExpressRoute circuit(the default value is 10).</li>
-                        <li>Connect China North and China East through the Azure Core Network. You can now use a regional ExpressRoute circuit to link VNets in another region. Example: you can link a VNet created in China North to an ExpressRoute circuit created in China East.</li>
-                    </ul>
-                    <p>For more details, please refer to the <a id="stor-sla-info" style="color: #00a8d9;" href="https://docs.azure.cn/expressroute/">ExpressRoute Service Documentation</a> page.</p>
+                    <p>Once connected to an ExpressRoute China location, users can connect to other regions in the same geo without the need for the premium add-on, and at no additional cost over existing plan charges. For example, once connected to China East, customers can send or retrieve data to or from China East 2 without the need to pay an additional fee on top of their existing plan charges. Similarly, once connected to China North, customers can send or retrieve data to or from China North 2 without the need to pay an additional fee on top of their existing plan charges.</p>
+                    <p><strong>Note:</strong> ExpressRoute <span>connection service providers may charge other fees not included in the fees listed above.</span></p>
                     <!-- END: Table1-Content-->
-
-
-
-
-
 
                 </div>
                 <!-- END: TAB-CONTAINER-1 --> <!-- BEGIN: TAB-CONTAINER-2 -->
@@ -194,12 +181,23 @@
                     </table>
                     <!-- END: Table1-Content-->
                     <p>The rate for output data traffic is: ￥0.22/GB.</p>
-                    <p>Note: ExpressRoute <span>connection service providers may charge other fees not included in the fees listed above.</span></p>
+                    <p>Once connected to an ExpressRoute China location, users can connect to other regions in the same geo without the need for the premium add-on, and at no additional cost over existing plan charges. For example, once connected to China East, customers can send or retrieve data to or from China East 2 without the need to pay an additional fee on top of their existing plan charges. Similarly, once connected to China North, customers can send or retrieve data to or from China North 2 without the need to pay an additional fee on top of their existing plan charges.</p>
+                    <p><strong>Note:</strong> ExpressRoute <span>connection service providers may charge other fees not included in the fees listed above.</span></p>
                 </div>
                 <!-- END: TAB-CONTAINER-2 -->
             </div>
             <!-- END: TAB-CONTROL -->
             <div class="pricing-page-section">
+
+            <h3>ExpressRoute Premium Add-on</h3>
+                    <p>ExpressRoute Premium is an add-on over the ExpressRoute Unlimited Data Plan/Metered Data Plan charges. The ExpressRoute Premium add-on provides the following capabilities: </p>
+                    <ul>
+                        <li>Increased route limits for public and private peering from 4,000 routes to 10,000 routes.</li>
+                        <li>Connect any China regions through the Azure Core Network. An ExpressRoute circuit created in any China region will have access to resources across any other region. For example, a virtual network created in China East can be accessed through an ExpressRoute circuit provisioned in China North.</li>
+                        <li>Increased number of VNet links per ExpressRoute circuit from 10 to a larger limit (depending on the bandwidth of the circuit).</li>
+                    </ul>
+                    <p>For more details, please refer to the <a id="stor-sla-info" style="color: #00a8d9;" href="https://docs.azure.cn/expressroute/">ExpressRoute Service Documentation</a> page.</p>
+
                 <div class="more-detail">
                     <h2>FAQs</h2>
                     <em>Expand all</em>
@@ -207,9 +205,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute_dedicate-link">Which datacenters are available for ExpressRoute dedicate link in China?</a>
+                                <a id="expressroute_dedicate-link">Which datacenters are available for ExpressRoute dedicate link in China? </a>
                                 <section>
-                                    <p>ExpressRoute dedicate link connections still need go thru China East and China North. </p>
+                                    <p>ExpressRoute dedicate link connections are available in China East, China East 2, China North and China North 2.</p>
                                 </section>
 
                             </div>
@@ -217,23 +215,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute_region">Which regions correspond to CN Zone 1, CN Zone 2?</a>
+                                <a id="expressroute-cost">What additional charges will I incur from other parties in this solution? </a>
                                 <section>
-                                    <p>A sub-region is the lowest level geo-location that you may select to deploy your applications and associated data.For ExpressRoute, the following regions correspond to CN Zone 1, CN Zone 2： </p>
-                                    <ul>
-                                        <li>CN Zone 1 — China East, China North.</li>
-                                        <li>CN Zone 2 — China East 2 and China North 2 .</li>
-                                    </ul>
-                                </section>
-
-                            </div>
-                        </li> 
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="expressroute-cost">What additional fees will other parties charge me for in this solution?</a>
-                                <section>
-                                    <p>The ExpressRoute connection service provider will charge you extra fees. Please contact your network connection service provider for pricing information.</p>
+                                    <p>You may have additional charges from your service provider to enable connectivity to ExpressRoute. Please contact your service provider to learn about their pricing.</p>
                                 </section>
 
                             </div>
@@ -241,9 +225,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-port">How many ports are included in the monthly fee for ExpressRoute?</a>
+                                <a id="expressroute-port">How many ports are included in one monthly fee for ExpressRoute? </a>
                                 <section>
-                                    <p>For the purpose of redundancy, 2 ports are included in the monthly fee as shown (on 2 routers).</p>
+                                    <p>For redundancy purposes, 2 ports (on 2 routers) are included in the monthly fee shown.</p>
                                 </section>
 
                             </div>
@@ -251,9 +235,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-china">If I connect to one of China's ExpressRoute locations (such as China East), can I access other areas in China via ExpressRoute?</a>
+                                <a id="expressroute-china">If I connect to one of China's ExpressRoute locations (such as China East), can I access other regions in China via ExpressRoute? </a>
                                 <section>
-                                    <p>Yes. After connecting to one of China's ExpressRoute locations (such as China East), you can purchase ExpressRoute's advanced services (to be launched in the near future) to access other regions in China via ExpressRoute.</p>
+                                    <p>Yes. You can purchase ExpressRoute Unlimited Data Plan/Metered Data Plan to connect from China East to China East 2. You will have access to resources across any other region in China via ExpressRoute Premium Add-on.</p>
                                 </section>
 
                             </div>
@@ -261,7 +245,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-area">Can I connect to any Azure regions from a given ExpressRoute location?</a>
+                                <a id="expressroute-area">Can I connect to any Azure regions from a given ExpressRoute location? </a>
                                 <section>
                                     <p>No. ExpressRoute in China can only be connected to regions within China. You cannot access Azure services in other countries through ExpressRoute in China.</p>
                                 </section>
@@ -271,7 +255,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-account">Can I set up multiple circuits in my account? If so, what do I need to do?</a>
+                                <a id="expressroute-account">Can I set up multiple circuits in my account? If so, what do I need to do? </a>
                                 <section>
                                     <p>If you are using Azure based on an Enterprise agreement with 21Vianet, please contact our data setup team to ensure correct setup.</p>
                                 </section>
@@ -281,27 +265,36 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-Rate">If I use ExpressRoute during a certain period of a month, will I be charged at a different rate?</a>
+                                <a id="expressroute-Rate">If I use ExpressRoute for a portion of the month, will the fees be different? </a>
                                 <section>
-                                    <p>If your ExpressRoute service is valid for the entire month, you will be charged at the monthly rate, regardless of how you use it. However, if you cancel the ExpressRoute service during the month, you will only be charged for the port charges for the hours of service you used, as well as the cost of the data transfer that occurred during the month in which the service was cancelled.</p>
+                                    <p>If your ExpressRoute service is active for the entire month, you will be charged the monthly fee regardless of usage. However, if you cancelled your ExpressRoute service during the month, you would only receive a prorated bill for the hours used and data transfer overage incurred.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-billing">When does the billing for ExpressRoute start and stop?</a>
+                                <a id="expressroute-billing">When does ExpressRoute billing start and stop? </a>
                                 <section>
-                                    <p>The ExpressRoute fee will begin to be calculated upon the issuance of the service key to the customer, and the charge will cease after the following conditions: (1) The customer requests a circuit to be deleted, (2) The ExpressRoute connection provider has cancelled the circuit.</p>
+                                    <p>ExpressRoute billing starts when a service key is issued to the customer, and it stops after a customer deletes a circuit (the precondition is Exchange Provider or Network Service Provider has de-provisioned the circuit）.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-speed">Can I change the port speed during a month?</a>
+                                <a id="expressroute-speed">Can I change the port speed in the middle of a month? </a>
                                 <section>
-                                    <p>Yes, you can change the port speed at any time. However, up to 24 hours of downtime may occur when you demand the change.</p>
+                                    <p>You can increase the port speed at any time without any disruption. You can decrease port speed by deleting the circuit under the existing pricing plan, and re-creating it under the new pricing plan. Please coordinate with your service provider to provision the new circuit</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="expressroute-speed">Can I change the pricing plan for a circuit? </a>
+                                <section>
+                                    <p>You can change your pricing plan from metered to unlimited at any time without any disruption. You can change the pricing plan from unlimited to metered by deleting the circuit under the unlimited pricing plan, and re-creating it under the metered pricing plan. Please coordinate with your service provider to provision the new circuit.</p>
                                 </section>
                             </div>
                         </li>

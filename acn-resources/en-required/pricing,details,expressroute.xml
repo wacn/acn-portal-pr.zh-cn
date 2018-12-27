@@ -18,8 +18,7 @@
             </div>
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
-                <p>ExpressRoute 是这样一种服务，它使您能够在 Azure 数据中心与您的本地上或共置环境中的基础结构之间创建专有连接。ExpressRoute 连接并不绕过公共 Internet，并且与通过 Internet 的典型连接相比，可靠性更高、速度更快、延迟时间更短且安全性更高。</p>
-                <p>可通过 ExpressRoute 连接服务商在 ExpressRoute 服务与 Azure 之间建立专有连接。客户可以基于其自身的需要选择定价计划：无限数据计划或计量数据计划。这两个计划的关联费用是不同的。每个每月价格都包含 2 个端口（在 2 个路由器上）以便提供冗余性。</p>
+                <p>使用ExpressRoute 可以在 Azure 数据中心与客户自有环境之间创建专用连接。ExpressRoute 连接不通过公共互联网，并且与互联网连接相比，提供更高的可靠性、更快的速度以及更低的延迟。</p>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <h2>定价详细信息</h2>
@@ -102,21 +101,10 @@
                             <td>无限制</td>
                         </tr>
                     </table>
-                    <p>注意： ExpressRoute <span>连接服务商可能会收取在上面列出的费用中未包括的其他费用。</span></p>
-                    <h3>ExpressRoute 高级版附加组件</h3>
-                    <p>ExpressRoute 高级版是 ExpressRoute 无限数据计划/计量数据计划上的一个附加组件。客户将能够获得更多路由表和 VNet 支持功能，并能够利用中国的 Azure 网络连接到不同地区。 ExpressRoute 高级版附加组件提供以下功能：</p>
-                    <ul>
-                        <li>公共对等项和私有对等项的路由表限制已由 4000 个路由增加为 10,000 个路由。</li>
-                        <li>增加了可连接到 ExpressRoute 线路的 VNet 的数量 （默认值为 10）。</li>
-                        <li>通过 Azure 核心网络连接中国北部与中国东部。现在您可以使用一个地区的 ExpressRoute 线路链接另一个地区的 VNet。示例：您可以将在中国北部创建的 VNet 链接到在中国东部创建的 ExpressRoute 线路。</li>
-                    </ul>
-                    <p>更多详细信息，请参考<a id="stor-sla-info" style="color: #00a8d9;" href="https://docs.azure.cn/expressroute/">ExpressRoute 服务文档</a>页面。</p>
+                    <p>客户连接到ExpressRoute 中国任意位置，无需购买高级版附加组件及支付现有计划以外的其他费用，访问同一ExpressRoute区域中的其他Azure区域。例如：客户连接到中国东部后，可以从从中国东部 2发送或获取数据，无需支付现有计划以外费用。同样，客户连接到中国北部后，可以从中国北部 2发送或获取数据，无需支付现有计划以外费用。</p>
+                    <p><strong>注意：</strong> ExpressRoute <span>连接服务商可能会收取在上面列出的费用中未包括的其他费用。</span></p>
+                    
                     <!-- END: Table1-Content-->
-
-
-
-
-
 
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
@@ -197,12 +185,22 @@
                     </table>
                     <!-- END: Table1-Content-->
                     <p>传出数据流量的费率为：¥0.22 /GB。</p>
-                    <p>注意： ExpressRoute <span>连接服务商可能会收取在上面列出的费用中未包括的其他费用。</span></p>
+                    <p>客户连接到ExpressRoute 中国任意位置，无需购买高级版附加组件及支付现有计划以外的其他费用，访问同一ExpressRoute区域中的其他Azure区域。例如：客户连接到中国东部后，可以从从中国东部 2发送或获取数据，无需支付现有计划以外费用。同样，客户连接到中国北部后，可以从中国北部 2发送或获取数据，无需支付现有计划以外费用。</p>
+                    <p><strong>注意：</strong> ExpressRoute <span>连接服务商可能会收取在上面列出的费用中未包括的其他费用。</span></p>
                 </div>
                 <!-- END: TAB-CONTAINER-2 -->
             </div>
             <!-- END: TAB-CONTROL -->
             <div class="pricing-page-section">
+
+            <h3>ExpressRoute 高级版附加组件</h3>
+                    <p>ExpressRoute 高级版是 ExpressRoute 无限数据计划/计量数据计划上的一个附加组件。ExpressRoute 高级版附加组件提供以下功能：</p>
+                    <ul>
+                        <li>公共对等项和私有对等项的路由表限制由 4000 个路由增加为 10,000 个路由。</li>
+                        <li>通过 Azure 核心网络连接中国任意区域。您可以使用中国任意一个区域创建的 ExpressRoute 线路访问其他区域的资源。例如：您可以通过中国北部创建的 ExpressRoute线路访问中国东部创建的 Vnet。</li>
+                        <li>连接到 ExpressRoute 线路的 VNet 的数量由10个增加为更多（具体数量取决于线路带宽）。</li>
+                    </ul>
+                    <p>更多详细信息，请参考<a id="stor-sla-info" style="color: #00a8d9;" href="https://docs.azure.cn/expressroute/">ExpressRoute 服务文档</a>页面。</p>
                 <div class="more-detail">
                     <h2>常见问题</h2>
                     <em>全部展开</em>
@@ -210,9 +208,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute_dedicate-link">ExpressRoute 物理专线在中国那些数据中心可用？</a>
+                                <a id="expressroute_dedicate-link">ExpressRoute 物理专线在中国哪些数据中心可用？ </a>
                                 <section>
-                                    <p>ExpressRoute 物理专线仍需接入到中国东部和中国北部。</p>
+                                    <p>ExpressRoute 物理专线需接入到中国东部、中国东部2、中国北部和中国北部2。</p>
                                 </section>
 
                             </div>
@@ -220,21 +218,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute_region">哪些区域与 CN Zone 1，CN Zone 2 相对应？</a>
-                                <section>
-                                    <p>子区域是可选择部署应用程序和关联数据的最低级别的地理位置。对于 ExpressRoute，以下区域与 CN Zone 1、CN Zone 2 相对应。</p>
-                                    <ul>
-                                        <li>CN Zone 1 — 中国东部和中国北部；</li>
-                                        <li>CN Zone 2 — 中国东部 2 和中国北部 2。</li>
-                                    </ul>
-                                </section>
-
-                            </div>
-                        </li>  
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="expressroute-cost">此解决方案中，其他方将会对我收取哪些附加费用？</a>
+                                <a id="expressroute-cost">此解决方案中，其他方将会对我收取哪些附加费用？ </a>
                                 <section>
                                     <p>ExpressRoute 连接提供商会向您收取额外费用。请与您的网络连接服务提供商联系，了解其定价信息。</p>
                                 </section>
@@ -244,7 +228,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-port">在针对 ExpressRoute 的每月费用中包括多少端口？</a>
+                                <a id="expressroute-port">在针对 ExpressRoute 的每月费用中包括多少端口？ </a>
                                 <section>
                                     <p>出于冗余性目的，在所示的每月费用中包含 2 个端口（在 2 个路由器上）。</p>
                                 </section>
@@ -254,9 +238,9 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-china">如果我连接到中国的某一 ExpressRoute 位置（例如中国东部），是否可以通过 ExpressRoute 访问中国的其他区域？</a>
+                                <a id="expressroute-china">如果我连接到中国的某一 ExpressRoute 位置（例如中国东部），是否可以通过 ExpressRoute 访问中国的其他区域？ </a>
                                 <section>
-                                    <p>可以。在连接到中国的某一 ExpressRoute 位置后（例如中国东部），您可以购买 ExpressRoute 的高级服务 （高级服务将在近期推出） 来通过 ExpressRoute 访问中国的其他区域。</p>
+                                    <p>可以。通过标准版，可以实现中国东部和中国东部2 的连接。通过购买 ExpressRoute 高级服务可以访问中国的其他区域。</p>
                                 </section>
 
                             </div>
@@ -274,17 +258,16 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-account">我是否可以在我的帐户中设置多条线路？如果可以，我需要做什么？</a>
+                                <a id="expressroute-account">我是否可以在我的帐户中设置多条线路？如果可以，我需要做什么？ </a>
                                 <section>
-                                    <p>如果您基于与世纪互联签订的企业协议使用 Azure，请与我们的数据设置团队联系以确保正确设置。</p>
+                                    <p>可以。如果您基于与世纪互联签订的企业协议使用 Azure，请与我们的数据设置团队联系以确保正确设置。</p>
                                 </section>
-
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-Rate">如果我在一个月的某个时间段中使用 ExpressRoute，费率是否不同？</a>
+                                <a id="expressroute-Rate">如果我在一个月的某个时间段中使用 ExpressRoute，费率是否不同？ </a>
                                 <section>
                                     <p>如果您的 ExpressRoute 服务对整个月有效，将按每月费率对您收费，而与使用情况无关。但是，如果您在该月期间取消了 ExpressRoute 服务，将只会针对您所使用服务的小时数收取端口费，以及在取消服务的当月所发生的数据传输的费用。</p>
                                 </section>
@@ -293,18 +276,27 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-billing">ExpressRoute 的计费何时开始和停止？</a>
+                                <a id="expressroute-billing">ExpressRoute 的计费何时开始和停止？ </a>
                                 <section>
-                                    <p>向客户颁发服务密钥后即会开始计算 ExpressRoute 费用，在出现以下情况后将停止收费：(1) 客户请求删除某个线路；(2) ExpressRoute 连接提供商已取消设置该线路。</p>
+                                    <p>向客户颁发服务密钥后即会开始计算 ExpressRoute 费用，当客户删除某个线路后将停止收费（删除前需联系ExpressRoute 连接提供商取消设置该线路）。</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="expressroute-speed">我是否可以在月度中更改端口速度？</a>
+                                <a id="expressroute-speed">我是否可以在月中更改端口速率？</a>
                                 <section>
-                                    <p>是，您可以随时更改端口速度。但是，在发生更改时，可能会出现最长 24 小时的停机时间。</p>
+                                    <p>是，您可以在不中断服务的情况下随时提升端口速率。如果您欲降低端口速率，您需要删除当前线路、并重新创建新的线路。请和您的连接提供商协调。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="expressroute-plan">我是否可以更改线路数据计划？</a>
+                                <section>
+                                    <p>如果您欲从计量数据计划升级到无限数据计划，您可以在不中断服务的情况下随时更改。如果您欲从无限数据计划更改到计量数据计划，您需要删除当前线路，并重新创建新的线路。请和您的连接提供商协调。</p>
                                 </section>
                             </div>
                         </li>
