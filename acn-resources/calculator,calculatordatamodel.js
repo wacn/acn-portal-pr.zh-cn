@@ -16036,6 +16036,22 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.25",
                     }]
+                },{
+                    Name: "基本 VPN 网关 s2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "基本 VPN 网关 S2S 隧道",
+                        PriceTier: "0,20000",
+                        PricePerTier: "0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "个"
+                        
+                    }]
                 }]
             },
             {
@@ -16051,6 +16067,22 @@ var CalculatorData = {
                         Description: "VpnGw1 网关",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.1914",
+                    }]
+                },{
+                    Name: "VpnGw1 s2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "VpnGw1 S2S 隧道",
+                        PriceTier: "0,20000",
+                        PricePerTier: "0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "个"
+                        
                     }]
                 }]
             },
@@ -16068,6 +16100,22 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.1276",
                     }]
+                },{
+                    Name: "VpnGw2 s2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "VpnGw2 S2S 隧道",
+                        PriceTier: "0,20000",
+                        PricePerTier: "0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "个"
+                        
+                    }]
                 }]
             },
             {
@@ -16084,10 +16132,25 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.95",
                     }]
+                },{
+                    Name: "VpnGw3 s2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "VpnGw3 S2S 隧道",
+                        PriceTier: "0,20000",
+                        PricePerTier: "0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "个"
+                        
+                    }]
                 }]
             }]
         },
-
 
         "vpn-gateway-data-transfer": {
             Name: "VPN 网关 - 出站虚拟网络间数据传输",
