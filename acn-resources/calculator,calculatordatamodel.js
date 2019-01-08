@@ -928,38 +928,76 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "F 系列/FS 系列",
-                    Description: "F 系列/FS 系列",
+                    Name: "F 系列",
+                    Description: "F 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "F1/FS1",
+                        Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.46",
                     },
                     {
-                        Name: "F2/FS2",
+                        Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.97",
                     },
                     {
-                        Name: "F4/FS4",
+                        Name: CalculatorConst.F4Size,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.95",
                     },
                     {
-                        Name: "F8/FS8",
+                        Name: CalculatorConst.F8Size,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.91",
                     },
                     {
-                        Name: "F16/FS16",
+                        Name: CalculatorConst.F16Size,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.53",
+                    }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.46",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.97",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.95",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.91",
+                    },
+                    {
+                        Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.53",
@@ -1618,38 +1656,76 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "F 系列/FS 系列",
-                    Description: "F 系列/FS 系列",
+                    Name: "F 系列",
+                    Description: "F 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: "F1/FS1",
+                        Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.43"
                     },
                     {
-                        Name: "F2/FS2",
+                        Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.9"
                     },
                     {
-                        Name: "F4/FS4",
+                        Name: "F4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.8"
                     },
                     {
-                        Name: "F8/FS8",
+                        Name: "F8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.61"
                     },
                     {
-                        Name: "F16/FS16",
+                        Name: "F16",
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.19"
+                    }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.43"
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.9"
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.8"
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.61"
+                    },
+                    {
+                        Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.19"
@@ -2179,6 +2255,44 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.68",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.19",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.17",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.36",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "8.42",
+                    }]
+                },
+                {
                     Name: "NCsv3 系列",
                     Description: "NCsv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -2693,6 +2807,44 @@ var CalculatorData = {
                     }
                         , {
                         Name: CalculatorConst.F16Size,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.55",
+                    }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.22",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.73",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.71",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.42",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "18.55",
@@ -3219,6 +3371,44 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.89",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.4",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.38",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.76",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "49.23",
+                    }]
+                },
+                {
                     Name: "NCsv3 系列",
                     Description: "NCsv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -3578,7 +3768,46 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.08",
                     }]
-                }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.65",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.12",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.02",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.06",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "8.08",
+                    }]
+                }
+            ]
             },
             {
                 Name: "标准版",
@@ -3904,7 +4133,46 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "18.21",
                     }]
-                }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.19",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.66",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.56",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.12",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.21",
+                    }]
+                }
+            ]
             },
             {
                 Name: "企业版",
@@ -4230,7 +4498,46 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "48.89",
                     }]
-                }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.86",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.33",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.23",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.46",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "48.89",
+                    }]
+                }
+            ]
             }]
         },
         "virtual-machines-ml-server": {
@@ -4559,7 +4866,46 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "48.89",
                     }]
-                }]
+                },
+                {
+                    Name: "Fs 系列",
+                    Description: "Fs 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.F1sSize,
+                        Description: CalculatorConst.F1SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.86",
+                    },
+                    {
+                        Name: CalculatorConst.F2sSize,
+                        Description: CalculatorConst.F2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.33",
+                    },
+                    {
+                        Name: CalculatorConst.F4sSize,
+                        Description: CalculatorConst.F4SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.23",
+                    },
+                    {
+                        Name: CalculatorConst.F8sSize,
+                        Description: CalculatorConst.F8SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.46",
+                    }
+                        , {
+                        Name: CalculatorConst.F16sSize,
+                        Description: CalculatorConst.F16SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "48.89",
+                    }]
+                }
+            ]
             }]
         },
 
@@ -17450,6 +17796,41 @@ var CalculatorData = {
                 }]
             }]
         },
+        // "cognitive-services-content-moderator": {
+        //     Name: "认知服务 - 内容审查 API",
+        //     Types: [{
+        //         Name: "免费",
+        //         Features: [{
+        //             Name: "default",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "每月 5,000 个免费事务",
+        //                 PriceTier: PriceTierEnum.Free,
+        //                 PricePerTier: "0",
+        //             }]
+        //         }]
+        //     }
+        //     // ,
+        //     // {
+        //     //     Name: "S0",
+        //     //     Features: [{
+        //     //         Name: "default",
+        //     //         PricePeriod: PricePeriodEnum.Monthly,
+        //     //         MinUnit: "0",
+        //     //         MaxUnit: "100000",
+        //     //         Sizes: [{
+        //     //             Name: "default",
+        //     //             Description: "计算机辅助内容审查 API 以及用于图像、文本和视频的人工审阅工具",
+        //     //             PriceTier: "0,10,1001,5000,5001,20000",
+        //     //             PricePerTier: " 6.36,5.088,4.134",
+        //     //             MinUnit: "0",
+        //     //             MaxUnit: "100000",
+        //     //             PriceUnit: "每 1000 个事务"
+        //     //         }]
+        //     //     }]
+        //     // },]
+        // ]
+        // },
 
         // "analysis-services-devp": {
         //     Name: "Azure 分析服务 - 开发人员层",
