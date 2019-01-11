@@ -1081,7 +1081,8 @@ var CalculatorData = {
             },
             {
                 Name: "标准",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列",
                     Description: "A 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -1307,7 +1308,8 @@ var CalculatorData = {
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
-                    Sizes: [{
+                    Sizes: [
+                        {
                         Name: "D1/DS1",
                         Description: CalculatorConst.D1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
@@ -1769,7 +1771,8 @@ var CalculatorData = {
             Name: "虚拟机 - SQL Server For Windows",
             Types: [{
                 Name: "Web 版",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列 - 基本",
                     Description: "A 系列 - 基本",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -2119,7 +2122,6 @@ var CalculatorData = {
                         PricePerTier: "9.37",
                     }]
                 },
-
                 {
                     Name: "F 系列",
                     Description: "F 系列",
@@ -2194,6 +2196,74 @@ var CalculatorData = {
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.34",
+                    }]
+                },
+                {
+                    Name: "M 系列 ",
+                    Description: "M 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "M32ls",
+                        Description: CalculatorConst.M32lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "34.82"
+                    },
+                    {
+                        Name: "M64ls",
+                        Description: CalculatorConst.M64lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "66.93"
+                    },
+                    {
+                        Name: "M8ms",
+                        Description: CalculatorConst.M8msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "17.827"
+                    },
+                    {
+                        Name: "M16ms",
+                        Description: CalculatorConst.M16msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "35.544"
+                    },
+                    {
+                        Name: "M32ms",
+                        Description: CalculatorConst.M32msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "71.36"
+                    },
+                    {
+                        Name: "M64ms",
+                        Description: CalculatorConst.M64msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "123.54"
+                    },
+                    {
+                        Name: "M128ms",
+                        Description: CalculatorConst.M128msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "305.91"
+                    },
+                    {
+                        Name: "M64s",
+                        Description: CalculatorConst.M64sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "87.63"
+                    },
+                    {
+                        Name: "M128s",
+                        Description: CalculatorConst.M128sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "175.28"
+                    },
+                    {
+                        Name: "M32ts",
+                        Description: CalculatorConst.M32tsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "33.51"
                     }]
                 },
                 {
@@ -2329,7 +2399,8 @@ var CalculatorData = {
             },
             {
                 Name: "标准版",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列 - 基本",
                     Description: "A 系列 - 基本",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -2755,7 +2826,74 @@ var CalculatorData = {
                         PricePerTier: "17.71",
                     }]
                 },
-
+                {
+                    Name: "M 系列 ",
+                    Description: "M 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "M32ls",
+                        Description: CalculatorConst.M32lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "53.372"
+                    },
+                    {
+                        Name: "M64ls",
+                        Description: CalculatorConst.M64lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "107.41"
+                    },
+                    {
+                        Name: "M8ms",
+                        Description: CalculatorConst.M8msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "22.508"
+                    },
+                    {
+                        Name: "M16ms",
+                        Description: CalculatorConst.M16msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "44.906"
+                    },
+                    {
+                        Name: "M32ms",
+                        Description: CalculatorConst.M32msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "89.912"
+                    },
+                    {
+                        Name: "M64ms",
+                        Description: CalculatorConst.M64msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "164.02"
+                    },
+                    {
+                        Name: "M128ms",
+                        Description: CalculatorConst.M128msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "386.87"
+                    },
+                    {
+                        Name: "M64s",
+                        Description: CalculatorConst.M64sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "128.11"
+                    },
+                    {
+                        Name: "M128s",
+                        Description: CalculatorConst.M128sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "256.24"
+                    },
+                    {
+                        Name: "M32ts",
+                        Description: CalculatorConst.M32tsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "52.062"
+                    }]
+                },
                 {
                     Name: "Ev3 系列/ESv3 系列",
                     Description: "Ev3 系列/ESv3 系列",
@@ -2896,7 +3034,8 @@ var CalculatorData = {
                     PriceUnit: "台",
                     MinUnit: "0",
                     MaxUnit: "100",
-                    Sizes: [{
+                    Sizes: [
+                        {
                         Name: CalculatorConst.A0Size,
                         Description: "1个内核，0.75GiB RAM，20GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -3316,6 +3455,74 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "M 系列 ",
+                    Description: "M 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "M32ls",
+                        Description: CalculatorConst.M32lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "109.34"
+                    },
+                    {
+                        Name: "M64ls",
+                        Description: CalculatorConst.M64lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "215.97"
+                    },
+                    {
+                        Name: "M8ms",
+                        Description: CalculatorConst.M8msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.5"
+                    },
+                    {
+                        Name: "M16ms",
+                        Description: CalculatorConst.M16msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "72.89"
+                    },
+                    {
+                        Name: "M32ms",
+                        Description: CalculatorConst.M32msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "145.88"
+                    },
+                    {
+                        Name: "M64ms",
+                        Description: CalculatorConst.M64msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "272.58"
+                    },
+                    {
+                        Name: "M128ms",
+                        Description: CalculatorConst.M128msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "603.99"
+                    },
+                    {
+                        Name: "M64s",
+                        Description: CalculatorConst.M64sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "236.67"
+                    },
+                    {
+                        Name: "M128s",
+                        Description: CalculatorConst.M128sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "473.36"
+                    },
+                    {
+                        Name: "M32ts",
+                        Description: CalculatorConst.M32tsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "108.03"
+                    }]
+                },
+                {
                     Name: "Ev3 系列/ESv3 系列",
                     Description: "Ev3 系列/ESv3 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -3450,7 +3657,8 @@ var CalculatorData = {
             Name: "虚拟机 - SQL Server Ubuntu Linux",
             Types: [{
                 Name: "Web 版",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列 - 基本",
                     Description: "A 系列 - 基本",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -3802,20 +4010,89 @@ var CalculatorData = {
                         Description: CalculatorConst.D14V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "14.644",
-                    }
-                        , {
+                    }, 
+                    {
                         Name: CalculatorConst.D15V2Size,
                         Description: CalculatorConst.D15V2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "18.3076",
                     }
                     ]
-                }
+                },
+                {
+                    Name: "M 系列",
+                    Description: "M 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "M32ls",
+                        Description: CalculatorConst.M32lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.288"
+                    },
+                    {
+                        Name: "M64ls",
+                        Description: CalculatorConst.M64lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "47.856"
+                    },
+                    {
+                        Name: "M8ms",
+                        Description: CalculatorConst.M8msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "15.477"
+                    },
+                    {
+                        Name: "M16ms",
+                        Description: CalculatorConst.M16msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "31.314"
+                    },
+                    {
+                        Name: "M32ms",
+                        Description: CalculatorConst.M32msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "61.828"
+                    },
+                    {
+                        Name: "M64ms",
+                        Description: CalculatorConst.M64msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "104.476"
+                    },
+                    {
+                        Name: "M128ms",
+                        Description: CalculatorConst.M128msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "267.772"
+                    },
+                    {
+                        Name: "M64s",
+                        Description: CalculatorConst.M64sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "68.566"
+                    },
+                    {
+                        Name: "M128s",
+                        Description: CalculatorConst.M128sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "137.142"
+                    },
+                    {
+                        Name: "M32ts",
+                        Description: CalculatorConst.M32tsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "23.968"
+                    }]
+                },
             ]
             },
             {
                 Name: "标准版",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列 - 基本",
                     Description: "A 系列 - 基本",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -4176,11 +4453,80 @@ var CalculatorData = {
                     }
                     ]
                 },
+                {
+                    Name: "M 系列",
+                    Description: "M 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "M32ls",
+                        Description: CalculatorConst.M32lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "44.012"
+                    },
+                    {
+                        Name: "M64ls",
+                        Description: CalculatorConst.M64lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "85.304"
+                    },
+                    {
+                        Name: "M8ms",
+                        Description: CalculatorConst.M8msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "20.158"
+                    },
+                    {
+                        Name: "M16ms",
+                        Description: CalculatorConst.M16msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "40.676"
+                    },
+                    {
+                        Name: "M32ms",
+                        Description: CalculatorConst.M32msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "80.552"
+                    },
+                    {
+                        Name: "M64ms",
+                        Description: CalculatorConst.M64msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "141.924"
+                    },
+                    {
+                        Name: "M128ms",
+                        Description: CalculatorConst.M128msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "342.668"
+                    },
+                    {
+                        Name: "M64s",
+                        Description: CalculatorConst.M64sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "106.014"
+                    },
+                    {
+                        Name: "M128s",
+                        Description: CalculatorConst.M128sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "212.038"
+                    },
+                    {
+                        Name: "M32ts",
+                        Description: CalculatorConst.M32tsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "42.692"
+                    }]
+                },
             ]
             },
             {
                 Name: "企业版",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列 - 基本",
                     Description: "A 系列 - 基本",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -4540,6 +4886,74 @@ var CalculatorData = {
                         PricePerTier: "64.99",
                     }
                     ]
+                },
+                {
+                    Name: "M 系列",
+                    Description: "M 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "M32ls",
+                        Description: CalculatorConst.M32lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "99.98"
+                    },
+                    {
+                        Name: "M64ls",
+                        Description: CalculatorConst.M64lsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "197.24"
+                    },
+                    {
+                        Name: "M8ms",
+                        Description: CalculatorConst.M8msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "34.15"
+                    },
+                    {
+                        Name: "M16ms",
+                        Description: CalculatorConst.M16msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "68.66"
+                    },
+                    {
+                        Name: "M32ms",
+                        Description: CalculatorConst.M32msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "136.52"
+                    },
+                    {
+                        Name: "M64ms",
+                        Description: CalculatorConst.M64msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "253.86"
+                    },
+                    {
+                        Name: "M128ms",
+                        Description: CalculatorConst.M128msSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "566.54"
+                    },
+                    {
+                        Name: "M64s",
+                        Description: CalculatorConst.M64sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "217.95"
+                    },
+                    {
+                        Name: "M128s",
+                        Description: CalculatorConst.M128sSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "435.91"
+                    },
+                    {
+                        Name: "M32ts",
+                        Description: CalculatorConst.M32tsSizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "98.66"
+                    }]
                 },
             ]
             }]
