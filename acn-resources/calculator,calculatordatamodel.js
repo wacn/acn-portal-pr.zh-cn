@@ -2576,7 +2576,7 @@ var CalculatorData = {
                         Name: "D32 v3/DS32 v3",
                         Description: "32个内核，128GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "42.19"
+                        PricePerTier: "40.502"
                     },
                     {
                         Name: "D64 v3/DS64 v3",
@@ -2799,7 +2799,7 @@ var CalculatorData = {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "47.7"
+                        PricePerTier: "46.012"
                     },
                     {
                         Name: "E64i v3/E64is v3",
