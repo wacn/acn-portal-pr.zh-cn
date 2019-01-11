@@ -7343,7 +7343,40 @@ var CalculatorData = {
 
         "storage-ssd-manager-disk-gpv1-standard": {
             Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1",
-            Types: [{
+            Types: [
+                {
+                    Name: "E4",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "磁盘大小 32 GB",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "24.4225",
+                        }]
+                    }]
+                },
+                {
+                    Name: "E6",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "磁盘大小 64 GB",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "48.845",
+                        }]
+                    }]
+                }, 
+            {
                 Name: "E10",
                 Features: [{
                     Name: "default",
