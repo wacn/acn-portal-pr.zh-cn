@@ -313,7 +313,8 @@ var CalculatorData = {
 
         "virtual-machines-windows": {
             Name: "虚拟机 - Windows",
-            Types: [{
+            Types: [
+                {
                 Name: "基本",
                 Features: [{
                     Name: "default",
@@ -16815,106 +16816,120 @@ var CalculatorData = {
 
         "ip-address": {
             Name: "IP 地址",
-            Types: [{
-                Name: "default",
-                Features: [
+            Types: [
+            {
+                Name:"基本(经典)",
+                Features:[
                     {
-                        Name: "公共 IP 地址 - 动态",
-                        PricePeriod: PricePeriodEnum.Monthly,
-                        PriceUnit: "小时",
+                    Name: "动态 IP 地址",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "第一个云服务 VIP：免费,其它￥0.026/小时",
+                        PriceTier: "0,1,2,10000",
+                        PricePerTier: "0,0.026",
                         MinUnit: "0",
-                        MaxUnit: "744",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "公共 IP 地址 - 动态 ¥0.026/IP/小时*744小时",
-                            PriceTier: PriceTierEnum.Linear,
-                            PricePerTier: "0.026",
-                            MinUnit: "0",
-                            MaxUnit: "1000",
-                            PriceUnit: "个"
-                        }]
-                    },
-                    {
-                        Name: "公共 IP 地址 - 静态",
-                        PricePeriod: PricePeriodEnum.Monthly,
-                        PriceUnit: "小时",
-                        MinUnit: "0",
-                        MaxUnit: "744",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "0-5，¥0.026/IP/小时*744小时，第 6 个开始 ¥0.052/IP/小时*744小时",
-                            PriceTier: "0,5,6,1000",
-                            PricePerTier: "0.026,0.052",
-                            MinUnit: "0",
-                            MaxUnit: "1000",
-                            PriceUnit: "个"
-                        }]
-                    },
-                    {
-                        Name: "云服务 VIP",
-                        PricePeriod: PricePeriodEnum.Monthly,
-                        PriceUnit: "小时",
-                        MinUnit: "0",
-                        MaxUnit: "744",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "第 1 个免费，云服务 VIP ¥0.026/IP/小时*744小时",
-                            PriceTier: "0,1,2,1000",
-                            PricePerTier: "0,0.026",
-                            MinUnit: "0",
-                            MaxUnit: "1000",
-                            PriceUnit: "个"
-                        }]
-                    },
-                    {
-                        Name: "IP 地址 - 保留的 IP 地址",
-                        PricePeriod: PricePeriodEnum.Monthly,
-                        PriceUnit: "小时",
-                        MinUnit: "0",
-                        MaxUnit: "744",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "0-5免费 超过6个¥0.026 /IP/小时*744小时",
-                            PriceTier: "0,5,6,1000",
-                            PricePerTier: "0,0.026",
-                            MinUnit: "0",
-                            MaxUnit: "1000",
-                            PriceUnit: "个"
-                        }]
-                    },
-                    {
-                        Name: "IP 地址 - 实例层级 IP 地址",
-                        PricePeriod: PricePeriodEnum.Monthly,
-                        PriceUnit: "小时",
-                        MinUnit: "0",
-                        MaxUnit: "744",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "实例层级 IP 地址 ¥0.026/IP/小时*744小时",
-                            PriceTier: PriceTierEnum.Linear,
-                            PricePerTier: "0.026",
-                            MinUnit: "0",
-                            MaxUnit: "1000",
-                            PriceUnit: "个"
-                        }]
-                    },
-                    {
-                        Name: "IP 地址 - IP 地址重新映射",
-                        PricePeriod: PricePeriodEnum.Monthly,
-                        PriceUnit: "小时",
-                        MinUnit: "0",
-                        MaxUnit: "744",
-                        Sizes: [{
-                            Name: "default",
-                            Description: " 0-100免费 之后￥0.456/重新映射*744小时",
-                            PriceTier: "0,100,101,1000",
-                            PricePerTier: "0,0.456",
-                            MinUnit: "0",
-                            MaxUnit: "1000",
-                            PriceUnit: "个"
-                        }]
+                        MaxUnit: "1000",
+                        PriceUnit: "个"
                     }]
-            }]
+
+                },
+                {
+                    Name: "静态 IP 地址（保留 + 使用）",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "前 5 个与正在使用的云服务关联的保留 IP 地址:免费,其他：¥0.026/小时",
+                        PriceTier: "0,5,6,10000",
+                        PricePerTier: "0,0.026",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
+                        PriceUnit: "个"
+                    }]
+
+                },
+                {
+                    Name: "IP 地址重新映射",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: " 0-100免费,之后￥0.456/重新映射*744小时",
+                        PriceTier: "0,100,101,1000",
+                        PricePerTier: "0,0.456",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
+                        PriceUnit: "个"
+                    }]
+                }]
+            },
+            {
+                Name:"基本(ARM)",
+                Features:[
+                    {
+                    Name: "动态 IP 地址",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,10000",
+                        PricePerTier: "0.026",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
+                        PriceUnit: "个"
+                    }]
+
+                },
+                {
+                    Name: "静态 IP 地址（保留 + 使用）",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "前 5 个静态 IP 不收取保留费用但收取使用费用;其他:使用+保留,¥0.052/小时（¥38.688/月）",
+                        PriceTier: "0,5,6,10000",
+                        PricePerTier: "0.026,0.052",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
+                        PriceUnit: "个"
+                    }]
+
+                }]
+            },
+            {
+                Name:"标准(ARM)",
+                Features:[
+                {
+                    Name: "静态 IP 地址（保留 + 使用）",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,10000",
+                        PricePerTier: "0.026",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
+                        PriceUnit: "个"
+                    }]
+                }]
+            }
+        ]
         },
 
         "traffic-manager": {
@@ -18247,20 +18262,20 @@ var CalculatorData = {
                 }]
             }]
         },
-        // "cognitive-services-content-moderator": {
-        //     Name: "认知服务 - 内容审查 API",
-        //     Types: [{
-        //         Name: "免费",
-        //         Features: [{
-        //             Name: "default",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "每月 5,000 个免费事务",
-        //                 PriceTier: PriceTierEnum.Free,
-        //                 PricePerTier: "0",
-        //             }]
-        //         }]
-        //     }
+        "cognitive-services-content-moderator": {
+            Name: "认知服务 - 内容审查 API",
+            Types: [{
+                Name: "免费",
+                Features: [{
+                    Name: "default",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "每月 5,000 个免费事务",
+                        PriceTier: PriceTierEnum.Free,
+                        PricePerTier: "0",
+                    }]
+                }]
+            }
         //     // ,
         //     // {
         //     //     Name: "S0",
@@ -18280,8 +18295,8 @@ var CalculatorData = {
         //     //         }]
         //     //     }]
         //     // },]
-        // ]
-        // },
+        ]
+        },
 
         // "analysis-services-devp": {
         //     Name: "Azure 分析服务 - 开发人员层",

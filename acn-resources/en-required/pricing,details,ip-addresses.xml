@@ -28,23 +28,35 @@
                                 <th align="left"><strong>类型</strong></th>
                                 <th align="left"><strong>基本（经典）</strong></th>
                                 <th align="left"><strong>基本（ARM）</strong></th>
+                                <th align="left"><strong>标准（ARM）</strong></th>
                             </tr>
                             <tr>
                                 <td>动态 IP 地址</td>
                                 <td>第一个云服务 VIP：免费 <br/>其他：¥0.026/小时（¥19.344/月）<sup>1</sup></td>
                                 <td> ¥0.026/小时（¥19.344/月）</td>
+                                <td><p>不适用</p></td>
                             </tr>
 							<tr>
                                 <td><p>静态 IP 地址</p><p>（保留 + 使用）</p></td>
                                 <td><p>前 5 个与正在使用的云服务关联的保留 IP 地址：免费 </p><p> 其他：¥0.026/小时（¥19.344/月）<sup>2</sup></p></td>
                                 <td><p>前 5 个与正在使用的云服务关联的保留 IP 地址：¥0.026/小时（¥19.344/月）</p><p>其他：¥0.052/小时（¥38.688/月）<sup>3</sup></p></td>
+                                <td><p>¥0.026/小时（¥19.344/月）</p></td>
                             </tr>
+                            <!-- <tr>
+                                <td><p>公共 IP 前缀<sup>4</sup></p></td>
+                                <td><p>不适用</p></td>
+                                <td><p>不适用</p></td>
+                                <td><p>¥0.03816/小时（¥28.391/月）<sup>5</sup></p></td>
+                            </tr> -->
                     </table> 
                     <div class="tags-date">
                         <div class="ms-date">* 适用每个订阅 20 个保留 IP 地址这一限额。如果您有与由世纪互联运营的 Microsoft Azure 的企业协议，则可以保留最多 100 个 IP 地址。如果您需要增加此限额，请 <a id="public_IP_us" style="color: #00a8d9;" href="/zh-cn/support/contact/"> 联系我们</a>。</div><br/>
                         <div class="ms-date"><sup>1</sup> 每个云服务都可以获得一个免费公共 VIP。其他 VIP 按 ¥0.026/小时收费。</div><br/>
-                        <div class="ms-date"><sup>2 </sup>不论是与运行的虚拟机<a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都不会收取保留费用。</div>
-						<div class="ms-date"><sup>3 </sup>不论是与运行的虚拟机<a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都不会收取保留费用，但会收取使用费用。从第 6 个静态公共 IP 地址开始，其使用费与保留费均按每个 IP ¥0.026/小时，即每小时收取 ¥0.052。</div>
+                        <div class="ms-date"><sup>2</sup>不论是与运行的虚拟机<a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都不会收取保留费用。</div><br/>
+						<div class="ms-date"><sup>3</sup>不论是与运行的虚拟机<a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都不会收取保留费用，但会收取使用费用。从第 6 个静态公共 IP 地址开始，其使用费与保留费均按每个 IP ¥0.026/小时，即每小时收取 ¥0.052。</div><br/>
+                        <!-- <div class="ms-date"><sup>4</sup>公共 IP 前缀是一系列连续的公共 IP 地址。</div><br/>
+                        <div class="ms-date"><sup>5</sup>公共 IP 前缀按每个 IP 每小时收费。创建前缀后，立即开始计费。</div> -->
+                        
                         <!-- <div class="ms-date">*注：前 5 个保留的 IP 如果在使用中则为免费，如果只保留了 IP 而没有使用则将被计费。详情请见<a id="public_IP_QA" style="color: #00a8d9;" href="/support/faq/"> 常见问题</a>。</div> -->
                     </div>
                     <!-- END: Table1-Content-->
