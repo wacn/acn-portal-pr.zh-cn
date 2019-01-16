@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="cognitive-services" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2019-01-14T16:00:00" urlName="cognitive-services" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -8,7 +8,7 @@
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/cognitive-slice-01.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
-                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services.png"/>
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services.svg"/>
                         <h2>认知服务<span>Cognitive Services APIs</span></h2>
 						<h4>添加智能 API 功能以启用上下文交互</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_cognitive-services">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
@@ -167,6 +167,60 @@
             
         </table>
         <!-- END: Table3-Content-->
+
+        <!-- BEGIN: Table4-Content-->
+        <h3>内容审查器 API</h3>
+        <p>内容审查器通过基于机器学习的分类器、自定义阻止列表和光学字符识别技术 (OCR) 来增强检测可能的冒犯图像或不想要图像的功能。它可帮助在 100 多种语言中检测潜在的猥亵词语，并可针对自定义列表自动匹配文本。内容审查器还可检查可能的个人身份信息 (PII)。每个文本 API 调用均可包含多达 1,024 个字符。扫描图像（至少 128 像素且大小不超过 4MB）是否存在色情和低俗内容，还有光学字符识别 (OCR) 和人脸检测。还可针对自定义图像列表进行匹配。每个 API 调用都是一个事务。</p>
+       
+        <div class="tags-date">
+				<div class="ms-date">*以下价格均为含税价格。</div>
+        </div>
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+				<th align="left"><strong>实例</strong></th>
+				<th align="left"><strong>每秒事务数 (TPS)</strong></th>
+                <th align="left"><strong>功能</strong></th>
+                <th align="left"><strong>价格</strong></th>
+            </tr>
+            <tr>
+                <td>免费</td>
+                <td>1 TPS</td>
+                <td>中等</td>
+                <td>每月 5,000 个免费事务</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1 TPS</td>
+                <td>审阅</td>
+                <td>暂不支持此功能</td>
+            </tr>
+            <!-- <tr>
+                <td>标准</td>
+                <td>10 TPS</td>
+                <td>中等,审阅</td>
+                <td>0 到 100 万个事务 - $1/每 1,000 个事务</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>100 万到 500 万个事务 - $0.75/每 1,000 个事务</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>500 万到 1000 万个事务 - $0.60/每 1,000 个事务</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>超过 1000 万个事务 - $0.40/每 1,000 个事务</td>
+            </tr> -->
+        </table>
+        <!-- END: Table4-Content-->
+
     </div>
     <!-- END: TAB-CONTAINER-1 -->
 </div>
@@ -247,7 +301,7 @@
             <li>
                 <i class="icon icon-plus"></i>
                 <div>
-                    <a id="cognitive-services_question4">通过计算机影像 API 可完成哪些操作？</a>
+                    <a id="cognitive-services_question7">通过计算机影像 API 可完成哪些操作？</a>
                     <section>
                         <p><strong>标记</strong>-计算机影像 API 在超过 2,000 个可识别对象、生物、风景和操作的基础上返回标记。如果标记含混不清或者不常见，API 响应会提供“提示”，明确标记的含义。</p>
                         <p><strong>人脸</strong> - 检测图片中的人脸。</p>
@@ -262,23 +316,40 @@
                 </div>
             </li>
         </ul>
+
+        <h3>内容审查器 API</h3>
+        <ul>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question8">可使用 API 审查的内容有什么限制？</a>
+                    <section>
+                        <p>使用 API 时，图像需至少为 128 像素且文件大小不超过 4MB。文本长度不可超过 1024 个字符。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question9">如果传递到文本 API 或图像 API 的内容超过大小限制，会发生什么？</a>
+                    <section>
+                        <p>文本 API 将返回一个错误代码，指出文本超过允许长度。图像 API 也会返回一个错误代码，指出图像不符合大小要求。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question10">使用人工审阅工具是否需额外付费？</a>
+                    <section>
+                        <p>你的订阅中包含人工审阅工具。</p>
+                    </section>
+                </div>
+            </li>
+        </ul>
+
     </div>
 </div>
-<!-- <div class="pricing-page-section">
-    <h2>上市地区</h2>
-    <p>认知服务在以下区域中提供：</p>
-    <table cellpadding="0" cellspacing="0" class="table-col6">
-        <tr>
-            <th align="left"><strong>地域</strong></th>
-            <th align="left"><strong>区域</strong></th>
-        </tr>
-        <tr>
-            <td>中国大陆</td>
-            <td>中国东部数据中心 , 中国北部数据中心</td>
-        </tr>
-    </table> 
-</div> -->
-                
             <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="cognitive-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>

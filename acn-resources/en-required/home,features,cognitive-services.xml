@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="2" createDate="2014-08-05T07:49:24" updateDate="2016-07-07T10:41:59" urlName="cognitive-services" writerName="content" creatorName="content">
+  <TextpageLeftNav template="2" createDate="2014-08-05T07:49:24" updateDate="2019-01-14T10:41:59" urlName="cognitive-services" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -44,6 +44,17 @@
                     min-width: 100px;
                     margin-right:-120px;
                 }
+                .common-banner-title>img{
+                    width:48px;
+                    height:48px;
+                    margin-top: 8px !important;
+                }
+                .cognitive-icon>img{
+                    width:64px;
+                    height:64px;
+                    margin:0 auto;
+                    margin-top: 20px;
+                }
                 .cognitive-text{                   
                     margin-left:120px;
                 }
@@ -61,12 +72,13 @@
                         margin-top: 26px !important;
                     }
                 }
+                
             </style>
             <!-- BEGIN: Cognitive-Services-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/cognitive-slice-01.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
-                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services.png" />
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services.svg" />
                         <h2>认知服务<span>Cognitive Services APIs</span></h2>
                         <h4>添加智能 API 功能以启用上下文交互</h4>
                         <em><a href="/pricing/1rmb-trial/" id="cognitive-services_1rmb-trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
@@ -86,7 +98,7 @@
 				   
                 <ul class="cognitive-icon-group">
                     <li>
-                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,face.png"/></div>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,face.svg"/></div>
                         <div class="cognitive-text">
                             <h2>人脸 API</h2>
                             <p>检测图片中人脸位置，依照视觉相似度做人脸比对、分组、以及辨识由用户标记过身份的人脸。</p>
@@ -94,7 +106,7 @@
                         </div>
                     </li>                    
                     <li>
-                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,emotion.png"/></div>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,emotion.svg"/></div>
                         <div class="cognitive-text">
                             <h2>情感 API（预览）</h1>
                             <p>分析人脸来检测多种情感，让你的应用为用户提供个性化回馈。</p>
@@ -102,11 +114,19 @@
                         </div>
                     </li>
                     <li>
-                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,computer-vision.png"/></div>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,computer-vision.svg"/></div>
                         <div class="cognitive-text">
                            <h2>计算机影像 API</h2>
                         <p>从图像中提取丰富的信息进行视觉数据的分类和处理，并且保护你的用户免受有害内容的干扰。</p>
                         <p><a id="cognitive-services_computer-vision" href="/home/features/cognitive-services/computer-vision/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,content-moderator.svg"/></div>
+                        <div class="cognitive-text">
+                           <h2>内容审查器 API</h2>
+                        <p>计算机辅助内容审查器 API 以及用于图像、文本和视频的人工审阅工具</p>
+                        <p><a id="face_content-moderator" href="/home/features/cognitive-services/content-moderator/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
                         </div>
                     </li>
                 </ul>
@@ -122,7 +142,7 @@
     <pageTitle>Azure认知服务_功能强大的REST API - Azure云计算</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>home-features-cognitive-services</linkid>
-    <metaKeywords>Azure, 认知服务, Cognitive Services, API, 人脸 API, 情感 API, 计算机影像 API</metaKeywords>
+    <metaKeywords>Azure, 认知服务, Cognitive Services, API, 人脸 API, 情感 API, 计算机影像 API, 内容审查器 API</metaKeywords>
     <metaDescription><![CDATA[Azure 认知服务（Cognitive Services）让你仅用几行代码就可以借助强大的算法开发应用程序。它们跨设备，跨平台，不论是 iOS、Android 或者 Windows，你都可以轻松完成配置。]]></metaDescription>
     <urlDisplayName>认知服务</urlDisplayName>
   </TextpageLeftNav>
