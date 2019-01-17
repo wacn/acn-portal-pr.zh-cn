@@ -80,7 +80,7 @@
 							<!-- BEGIN: Table1-Content-->	
 							<div class="tab-panel" id="tabContent1">
 								<p>General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the lowest GB storage prices. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.</p>
-								<h3>Premium Non-Managed Disk and Page Blob</h3>
+								<h3>Premium Page Blobs prices</h3>
 								<p>Premium Non-Managed Disk, a high-performance storage based on a solid state drive (SSD), aims to support I/O intensive workloads through extremely large throughput and extremely low delay. With the help of Premium Non-Managed Disk, we can set permanent disk and configure its size and performance characteristics. </p>
 								<p>The total expenses of Premium Non-Managed Disk depends on the disk size and quantity, and is subjected to the <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">data transfer</a>. The disk size provides different input/output operations per second (IOP), throughput limit and monthly pricing per GB. We can select necessary options most appropriate to applications, including storage size, IOP and throughput. We can add several permanent disks onto the VM and configure at most 64 TB storage space to every VM. The disk throughput of every VM can reach up to 80,000 (number of input/output operations per second) and 1600 MB/second, with a read delay of less than 1 millisecond. Premium Non-Managed Disk is supported by the sizes of the DS Series, DSv2 Series and FS Series VMs exclusively used for Premium Disk. The pricing and billing standards of DS Series VMs are the same as the D Series VMs. </p>
 								<div class="tags-date">
@@ -116,7 +116,7 @@
 										<td>¥ 6,343.21</td>
 									</tr>
 									<tr>
-										<td>IOP of every disk</td>
+										<td>IOPS per Page Blob</td>
 										<td>500</td>
 										<td>2,300</td>
 										<td>5,000</td>
@@ -125,8 +125,9 @@
 										<td>7,500</td>
 									</tr>
 									<tr>
-										<td>Throughput of every disk</td>
-										<td>100 MB /second</td>								<td>150 MB /second</td>
+										<td>Throughput per Page Blob</td>
+										<td>100 MB /second</td>								
+										<td>150 MB /second</td>
 										<td>200 MB /second</td>
 										<td>250 MB /second</td>
 										<td>250 MB /second</td>
@@ -134,7 +135,7 @@
 									</tr>
 								</table>
 								<div class="tags-date">
-									<div class="ms-date">Premium Disk has no transaction processing expenses.</div></br>
+									<div class="ms-date">There are no transaction costs for Premium Page Blobs. Your Premium Page Blob is charged based on the lowest type that supports your target size.</div></br>
 									<div class="ms-date"><sup>1 </sup>Azure does not support P60 serving as the disk of the Virtual Machine. Page Blob supports accessing P60 through REST.</div>
 								</div>
 								<p>We also support three additional page blob types that require you to deploy with Blob Tier set explicitly. If you deploy the page blob or unmanaged disks only specifying the target size, it will be rounded up to the supported page blob types listed in the table above.</p>
@@ -162,13 +163,13 @@
 										<td>¥ 254.86</td>
 									</tr>
 									<tr>
-										<td>IOPs per disk</td>
+										<td>IOPS per Page Blob</td>
 										<td>120</td>
 										<td>240</td>
 										<td>1,100</td>
 									</tr>
 									<tr>
-										<td>Throughput per disk</td>
+										<td>Throughput per Page Blob</td>
 										<td>25 MB/second</td>
 										<td>50 MB/second</td>
 										<td>125 MB/second</td>
@@ -247,7 +248,7 @@
 							<div class="tab-panel" id="tabContent2">
 								<p>General Purpose v1 enables access to Block Blobs, Page Blobs, Files, Queues, and Tables—offering our lowest transaction prices but with higher storage prices. General Purpose v1 accounts do not provide access to Cool and Archive storage.</p>
 								
-								<h3>Premium Non-Managed Disk and Page Blob</h3>
+								<h3>Premium Page Blobs prices</h3>
 								<p>Premium Non-Managed Disk, a high-performance storage based on a solid state drive (SSD), aims to support I/O intensive workloads through extremely large throughput and extremely low delay. With the help of Premium Non-Managed Disk, we can set permanent disk and configure its size and performance characteristics. </p>
 								<p>The total expenses of Premium Non-Managed Disk depends on the disk size and quantity, and is subjected to the <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">data transfer</a>. The disk size provides different input/output operations per second (IOP), throughput limit and monthly pricing per GB. We can select necessary options most appropriate to applications, including storage size, IOP and throughput. We can add several permanent disks onto the VM and configure at most 64 TB storage space to every VM. The disk throughput of every VM can reach up to 80,000 (number of input/output operations per second) and 1600 MB/second, with a read delay of less than 1 millisecond. Premium Non-Managed Disk is supported by the sizes of the DS Series, DSv2 Series and FS Series VMs exclusively used for Premium Disk. The pricing and billing standards of DS Series VMs are the same as the D Series VMs. </p>
 								<div class="tags-date">
@@ -283,7 +284,7 @@
 										<td>¥ 6,343.21</td>
 									</tr>
 									<tr>
-										<td>IOP of every disk</td>
+										<td>IOPS per Page Blob</td>
 										<td>500</td>
 										<td>2,300</td>
 										<td>5,000</td>
@@ -292,8 +293,9 @@
 										<td>7,500</td>
 									</tr>
 									<tr>
-										<td>Throughput of every disk</td>
-										<td>100 MB /second</td>								<td>150 MB /second</td>
+										<td>Throughput per Page Blob</td>
+										<td>100 MB /second</td>								
+										<td>150 MB /second</td>
 										<td>200 MB /second</td>
 										<td>250 MB /second</td>
 										<td>250 MB /second</td>
@@ -301,10 +303,10 @@
 									</tr>
 								</table>
 								<div class="tags-date">
-									<div class="ms-date">Premium Disk has no transaction processing expenses.</div></br>
+									<div class="ms-date">There are no transaction costs for Premium Page Blobs. Your Premium Page Blob is charged based on the lowest type that supports your target size.</div></br>
 									<div class="ms-date"><sup>1 </sup>Azure does not support P60 serving as the disk of the Virtual Machine. Page Blob supports accessing P60 through REST.</div>
 								</div>
-								<p>We also support three additional page blob types that require you to deploy with Blob Tier set explicitly. If you deploy the page blob or unmanaged disks only specifying the target size, it will be rounded up to the supported page blob types listed in the table above.</p>
+								<p>We also support three additional page blob types that require you to deploy with <a href="https://docs.microsoft.com/rest/api/storageservices/set-blob-tier">Blob Tier</a> set explicitly. If you deploy the page blob or unmanaged disks only specifying the target size, it will be rounded up to the supported page blob types listed in the table above.</p>
 								<div class="tags-date">
 									<div class="ms-date">*The following prices are tax-inclusive.</div><br />
 									<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
@@ -329,20 +331,20 @@
 										<td>¥ 254.86</td>
 									</tr>
 									<tr>
-										<td>IOPs per disk</td>
+										<td>IOPS per Page Blob</td>
 										<td>120</td>
 										<td>240</td>
 										<td>1,100</td>
 									</tr>
 									<tr>
-										<td>Throughput per disk</td>
+										<td>Throughput per Page Blob</td>
 										<td>25 MB/second</td>
 										<td>50 MB/second</td>
 										<td>125 MB/second</td>
 									</tr>
 								</table>
 								<p>The pricing of screenshots is charged at the rate of ￥ 2.35/GB per month. </p>
-								<h4>Standard Non-Managed Disk and Page Blob</h4>
+								<h4>Standard Page Blob prices</h4>
 								<p>Standard Disks employ a hard disk drive (HDD)-based storage medium. They are most suitable for development/testing not sensitive to performance changes and other non-frequent access workloads.</p>
 								<p>Standard unmanaged disk storage charges for stored data size (GB) , quantity of transactions and <a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">data transfer</a>.</p>
 								<div class="tags-date">
@@ -394,7 +396,10 @@
 								</table>
 								<p><strong><sup>1 </sup></strong>1 TB = 1,024GB</p>
 								
-								<h4>Operation and Data Transmission Pricing</h4>
+								<h4>Operations prices for Page Blobs used as Unmanaged Disks</h4>
+								<p>We charge ￥0.0037 per 10,000 transactions for Standard Page Blobs attached to VM and used as Unmanaged Disks. Any type of operation against against Unmanaged Disks is counted as a transaction including reads, writes, and deletes.</p>
+
+								<h4>Operations prices for Page Blobs (Non-disks)</h4>
 								<p>If the transactions of Page Blob are not performed by Virtual Machines, billing is done by the transaction. For every transaction, a single operation shall be considered as write, read or delete for billing. If the size of the read or write is more than 64 KB, an extra read/write (IO) expense will be charged for every excess of 64 KB, and up to 15 IO are charged per transaction. If the size of a transaction is more than 1 MB [64 KB x (1 transaction + 15 IOs)], other IOs are not charged, irrespective of the size of transactions.</p>						
 								
 								<div class="tags-date">
@@ -410,9 +415,9 @@
 									</tr>						
 									<tr>
 										<td>Writes <sup>1</sup> (per 10,000 counted)</td>
-										<td align="left">￥ 0.0037</td>
-										<td align="left">¥ 0.0037</td>						   
-										<td align="left">￥ 0.0037</td>			   
+										<td align="left">￥ 0.0044</td>
+										<td align="left">¥ 0.0044</td>						   
+										<td align="left">￥ 0.0044</td>			   
 									</tr>
 									<tr>
 										<td>Write extra IO units (per 10,000 counted)</td>
@@ -422,9 +427,9 @@
 									</tr>
 									<tr>
 										<td>Read<sup>2</sup> (per 10,000 counted)</td>
-										<td align="left">￥ 0.0037</td>
-										<td align="left">¥ 0.0037</td>						   
-										<td align="left">¥ 0.0037</td>						   
+										<td align="left">￥ 0.0044</td>
+										<td align="left">¥ 0.0044</td>						   
+										<td align="left">¥ 0.0044</td>						   
 									</tr>
 									<tr>
 										<td>Read extra IO units (per 10,000 counted)</td>
@@ -434,9 +439,9 @@
 									</tr>
 									<tr>
 										<td>Delete</td>	
-										<td align="left">¥ 0.0037</td>
-										<td align="left">¥ 0.0037</td>						   
-										<td align="left">￥ 0.0037</td>						   
+										<td align="left">¥ 0.0044</td>
+										<td align="left">¥ 0.0044</td>						   
+										<td align="left">￥ 0.0044</td>						   
 									</tr>
 								</table>
 								<div class="tags-date">

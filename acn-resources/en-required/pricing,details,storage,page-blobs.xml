@@ -81,7 +81,7 @@
 							<!-- BEGIN: Table1-Content-->	
 							<div class="tab-panel" id="tabContent1">
 								<p>常规用途 v2 的定价针对 GB 存储最低价格进行了优化，通过它可以访问最新的 Azure 存储功能，包括冷存储和存档存储。使用这些帐户可访问块 Blob、页 Blob、文件和队列。</p>
-								<h4>高级非托管磁盘和页 Blob</h4>
+								<h4>高级页 Blob 的价格</h4>
 								<p>高级非托管磁盘是基于固态硬盘 (SSD) 的高性能存储器，旨在通过极大吞吐量和极低延迟来支持 I/O 密集型工作负荷。借助高级非托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
 								<p>高级非托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量限制和每 GB 每月价格。可选择最符合应用程序的所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对于每个 VM 配置最多 64 TB 的存储，，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级非托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、 FS 系列 VM 大小的支持。DS 系列虚拟机的定价和计费标准与 D 系列虚拟机相同。</p>
 								<div class="tags-date">
@@ -117,7 +117,7 @@
 										<td>￥6,343.21</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的 IOP</td>
+										<td>每个页 Blob 的 IOP</td>
 										<td>500</td>
 										<td>2,300</td>
 										<td>5,000</td>
@@ -126,7 +126,7 @@
 										<td>7,500</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的吞吐量</td>
+										<td>每个页 Blob 的吞吐量</td>
 										<td>100 MB / 秒</td>
 										<td>150 MB / 秒</td>
 										<td>200 MB / 秒</td>
@@ -136,7 +136,7 @@
 									</tr>
 								</table>
 								<div class="tags-date">
-									<div class="ms-date">高级磁盘没有事务处理费用。</div></br>
+									<div class="ms-date">高级磁盘没有事务处理费用。根据支持目标大小的最低类型对高级页 Blob 收费。</div></br>
 									<div class="ms-date"><sup>1 </sup>Azure 不支持将 P60 作为虚拟机的磁盘。 页 Blob 支持通过 REST 访问 P60。</div>
 								</div>
 								<p>我们还额外支持三个页 blob 类型，这要求你使用 Blob 层集进行显式部署。如果你部署了仅指定目标大小的页 blob 或非托管磁盘，则将向上舍入到上表中列出的受支持的页 blob 类型。</p>
@@ -164,13 +164,13 @@
 										<td>¥ 254.86</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的 IOP</td>
+										<td>每个页 Blob 的 IOP</td>
 										<td>120</td>
 										<td>240</td>
 										<td>1,100</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的吞吐量</td>
+										<td>每个页 Blob 的吞吐量</td>
 										<td>25 MB/秒</td>
 										<td>50 MB/秒</td>
 										<td>125 MB/秒</td>
@@ -248,7 +248,7 @@
 							<!-- BEGIN: Table2-Content-->	
 							<div class="tab-panel" id="tabContent2">
 								<p>常规用途 v1 的事务价格最低，存储价格较高，通过它可以访问块 Blob、页 Blob、文件、队列和表。常规用途 v1 帐户不支持访问冷存储和存档存储。</p>
-								<h4>高级非托管磁盘和页 Blob</h4>
+								<h4>高级页 Blob 的价格</h4>
 								<p>高级非托管磁盘是基于固态硬盘 (SSD) 的高性能存储器，旨在通过极大吞吐量和极低延迟来支持 I/O 密集型工作负荷。借助高级非托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
 								<p>高级非托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量限制和每 GB 每月价格。可选择最符合应用程序的所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对于每个 VM 配置最多 64 TB 的存储，，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级非托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、 FS 系列 VM 大小的支持。DS 系列虚拟机的定价和计费标准与 D 系列虚拟机相同。</p>
 								<div class="tags-date">
@@ -284,7 +284,7 @@
 										<td>￥6,343.21</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的 IOP</td>
+										<td>每个页 Blob 的 IOP</td>
 										<td>500</td>
 										<td>2,300</td>
 										<td>5,000</td>
@@ -293,7 +293,7 @@
 										<td>7,500</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的吞吐量</td>
+										<td>每个页 Blob 的吞吐量</td>
 										<td>100 MB / 秒</td>
 										<td>150 MB / 秒</td>
 										<td>200 MB / 秒</td>
@@ -303,10 +303,10 @@
 									</tr>
 								</table>
 								<div class="tags-date">
-									<div class="ms-date">高级磁盘没有事务处理费用。</div></br>
+									<div class="ms-date">高级磁盘没有事务处理费用。根据支持目标大小的最低类型对高级页 Blob 收费。</div></br>
 									<div class="ms-date"><sup>1 </sup>Azure 不支持将 P60 作为虚拟机的磁盘。 页 Blob 支持通过 REST 访问 P60。</div>
 								</div>
-								<p>我们还额外支持三个页 blob 类型，这要求你使用 Blob 层集进行显式部署。如果你部署了仅指定目标大小的页 blob 或非托管磁盘，则将向上舍入到上表中列出的受支持的页 blob 类型。</p>
+								<p>我们还额外支持三个页 blob 类型，这要求你使用 <a href="https://docs.microsoft.com/rest/api/storageservices/set-blob-tier">Blob 层集</a>进行显式部署。如果你部署了仅指定目标大小的页 blob 或非托管磁盘，则将向上舍入到上表中列出的受支持的页 blob 类型。</p>
 								<div class="tags-date">
 									<div class="ms-date">*以下价格均为含税价格。</div><br />
 									<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -331,20 +331,20 @@
 										<td>¥ 254.86</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的 IOP</td>
+										<td>每个页 Blob 的 IOP</td>
 										<td>120</td>
 										<td>240</td>
 										<td>1,100</td>
 									</tr>
 									<tr>
-										<td>每个磁盘的吞吐量</td>
+										<td>每个 页Blob 的吞吐量</td>
 										<td>25 MB/秒</td>
 										<td>50 MB/秒</td>
 										<td>125 MB/秒</td>
 									</tr>
 								</table>
 								<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
-								<h4>标准非托管磁盘和页 Blob</h4>
+								<h4>标准页 Blob 的价格</h4>
 								<p>标准磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
 								<p>标准非托管磁盘存储按存储的数据大小 (GB) 、事务数量以及<a id="pricing_storage_data-transfer-3" href="/pricing/details/data-transfer/">数据传输</a>量收费。</p>
 								<div class="tags-date">
@@ -396,7 +396,10 @@
 								</table>
 								<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
 								
-								<h4>操作和数据传输价格</h4>
+								<h4>用作非托管磁盘的页 Blob 的操作价格</h4>
+								<p>针对附加到虚拟机且用作非托管磁盘的标准页 Blob，所收取的费用为每 10,000 个事务￥0.0037。针对非托管磁盘的各类型操作均被视为事务，包括读取、写入和删除。</p>
+
+								<h4>页 Blob（非磁盘）的操作价格</h4>
 								<p>如果页 blob 事务不是通过虚拟机执行的，则按事务对其计费。对于每个事务，单次操作应被视为写入、读取或删除操作计费。若读取或写入事务的大小超过 64 KB，则每超过 64 KB 需支付一次额外的读取或写入输入/输出 (IO) 费用，每个事务最多收取 15 个 IO 的费用。如果事务大小超过 1 MB [64 KB x (1 个事务 + 15 个 IO)]，则无论事务大小，不再对其他 IO 计费。</p>						
 								<!-- <p>对于标准非托管磁盘和页 Blob，我们按每 10,000 个事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</p> -->
 								
@@ -413,9 +416,9 @@
 									</tr>						
 									<tr>
 										<td>写入操作<sup>1</sup>（按 10,000 计）</td>
-										<td align="left">￥0.0037</td>
-										<td align="left">￥0.0037</td>						   
-										<td align="left">￥0.0037</td>			   
+										<td align="left">￥0.0044</td>
+										<td align="left">￥0.0044</td>						   
+										<td align="left">￥0.0044</td>			   
 									</tr>
 									<tr>
 										<td>写入额外 IO 单位（按 10,000 计）</td>
@@ -425,9 +428,9 @@
 									</tr>
 									<tr>
 										<td>读取操作<sup>2</sup>（按 10,000 计）</td>
-										<td align="left">￥0.0037</td>
-										<td align="left">￥0.0037</td>						   
-										<td align="left">￥0.0037</td>						   
+										<td align="left">￥0.0044</td>
+										<td align="left">￥0.0044</td>						   
+										<td align="left">￥0.0044</td>						   
 									</tr>
 									<tr>
 										<td>读取额外 IO 单位（按 10,000 计）</td>
@@ -437,9 +440,9 @@
 									</tr>
 									<tr>
 										<td>删除操作</td>	
-										<td align="left">￥0.0037</td>
-										<td align="left">￥0.0037</td>						   
-										<td align="left">￥0.0037</td>						   
+										<td align="left">￥0.0044</td>
+										<td align="left">￥0.0044</td>						   
+										<td align="left">￥0.0044</td>						   
 									</tr>
 								</table>
 								<div class="tags-date">

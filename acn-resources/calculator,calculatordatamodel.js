@@ -7320,7 +7320,7 @@ var CalculatorData = {
             }]
         },
         "storage-page-blobs-gpv1-premium-snapshots": {
-            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1 - 快照",
+            Name: "存储 - 高级页 Blob - 常规用途 v1 - 快照",
             Types: [{
                 Name: "default",
                 Features: [{
@@ -7768,7 +7768,7 @@ var CalculatorData = {
         },
 
         "storage-page-blobs-gpv2-ummanager-disk-premium": {
-            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2",
+            Name: "存储 - 高级页 Blob - 常规用途 v2",
             Types: [{
                 Name: "P10",
                 Features: [{
@@ -7915,7 +7915,7 @@ var CalculatorData = {
             }]
         },
         "storage-page-blobs-gpv2-premium-snapshots": {
-            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v2 - 快照",
+            Name: "存储 - 高级页 Blob - 常规用途 v2 - 快照",
             Types: [{
                 Name: "default",
                 Features: [{
@@ -7997,7 +7997,7 @@ var CalculatorData = {
             }]
         },
         "storage-page-blobs-gpv2-unmanager-disk-standard-access": {
-            Name: "存储 - 非托管磁盘的页 Blob - 常规用途 v2 - 数据传输价格",
+            Name: "存储 - 用作非托管磁盘的页 Blob - 常规用途 v2 - 操作价格",
             Types: [{
                 Name: "default",
                 Features: [{
@@ -8223,7 +8223,7 @@ var CalculatorData = {
             }]
         },
         "storage-page-blobs-gpv1-ummanager-disk-premium": {
-            Name: "存储 - 高级非托管磁盘和页 Blob - 常规用途 v1",
+            Name: "存储 - 高级页 Blob - 常规用途 v1",
             Types: [{
                 Name: "P10",
                 Features: [{
@@ -8371,11 +8371,11 @@ var CalculatorData = {
         },
         
         "storage-page-blobs-gpv1-ummanager-disk-standard": {
-            Name: "存储 - 标准非托管磁盘和页 Blob - 常规用途 v1",
+            Name: "存储 - 标准页 Blob - 常规用途 v1",
             Types: [{
                 Name: "LRS",
                 Features: [{
-                    Name: "标准非托管磁盘和页 Blob",
+                    Name: "标准页 Blob",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8394,7 +8394,7 @@ var CalculatorData = {
             {
                 Name: "GRS",
                 Features: [{
-                    Name: "标准非托管磁盘和页 Blob",
+                    Name: "标准页 Blob",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8413,7 +8413,7 @@ var CalculatorData = {
             {
                 Name: "RA-GRS",
                 Features: [{
-                    Name: "标准非托管磁盘和页 Blob",
+                    Name: "标准页 Blob",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8431,8 +8431,31 @@ var CalculatorData = {
             }]
         },
 
+        "storage-page-blobs-gpv1-unmanager-disk-standard-access": {
+            Name: "存储 - 用作非托管磁盘的页 Blob - 常规用途 v1 - 操作价格",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "读取、写入和删除等操作",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.0037",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                }]
+            }]
+        }, 
+
         "storage-page-blobs-gpv1-ummanager-disk-blob": {
-            Name: "存储 - 标准非托管磁盘和页 Blob - 常规用途 v1 - 操作和数据传输价格",
+            Name: "存储 - 标准页 Blob - 常规用途 v1 - 操作和数据传输价格",
             Types: [{
                 Name: "LRS",
                 Features: [{
@@ -8445,7 +8468,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8461,7 +8484,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8477,7 +8500,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8496,7 +8519,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8512,7 +8535,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8528,7 +8551,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8547,7 +8570,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8563,7 +8586,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -8579,7 +8602,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.0037",
+                        PricePerTier: "0.0044",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -18229,6 +18252,41 @@ var CalculatorData = {
         //     // },]
         ]
         },
+        // "cognitive-services-text-analytics": {
+        //     Name: "认知服务 - 文本分析 API",
+        //     Types: [{
+        //         Name: "免费",
+        //         Features: [{
+        //             Name: "default",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "每月 5,000 个免费事务",
+        //                 PriceTier: PriceTierEnum.Free,
+        //                 PricePerTier: "0",
+        //             }]
+        //         }]
+        //     }
+        // //     // ,
+        // //     // {
+        // //     //     Name: "S0",
+        // //     //     Features: [{
+        // //     //         Name: "default",
+        // //     //         PricePeriod: PricePeriodEnum.Monthly,
+        // //     //         MinUnit: "0",
+        // //     //         MaxUnit: "100000",
+        // //     //         Sizes: [{
+        // //     //             Name: "default",
+        // //     //             Description: "计算机辅助内容审查 API 以及用于图像、文本和视频的人工审阅工具",
+        // //     //             PriceTier: "0,10,1001,5000,5001,20000",
+        // //     //             PricePerTier: " 6.36,5.088,4.134",
+        // //     //             MinUnit: "0",
+        // //     //             MaxUnit: "100000",
+        // //     //             PriceUnit: "每 1000 个事务"
+        // //     //         }]
+        // //     //     }]
+        // //     // },]
+        // ]
+        // },
 
         // "analysis-services-devp": {
         //     Name: "Azure 分析服务 - 开发人员层",
