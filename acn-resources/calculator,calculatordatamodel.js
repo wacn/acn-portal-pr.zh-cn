@@ -16638,10 +16638,26 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "基本 VPN 网关 S2S 隧道",
-                        PriceTier: "0,20000",
-                        PricePerTier: "0.0636",
+                        PriceTier: "0,10",
+                        PricePerTier: "0",
                         MinUnit: "0",
-                        MaxUnit: "2000",
+                        MaxUnit: "10",
+                        PriceUnit: "个"
+                        
+                    }]
+                },{
+                    Name: "基本 VPN 网关 p2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "基本 VPN 网关 P2S 隧道",
+                        PriceTier: "0,128",
+                        PricePerTier: "0",
+                        MinUnit: "0",
+                        MaxUnit: "128",
                         PriceUnit: "个"
                         
                     }]
@@ -16670,10 +16686,26 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "VpnGw1 S2S 隧道",
-                        PriceTier: "0,20000",
-                        PricePerTier: "0.0636",
+                        PriceTier: "0,10,11,30",
+                        PricePerTier: "0,0.0945",
                         MinUnit: "0",
-                        MaxUnit: "2000",
+                        MaxUnit: "30",
+                        PriceUnit: "个"
+                        
+                    }]
+                },{
+                    Name: "VpnGw1 p2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "VpnGw1 P2S 隧道",
+                        PriceTier: "0,128,129,250",
+                        PricePerTier: "0,0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "250",
                         PriceUnit: "个"
                         
                     }]
@@ -16702,10 +16734,26 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "VpnGw2 S2S 隧道",
-                        PriceTier: "0,20000",
-                        PricePerTier: "0.0636",
+                        PriceTier: "0,10,11,30",
+                        PricePerTier: "0,0.0945",
                         MinUnit: "0",
-                        MaxUnit: "2000",
+                        MaxUnit: "30",
+                        PriceUnit: "个"
+                        
+                    }]
+                },{
+                    Name: "VpnGw2 p2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "VpnGw2 P2S 隧道",
+                        PriceTier: "0,128,129,500",
+                        PricePerTier: "0,0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "500",
                         PriceUnit: "个"
                         
                     }]
@@ -16734,10 +16782,26 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "VpnGw3 S2S 隧道",
-                        PriceTier: "0,20000",
-                        PricePerTier: "0.0636",
+                        PriceTier: "0,10,11,30",
+                        PricePerTier: "0,0.0945",
                         MinUnit: "0",
-                        MaxUnit: "2000",
+                        MaxUnit: "30",
+                        PriceUnit: "个"
+                        
+                    }]
+                },{
+                    Name: "VpnGw3 p2s tunnel",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "VpnGw3 P2S 隧道",
+                        PriceTier: "0,128,129,1000",
+                        PricePerTier: "0,0.0636",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
                         PriceUnit: "个"
                         
                     }]
