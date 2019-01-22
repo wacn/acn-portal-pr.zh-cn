@@ -226,6 +226,27 @@
             </tr> -->
         </table>
         <!-- END: Table4-Content-->
+
+        <!-- BEGIN: Table5-Content-->
+        <h3>Text Analytics API</h3>
+        <p>ext Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions—sentiment analysis, key phrase extraction, and language detection.</p>
+       
+        <div class="tags-date">
+				<div class="ms-date">*The following prices are tax-inclusive.</div>
+        </div>
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+				<th align="left"><strong>INSTANCE</strong></th>
+                <th align="left"><strong>FEATURES</strong></th>
+                <th align="left"><strong>PRICE</strong></th>
+            </tr>
+            <tr>
+                <td>Free - Web/Container</td>
+                <td>Sentiment Analysis<br/>Key Phrase Extraction<br/>Language Detection<br/>Entity Extraction</td>
+                <td>5,000 transactions free per month</td>
+            </tr>
+        </table>
+        <!-- END: Table5-Content-->
         
     </div>
     <!-- END: TAB-CONTAINER-1 -->
@@ -349,6 +370,64 @@
                     <a id="cognitive-services_question10">Is there an extra cost to using Human review tool?</a>
                     <section>
                         <p>Human review tool is included in your subscription.</p>
+                    </section>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Text Analytics API</h3>
+        <ul>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question11">How does billing for the Text Analytics API work?</a>
+                    <section>
+                        <p>The Text Analytics API can be purchased in units of the S0-S4 tier at a fixed price. Each unit of a tier comes with included quantities of API transactions. If the user exceeds the included quantities, overages are charged at the rate specified in the pricing table above. These overages are prorated and the service is billed on a monthly basis. The included quantities in a tier are reset each month. In the S tier, the service is billed for only the amount of Text Records submitted to the service.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question12">What happens if I exceed the transaction limit on my free tier for Text Analytics?</a>
+                    <section>
+                        <p>Usage is throttled if the transaction limit is reached on the Free tier. Customers cannot accrue overages on the free tier.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question13">What constitutes a transaction in the S0-S4 tiers of the Text Analytics API?</a>
+                    <section>
+                        <p>Any annotation to a document counts as a transaction. Batch scoring calls will also take into consideration the number of documents that need to be scored in that transaction. So for instance, if 1,000 documents are sent for sentiment analysis in a single API call, that will count for 1,000 transactions. If an API supports more than one annotation operation, that will also be considered. Let’s say an API call performs both sentiment analysis and key-phrase extraction on 1,000 documents, that will count for 2,000 transactions (2 annotations × 1,000 documents).</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question14">What happens if I exceed the transaction limit on the S0-S4 tier?</a>
+                    <section>
+                        <p>If the usage on the S0-S4 tier is exceeded, the account starts to accrue overages. These overages are billed on a monthly basis and are calculated at the rate specified for each tier.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question15">Can I change the tier of service I subscribed to?</a>
+                    <section>
+                        <p>You may upgrade to a higher tier at any time. Billing rate and included quantities corresponding to the higher tier will begin immediately.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question16">What constitutes a Text Record in the S Tier?</a>
+                    <section>
+                        <p>A text record in the S tier contains up to 1,000 characters as measured by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string.length?view=netframework-4.7.2">String.Length</a>. If an input document into the text analytics API is more than 1,000 characters, it counts as one text record for each unit of 1,000 characters. For instance, if an input document sent to the API contains 7,500 characters, it would count as 8 text records. If an input document sent to the API contains 500 characters, it would count as 1 text record. If two documents are submitted, one document of 500 characters and one document of 1,200 characters, then the service would be billed for three text records in total: one record for the 500 character document and two text records for the 1,200 character document.</p>
                     </section>
                 </div>
             </li>

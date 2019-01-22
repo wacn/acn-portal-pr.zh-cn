@@ -221,6 +221,27 @@
         </table>
         <!-- END: Table4-Content-->
 
+        <!-- BEGIN: Table5-Content-->
+        <h3>文本分析 API</h3>
+        <p>文本分析 API 是一项基于云的服务，可对原始文本提供高级的自然语言处理，它包括三个主要功能：情绪分析、关键短语提取和语言检测。</p>
+       
+        <div class="tags-date">
+				<div class="ms-date">*以下价格均为含税价格。</div>
+        </div>
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+				<th align="left"><strong>实例</strong></th>
+                <th align="left"><strong>功能</strong></th>
+                <th align="left"><strong>价格</strong></th>
+            </tr>
+            <tr>
+                <td>免费 - Web/容器</td>
+                <td>情绪分析<br/>关键短语提取<br/>语言检测<br/>实体提取<br/></td>
+                <td>每月 5,000 个免费事务</td>
+            </tr>
+        </table>
+        <!-- END: Table5-Content-->
+
     </div>
     <!-- END: TAB-CONTAINER-1 -->
 </div>
@@ -343,6 +364,64 @@
                     <a id="cognitive-services_question10">使用人工审阅工具是否需额外付费？</a>
                     <section>
                         <p>你的订阅中包含人工审阅工具。</p>
+                    </section>
+                </div>
+            </li>
+        </ul>
+
+        <h3>文本分析 API</h3>
+        <ul>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question11">文本分析 API 是如何进行计费的？</a>
+                    <section>
+                        <p>对于文本分析 API，可以按 S0-S4 层计价单位以固定价格购买。每个单位的级别都包含一定数量的 API 事务。如果用户使用的数量超出了包含的数量，则超出部分将按上面的定价表中指定的费率收费。这些超出部分按比例计算，而服务按月计费。一个级别中包含的数量会每月重置。在 S 层中，服务仅针对提交给服务的文本记录的数量进行计费。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question12">如果我在免费级别使用文本分析超出了事务限制，会发生什么情况？</a>
+                    <section>
+                        <p>如果达到免费级别的事务限制，则使用会受到限制。客户无法在免费级别超额使用。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question13">文本分析 API 中 S0-S4 层的事务由什么构成？</a>
+                    <section>
+                        <p>文档的任何注释都算作事务。批处理评分调用也会考虑该事务中需评分的文档数。因此，如果通过一次 API 调用发送 1,000 份文档供情绪分析，则记为 1,000 个事务。API 支持多于一个注释操作的情况也会考虑在内。假如一个 API 调用为 1,000 份文档执行了情绪分析和关键短语提取，则记为 2,000 个事务（2 个注释 × 1,000 份文档）。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question14">如果我在 S0-S4 层超出了事务限制，会发生什么情况？</a>
+                    <section>
+                        <p>如果在 S0-S4 层超额使用，则帐户开始累加超额量。这些超额部分按照为每个级别指定的费率按月计费。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question15">我可以更改我订阅的服务级别吗？</a>
+                    <section>
+                        <p>你可以随时升级到较高级别。较高级别对应的计费费率和包括的量将立即生效。</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_question16">S 层文本记录由什么构成？</a>
+                    <section>
+                        <p>S 层中的文本记录根据 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.string.length?view=netframework-4.7.2">String.Length</a> 测量，最多包含 1,000 个字符。如果文本分析 API 中的输入文档超过 1,000 个字符，则将每 1,000 个字符单元计为一个文本记录。例如，如果发送到 API 的输入文档包含 7,500 个字符，则它将计为 8 个文本记录。如果发送到 API 的输入文档包含 500 个字符，则它将计为 1 个文本记录。如果提交了两份文件，一份 500 字符的文件和一份 1,200 字符的文件，那么该服务将收取 3 个文本记录的费用：500 字符文档计为 1 个记录，1,200 字符文档计为 2 个文本记录。</p>
                     </section>
                 </div>
             </li>
