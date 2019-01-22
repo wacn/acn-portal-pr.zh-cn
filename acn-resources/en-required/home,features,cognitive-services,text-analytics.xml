@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="2" createDate="2018-01-16T07:49:24" updateDate="2019-01-16T10:41:59" urlName="cognitive-services-text-analytics" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style>
+                .cognitive-banner{
+                    margin: 30px 0;
+                }
+                .cognitive-figure{
+                    padding-bottom: 30px;
+                    margin-bottom: 30px;
+                    border-bottom: 1px #ccc solid;
+                    overflow: hidden;
+                }
+                .cognitive-figure .col-md-3{
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                .cognitive-figure .col-md-9{
+                    padding-left: 2%;
+                    padding-right: 0;
+                }
+                .pricing-page-section .cognitive-figure .col-md-9 h2, .container .pure-content .pricing-page-section .cognitive-icon-group .cognitive-text h2{
+                    margin-top: 4px !important;
+                }
+                .cognitive-icon-group{
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                    list-style:none;
+                    padding-left:0 !important;
+                }
+                .cognitive-icon-group li{
+                    width:100%;
+                    overflow:hidden;
+                    margin-bottom: 30px !important;
+                }
+                .cognitive-icon-group li div{
+                    float: left;
+                }
+                .cognitive-icon{
+                    width: 10%;
+                    min-width: 100px;
+                    margin-right:-120px;
+                }
+                .common-banner-title>img{
+                    width:48px;
+                    height:48px;
+                    margin-top: 8px !important;
+                }
+                .cognitive-icon>img{
+                    width:64px;
+                    height:64px;
+                    margin:0 auto;
+                    margin-top: 20px;
+                }
+                .cognitive-text{                   
+                    margin-left:120px;
+                }
+                .cognitive-icon-group li:last-child{
+                    margin-bottom: 0 !important;
+                }
+                @media only screen and (max-width: 769px){
+                    .cognitive-figure{
+                        padding-bottom: 20px;
+                    }
+                    .cognitive-figure .col-md-9{
+                        padding-left: 0;
+                    }
+                    .pricing-page-section .cognitive-figure .col-md-9 h2{
+                        margin-top: 26px !important;
+                    }
+                }
+            </style>
+            <!-- BEGIN: Cognitive-Services-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/cognitive-text-analytics-api-slice-01.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,text-analytics.svg" />
+                        <h2>文本分析 API<span>Text Analytics API</span></h2>
+                        <h4>检测文本中的情绪、关键短语和语言</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="text-analytics_1rmb-trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="analytics_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Cognitive-Services-TopBanner -->
+            <!-- BEGIN: Cognitive-Services-Content -->
+            
+            <div class="pricing-page-section">
+                <div class="cognitive-figure">
+                    <div class="col-md-9">
+                        <h2>观点分析</h2>
+                        <p>API 会返回介于 0 到 1 之间的数字评分。评分接近 1 代表积极的情绪，评分接近 0 代表消极的情绪。情绪评分是使用分类技术生成的。分类器的输入特征包括 n 个字尾 (n-gram)、词性标记生成的特征和词嵌入。它受众多语言支持。</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/cognitive-services/cognitive-services-text-analytics-sentiment-analysis.png"/>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-9">
+                        <h2>关键短语提取</h2>
+                        <p>API 会返回一个字符串列表，指示输入文本中的关键要点。</p>
+                        <p>我们采用的技术是 Microsoft Office 提供的复杂自然语言处理工具包。支持英语、德语、西班牙语和日语文本。</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/cognitive-services/cognitive-services-text-analytics-key-phase-extraction.png"/>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-9">
+                        <h2>语言检测</h2>
+                        <p>API 会返回检测的语言和数字评分（介于 0 到 1 之间）。评分接近 1 表示 100% 确定识别的语言是正确的。共支持 120 种语言。</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/cognitive-services/cognitive-services-text-analytics-language-detection.png"/>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-9">
+                        <h2>识别文本中的实体</h2>
+                        <p>检测文本中的所有命名实体，如组织、人员和位置等。实体链接通过将文本与 Web 上的其他信息关联来消除不同实体的歧义。例如，用于确定诸如“times”之类的术语是指“纽约时报”还是“时代广场”。</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/images/cognitive-services/cognitive-services-text-analytics-identify-entities.png"/>
+                    </div>
+                </div>
+
+                <h1>了解所有认知服务 API</h1>
+                <ul class="cognitive-icon-group">
+                    <li>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,face.svg"/></div>
+                        <div class="cognitive-text">
+                            <h2>人脸 API</h2>
+                            <p>检测并比较相似的人脸，基于相似度将图像组织成组，识别图像中先前标记的人物。</p>
+                            <p><a id="face_face" href="/home/features/cognitive-services/face/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>                    
+                    <li>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,computer-vision.svg"/></div>
+                        <div class="cognitive-text">
+                           <h2>计算机影像 API</h2>
+                        <p>从图像中提取丰富的信息，以便对视觉数据进行分类和处理，在计算机的辅助下审查图像，为策展服务提供帮助。</p>
+                        <p><a id="face_computer-vision" href="/home/features/cognitive-services/computer-vision/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,content-moderator.svg"/></div>
+                        <div class="cognitive-text">
+                           <h2>内容审查器 API</h2>
+                        <p>计算机辅助内容审查器 API 以及用于图像、文本和视频的人工审阅工具</p>
+                        <p><a id="face_content-moderator" href="/home/features/cognitive-services/content-moderator/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cognitive-icon"><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services,text-analytics.svg"/></div>
+                        <div class="cognitive-text">
+                           <h2>文本分析 API</h2>
+                        <p>检测文本中的情绪、关键短语和语言</p>
+                        <p><a id="face_text-analytics" href="/home/features/cognitive-services/text-analytics/" class="single-link">了解更多<i class="icon icon-arrow-right-thin"></i></a></p>
+                        </div>
+                    </li>
+                </ul>
+                    
+            </div>
+
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
+            <!--END: Support and service code chunk-->   
+            <!-- END: Cognitive-Services-Content -->
+                          
+    ]]>
+    </bodyText>
+    <pageTitle>文本分析 API_智能应用程序 - Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>home-features-cognitive-services-text-analytics</linkid>
+    <metaKeywords>Azure, 认知服务, Cognitive Services, 文本分析</metaKeywords>
+    <metaDescription><![CDATA[使用 Azure 文本分析 API 将非结构化文本转换为有意义的见解。获取情绪分析、关键短语提取、语言和实体检测。]]></metaDescription>
+    <urlDisplayName>认知服务 - 文本分析 API</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
