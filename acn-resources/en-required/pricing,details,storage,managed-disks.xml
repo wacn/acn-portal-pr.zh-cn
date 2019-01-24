@@ -78,7 +78,7 @@
 						<div class="tab-panel" id="tabContent2">
 			                <h4>高级托管磁盘</h4>
 							<p>高级托管磁盘是基于高性能固态驱动器 (SSD) 的存储，旨在支持 I/O 密集型工作负荷，具有非常高的吞吐量和低延迟。借助高级托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
-							<p>高级托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOP)、吞吐量上限和每 GB 每月价格。可以选择最符合所需存储大小、IOP 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对每个 VM 配置最多 64 TB 的存储空间，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、FS 系列 VM 大小的支持。</p>
+							<p>高级托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOPS)、吞吐量上限和每 GB 每月价格。可以选择最符合所需存储大小、IOPS 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对每个 VM 配置最多 PB 的存储空间，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、FS 系列 VM 大小的支持。</p>
 							<div class="tags-date">
 								<div class="ms-date">*以下价格均为含税价格。</div><br />
 								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -119,7 +119,7 @@
 									<td>￥3,322.63</td>
 								</tr>
 								<tr>
-									<td>每个磁盘的 IOP</td>
+									<td>每个磁盘的 IOPS</td>
 									<td>120</td>
 									<td>240</td>
 									<td>500</td>
@@ -149,7 +149,7 @@
 
 							<h4>标准 SSD 托管磁盘</h4>
 							<p>标准 SSD 托管磁盘是一款低成本的 SSD 服务，已针对需要一致延迟性的测试和入门级生产工作负荷进行优化。标准 SSD 托管磁盘还可用于需要高吞吐量的大数据工作负荷。与标准 HDD 相比，标准 SSD 托管磁盘可实现更低的延迟，同时提升应用程序的可靠性和可扩展性，并可用于各种 Azure VM 大小。标准 SSD 托管磁盘可轻松升级到高级 SSD 托管磁盘，满足更苛刻和延迟敏感型的企业工作负荷。标准 SSD 托管磁盘是一种托管磁盘解决方案，提供高级 SSD 托管磁盘所具备的行业领先的持续性和可用性。</p>
-							<p>标准 SSD 托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。在 IOPS 和吞吐量方面，不同的标准磁盘大小之间没有区别。</p>
+							<p>标准 SSD 托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
 							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
 							<div class="tags-date">
 								<div class="ms-date">*以下价格均为含税价格。</div><br />
@@ -158,7 +158,7 @@
 							</div>
 							<table cellpadding="0" cellspacing="0" width="100%">
 								<tr>
-									<th></th>
+									<th align="left"><strong>磁盘类型</strong></th>
 									<th align="left"><strong>E4</strong></th>
 									<th align="left"><strong>E6</strong></th>
 									<th align="left"><strong>E10</strong></th>
@@ -190,6 +190,28 @@
 									<td>￥1,563.034</td>
 									<td>￥3,126.067</td>
 								</tr>
+								<tr>
+									<td>每个磁盘的 IOPS</td>
+									<td>最多 120</td>
+									<td>最多 240</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+								</tr>
+								<tr>
+									<td>每个磁盘的吞吐量</td>
+									<td>最多 25 MB/秒</td>
+									<td>最多 50 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+								</tr>
 							</table>
 							<div class="tags-date">
 								<div class="ms-date">我们对每 10,000 个标准 SSD 托管磁盘的事务收取 ￥0.020352 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</div>
@@ -197,7 +219,7 @@
 					
 							<h4>标准托管磁盘</h4>
 							<p>标准托管磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
-							<p>标准托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。在 IOPS 和吞吐量方面，不同的标准磁盘大小之间没有区别。</p>
+							<p>标准托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
 							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
 							<div class="tags-date">
 								<div class="ms-date">*以下价格均为含税价格。</div><br />
@@ -206,7 +228,7 @@
 							</div>
 							<table cellpadding="0" cellspacing="0" width="100%">
 								<tr>
-									<th></th>
+									<th align="left"><strong>磁盘类型</strong></th>
 									<th align="left"><strong>S4</strong></th>
 									<th align="left"><strong>S6</strong></th>
 									<th align="left"><strong>S10</strong></th>
@@ -240,6 +262,28 @@
 									<td>￥552.96</td>
 									<td>￥1105.92</td>
 									<!-- <td>￥2211.84</td> -->
+								</tr>
+								<tr>
+									<td>每个磁盘的 IOPS</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+									<td>最多 500</td>
+								</tr>
+								<tr>
+									<td>每个磁盘的吞吐量</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
+									<td>最多 60 MB/秒</td>
 								</tr>
 							</table>
 							<div class="tags-date">
