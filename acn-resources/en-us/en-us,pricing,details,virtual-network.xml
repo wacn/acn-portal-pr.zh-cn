@@ -23,8 +23,9 @@
 			
 			
 			<div class="pricing-page-section">
-                <h2>Virtual Network Peering (VNET Peering)</h2>
-                <p>VNET Peering connects two virtual networks in the same region, allowing you to route traffics between then through private IP address. You may subscribe and use VNET Peering across regions.</p>
+                <h2>Virtual network peering</h2>
+                <p>Virtual network peering links virtual networks, enabling you to route traffic between them using private IP addresses. Ingress and egress traffic is charged at both ends of the peered networks.</p>
+                <h2>VNET Peering within the same region</h2>
 				<table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>Metering</strong></th>
@@ -39,6 +40,26 @@
                             <td>￥0.06572 /GB</td>
                         </tr>
                     </table>
+
+                <h2>Global VNET Peering</h2>
+				<table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong></strong></th>
+                            <th align="left"><strong>ZONE 1</strong></th>
+                            <th align="left"><strong>ZONE 2</strong></th>
+                        </tr>
+                        <tr>
+                            <td>Inbound data transfer</td>
+                            <td>￥0.1638 /GB</td>
+                            <td>￥0.1638 /GB</td>
+                        </tr>
+                        <tr>
+                            <td>Outbound data transfer</td>
+                            <td>￥0.1638 /GB</td>
+                            <td>￥0.1638 /GB</td>
+                        </tr>
+                </table>
+                <p><sup>*</sup>Global VNET Peering pricing is based on a zonal structure. For instance, if data is being transferred from a VNET in zone 1 to a VNET in zone 2, customers will incur outbound data transfer rates for zone 1 and inbound data transfer rates for zone 2.</p>
             </div>
 			
 			

@@ -13736,7 +13736,8 @@ var CalculatorData = {
         },
         "hdinsight": {
             Name: "HDInsight",
-            Types: [{
+            Types: [
+                {
                 Name: "A 系列",
                 Features: [{
                     Name: "default",
@@ -14310,7 +14311,6 @@ var CalculatorData = {
             }]
         },
 
-
         "hdinsight-windows-hbase-head": {
             Name: "HDInsight - Windows - HBase 群集 - 控制服务器",
             Types: [{
@@ -14833,7 +14833,6 @@ var CalculatorData = {
             }]
         },
 
-
         "hdinsight-linux-hbase-region": {
             Name: "HDInsight - Linux - HBase 群集 - 区域服务器",
             Types: [{
@@ -14947,7 +14946,6 @@ var CalculatorData = {
                 }]
             }]
         },
-
 
         "hdinsight-linux-hbase-zookeeper": {
             Name: "HDInsight - Linux - HBase 群集 - 主节点/Zookeeper 节点",
@@ -17087,7 +17085,7 @@ var CalculatorData = {
             Types: [{
                 Name: "虚拟网络对等互连",
                 Features: [{
-                    Name: "虚拟网络对等互连 (VNET Peering) - 入站数据传输",
+                    Name: "同一区域内的 VNET 对等互连 - 入站数据传输",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -17103,7 +17101,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "虚拟网络对等互连 (VNET Peering) - 出站数据传输",
+                    Name: "同一区域内的 VNET 对等互连 - 出站数据传输",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -17113,6 +17111,40 @@ var CalculatorData = {
                         Description: "default",
                         PriceTier: PriceTierEnum.Linear,
                         PricePerTier: "0.06572",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },{
+                Name: "全局 VNET 对等互连",
+                Features: [{
+                    Name: "全局 VNET 对等互连 - 入站数据传输",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.1638",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "全局 VNET 对等互连 - 出站数据传输",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.1638",
                         MinUnit: "0",
                         MaxUnit: "2000",
                         PriceUnit: "GB"
