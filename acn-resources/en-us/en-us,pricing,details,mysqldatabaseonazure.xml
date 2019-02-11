@@ -17,7 +17,7 @@
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
                 <div width="100%" style="background-color:#e5f1fb;margin-bottom:20px;border: 1px solid transparent;border-color: rgba(0,120,215,0.5);padding: 0 15px;">
-                    <p>We are ending the MySQL Database on Azure service on December 1st, 2019, which will be replaced by the <a href="https://www.azure.cn/en-us/home/features/mysql">Azure Database for MySQL</a> service. Please scroll down to FAQ below.</p>
+                    <p>We are ending the MySQL Database on Azure service on December 1st, 2019, which will be replaced by the Azure Database for MySQL service. Please click <a href="https://www.azure.cn/support/announcement/mysql-migration-faq">here</a> for migration FAQ and instruction.</p>
                 </div>
                 <p>MySQL Database on Azure is a relational database provided by Azure. It is compatible with the MySQL agreement, offering users a database platform with stable performance, easy operations and high security. It takes only one to two minutes for you to create a MySQL database server with high availability on Azure without the need to manage the Virtual Machine or infrastructure. MySQL Database on Azure provides users with easy management and maintenance features and experience. You can easily monitor database performance and resource use and shift among different versions based on your demand. MySQL Database on Azure provides at most 35 days of data backups and recovery options. Moreover, compared with MySQL servers set up by users themselves on Azure Virtual Machine, MySQL Database on Azure offers a better price to performance ratio.</p>
             </div>
@@ -129,150 +129,8 @@
                 <div class="more-detail">
                     <h2>FAQ</h2>
                     <em>Expand all</em>
-                    <h3>MySQL Classic Retirement Customer FAQ</h3>
-                    <p>We are ending the MySQL Database on Azure service on December 1st, 2019, which will be replaced by the Azure Database for MySQL service. </p>
-                    <p>If you are an existing customer:</p>
-                    <ul>
-                        <li>· No interruption of service</li>
-                        <li>· You will be automatically migrated to the new service before the end of life of the existing service</li>
-                        <li>· Migration will begin on Feb 15th, 2019</li>
-                        <li>· Special pricing will be lost when scaled to a different service tier or if server is deleted</li>
-                        <li>· You will continue to pay the same price post migration – detailed information about the SKU mapping between the old service and the new service will be published before end of December 2018</li>
-                        <li>· No action necessary for now. At a minimum, 30 days prior to your scheduled migration you will receive additional notifications including the exact timeline for your migration</li>
-                    </ul>
-                    <p>If you are a new customer:</p>
-                    <ul>
-                        <li>· You will not be accepted on the “MySQL Database on Azure” service as of the date of this announcement</li>
-                    </ul>
-                    <ul>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question4">Will my total bill increase when moving from MySQL Database on Azure to Azure Database for MySQL? </a>
-                                    <section>
-                                        <p>No. Your monthly total bill once on Azure Database for MySQL will be the same as your total monthly bill on MySQL Database on Azure. For example: if you are an MS4 customer currently paying ¥1,071.36 per month for MySQL Database on Azure, you will continue to pay ¥1,071.36 per month once on Azure Database for MySQL.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question5">Will my bill look different after I migrate from MySQL Database on Azure to Azure Database for MySQL? How will my bill look different?</a>
-                                    <section>
-                                        <p>Yes, your bill will look different after we migrated you from MySQL Database on Azure to Azure Database for MySQL, but your total bill amount will remain the same. Today with MySQL Database on Azure you are charged for the version   you are using (MS1, MS2, MS3, MS4, MS5, MS6, MP1, or MP2), which includes a free amount of storage called “free database capacity”. If you use more storage than is included in this free database capacity, then you are billed ¥0.6116 per GB per month for that excess storage.</p>
-                                        <p>After the migration to Azure Database for MySQL, you will be charged for the compute and storage resources you provision. Compute resources are charged per vCore per hour. Storage is charged  per provisioned GB per month. Azure Database for MySQL does not include “free database capacity”. </p>
-                                        <p>Let us look at an example that describes how you will be billed before and after you migrate to Azure Database for MySQL: </p>
-                                        <p>Let us assume you are using MS5 with 200 GB of storage. MS5 includes 100 GB of “free database capacity”. That makes the bill look like this:</p>
-                                        <ul>
-                                            <li>MS5 server:  ¥2.1613 per hour x 744 hours per month = ¥1,608.01 per month</li>
-                                            <li>Storage Overage: ¥0.6116 per GB per month x (200 GB used – 100 GB free) = ¥61.16 per month</li>
-                                            <li>Total Bill: ¥1,608.01 per month + ¥61.16 per month = $1,669.17 per month</li>
-                                        </ul>
-                                        <p>During the migration to Azure Database for MySQL the MS5 server will migrate to General Purpose 4 vCore with 200 GB provisioned storage.  The pricing look as follows:</p>
-                                        <ul>
-                                            <li>Compute: ¥0.5198 per vCore per hour x 4 vCore x 744 hours per month = ¥1,546.85 per month</li>
-                                            <li>Storage: ¥0.6116 per GB per Month x 200 GB = ¥122.32 per month</li>
-                                            <li>Total Bill: ¥1,546.85 per month + ¥122.32 per month = $1,669.17 per month</li>
-                                        </ul>
-                                        <p>So in this example, the total monthly bill for MySQL Database on Azure MS5 and the equivalent offer on Azure Database for MySQL is the same.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question7">How will you maintain my total bill if you are charging for storage?</a>
-                                 <section>
-                                        <p>MySQL Database on Azure includes a free amount of storage called “free database capacity”. This free database capacity varies by version (MS1, MS2, MS3, MS4, MS5, MS6, MP1, or MP2).</p>
-                                        <p>Azure Database for MySQL does not include free storage. Instead Azure Database for MySQL charges for compute in vCores per hour and provisioned storage  in GB per month separately. Each MySQL Database on Azure migrated to Azure Database for MySQL will be provisioned with a minimum storage size equivalent to the free database capacity for MySQL Database on Azure. For example, if you are an MS1 customer, your database will be provisioned with a minimum of 100 GB of storage.</p>
-                                        <p>To maintain the same total monthly bill for customers who have migrated from MySQL Database on Azure to Azure Database for MySQL, migrated customers will be billed using a special “legacy” compute and storage meters that maintain your total monthly bill. These “legacy” meters are priced to offset the loss of the “free database capacity” included in MySQL Database on Azure.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question8">What happens if I notice an increase in my total bill?</a>
-                                    <section>
-                                        <p>You should not see an increase in your total monthly bill. If you do, please <a href="https://support.azure.cn/support/support-azure/">open a support ticket</a> so that the team can investigate.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question9">How will my server be mapped to the new offering?</a>
-                                    <section>
-                                        <p>We have published detailed meter mapping information <a href="https://www.azure.cn/en-us/support/announcement/mysql-china-meter-migration-table-201812">here</a> for your reference.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question10">When will my server be migrated?</a>
-                                    <section>
-                                        <p>You will get an email notification at least 30 days prior to the date your server is scheduled to migrate. Migrations will not start before Feb 15th, 2019.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question11">How will the billing meters be mapped?</a>
-                                    <section>
-                                        <p>We have published detailed meter mapping information <a href="https://www.azure.cn/en-us/support/announcement/mysql-china-meter-migration-table-201812">here</a> for your reference.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question12">Do I have to migrate myself or will you provide assistance to migrate?</a>
-                                    <section>
-                                        <p>You do not have to take any action, your MySQL server will be migrated for you. You will receive another communication with additional details 30 days prior to your scheduled migration. Please <a href="https://support.azure.cn/support/support-azure/">file a support ticket</a> if you wish to be migrated earlier.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question13">What if I migrate to using a mysqldump and mysqlrestore?</a>
-                                    <section>
-                                        <p>You can migrate using mysqldump and mysqlrestore, however you will not be able to maintain use the legacy meters put in place to maintain your exact current price points. You will be billed using new pricing model.</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question14">What happens if I want to change the performance level after I migrate (ex: I have migrated to a General Purpose 4 vCore from MS5, and then want to upgrade to General Purpose 8 vCore)?</a>
-                                    <section>
-                                        <p>If you decide to increase your database size once on Azure Database for MySQL after you have migrated, you will no longer receive the “legacy” prices, but will migrate to the Azure Database for MySQL prices as displayed <a href="https://www.azure.cn/en-us/pricing/details/mysql/">here</a>.</p>
-                                    </section>
-                                </div>
-                            </li>
-
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question15">What is the experience during the migration?</a>
-                                    <section>
-                                        <p>The impact to your server and workload will be minimal. We migrate server from MySQL Database for Azure to the new Azure Database for MySQL using replication. This means that the server will be online during the migration except for the final phase of the migration that includes the failover to the new server. The connection string to the server will remain the same, so that you do not have to change your application logic. </p>
-                                        <p>Below are the migration steps in short:</p>
-                                        <ol>
-                                            <li>We take a snapshot of the server in MySQL Database for Azure.</li>
-                                            <li>We restore that snapshot in a new Azure Database for MySQL server.</li>
-                                            <li>Set up replication between the old and the new server to catch up all changes since the snapshot.</li>
-                                            <li>When the new server is caught up except for in-flight transactions, we set the old server to read-only mode for new transactions.</li>
-                                            <li>The new server catches up with the latest changes and we stop the replication.</li>
-                                            <li>We then copy configurations, firewall rules and redirect DNS from the old to the new server and finally stop the old server. </li>
-                                            <li>All new connections to against the new server. No changes to your application are required.</li>
-                                        </ol>
-                                    </section>
-                                </div>
-                            </li>
-                    </ul>
+                    <h3>MySQL Database on Azure Retirement Customer FAQ</h3>
+                    <p>We have summarized detailed FAQ for your better migration experiences from MySQL Database on Azure. Please refer to the <a href="https://www.azure.cn/support/announcement/mysql-migration-faq">MySQL Database on Azure migration FAQ and instructions</a>.</p>
 
                     <h3>General</h3>
                     <ul>

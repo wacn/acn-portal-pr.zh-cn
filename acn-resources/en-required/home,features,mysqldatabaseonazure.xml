@@ -21,7 +21,7 @@
             <!-- BEGIN: Product-Detail-Content -->
             <div class="pricing-page-section">
                 <div width="100%" style="background-color:#e5f1fb;margin-bottom:20px;border: 1px solid transparent;border-color: rgba(0,120,215,0.5);padding: 0 15px;">
-                    <p>我们将于 2019 年 12 月 1 日结束 MySQL Database on Azure 服务，并由 <a href="https://www.azure.cn/zh-cn/home/features/mysql">Azure Database for MySQL</a> 服务取代前者。请向下滑动到常见问题查看相关信息。</p>
+                    <p>我们将于 2019 年 12 月 1 日结束 MySQL Database on Azure 服务，并由 Azure Database for MySQL 服务取代前者。请参考<a href="https://www.azure.cn/support/announcement/mysql-migration-faq">迁移常见问题与指南</a>。</p>
                 </div>
                 <p>MySQL Database on Azure 是我们在 Azure 平台上推出的 MySQL 云数据库服务。</p>
                 <h1>提供全托管的 MySQL 数据库服务（DB as a Service）
@@ -73,150 +73,8 @@
             <div class="pricing-page-section">
                 <div class="more-detail">
                     <h2>常见问题</h2>
-                    <em>全部展开</em>
-                    <h3>MySQL Database on Azure迁移客户常见问题解答</h3>
-                    <p>我们将于 2019 年 12 月 1 日结束 MySQL Database on Azure 服务，并由 Azure Database for MySQL 服务取代前者。 </p>
-                    <p>如果您是一名老客户：</p>
-                    <ul>
-                        <li>· 服务不会中断</li>
-                        <li>· 在现有服务终止前，新服务将自动迁移启用</li>
-                        <li>· 迁移将于 2019 年 2 月 15 日开始</li>
-                        <li>· 当扩展到不同的服务层或删除服务器，有针对性的定价将会丢失</li>
-                        <li>· 迁移后，您将继续支付相同的价格。更多有关旧服务和新服务之间的SKU对照信息将于 2018 年 12 月底之前公布</li>
-                        <li>· 您现在不需要采取任何行动。在计划迁移日期前至少 30 天，您将收到其他通知，包括迁移的确切时间</li>
-                    </ul>
-                    <p>如果您是一名新客户：</p>
-                    <ul>
-                        <li>· 自本公告发布之日起，MySQL Database on Azure 服务将不接受您的请求</li>
-                    </ul>
-                        <ul>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question4">从 MySQL Database on Azure 迁移到 Azure Database for MySQL 时，我的总账单会增加吗？</a>
-                                    <section>
-                                        <p>不会。你在 Azure Database for MySQL 上的每月总账单将与 MySQL Database on Azure 上的每月总账单相同。例如：如果你是 MS4 客户，目前每月为 MySQL Database on Azure 支付 ¥1071.36，你每月将继续为 Azure Database for MySQL 支付 ¥1071.36。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question5">当我从 MySQL Database on Azure 迁移到 Azure Database for MySQL 时，我的账单会有什么不同吗？</a>
-                                    <section>
-                                        <p>是的，当我们将您从 MySQL Database on Azure 迁移到 Azure Database for MySQL 后，您的账单看起来会有所不同，但您的账单总额将保持不变。目前在 MySQL Database on Azure 上，您需要为当前使用的版本付费（MS1、MS2、MS3、MS4、MS5、MS6、MP1 或 MP2），其中包括一个名为“免费数据库容量”的免费储存空间。如果您使用的储存空间超过了免费的数据库容量，那么我们会对超出的部分每月收取 ¥0.6116/ GB。</p>
-                                        <p>在迁移到 Azure Database for MySQL 后，您将为提供的计算和储存资源付费。计算资源的费用按每小时每 vCore 收取。储存空间的费用按每月提供的 GB 收取。Azure Database for MySQL 不包括“免费数据库容量”。 </p>
-                                        <p>让我们用一个例子来描述迁移到 Azure Database for MySQL 之前和之后，您的计费情况： </p>
-                                        <p>假设您使用的是配有 200 GB 储存空间的 MS5。MS5 包括 100 GB 的“免费数据库容量”。账单为:</p>
-                                        <ul>
-                                            <li>MS5 服务器：每小时 ¥2.1613 x 每月 744 小时 = 每月 ¥1608.01</li>
-                                            <li>超额储存：每月 ¥0.6116 / GB x（使用的 200 GB – 免费的 100 GB）=每月 ¥61.16</li>
-                                            <li>总账单：每月 ¥1608.01 + 每月 ¥61.16 = 每月 ¥1669.17</li>
-                                        </ul>
-                                        <p>在迁移到 Azure Database for MySQL 的过程中，MS5 服务器将迁移到具有 200 GB 配置储存空间的通用 4 vCore。定价如下:</p>
-                                        <ul>
-                                            <li>计算：每小时 ¥0.5198 / vCore x 4 vCore x 每月 744 小时 = 每月 ¥1546.85</li>
-                                            <li>储存空间：每月 ¥0.6116 / GB x 200 GB =每月 ¥122.32</li>
-                                            <li>总账单：每月 ¥1546.85 + 每月 ¥122.32 = 每月 ¥1669.17</li>
-                                        </ul>
-                                        <p>因此在这个例子中，<b>MySQL Database on Azure 上 MS5</b> 的每月总账单和 <b>Azure Database for MySQL</b> 上提供的每月总账单相同。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question7">如果你们对储存空间收费，那么你们将如何维持我的总账单？</a>
-                                 <section>
-                                        <p>MySQL Database on Azure 包括一个叫做“免费数据库容量”的免费储存空间。该免费数据库容量根据版本不同而有所不同（MS1、MS2、MS3、MS4、MS5、MS6、MP1或MP2）。</p>
-                                        <p><b>Azure Database for MySQL</b> 不包括免费储存空间。相反，Azure Database for MySQL 会对每小时以 vCores 计费的计算和配置储存空间单独收费。每个从 MySQL Database on Azure 迁移到 Azure Database for MySQL 上的用户都将配置一个相当于 MySQL Database on Azure 上免费数据库空间的最小储存空间。例如，如果您是 MS1 客户，您的数据库将配备至少 100 GB 的储存空间。</p>
-                                        <p>为了使 MySQL Database on Azure 迁移到 Azure Database for MySQL 上的用户维持相同的每月账单，我们将使用专用“旧式”计算和储存计量器来为迁移的用户维持每月总账单。这些“旧式”计量器的定价是为了抵消 MySQL Database on Azure 中包含的“免费数据库容量”的损失。 </p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question8">如果我发现我的总账单有所增加，我要怎么做？</a>
-                                    <section>
-                                        <p>您不会在每月总账单中看到任何增长。但如果您发现有所增长，请<a href="https://support.azure.cn/support/support-azure/">在线创建工单</a>，以便支持团队进行调查。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question9">我的服务器将如何对应在新产品？</a>
-                                    <section>
-                                        <p>我们已在<a href="https://www.azure.cn/zh-cn/support/announcement/mysql-china-meter-migration-table-201812">此处</a>公布了有关旧服务的计量将如何对应到新服务的计量的详细信息。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question10">我的服务器将在什么时候迁移？</a>
-                                    <section>
-                                        <p>在服务器计划迁移日期前至少 30 天，您将收到一封电子邮件通知。迁移不会在 2019年 2 月 15 日之前开始。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question11">帐单中的服务名称将如何前后对照？</a>
-                                    <section>
-                                        <p>我们已在<a href="https://www.azure.cn/zh-cn/support/announcement/mysql-china-meter-migration-table-201812">此处</a>公布了有关旧服务的计量将如何对应到新服务的计量的详细信息。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question12">我需要自己迁移还是你们将为迁移提供帮助？</a>
-                                    <section>
-                                        <p>您不需要采取任何行动，您的 MySQL 服务器将替您迁移。您将在计划迁移日期前30天收到另一封包含其他详细信息的邮件。如果您希望提早迁移，请提交一份<a href="https://support.azure.cn/support/support-azure/">帮助请求</a>。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question13">如果我使用 mysqldump 和 mysqlrestore 迁移会怎么样？</a>
-                                    <section>
-                                        <p>您可以使用 mysqldump 和 mysqlrestore 迁移，但是，您将无法继续使用“旧式”计量器来维持确切的价格点。您的收费将使用新的定价模式。</p>
-                                    </section>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question14">如果我想在迁移后更改性能等级，我需要做什么（例如：我从 MS5 迁移至通用 4 vCore，然后我想要升级至通用8 vCore）？</a>
-                                    <section>
-                                        <p>如果您决定在迁移至 Azure Database for MySQL 后增加您的数据库容量，你将不再享受“旧式”价格，而是更改为<a href="https://www.azure.cn/en-us/pricing/details/mysql/">此处</a>显示的 Azure Database for MySQL 价格。</p>
-                                    </section>
-                                </div>
-                            </li>
-
-                            <li>
-                                <i class="icon icon-plus"></i>
-                                <div>
-                                    <a id="pricing_mysql_question15">迁移过程的体验怎么样？</a>
-                                    <section>
-                                        <p>我们会将对服务器和工作量的影响保持在最小限度。我们通过复制将服务器从 MySQL Database for Azure 迁移至新的 Azure Database for MySQL。这意味着服务器在迁移过程中处于联机状态，除了在迁移的最后阶段（因为该阶段包括将故障转移到新的服务器上）。服务器的连接字符串将保持相同，因此您不需要更改您的应用逻辑。以下是简单的迁移步骤：</p>
-                                        <ol>
-                                            <li>我们会为 MySQL Database for Azure 的服务器生成一个快照。</li>
-                                            <li>我们在新的 Azure Database for MySQL 服务器上恢复该快照。</li>
-                                            <li>在旧的和新的服务器之间建立复制，以捕捉生成快照之后的所有更改。</li>
-                                            <li>当新服务器被占用时（除正在运行的事物以外），我们将旧服务器设置为新事物只读模式。</li>
-                                            <li>新的服务器捕捉到最新的变化，我们将停止复制。</li>
-                                            <li>然后我们将复制配置和防火墙规则，将 DNS 从旧服务器重定向到新服务器，最后停止旧的服务器。</li>
-                                            <li>针对新服务器的所有新连接。不需要对应用程序进行任何更改。</li>
-                                        </ol>
-                                    </section>
-                                </div>
-                            </li>
-                        </ul>
+                    <h3>MySQL Database on Azure 迁移客户常见问题解答</h3>
+                    <p>我们列下了很详尽的迁移指南，请参考 <a href="https://www.azure.cn/support/announcement/mysql-migration-faq">MySQL Database on Azure 迁移常见问题与指南</a>。</p>
                 </div>
             </div>
             <!-- END: Product-Detail-Content -->
