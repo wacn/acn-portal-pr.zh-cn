@@ -32,6 +32,7 @@ var CalculatorConst = {
     P2Size: "P2",
     P3Size: "P3",
     P4Size: "P4",
+    P5Size:"P5",
     P6Size: "P6",
     P11Size: "P11",
     P15Size: "P15",
