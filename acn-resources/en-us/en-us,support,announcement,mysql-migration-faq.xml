@@ -58,7 +58,41 @@
                     </br>
 
                     <h4>Q: How will my server be mapped to the new offering?</h4>
-                    <p><strong>A:</strong> We have published detailed meter mapping information <a href="https://www.azure.cn/zh-cn/support/announcement/mysql-china-meter-migration-table-201812">here</a> for your reference.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>MySQL Database on Azure SKU (Old Server)</th>
+                                <th>Azure Database for MySQL SKU (New Server)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MS1</td>
+                                <td>Basic 1VCore</td>
+                            </tr>
+                            <tr>
+                                <td>MS2</td>
+                                <td>Basic 2VCore</td>
+                            </tr>
+                            <tr>
+                                <td>MS3</td>
+                                <td>GP 2VCore</td>
+                            </tr>
+                            <tr>
+                                <td>MS4、MS5</td>
+                                <td>GP 4VCore</td>
+                            </tr>
+                            <tr>
+                                <td>MS6、MP1</td>
+                                <td>GP 8VCore</td>
+                            </tr>
+                            <tr>
+                                <td>MP2</td>
+                                <td>GP 16VCore</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <p><strong>A:</strong> We have published detailed meter mapping information <a href="https://www.azure.cn/zh-cn/support/announcement/mysql-china-meter-migration-table-201812">here</a> for your reference.</p> -->
                     </br>
 
                     <h4>Q: When will my server be migrated?</h4>
