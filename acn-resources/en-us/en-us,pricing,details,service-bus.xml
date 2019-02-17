@@ -22,15 +22,17 @@
             <div class="technical-azure-selector tab-control-selector">
                 <div class="tab-control-container tab-active">
                     <h2>Pricing Details</h2>
-                    <p>Service Bus comes in Basic and Standard tiers. Here’s how they compare:</p>
+                    <p>Service Bus comes in Basic and Standard tiers, and premium tiers. Here’s how they compare:</p>
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>Features</strong></th>
                             <th align="left"><strong>Basic</strong></th>
                             <th align="left"><strong>Standard</strong></th>
+                            <th align="left"><strong>Premium</strong></th>
                         </tr>
                         <tr>
                             <td>Queues</td>
+                            <td><i class="icon icon-tick"></i></td>
                             <td><i class="icon icon-tick"></i></td>
                             <td><i class="icon icon-tick"></i></td>
                         </tr>
@@ -38,36 +40,43 @@
                             <td>Scheduled messages</td>
                             <td><i class="icon icon-tick"></i></td>
                             <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
                         </tr>
 						<tr>
                             <td>Topics</td>
                             <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
                             <td><i class="icon icon-tick"></i></td>
                         </tr>
                         <tr>
                             <td>Transactions</td>
                             <td>-</td>
                             <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
                         </tr>
                         <tr>
                             <td>De-duplication</td>
                             <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
                             <td><i class="icon icon-tick"></i></td>
                         </tr>
                         <tr>
                             <td>Sessions</td>
                             <td>-</td>
                             <td><i class="icon icon-tick"></i></td>
+                            <td><i class="icon icon-tick"></i></td>
                         </tr>
                         <tr>
                             <td>ForwardTo/SendVia</td>
                             <td>-</td>
+                            <td><i class="icon icon-tick"></i></td>
                             <td><i class="icon icon-tick"></i></td>
                         </tr>
 						<tr>
                             <td>Message size</td>
                             <td>256 KB</td>
                             <td>256 KB</td>
+                            <td>1 MB</td>
                         </tr>
                         <!-- <tr>
                             <td>Relay</td>
@@ -83,16 +92,36 @@
                             <td>Brokered connections included</td>
                             <td>100</td>
                             <td>1,000<sup> 1</sup></td>
+                            <td>1,000 per MU</td>
                         </tr>
                         <tr>
                             <td>Brokered connections (overage allowed)</td>
                             <td>-</td>
                             <td><i class="icon icon-tick"></i>(billable)</td>
+                            <td>Up to 1,000 per MU</td>
+                        </tr>
+                        <tr>
+                            <td>Resource isolation</td>
+                            <td></td>
+                            <td></td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Geo-Disaster Recovery (Geo-DR)</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <i class="icon icon-tick"></i>
+                                <p><sup>*</sup>Requires additional Service Bus Premium namespaces in another region.</p>
+                            </td>
                         </tr>
                     </table>
                     <!-- <p><sup>1</sup> In the process of service usage, the usage of Event Hubs are charged individually. Please visit the <a id="service_bus_transfer_price-page-event-center" href="/pricing/details/event-hubs/" target="_blank">Event Hubs Pricing Page</a> to learn the relevant rates.</p> -->
-                    <p><sup>1</sup> 1,000 brokered connections are included with the standard messaging tier (via the base charge) and can be shared across all queues, topics, subscriptions, and event hubs within the associated Azure subscription..</p>
-
+                    <div class="tags-date">
+                        <div class="ms-date">Service Bus premium runs in dedicated resources to provide higher throughput and more consistent performance.</div>
+                        <div class="ms-date"><sup>1</sup> 1,000 brokered connections are included with the standard messaging tier (via the base charge) and can be shared across all queues, topics, subscriptions, and event hubs within the associated Azure subscription.</div>
+                    </div>
+                    
                     <h2>Message Transfer Operations</h2>
                     <p>An operation is any API call to the Service Bus service.</p>
                     <p>Starting May 2, 2018, customers will be billed at an hourly rate for Service Bus standard base units. This replaces the current daily and monthly rate billing, making it more consistent with other Azure services. Your customers will pay only for the number of hours they use Service Bus rather than for a whole day or month.  </p>
@@ -137,6 +166,16 @@
                         </tr>
                     </table>
                     <p><sup>1</sup> Allocated in proportion every hour, 744 hours every month.</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>Premuim</strong></th>
+                            <th align="left"><strong>&#160;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>Hourly</td>
+                            <td>￥9.4382/hour (about￥7,022.0208/month)</td>
+                        </tr>
+                    </table>
 
                     <h2>Brokered connections</h2>
                     <p>Number of AMQP connections or HTTP calls to Service Bus.</p>
@@ -168,7 +207,16 @@
                         </tr>
                     </table>
                     <p>This will be charged by the peak amount of concurrent connections, and the expenses are allocated in proportion every hour, 744 hours every month.</p>
-					
+					<table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>PREMIUM TIER</strong></th>
+                            <th align="left"><strong>&#160;</strong></th>
+                        </tr>
+                        <tr>
+                            <td>Brokered connections are not charged in the premium tier.</td>
+                        </tr>
+                    </table>
+
 					<h2>Hybrid connections</h2>
                     <p>Mixed connection is charged per listener, including 5 GB/month of data transmission. In the event of excess of this limit, the extra parts will also be charged.</p>
                     <table cellpadding="0" cellspacing="0" width="100%">
@@ -305,7 +353,43 @@
                                 </section>
                             </div>
                         </li>
-						<li >
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_premium_dirferent">How is the premium tier different from the others?</a>
+                                <section>
+                                    <p>The premium tier of Service Bus messaging provides all the messaging features of Azure Service Bus queues and topics with predictable, repeatable performance, higher throughput, and improved availability. The premium tier uses a dedicated resource allocation model to provide workload isolation and consistent performance. Because the compute and memory resources in the premium tier are dedicated, there are no per-message transaction charges as in other tiers. All transactions are included in the message unit allocation.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                            <i class="icon icon-plus"></i>
+                            <a id="service_bus_what_is_messaging_unit">What is a messaging unit?</a>
+                            <section>
+                                <p>A messaging unit is a set of dedicated resources exclusively reserved for premium namespaces. This resource set can deliver a consistent and repeatable performance of messaging workloads. Each premium namespace can have 1, 2, or 4 messaging units and the resource allocation grows linearly—2 messaging units will consist of twice as many resources allocated as 1 messaging unit.</p>
+                            </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_billing_work_for_premiun">How does billing work for the premium tier?</a>
+                                <section>
+                                    <p>The premium tier of Service Bus messaging is a flat daily rate per messaging unit purchased. Namespaces created as premium can have 1, 2, or 4 messaging units which will each accrue the given number of messaging unit daily rate charges. Premium namespaces can have the number of purchased messaging units changed at any time, but the daily rate is based on the maximum number of message units assigned to the namespace at any time.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="service_bus_change_from_premium">Can I upgrade or downgrade between premium and other tiers?</a>
+                                <section>
+                                    <p>Yes, it's technically possible to upgrade and downgrade between premium and other tiers. For guidelines on how to migrate your solution from standard messaging to premium messaging please read this <a href="https://blogs.msdn.microsoft.com/servicebus/2016/07/28/tips-on-migrating-existing-solutions-to-premium-messaging/">blog post</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+						<li>
                             <div>
                             <i class="icon icon-plus"></i> <a id="service_bus_standard_mixed">What is a hybrid connection?</a>
                             <section>
