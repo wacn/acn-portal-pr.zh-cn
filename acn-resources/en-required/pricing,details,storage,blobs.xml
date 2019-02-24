@@ -88,8 +88,8 @@
 				<div class="tab-content">
 					<div class="tab-panel" id="tabContent1">
 		                <p>常规用途 v2 的定价针对 GB 存储最低价格进行了优化，通过它可以访问最新的 Azure 存储功能，包括冷存储和存档存储。使用这些帐户可访问块 Blob、页 Blob、文件和队列。</p>
-						<h4>冷提前删除</h4>
-						<p>对于常规用途 v2 帐户，移动到“冷”层的任何 blob 还需计入 30 天的“冷”层提前删除期费用。此费用按比例收取。</p>
+						<h4>“冷”和“存档”提前删除</h4>
+						<p>除每月每 GB 的费用之外，移动到“存档”层的任何 blob 还需计入 180 天的“存档”层提前删除期费用。此外，对于常规用途 v2 帐户，移动到“冷”层的任何 blob 还需计入 30 天的“冷”层提前删除期费用。此费用按比例收取。例如，如果某个 blob 移动到“存档”层，然后在 45 天后被删除或移动到“热”层，则客户需要支付在“存档”中存储该 blob 135（180 减 45）天的提前删除费用。</p>
                     
 						<!-- BEGIN: Table-Content-->
 						<div class="tags-date">
@@ -97,17 +97,27 @@
 						</div>
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
-								<th align="left"><strong>本地冗余存储 (LRS)</strong></th>
-								<th align="left"><strong>异地冗余存储 (GRS)</strong></th>
-								<th align="left"><strong>只读访问跨地域冗余存储 (RA-GRS)</strong></th>
+								<th align="center" colspan="2"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="center" colspan="2"><strong>异地冗余存储 (GRS)</strong></th>
+								<th align="center" colspan="2"><strong>只读访问跨地域冗余存储 (RA-GRS)</strong></th>
 							</tr>
 							<tr>
-								<td>¥0.1018/GB</td>
-								<td>¥0.2035/GB</td>
-								<td>¥0.2544/GB</td>
+								<td align="center">冷</td>
+								<td align="center">Archive</td>
+								<td align="center">冷</td>
+								<td align="center">Archive</td>
+								<td align="center">冷</td>
+								<td align="center">Archive</td>
+							</tr>
+							<tr>
+								<td align="center">¥0.1018/GB</td>
+								<td align="center">¥0.015/GB</td>
+								<td align="center">¥0.2035/GB</td>
+								<td align="center">¥0.0301/GB</td>
+								<td align="center">¥0.2544/GB</td>
+								<td align="center">¥0.0301/GB</td>
 							</tr>
 						</table>
-
 
 						<h4>数据存储价格</h4>
 						<p>所有价格均按每 GB、每月计费。</p>
@@ -117,51 +127,63 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tbody><tr>
 								<th align="left"><strong data-filtered="filtered"></strong></th>
-								<th align="center" colspan="2"><strong>本地冗余存储 (LRS)</strong></th>
-								<th align="center" colspan="2"><strong>异地冗余存储 (GRS)</strong></th>
-								<th align="center" colspan="2"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+								<th align="center" colspan="3"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="center" colspan="3"><strong>异地冗余存储 (GRS)</strong></th>
+								<th align="center" colspan="3"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
 							</tr>
 							<tr>
 								<td></td>
 								<td align="center">冷</td>
 								<td align="center">热</td>
+								<td align="center">Archive</td>
 								<td align="center">冷</td>
 								<td align="center">热</td>
+								<td align="center">Archive</td>
 								<td align="center">冷</td>
 								<td align="center">热</td>
+								<td align="center">Archive</td>
 							</tr>
 							<tr>
 								<td>前 100 TB /月</td>
 								<td align="center">￥0.11</td>
 								<td align="center">￥0.149</td>
+								<td align="center">￥0.015</td>
 								<td align="center">￥0.22</td>
 								<td align="center">￥0.298</td>
+								<td align="center">￥0.0301</td>
 								<td align="center">￥0.279</td>
 								<td align="center">￥0.378</td>
+								<td align="center">￥0.0301</td>
 							</tr>
 							<tr>
 								<td>后 900 TB /月</td>
 								<td align="center">￥0.11</td>
 								<td align="center">￥0.1438</td>
+								<td align="center">￥0.015</td>
 								<td align="center">￥0.22</td>
 								<td align="center">￥0.2876</td>
+								<td align="center">￥0.0301</td>
 								<td align="center">￥0.279</td>
 								<td align="center">￥0.3648</td>
+								<td align="center">￥0.0301</td>
 							</tr>
 							<tr>
 								<td>后  4000 TB /月</td>
 								<td align="center">￥0.11</td>
 								<td align="center">￥0.1436</td>
+								<td align="center">￥0.015</td>
 								<td align="center">￥0.22</td>
 								<td align="center">￥0.2872</td>
+								<td align="center">￥0.0301</td>
 								<td align="center">￥0.279</td>
 								<td align="center">￥0.3643</td>
+								<td align="center">￥0.0301</td>
 							</tr>
 							<tr>
 								<td>超过 5000 TB /月</td>
-								<td align="center" colspan="2"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-								<td align="center" colspan="2"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-								<td align="center" colspan="2"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+								<td align="center" colspan="3"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+								<td align="center" colspan="3"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+								<td align="center" colspan="3"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
 							</tr>
 						</tbody></table>
 
@@ -172,50 +194,69 @@
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tbody><tr>
 								<th align="left"><strong></strong></th>
-								<th align="center" colspan="2"><strong>本地冗余存储 (LRS)</strong></th>
-								<th align="center" colspan="2"><strong>异地冗余存储 (GRS) 和 读取访问跨异地冗余存储(RA-GRS)</strong></th>
+								<th align="center" colspan="3"><strong>本地冗余存储 (LRS)</strong></th>
+								<th align="center" colspan="3"><strong>异地冗余存储 (GRS) 和 读取访问跨异地冗余存储(RA-GRS)</strong></th>
 							  
 							</tr>
 							<tr>
 								<td></td>
-								<td align="center">冷</td>
 								<td align="center">热</td>
 								<td align="center">冷</td>
+								<td align="center">Archive</td>
 								<td align="center">热</td>
+								<td align="center">冷</td>
+								<td align="center">Archive</td>
+							</tr>
+							<tr>
+								<td>写操作</td>
+								<td align="center">￥0.045</td>
+								<td align="center">￥0.09</td>
+								<td align="center">￥0.712</td>
+								<td align="center">￥0.09</td>
+								<td align="center">￥0.18</td>
+								<td align="center">￥1.424</td>
+							   
 							</tr>
 							<tr>
 								<td>列出并创建容器操作（按 10,000 计）</td>
-								<td align="center">￥0.09</td>
 								<td align="center">￥0.045</td>
-								<td align="center">￥0.18</td>
+								<td align="center">￥0.045</td>
+								<td align="center">￥0.045</td>
 								<td align="center">￥0.09</td>
-							   
+								<td align="center">￥0.09</td>
+								<td align="center">￥0.09</td>
 							</tr>
 							<tr>
 								<td>读取操作（按 10,000 计）</td>
-								<td align="center">￥0.03</td>
 								<td align="center">￥0.015</td>
 								<td align="center">￥0.03</td>
+								<td align="center">￥31.825</td>
 								<td align="center">￥0.015</td>
-							   
+								<td align="center">￥0.03</td>
+								<td align="center">￥31.825</td>							   
 							</tr>
 							<tr>
 								<td>所有其他操作（按 10,000 计）</td>
+								<td align="center">￥0.015</td>
+								<td align="center">￥0.03</td>
 								<td align="center">￥0.03</td>
 								<td align="center">￥0.015</td>
 								<td align="center">￥0.03</td>
-								<td align="center">￥0.015</td>
-							
+								<td align="center">￥0.03</td>
 							</tr>
 							<tr>
 								<td>数据检索 (GB)</td>
-								<td align="center">￥0.0657</td>
 								<td align="center">免费</td>
 								<td align="center">￥0.0657</td>
+								<td align="center">￥0.127</td>
 								<td align="center">免费</td>
+								<td align="center">￥0.0657</td>
+								<td align="center">￥0.127</td>
 							</tr>
 							<tr>
 								<td>数据写入 (GB)</td>
+								<td align="center">免费</td>
+								<td align="center">免费</td>
 								<td align="center">免费</td>
 								<td align="center">免费</td>
 								<td align="center">免费</td>
@@ -225,6 +266,8 @@
 								<td>异地复制数据传输 (GB)</td>
 								<td align="center">不适用</td>
 								<td align="center">不适用</td>
+								<td align="center">不适用</td>
+								<td align="center">￥0.67</td>
 								<td align="center">￥0.67</td>
 								<td align="center">￥0.67</td>
 							</tr>
@@ -522,6 +565,18 @@
 						<li>
 			                <i class="icon icon-plus"></i>
 			                <div>
+			                    <a id="Storage_9">什么是“高级热”、“冷”和“存档”访问层？如何确定应使用哪一个？</a>
+			                    <section>
+			                        <p>高级* Blob 存储仅适用于高级块 blob 存储帐户类型，最适合用于需要一致的低存储延迟的 IO 密集型工作负载。</p>
+									<p>存储 GB 定价按“存档”、“冷”、“热”、“高级”的顺序逐层增加。相反，事务费用按“高级”、“热”、“冷”、“存档”的顺序逐层增加。“存档”层和“冷”层应分别用于几乎无访问和偶有访问的数据。“冷”层的可用性 SLA 比“热”层低。</p>
+									<p>请注意，在 Blob 存储帐户和常规用途 v2 帐户中，可将 blob 的访问层设为“热”、“冷”或“存档”。目前，不能将数据从“高级”层分层到“热”、“冷”或“存档”层，也不能将“热”、“冷”或“存档”层中的数据分层到“高级”层。我们正致力于将来支持“高级”层的对象分层。</p>
+			                    </section>
+
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
 			                    <a id="Storage_question4">什么是“热”、“冷”访问层以及如何确定应使用哪一个？</a>
 			                    <section>
 									<p>在 Blob 存储帐户中，可以将 blob 的访问层设为“热”、“冷”。存储 GB 定价按“冷”、“热”的顺序逐层增加，数据访问费用按“热”、“冷”的顺序逐层增加。和“冷”层应分别用于几乎无访问和偶有访问的数据，且这些数据的可用性服务级别协议需求较低。如果你不知道数据的访问模式，我们建议你刚开始的时候使用“热”层至少一个月，然后再来决定是否可以根据实际使用情况通过移动到“冷”存储来节省成本。</p>
@@ -620,6 +675,20 @@
 
 			                </div>
 			            </li>
+						<!-- <li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="Storage_question10">在“存档”中检索和读取 blob 总共会产生哪些费用？</a>
+			                    <section>
+			                        <p>不能从“存档”层直接读取 blob。要读取“存档”中的 blob，用户首先必须将该层更改为“热”层或“冷”层。例如，从“存档”层检索并读取该层中已存在 90 天的单个 1,000 GB blob，会导致：</p>
+									<p>从“存档”层进行数据检索 (GB)：每月 ￥0.127/GB x 1,000 GB = ￥127</p>
+									<p>解除冻结操作（SetBlobTier“存档”到“热”）：￥31.825/10k = ￥0.00031825</p>
+									<p>提前删除费用：（180 - 90 天）/30 天 x 每月 $0.002/GB x 1,000 = $6</p>
+									<p>从“热”读取 blob 操作 = ￥0.015/10k = ￥0.00000015</p>
+									<p><strong>总计 = $20 + $0.0005 + $6 + $0.0000004 = $26</strong></p>
+			                    </section>
+			                </div>
+			            </li> -->
 			            <li>
 			                <i class="icon icon-plus"></i>
 			                <div>
