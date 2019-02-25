@@ -10,15 +10,14 @@
            
           }
           .aipa .banner{
+            display: flex;
+            align-items: center;
             width: 100%;
             position:relative;
             background-image: url(//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/apia-img01.jpg);
             background-size: cover;
-            height: 220px;
+            height: 220px !important;
             background-position: 50% 50%;
-          }
-          .aipa .row{
-          margin-bottom:10px;
           }
           .aipa-p{
             color: rgb(94, 109, 129);
@@ -62,12 +61,13 @@
           left: -10px;
           width:100%;
           }
-          .aipa .banner .container{
-          padding-top:40px;
-          padding-bottom:40px;
-          }
-          .aipa .container h2{
+          .aipa .container h1{
             font-size:32px;
+            line-height:40px;
+            margin-bottom:20px;
+          }
+          .aipa .container .abstract {
+            margin-bottom: 0px;
           }
           .banner .container h2,.banner .container h3,.banner .container p{
             color:#fff;
@@ -83,7 +83,7 @@
             width:1240px;
           }
           .case-per{
-            height: 360px;
+            height: 100% !important;
             margin-bottom:20px;
           }
           .case-logo{
@@ -108,8 +108,14 @@
             .banner .container h2,.banner .container h3{
               margin-bottom:10px;
             }
-            .aipa .container h2{
+            .aipa .container h1{
               font-size:26px;
+              line-height:44px;
+              font-weight:300;
+              margin-bottom:10px;
+            }
+            .aipa .container .abstract {
+              margin-bottom: 10px;
             }
             .aipa .container{
               width:100%;
@@ -142,9 +148,9 @@
           <div class="banner">
               <div class="container">
                 <div class="row">
-                    <h2 style="line-height:44px;">Azure 知识产权保护计划</h2>
-                    <h3 style="font-size:20px;">保护云中的创意</h3>
-                    <p>降低风险，大胆创新，并在云中自由操作。Azure 知识产权保护计划针对知识产权 (IP) 风险提供业界首创的全方位保护。</p>
+                    <h1 style="font-weight:500;color:#fff;margin-top:0;">Azure 知识产权保护计划</h1>
+                    <p style="line-height:24px;font-size:20px;">保护云中的创意</p>
+                    <p class="abstract" style="line-height:24px;font-size:14px;">降低风险，大胆创新，并在云中自由操作。Azure 知识产权保护计划针对知识产权 (IP) 风险提供业界首创的全方位保护。</p>
                 </div>
               </div>
           </div>
