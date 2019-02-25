@@ -123,12 +123,24 @@
     <sitemapHide>0</sitemapHide>
     <banner>
       <![CDATA[
+      <style type="text/css">
+      @media only screen and (min-width:768px){
+            .common-banner-title p{
+              max-width:68%;
+            }
+          }
+      @media only screen and (max-width:768px){
+            .common-banner-title p{
+              max-width:100%;
+            }
+          }
+      </style>
     	<!-- BEGIN: Banner -->
-            <div class="common-banner" data-config="{'backgroundColor':'#0078D7', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/scenario-vm1.png','imageHeight':'300'}">
+            <div class="common-banner" data-config="{'backgroundColor':'#0078D7', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/scenario-vm1.png','imageHeight':'220'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <h1>虚拟机方案</h1>
-                        <p style="max-width:600px;">构建多层、可复原、安全的应用程序，该应用程序可在数分钟( 而非数周 )内部署，可通过 Internet 管理，就像是在数据中心内的另一个机架中一样。从简单的虚拟机 构造基块开始，借助监视、备份和站点到站点的连接，应用程序可以增长为多层服务，扩展以支持多个用户，并且上移成为组织的关键业务资产。</p>
+                        <p>构建多层、可复原、安全的应用程序，该应用程序可在数分钟( 而非数周 )内部署，可通过 Internet 管理，就像是在数据中心内的另一个机架中一样。从简单的虚拟机 构造基块开始，借助监视、备份和站点到站点的连接，应用程序可以增长为多层服务，扩展以支持多个用户，并且上移成为组织的关键业务资产。</p>
                     </div>
                 </div>
             </div>

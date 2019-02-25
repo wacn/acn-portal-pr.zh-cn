@@ -9,15 +9,14 @@
            
           }
           .aipa .banner{
+            display: flex;
+            align-items: center;
             width: 100%;
             position:relative;
+            height: 220px !important;
             background-image: url(//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/apia-img01.jpg);
             background-size: cover;
-            height: 220px;
             background-position: 50% 50%;
-          }
-          .aipa .row{
-          margin-bottom:10px;
           }
           .aipa-p{
             color: rgb(94, 109, 129);
@@ -61,13 +60,14 @@
           left: -10px;
           width:100%;
           }
-          .aipa .banner .container{
-          padding-top:40px;
-          padding-bottom:40px;
-          }
-          .aipa .container h2{
+          .aipa .container h1{
             font-size:32px;
+            line-height:32px;
+            margin-bottom: 20px;
           }
+           .aipa .container .abstract {
+              margin-bottom: 0px;
+            }
           .banner .container h2,.banner .container h3,.banner .container p{
             color:#fff;
             font-weight:300;
@@ -80,10 +80,16 @@
           }
           .aipa .container{
             width:1240px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            height: auto;
           }
           .case-per{
-            height: 360px;
+            height: 100%;
             margin-bottom:20px;
+          }
+          .content .aipa .case-per{
+            height:100%;
           }
           .case-logo{
             height:160px;
@@ -107,8 +113,16 @@
             .banner .container h2,.banner .container h3{
               margin-bottom:10px;
             }
-            .aipa .container h2{
+            .aipa .banner {
+              height: auto!important;
+            }
+            .aipa .container h1{
               font-size:26px;
+              line-height: 44px;
+              margin-bottom: 10px;
+            }
+            .aipa .container .abstract {
+              margin-bottom: 10px;
             }
             .aipa .container{
               width:100%;
@@ -141,9 +155,9 @@
           <div class="banner">
               <div class="container">
                 <div class="row">
-                    <h2 style="line-height:44px;">Azure Intellectual Property Protection Plan</h2>
-                    <h3 style="font-size:20px;">Protecting Creativity in the Cloud</h3>
-                    <p>Reduce risks, innovate boldly, and operate freely in the Cloud. The Azure intellectual property protection plan provides the industry's first comprehensive protection against intellectual property (IP) risks.</p>
+                    <h1 style="font-weight:500;color:#fff;margin-top:0;">Azure Intellectual Property Protection Plan</h1>
+                    <p style="line-height:24px;font-size:20px;">Protecting Creativity in the Cloud</p>
+                    <p class="abstract" style="line-height:22px;font-size:14px;">Reduce risks, innovate boldly, and operate freely in the Cloud. The Azure intellectual property protection plan provides the industry's first comprehensive protection against intellectual property (IP) risks.</p>
                 </div>
               </div>
           </div>

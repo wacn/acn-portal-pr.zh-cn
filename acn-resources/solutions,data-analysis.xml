@@ -103,14 +103,27 @@
     <sitemapHide>0</sitemapHide>
     <banner>
       <![CDATA[
+      <style type="text/css">
+      @media only screen and (min-width:768px){
+            .common-banner-title p{
+              max-width:68%;
+            }
+          }
+      @media only screen and (max-width:768px){
+            .common-banner-title p{
+              max-width:100%;
+            }
+          }
+      </style>
     	<!-- BEGIN: Banner -->
-            <div class="common-banner" data-config="{'backgroundColor':'#0078D7', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/scenario-data-analytic.png','imageHeight':'300'}">
+            <div class="common-banner" data-config="{'backgroundColor':'#0078D7', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/scenario-data-analytic.png','imageHeight':'220'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <h1>数据分析方案</h1>
-                        <p>Azure 和 PowerBI 提供从数据处理到可视化的整套数据分析服务，适用于开发人员、IT 专业人士和商务用户。<br>
-						借助 Azure，你可以从多个源、现有本地系统、SaaS 服务，或直接从多个其他 Azure 服务获取数据。<br>
-						你可以计划并持续处理来自 Web 点击流、社交媒体、服务器日志、设备和传感器的巨量非结构化或半结构化历史数据。<br>你可以使用流式处理服务实时处理数据，使用预测分析得出对以后的建议，并与数据的可视化效果进行交互。</p>
+                        <p>Azure 和 PowerBI 提供从数据处理到可视化的整套数据分析服务，适用于开发人员、IT 专业人士和商务用户。
+						借助 Azure，你可以从多个源、现有本地系统、SaaS 服务，或直接从多个其他 Azure 服务获取数据。
+						你可以计划并持续处理来自 Web 点击流、社交媒体、服务器日志、设备和传感器的巨量非结构化或半结构化历史数据。
+                        你可以使用流式处理服务实时处理数据，使用预测分析得出对以后的建议，并与数据的可视化效果进行交互。</p>
                     </div>
                 </div>
             </div>

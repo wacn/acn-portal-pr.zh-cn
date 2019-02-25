@@ -7,12 +7,19 @@
 	  		.industry-solution .banner{
 	  			background: url('//resource.cdn.azure.cn/marketing-resource/media/images/solutions/solution-training-banner.jpg') no-repeat center center;
 	  			background-size:cover;
-	  			height:auto;
+	  			height:220px;
 	  		}
 	  		.industry-solution .banner .banner-image{
-	  			height:auto;
-	  			padding:60px 0;
+	  			height:auto !important;
+				padding-top:0 !important;
 	  		}
+			.industry-solution .banner .container{
+				display:flex;
+				align-items:center;
+			}
+			.industry-solution .banner .container .abstract {
+              margin-bottom: 0px;
+            }
 	  		.txt-center{
 	  			text-align:center
 	  		}
@@ -41,9 +48,16 @@
 	  		}
 
 	  		@media only screen and (max-width:769px){
+			  	.industry-solution .banner {
+				  	height: auto;
+					padding-top: 30px;
+				}
 	  			.industry-solution .banner .banner-image, .industry-solution .solution-section, .training-section{
 					padding:30px 0;
 	  			}
+				.industry-solution .banner .container .abstract {
+              		margin-bottom: 3px;
+            	}
 	  			.col-md-3{
 	  				margin-bottom:20px;
 	  			}
@@ -57,8 +71,9 @@
 			<div class="banner">
 				<div class="container">
 					<div class="banner-image" >
-						<h1>培训即服务 - OpenedX on Azure</h1>
-						<p>EDX - 国外最大的慕课学习平台，用户可以随时学习哈佛、牛津等高等学府的课程。<br/>OpenedX - 微软将 EDX 的安装代码免费开放给微软授权培训合作伙伴，并免费提供上百套教学视频以及实验环境。</p>
+						<h1 style="line-height: 40px;">培训即服务 - OpenedX on Azure</h1>
+						<p style="font-weight: 300; margin: 7px 0;">EDX - 国外最大的慕课学习平台，用户可以随时学习哈佛、牛津等高等学府的课程。</p>
+						<p class="abstract" style="font-weight: 300; margin-top: 7px;">OpenedX - 微软将 EDX 的安装代码免费开放给微软授权培训合作伙伴，并免费提供上百套教学视频以及实验环境。</p>
 					</div>
 				</div>
 			</div>
