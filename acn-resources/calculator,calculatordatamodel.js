@@ -13418,10 +13418,10 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "存储",
                         Description: "存储",
-                        PriceTier: "0,5120000",
+                        PriceTier: "0,4096",
                         PricePerTier: "0.8033",
                         MinUnit: "0",
-                        MaxUnit: "5120000",
+                        MaxUnit: "4096",
                         PriceUnit: "GB"
                     }]
                 },
@@ -13500,10 +13500,10 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "存储",
                         Description: "存储",
-                        PriceTier: "0,5120000",
+                        PriceTier: "0,4096",
                         PricePerTier: "0.8033",
                         MinUnit: "0",
-                        MaxUnit: "5120000",
+                        MaxUnit: "4096",
                         PriceUnit: "GB"
                     }]
                 },
@@ -20975,7 +20975,8 @@ var CalculatorData = {
         },
         "customer-engagement-fabric": {
             Name: "用户连接服务",
-            Types: [{
+            Types: [
+                {
                 Name: "短信价格",
                 Features: [{
                     Name: "行业短信/验证码",
@@ -21007,6 +21008,25 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "10000000",
                         PriceUnit: "条"
+                    }]
+                }]
+            },
+            {
+                Name: "邮件服务",
+                Features: [{
+                    Name: "邮件服务",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,50000,50001,1000000,1000001,5000000,5000001",
+                        PricePerTier: "0,0.01,0.009,0.008",
+                        MinUnit: "0",
+                        MaxUnit: "10000000",
+                        PriceUnit: "封"
                     }]
                 }]
             },
