@@ -12463,6 +12463,37 @@ var CalculatorData = {
                 }]
             }]
         },
+        "sql-database-atp": {
+            Name: "SQL 数据库 - 高级威胁防护 - ATP",
+            Types: [{
+                Name: "免费",
+                Features: [{
+                    Name: "default",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "免费",
+                        PriceTier: PriceTierEnum.Free,
+                        PricePerTier: "0",
+                    }]
+                }]
+            },
+            {
+                Name: "标准",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "标准",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "152.64",
+                    }]
+                }]
+            }]
+        },
 
         "database-web-and-business": {
             Name: "SQL 数据库 - Web 和企业版",
@@ -21011,25 +21042,25 @@ var CalculatorData = {
                     }]
                 }]
             },
-            {
-                Name: "邮件服务",
-                Features: [{
-                    Name: "邮件服务",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,50000,50001,1000000,1000001,5000000,5000001",
-                        PricePerTier: "0,0.01,0.009,0.008",
-                        MinUnit: "0",
-                        MaxUnit: "10000000",
-                        PriceUnit: "封"
-                    }]
-                }]
-            },
+            // {
+            //     Name: "邮件服务",
+            //     Features: [{
+            //         Name: "邮件服务",
+            //         PricePeriod: PricePeriodEnum.Monthly,
+            //         PriceUnit: "个",
+            //         MinUnit: "0",
+            //         MaxUnit: "20",
+            //         Sizes: [{
+            //             Name: "default",
+            //             Description: "default",
+            //             PriceTier: "0,50000,50001,1000000,1000001,5000000,5000001",
+            //             PricePerTier: "0,0.01,0.009,0.008",
+            //             MinUnit: "0",
+            //             MaxUnit: "10000000",
+            //             PriceUnit: "封"
+            //         }]
+            //     }]
+            // },
             {
                 Name: "第三方登录",
                 Features: [{
