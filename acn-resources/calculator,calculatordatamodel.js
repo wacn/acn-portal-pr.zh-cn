@@ -20305,7 +20305,42 @@ var CalculatorData = {
         },
         "azure-monitor": {
             Name: "Azure 监控器",
-            Types: [{
+            Types: [
+                {
+                    Name: "Log Analytics",
+                    Features: [{
+                        Name: "数据引入",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每个客户每月 5 GB 免费",
+                            PriceTier: "0,5,6,5120000",
+                            PricePerTier: "0,23.4",
+                            MinUnit: "0",
+                            MaxUnit: "5120000",
+                            PriceUnit: "GB"
+                        }]
+                    },{
+                        Name: "数据保留",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "引入 Azure Log Analytics 工作区的每 GB 数据均可免费保存 31 天",
+                            PriceTier: "0,5120000",
+                            PricePerTier: "1.02",
+                            MinUnit: "0",
+                            MaxUnit: "5120000",
+                            PriceUnit: "月"
+                        }]
+                    }]
+                },
+                {
                 Name: "度量值",
                 Features: [{
                     Name: "指标查询（免费包含 1,000,000 个标准 API 调用）",
