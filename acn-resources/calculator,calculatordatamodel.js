@@ -9563,6 +9563,1331 @@ var CalculatorData = {
                 }]
             }]
         },
+
+        "storage-data-lake-data-storage":{
+            Name: "存储 - Data Lake 数据存储",
+            Types: [{
+                Name: "LRS",
+                Features: [
+                    {
+                    Name: "分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.149",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.11",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.149",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.11",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.298",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.22",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.298",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.22",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.372",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.279",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.372",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.279",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+
+        "storage-data-lake-transaction":{
+            Name: "存储 - Data Lake 事务",
+            Types: [{
+                Name: "LRS",
+                Features: [
+                    {
+                    Name: "写入操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.059",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "写入操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.117",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "写入操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.045",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "写入操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "读取操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.02",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "读取操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.039",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "读取操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "读取操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.03",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [{
+                    Name: "写入操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.118",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "写入操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.234",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "写入操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "写入操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.02",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.039",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "读取操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.03",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "写入操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.118",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "写入操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.234",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "写入操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "写入操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.02",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.039",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "读取操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.03",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+
+        "storage-data-lake-operations":{
+            Name: "存储 - Data Lake 其他操作和元数据存储计量",
+            Types: [
+                {
+                Name: "LRS",
+                Features: [
+                    {
+                    Name: "列出并创建容器操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.059",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.117",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.045",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.059",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.117",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.045",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "除删除（此操作免费）之外的其他操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0195",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.039",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.03",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "数据检索 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0657",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "数据检索 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0657",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "元数据存储 - 多层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0167",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "GRS",
+                Features: [
+                    {
+                    Name: "列出并创建容器操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.118",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.153",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.118",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.153",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "除删除（此操作免费）之外的其他操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0195",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.039",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.03",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "数据检索 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0657",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "数据检索 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0657",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "元数据存储 - 多层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0167",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [
+                    {
+                    Name: "列出并创建容器操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.118",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.153",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "列出并创建容器操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.118",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.153",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "迭代写入操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "除删除（此操作免费）之外的其他操作 - 分层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0195",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.039",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 平面命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.015",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "除删除（此操作免费）之外的其他操作 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.03",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "数据检索 - 分层命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0657",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "数据检索 - 平面命名空间 - 冷",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.0657",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "元数据存储 - 多层命名空间 - 热",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.418",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }
+            ]
+        }
+    ]
+        },
+
+
         "sql-database-elastic-vcore": {
             Name: "SQL 数据库 - 弹性数据库 - vCore - Gen 4",
             Types: [{
