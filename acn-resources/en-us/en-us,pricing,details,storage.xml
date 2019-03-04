@@ -11,10 +11,6 @@
                 .cognitive-figure{
                     overflow: hidden;
                 }
-                .cognitive-figure .col-md-3{
-                    padding-left: 0;
-                    padding-right: 0;
-                }
                 .cognitive-figure .col-md-9{
                     padding-left: 2%;
                     padding-right: 0;
@@ -84,31 +80,31 @@
             <div class="pricing-page-section">
                 <p>Azure offers a range of storage solutions to fit your scale, performance, and budget needs—ranging from a low-cost Archive solution to a low-latency, high-throughput Premium Managed Disk offering for I/O-intensive applications.</p>
                 <div class="cognitive-figure">
-                    <div class="col-md-4 column">
-                        <h2>Block Blobs</h2>
+                    <div class="col-md-3 column">
+                        <h3>Block Blobs</h3>
                         <p>Scalable object storage for documents, videos, pictures, and unstructured text or binary data. Choose from Hot, Cool, or Archive tiers.</p>
                         <p>Free version available</p>
                         <p><a href="/pricing/details/storage/blobs/">See Pricing</a></p>
                     </div>
-                    <div class="col-md-4 column">
-                        <h2>Page blobs</h2>
-                        <p>Page Blobs are optimized for random read and write options. Page Blobs are ideal for scenarios that require the ability to overwrite a random small segment at a known address, like storing index-based and sparse data structures. </p>
-                        <p>Free version available</p>
-                        <p><a href="/pricing/details/storage/page-blobs/">See Pricing</a></p>
+                    <div class="col-md-3 column">
+                        <h3>Azure Data Lake Storage</h3>
+                        <p>Combines the power of a Hadoop compatible file system with integrated hierarchical namespace with the massive scale and economy of Azure Blob Storage to help speed your transition from proof of concept to production.</p>
+                        <p><strong>￥0.015</strong> /10,000 Data Lake Storage transactions</p>
+                        <p><a href="/pricing/details/storage/data-lake/">See Pricing</a></p>
                     </div>
-                    <div class="col-md-4 column">
-                        <h2>Managed Disks</h2>
+                    <div class="col-md-3 column">
+                        <h3>Managed Disks</h3>
                         <p>Persistent, secured disks that support simple and scalable virtual machine deployment. Designed for 99.999% availability. Choose Premium (SSD) Disks for low latency and high throughput.</p>
                         <p><strong>￥0.0044</strong> /10,000 Standard Managed Disk transactions</p>
                         <p><a href="/pricing/details/storage/managed-disks/">See Pricing</a></p>
                     </div>
-                    <div class="col-md-4 column">
-                        <h2>Files</h2>
+                    <div class="col-md-3 column">
+                        <h3>Files</h3>
                         <p>Fully managed file shares in the cloud, accessible via standard Server Message Block (SMB) protocol. Enables sharing files between applications using Windows APIs or REST API.</p>
                         <p><strong>￥0.01</strong></p>
                         <p><a href="/pricing/details/storage/files/">See Pricing</a></p>
                     </div>
-                    <div class="col-md-4 column">
+                    <!-- <div class="col-md-4 column">
                         <h2>Queues</h2>
                         <p>Store and retrieve messages up to 64 KB in size. Used to store messages to be processed asynchronously.</p>
                        	<p><strong></strong>Free version available</p>
@@ -119,12 +115,16 @@
                         <p>Tables offer NoSQL storage for unstructured and semi-structured data—ideal for web applications, address books, and other user data.</p>
                         <p><strong>￥0.02</strong></p>
                         <p><a href="/pricing/details/storage/tables/">See Pricing</a></p>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
             <div class="pricing-page-section">
-            
+                <h2>Additional storage options</h2>
+            	<p><a href="/pricing/details/storage/page-blobs/">Page blobs</a> are optimized for writes at random locations within a blob. They also support Unmanaged Disks.</p>
+            	<p><a href="/pricing/details/storage/tables/">Table storage</a> provides a NoSQL Key-Value store for massive scale structured data.</p> 
+                <p><a href="/pricing/details/storage/queues">Queues</a> stores messages to be processed asynchronously.</p>
+
             	<h2>Data redundancy options</h2>
             	<table cellpadding="0" cellspacing="0" width="100%">
             		<tr>

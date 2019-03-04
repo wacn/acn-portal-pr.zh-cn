@@ -11,10 +11,6 @@
                 .cognitive-figure{
                     overflow: hidden;
                 }
-                .cognitive-figure .col-md-3{
-                    padding-left: 0;
-                    padding-right: 0;
-                }
                 .cognitive-figure .col-md-9{
                     padding-left: 2%;
                     padding-right: 0;
@@ -85,31 +81,37 @@
             <div class="pricing-page-section">
                 <p>Azure 提供一系列存储解决方案，可满足用户的规模、性能和预算需求，从低成本的存档解决方案到适用于 I/O 密集型应用程序的低延迟、高吞吐量的高级托管磁盘产品/服务，应有尽有。</p>
                 <div class="cognitive-figure">
-                    <div class="col-md-4 column">
-                        <h2>块 Blob</h2>
+                    <div class="col-md-3 column">
+                        <h3>块 Blob</h3>
                         <p>适用于文档、视频、图片和非结构化文本或二进制数据的可缩放对象存储。有热层、冷层和存档层可供选择。</p>
                         <p>提供免费事务</p>
                         <p><a href="/pricing/details/storage/blobs/">查看定价</a></p>
                     </div>
-                    <div class="col-md-4 column">
+                    <div class="col-md-3 column">
+                        <h3>Azure Data Lake Storage</h3>
+                        <p>将带有集成式分层命名空间、兼容 Hadoop 的文件系统与 Azure Blob 存储大规模和经济高效的优势结合在一起，帮助加快从概念证明到生产的转换。</p>
+                        <p><strong>0.015</strong> 元/10,000 个事务 起</p>
+                        <p><a href="/pricing/details/storage/data-lake/">查看定价</a></p>
+                    </div>
+                    <!-- <div class="col-md-4 column">
                         <h2>页 Blob</h2>
                         <p>页 Blob 针对随机读写选项进行了优化。页 Blob 非常适合用于需要能够覆盖已知地址上随机一小段的方案，例如存储基于索引的数据结构和稀疏数据结构。</p>
                         <p>提供免费事务</p>
                         <p><a href="/pricing/details/storage/page-blobs/">查看定价</a></p>
-                    </div>
-                    <div class="col-md-4 column">
-                        <h2>托管磁盘</h2>
+                    </div> -->
+                    <div class="col-md-3 column">
+                        <h3>托管磁盘</h3>
                         <p>持久且安全的磁盘，支持可缩放的简单虚拟机部署。具备 99.999% 的可用性。选择高级 (SSD) 磁盘，实现低延迟和高吞吐量。</p>
                         <p><strong>0.0044</strong> 元/10,000 个事务 起</p>
                         <p><a href="/pricing/details/storage/managed-disks/">查看定价</a></p>
                     </div>
-                    <div class="col-md-4 column">
-                        <h2>文件</h2>
+                    <div class="col-md-3 column">
+                        <h3>文件</h3>
                         <p>云中完全托管的文件共享，可通过标准服务器消息块 (SMB) 协议进行访问。在使用 Windows API 或 REST API 的应用程序之间实现文件共享。</p>
                         <p><strong>0.01</strong> 元 起</p>
                         <p><a href="/pricing/details/storage/files/">查看定价</a></p>
                     </div>
-                    <div class="col-md-4 column">
+                    <!-- <div class="col-md-4 column">
                         <h2>队列</h2>
                         <p>存储和检索最大 64 KB 的消息。用于存储要异步处理的消息。</p>
                        	<p>提供免费事务</p>
@@ -120,14 +122,15 @@
                         <p>表为非结构化及半结构化数据提供 NoSQL 存储器，适用于 Web 应用程序、地址簿和其他用户数据。</p>
                         <p><strong>0.02</strong> 元 起</p>
                         <p><a href="/pricing/details/storage/tables/">查看定价</a></p>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
             <div class="pricing-page-section">
-            	<!-- <h2>其他存储选项</h2>
+            	<h2>其他存储选项</h2>
             	<p><a href="/pricing/details/storage/page-blobs/">页 blob</a>针对在 blob 中的随机位置写入进行了优化。它们还支持非托管磁盘。</p>
-            	<p><a href="/pricing/details/storage/tables/">表存储</a>为大规模结构化数据提供 NoSQL 键值存储。</p> -->
+            	<p><a href="/pricing/details/storage/tables/">表存储</a>为大规模结构化数据提供 NoSQL 键值存储。</p> 
+                <p><a href="/pricing/details/storage/queues">队列</a>存储要异步处理的消息。</p>
             
             	<h2>数据冗余选项</h2>
             	<table cellpadding="0" cellspacing="0" width="100%">
