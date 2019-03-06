@@ -11000,6 +11000,54 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
                     Name: "长期保留存储 - RA-GRS",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -11163,6 +11211,54 @@ var CalculatorData = {
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
                         PricePerTier: "0.7505",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -11358,6 +11454,54 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
                     Name: "长期保留存储 - RA-GRS",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -11534,6 +11678,54 @@ var CalculatorData = {
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
                         PricePerTier: "0.7505",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -12292,6 +12484,54 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
                     Name: "长期保留存储 - RA-GRS",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -12460,6 +12700,54 @@ var CalculatorData = {
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
                         PricePerTier: "0.7505",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -12784,6 +13072,54 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
                     Name: "长期保留存储 - RA-GRS",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -12970,6 +13306,54 @@ var CalculatorData = {
                         Description: "备份存储空间 - LRS",
                         PriceTier: "0,5000",
                         PricePerTier: "0.7505",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - RA-GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "RA-GRS",
+                        Description: "RA-GRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.501",
+                         MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - ZRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "ZRS",
+                        Description: "长期保留存储 - ZRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.938",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "时间点还原 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "LRS",
+                        Description: "长期保留存储 - LRS",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.75",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB"
@@ -21230,9 +21614,11 @@ var CalculatorData = {
         },
         "cognitive-services-text-analytics": {
             Name: "认知服务 - 文本分析 API",
-            Types: [{
+            Types: [
+            {
                 Name: "免费",
-                Features: [{
+                Features: [
+                    {
                     Name: "default",
                     Sizes: [{
                         Name: "default",
@@ -21242,6 +21628,25 @@ var CalculatorData = {
                     }]
                 }]
             }
+            // {
+            //     Name: "标准",
+            //     Features: [
+            //         {
+            //         Name: "default",
+            //         PricePerTier:PricePeriodEnum.Monthly,
+            //         MinUnit:"0",
+            //         MaxUnit:"100000",
+            //         Sizes: [{
+            //             Name: "default",
+            //             Description:"文本分析 标准 - 每秒最多 100 个请求，每分钟最多 1,000 个请求",
+            //             PriceTier: "0,500,501,2500,2501,10000,10001",
+            //             PricePerTier: "20.35,10.18,5.09,2.54",
+            //             MinUnit: "0",
+            //             MaxUnit: "100000",
+            //             PriceUnit: "每 1000 个事务"
+            //         }]
+            //     }]
+            // }
         //     // ,
         //     // {
         //     //     Name: "S0",
