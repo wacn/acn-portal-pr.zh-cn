@@ -21735,26 +21735,26 @@ var CalculatorData = {
                         PricePerTier: "0",
                     }]
                 }]
+            },
+            {
+                Name: "标准",
+                Features: [
+                    {
+                    Name: "default",
+                    PricePerTier:PricePeriodEnum.Monthly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"文本分析 标准 - 每秒最多 100 个请求，每分钟最多 1,000 个请求",
+                        PriceTier: "0,500,501,2500,2501,10000,10001",
+                        PricePerTier: "20.35,10.18,5.09,2.54",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每 1000 个事务"
+                    }]
+                }]
             }
-            // {
-            //     Name: "标准",
-            //     Features: [
-            //         {
-            //         Name: "default",
-            //         PricePerTier:PricePeriodEnum.Monthly,
-            //         MinUnit:"0",
-            //         MaxUnit:"100000",
-            //         Sizes: [{
-            //             Name: "default",
-            //             Description:"文本分析 标准 - 每秒最多 100 个请求，每分钟最多 1,000 个请求",
-            //             PriceTier: "0,500,501,2500,2501,10000,10001",
-            //             PricePerTier: "20.35,10.18,5.09,2.54",
-            //             MinUnit: "0",
-            //             MaxUnit: "100000",
-            //             PriceUnit: "每 1000 个事务"
-            //         }]
-            //     }]
-            // }
         //     // ,
         //     // {
         //     //     Name: "S0",
