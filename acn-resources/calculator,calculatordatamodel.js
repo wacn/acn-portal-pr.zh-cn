@@ -19476,6 +19476,96 @@ var CalculatorData = {
             }]
         },
 
+        // "cdn": {
+        //     Name: "CDN",
+        //     Types: [{
+        //         Name: "标准版",
+        //         Features: [{
+        //             Name: "Zone 1",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.19,0.16,0.13,0.1",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         },{
+        //             Name: "Zone 2",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.396,0.347,0.297,0.277",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "标准版 Plus",
+        //         Features: [{
+        //             Name: "Zone 1",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.228,0.198,0.169,0.139",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         },{
+        //             Name: "Zone 2",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.842,0.773,0.714,0.674",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "高级版",
+        //         Features: [{
+        //             Name: "Zone 1",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.45,0.42,0.39,0.36",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // },
         "cdn": {
             Name: "CDN",
             Types: [{
@@ -19715,8 +19805,8 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "default",
-                        PriceTier: "0,1,2,12,13,100,101,2500,2501,100000",
-                        PricePerTier: "63.29,0,5.21,3.20,1.27",
+                        PriceTier: "0,13,14,100,101,2500,2501,100000",
+                        PricePerTier: "0,5.21,3.20,1.27",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "百万"
@@ -21257,7 +21347,7 @@ var CalculatorData = {
         "cosmos-db_ssd": {
             Name: "Azure Cosmos DB - SSD",
             Types: [{
-                Name: "default",
+                Name: "SSD 存储空间",
                 Features: [{
                     Name: "default",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -21268,7 +21358,8 @@ var CalculatorData = {
                         Name: "default",
                         Description: "SSD 存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.576"
+                        PricePerTier: "2.576",
+                        PriceUnit:"每 GB"
                     }]
                 }]
             }]
@@ -21276,11 +21367,11 @@ var CalculatorData = {
 
 
         "cosmos-db_ru": {
-            Name: "Azure Cosmos DB - 保留的 RU 数",
+            Name: "Azure Cosmos DB - 每秒的预配吞吐量",
             Types: [{
-                Name: "default",
+                Name: "单区域写入",
                 Features: [{
-                    Name: "default",
+                    Name: "单区域写入",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "小时",
                     MinUnit: "0",
@@ -21295,10 +21386,27 @@ var CalculatorData = {
                         PriceUnit: "百个 RU"
                     }]
                 }]
+            },{
+                Name: "多区域写入",
+                Features: [{
+                    Name: "多区域写入",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "小时",
+                    MinUnit: "0",
+                    MaxUnit: "1000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: PriceTierEnum.Linear,
+                        PricePerTier: "0.102",
+                        MinUnit: "0",
+                        MaxUnit: "1000",
+                        PriceUnit: "百个 RU"
+                    }]
+                }]
             }]
         },
-
-
+        
         "cosmos-db_add-on-provisioning": {
             Name: "Azure Cosmos DB - 附加预配：每分钟请求单位",
             Types: [{

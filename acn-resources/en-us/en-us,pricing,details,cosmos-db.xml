@@ -23,12 +23,123 @@
             <div class="technical-azure-selector tab-control-selector">
                 <!-- BEGIN: TAB-CONTAINER-1 -->
                 <div class="tab-control-container tab-active" id="tabContent1">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>AZURE COSMOS DB CAPABILITIES</strong></th>
+                            <th align="left"><strong></strong></th>
+                        </tr>
+                        <tr>
+                            <td>Turnkey global distribution with multi-master capability</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Global Availability (all Azure regions, including US Government, DoD, China)</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Multi-model, multi-API with rich query support and automatic indexing</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Single digit millisecond read and write latency at the 99th percentile backed by SLA</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Comprehensive SLAs
+                                <ul>
+                                    <li>Availability SLA</li>
+                                    <li>Throughput SLA</li>
+                                    <li>Consistency SLA</li>
+                                    <li>Latency SLA</li>
+                                </ul>
+                            </td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Security
+                                <ul>
+                                    <li>End-to-end data encryption (at rest and in motion)</li>
+                                    <li>IP and VNET isolation</li>
+                                    <li>Access control and authorization</li>
+                                </ul>
+                            </td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Elastic and Limitless Scale
+                                <ul>
+                                    <li>No limit on throughput and storage</li>
+                                    <li>Instant scaling that lowers TCO over on-prem and IaaS-hosted NoSQL databases</li>
+                                </ul>
+                            </td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Comprehensive compliance certifications consistent with Azure compliance</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                    </table>
+
                     <!-- BEGIN: Table1-Content-->
-                    <h2>Pricing Details</h2>
+                    <h2>Pricing at a glance</h2>
                     <h3>Provisioned throughput</h3>
-					<p>Regardless of its size, you can store data and provisioned throughput capacity. Each collection is billed on an hourly basis based on the amount of data stored (in GB) and reserved throughput (in units of 100 RU/second).</p>
-					<p>Unlimited containers have a minimum of 1,000 RU/second. When data grows, they have a minimum of at least 100 RU/second per partition.</p>
+					<p>Your Azure Cosmos DB database account could be distributed across one or more Azure regions. While all the regions associated with your database account can serve reads, your database account can also be configured to have all regions to process the writes (multi-master) or exactly one region to process the writes (single-master).</p>
+					<p>In Azure Cosmos DB, you are billed for the provisioned throughput and consumed storage by the hour. The throughput is expressed in terms of a normalized throughput currency called <a href="https://docs.azure.cn/cosmos-db/request-units">Request Units per second (RU/s)</a>. Once provisioned, RU/s can be used interchangeably across various database operations (e.g., inserts, reads, replaces, upserts, deletes, queries, etc.). You can programmatically (or via Azure Portal) configure the throughput you need and elastically scale the provisioned throughput at any time.</p>
                    
+                    <h3>Provisioning at different granularities</h3>
+                    <p>You can provision throughput at different granularities You can provision throughput for:</p>
+                    <ol>
+                        <li>Cosmos DB container. Depending on the choice of data model or API, a Cosmos DB container can be a collection (e.g., MongoDB, SQL), a graph (e.g., Gremlin), or a table (e.g., Cassandra, Azure Table storage). Containers in Cosmos DB are horizontally partitioned and can elastically scale to deliver unlimited amount of throughput and storage.</li>
+                        <li>Cosmos DB database. The throughput configured on the database is shared across all the containers of the database. You can choose to explicitly exclude certain containers from database provisioning and instead provision throughput for those containers at container level.</li>
+                    </ol>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="center" rowspan="2"><strong>GRANULARITY OF PROVISIONING</strong></th>
+                            <th align="center" colspan="2"><strong>MINIMUM THROUGHPUT (RU/S)</strong></th>
+                            <th align="center" colspan="2"><strong>SCALE UP/DOWN INCREMENTS (RU/S)</strong></th>
+                            <th align="center" rowspan="2"><strong>MAXIMUM THROUGHPUT</strong></th>
+                            <th align="center" rowspan="2"><strong>SCOPE</strong></th>
+                        </tr>
+                        <tr style="background-color:#fff;">
+                            <th>SINGLE REGION WRITE</th>
+                            <th>MULTIPLE REGION WRITE</th>
+                            <th>SINGLE REGION WRITE</th>
+                            <th>MULTIPLE REGION WRITE</th>
+                        </tr>
+                        <tr>
+                            <td>Container*</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>Unlimited</td>
+                            <td>The partitioned container for which the throughput is provisioned</td>
+                        </tr>
+                        <tr>
+                            <td>Database**</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>Unlimited</td>
+                            <td>All the throughput is shared among all the partitioned-containers within the database (excluding the containers for which the throughput is explicitly provisioned for)</td>
+                        </tr>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date">*A Cosmos DB container maps to the following: a Cosmos DB collection while using SQL API, a MongoDB collection while using MongoDB API, a table while using Cassandra or Table storage APIs, or a graph while using Gremlin API.</div><br>
+						<div class="ms-date">** A Cosmos DB database maps to the following: a database while using SQL or MongoDB APIs, a keyspace while using Cassandra API or a database account while using Gremlin or Table storage APIs.</div><br>
+					</div>
+
+                    <h3>Elastically scaling reads and writes across the globe</h3>
+                    <p>You can add/remove Azure regions anywhere in the world to your Cosmos DB database account at any time. The throughput that you have configured for various Cosmos DB databases and containers is guaranteed to be reserved in each of the Azure regions associated with your Cosmos DB database account.</p>
+
+                    <h3>SSD-backed storage</h3>
+                    <p>Your data and index are durably stored on the SSD-backed storage and replicated (across one or more Azure regions associated with your Cosmos DB database account). In addition to the throughput that you provision every hour, you are also billed for each GB of storage that you actually consume for your data and index.</p>
+
+                    <h2>Pricing details</h2>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
                         <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
@@ -43,8 +154,12 @@
                             <td>¥2.576/GB/month</td>
                         </tr>
                         <tr>
-                            <td>Reserved RU/second (per 100 RU)</td>
+                            <td>Provisioned Throughput (single region writes) per 100 RU/s</td>
                             <td>¥0.082/hour (about ¥61.01/month)</td>
+                        </tr>
+                        <tr>
+                            <td>Provisioned Throughput (multiple region writes) per 100 RU/s</td>
+                            <td>¥0.102/hour (about ¥75.888/month)</td>
                         </tr>
                     </table>
 										
