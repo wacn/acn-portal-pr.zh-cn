@@ -25,12 +25,123 @@
             <div class="technical-azure-selector tab-control-selector">
                 <!-- BEGIN: TAB-CONTAINER-1 -->
                 <div class="tab-control-container tab-active" id="tabContent1">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>AZURE COSMOS DB 功能</strong></th>
+                            <th align="left"><strong></strong></th>
+                        </tr>
+                        <tr>
+                            <td>通过多主数据库功能实现统包全局分布</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>全球可用性（所有 Azure 区域，包括美国政府、DoD、中国）</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>多模型、多 API，支持丰富查询和自动索引</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>在 99% 的情况下，读取和写入延迟仅几毫秒（受 SLA 支持）</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                综合 SLA
+                                <ul>
+                                    <li>可用性 SLA</li>
+                                    <li>吞吐量 SLA</li>
+                                    <li>一致性 SLA</li>
+                                    <li>延迟 SLA</li>
+                                </ul>
+                            </td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                安全性
+                                <ul>
+                                    <li>端到端数据加密（静态和动态）</li>
+                                    <li>IP 和 VNET 隔离</li>
+                                    <li>访问控制和授权</li>
+                                </ul>
+                            </td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                弹性和无限规模
+                                <ul>
+                                    <li>吞吐量和存储没有限制</li>
+                                    <li>即时缩放，降低本地和托管 IaaS 的 NoSQL 数据库的总拥有成本</li>
+                                </ul>
+                            </td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                        <tr>
+                            <td>与 Azure 合规性一致的全面合规性认证</td>
+                            <td><i class="icon icon-tick"></i></td>
+                        </tr>
+                    </table>
+
                     <!-- BEGIN: Table1-Content-->
-                    <h2>定价详细信息</h2>
+                    <h2>定价概览</h2>
                     <h3>预配的吞吐量</h3>
-					<p>无论规模如何，你都可存储数据和预配吞吐容量。根据存储的数据量（以 GB 计）和保留吞吐量（以 100 个 RU/每秒的单位计），按每小时对每个集合计费。</p>
-					<p>无限制容器每秒至少为 1000 个 RU；数据增长时，其每个分区每秒至少为 100 个 RU。</p>
-                   
+					<p>Azure Cosmos DB 数据库帐户可跨一个或多个 Azure 区域分布。与数据库帐户关联的所有区域都可提供读取服务，同时也可将数据库帐户配置为允许所有区域处理写入（多主数据库），或配置为仅允许一个区域处理写入（单主数据库）。</p>
+					<p>在 Azure Cosmos DB 中，需要为预配的吞吐量和使用的存储（按小时）付费。吞吐量按照称为<a href="https://docs.azure.cn/cosmos-db/request-units">每秒请求单位（RU/秒）</a>的规范化吞吐量货币来表示。预配后，即可在多种数据库操作（如插入、读取、更换、upserts、删除、查询等）中互换使用 RU/秒。可通过编程方式（或通过 Azure 门户）配置所需吞吐量，并在任何时候弹性缩放预配吞吐量。</p>
+
+                    <h3>预配的吞吐量</h3>
+                    <p>可在不同粒度预配吞吐量。可为以下各项预配吞吐量：</p>
+                    <ol>
+                        <li>Cosmos DB 容器。根据所选数据模型或 API，Cosmos DB 容器可以是一个集合（例如 MongoDB、SQL）、一个图形（例如 Gremlin）或一个表（例如 Cassandra、Azure 表存储）。Cosmos DB 中的容器进行了横向分区，并且可对其进行弹性缩放，以提供不限量的吞吐量和存储。</li>
+                        <li>Cosmos DB 数据库。为数据库配置的吞吐量由该数据库中的所有容器共享。可选择从数据库预配中显式排除某些容器，在容器级别为这些容器预配吞吐量。</li>
+                    </ol>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="center" rowspan="2"><strong>预配粒度</strong></th>
+                            <th align="center" colspan="2"><strong>最小吞吐量（RU/秒）</strong></th>
+                            <th align="center" colspan="2"><strong>纵向扩展/减少增量（RU/秒）</strong></th>
+                            <th align="center" rowspan="2"><strong>最大吞吐量</strong></th>
+                            <th align="center" rowspan="2"><strong>范围</strong></th>
+                        </tr>
+                        <tr style="background-color:#fff;">
+                            <th>单区域写入</th>
+                            <th>多区域写入</th>
+                            <th>单区域写入</th>
+                            <th>多区域写入</th>
+                        </tr>
+                        <tr>
+                            <td>容器*</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>无限制</td>
+                            <td>为其预配吞吐量的分区容器</td>
+                        </tr>
+                        <tr>
+                            <td>数据库**</td>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>无限制</td>
+                            <td>可在数据库内的所有分区容器（不包括已显式预配其吞吐量的容器）之间共享所有吞吐量</td>
+                        </tr>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date">*Cosmos DB 容器映射到以下各项：Cosmos DB 集合（使用 SQL API 时）、MongoDB 集合（使用 MongoDB API 时）、表（使用 Cassandra 或表存储 API 时）或图形（使用 Gremlin API 时）。</div><br>
+						<div class="ms-date">**Cosmos DB 数据库映射到以下各项：数据库（使用 SQL 或 MongoDB API 时）、密钥空间（使用 Cassandra API 时）或数据库帐户（使用 Gremlin 或表存储 API 时）。</div><br>
+					</div>
+
+                    <h3>全球范围内弹性缩放读取和写入</h3>
+                    <p>可随时随地向 Cosmos DB 数据库帐户添加/删除 Azure 区域。对于为不同 Cosmos DB 数据库和容器配置的吞吐量，我们保证可在与 Cosmos DB 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。</p>
+                    
+                    <h3>SSD 支持的存储</h3>
+                    <p>数据和索引永久存储在 SSD 支持的存储中，并进行了复制（在与 Cosmos DB 数据库帐户关联的一个或多个 Azure 区域中）。除了预配的每小时吞吐量外，还需要为数据和索引实际使用的每 GB 存储付费。</p>
+
+                    <h2>定价详细信息</h2>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
@@ -45,8 +156,12 @@
                             <td>¥ 2.576 /GB/月</td>
                         </tr>
                         <tr>
-                            <td>每秒保留的 RU 数（每 100 个 RU）</td>
+                            <td>每 100 个 RU 每秒的预配吞吐量（单区域写入）</td>
                             <td>¥ 0.082 /小时 （约 ¥ 61.01 /月）</td>
+                        </tr>
+                        <tr>
+                            <td>每 100 个 RU 每秒的预配吞吐量（多区域写入）</td>
+                            <td>¥ 0.102 /小时 （约 ¥ 75.888 /月）</td>
                         </tr>
                     </table>
 										
