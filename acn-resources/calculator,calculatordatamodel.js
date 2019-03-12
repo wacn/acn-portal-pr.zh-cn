@@ -22198,6 +22198,82 @@ var CalculatorData = {
                 }]
             },
             {
+                Name: "预警规则",
+                Features: [
+                    {
+                    Name: "度量值",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "Detaul",
+                        Description: "每月 10 个免费受监视的时间指标",
+                        PriceTier: "0,10,11,5000",
+                        PricePerTier: "0,1.02",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "日志 - 5分钟间隔",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "15.26",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "日志 - 10分钟间隔",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "10.18",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "日志 - 15分钟(或更长)间隔",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "5.09",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "动态阈值",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "动态阈值",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.02",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "个"
+                    }]
+                }]
+            },
+            {
                 Name: "通知",
                 Features: [{
                     Name: "电子邮件（免费包含 1,000 封电子邮件）",
