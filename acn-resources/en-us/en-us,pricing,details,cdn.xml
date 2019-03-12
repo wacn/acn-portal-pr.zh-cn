@@ -104,10 +104,20 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
+                                <a id="CDN_price_question2">Can I designate a CDN data center to provide services to end users? </a>
+                                <section>
+                                   <p>No. The service will select a CDN data center based on an end user's network configuration, developers cannot decide which CDN data center to use. Users will be provided services according to their ISP's preferred location or a logically determined "closer" (not necessarily physically closer) node.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
                                 <a id="CDN_price_premium-version">What’s the difference between Standard CDN service and Premium CDN service?</a>
                                 <section>
                                     <p>Standard CDN service refers to static contents acceleration, including Web Acceleration, Download Acceleration and Video-On-Demand Acceleration.</p>
-                                    <p>Premium CDN service refers to accelerations other than the Standard CDN service, including Live-streaming Acceleration.</p>
+                                    <p>Premium CDN service refers to accelerations other than the Standard CDN service, including Live-streaming Acceleration and HTTPS with Azure supplied certificate. HTTPS with Azure supplied certificate is a legacy feature that only supports customers in use and will be deprecated starting July 1st 2019.</p>
                                 </section>
 
                             </div>
@@ -118,16 +128,6 @@
                                 <a id="CDN_price_higher-data-transmission">Are all data transfers charged at a higher rate once the amount of data transferred each month exceeds 10 TB?</a>
                                 <section>
                                     <p>No. Usage at each tier will be charged according to the rate for that tier. For example, if you generate 50 TB of Standard version CDN data transfers in Zone 1, the first 10 TB will be billed at a rate of ￥0.19/GB, and the remaining 40 TB will be billed at a rate of ￥0.16 per GB.</p>
-                                </section>
-
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="CDN_price_question2">Can I designate a CDN data center to provide services to end users? </a>
-                                <section>
-                                   <p>No. The service will select a CDN data center based on an end user's network configuration, developers cannot decide which CDN data center to use. Users will be provided services according to their ISP's preferred location or a logically determined "closer" (not necessarily physically closer) node.</p>
                                 </section>
 
                             </div>
