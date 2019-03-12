@@ -98,6 +98,64 @@
                     <p>API calls that return 2,000 data points will be calculated as 2,000/1,440 = 1.4 standard API calls.</p>
                     <p>API calls that return 200 data points will be calculated as 200/1,440 = 0.1 standard API calls.</p>
                     <p>Tracking five metrics from 100 virtual machines at a granularity level of one minute will produce 720,000 data points, i.e. (720,000/1,440)500 standard API calls per day.</p>
+                    
+                    <h3>Alert rules</h3>
+                    <p>An alert rule is charged based on the type and number of signals it monitors. A signal can be a resource metric, a log or an activity log. The cost of an alert rule that monitors multiple signals is the sum of the cost of monitoring each signal and any enabled features.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>ALERT SIGNAL</strong></th>
+                            <th align="left"><strong>FREE UNITS INCLUDED</strong></th>
+                            <th align="left"><strong>PRICE</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">Metrics<sup>1,</sup><sup>2</sup></td>
+                                <td class="left_align">10 monitored metric time-series per month</td>
+                                <td class="left_align">￥1.02 per metric time-series monitored per month</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">Log</td>
+                                <td class="left_align">None</td>
+                                <td class="left_align">
+                                    15-min interval (or greater): ￥5.09 per log monitored per month<br/>
+                                    10-min interval: ￥10.18 per log monitored per month<br/>
+                                    5-min interval: ￥15.26 per log monitored per month
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">Activity Log</td>
+                                <td class="left_align">Unlimited</td>
+                                <td class="left_align">Free</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">Dynamic threshold<sup>3</sup></td>
+                                <td class="left_align">None</td>
+                                <td class="left_align">￥1.02 per dynamic threshold per month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date">1.Price listed here represents the price of an alert rule monitoring a single metric time-series originating from a single resource.</div><br>
+						<div class="ms-date">2.Pricing is applicable to the new generation metric alert rules available under Alerts, previous generation alert rules (Alerts Classic) will continue to be available at no charge.<br/>
+                            There is a configuration limit of 100 metric time-series alerts, 100 activity log alerts, and 10 action groups per subscription. Contact Azure support to increase the limit.<br/>
+                            Activity logs are available for a 90-day period at no charge. To retain activity log data beyond the 90-day period, activity log data can be routed to a storage account or event hubs. Corresponding charges will apply for storage and event hubs, respectively. No charges are incurred for API calls to pull activity log data.<br/>
+                            Alerts offered as part of Azure Security Center (ASC) are not currently charged.
+                        </div><br>
+                        <div class="ms-date">3.A dynamic alert is billed for the dynamic threshold capability and the underlying metric alert.<br/>
+                            Examples<br/>
+                            a.The price of an alert rule which monitors the CPU utilization, and RAM usage (i.e. 2 metric time-series) for 10 VMs, and has dynamic threshold enabled, can be calculated as,<br/>
+                            Price of alert rule + Price of dynamic threshold<br/>
+                            (10 VMs * 2 metric time-series per VM – 10 free units) * ￥1.02 per metric time-series alert rule per month + [(10 VMs * 2 metric time-series per VM) * ￥1.02 per dynamic threshold per month] = ￥30.6 per month<br/>
+                            b.The price of an alert rule which queries 1 Log analytics workspace for a ‘404-error’ event every 15-minutes can be calculated as,<br/>
+                            1 workspace * 1 log alert query * ￥5.09 per log alert rule per month = ￥5.09 per month<br/>
+                        </div>
+					</div>
+                    
                     <h3>Notifications</h3>
                     <p>Billed according to the type and quantity of notifications you choose to send.</p>
                     <table  cellpadding="0" cellspacing="0" width="100%">

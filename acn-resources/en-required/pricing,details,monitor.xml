@@ -100,6 +100,65 @@
                     <p>返回 2,000 个数据点的 API 调用将被算作 2,000/1,440 = 1.4 个标准 API 调用。</p>
                     <p>返回 200 个数据点的 API 调用将被算作 200/1,440 = 0.1 个标准 API 调用。</p>
                     <p>如果每天从 100 个虚拟机以一分钟的粒度跟踪五个指标，将产生 720,000 个数据点，即每天 (720,000/1,440) 500 个标准 API 调用。</p>
+
+                    <h3>预警规则</h3>
+                    <p>预警规则根据监视信号的类型和数量进行收费。信号可能是资源指标、日志或者活动日志。监视多个信号的预警规则的费用是监视每个信号的费用和已启用功能费用的总和。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>警报信号</strong></th>
+                            <th align="left"><strong>内附免费单位数</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">度量值<sup>1,</sup><sup>2</sup></td>
+                                <td class="left_align">每月 10 个受监视的时间指标系列</td>
+                                <td class="left_align">每月每个监视时间指标系列 ￥1.02</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">日志</td>
+                                <td class="left_align">无</td>
+                                <td class="left_align">
+                                    15 分钟（或更长）间隔：每月每个受监视日志 ￥5.09 <br/>
+                                    10 分钟间隔：每月每个受监视日志 ￥10.18 <br/>
+                                    5 分钟间隔：每月每个受监视日志 ￥15.26
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">活动日志</td>
+                                <td class="left_align">无限制</td>
+                                <td class="left_align">免费</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">动态阈值<sup>3</sup></td>
+                                <td class="left_align">无</td>
+                                <td class="left_align">每月每个动态阈值 ￥1.02</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date">1.此处列出的价格表示监视单个资源的单个时间指标系列的预警规则的价格。</div><br>
+						<div class="ms-date">2.定价适用于“警报”下新一代的可用指标预警规则，上一代的预警规则 (Alerts Classic) 将继续免费提供。
+                                            每个订阅均具有 100 个时间指标系列警报、100 个活动日志警报和 10 个操作组的配置限制。若要增加限额，请联系 Azure 支持。<br/>
+                                            提供 90 天内的活动日志，无需任何费用。若要保留 90 天以上的活动日志数据，可将活动日志数据路由到存储帐户或事件中心。会分别对存储和事件中心收取相应的费用。API 调用请求活动日志数据不会产生任何费用。<br/>
+                                            作为 Azure 安全中心 (ASC) 一部分提供的警报当前不收取费用。
+                        </div>
+                        <br>
+                        <div class="ms-date">3.动态警报将针对动态阈值功能和基础指标警报进行计费。<br/>
+                            示例<br/>
+                            a.监视 CPU 利用率和 10 VM RAM 使用情况（即 2 个时间指标系列）并启用了动态阈值的预警规则的费用可通过以下方式进行计算。<br/>
+                            预警规则的价格 + 动态阈值的价格<br/>
+                            （10 VM * 每个 VM 的 2 个时间指标系列 - 10 个免费单位）* 每月每个时间指标系列预警规则 ￥1.02 + [（10 VM * 每个 VM 的 2 个时间指标系列）* 每月每个动态阙值 ￥1.02] = 每月 ￥30.6<br/>
+                            b.每 15 分钟在 1 Log Analytics 工作区查询“404-error”事件的预警规则的价格可以通过以下方式进行计算。<br/>
+                            1个工作区 * 1 日志警报查询 * 每月每个日志预警规则 ￥5.09 = 每月 ￥5.09
+                        </div>
+					</div>
+
                     <h3>通知</h3>
                     <p>根据你选择发送的通知类型和数量来计费。</p>
                     <table  cellpadding="0" cellspacing="0" width="100%">
