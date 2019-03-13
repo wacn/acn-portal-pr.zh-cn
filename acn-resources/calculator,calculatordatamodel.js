@@ -10893,7 +10893,7 @@ var CalculatorData = {
             Types: [{
                 Name: "常规用途",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -10933,6 +10933,48 @@ var CalculatorData = {
                         Description: "24 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "42.6754"
+                    }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "vCore 1",
+                        Description: "1 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.1424"
+                    },
+                    {
+                        Name: "vCore 2",
+                        Description: "2 个内核，每个池最大数据库 200 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.2847"
+                    },
+                    {
+                        Name: "vCore 4",
+                        Description: "4 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.5694"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                    },
+                    {
+                        Name: "vCore 16",
+                        Description: "16 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.2777"
+                    },
+                    {
+                        Name: "vCore 24",
+                        Description: "24 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "27.4166"
                     }]
                 },
                 {
@@ -11115,7 +11157,7 @@ var CalculatorData = {
             {
                 Name: "业务关键",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -11150,8 +11192,43 @@ var CalculatorData = {
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "112.0734"
                     }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "vCore 2",
+                        Description: "2 个内核，每个池最大数据库 50 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.5694"
+                    },
+                    {
+                        Name: "vCore 4",
+                        Description: "4 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.2778"
+                    },
+                    {
+                        Name: "vCore 16",
+                        Description: "16 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.5556"
+                    },
+                    {
+                        Name: "vCore 24",
+                        Description: "24 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "54.8334"
+                    }]
                 },
-
                 {
                     Name: "存储",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -11335,7 +11412,7 @@ var CalculatorData = {
             Types: [{
                 Name: "常规用途",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -11387,6 +11464,61 @@ var CalculatorData = {
                         Description: "80 个内核，每个池最大数据库 500 个",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "142.2514"
+                    }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                    {
+                        Name: "vCore 2",
+                        Description: "2 个内核，每个池最大数据库 200 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.2847"
+                    },
+                    {
+                        Name: "vCore 4",
+                        Description: "4 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.5694"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                    },
+                    {
+                        Name: "vCore 16",
+                        Description: "16 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.2777"
+                    },
+                    {
+                        Name: "vCore 24",
+                        Description: "24 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "27.4166"
+                    },
+                    {
+                        Name: "vCore 32",
+                        Description: "32 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.5555"
+                    },
+                    {
+                        Name: "vCore 40",
+                        Description: "40 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "45.6944"
+                    },
+                    {
+                        Name: "vCore 80",
+                        Description: "80 个内核，每个池最大数据库 500 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "91.3888"
                     }]
                 },
                 {
@@ -11569,7 +11701,7 @@ var CalculatorData = {
             {
                 Name: "业务关键",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -11618,7 +11750,56 @@ var CalculatorData = {
                         PricePerTier: "373.5779"
                     }]
                 },
-
+                {
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                    {
+                        Name: "vCore 4",
+                        Description: "4 个内核，每个池最大数据库 50 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.2778"
+                    },
+                    {
+                        Name: "vCore 16",
+                        Description: "16 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.5556"
+                    },
+                    {
+                        Name: "vCore 24",
+                        Description: "24 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "54.8334"
+                    },
+                    {
+                        Name: "vCore 32",
+                        Description: "32 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "73.112"
+                    },
+                    {
+                        Name: "vCore 40",
+                        Description: "40 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "91.389"
+                    },
+                    {
+                        Name: "vCore 80",
+                        Description: "80 个内核，每个池最大数据库 100 个",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "182.7779"
+                    }]
+                },
                 {
                     Name: "存储",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -11793,274 +11974,6 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "每 100 万次请求"
-                    }]
-                }]
-            }]
-        },
-        "sql-database-elastic-vcore-hybrid": {
-            Name: "SQL 数据库 - 弹性数据库 - vCore - Gen 4 - Azure 混合权益",
-            Types: [{
-                Name: "常规用途",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "vCore 1",
-                        Description: "1 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.1424"
-                    },
-                    {
-                        Name: "vCore 2",
-                        Description: "2 个内核，每个池最大数据库 200 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.2847"
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694"
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389"
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2777"
-                    },
-                    {
-                        Name: "vCore 24",
-                        Description: "24 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.4166"
-                    }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.8631",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "业务关键",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "vCore 2",
-                        Description: "2 个内核，每个池最大数据库 50 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694"
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389"
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2778"
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.5556"
-                    },
-                    {
-                        Name: "vCore 24",
-                        Description: "24 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "54.8334"
-                    }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "1.8762",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },
-        "sql-database-elastic-vcore-hybrid-gen5": {
-            Name: "SQL 数据库 - 弹性数据库 - vCore - Gen 5 - Azure 混合权益",
-            Types: [{
-                Name: "常规用途",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [
-                    {
-                        Name: "vCore 2",
-                        Description: "2 个内核，每个池最大数据库 200 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.2847"
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694"
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389"
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2777"
-                    },
-                    {
-                        Name: "vCore 24",
-                        Description: "24 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.4166"
-                    },
-                    {
-                        Name: "vCore 32",
-                        Description: "32 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.5555"
-                    },
-                    {
-                        Name: "vCore 40",
-                        Description: "40 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "45.6944"
-                    },
-                    {
-                        Name: "vCore 80",
-                        Description: "80 个内核，每个池最大数据库 500 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "91.3888"
-                    }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.8631",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "业务关键",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [
-                    {
-                        Name: "vCore 4",
-                        Description: "4 个内核，每个池最大数据库 50 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389"
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2778"
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.5556"
-                    },
-                    {
-                        Name: "vCore 24",
-                        Description: "24 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "54.8334"
-                    },
-                    {
-                        Name: "vCore 32",
-                        Description: "32 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "73.112"
-                    },
-                    {
-                        Name: "vCore 40",
-                        Description: "40 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "91.389"
-                    },
-                    {
-                        Name: "vCore 80",
-                        Description: "80 个内核，每个池最大数据库 100 个",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "182.7779"
-                    }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "1.8762",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
                     }]
                 }]
             }]
@@ -12377,7 +12290,7 @@ var CalculatorData = {
             Types: [{
                 Name: "常规用途",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12417,6 +12330,48 @@ var CalculatorData = {
                         Description: "24 个内核",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "42.6754"
+                    }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "vCore 1",
+                        Description: "1 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.1424"
+                    },
+                    {
+                        Name: "vCore 2",
+                        Description: "2 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.2847"
+                    },
+                    {
+                        Name: "vCore 4",
+                        Description: "4  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.5694"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                    },
+                    {
+                        Name: "vCore 16",
+                        Description: "16  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.2777"
+                    },
+                    {
+                        Name: "vCore 24",
+                        Description: "24  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "27.4166"
                     }]
                 },
                 {
@@ -12599,7 +12554,7 @@ var CalculatorData = {
             {
                 Name: "业务关键",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12639,6 +12594,48 @@ var CalculatorData = {
                             Description: "24 个内核",
                             PriceTier: PriceTierEnum.Fixed,
                             PricePerTier: "112.0734"
+                        }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                        {
+                            Name: "vCore 1",
+                            Description: "1 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "2.2847"
+                        }, {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "4.5694"
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "9.1389"
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "18.2778"
+                        },
+                        {
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "36.5556"
+                        },
+                        {
+                            Name: "vCore 24",
+                            Description: "24 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "54.8334"
                         }]
                 },
                 {
@@ -12952,7 +12949,7 @@ var CalculatorData = {
             Types: [{
                 Name: "常规用途",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -13005,6 +13002,61 @@ var CalculatorData = {
                         Description: "80 个内核",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "142.2514"
+                    }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                    {
+                        Name: "vCore 2",
+                        Description: "2 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.2847"
+                    },
+                    {
+                        Name: "vCore 4",
+                        Description: "4  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.5694"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                    },
+                    {
+                        Name: "vCore 16",
+                        Description: "16  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.2777"
+                    },
+                    {
+                        Name: "vCore 24",
+                        Description: "24  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "27.4166"
+                    },
+                    {
+                        Name: "vCore 32",
+                        Description: "32  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.5555"
+                    },
+                    {
+                        Name: "vCore 40",
+                        Description: "40  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "45.6944"
+                    },
+                    {
+                        Name: "vCore 80",
+                        Description: "80  个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "91.3888"
                     }]
                 },
                 {
@@ -13187,18 +13239,13 @@ var CalculatorData = {
             {
                 Name: "业务关键",
                 Features: [{
-                    Name: "default",
+                    Name: "包含许可证的价格",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [
                         {
-                            Name: "vCore 1",
-                            Description: "1 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4.6697"
-                        }, {
                             Name: "vCore 2",
                             Description: "2 个内核",
                             PriceTier: PriceTierEnum.Fixed,
@@ -13245,6 +13292,61 @@ var CalculatorData = {
                             Description: "80 个内核",
                             PriceTier: PriceTierEnum.Fixed,
                             PricePerTier: "373.5776"
+                        }]
+                },{
+                    Name: "混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                        {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "4.5694"
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "9.1389"
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "18.2778"
+                        },
+                        {
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "36.5555"
+                        },
+                        {
+                            Name: "vCore 24",
+                            Description: "24 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "54.8333"
+                        },
+                        {
+                            Name: "vCore 32",
+                            Description: "32 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "73.111"
+                        },
+                        {
+                            Name: "vCore 40",
+                            Description: "40 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "91.3888"
+                        },
+                        {
+                            Name: "vCore 80",
+                            Description: "80 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "182.7776"
                         }]
                 },
                 {
@@ -13547,412 +13649,6 @@ var CalculatorData = {
             //             MinUnit: "0",
             //             MaxUnit: "5000",
             //             PriceUnit: "每 100 万次请求"
-            //         }]
-            //     }]
-            // }
-        ]
-        },
-        "sql-database-single-vcore-hybrid": {
-            Name: "SQL 数据库 - 单个数据库 - vCore - Gen 4 - 混合权益",
-            Types: [{
-                Name: "常规用途",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "vCore 1",
-                        Description: "1 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.1424"
-                    },
-                    {
-                        Name: "vCore 2",
-                        Description: "2 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.2847"
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694"
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389"
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2777"
-                    },
-                    {
-                        Name: "vCore 24",
-                        Description: "24  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.4166"
-                    }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.8631",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "业务关键",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [
-                        {
-                            Name: "vCore 1",
-                            Description: "1 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "2.2847"
-                        }, {
-                            Name: "vCore 2",
-                            Description: "2 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4.5694"
-                        },
-                        {
-                            Name: "vCore 4",
-                            Description: "4 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "9.1389"
-                        },
-                        {
-                            Name: "vCore 8",
-                            Description: "8 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.2778"
-                        },
-                        {
-                            Name: "vCore 16",
-                            Description: "16 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "36.5556"
-                        },
-                        {
-                            Name: "vCore 24",
-                            Description: "24 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "54.8334"
-                        }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "1.8762",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            // {
-            //     Name: "超大规模",
-            //     Features: [{
-            //         Name: "default",
-            //         PricePeriod: PricePeriodEnum.Hourly,
-            //         PriceUnit: "个",
-            //         MinUnit: "0",
-            //         MaxUnit: "20",
-            //         Sizes: [
-            //             {
-            //                 Name: "vCore 1",
-            //                 Description: "1 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "0.9294"
-            //             }, {
-            //                 Name: "vCore 2",
-            //                 Description: "2 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "1.8587"
-            //             },
-            //             {
-            //                 Name: "vCore 4",
-            //                 Description: "4 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "3.7175"
-            //             },
-            //             {
-            //                 Name: "vCore 8",
-            //                 Description: "8 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "7.435"
-            //             },
-            //             {
-            //                 Name: "vCore 16",
-            //                 Description: "16 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "14.87"
-            //             },
-            //             {
-            //                 Name: "vCore 24",
-            //                 Description: "24 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "22.305"
-            //             }]
-            //     },
-            //     {
-            //         Name: "存储",
-            //         PricePeriod: PricePeriodEnum.Monthly,
-            //         PriceUnit: "个",
-            //         MinUnit: "0",
-            //         MaxUnit: "20",
-            //         Sizes: [{
-            //             Name: "default",
-            //             Description: "default",
-            //             PriceTier: "0,5000",
-            //             PricePerTier: "1.0176",
-            //             MinUnit: "0",
-            //             MaxUnit: "5000",
-            //             PriceUnit: "GB"
-            //         }]
-            //     }]
-            // }
-        ]
-        },
-        "sql-database-single-vcore-hybrid-gen5": {
-            Name: "SQL 数据库 - 单个数据库 - vCore - Gen 5 - 混合权益",
-            Types: [{
-                Name: "常规用途",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [
-                    {
-                        Name: "vCore 2",
-                        Description: "2 个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.2847"
-                    },
-                    {
-                        Name: "vCore 4",
-                        Description: "4  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.5694"
-                    },
-                    {
-                        Name: "vCore 8",
-                        Description: "8  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.1389"
-                    },
-                    {
-                        Name: "vCore 16",
-                        Description: "16  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "18.2777"
-                    },
-                    {
-                        Name: "vCore 24",
-                        Description: "24  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.4166"
-                    },
-                    {
-                        Name: "vCore 32",
-                        Description: "32  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.5555"
-                    },
-                    {
-                        Name: "vCore 40",
-                        Description: "40  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "45.6944"
-                    },
-                    {
-                        Name: "vCore 80",
-                        Description: "80  个内核",
-                        PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "91.3888"
-                    }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.8631",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            {
-                Name: "业务关键",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [
-                        {
-                            Name: "vCore 2",
-                            Description: "2 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4.5694"
-                        },
-                        {
-                            Name: "vCore 4",
-                            Description: "4 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "9.1389"
-                        },
-                        {
-                            Name: "vCore 8",
-                            Description: "8 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.2778"
-                        },
-                        {
-                            Name: "vCore 16",
-                            Description: "16 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "36.5555"
-                        },
-                        {
-                            Name: "vCore 24",
-                            Description: "24 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "54.8333"
-                        },
-                        {
-                            Name: "vCore 32",
-                            Description: "32 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "73.111"
-                        },
-                        {
-                            Name: "vCore 40",
-                            Description: "40 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "91.3888"
-                        },
-                        {
-                            Name: "vCore 80",
-                            Description: "80 个内核",
-                            PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "182.7776"
-                        }]
-                },
-                {
-                    Name: "存储",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "1.8762",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            },
-            // {
-            //     Name: "超大规模",
-            //     Features: [{
-            //         Name: "default",
-            //         PricePeriod: PricePeriodEnum.Hourly,
-            //         PriceUnit: "个",
-            //         MinUnit: "0",
-            //         MaxUnit: "20",
-            //         Sizes: [
-            //             {
-            //                 Name: "vCore 1",
-            //                 Description: "1 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "0.9294"
-            //             }, {
-            //                 Name: "vCore 2",
-            //                 Description: "2 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "1.8587"
-            //             },
-            //             {
-            //                 Name: "vCore 4",
-            //                 Description: "4 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "3.7175"
-            //             },
-            //             {
-            //                 Name: "vCore 8",
-            //                 Description: "8 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "7.435"
-            //             },
-            //             {
-            //                 Name: "vCore 16",
-            //                 Description: "16 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "14.87"
-            //             },
-            //             {
-            //                 Name: "vCore 24",
-            //                 Description: "24 个内核",
-            //                 PriceTier: PriceTierEnum.Fixed,
-            //                 PricePerTier: "22.305"
-            //             }]
-            //     },
-            //     {
-            //         Name: "存储",
-            //         PricePeriod: PricePeriodEnum.Monthly,
-            //         PriceUnit: "个",
-            //         MinUnit: "0",
-            //         MaxUnit: "20",
-            //         Sizes: [{
-            //             Name: "default",
-            //             Description: "default",
-            //             PriceTier: "0,5000",
-            //             PricePerTier: "1.0176",
-            //             MinUnit: "0",
-            //             MaxUnit: "5000",
-            //             PriceUnit: "GB"
             //         }]
             //     }]
             // }
