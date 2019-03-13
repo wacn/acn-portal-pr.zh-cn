@@ -21394,6 +21394,21 @@ var CalculatorData = {
                         PricePerTier: "0",
                     }]
                 }]
+            },{
+                Name: "标准",
+                Features: [{
+                    Name: "default",
+                    MinUnit: "0",
+                    MaxUnit: "100000",
+                    Sizes: [{
+                        Name: "default",
+                        PriceTier: "0,1000,1001,5000,5001,10000,10001",
+                        PricePerTier: "10.18,7.63,6.11,4.07",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit:"每 1,000 个事务"
+                    }]
+                }]
             }
         //     // ,
         //     // {
