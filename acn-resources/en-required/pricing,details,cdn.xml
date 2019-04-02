@@ -35,28 +35,44 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <th align="left"><strong>服务</strong></th>
-                            <th align="left"><strong>标准版</strong></th>
-                            <th align="left"><strong>高级版<sup style="color:#e66102; font-weight: bold"> 2</sup></strong></th>
+                            <th align="center" colspan="2"><strong>标准版</strong></th>
+                            <th align="center"><strong>标准版 Plus</strong></th>
+                            <th align="center"><strong>高级版</strong></th>
+                        </tr>
+                        <tr>
+                            <td>区域</td>
+                            <td align="center">Zone1</td>
+                            <td align="center">Zone2</td>
+                            <td align="center">Zone1</td>
+                            <td align="center">Zone1</td>
                         </tr>
                         <tr>
                             <td>CDN 数据传输（0 - 10 TB<sup> 1 </sup>/月 )</td>
-                            <td>¥0.19/GB</td>
-                            <td>¥0.45/GB</td>
+                            <td align="center">¥0.19/GB</td>
+                            <td align="center">¥0.396/GB</td>
+                            <td align="center">¥0.228/GB</td>
+                            <td align="center">¥0.45/GB</td>
                         </tr>
                         <tr>
                             <td>CDN 数据传输（10 - 50 TB/月）</td>
-                            <td>¥0.16/GB</td>
-                            <td>¥0.42/GB</td>
+                            <td align="center">¥0.16/GB</td>
+                            <td align="center">¥0.347/GB</td>
+                            <td align="center">¥0.198/GB</td>
+                            <td align="center">¥0.42/GB</td>
                         </tr>
                         <tr>
                             <td>CDN 数据传输（50 - 100 TB/月）</td>
-                            <td>¥0.13/GB</td>
-                            <td>¥0.39/GB</td>
+                            <td align="center">¥0.13/GB</td>
+                            <td align="center">¥0.297/GB</td>
+                            <td align="center">¥0.169/GB</td>
+                            <td align="center">¥0.39/GB</td>
                         </tr>
                         <tr>
                             <td>CDN 数据传输（大于 100 TB/月）</td>
-                            <td>¥0.1/GB</td>
-                            <td>¥0.36/GB</td>
+                            <td align="center">¥0.1/GB</td>
+                            <td align="center">¥0.277/GB</td>
+                            <td align="center">¥0.139/GB</td>
+                            <td align="center">¥0.36/GB</td>
                         </tr>
 						<!--
                         <tr>
@@ -77,7 +93,6 @@
 						-->
                     </table>
                     <p><sup>1</sup> 1 TB = 1000 GB</p>
-					<p><sup style="color:#e66102; font-weight: bold">2</sup> 之前已经申请过 Azure CDN 代为申请证书、并且仍然在使用该证书服务的用户，依旧按照高级版 CDN 付费。</p>
                     <p>如果您有带宽计费的需求，请参考<a href="//docs.azure.cn/zh-cn/cdn/cdn-faq-service-inquiry/">带宽计费说明</a>，并联系您的客户经理洽谈接入。</p>
                     
                     <!-- <p>  自 2017 年 7 月 1 日起，用户自有证书的 HTTPS 加速服务将归为标准版 CDN 服务，高级版 CDN 服务将只包含 Azure CDN 代申请证书的 HTTPS 加速服务。</p>					
@@ -95,12 +110,11 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="CDN_price_region">哪些区域与 CN Zone 1 相对应？</a>
+                                <a id="CDN_price_region">哪些区域与 Zone 1 和 Zone 2 相对应？</a>
                                 <section>
                                     <p>CDN 数据传输定价基于处理传输的节点的位置，而不是基于最终用户的位置。下面的地理区域对应于上面列出的 Azure CDN 的区域：</p>
-                                    <ul>
-                                        <li>CN Zone 1 — 中国。</li>
-                                    </ul>
+                                    <p>•	Zone 1 — 中国大陆 (不包含香港，台湾和澳门)</p>
+                                    <p>•	Zone 2 — 北美，欧洲，亚太地区，中东，非洲，南美，更多信息请参考<a href="https://docs.azure.cn/cdn/cdn-pops">海外节点分布</a></p>
                                 </section>
 
                             </div>
@@ -118,10 +132,14 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="CDN_price_premium-version">高级版和标准版 CDN 服务的区别？</a>
+                                <a id="CDN_price_premium-version">标准版，标准版 Plus 和高级版 CDN 的区别是什么？</a>
                                 <section>
-                                    <p>标准版 CDN 是指静态内容加速，包括网页加速，下载加速，点播加速。</p>
-                                    <p>高级版 CDN 服务是指需要开通 Azure CDN 标准版以外的定制化加速场景，包括直播加速和之前已经申请过 Azure CDN 代为申请证书、并且仍然在使用该证书服务的HTTPS用户。将于2019年7月1日起不支持Azure代为申请证书的HTTPS功能。</p>
+                                <br/>
+                                    <ul>
+                                        <li>标准版 CDN 是指静态内容加速，包括网页加速，下载加速，点播加速。</li>
+                                        <li>标准版 Plus 是指直播加速。</li>
+                                        <li>高级版 CDN 服务是指之前已经申请过 Azure CDN 代为申请证书、并且仍然在使用该证书服务的 HTTPS 用户。将于 2019 年 7 月 1 日起不支持 Azure 代为申请证书的 HTTPS 功能。</li>
+                                    </ul>
                                 </section>
 
                             </div>
@@ -165,7 +183,7 @@
 
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="icon icon-plus"></i>
                             <div>
                                 <a id="CDN_price_question7">CDN 收费是否包括标准数据传输的费用？</a>
@@ -184,7 +202,7 @@
                                 </section>
 
                             </div>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </div>
