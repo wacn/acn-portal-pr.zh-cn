@@ -470,6 +470,48 @@
             </li>
         </ul>
 
+        <h3>Translator Text API</h3>
+        <ul>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_translator-text-api_billing_amount">How do I calculate monthly volume?</a>
+                    <section>
+                        <p>For the Microsoft Translator Text API, the volume you are billed for is the number of characters in the input. Every Unicode code point counts as a character. Every character of the input counts. Each translation of a text to a new language counts as a separate translation. The number of queries, words, bytes, or sentences is irrelevant.</p>
+                        <p>To estimate your monthly volume, take the total characters to translate, multiply it by the number of languages you want to have it translated into, then take the number and spread it over the maximum number of hours or days you are able to wait for completion.</p>
+                        <p>More information on how we count characters for the Translator Text API can be found in our <a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/character-counts">documentation</a>.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_translator-text-api_billing_limit">What happens if I reach the limit of the free subscription plan?</a>
+                    <section>
+                        <p>If you subscribe to the free subscription plan, the Microsoft Translator service will stop if you reach 2 million characters during a subscription month for the Text Translation API. The Microsoft Translator service will start again at the beginning of your next subscription month or when you change your subscription to a paid plan.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_translator-text-api_support_language">What languages does Microsoft Translator support?</a>
+                    <section>
+                        <p>See the <a href="https://www.microsoft.com/en-us/translator/business/languages/">language list</a> for text translation using the Microsoft Translator Text API.</p>
+                        <p>Developer oriented language lists, including language codes can be found in our <a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/language-support">documentation</a>.</p>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <i class="icon icon-plus"></i>
+                <div>
+                    <a id="cognitive-services_translator-text-api_customed">Can I customize my translations?</a>
+                    <section>
+                        <p>Customization currently is not available with subscriptions on Azure.cn.</p>
+                    </section>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 <!-- <div class="pricing-page-section">
