@@ -135,7 +135,7 @@
                                     <p>对于应用程序开发者来说，针对中国市场编写可以接收推送通知的 Android 应用程序很有挑战性。Android 手机通常不安装 Google Play 商店，而这些设备必须通过该商店才能从 GCM (Google Cloud Messaging) 接收通知。有很多不同的应用商店和推送服务，让这变得更加困难。</p>
                                     <p>今天我们宣布支持从 Azure Notification Hub 服务通过百度云推送向此类 Android 设备发送推送通知。这是除了 Azure Notification Hub 中针对 iOS、Windows Phone、Windows、Android 和 Kindle 的现有支持以外的附加支持。</p>
                                     <p>应用程序开发者必须登录到百度门户，注册成为百度开发者，创建一个云推送项目并获得应用程序相应的标识符（UserId 和 ChannelId），然后从 Azure 管理门户将标识符插入 Azure Notification Hub。此后，他们可以使用其客户端应用程序中更新的 Notification Hub Android SDK 向此 Notification Hub 注册该设备，然后使用更新的 Service Bus/Notification Hub.NET SDK 来发送推送通知，该通知将通过百度云推送服务传递到注册的 Android 设备。</p>
-                                    <p>帮助开发的详细入门教程位于<a id="Notification_price_cichu" style="color: #00a8d9;" href="http://go.microsoft.com/fwlink/?LinkId=512838">此处</a>。</p>
+                                    <p>帮助开发的详细入门教程位于<a id="Notification_price_cichu" style="color: #00a8d9;" href="https://docs.azure.cn/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">此处</a>。</p>
                                 </section>
                             </div>
                         </li>
