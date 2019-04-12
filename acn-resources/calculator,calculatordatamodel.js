@@ -13869,7 +13869,7 @@ var CalculatorData = {
             }]
         },
         "sql-database-atp": {
-            Name: "SQL 数据库 - 高级威胁防护 - ATP",
+            Name: "SQL 数据库 - 高级威胁防护 - ADS",
             Types: [{
                 Name: "免费",
                 Features: [{
@@ -19172,102 +19172,12 @@ var CalculatorData = {
             }]
         },
 
-        // "cdn": {
-        //     Name: "CDN",
-        //     Types: [{
-        //         Name: "标准版",
-        //         Features: [{
-        //             Name: "Zone 1",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.19,0.16,0.13,0.1",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         },{
-        //             Name: "Zone 2",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.396,0.347,0.297,0.277",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         }]
-        //     },
-        //     {
-        //         Name: "标准版 Plus",
-        //         Features: [{
-        //             Name: "Zone 1",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.228,0.198,0.169,0.139",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         },{
-        //             Name: "Zone 2",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.842,0.773,0.714,0.674",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         }]
-        //     },
-        //     {
-        //         Name: "高级版",
-        //         Features: [{
-        //             Name: "Zone 1",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.45,0.42,0.39,0.36",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         }]
-        //     }]
-        // },
         "cdn": {
             Name: "CDN",
             Types: [{
-                Name: " 标准版",
+                Name: "标准版",
                 Features: [{
-                    Name: "default",
+                    Name: "Zone 1",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -19281,12 +19191,46 @@ var CalculatorData = {
                         MaxUnit: "5000000",
                         PriceUnit: "GB"
                     }]
+                },{
+                    Name: "Zone 2",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+                        PricePerTier: "0.396,0.347,0.297,0.277",
+                        MinUnit: "0",
+                        MaxUnit: "5000000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "标准版 Plus",
+                Features: [{
+                    Name: "Zone 1",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+                        PricePerTier: "0.228,0.198,0.169,0.139",
+                        MinUnit: "0",
+                        MaxUnit: "5000000",
+                        PriceUnit: "GB"
+                    }]
                 }]
             },
             {
                 Name: "高级版",
                 Features: [{
-                    Name: "default",
+                    Name: "Zone 1",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -19303,6 +19247,47 @@ var CalculatorData = {
                 }]
             }]
         },
+        // "cdn": {
+        //     Name: "CDN",
+        //     Types: [{
+        //         Name: " 标准版",
+        //         Features: [{
+        //             Name: "default",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.19,0.16,0.13,0.1",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     },
+        //     {
+        //         Name: "高级版",
+        //         Features: [{
+        //             Name: "default",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
+        //                 PricePerTier: "0.45,0.42,0.39,0.36",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // },
         "schedule": {
             Name: "计划程序",
             Types: [{
@@ -19782,10 +19767,10 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "VpnGw2 S2S 隧道",
-                        PriceTier: "0,10,11,100",
+                        PriceTier: "0,10,11,30",
                         PricePerTier: "0,0.0945",
                         MinUnit: "0",
-                        MaxUnit: "100",
+                        MaxUnit: "30",
                         PriceUnit: "个"
                         
                     }]
@@ -19830,10 +19815,10 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "VpnGw3 S2S 隧道",
-                        PriceTier: "0,10,11,100",
+                        PriceTier: "0,10,11,30",
                         PricePerTier: "0,0.0945",
                         MinUnit: "0",
-                        MaxUnit: "100",
+                        MaxUnit: "30",
                         PriceUnit: "个"
                         
                     }]
@@ -21487,6 +21472,96 @@ var CalculatorData = {
         //     // },]
         ]
         },
+        "cognitive-services-translator-text-api": {
+            Name: "认知服务 - 文本翻译 API",
+            Types: [
+            {
+                Name: "免费",
+                Features: [
+                    {
+                    Name: "default",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "每月免费 2 百万个字符",
+                        PriceTier: PriceTierEnum.Free,
+                        PricePerTier: "0",
+                    }]
+                }]
+            },
+            {
+                Name: "S1",
+                Features: [
+                    {
+                    Name: "default",
+                    PricePerTier:PricePeriodEnum.Monthly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"文本分析 S1 文本翻译 自定义 语言检测 双语字典 音译",
+                        PriceTier: "0,100000",
+                        PricePerTier: "102",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每 100 万个字符"
+                    }]
+                }]
+            },{
+                Name: "S2",
+                Features: [
+                    {
+                    Name: "2.5 亿个字符",
+                    PricePerTier:PricePeriodEnum.Monthly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"文本分析 S2 文本翻译 自定义 语言检测 双语字典 音译",
+                        PriceTier: "0,1,2,25,26,100000",
+                        PricePerTier: "20912,0,84",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每 100 万个字符"
+                    }]
+                }]
+            },{
+                Name: "S3",
+                Features: [
+                    {
+                    Name: "10 亿个字符",
+                    PricePerTier:PricePeriodEnum.Monthly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"文本分析 S3 文本翻译 自定义 语言检测 双语字典 音译",
+                        PriceTier: "0,1,2,100,101,100000",
+                        PricePerTier: "61056,0,61",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每 100 万个字符"
+                    }]
+                }]
+            },{
+                Name: "S4",
+                Features: [
+                    {
+                    Name: "100 亿个字符",
+                    PricePerTier:PricePeriodEnum.Monthly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"文本分析 S4 文本翻译 自定义 语言检测 双语字典 音译",
+                        PriceTier: "0,1,2,1000,1001,100000",
+                        PricePerTier: "457920,0,46",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每 100 万个字符"
+                    }]
+                }]
+            }]
+        },
 
         // "analysis-services-devp": {
         //     Name: "Azure 分析服务 - 开发人员层",
@@ -22791,16 +22866,16 @@ var CalculatorData = {
                 }]
             },
             {
-                Name: "基本",
+                Name: "经典",
                 Features: [{
-                    Name: "基本",
+                    Name: "经典",
                     PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "0",
                     Sizes: [{
-                        Name: "基本",
-                        Description: "基本负载均衡器是免费的",
+                        Name: "经典",
+                        Description: "经典负载均衡是免费的",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0"
                     }]
@@ -23002,6 +23077,90 @@ var CalculatorData = {
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "每 CPU"
+                    }]
+                }]
+            }]
+        },
+        "time-series-insights":{
+            Name: "Azure 时序见解价格",
+            Types: [{
+                Name: "default",
+                Features: [
+                {
+                    Name: "数据处理单位",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "10000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100",
+                        PricePerTier: "0.41",
+                        MinUnit: "0",
+                        MaxUnit: "100",
+                        PriceUnit: "GB/月"
+                    }]
+                },
+                {
+                    Name: "其它已处理数据",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "2.035",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "元素据存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "416.768",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "暖数据分析",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "30.528",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "原始数据分析",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "0.102",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
                     }]
                 }]
             }]
