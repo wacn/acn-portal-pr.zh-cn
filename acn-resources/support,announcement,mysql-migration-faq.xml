@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2018-05-30T11:20:07" updateDate="2018-11-02T14:00:00">
+  <umbTextpage template="21" createDate="2018-05-30T11:20:07" updateDate="2019-04-16T17:00:00">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="announcement" ms.date="" wacn.date="" wacn.lang="cn"/></p>
@@ -10,7 +10,7 @@
                     <p>我们将于 2019 年 12 月 1 日结束 MySQL Database on Azure 服务，并由 Azure Database for MySQL 服务取代前者。 </p>
                     <p>如果您是一名老客户：</p>
                     <ul>
-                        <li>服务不会中断</li>
+                        <li>服务不会中断。除了当您被安排迁移时，在大多数情况下，我们估计每台服务器的迁移总停机时间不到 10 分钟，确切的停机时间取决于 Azure 实例上现有 MySQL Database on Azure 的大小和更改速率。</li>
                         <li>在现有服务终止前，新服务将自动迁移启用</li>
                         <li>迁移将于 2019 年 2 月 15 日开始</li>
                         <li>当扩展到不同的服务层或删除服务器，有针对性的定价将会丢失</li>
@@ -102,7 +102,7 @@
                     </br>
 
                     <h4>Q: 我需要自己迁移还是你们将为迁移提供帮助？</h4>
-                    <p><strong>A:</strong> 您不需要采取任何行动，您的 MySQL 服务器将替您迁移。您将在计划迁移日期前30天收到另一封包含其他详细信息的邮件。如果您希望提早迁移，请提交一份<a href="https://support.azure.cn/support/support-azure/" target="_blank">帮助请求</a>。</p>
+                    <p><strong>A:</strong> 您不需要采取任何行动，您的 MySQL 服务器将替您迁移。您将在计划迁移日期前30天收到另一封包含其他详细信息的邮件。</p>
                     </br>
 
                     <h4>Q: 如果我使用 mysqldump 和 mysqlrestore 迁移会怎么样？</h4>
@@ -129,24 +129,33 @@
                     <h4>Q: 我如何最好地为迁移做准备？</h4>
                     <p><strong>A:</strong> 在计划的迁移之前，您应该做几件事情，以确保良好的迁移体验：</p>
                     <ul>
-                        <li>确保所有表都有一个主键：如果没有所有表上的主键，则可能需要进行脱机迁移，并且您将遇到更长的停机时间</li>
-                        <li>如果您希望在迁移后获得完整的服务功能，请在迁移之前将定价层调整为至少MS3：Azure数据库中的基本服务层无法扩展到通用或内存优化服务层。 MS1和MS2 SKU将映射到基本服务层。如果要充分利用新服务（包括VNet服务端点，最大存储和计算扩展，可读副本等功能），请确保迁移前数据库至少为MS3</li>
-                        <li>准备VNet用法：如果您的客户端VM在VNet中运行并且您启用了Microsoft.SQL服务端点（例如，使用端点连接到SQL数据库），则有以下两个选项：
+                        <li>在<a href="https://portal.azure.cn/"> Azure 门户 </a>中，选择您的 MySQL 服务器，单击“迁移到Azure Database for MySQL”。查看并减少可能在计划迁移之前会阻止迁移的所有潜在问题。潜在问题包括：
+                            <p>a.   缺少主键：对于列出的表，请添加主键。如果没有所有表上的主键，则可能需要进行脱机迁移，并且您将遇到更长的停机时间</p>
+                            <p>b.   不受支持的存储引擎：对于列出的使用不受支持的存储引擎的表，请更改表以使用 InnoDB。否则，迁移后无法访问这些表</p>
+                            <p>c.   防火墙规则的无效名称：对于列出的防火墙规则，请更改其名称。否则，无法将这些防火墙规则迁移到新实例。</p>
+                        </li>
+                        <li>如果您希望在迁移后获得完整的服务功能，请在迁移之前将定价层调整为至少 MS3：Azure 数据库中的基本服务层无法扩展到通用或内存优化服务层。 MS1 和 MS2 SKU 将映射到基本服务层。如果要充分利用新服务（包括 VNet 服务端点，最大存储和计算扩展，可读副本等功能），请确保迁移前数据库至少为 MS3</li>
+                        <li>确保您使用的是新服务器支持的客户端驱动程序。可以在<a href="https://docs.azure.cn/zh-cn/mysql/concepts-compatibility"> 此处 </a>找到支持的驱动程序的完整列表。</li>
+                        <li>了解如何在新服务中管理用户：<a href="https://docs.azure.cn/zh-cn/mysql/howto-create-users">在 Azure Database for MySQL 服务器中创建用户</a></li>
+                        <li>了解 Azure 数据库中的 SSL：<a href="https://docs.azure.cn/zh-cn/mysql/concepts-ssl-connection-security">MySQL 数据库中的 SSL 连接</a></li>
+                        <li>了解如何<a href="https://docs.azure.cn/zh-cn/mysql/concepts-monitoring"> 监控资源使用情况</a>，包括存储利用率和这些指标的设置警报。</li>
+                           
+                        <li>准备VNet用法：如果您的客户端 VM 在 VNet 中运行并且您启用了 Microsoft.SQL 服务端点（例如，使用端点连接到 SQL 数据库），则有以下两个选项：
                             <ol>
-                                <li>如果您不需要，请从VNet中删除Microsoft.SQL服务端点</li>
-                                <li>确保当前的MySQL服务器至少为MS3，并在迁移完成后立即为服务器配置正确的VNet防火墙规则</li>
+                                <li>如果您不需要，请从VNet中删除 Microsoft.SQL 服务端点</li>
+                                <li>确保当前的 MySQL 服务器至少为 MS3，并在迁移完成后立即为服务器配置正确的VNet防火墙规则</li>
                             </ol>
                         </li>
                     </ul>
                     </br>
 
                     <h4>Q: 旧服务和新服务之间是否存在不兼容性？</h4>
-                    <p><strong>A:</strong> 新的Azure数据库MySQL不支持</p>
+                    <p><strong>A:</strong> 新的 Azure 数据库 MySQL 不支持</p>
                     <ul>
-                        <li>PHP 5.3及更低版本。 请在迁移前更新到更高版本</li>
-                        <li>Navicat 11.1客户端。 请在迁移前升级到更高版本</li>
-                        <li>CentOS 6.9默认客户端。 请将MySQL客户端升级到5.5或更高版本</li>
-                        <li>可以与服务器建立的最大连接数存在差异。 有关新的连接限制，请参阅<a href="https://docs.azure.cn/mysql/concepts-limits">此文档</a>。 如果您需要更高的连接限制，请更改映射到具有足够高连接限制的SKU的SKU。 对于SKU映射，请参阅问题“我的服务器将如何映射到新产品？”。</li>
+                        <li>PHP 5.3 及更低版本。 请在迁移前更新到更高版本</li>
+                        <li>Navicat 11.1 客户端。 请在迁移前升级到更高版本</li>
+                        <li>CentOS 6.9默认客户端。 请将 MySQL 客户端升级到 5.5 或更高版本</li>
+                        <li>可以与服务器建立的最大连接数存在差异。 有关新的连接限制，请参阅<a href="https://docs.azure.cn/mysql/concepts-limits"> 此文档</a>。 如果您需要更高的连接限制，请更改映射到具有足够高连接限制的SKU的SKU。 对于 SKU 映射，请参阅问题“我的服务器将如何映射到新产品？”。</li>
                     </ul>
                     </br>
                     

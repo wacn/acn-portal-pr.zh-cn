@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2018-05-30T11:20:07" updateDate="2018-11-02T14:00:00">
+  <umbTextpage template="21" createDate="2018-05-30T11:20:07" updateDate="2019-04-16T17:00:00">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="announcement" ms.date="" wacn.date="" wacn.lang="cn"/></p>
@@ -11,7 +11,7 @@
                     <p>We are ending the MySQL Database on Azure service on December 1st, 2019, which will be replaced by the Azure Database for MySQL service.</p>
                     <p>If you are an existing customer:</p>
                     <ul>
-                        <li>No interruption of service</li>
+                        <li>No interruption of service. Except when your server(s) has been scheduled for migration from the retired MySQL Database on Azure service to the new Azure Database for MySQL service, we estimate the total downtime for migration per server to be less than 10 minutes in most cases. However, the exact downtime is depending on the size and rate of change of your existing MySQL Database on Azure instances.</li>
                         <li>You will be automatically migrated to the new service before the end of life of the existing service</li>
                         <li>Migration will begin on Feb 15th, 2019</li>
                         <li>Special pricing will be lost when scaled to a different service tier or if server is deleted</li>
@@ -104,7 +104,7 @@
                     </br>
 
                     <h4>Q: Do I have to migrate myself or will you provide assistance to migrate?</h4>
-                    <p><strong>A:</strong> You do not have to take any action, your MySQL server will be migrated for you. You will receive another communication with additional details 30 days prior to your scheduled migration. Please <a href="https://support.azure.cn/support/support-azure/">file a support ticket</a> if you wish to be migrated earlier.</p>
+                    <p><strong>A:</strong> You do not have to take any action, your MySQL server will be migrated for you. You will receive another communication with additional details 30 days prior to your scheduled migration.</p>
                     </br>
 
                     <h4>Q: What if I migrate to using a mysqldump and mysqlrestore?</h4>
@@ -132,9 +132,18 @@
                     <h4>Q: How do I best prepare for the migration?</h4>
                     <p><strong>A:</strong> There are several things you should do before your scheduled migration to assure a good migration experience:</p>
                     <ul>
-                        <li>Make sure all your tables have a primary key: Without primary keys on all tables, an offline migration might become necessary and you will experience a longer downtime</li>
-                        <li>Adjust your pricing tier to at least MS3 prior to the migration if you want the full service capabilities after the migration: The Basic service tier in Azure Database for MySQL cannot be scaled to the General Purpose or Memory Optimized service tiers. The MS1 and MS2 SKUs will be mapped to the Basic service tier. If you want to make full use of the new service (including features like VNet service endpoints, maximum storage and compute scaling, readable replicas), make sure your database is at least MS3 prior to the migration</li>
-                        <li>o	Prepare for VNet usage: If your client VM is running in a VNet and you have the Microsoft.SQL service endpoint enabled (for example to connect to a SQL Database using the endpoint) you have the following two options:
+                        <li>In the <a href="https://portal.azure.cn/">Azure portal</a>, navigate to the overview for your server and click on ”Migrate to Azure Database for MySQL”. Review and mitigate the list of all potential issues that may block the migration prior to your scheduled migration. Potential issues include:
+                            <p>a.   Missing primary keys: For the tables listed, please add primary key. Without primary keys on all tables, an offline migration might become necessary and you will experience a longer downtime.</p>
+                            <p>b.    Non supported storage engines: For the tables listed which use storage engines that are not supported, please alter the table to use InnoDB. Otherwise, these tables are not accessible after migration.</p>
+                            <p>c.   Invalid names for firewall rules: For the firewall rules listed, please changes their names. Otherwise, these firewall rules cannot be migrated to the new instance.</p>
+                        </li>
+                        <li>Adjust your pricing tier to at least MS3 prior to the migration if you want the full service capabilities after the migration: The Basic service tier in Azure Database for MySQL cannot be scaled to the General Purpose or Memory Optimized service tiers. The MS1 and MS2 SKUs will be mapped to the Basic service tier. If you want to make full use of the new service (including features like VNet service endpoints, maximum storage and compute scaling, readable replicas), make sure your database is at least MS3 prior to the migration.</li>
+                        
+                        <li>Assure you are using a client driver that is supported by the new server. A complete list of supported drivers can be found <a href="//docs.azure.cn/zh-cn/mysql/concepts-compatibility/">here</a>.</li>
+                        <li>Learn how to manage users in the new service: <a href="//docs.azure.cn/zh-cn/mysql/howto-create-users">Create users in Azure Database for MySQL server</a> </li>
+                        <li>Learn about SSL in Azure Database for MySQL: <a href="https://docs.azure.cn/zh-cn/mysql/concepts-ssl-connection-security">SSL connectivity in Azure Database for MySQL</a></li>
+                        <li>Learn how to<a href="https://docs.azure.cn/zh-cn/mysql/concepts-monitoring"> monitor your resource usage</a> including storage utilization and setup alerts for these metrics.</li>
+                        <li>Prepare for VNet usage: If your client VM is running in a VNet and you have the Microsoft.SQL service endpoint enabled (for example to connect to a SQL Database using the endpoint) you have the following two options:
                             <ol>
                                 <li>Remove the Microsoft.SQL service endpoint from your VNet in case you do not need them or</li>
                                 <li>Make sure your current MySQL server is at least MS3 and you configure the correct VNet firewall rules for your server right after the migration completes.</li>
