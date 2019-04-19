@@ -5,7 +5,7 @@
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="03/2016" wacn.date="03/2016" wacn.lang="en"/></p>
 
-        <h1>SLA for Azure IoT Hub</h1><div class="tags-date"><div class="ms-date">Updated: 03/2016</div></div>
+        <h1>SLA for Azure IoT Hub</h1><div class="tags-date"><div class="ms-date">Updated: 04/2019</div></div>
         <p>For IoT Hub, we promise that at least 99.9% of the time deployed IoT hubs will be able to send messages to and receive messages from registered devices and the Service will able to perform create, read, update, and delete operations on IoT hubs.</p>
         <p>No SLA is provided for the Free Tier of IoT Hub.</p>
         <h2>Introduction</h2>
@@ -173,6 +173,36 @@
         </li>
         <li>
         <p>Service Level Exceptions: The Free Tier of the IoT Hub Service is not covered by this SLA.</p>
+        </li>
+        </ol>
+
+        <h3>Monthly Uptime Calculation and Service Levels for IoT Hub Device Provisioning Service</h3>
+        <ol>
+        <li><p><strong>"Maximum Available Minutes"</strong> is the total number of minutes for a given Device Provisioning Service deployed by the Customer in a Microsoft Azure subscription during a billing month.</p></li>
+        <li><p><strong>"Downtime"</strong> is the total number of minutes within the Maximum Available Minutes during which Device Provisioning Service is unavailable. A minute is considered unavailable for a given Device Provisioning Service if all continuous attempts to register a device or perform enrollment/registration record operations on the Device Provisioning Service throughout the minute either return an Error Code or do not result in a Success Code within two minutes.</p></li>
+        <li><p><strong>Monthly Uptime Percentage</strong>: The Monthly Uptime Percentage is calculated using the following formula:</p></li>
+        <li><p>Monthly Uptime % = (Maximum Available Minutes - Downtime) / Maximum Available Minutes X 100</p></li>
+        <li><p>The following Service Levels and Service Credits are applicable to Customer’s use of IoT Hub Device Provisioning Service</p></li>
+        <li>
+        <p>Service Credit:</p>
+        <table>
+        <thead>
+        <tr>
+            <th>MONTHLY UPTIME PERCENTAGE</th>
+            <th>SERVICE CREDIT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&lt;99.9%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>&lt;99%</td>
+            <td>25%</td>
+        </tr>
+        </tbody>
+        </table>
         </li>
         </ol>
     ]]>
