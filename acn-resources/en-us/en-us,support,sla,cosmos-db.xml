@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-08T15:00:00">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-04-19T15:00:00">
     <bodyText>
     <![CDATA[
          <p><tags ms.service="legal-en" ms.date="12/2017" wacn.date="12/2017" wacn.lang="en"/></p>
@@ -143,33 +143,33 @@
             </li>
             <li>
                 <p>&quot;<strong>Failed Read Requests</strong>&quot; are requests within Total Read Requests that either return an Error Code or fail to return a Success Code within the maximum upper bounds documented in the table below.</p>
+                <table>
+                    <tr>
+                        <th>OPERATION</th>
+                        <th>MAXIMUM UPPER BOUND ON PROCESSING LATENCY</th>
+                    </tr>
+                    <tr>
+                        <td>All Database Account configuration operations</td>
+                        <td>2 Minutes</td>
+                    </tr>
+                    <tr>
+                        <td>Add a new Region</td>
+                        <td>60 Minutes</td>
+                    </tr>
+                    <tr>
+                        <td>Manual Failover</td>
+                        <td>5 Minutes</td>
+                    </tr>
+                    <tr>
+                        <td>Resource Operations</td>
+                        <td>5 Sec</td>
+                    </tr>
+                    <tr>
+                        <td>Media Operations</td>
+                        <td>60 Sec</td>
+                    </tr>
+                </table>
             </li>
-            <table>
-                <tr>
-                    <th>OPERATION</th>
-                    <th>MAXIMUM UPPER BOUND ON PROCESSING LATENCY</th>
-                </tr>
-                <tr>
-                    <td>All Database Account configuration operations</td>
-                    <td>2 Minutes</td>
-                </tr>
-                <tr>
-                    <td>Add a new Region</td>
-                    <td>60 Minutes</td>
-                </tr>
-                <tr>
-                    <td>Manual Failover</td>
-                    <td>5 Minutes</td>
-                </tr>
-                <tr>
-                    <td>Resource Operations</td>
-                    <td>5 Sec</td>
-                </tr>
-                <tr>
-                    <td>Media Operations</td>
-                    <td>60 Sec</td>
-                </tr>
-            </table>
             <li>
                 <p>&quot;<strong>Provisioned RUs</strong>&quot; is the total provisioned Request Units for a given Azure Cosmos DB Collection for a given second.</p>
             </li>
@@ -324,8 +324,7 @@
             </li>
             <li>
                 <p>&quot;<strong>Consistency Level</strong>&quot; is the setting for a particular read request that supports consistency guarantees. The following table captures the guarantees associated with the Consistency Levels.Note that Session, Bounded Staleness, Consistent Prefix and Eventual Consistency Levels are all referred to as “relaxed”.</p>
-            </li>
-            <table>
+                <table>
                     <thead>
                     <tr>
                         <th>CONSISTENCY LEVEL</th>
@@ -370,6 +369,7 @@
                     </tr>
                     </tbody>
                 </table>
+            </li>
             <li>
                 <p>&quot;<strong>Consistency Violation Rate</strong>&quot; is Successful Requests that could not be delivered when performing the consistency guarantees specified for the chosen Consistency Level divided by Total Requests, across all Resources in a given Azure subscription, during a given one-hour interval. If the Total Requests in a given one-hour interval is zero, the Consistency Violation Rate for that interval is 0%.。</p>
             </li>

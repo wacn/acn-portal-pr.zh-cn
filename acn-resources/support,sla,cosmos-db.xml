@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-08T15:00:00">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-04-19T15:00:00">
     <bodyText>
     <![CDATA[
          <p><tags ms.service="legal" ms.date="12/2017" wacn.date="12/2017" wacn.lang="cn"/></p>
@@ -143,33 +143,33 @@
             </li>
             <li>
                 <p>“<strong>失败的读取请求数</strong>”是指在下表中记录的最大上限内，总读取请求中返回错误代码或未能返回成功代码的请求数。</p>
+                <table>
+                    <tr>
+                        <th>操作</th>
+                        <th>处理延迟最大上限</th>
+                    </tr>
+                    <tr>
+                        <td>所有数据库帐户配置操作</td>
+                        <td>2 分钟   </td>
+                    </tr>
+                    <tr>
+                        <td>添加新区域</td>
+                        <td>60 分钟</td>
+                    </tr>
+                    <tr>
+                        <td>手动故障转移</td>
+                        <td>5 分钟</td>
+                    </tr>
+                    <tr>
+                        <td>资源操作</td>
+                        <td>5 秒</td>
+                    </tr>
+                    <tr>
+                        <td>媒体操作</td>
+                        <td>60 秒</td>
+                    </tr>
+                </table>
             </li>
-            <table>
-                <tr>
-                    <th>操作</th>
-                    <th>处理延迟最大上限</th>
-                </tr>
-                <tr>
-                    <td>所有数据库帐户配置操作</td>
-                    <td>2 分钟   </td>
-                </tr>
-                <tr>
-                    <td>添加新区域</td>
-                    <td>60 分钟</td>
-                </tr>
-                <tr>
-                    <td>手动故障转移</td>
-                    <td>5 分钟</td>
-                </tr>
-                <tr>
-                    <td>资源操作</td>
-                    <td>5 秒</td>
-                </tr>
-                <tr>
-                    <td>媒体操作</td>
-                    <td>60 秒</td>
-                </tr>
-            </table>
             <li>
                 <p>“<strong>配置的 RU</strong>”是指在指定的一秒内，为指定 Azure Cosmos DB 集合配置的所有请求单位。</p>
             </li>
@@ -324,8 +324,7 @@
             </li>
             <li>
                 <p>“<strong>一致性水平</strong>”是指用于支持一致性保证的针对特定读取请求的设定。下表列出了有关一致性水平的保证。请注意，会话、有限过期、一致前缀和最终一致性水平均为“松散”的一致性水平。</p>
-            </li>
-            <table>
+                <table>
                     <thead>
                     <tr>
                         <th>一致性水平</th>
@@ -370,6 +369,7 @@
                     </tr>
                     </tbody>
                 </table>
+            </li>
             <li>
                 <p>“<strong>一致性违反率</strong>”是指某一指定的 Azure 订购中的所有资源在给定的一小时时间间隔内，针对所选一致性水平执行一致性保证时未能交付的成功请求数，除以总请求数。如果指定的一小时时间间隔内的“总请求数”为零，则该时间间隔的“一致性违反率”为 0%。</p>
             </li>
