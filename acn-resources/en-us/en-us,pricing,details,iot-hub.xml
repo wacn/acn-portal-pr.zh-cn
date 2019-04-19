@@ -29,6 +29,7 @@
                     <p><strong>S1 Edition:</strong> The IoT Hub S1 edition is designed for IoT solutions that generate relatively small amounts of data. Each S1 Edition pricing unit allows you to transfer up to 400,000 million messages per day across all connected devices.</p>
                     <p><strong>S2 Edition:</strong> The IoT Hub S2 Edition is designed for IoT solutions that generate relatively large amounts of data. Each S2 Edition pricing unit allows you to transfer up to 6 million messages per day across all connected devices.</p>
                     <p><strong>S3 Edition:</strong> The IoT Hub S3 Edition is designed for IoT solutions that generate extra large amounts of data. Each S3 Edition pricing unit allows you to transfer up to 300 million messages per day across all connected devices.</p> -->
+                    <h3>Iot Hub</h3>
                     <p>Connect your IoT devices and build your IoT solution to turn data into business intelligence.</p>
                     <h4>Basic tier <sup style="color:#e66102; font-weight: bold">new</sup></h4>
                     <div class="tags-date">
@@ -146,7 +147,20 @@
                             <td>√</td>
                         </tr>
                     </table>
-                   
+
+                    <h3>Azure IoT Hub Device Provisioning Service</h3>
+                    <p>Enable zero-touch provisioning to the right IoT Hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner.</p>
+                    <p>The Azure IoT Hub Device Provisioning Service enables zero-touch provisioning to the right IoT Hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner. It enables device lifecycle support and important capabilities, that together with IoT Hub device management, helps customers address all stages of IoT device lifecycle.</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>TIER</strong></th>
+                            <th align="left"><strong>PRICE</strong></th>
+                        </tr>
+                        <tr>
+                            <td>S1</td>
+                            <td>￥0.636 per 1,000 operations</td>
+                        </tr>
+                    </table>
                 </div>
                 <!-- END: TAB-CONTAINER-1 -->
             </div>
@@ -324,6 +338,15 @@
                                 <a id="vm-que-q18">Can I switch among any of the Basic IoT Hub editions?</a>
                                 <section>
                                     <p>Yes, you have to take the action of explicitly switching from one paid edition to another. The device identity and all messages are carried over to the new edition. If a customer wants to move from a higher tier to a lower tier, for instance from B2 to B1, and they have consumed more messages than B1 allows per day, then for that day the customer is billed at B2, and the customer is billed at the B1 rate starting the next day.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="iot-switch-basic-to -tandard">Can I switch from IoT Hub basic to standard tier and vice versa?</a>
+                                <section>
+                                    <p>Yes, you can upgrade from basic to standard tier via Azure Portal, but you cannot downgrade from standard to basic tier. To move from standard to basic you will have to create a new basic tier IoT Hub and need to re-register your devices to that IoT hub.</p>
                                 </section>
                             </div>
                         </li>

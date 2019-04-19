@@ -31,6 +31,7 @@
                     <p><strong>S1 版：</strong>IoT 中心 S1 版为生成相对少量数据的 IoT 解决方案而设计。S1 版的每个计价单位让你能够在所有已连接设备间每天传输最多 400,000 条消息。</p>
                     <p><strong>S2 版：</strong>IoT 中心 S2 版为生成大量数据的 IoT 解决方案而设计。S2 版的每个计价单位让你能够在所有已连接设备间每天传输最多 600 万条消息。</p>
                     <p><strong>S3 版：</strong>IoT 中心 S3 版为生成超大量数据的 IoT 解决方案而设计。S3 版的每个计价单位让你能够在所有已连接设备间每天传输最多 3 亿条消息。</p> -->
+                    <h3>Iot 中心</h3>
                     <p>连接 IoT 设备，构建 IoT 解决方案，将数据转换为商业智能。</p>
                     <h4>基本级别 <sup style="color:#e66102; font-weight: bold">new</sup></h4>
                     <div class="tags-date">
@@ -146,6 +147,20 @@
                             <td>设备管理、设备孪生</td>
                             <td></td>
                             <td>√</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Azure IoT 中心设备预配服务</h3>
+                    <p>对合适的 IoT 中心启用无需人为干预的零接触预配，客户可以采用安全且可缩放的方式预配数百万台设备。</p>
+                    <p>使用 Azure IoT 中心设备预配服务，无需人为干预即可零接触预配至合适的 IoT 中心，客户可以采用安全且可缩放的方式预配数百万台设备。它还可以启用设备生命周期支持持和重要功能，可与 IoT 中心设备管理配合使用，帮助客户处理 IoT 设备生命周期的各个阶段。</p>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>层</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>S1</td>
+                            <td>每 1,000 次操作 ￥0.636</td>
                         </tr>
                     </table>
                 </div>
@@ -304,6 +319,15 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
+                                <a id="iot-dps-billing">IoT 中心设备预配服务如何计费？</a>
+                                <section>
+                                    <p>Azure IoT 中心设备预配服务按操作数计费。操作包括设备注册和重新注册，还包括服务更改（例如添加注册列表条目、更新注册列表条目和获取/查询操作）。给定的注册条目上，每六个月处于不活动状态将引发“保持活动状态”操作。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
                                 <a id="vm-que-q16">可以在任何标准 IoT 中心版之间切换吗？</a>
                                 <section>
                                     <p>是的，你必须采取措施从一个付费版本显式切换到另一版本。设备 ID 和所有消息均传递到新版本中。如果客户想要从较高级别切换到较低级别（例如，从 S2 切换到 S1），并且他们使用的消息数超出了 S1 允许的每日消息数，则当天将按 S2 对该客户收费，并从下一天起按 S1 费率收费。</p>
@@ -322,7 +346,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="vm-que-q18">可以在 IoT 中心基本层与标准层之间相互切换吗？</a>
+                                <a id="iot-switch-basic-to -tandard">可以在 IoT 中心基本层与标准层之间相互切换吗？</a>
                                 <section>
                                     <p>可以。可通过 Azure 门户从基本层升级为标准层，但不能从标准层降级为基本层。若要从标准层移至基本层，必须创建一个新的基本层 IoT 中心，并需向该 IoT 中心重新注册设备。</p>
                                 </section>
