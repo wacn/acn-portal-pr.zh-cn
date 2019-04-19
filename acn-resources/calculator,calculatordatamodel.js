@@ -21022,8 +21022,28 @@ var CalculatorData = {
                 }]
             }]
         },
-
-
+        "azure-iot-hub-dps": {
+            Name: "Azure IoT 中心设备预配服务",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,1000000",
+                        PricePerTier: "0.636",
+                        MinUnit: "0",
+                        MaxUnit: "1000000",
+                        PriceUnit: "每 1000 个操作"
+                    }]
+                }]
+            }]
+        },
 
         "cosmos-db_ssd": {
             Name: "Azure Cosmos DB - SSD",
