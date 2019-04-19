@@ -4,7 +4,64 @@
     <bodyText>
       <![CDATA[
            <tags ms.service="iot-hub" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
-
+           <style>
+                .cognitive-banner{
+                    margin: 30px 0;
+                }
+                .cognitive-figure{
+                    padding-bottom: 30px;
+                    margin-bottom: 30px;
+                    border-bottom: 1px #ccc solid;
+                    overflow: hidden;
+                }
+                .cognitive-figure .col-md-3{
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                .cognitive-figure .col-md-9{
+                    padding-left: 2%;
+                    padding-right: 0;
+                }
+                .pricing-page-section .cognitive-figure .col-md-9 h2, .container .pure-content .pricing-page-section .cognitive-icon-group .cognitive-text h2{
+                    margin-top: 4px !important;
+                }
+                .cognitive-icon-group{
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                    list-style:none;
+                    padding-left:0 !important;
+                }
+                .cognitive-icon-group li{
+                    width:100%;
+                    overflow:hidden;
+                    margin-bottom: 30px !important;
+                }
+                .cognitive-icon-group li div{
+                    float: left;
+                }
+                .cognitive-icon{
+                    width: 10%;
+                    min-width: 100px;
+                    margin-right:-120px;
+                }
+                .cognitive-text{                   
+                    margin-left:120px;
+                }
+                .cognitive-icon-group li:last-child{
+                    margin-bottom: 0 !important;
+                }
+                @media only screen and (max-width: 769px){
+                    .cognitive-figure{
+                        padding-bottom: 20px;
+                    }
+                    .cognitive-figure .col-md-9{
+                        padding-left: 0;
+                    }
+                    .pricing-page-section .cognitive-figure .col-md-9 h2{
+                        margin-top: 26px !important;
+                    }
+                }
+            </style>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/azure-Iot-hub.jpg','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -20,28 +77,42 @@
             <!-- END: Product-Detail-TopBanner -->
             <!-- BEGIN: Product-Detail-Content -->
             <div class="pricing-page-section">
-                <h1>连接、监视并控制数百万 IoT 资产</h1>
-                <ul>
-                    <li>快速入门</li>
-                    <li>连接数百万资产</li>
-                    <li>支持各种操作系统和协议</li>
-                    <li>建立可靠的双向通信</li>
-                    <li>提升 IoT 解决方案的安全性</li>
-                </ul>
-                <h2>与数百万 IoT 设备建立双向通信</h2>
-                <p>依靠 Azure IoT 中心轻松安全地连接物联网 (IoT) 资产。使用设备到云的遥测数据，了解设备和资产的状态，在设备需要关注时立即采取措施。在云到设备消息中，可靠地向连接的设备发送命令和通知，并通过确认回执跟踪消息传递。通过持久的方法发送设备消息，以适应间歇性连接的设备。</p>
-
-                <h2>使用熟悉的平台和协议</h2>
-                <p>使用适用于多个平台（包括 Linux、Windows 和实时操作系统）的开放源代码设备 SDK 添加新设备并连接现有设备。使用标准协议和自定义协议，包括 HTTP、高级消息队列协议 (AMQP) 和 MQ 遥测传输 (MQTT)。</p>
-
-                <h2>每设备身份验证可提升 IoT 解决方案的安全性</h2>
-                <p>为每个连接的设备设置标识和凭据，并帮助保持云到设备和设备到云消息的保密性。要保持系统的完整性，请根据需要选择性地撤消特定设备的访问权限。</p>
-
-                <h2>通过设备管理，大规模管理 IoT 设备</h2>
-                <p>借助 Azure IoT 中心新的设备管理功能，管理员可在云端大规模地远程维护、更新和管理 IoT 设备。免除自定义设备管理解决方案的开发和维护任务，或者无需再花费资源维护全球资产，从而节省了时间和成本。</p>
-
-                <h2>通过 Azure IoT 网关 SDK 利用边缘智能</h2>
-                <p>IoT 网关 SDK 提供强大的框架来生成、配置和部署边缘逻辑，从而让你能够使用 Azure IoT 做更多的事。无论你选择连接旧设备、降低带宽成本、实施安全和因此策略或者任何其他数据处理 — IoT 网关 SDK 都可以简化部署过程，以便让你专心解决真正重要的问题。深入了解<a href="/home/features/iot-hub/iot-gateway-sdk/" id="iot-hub_iot-gateway-sdk">Azure IoT 网关 SDK</a>。</p>
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/product-iot-hub-establish.svg" alt="与数十亿台 IoT 设备建立双向通信">
+                    </div>
+                    <div class="col-md-9">
+                        <h2>与数十亿台 IoT 设备建立双向通信</h2>
+                        <p>设备到云的遥测数据可用于了解设备状态，以及定义到其他 Azure 服务的消息路由，无需编写任何代码。在云到设备消息中，可靠地向连接的设备发送命令和通知，并通过确认回执跟踪消息传递。通过持久的方法发送设备消息，以适应间歇性连接的设备。</p>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-9">
+                        <h2>每设备身份验证可提升 IoT 解决方案的安全性</h2>
+                        <p>为每台连接的设备设置个人标识和凭据，并帮助保持云到设备和设备到云消息的保密性。要保持系统的完整性，请根据需要选择性地撤消特定设备的访问权限。</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/product-iot-hub-authenticate.svg" alt="每设备身份验证可提升 IoT 解决方案的安全性">
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/product-iot-hub-automate.svg" alt="实现 IoT 设备配置和注册的自动化，加速 IoT 部署过程">
+                    </div>
+                    <div class="col-md-9">
+                        <h2>实现 IoT 设备配置和注册的自动化，加速 IoT 部署过程</h2>
+                        <p>采用可缩放的安全方式，以零接触方法注册和预配设备，加速 IoT 部署过程。IoT 中心设备预配服务支持与 IoT 中心兼容的任何 IoT 设备类型。<a href="https://docs.azure.cn/iot-dps/">阅读文档</a></p>
+                    </div>
+                </div>
+                <div class="cognitive-figure">
+                    <div class="col-md-9">
+                        <h2>将云的功能扩展到边缘设备</h2>
+                        <p>利用 IoT Edge 实现混合云解决方案和边缘 IoT 解决方案。IoT Edge 提供代码和服务之间的简单业务流程，使其能够在云和边缘之间安全流动以在一系列设备之间分配智能。允许在边缘处启用人工智能和其他高级分析、降低 IoT 解决方案成本、简化开发工作并支持在离线或间歇性连接状态下操作设备。<a href="https://www.azure.cn/home/features/iot-edge/">探索 IoT Edge</a></p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/product-iot-hub-extend.svg" alt="将云的功能扩展到边缘设备">
+                    </div>
+                </div>
             </div>
             <!-- END: Product-Detail-Content -->
             <!-- BEGIN: Read-More -->
