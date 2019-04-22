@@ -237,12 +237,12 @@
 							</tr>
 							<tr>
 								<td>所有其他操作（按 10,000 计）</td>
-								<td align="center">￥0.015</td>
-								<td align="center">￥0.03</td>
-								<td align="center">￥0.03</td>
-								<td align="center">￥0.015</td>
-								<td align="center">￥0.03</td>
-								<td align="center">￥0.03</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
 							</tr>
 							<tr>
 								<td>数据检索 (GB)</td>
@@ -262,15 +262,7 @@
 								<td align="center">免费</td>
 								<td align="center">免费</td>
 							</tr>
-							<tr>
-								<td>异地复制数据传输 (GB)</td>
-								<td align="center">不适用</td>
-								<td align="center">不适用</td>
-								<td align="center">不适用</td>
-								<td align="center">￥0.67</td>
-								<td align="center">￥0.67</td>
-								<td align="center">￥0.67</td>
-							</tr>
+							
 						</tbody></table>
 						<div class="tags-date">
 							<div class="ms-date">*以下 API 调用视为写入操作：PutBlob、PutBlock、PutBlockList、AppendBlock、SnapshotBlob、CopyBlob 和 SetBlobTier（将 blob 从“热”移到“冷”，从“冷”移到“存档”或从“热”移到“存档”时。）。</div><br />
@@ -388,10 +380,10 @@
 							</tr>
 							<tr>
 								<td>所有其他操作（按 10,000 计）</td>
-								<td align="center">￥0.03</td>
-								<td align="center">￥0.015</td>
-								<td align="center">￥0.03</td>
-								<td align="center">￥0.015</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
+								<td align="center">￥0.040704</td>
 							
 							</tr>
 							<tr>
@@ -408,15 +400,21 @@
 								<td align="center">￥0.0328</td>
 								<td align="center">免费</td>
 							</tr>
-							<tr>
-								<td>异地复制数据传输 (GB)</td>
-								<td align="center">不适用</td>
-								<td align="center">不适用</td>
-								<td align="center">￥0.67</td>
-								<td align="center">￥0.67</td>
-							</tr>
 						</table>
 						
+						<h4>块 Blob 的数据传输价格（每 GB）</h4>
+						<p>将数据写入到 GRS 帐户时，该数据将被复制到另一个 Azure 区域。异地复制数据传输费用是将数据复制到另一个 Azure 区域的带宽成本。 将帐户复制设置从 LRS 更改为 GRS 或 RA-GRS 时，仍需收取此费用。</p>
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<!-- <th align="left"><strong>本地冗余存储 (LRS) 或 区域冗余存储 (ZRS)</strong></th> -->
+								<th align="left"><strong>本地冗余存储 (LRS)</th>
+								<th align="left"><strong>异地冗余存储 (GRS) 和 读取访问跨异地冗余存储(RA-GRS)</strong></th>
+							</tr>
+							<tr>
+								<td>不适用</td>
+								<td>￥0.67/GB</td>
+							</tr>
+						</table>
 						<!-- END: Table1-Content-1 -->
 					</div>
                     <div class="tab-panel" id="tabContent3">
