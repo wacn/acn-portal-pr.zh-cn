@@ -6167,7 +6167,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.03",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6183,7 +6183,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.015",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6199,7 +6199,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.03",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6394,7 +6394,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.03",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6410,7 +6410,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.015",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6426,7 +6426,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "31.825",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6511,7 +6511,8 @@ var CalculatorData = {
                         MaxUnit: "5000",
                         PriceUnit: "GB"
                     }]
-                }]
+                }
+            ]
             }]
         },
         "storage-cold-hot-block-blob": {
@@ -6700,7 +6701,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.03",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6716,7 +6717,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.015",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6831,7 +6832,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.03",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
@@ -6847,7 +6848,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.015",
+                        PricePerTier: "0.040704",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "10000 个"
