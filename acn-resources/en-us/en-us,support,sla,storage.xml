@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-04-26T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="08/2017" wacn.date="08/2017" wacn.lang="en"/></p>
 
-        <h1>SLA for Storage</h1><div class="tags-date"><div class="ms-date">Updated: 08/2017</div></div>
+        <h1>SLA for Storage</h1><div class="tags-date"><div class="ms-date">Updated: 05/2019</div></div>
         <p>We guarantee that at least 99.99% (99.9% for Cool Access Tier) of the time, we will successfully process requests to read data from Read Access-Geo Redundant Storage (RA-GRS) Accounts, provided that failed attempts to read data from the primary region are retried on the secondary region.</p>
         <p>We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to read data from Locally Redundant Storage (LRS) and Geo Redundant Storage (GRS) Accounts.</p>
         <p>We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to write data to Locally Redundant Storage (LRS) and Geo Redundant Storage (GRS) Accounts and Read Access-Geo Redundant Storage (RA-GRS) Accounts.</p>
@@ -138,6 +138,9 @@
         <p>&quot;<strong>Blob Storage Account</strong>&quot; is a storage account specialized for storing data as blobs and provides the ability to specify an access tier indicating how frequently the data in that account is accessed.</p>
         </li>
         <li>
+        <p>&quot;<strong>Block Blob Storage Account</strong>&quot; is a storage account specialized for storing data as block or append blobs on solid-state drives.</p>
+        </li>
+        <li>
         <p>&quot;<strong>Cool Access Tier</strong>&quot; is an attribute of a Blob Storage Account indicating that the data in the account is infrequently accessed and has a lower availability service level than data in other access tiers.</p>
         </li>
         <li>
@@ -234,7 +237,7 @@
 
         </li>
         <li>
-        <p>Service Credit – LRS, GRS and RA-GRS (write requests) Accounts:</p>
+        <p>Service Credit – hot blobs in LRS, GRS and RA-GRS (write requests) Accounts, and blobs in LRS Block Blob Storage Accounts:</p>
         <table>
         <thead>
         <tr>
@@ -255,7 +258,7 @@
         </table>
         </li>
         <li>
-        <p>Service Credit – RA-GRS (read requests) Accounts:</p>
+        <p>Service Credit – Hot Blobs in RA-GRS (read requests) Accounts:</p>
         <table>
         <thead>
         <tr>
@@ -276,7 +279,7 @@
         </table>
         </li>
         <li>
-        <p>Service Credit – LRS, GRS and RA-GRS (write requests) Blob Storage Accounts (Cool Access Tier):</p>
+        <p>Service Credit – Cool Blobs in LRS, GRS, RA-GRS (write requests) Accounts:</p>
         <table>
         <thead>
         <tr>
@@ -297,7 +300,7 @@
         </table>
         </li>
         <li>
-        <p>Service Credit – RA-GRS (read requests) Blob Storage Accounts (Cool Access Tier):</p>
+        <p>Service Credit – Cool Blobs in RA-GRS (read requests) Accounts:</p>
         <table>
         <thead>
         <tr>
@@ -319,7 +322,9 @@
         </li>
         </ol>
         <h2>Version History</h2>
-        <p><a id="storage-en-sla_storage-en-sla" href="/support/sla/storage/">1.2</a>  Last updated: Aug 2017</p>
+        <p><a id="storage-en-sla_storage-en-sla-1.3" href="/support/sla/storage/">1.3</a>  Last updated: May 2019</p>
+        <p> Release notes: Updated SLA for the newly introduced Block Blob Storage Accounts. </p>
+        <p><a id="storage-en-sla_storage-en-sla-1.2" href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/sla_for_storage-en_1.2.pdf">1.2</a>  Last updated: Aug 2017</p>
         <p>Release notes: Updated SLA to reflect guarantees for Azure File Storage. </p>
         <p><a id="storage-en-sla_storage-en-sla-1.1pdf" href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/sla_for_storage-en_1.1.pdf">1.1</a> Last updated: Aug 2016</p>
         <p>Release notes: Updated SLA for the newly introduced Blob Storage Accounts with the Cool Access Tier on 8/9/2016. </p>
