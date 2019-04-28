@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-04-26T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="08/2017" wacn.date="08/2017" wacn.lang="en"/></p>
 
-        <h1>SLA for VPN Gateway</h1><div class="tags-date"><div class="ms-date">Updated: 08/2017</div></div>
+        <h1>SLA for VPN Gateway</h1><div class="tags-date"><div class="ms-date">Updated: 04/2019</div></div>
         <p>We guarantee 99.9% availability for each Basic Gateway for VPN or Basic Gateway for ExpressRoute. </p>
-        <p>We guarantee 99.95% availability for each Standard, High Performance, VpnGw1, VpnGw2, VpnGw3  Gateway for VPN. </p>
-        <p>We guarantee 99.95% availability for each Standard, High Performance, Ultra Performance  Gateway for ExpressRoute.</p>
+        <p>We guarantee 99.95% availability for all Gateway for VPN SKUs excluding Basic. </p>
+        <p>We guarantee 99.95% availability for all Gateway for ExpressRoute SKUs excluding Basic.</p>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this “SLA”) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the “Agreement”).</p>
         <p>We provide financial backing to our commitment to achieve and maintain Service Levels for our Services. If we do not achieve and maintain the Service Levels for each Service as described in this SLA, then you may be eligible for a credit towards a portion of your monthly service fees. These terms will be fixed for term of your Agreement. If a subscription is renewed, the version of this SLA that is current at the time the renewal term commences will apply throughout the renewal term. We will provide at least 90 days' notice for adverse material changes to this SLA. You can review the most current version of this SLA at any time by visiting <a href="/support/legal/sla/">https://www.azure.cn/support/legal/sla/</a>.</p>
@@ -158,7 +158,7 @@
         </li>
         </ol>
         <h2>The SLA details</h2>
-        <p>Monthly Uptime Calculation and Service Levels for VPN Gateway</p>
+        <h3>Monthly Uptime Calculation and Service Levels for VPN Gateway</h3>
         <p>1.&quot;<strong>Maximum Available Minutes</strong>&quot; is the total accumulated minutes during a billing month during which a given VPN Gateway has been deployed in an Azure subscription.  
         </p>
         <p>2.&quot;<strong>Downtime</strong>&quot; is the total accumulated Maximum Available Minutes during which a VPN Gateway is unavailable. A minute is considered unavailable if all attempts to connect to the VPN Gateway within a thirty-second window within the minute are unsuccessful.  
@@ -186,7 +186,7 @@
         </tr>
         </tbody>
         </table>
-        <h3>Standard, High Performance, VpnGw1, VpnGw2, VpnGw3  Gateway for VPN / Standard, High Performance, Ultra Performance Gateway for ExpressRoute</h3>
+        <h3>Gateway for VPN and Gateway for ExpressRoute SKUs excluding Basic</h3>
         <table>
         <thead>
         <tr>
@@ -206,11 +206,13 @@
         </tbody>
         </table>
         <h2>Version History</h2>
-        <p><a href="/support/sla/vpn-gateway/">1.2</a> Last updated: August  2017</p>
-        <p>Release notes: Updated Service Credit tables to include new generation gateways: VpnGw1, VpnGw2 and VpnGw3</p>
+        <p><a href="/support/sla/vpn-gateway/">1.3</a> Last updated: April 2019</p>
+        <p>Release notes: Updated summary and Service Credit table to clarify all Gateway for VPN and Gateway for ExpressRoute SKUs covered by SLA.</p>
+        <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/vpn_gateway_sla_english1.2.pdf">1.2</a> Last updated: August  2017</p>
+        <p>Release notes: Updated Service Credit tables to include new generation gateways: VpnGw1, VpnGw2 and VpnGw3.</p>
         <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/vpn_gateway_sla_english1.1.pdf">1.1</a> Last updated： Mar 2017</p>
         <p>Release notes: Updated the Summary statement to include all VPN Gateway types</p>
-        <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/vpn_gateway_sla_english1.0.pdf">1.0</a> Last updated： May 2016</p>
+        <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/vpn_gateway_sla_english1.0.pdf">1.0</a> Last updated： May 2016.</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>

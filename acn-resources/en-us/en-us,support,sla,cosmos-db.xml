@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-04-19T15:00:00">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-04-25T15:00:00">
     <bodyText>
     <![CDATA[
          <p><tags ms.service="legal-en" ms.date="12/2017" wacn.date="12/2017" wacn.lang="en"/></p>
 
-        <h1>SLA for Azure Cosmos DB</h1><div class="tags-date"><div class="ms-date">Updated: 11/2018</div></div>
+        <h1>SLA for Azure Cosmos DB</h1><div class="tags-date"><div class="ms-date">Updated: 05/2019</div></div>
         <p><a href="/home/features/cosmos-db/">Azure Cosmos DB</a>, operated by 21Vianet in China, is <a href="//docs.azure.cn/zh-cn/cosmos-db/distribute-data-globally/">a distributed</a> multi-model database service. It offers turnkey  distribution across any number of Azure regions in China by transparently scaling and replicating your data wherever your users are. The service offers comprehensive 99.99% SLAs which covers the guarantees for throughput, consistency, availability and latency for the Cosmos DB Database Accounts scoped to a single Azure region configured with any of the five Consistency Levels or Database Accounts spanning multiple Azure regions, configured with any of the four relaxed Consistency Levels. Furthermore, independent of the choice of a Consistency Level, Cosmos DB offers 99.999% SLA for read availability for Database Accounts spanning two or more Azure regions.</p>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this &quot;SLA&quot;) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the &quot;Agreement&quot;).</p>
@@ -405,7 +405,7 @@
         <h3>Latency SLA</h3>
         <ol>
             <li>
-                <p>&quot;<strong>Application</strong>&quot; is an Azure Cosmos DB application deployed within a local Azure region using the Azure Cosmos DB client SDK configured with TCP direct connectivity for a given Azure subscription in a billing month.</p>
+                <p>&quot;<strong>Application</strong>&quot; is an Azure Cosmos DB application deployed within a local Azure region with accelerated networking enabled and using the Azure Cosmos DB client SDK configured with TCP direct connectivity for a given Azure subscription in a billing month.</p>
             </li>
             <li>
                 <p>&quot;<strong>N</strong>&quot;is the number of Successful Requests for a given Application performing either document read or document write operations with a payload size less than or equal to 1 KB in a given hour.</p>
@@ -421,7 +421,7 @@
                 <p>&quot;<strong>P99 Latency</strong>&quot; is the value at the Ordinal Rank of S.</p>
             </li>
             <li>
-                <p>&quot;<strong>Excessive Latency Hours</strong>&quot; is the total number of one-hour intervals during which Successful Requests submitted by an Application resulted in a P99 Latency greater than or equal to 10ms for document read or 15ms for document write operations. If the number of Successful Requests in a given one-hour interval is zero, the Excessive Latency Hours for that interval is 0.</p>
+                <p>&quot;<strong>Excessive Latency Hours</strong>&quot; is the total number of one-hour intervals during which Successful Requests submitted by an Application resulted in a P99 Latency greater than or equal to 10ms for document read or 10ms for document write operations. If the number of Successful Requests in a given one-hour interval is zero, the Excessive Latency Hours for that interval is 0.</p>
             </li>
             <li>
                 <p>&quot;<strong>Average Excessive Latency Rate</strong>&quot; for a billing month is the sum of Excessive Latency Hours divided by the total number of hours in the billing month.</p>
@@ -452,6 +452,10 @@
                 </table>
             </li>
         </ol> 
+        <h2>Version History</h2>
+        <p><a id="cosmos-db-sla-en_cosmos-db-sla-en" href="/support/sla/cosmos-db/" aria-label="cosmos-db-sla-en_cosmos-db-sla-en">1.1</a> Last updated: May 2019</p>
+        <p>Release notes: Improved write SLA to 10ms for all accounts.</p>
+        <p><a id="cosmos_db-sla-en_cosmos_db-sla-en1.0.pdf" href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/cosmos_db_sla_english1.0.pdf" aria-label="cosmos_db-sla-en_cosmos_db-sla-en1.0.pdf" target="_blank">1.0</a> Last updated： November 2018</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
