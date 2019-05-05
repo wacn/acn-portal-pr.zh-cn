@@ -21070,7 +21070,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "标准 ExpressRoute 网关",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.19",
+                        PricePerTier: "1.1914",
                     }]
                 }]
             },
@@ -21086,7 +21086,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "高性能 ExpressRoute 网关",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.13",
+                        PricePerTier: "3.1276",
                     }]
                 }]
             },
@@ -21102,7 +21102,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "超高性能 ExpressRoute 网关",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.91",
+                        PricePerTier: "11.9069",
                     }]
                 }]
             }]
