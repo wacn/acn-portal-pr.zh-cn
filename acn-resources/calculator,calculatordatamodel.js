@@ -9088,6 +9088,54 @@ var CalculatorData = {
                         PricePerTier: "3322.63",
                     }]
                 }]
+            },
+            {
+                Name: "P60",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 8TB，磁盘读写 (IOPS)16000，磁盘吞吐 500MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6645.26",
+                    }]
+                }]
+            },
+            {
+                Name: "P70",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 16TB，磁盘读写 (IOPS)18000，磁盘吞吐 750MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "13290.52",
+                    }]
+                }]
+            },
+            {
+                Name: "P80",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 32TB，磁盘读写 (IOPS)20000，磁盘吞吐 900MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "26581.04",
+                    }]
+                }]
             }]
         },
 
@@ -9268,7 +9316,7 @@ var CalculatorData = {
                 }]
             },
             {
-                Name: "S40",
+                Name: "E60",
                 Features: [{
                     Name: "default",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -9277,14 +9325,14 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [{
                         Name: "default",
-                        Description: "磁盘大小 2TB",
+                        Description: "磁盘大小 8TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "552.96",
+                        PricePerTier: "6252.13",
                     }]
                 }]
             },
             {
-                Name: "S50",
+                Name: "E70",
                 Features: [{
                     Name: "default",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -9293,29 +9341,29 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [{
                         Name: "default",
-                        Description: "磁盘大小 4TB",
+                        Description: "磁盘大小 16TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1105.92",
+                        PricePerTier: "12504.27",
                     }]
                 }]
             }
-                //  ,
-                //    {
-                //       Name: "S60",
-                //       Features: [{
-                //           Name: "default",
-                //           PricePeriod: PricePeriodEnum.Monthly,
-                //           PriceUnit: "个",
-                //           MinUnit: "0",
-                //           MaxUnit: "20",
-                //           Sizes: [{
-                //               Name: "default",
-                //               Description: "磁盘大小 8TB",
-                //               PriceTier: PriceTierEnum.Fixed,
-                //               PricePerTier: "2211.84",
-                //           }]
-                //       }]
-                //}
+                 ,
+                   {
+                      Name: "E80",
+                      Features: [{
+                          Name: "default",
+                          PricePeriod: PricePeriodEnum.Monthly,
+                          PriceUnit: "个",
+                          MinUnit: "0",
+                          MaxUnit: "20",
+                          Sizes: [{
+                              Name: "default",
+                              Description: "磁盘大小 32TB",
+                              PriceTier: PriceTierEnum.Fixed,
+                              PricePerTier: "25008.54",
+                          }]
+                      }]
+                }
             ]
         },
 
@@ -9494,24 +9542,52 @@ var CalculatorData = {
                         PricePerTier: "1105.92",
                     }]
                 }]
-            }
-                //  ,
-                //    {
-                //       Name: "S60",
-                //       Features: [{
-                //           Name: "default",
-                //           PricePeriod: PricePeriodEnum.Monthly,
-                //           PriceUnit: "个",
-                //           MinUnit: "0",
-                //           MaxUnit: "20",
-                //           Sizes: [{
-                //               Name: "default",
-                //               Description: "磁盘大小 8TB",
-                //               PriceTier: PriceTierEnum.Fixed,
-                //               PricePerTier: "2211.84",
-                //           }]
-                //       }]
-                //}
+            },{
+                      Name: "S60",
+                      Features: [{
+                          Name: "default",
+                          PricePeriod: PricePeriodEnum.Monthly,
+                          PriceUnit: "个",
+                          MinUnit: "0",
+                          MaxUnit: "20",
+                          Sizes: [{
+                              Name: "default",
+                              Description: "磁盘大小 8TB",
+                              PriceTier: PriceTierEnum.Fixed,
+                              PricePerTier: "2211.84",
+                          }]
+                      }]
+                },{
+                    Name: "S70",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "磁盘大小 16TB",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "4423.68",
+                        }]
+                    }]
+              },{
+                Name: "S80",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 32TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "8847.36",
+                    }]
+                }]
+          }
             ]
         },
 
