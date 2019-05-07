@@ -16027,8 +16027,8 @@ var CalculatorData = {
                         Sizes: [{
                             Name: "default",
                             Description: "使用实时编码的实时频道",
-                            PriceTier: "0,20,21,100,101,250,251,1000",
-                            PricePerTier: "24.74,21.14,20.69,20.25",
+                            PriceTier: "0,1000",
+                            PricePerTier: "20.25",
                             MinUnit: "0",
                             MaxUnit: "1000",
                             PriceUnit: "小时"
