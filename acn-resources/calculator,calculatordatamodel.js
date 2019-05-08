@@ -7474,7 +7474,7 @@ var CalculatorData = {
                 Name: "LRS",
                 Features: [
                     {
-                        Name: "写操作(冷)",
+                        Name: "写操作 (按10,000计) (冷)",
                         PricePeriod: PricePeriodEnum.Monthly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -7490,7 +7490,7 @@ var CalculatorData = {
                         }]
                     },
                     {
-                        Name: "写操作(热)",
+                        Name: "写操作 (按10,000计) (热)",
                         PricePeriod: PricePeriodEnum.Monthly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -7506,7 +7506,7 @@ var CalculatorData = {
                         }]
                     },
                     {
-                        Name: "写操作(Archive)",
+                        Name: "写操作 (按10,000计) (Archive)",
                         PricePeriod: PricePeriodEnum.Monthly,
                         PriceUnit: "个",
                         MinUnit: "0",
