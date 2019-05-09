@@ -8512,7 +8512,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "所有其他操作（按 10,000 计）",
+                    Name: "除删除（此操作免费）之外的其他操作（按10,000计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8579,7 +8579,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "所有其他操作（按 10,000 计）",
+                    Name: "除删除（此操作免费）之外的其他操作（按10,000计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8646,7 +8646,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "所有其他操作（按 10,000 计）",
+                    Name: "除删除（此操作免费）之外的其他操作（按10,000计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -8712,7 +8712,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "所有其他操作（按 10,000 计）",
+                    Name: "除删除（此操作免费）之外的其他操作（按10,000计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
