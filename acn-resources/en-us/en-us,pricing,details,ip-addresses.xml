@@ -9,12 +9,13 @@
                     font-size:16px;
                 }
             </style>
+            <tags ms.service="ip-addresses" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
            <div>
                     <!-- BEGIN: Table1-Content-->
 
-                    <h1>Azure IP Address</h1>
-                    <p><a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-networks-instance-level-public-ip/" id="ip-addresses_docs-virtual-networks-instance-level-public-ip">All instance level public IP addresses</a> (ILPIP) in Azure are generally charged at ￥0.026 per IP per hour (￥19.344 per IP per month). Azure provides some free IP addresses, which are based on the resources they’re associated with and the deployment model types used. The table below lists these free resources.</p>
-                    <p>Azure has two different types of deployment models, which are used to create and process resources: <a id="pricing_ip_virtual-networks-instance-level-public-ip" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/">Azure Resource Manager (ARM) and Azure Classics (ASM)</a>.</p>
+                    <h1>Public IP Address pricing </h1>
+                    <p>Pricing for Public IP addresses in Azure can vary based on the SKU chosen by the customer – Basic or Standard and the type of IP address – dynamic or static. The table below summarizes the pricing structure for Public IPs.</p>
+                    <p><em><strong>Note</strong>: Azure has two different deployment models for creating and working with resources—<a href="https://go.microsoft.com/fwlink/?LinkId=397193&amp;clcid=0x409">Resource Manager (ARM) and classic (ASM)</a></em>.</p>
 		   </div>
 		   <div class="pricing-page-section">                    
                     <h2>Pricing Details</h2>
@@ -38,48 +39,28 @@
                             </tr>
 							<tr>
                                 <td><p>Static IP address</p><p>(reservation + usage)</p></td>
-                                <td><p>The first 5 reserved IP addresses associated with the cloud service currently used: free of charge</p><p>Others: ￥0.026/hour (￥19.344/month)<sup>2</sup></p></td>
-                                <td><p>The first 5 reserved IP addresses associated with the cloud service currently used: ￥0.026/hour (￥19.344/month)</p><p>Others: ￥0.052/hour (￥38.688/month)<sup>3</sup></p></td>
+                                <td><p>The first 5 reserved IP addresses associated with the cloud service currently used: free of charge</p><p>Others: ￥0.026/hour (￥19.344/month)</p></td>
+                                <td><p>The first 5 reserved IP addresses associated with the cloud service currently used: ￥0.026/hour (￥19.344/month)</p><p>Others: ￥0.052/hour (￥38.688/month)<sup>2</sup></p></td>
                                 <td><p>¥0.026/hour（¥19.344/month）</p></td>
                             </tr>
-                           <!-- <tr>
-                                <td><p>Public IP prefix<sup>4</sup></p></td>
+                           <tr>
+                                <td><p>Public IP prefix<sup>3</sup></p></td>
                                 <td><p>N/A</p></td>
                                 <td><p>N/A</p></td>
-                                <td><p>¥0.03816/hour（¥28.391/month）<sup>5</sup></p></td>
-                            </tr> -->
+                                <td><p>¥0.03816/hour（¥28.391/month）<sup>4</sup></p></td>
+                            </tr>
                     </table> 
                     <div class="tags-date">
-                        <div class="ms-date">* Suitable for a limit of 20 reserved IP addresses for every subscription. If you have an Enterprise agreement with Microsoft Azure operated by 21Vianet, 100 IP addresses can be reserved at most. If you need to increase this limit, please <a id="public_IP_us" style="color: #00a8d9;" href="/zh-cn/support/contact/">contact us</a>.</div><br/>
-                        <div class="ms-date"><sup>1</sup> Every cloud service can obtain a free public VIP. Other VIPs are charged at ￥0.026/hour.</div><br/>
-                        <div class="ms-date"><sup>2</sup> No matter whether they’re connected with the running Virtual Machines <a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">network interface</a> or with Azure Load Balancer, the first 5 static IPs are not charged a reservation fee.</div><br/>
-						<div class="ms-date"><sup>3</sup> No matter whether they’re connected with the running Virtual Machines <a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">network interface</a>or with Azure Load Balancer, the first 5 static IPs are not charged with the reservation fee, but charged with a usage fee. Starting with the 6th static public IP address, the usage fee and reservation fee are ￥0.026/hour for every IP, that is, ￥0.052/hour.</div><br/>
-                        <!-- <div class="ms-date"><sup>4</sup> Public IP prefix is a range of contiguous public IP addresses.</div><br/>
-                        <div class="ms-date"><sup>5</sup> Public IP prefixes are charged per IP per hour. As soon as a prefix is created, you are charged.</div> -->
+                        <div class="ms-date"><sup>1</sup> All <a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-networks-instance-level-public-ip">Instance level public IP addresses</a> (ILPIP) are charged at ￥ 0.026/hour. Each Cloud Service gets a <strong>free</strong> <a href="https://docs.azure.cn/zh-cn/load-balancer/load-balancer-multivip">public VIP</a>. Additional VIPs are charged at ￥ 0.026/hour.</div><br/>
+                        <div class="ms-date"><sup>2</sup> The first five static IPs are not charged for reservation whether associated with a running virtual machine’s <a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface">network interface</a> or Azure Load Balancer.</div><br/>
+						<div class="ms-date"><sup>3</sup> Public IP prefix is a range of contiguous public IP addresses.</div><br/>
+                        <div class="ms-date"><sup>4</sup> Public IP prefixes are charged per IP per hour. As soon as a prefix is created, you are charged.</div><br/>
+                        <div class="ms-date">The limits imposed on IP addresses are indicated in the full set of <a href="https://docs.azure.cn/zh-cn/azure-subscription-service-limits">limits for networking</a> in Azure. <a href="https://portal.azure.cn/">Contact support</a> to increase the default limits based on your business needs (up to the maximum limits).</div><br/>
                     </div>
                     <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
-                    <h3>IP address remaps</h3>
-                    <!--<p>即日起，IP 地址重新映射价格下调 24%，以下是下调后的新价格：</p>-->
-					<p>Whenever a reserved IP address is associated with a new cloud Service, it’s deemed as a remap.</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*Suitable only for deployment in ASM/Classics deployment models.</div><br />
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th>&#160;</th>
-                            <th align="left"><strong>Pricing</strong></th>
-                        </tr>
-                        <tr>
-                            <td>The first 100 IP address remaps per month</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>All other IP address remaps</td>
-                            <td>Every remap ￥0.456/month</td>
-                        </tr>
-                    </table>                    
+                    <h3>Public IP address remaps</h3>
+					<p><em>* Applicable only for deployments in ASM/Classic deployment model</em></p>
+                    <p>Every time a reserved IP address is associated with a new Cloud Service, it is considered a remap. The first 100 remaps per month are free. All additional remaps are charged at ￥ 0.456/remap.</p>
                     <!-- END: Table2-Content-->
             </div>  
             <div class="pricing-page-section">
@@ -164,6 +145,64 @@
 
                             </div>
                         </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question_price-for-specific-size-of-a-prefix">What is the price for specific size of a prefix?</a>
+                                <section>
+                                    <p>The table below shows the per hour charge for prefixes depending on its size.</p>
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <th align="left"><strong>IP BLOCK</strong></th>
+                                            <th align="left"><strong># OF IPS</strong></th>
+                                            <th align="left"><strong>PER HOUR*</strong></th>
+                                        </tr>
+                                        <tr>
+                                            <td>/31</td>
+                                            <td>2</td>
+                                            <td>￥ 0.07632</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/30</td>
+                                            <td>4</td>
+                                            <td>￥ 0.15264</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/29</td>
+                                            <td>8</td>
+                                            <td>￥ 0.30528</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/28</td>
+                                            <td>16</td>
+                                            <td>￥ 0.61056</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/27</td>
+                                            <td>32</td>
+                                            <td>￥ 1.22112</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/26</td>
+                                            <td>64</td>
+                                            <td>￥ 2.44224</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/25</td>
+                                            <td>128</td>
+                                            <td>￥ 4.88448</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/24</td>
+                                            <td>256</td>
+                                            <td>￥ 9.76896</td>
+                                        </tr>
+                                    </table>
+                                    <p>*Per hour charge based on individual IP per hour price of ￥ 0.038166 multiplied by the number of IPs within a block.</p>
+                                </section>
+
+                            </div>
+                        </li>
 						
 						<!--
                         <li>
@@ -197,11 +236,11 @@
                                                                              
     
     ]]></bodyText>
-    <pageTitle>Azure IP Address Pricing Details - Azure Cloud Computing</pageTitle>
+    <pageTitle>Azure Public IP Address Pricing Details - Azure Cloud Computing</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-reserved-ip-addresses</linkid>
-    <metaKeywords>Azure, IP-Addresses, price, FAQ</metaKeywords>
+    <metaKeywords>Azure,Public IP-Addresses, price, FAQ</metaKeywords>
     <metaDescription><![CDATA[Learn about the pricing details of Azure IP Addresses. A 1RMB Trial gets you ￥1,500 in service credits. You can also make a direct purchase and become an Azure Pay-in-Advance customer to enjoy a service level agreement of up to 99.99%.]]></metaDescription>
-    <urlDisplayName>Pricing Details - Azure IP Addresses</urlDisplayName>
+    <urlDisplayName>Pricing Details - Azure Public IP Addresses</urlDisplayName>
   </TextpageLeftNav>
 </localize>

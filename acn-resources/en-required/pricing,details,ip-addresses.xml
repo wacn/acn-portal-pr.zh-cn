@@ -8,12 +8,13 @@
                     font-size:16px;
                 }
             </style>
+            <tags ms.service="ip-addresses" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
            <div>
                     <!-- BEGIN: Table1-Content-->
 
-                    <h1>IP 地址（IP Address）</h1>
-                    <p>Azure 中的<a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-networks-instance-level-public-ip/" id="ip-addresses_docs-virtual-networks-instance-level-public-ip">所有实例级别公共 IP 地址</a>（ILPIP）一般按每个 IP ￥0.026/小时（每个 IP ¥19.344/月）收费。Azure 提供了一些免费 IP 地址，但这些地址基于它们所关联的资源和所使用的部署模型类型。下表列出了这些免费资源。</p>
-                    <p>Azure 具有两种不同的部署模型，用于创建和处理资源：<a id="pricing_ip_virtual-networks-instance-level-public-ip" href="https://docs.azure.cn/virtual-network/virtual-networks-instance-level-public-ip/">Azure 资源管理器（ARM）和 Azure 经典（ASM）</a>。</p>
+                    <h1>公共 IP 地址价格</h1>
+                    <p>Azure 中公共 IP 地址的价格根据客户选择的 SKU（基础或标准）和 IP 地址类型（动态或静态）变动。下表总结了公共 IP 的定价结构。</p>
+                    <p><em><strong>注意</strong>：Azure 有两种用于创建和处理资源的不同部署模型—<a href="https://go.microsoft.com/fwlink/?LinkId=397193&amp;clcid=0x804">资源管理器 (ARM) 和经典 (ASM)</a></em>。</p>
 		   </div>
 		   <div class="pricing-page-section">                    
                     <h2>定价详细信息</h2>
@@ -38,51 +39,30 @@
                             </tr>
 							<tr>
                                 <td><p>静态 IP 地址</p><p>（保留 + 使用）</p></td>
-                                <td><p>前 5 个与正在使用的云服务关联的保留 IP 地址：免费 </p><p> 其他：¥0.026/小时（¥19.344/月）<sup>2</sup></p></td>
-                                <td><p>前 5 个与正在使用的云服务关联的保留 IP 地址：¥0.026/小时（¥19.344/月）</p><p>其他：¥0.052/小时（¥38.688/月）<sup>3</sup></p></td>
+                                <td><p>前 5 个与正在使用的云服务关联的保留 IP 地址：免费 </p><p> 其他：¥0.026/小时（¥19.344/月）</p></td>
+                                <td><p>前 5 个与正在使用的云服务关联的保留 IP 地址：¥0.026/小时（¥19.344/月）</p><p>其他：¥0.052/小时（¥38.688/月）<sup>2</sup></p></td>
                                 <td><p>¥0.026/小时（¥19.344/月）</p></td>
                             </tr>
-                            <!-- <tr>
-                                <td><p>公共 IP 前缀<sup>4</sup></p></td>
+                            <tr>
+                                <td><p>公共 IP 前缀<sup>3</sup></p></td>
                                 <td><p>不适用</p></td>
                                 <td><p>不适用</p></td>
-                                <td><p>¥0.03816/小时（¥28.391/月）<sup>5</sup></p></td>
-                            </tr> -->
+                                <td><p>¥0.03816/小时（¥28.391/月）<sup>4</sup></p></td>
+                            </tr>
                     </table> 
                     <div class="tags-date">
-                        <div class="ms-date">* 适用每个订阅 20 个保留 IP 地址这一限额。如果您有与由世纪互联运营的 Microsoft Azure 的企业协议，则可以保留最多 100 个 IP 地址。如果您需要增加此限额，请 <a id="public_IP_us" style="color: #00a8d9;" href="/zh-cn/support/contact/"> 联系我们</a>。</div><br/>
-                        <div class="ms-date"><sup>1</sup> 每个云服务都可以获得一个免费公共 VIP。其他 VIP 按 ¥0.026/小时收费。</div><br/>
-                        <div class="ms-date"><sup>2</sup>不论是与运行的虚拟机<a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都不会收取保留费用。</div><br/>
-						<div class="ms-date"><sup>3</sup>不论是与运行的虚拟机<a href="//docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface" id="ip-addresses_docs-virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都不会收取保留费用，但会收取使用费用。从第 6 个静态公共 IP 地址开始，其使用费与保留费均按每个 IP ¥0.026/小时，即每小时收取 ¥0.052。</div><br/>
-                        <!-- <div class="ms-date"><sup>4</sup>公共 IP 前缀是一系列连续的公共 IP 地址。</div><br/>
-                        <div class="ms-date"><sup>5</sup>公共 IP 前缀按每个 IP 每小时收费。创建前缀后，立即开始计费。</div> -->
-                        
-                        <!-- <div class="ms-date">*注：前 5 个保留的 IP 如果在使用中则为免费，如果只保留了 IP 而没有使用则将被计费。详情请见<a id="public_IP_QA" style="color: #00a8d9;" href="/support/faq/"> 常见问题</a>。</div> -->
+                        <div class="ms-date"><sup>1</sup>所有<a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-networks-instance-level-public-ip">实例级别公共 IP 地址</a> (ILPIP) 都按 ￥ 0.026/小时 收费。每个云服务都可以获得一个<strong>免费</strong><a href="https://docs.azure.cn/zh-cn/load-balancer/load-balancer-multivip">公共 VIP</a>。其他 VIP 按 ￥ 0.026/小时 收费。</div><br/>
+                        <div class="ms-date"><sup>2</sup>不论是与运行的虚拟机<a href="https://docs.azure.cn/zh-cn/virtual-network/virtual-network-network-interface">网络接口</a>还是与 Azure 负载均衡器连接，前五个静态 IP 都无需预留费。</div><br/>
+						<div class="ms-date"><sup>3</sup>公共 IP 前缀是一系列连续的公共 IP 地址。</div><br/>
+                        <div class="ms-date"><sup>4</sup>公共 IP 前缀按每个 IP 每小时收费。创建前缀后，立即开始计费。</div><br/>
+                        <div class="ms-date">IP 地址的限制在 Azure 中的全套<a href="https://docs.azure.cn/zh-cn/azure-subscription-service-limits">网络限制</a>中进行了详细说明。<a href="https://portal.azure.cn/">联系支持</a>，根据业务需求增加默认限制（最多增加到最大限制）。</div>                        
                     </div>
                     <!-- END: Table1-Content-->
                     <!-- BEGIN: Table2-Content-->
-                    <h3>IP 地址重新映射</h3>
-                    <!--<p>即日起，IP 地址重新映射价格下调 24%，以下是下调后的新价格：</p>-->
-					<p>每当保留 IP 地址与新的云服务关联时，均认为它是一个重映射。</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*仅适用于 ASM/经典部署模型中的部署。</div><br />
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th> </th>
-                            <th align="left"><strong>价格</strong></th>
-                        </tr>
-                        <tr>
-                            <td>每个月前 100 个 IP 地址重新映射</td>
-                            <td>免费</td>
-                        </tr>
-                        <tr>
-                            <td>所有其他 IP 地址重新映射</td>
-                            <td>每个重新映射 ¥0.456/月</td>
-                        </tr>
-                    </table>                    
+                    <h3>公共 IP 地址重新映射</h3>
+					<p><em>* 仅适用于 ASM/经典部署模型中的部署</em></p>
+                    <p>每当保留 IP 地址与新的云服务关联时，均认为它是一个重映射。每月前 100 个重映射免费。所有其他重映射按 ￥ 0.456/重映射收费。</p>
+                    
                     <!-- END: Table2-Content-->
             </div>  
             <div class="pricing-page-section">
@@ -176,6 +156,64 @@
 
                             </div>
                         </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="public_IP_question_price-for-specific-size-of-a-prefix">特定大小前缀的价格是多少？</a>
+                                <section>
+                                    <p>下表显示了前缀的每小时费用，具体取决于其大小。</p>
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <th align="left"><strong>IP 地址块</strong></th>
+                                            <th align="left"><strong>IP 编号</strong></th>
+                                            <th align="left"><strong>每小时*</strong></th>
+                                        </tr>
+                                        <tr>
+                                            <td>/31</td>
+                                            <td>2</td>
+                                            <td>￥ 0.07632</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/30</td>
+                                            <td>4</td>
+                                            <td>￥ 0.15264</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/29</td>
+                                            <td>8</td>
+                                            <td>￥ 0.30528</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/28</td>
+                                            <td>16</td>
+                                            <td>￥ 0.61056</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/27</td>
+                                            <td>32</td>
+                                            <td>￥ 1.22112</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/26</td>
+                                            <td>64</td>
+                                            <td>￥ 2.44224</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/25</td>
+                                            <td>128</td>
+                                            <td>￥ 4.88448</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/24</td>
+                                            <td>256</td>
+                                            <td>￥ 9.76896</td>
+                                        </tr>
+                                    </table>
+                                    <p>*每小时费用根据单个 IP 每小时价格 ￥ 0.038166 乘以块中的 IP 数得出。</p>
+                                </section>
+
+                            </div>
+                        </li>
 						
 						<!--
                         <li>
@@ -215,11 +253,11 @@
                                                                              
     ]]>
     </bodyText>
-    <pageTitle>价格详情 - IP Addresses | Azure</pageTitle>
+    <pageTitle>价格详情 - 公共 IP 地址 | Azure</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-reserved-ip-addresses</linkid>
-    <metaKeywords>Azure, IP-Addresses, 价格, 常见问题</metaKeywords>
+    <metaKeywords>Azure,公共 IP 地址, 价格, 常见问题</metaKeywords>
     <metaDescription><![CDATA[了解 Azure IP Addresses价格详情。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户，尽享最高 99.99% 的服务级别协议。]]></metaDescription>
-    <urlDisplayName>价格详情 - IP Addresses</urlDisplayName>
+    <urlDisplayName>价格详情 - 公共 IP 地址</urlDisplayName>
   </TextpageLeftNav>
 </localize>

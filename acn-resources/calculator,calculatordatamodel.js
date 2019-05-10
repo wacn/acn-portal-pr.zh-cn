@@ -21404,7 +21404,7 @@ var CalculatorData = {
 
 
         "ip-address": {
-            Name: "IP 地址",
+            Name: "公共 IP 地址",
             Types: [
             {
                 Name:"基本(经典)",
@@ -21516,7 +21516,24 @@ var CalculatorData = {
                         MaxUnit: "1000",
                         PriceUnit: "个"
                     }]
-                }]
+                }
+                // ,{
+                //     Name: "公共 IP 前缀",
+                //     PricePeriod: PricePeriodEnum.Hourly,
+                //     PriceUnit: "个",
+                //     MinUnit: "0",
+                //     MaxUnit: "1000",
+                //     Sizes: [{
+                //         Name: "default",
+                //         Description: "",
+                //         PriceTier: "0,10000",
+                //         PricePerTier: "0.03816",
+                //         MinUnit: "0",
+                //         MaxUnit: "1000",
+                //         PriceUnit: "个"
+                //     }]
+                // }
+                ]
             }
         ]
         },
