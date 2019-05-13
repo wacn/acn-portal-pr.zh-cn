@@ -917,6 +917,10 @@
                                 <p>Ideal for most business workloads, offering balanced and scalable compute and storage options.</p>
                                 <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
                                 <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-general-purpose-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
@@ -968,6 +972,10 @@
 
                                 <h4>Gen 5</h4>
                                 <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
                                 <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-general-purpose-gen5">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
@@ -1124,6 +1132,10 @@
                                 <p>Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.</p>
                                 <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
                                 <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-business-critical-gen4">
                                     <tr>
                                         <th align="left"><strong>vCore</strong></th>
@@ -1306,9 +1318,9 @@
                                     </tr>
                                 </table>
 
-                                <!-- <h3>Hyperscale</h3>
+                                <h3>Hyperscale</h3>
                                 <p>Hyperscale provides rapid, dynamic storage scaling up to 100 TB to help you optimize database resources for your workload’s needs. During Preview, an additional read replica is automatically provisioned and is billed at the Azure Hybrid Benefit pricing. The below pricing is for the primary instance.</p>
-                                <h4>Gen 4</h4>
+                                <!-- <h4>Gen 4</h4>
                                 <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
@@ -1357,9 +1369,81 @@
                                 <div class="tags-date">
                                     <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
                                     <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div> -->
+
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div><br />
+                                    <div class="ms-date">*The pricing will be effective from 7/1/2019.</div>
                                 </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-single-vcore-hyperscale-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>Memory（GB）</strong></th>
+                                        <th align="left"><strong>License included price</th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup><br/>Price （% Savings）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>￥4.0132/hour<br/>( about￥2,985.8208/month )</td>
+                                        <td>￥2.7417/hour<br/>( about￥2,039.8248/month )（~32%）</td>
+                                    </tr>
+                                   <tr>
+                                        <td>4</td>
+                                        <td>22</td>
+                                        <td>￥8.0264/hour<br/>( about￥5,971.6416/month )</td>
+                                        <td>￥5.4833/hour<br/>( about￥4,079.5752/month )（~32%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>44</td>
+                                        <td>￥16.0529/hour<br/>( about￥11,943.3427/month )</td>
+                                        <td>￥10.9666/hour<br/>( about￥/8,159.1504month )（~32%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>88</td>
+                                        <td>￥32.1058/hour<br/>( about￥23,886.7152/month )</td>
+                                        <td>￥21.9332/hour<br/>( about￥16,318.3008/month )（~32%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>132</td>
+                                        <td>￥48.1586/hour<br/>( about￥35,829.9984/month )</td>
+                                        <td>￥32.8998/hour<br/>( about￥24.477.4512/month )（~32%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>176</td>
+                                        <td>￥64.2115/hour<br/>( about￥47.773.356/month )</td>
+                                        <td>￥43.8665/hour<br/>( about￥32,636.676/month )（~32%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>220</td>
+                                        <td>￥80.2644/hour<br/>( about￥59,716.7136/month )</td>
+                                        <td>￥54.8331/hour<br/>( about￥40,795.8264/month )（~32%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>￥160.5288/hour<br/>( about￥119,433.4272/month )</td>
+                                        <td>￥109.6662/hour<br/>( about￥81,591.6528/month )（~32%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
+                                </div>
+
                                 <h4>Storage</h4>
                                 <p>In the Business Critical tier, you are charged for local SSD storage that you provision for your database or elastic pool. Storage can be configured between 5 GB and 1 TB with 1 GB increments.</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The pricing will be effective from 7/1/2019.</div>
+                                </div>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -1367,7 +1451,7 @@
                                     </tr>
                                     <tr>
                                         <td>GB/month</td>
-                                        <td>￥ 1.0176</td>
+                                        <td>￥ 0.75</td>
                                     </tr>
                                 </table>
 
@@ -1388,7 +1472,7 @@
                                     </tr>
                                     <tr>
                                         <td>LRS</td>
-                                        <td>￥ 1.0176</td>
+                                        <td>￥ 0.7505</td>
                                     </tr>
                                 </table>
 
@@ -1400,10 +1484,9 @@
                                     </tr>
                                     <tr>
                                         <td>Per million request</td>
-                                        <td>￥ 1.0716</td>
+                                        <td>￥ 1.501</td>
                                     </tr>
-                                </table> -->
-
+                                </table>
                                
                             </div>
                             <!-- END: Tab level 2 content 2-1-->
@@ -1683,27 +1766,85 @@
             <div class="pricing-page-section">
                 <div class="more-detail">
                     <h2>FAQ</h2>
-                    <em>Expand all</em>
+                    <em>Expand All</em>
+                    <h3>DTU</h3>
                     <ul>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question1">What is a vCore?</a>
+                                <a id="home_sql_database_dtu_question1">What will happen to DTU-based models?</a>
                                 <section>
-                                     <p>A virtual core (vCore) represents the logical CPU available for your server, offered with a choice between generations of hardware. For servers created using Gen4 vCores, the vCores are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. For servers created using Gen5 vCores, the vCores are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.</p>
+                                     <p>DTU- and vCore-based models will continue to coexist. At the request of our customers, we released a vCore-based model. These customers want to obtain greater database resource transparency and be able to scale computing and storage separately.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question2">What does the vCore-based model provide?</a>
+                                <a id="home_sql_database_dtu_question2">How does DTU-based SQL Database storage show up in my bill?</a>
                                 <section>
-                                     <p>The vCore-based purchasing model gives you more flexibility and control and a straightforward way to translate your on-premises workload requirements to the cloud. It also allows you to scale compute and storage resources independently, based upon your workload needs.</p>
-                                     <p>The vCore-based model is available to SQL Database managed instance, Single Database and Elastic Pool deployment options and enables the use of Azure Hybrid Benefit for SQL Server for each of these options. Pricing within the vCore-based model is therefore available with and without the hybrid benefit:</p>
+                                     <p>It is billed based on provisioned storage rather than actual usage. For example, the highest provisioned storage selected by the customer is 750GB while actual usage is 418GB. In this case, as P4 includes storage of 500GB, the storage usage will be charged for 750GB-500GB=250GB.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question3">Pricing example for a DTU-based model used to provision a single database with extra storage</a>
+                                <section>
+                                     <p>Suppose an S3 database is preset with 1 TB. Since it has 250 GB of storage capacity, its extra storage capacity is 1024 GB - 250 GB = 774 GB. The unit price for extra storage in the Standard tier is ¥ 1.0812/GB/month, so the price of extra storage is 774 GB x ¥ 1.0812/GB/month = ¥ 804.4128/month. Therefore, the total price of the S3 database is ¥ 969.37/month (eDTU) + ¥ 804.4128/month of extra storage = ¥ 1,773.7828/month.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question4">Pricing example for a DTU-based model used to provision an elastic pool with extra storage</a>
+                                <section>
+                                     <p>Suppose a 125 eDTU Premium pool is preset with 1 TB and has a storage capacity of 250 GB, so its extra storage capacity is 1024 GB - 250 GB = 774 GB. The unit price for extra storage in the Premium pool is about ¥ 2.1624/GB/month, so the price of extra storage is 774 GB x ¥ 2.1624/GB/month = ¥ 1,608.8256/month. Therefore, the total price for the pool is ¥ 2,208.75/month (eDTU) + ¥ 1,608.8256/month of extra storage = ¥ 3,817.5756/month.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question5">Would automated backups be charged for DTU-based database?</a>
+                                <section>
+                                     <p>Automated backups are free of charge, for relevant information please see link:<a href="https://docs.azure.cn/zh-cn/sql-database/sql-database-automated-backups">https://docs.azure.cn/zh-cn/sql-database/sql-database-automated-backups</a></p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_dtu_question6">Would Long Term Retention Storage under the DTU-based model be provided for free?</a>
+                                <section>
+                                     <p>Long Term Retention Storage is chargeable.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>VCore</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_vcore_question1">What is a vCore?</a>
+                                <section>
+                                     <p>A virtual core (vCore) represents the logical CPUs available to the server. Customers can choose between two generations of hardware. For servers created using the Gen4 vCore, the vCore is based on the Intel E5-2673 v3 (Haswell) 2.4 GHz processor.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_vcore_question2">What are the advantages of a vCore-based model?</a>
+                                <section>
+                                     <p>With a vCore-based purchasing model, local workload requirements can be translated to the cloud in a flexible, controlled, and direct manner. This allows independent scaling of calculation and storage resources based on workload requirements.</p>
+                                     <p>A vCore-based model is suitable for SQL Database Managed Instances, single databases, and elastic pool deployment options. These options all use Azure Hybrid Benefit for SQL Server. Therefore, pricing within a vCore-based model applies whether or not you use Hybrid Benefit:</p>
                                      <ul>
-                                        <li>License included: Excludes Azure Hybrid Benefit for SQL Server. This option is for customers who choose not to apply their existing SQL Server licenses with Software Assurance to vCore-based SQL Database deployment options.</li>
-                                        <li>Base rate: Reduced price that includes Azure Hybrid Benefit for SQL Server. Customers can opt into this price by using their SQL Server licenses with Software Assurance.</li>
+                                        <li>Licenses included: Does not include Azure Hybrid Benefit for SQL Server. This option is suitable for customers who are reluctant to apply existing SQL Server licenses with Software Assurance to vCore-based database deployment options.</li>
+                                        <li>Baseline rate: Discount price that includes Azure Hybrid Benefit for SQL Server. Customers can choose this price by using an SQL Server license with Software Assurance.</li>
                                      </ul>
                                 </section>
                             </div>
@@ -1711,152 +1852,138 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question3">Is moving to the vCore-based model required?</a>
+                                <a id="home_sql_database_vcore_question3">What are virtualization benefits?</a>
                                 <section>
-                                     <p>Moving to the vCore-based model is not required. The introduction of the vCore-based model to the Elastic Pool and Single Database deployment options reflects our commitment to customer choice and flexibility. If you want to continue using the DTU-based model, you do not need to take any action and your experience and billing will remain unchanged. The DTU-based model will remain a viable option for purchasing SQL Database resources, alongside the vCore-based model.</p>
+                                     <p>Virtualization benefits apply to virtualized workloads on vCore-based Azure SQL Databases. Use them to convert 1 SQL Enterprise Edition license core through valid Software Assurance to get up to 4 managed instance General Purpose vCores at the baseline rate. This is a cost-effective way to migrate virtualized applications to vCore-based SQL Databases. For example, if you have 4 core licenses for SQL Enterprise Edition, you can get up to 16 General Purpose vCores at the baseline rate.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question4">What will happen to the DTU-based model?</a>
+                                <a id="home_sql_database_vcore_question4">Will I be charged for my SQL Database licenses?</a>
                                 <section>
-                                     <p>The DTU and vCore-based models will continue to exist side by side. We are launching the vCore-based model in response to customer requests for more transparency around their database resources and the ability to scale compute and storage separately. </p>
+                                     <p>Yes, the pricing announced on the official page of SQL Database is already inclusive of license fees.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question5">How should I choose between the DTU vs vCore-based models?</a>
+                                <a id="home_sql_database_vcore_question5">Can I use an SQL Server license on-premises and in the cloud?</a>
                                 <section>
-                                     <p>The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based performance levels represent preconfigured bundles of resources to drive different levels of application performance. If you do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month, you may find the DTU-based model more suitable for your needs.</p>
-                                     <!-- <p>If you need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice. Additionally, if you have an active Software Assurance (SA) for SQL Server, you can leverage your existing investment and save up to 30% with Azure Hybrid Benefit for SQL Server. Both of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches.</p> -->
+                                     <p>The license must be used on-premises or in the cloud, but there is a grace period of 180 days during which the license can be used both on-premises and in the cloud to facilitate migration.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question6">Do I need to take my application offline to convert from a DTU-based database to a new vCore-based service tier?</a>
+                                <a id="home_sql_database_vcore_question6">What is Azure Hybrid Benefit for SQL Server? Am I eligible to use it?</a>
                                 <section>
-                                     <p>The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL.</p>
+                                     <p>Azure Hybrid Benefit for SQL Server can help you to maximize the value of your current license investment and accelerate migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based hybrid benefit. An SQL Server license with Software Assurance can be used through it in order to pay less SQL Database charges (baseline rate). All vCore-based options can be used via Azure Hybrid Benefit for SQL Server: SQL Database Managed Instances, single databases, and elastic pools. You can apply this benefit even if SKUs are active, but please note that the baseline rate will be applied from when you make a selection in the portal. The credit limit will not be reissued.</p>
+                                     <p>You can activate Azure Hybrid Benefit by proving that you have a valid license with Software Assurance in the Azure portal. The working principles for Azure Hybrid Benefit are as follows:</p>
+                                     <ul>
+                                        <li>If you have the Standard Edition with Software Assurance, issued per core license, choose the General Purpose option and get 1 vCore for every 1 local license core.</li>
+                                        <li>If you have the Enterprise Edition with Software Assurance, issued per core license, select the Business-Critical option (coming soon) and get 1 vCore for every 1 local license core. Note: The Business-Critical option for Azure Hybrid Benefit for SQL Server is only offered to Enterprise Edition customers.</li>
+                                        <li>If you have the highly-virtualized Enterprise Edition with Software Assurance, issued per core license, choose the General Purpose option and get 4 vCores for every 1 local license core. This is a unique virtualization benefit that is limited to Azure.</li>
+                                     </ul>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question7">How does usage show up in my bill?</a>
+                                <a id="home_sql_database_vcore_question7">Can Azure Hybrid Benefit for SQL Server be applied retrospectively?</a>
                                 <section>
-                                     <p>In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month and consumed backup storage. If the backup exceeds the total database size (i.e., 100% of the database size) there will be additional charges. vCore hours, configured database storage, consumed IO and backup storage are clearly itemized in the bill, making it easier to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you will be billed in GB/month consumed in a month.</p>
+                                     <p>No. Azure Hybrid Benefit cannot be applied retrospectively.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_vcore_question8">If Software Assurance expires, what will happen to Azure Hybrid Benefit for SQL Server?</a>
+                                <section>
+                                     <p>Valid Software Assurance is required to use Azure Hybrid Benefit for SQL Server. If your Software Assurance expires and you do not renew it, you will be redirected to the "license included" pricing corresponding to the SKU.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_vcore_question9">How does usage show up on my bill?</a>
+                                <section>
+                                     <p>In a vCore-based model, the service is billed at a predictable, hourly rate based on the provisioned compute in vCores, provisioned storage (in GB/month), and backup storage used. There will be additional charges if backup exceeds the total database size (that is, 100% of the database size). vCore hours, configured database storage, consumed IO, and backup storage are itemized on the bill, making it easier for you to see the details of resources you have used. Backup storage of up to 100% of the maximum database size is included, beyond which you are billed for GB/month.</p>
                                      <p>For example:</p>
-                                     <ul><li>If the SQL database exists for 12 hours in a month, the bill will show usage for 12 hours of vCore. If the SQL database provisioned an additional 100 GB, the bill will show storage usage in units of GB/Month prorated hourly and number of IOs consumed in a month.</li></ul>
-                                     <p>If the SQL database is active for less than one hour, you are billed for each hour the database exists using the highest service tier selected, provisioned storage and IO that applied during that hour, regardless of usage or whether the database was active for less than an hour.</p>
+                                     <ul><li>If an SQL Database exists for 12 hours in a month, the bill will show the cost for 12 hours of vCore usage. If the SQL Database provisioned an additional 100 GB of storage, the bill will show storage usage in units of GB/month prorated hourly and the number of IOs consumed in a month.</li></ul>
+                                     <p>If the uptime of an SQL Database is less than 1 hour, the costs for each hour the database exists are calculated using the highest service tier, provisioned storage, and IO that were used during that hour, regardless of usage or whether the database uptime was less than an hour.</p>
                                      <p>For example:</p>
                                      <ul>
-                                        <li>If you create a Managed Instance and delete it five minutes later, you’ll be charged for one database hour.</li>
-                                        <li>If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.</li>
+                                        <li>If you create a Managed Instance and delete it five minutes later, you’ll be charged for 1 database hour.</li>
+                                        <li>If you create a Managed Instance in the General Purpose tier with 8 vCores, then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.</li>
                                      </ul>
-                                     <p>Note: For a limited period through June 30th 2018, backup charges and IO charges will be free of charge.</p>
+                                     <p>Please Note: For a limited period before June 30, 2018, backup and IO are free of charge.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>Overview</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_general_question1">How can I stop being billed for database?</a>
+                                <section>
+                                     <p>Billing for database will stop upon deletion.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question8">How is the backup charge calculated?</a>
+                                <a id="home_sql_database_general_question2">Do I need to bear any network data transfer costs?</a>
                                 <section>
-                                     <p>Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage will be charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you’ll pay for the additional 10 GBs.</p>
-                                     <p>Note: For a limited period, until June 30, 2018, the backup charges will be free.</p>
+                                     <p>There will be no additional charges for the entry or exit of network data during the public preview. Additional fees will be charged after the official release.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question9">Will I incur any network data transfer charges?</a>
+                                <a id="home_sql_database_general_question3">How are backup costs calculated?</a>
                                 <section>
-                                     <p>There will be no additional charges for network data ingress or egress during public preview. Additional charges will be introduced at general availability.</p>
-                                </section>
-                            </div>
-                        </li>
-                       <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question10">What is Azure Hybrid Benefit for SQL Server, and am I eligible for it?</a>
-                                <section>
-                                     <p>The Azure Hybrid Benefit for SQL Server helps you maximize the value from your current licensing investments and accelerate your migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with active Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available to all vCore-based options: SQL Database Managed Instance, Single Database and Elastic Pool. You may apply this benefit even if the SKU is active but note the base rate will be applied from the time you select it in the portal. No credit will be issued retroactively.</p>
-                                     <p>You can activate the Azure Hybrid Benefit via the Azure Portal by attesting you have sufficient active licenses with Software Assurance. The Azure Hybrid Benefit works as follows:</p>
-                                     <ul>
-                                        <li>If you have Standard Edition per core licenses with Software Assurance, you can get one vCore in the general purpose option for every one license core you own on-premises.</li>
-                                        <li>If you have Enterprise Edition per core licenses with Software Assurance, you can get one vCore in the business critical option (coming soon) for every one license core you own on-premises. Note: The Azure Hybrid Benefit for SQL Server for the Business Critical option is only available to Enterprise Edition customers.</li>
-                                        <li>If you have highly-virtualized Enterprise Edition per core licenses with Software Assurance you can get four vCores in the General Purpose option for every one license core you own on-premises. This is a unique virtualization benefit available only on Azure.</li>
-                                     </ul>
+                                     <p>Backup storage is related to the automated backup of instances. Increasing the backup retention period will increase the backup storage space used by an instance. No additional charges are required if the backup storage space does not exceed 100% of the total provisioned server storage space. Additional backup storage beyond this portion is charged in GB/month. For example, if the database storage space is 100 GB, you can get 100 GB of backup at no extra cost. However, if your backup is 110 GB, you will need to pay for an additional 10 GB of storage.</p>
+                                     <p>Please note: There will be no backup charges for a limited period until June 30, 2018.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question11">What is the virtualization Benefit?</a>
+                                <a id="home_sql_database_general_question4">Do I have to move to a vCore-based model?</a>
                                 <section>
-                                     <p>The virtualization benefit is applicable to virtualized workloads on vCore-based Azure SQL Database. You can use it to convert 1 license core of SQL Enterprise Edition with active Software Assurance to get up to 4 vCores of General Purpose at the base rate. This makes moving virtualized applications to vCore-based SQL Database options highly cost-effective. For example, if you have 4 core licenses of SQL Enterprise Edition, you can receive up to 16 vCores of General Purpose at the base rate.</p>
+                                     <p>You don’t need to move to a vCore-based model. The introduction of vCore-based deployment options for elastic pools and single databases embodies our commitment to customer choice and flexibility. If you wish to continue using a DTU-based model, no action is required and your experience and billing methods will remain the same. In addition to vCore-based models, a DTU-based model is still a viable option for purchasing SQL Database.</p>
+                                </section>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_sql_database_general_question5">How should I choose between a DTU- or vCore-based model?</a>
+                                <section>
+                                     <p>Data transfer units (DTU) are based on a mixture of CPU, memory, read, and write measurements. DTU-based performance levels represent provisioned resource bundles that drive different levels of application performance. If you do not want to worry about underlying resources, and want to use a simple provisioned bundle and pay a fixed monthly fee, a DTU-based model may better meet your needs.</p>
+                                     <!-- <p>如果需要更深入了解底层资源，或对其进行独立缩放以实现最优性能，继续 vCore 的模型是最佳选择。此外，如果为 SQL Server 激活软件保障（SA）可通过适用于 SQL Server 的 Azure 混合权益利用现有投资并节省 30% 的费用。两种购买模型都能提供完全托管的服务的权益，例如自动化备份、软件更新和补丁。</p> -->
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="home_sql_database_question12">Can I use my SQL Server license on-premises and in the cloud?</a>
+                                <a id="home_sql_database_general_question6">Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier?</a>
                                 <section>
-                                     <p>Your licenses must be used either on-premises or in the cloud; however, you have a 180-day grace period during which you can use licenses both on-premises and in the cloud to facilitate migration.</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question13">Can I apply Azure Hybrid Benefit for SQL Server retroactively?</a>
-                                <section>
-                                     <p>No. Azure Hybrid Benefit cannot be applied retroactively.</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question14">What happens to my Azure Hybrid Benefit for SQL Server if my Software Assurance expires?</a>
-                                <section>
-                                     <p>To use Azure Hybrid Benefit for SQL Server, you need active Software Assurance. If your Software Assurance expires and you don’t renew it, you’ll be moved to the license included pricing of the respective SKU.</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question15">Pricing example in DTU based model for a single database with extra storage provisioned</a>
-                                <section>
-                                    <p>Suppose an S3 database has provisioned 1 TB. The amount of storage included for S3 is 250 GB, and so the extra storage amount is 1024 GB – 250 GB = 774 GB. The unit price for extra storage in the Standard tier is approximately ¥1.0812/GB/month, and so the extra storage price is 774 GB * ¥1.0812/GB/month = ¥804.4128/month. Therefore, the total price for the S3 database is ¥969.37/month for DTUs + ¥804.4128/month for extra storage = ¥1,773.7828/month.</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question16">Pricing example in DTU based model for an elastic pool with extra storage provisioned</a>
-                                <section>
-                                    <p>Suppose a 125 eDTU Premium pool has provisioned 1 TB. The amount of storage included for a 125 eDTU Premium pool is 250 GB, and so the extra storage amount is 1024 GB – 250 GB = 774 GB. The unit price for extra storage in the Premium tier is approximately ¥2.1624/GB/month, and so the extra storage price is 774 GB * ¥2.1624/GB/month = ¥1608.8256/month. Therefore, the total price for the pool is ¥2,208.75/month for pool eDTUs + ¥1,608.8256/month for extra storage = ¥3,817.5756/month.</p>
-                                </section>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon icon-plus"></i>
-                            <div>
-                                <a id="home_sql_database_question17">How does the storage usage show in my bill when I select DTU based model?</a>
-                                <section>
-                                     <p>The storage usage fee will be calculated per Max Size a customer allocated. For example, when choosing S3 DTU based model database, Storage Included is 250 GB, Max storage allowed is 1 TB, while actual usage is 500 GB. In this case, the storage usage will be charged for 1024 GB - 250 GB = 774 GB.</p>
+                                     <p>The new service tiers offer a simple online dialog method that is similar to the existing process for upgrading databases from the Standard to the Premium service tier and vice versa. The portal can be launched using Portal, ARM, PowerShell, Azure CLI or T-SQL.</p>
                                 </section>
                             </div>
                         </li>
@@ -1880,12 +2007,12 @@
                 
            <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>
-                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="database-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+                <p>If you have any questions or need help, please visit <a href="https://support.azure.cn/en-us/support/contact" id="database-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
                 <p>Basic, Standard, and Premium Levels</p>
                 <p>We guarantee a connection time between a single or elastic Basic, Standard or Premium Azure SQL Database and our Internet Gateway of not less than a 99.99%.</p>
                 <p>Web and Enterprise Editions (no longer available)</p>
                 <p>We ensure customers will be able to establish a connection between the Web Edition or Enterprise Edition Azure SQL Database and our Internet Gateway at least 99.9% of the time.</p>
-                <p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/sql-database/" id="pricing_database_sla">Service Level Agreements</a> page.</p>
+                <p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/sql-data/" id="pricing_database_sla">Service Level Agreements</a> page.</p>
             </div>
                 <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                    
     
