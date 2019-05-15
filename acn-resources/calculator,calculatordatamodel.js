@@ -23205,6 +23205,25 @@ var CalculatorData = {
             }]
         },
 
+        "cognitive-services-luis-api": {
+            Name: "认知服务 - 语言理解 API",
+            Types: [
+            {
+                Name: "免费",
+                Features: [
+                    {
+                    Name: "default",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "每月 10,000 个免费事务",
+                        PriceTier: PriceTierEnum.Free,
+                        PricePerTier: "0",
+                    }]
+                }]
+            }
+        ]
+        },
+
         // "analysis-services-devp": {
         //     Name: "Azure 分析服务 - 开发人员层",
         //     Types: [{
