@@ -208,7 +208,7 @@
 								<td align="center">存档</td>
 							</tr>
 							<tr>
-								<td>写操作 (按10,000计) </td>
+								<td>写操作 (按10,000计) <sup>1</sup></td>
 								<td align="center">￥0.045</td>
 								<td align="center">￥0.09</td>
 								<td align="center">￥0.712</td>
@@ -218,7 +218,7 @@
 							   
 							</tr>
 							<tr>
-								<td>列出并创建容器操作（按 10,000 计）</td>
+								<td>列出并创建容器操作（按 10,000 计）<sup>2</sup></td>
 								<td align="center">￥0.045</td>
 								<td align="center">￥0.045</td>
 								<td align="center">￥0.045</td>
@@ -227,7 +227,7 @@
 								<td align="center">￥0.09</td>
 							</tr>
 							<tr>
-								<td>读取操作（按 10,000 计）</td>
+								<td>读取操作（按 10,000 计）<sup>3</sup></td>
 								<td align="center">￥0.015</td>
 								<td align="center">￥0.03</td>
 								<td align="center">￥31.825</td>
@@ -245,7 +245,7 @@
 								<td align="center">￥0.040704</td>
 							</tr>
 							<tr>
-								<td>数据检索 (GB)</td>
+								<td>数据检索 (GB) <sup>4</sup></td>
 								<td align="center">免费</td>
 								<td align="center">￥0.0657</td>
 								<td align="center">￥0.127</td>
@@ -254,7 +254,7 @@
 								<td align="center">￥0.127</td>
 							</tr>
 							<tr>
-								<td>数据写入 (GB)</td>
+								<td>数据写入 (GB) <sup>4</sup></td>
 								<td align="center">免费</td>
 								<td align="center">免费</td>
 								<td align="center">免费</td>
@@ -265,8 +265,10 @@
 							
 						</tbody></table>
 						<div class="tags-date">
-							<div class="ms-date">*以下 API 调用视为写入操作：PutBlob、PutBlock、PutBlockList、AppendBlock、SnapshotBlob、CopyBlob 和 SetBlobTier（将 blob 从“热”移到“冷”，从“冷”移到“存档”或从“热”移到“存档”时。）。</div><br />
-							<div class="ms-date">**以下 API 调用视为读取操作：GetBlob 和 SetBlobTier（将 blob 从“存档”移到“冷”，从“冷”移到“热”或从“存档”移到“热”。）。</div><br />
+							<div class="ms-date"><sup>1</sup> 以下 API 调用视为写入操作：PutBlob、PutBlock、PutBlockList、AppendBlock、SnapshotBlob、CopyBlob 和 SetBlobTier（将 blob 从“热”移到“冷”，从“冷”移到“存档”或从“热”移到“存档”时。）。</div><br />
+							<div class="ms-date"><sup>2</sup> 以下 API 调用视为列表和创建容器操作: ListBlobs, ListContainers, and CreateContainer.</div><br />
+							<div class="ms-date"><sup>3</sup> 以下 API 调用视为读取操作：GetBlob 和 SetBlobTier（将 blob 从“存档”移到“冷”，从“冷”移到“热”或从“存档”移到“热”。）。</div><br />
+							<div class="ms-date"><sup>4</sup> 单独收取<a style="font-size:12px;" href="https://www.azure.cn/pricing/details/bandwidth">网络费用</a>。</div><br />
 							<div class="ms-date">对于“存档”中的 blob，仅以下操作有效：GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。将“存档”层设置为“热”层或“冷”层通常需要 15 小时才能完成。</div>
 						</div>
 
@@ -363,20 +365,25 @@
 								<td align="center">热</td>
 							</tr>
 							<tr>
-								<td>列出并创建容器操作（按 10,000 计）</td>
+								<td>写操作 (按10,000计) <sup>1</sup></td>
 								<td align="center">￥0.09</td>
 								<td align="center">￥0.045</td>
 								<td align="center">￥0.18</td>
 								<td align="center">￥0.09</td>
-							   
 							</tr>
 							<tr>
-								<td>读取操作（按 10,000 计）</td>
+								<td>列出并创建容器操作（按 10,000 计）<sup>2</sup></td>
+								<td align="center">￥0.09</td>
+								<td align="center">￥0.045</td>
+								<td align="center">￥0.18</td>
+								<td align="center">￥0.09</td>
+							</tr>
+							<tr>
+								<td>读取操作（按 10,000 计）<sup>3</sup></td>
 								<td align="center">￥0.03</td>
 								<td align="center">￥0.015</td>
 								<td align="center">￥0.03</td>
 								<td align="center">￥0.015</td>
-							   
 							</tr>
 							<tr>
 								<td>除删除（此操作免费）之外的其他操作（按10,000计）</td>
@@ -387,21 +394,28 @@
 							
 							</tr>
 							<tr>
-								<td>数据检索 (GB)</td>
+								<td>数据检索 (GB) <sup>4</sup></td>
 								<td align="center">￥0.0657</td>
 								<td align="center">免费</td>
 								<td align="center">￥0.0657</td>
 								<td align="center">免费</td>
 							</tr>
 							<tr>
-								<td>数据写入 (GB)</td>
+								<td>数据写入 (GB) <sup>4</sup></td>
 								<td align="center">￥0.0164</td>
 								<td align="center">免费</td>
 								<td align="center">￥0.0328</td>
 								<td align="center">免费</td>
 							</tr>
 						</table>
-						
+						<div class="tags-date">
+							<div class="ms-date"><sup>1</sup> 以下 API 调用视为写入操作：PutBlob、PutBlock、PutBlockList、AppendBlock、SnapshotBlob、CopyBlob 和 SetBlobTier（将 blob 从“热”移到“冷”，从“冷”移到“存档”或从“热”移到“存档”时。）。</div><br />
+							<div class="ms-date"><sup>2</sup> 以下 API 调用视为列表和创建容器操作: ListBlobs, ListContainers, and CreateContainer.</div><br />
+							<div class="ms-date"><sup>3</sup> 以下 API 调用视为读取操作：GetBlob 和 SetBlobTier（将 blob 从“存档”移到“冷”，从“冷”移到“热”或从“存档”移到“热”。）。</div><br />
+							<div class="ms-date"><sup>4</sup> 单独收取<a style="font-size:12px;" href="https://www.azure.cn/pricing/details/bandwidth">网络费用</a>。</div><br />
+							<div class="ms-date">对于“存档”中的 blob，仅以下操作有效：GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。将“存档”层设置为“热”层或“冷”层通常需要 15 小时才能完成。</div>
+						</div>
+
 						<h4>块 Blob 的数据传输价格（每 GB）</h4>
 						<p>将数据写入到 GRS 帐户时，该数据将被复制到另一个 Azure 区域。异地复制数据传输费用是将数据复制到另一个 Azure 区域的带宽成本。 将帐户复制设置从 LRS 更改为 GRS 或 RA-GRS 时，仍需收取此费用。</p>
 						<table cellpadding="0" cellspacing="0" width="100%">
@@ -471,7 +485,7 @@
 							  
 							</tr>
 							<tr>
-								<td>写入操作（按 10,000 计）</td>
+								<td>写入操作（按 10,000 计）<sup>*</sup></td>
 								<td align="left">￥0.045</td>					   
 								<td align="left">￥0.045</td>					   
 								<td align="left">￥0.09</td>					   
@@ -485,7 +499,7 @@
 								<td align="left">￥0.045</td>					   
 							</tr>
 							<tr>
-								<td>读取操作（按 10,000 计）</td>
+								<td>读取操作（按 10,000 计）<sup>**</sup></td>
 								<td align="left">￥0.015</td>
 								<td align="left">￥0.015</td>						   
 								<td align="left">￥0.015</td>						   
@@ -520,6 +534,10 @@
 								<td align="left">免费</td>						   
 							</tr>
 						</table>
+						<div class="tags-date">
+							<div class="ms-date"><sup>*</sup> 以下 API 调用视为写入操作：AbortCopyBlob、AppendBlock、BreakBlobLease、BreakContainerLease、ChangeBlobLease、ChangeContainerLease、CopyBlob、CreateContainer、IncrementalCopyBlob、PutBlob、PutBlock、PutBlockList、PutGeoMessage、PutGeoRepairMessageMeasurementEvent、PutGeoVerificationMessageMeasurementEvent、SetBlobMetadata, SetBlobProperties、SetBlobServiceProperties、SetContainerACL、SetContainerMetadata、SnapshotBlob 和 UndeleteBlob。<br />
+							<div class="ms-date"><sup>**</sup> 以下 API 调用视为读取操作：AcquireBlobLease、AcquireContainerLease、BlobPreflightRequest、GeoBootstrap、GetBlob、GetBlobLeaseInfo、GetBlobMetadata、GetBlobProperties、GetBlobServiceProperties、GetBlobServiceStats、GetBlockList、GetContainerACL、GetContainerMetadata、GetContainerProperties、GetCopyInformation、GetEncryptionKey、ReleaseBlobLease。ReleaseContainerLease、RenewBlobLease 和 RenewContainerLease。</div>
+						</div>
 					</div>	
 			
 					<!-- END: TAB-CONTROL -->
