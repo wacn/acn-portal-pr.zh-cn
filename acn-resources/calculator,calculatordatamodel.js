@@ -8087,7 +8087,40 @@ var CalculatorData = {
             Name: "存储 - Blob 存储 - “热”和“冷”访问层 - 操作和数据传输价格",
             Types: [{
                 Name: "LRS",
-                Features: [{
+                Features: [
+                {
+                        Name: "写操作（按 10,000 计）(冷)",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,5000",
+                            PricePerTier: "0.09",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "10000 个"
+                        }]
+                },
+                {
+                    Name: "写操作（按 10,000 计）(热)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.045",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
                     Name: "放置 Blob/块、列出并创建容器操作（按 10,000 计）(冷)",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -8218,7 +8251,40 @@ var CalculatorData = {
             },
             {
                 Name: "GRS 和 RA-GRS",
-                Features: [{
+                Features: [
+                {
+                        Name: "写操作（按 10,000 计）(冷)",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,5000",
+                            PricePerTier: "0.18",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "10000 个"
+                        }]
+                },
+                {
+                    Name: "写操作（按 10,000 计）(热)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.09",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                {
                     Name: "放置 Blob/块、列出并创建容器操作（按 10,000 计）(冷)",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
