@@ -25039,6 +25039,72 @@ var CalculatorData = {
                     }]
                 }]
             }]
+        },
+        "active-directory-b2c":{
+            Name: "Azure Active Directory B2C",
+            Types: [
+                // {
+                //     Name:"default",
+                //     Features:[
+                //     {
+                //     Name: "身份验证",
+                //     PriceTier: PriceTierEnum.Fixed,
+                //     PriceUnit: "个",
+                //     MinUnit: "0",
+                //     MaxUnit: "20",
+                //     Sizes: [{
+                //         Name: "default",
+                //         PriceTier:"0,50000,50001,1000000,1000001,10000000,10000001,50000000,50000001,100000000",
+                //         PricePerTier: "0,0.0285,0.0214,0.0142,0.00712",
+                //         MaxUnit:"100000000",
+                //         MinUnit:"0",
+                //         PriceUnit:"个"                            
+                //     }]
+                //     },{
+                //         Name: "多重身份验证",
+                //         Description:"多重身份验证将按每个身份验证的固定费率收费",
+                //         PriceTier: PriceTierEnum.Fixed,
+                //         PriceUnit: "个",
+                //         MinUnit: "0",
+                //         MaxUnit: "20",
+                //         Sizes: [{
+                //             Name: "default",
+                //             PriceTier:"0,100000000",
+                //             PricePerTier: "0.305",
+                //             MaxUnit:"100000000",
+                //             MinUnit:"0",
+                //             PriceUnit:"个"
+                            
+                //         }]
+                //     }
+                //     ]
+                // },
+                
+                {
+                    Name: "身份验证",
+                    Features: [{
+                        Name: "default",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "预览期间免费",
+                            PriceTier: PriceTierEnum.Free,
+                            PricePerTier: "0",
+                        }]
+                    }]
+                },
+                {
+                    Name: "多重身份验证",
+                    Features: [{
+                        Name: "default",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "预览期间免费",
+                            PriceTier: PriceTierEnum.Free,
+                            PricePerTier: "0",
+                        }]
+                    }]
+                }
+            ]
         }
     }
 };
