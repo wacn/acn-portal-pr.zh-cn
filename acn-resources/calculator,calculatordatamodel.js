@@ -10727,8 +10727,8 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.72,0.57,0.54",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.447",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "GB"
@@ -10746,8 +10746,8 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "0.95,0.80,0.74",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.596",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "GB"
@@ -10765,8 +10765,8 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "default",
-                        PriceTier: "0,1024,1025,51200,51201,512000",
-                        PricePerTier: "1.21,1.02,0.94",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.759",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "GB"
