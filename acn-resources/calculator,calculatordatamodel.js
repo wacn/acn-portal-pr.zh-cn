@@ -7239,7 +7239,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,512000",
-                        PricePerTier: "0.015",
+                        PricePerTier: "0.011469",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "GB"
@@ -7247,7 +7247,7 @@ var CalculatorData = {
                 }]
             },
             {
-                Name: "ZRS",
+                Name: "GRS",
                 Features: [{
                     Name: "冷",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -7273,7 +7273,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,512000",
-                        PricePerTier: "0.0301",
+                        PricePerTier: "0.022938",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "GB"
@@ -7281,7 +7281,7 @@ var CalculatorData = {
                 }]
             },
             {
-                Name: "GRS",
+                Name: "RA-GRS",
                 Features: [{
                     Name: "冷",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -7307,7 +7307,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,512000",
-                        PricePerTier: "0.2544",
+                        PricePerTier: "0.022938",
                         MinUnit: "0",
                         MaxUnit: "100000",
                         PriceUnit: "GB"
@@ -7360,7 +7360,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5120000",
-                        PricePerTier: "0.015",
+                        PricePerTier: "0.011469",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -7410,7 +7410,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5120000",
-                        PricePerTier: "0.0301",
+                        PricePerTier: "0.022938",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -7460,7 +7460,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,1024000",
-                        PricePerTier: "0.0301",
+                        PricePerTier: "0.022938",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
