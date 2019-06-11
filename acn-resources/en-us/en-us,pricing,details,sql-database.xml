@@ -82,12 +82,14 @@
 							<span class="selected-item">Elastic Database</span>
 							<i class="icon"></i>
 							<ol class="tab-items">
-								<li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database">Elastic Database</a></li>
+                            <li class="active"><a href="javascript:void(0)" data-href="#tabContent3" id="home_managed_instance">Managed Instance</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database">Elastic Database</a></li>
 								<li><a href="javascript:void(0)" data-href="#tabContent2" id="home_single_database">Single database</a></li>
 							</ol>
 						</div>
 						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
-							<option selected="selected" data-href="#tabContent1" value="Elastic Database">Elastic Database</option>
+                            <option selected="selected" data-href="#tabContent3" value="Managed Instance">Managed Instance</option>
+							<option data-href="#tabContent1" value="Elastic Database">Elastic Database</option>
 							<option data-href="#tabContent2" value="Single database">Single database</option>
 						</select>
 					</div>
@@ -1850,7 +1852,293 @@
                                 
                             </div>
                         </div>
-                    </div>            
+                    </div>
+                    <!-- END: TAB-CONTAINER-2 -->
+
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent3">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+                            <p>SQL Database managed instance provides the broadest SQL Server engine compatibility and native virtual network support so you can migrate your SQL Server databases to SQL Database managed instance without changing your apps. It combines the rich SQL Server surface area with the operational and financial benefits of an intelligent, fully managed service. Managed instance is your best destination when migrating a large number of existing SQL Server databases from on-premises or virtual machines to SQL Database.</p>
+                            <!-- BEGIN: Tab level 2 content 2-1 -->
+
+                            <h3>General purpose</h3>
+                                <p>Offering balanced and scalable compute and storage options, general purpose is ideal for most business workloads.</p>
+                                <!-- <h4>Gen 4</h4>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-general-purpose-gen4">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>MEMORY (GB)</strong></th>
+                                        <th align="left"><strong>INCLUDED STORAGE</strong></th>
+                                        <th align="left"><strong>LICENSE INCLUDED PRICE</strong></th>
+                                        <th align="left"><strong>AZURE HYBRID BENEFIT<sup>1</sup> PRICE (% SAVINGS)</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥7.1126/hour<br/>( about￥5,291.7744/month )</td>
+                                        <td>￥4.5694/hour<br/>( about￥3,399.6336/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥14.2251/hour<br/>( about￥15,875.2488/month )</td>
+                                        <td>￥9.1389/hour<br/>( about￥6,799.3416/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>157</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥21.3377/hour<br/>( about￥162,059.7168/month )</td>
+                                        <td>￥13.7083/hour<br/>( about￥10,198.9752/month )（~36%）</td>
+                                    </tr>
+                                    
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about <a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores). A vCore represents a logical CPU offered with an option to choose between compute generations.</div>
+                                </div> -->
+                                
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-general-purpose-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>MEMORY (GB)</strong></th>
+                                        <th align="left"><strong>INCLUDED STORAGE</strong></th>
+                                        <th align="left"><strong>LICENSE INCLUDED PRICE</strong></th>
+                                        <th align="left"><strong>AZURE HYBRID BENEFIT<sup>1</sup> PRICE (% SAVINGS)</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>40.8</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥7.1126/hour<br/>( about￥5,291.7744/month )</td>
+                                        <td>￥4.5694/hour<br/>( about￥3,399.6336/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>81.6</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥14.2251/hour<br/>( about￥10,583.4744/month )</td>
+                                        <td>￥9.1389/hour<br/>( about￥6,799.3416/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>122.4</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥21.3377/hour<br/>( about￥15,875.2488/month )</td>
+                                        <td>￥13.7083/hour<br/>( about￥10,198.9752/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>163.2</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥28.4502/hour<br/>( about￥21,166.9488/month )</td>
+                                        <td>￥18.2777/hour<br/>( about￥13,598.6088/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>204</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥35.5628/hour<br/>( about￥26,458.7232/month )</td>
+                                        <td>￥22.8472/hour<br/>( about￥16,998.3168/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>64</td>
+                                        <td>326.4</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥56.9005/hour<br/>( about￥42,333.972/month )</td>
+                                        <td>￥36.5555/hour<br/>( about￥27,197.292/month )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥71.1256/hour<br/>( about￥52,917.4464/month )</td>
+                                        <td>￥45.6943/hour<br/>( about￥33,996.5592/month )（~36%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about <a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores). A vCore represents a logical CPU offered with an option to choose between compute generations.</div>
+                                </div>
+
+                                <h4>Storage</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>Storage</strong></th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>First 32 GB/month</td>
+                                        <td>Included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Additional storage<sup>*</sup></td>
+                                        <td>0.432 /GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Backup GB/month<sup>**</sup></td>
+                                        <td>0.75</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>*</sup>Storage is available in increments of 32 GB up to 8 TB.</div><br/>
+                                    <div class="ms-date"><sup>**</sup>Backup storage will not be charged until September 1, 2019.</div>
+                                </div>
+
+                                <h3>Business critical</h3>
+                                <p>Offering balanced and scalable compute and storage options for data applications with fast IO and high availability requirements.</p>
+                                <!-- <h4>Gen 4</h4>
+                                <p>Gen 4 CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. In Gen 4, 1 vCore = 1 physical CPU</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-business-critical-gen4">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>MEMORY (GB)</strong></th>
+                                        <th align="left"><strong>INCLUDED STORAGE</strong></th>
+                                        <th align="left"><strong>LICENSE INCLUDED PRICE</strong></th>
+                                        <th align="left"><strong>AZURE HYBRID BENEFIT<sup>1</sup> PRICE (% SAVINGS)</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥18.6789/hour<br/>( about￥13,897.1016/month )</td>
+                                        <td>￥9.1389/hour<br/>( about￥6,799.3416/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥37.3578/hour<br/>( about￥27,794.2032/month )</td>
+                                        <td>￥18.2778/hour<br/>( about￥13,598.6832/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>157</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥572.0412/hour<br/>( about￥425,598.6528/month )</td>
+                                        <td>￥279.8787/hour<br/>( about￥208,229.7528/month )（~51%）</td>
+                                    </tr>
+                                    
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about <a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores). A vCore represents a logical CPU offered with an option to choose between compute generations.</div>
+                                </div> -->
+
+                                <h4>Gen 5</h4>
+                                <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-business-critical-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>MEMORY (GB)</strong></th>
+                                        <th align="left"><strong>INCLUDED STORAGE</strong></th>
+                                        <th align="left"><strong>LICENSE INCLUDED PRICE</strong></th>
+                                        <th align="left"><strong>AZURE HYBRID BENEFIT<sup>1</sup> PRICE (% SAVINGS)</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>40.8</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥18.6789/hour<br/>( about￥13,897.1016/month )</td>
+                                        <td>￥9.1389/hour<br/>( about￥6,799.3416/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>81.6</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥37.3578/hour<br/>( about￥27,794.2032/month )</td>
+                                        <td>￥18.2778/hour<br/>( about￥13,598.6832/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>122.4</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥56.0367/hour<br/>( about￥41,691.3048/month )</td>
+                                        <td>￥27.4167/hour<br/>( about￥20,398.0248/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>163.2</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥74.7156/hour<br/>( about￥55,588.4064/month )</td>
+                                        <td>￥36.5556/hour<br/>( about￥27,197.3664/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>204</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥93.3945/hour<br/>( about￥69,485.508/month )</td>
+                                        <td>￥45.6945/hour<br/>( about￥33,996.708/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>64</td>
+                                        <td>326.4</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥149.4312/hour<br/>( about￥111,176.8128/month )</td>
+                                        <td>￥73.1112/hour<br/>( about￥54,394.7328/month )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>First 32 GB/month</td>
+                                        <td>￥186.789/hour<br/>( about￥138,971.016/month )</td>
+                                        <td>￥91.389/hour<br/>( about￥/month )（~51%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about <a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
+                                    <div class="ms-date">Compute is provisioned in virtual cores (vCores). A vCore represents a logical CPU offered with an option to choose between compute generations.</div>
+                                </div>
+                                <h4>Storage</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>Storage</strong></th>
+                                        <th align="left"><strong>Price</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>First 32 GB/month</td>
+                                        <td>Included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Additional storage<sup>*</sup></td>
+                                        <td>0.938 /GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Backup GB/month<sup>**</sup></td>
+                                        <td>0.75</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>*</sup>Storage is available in increments of 32 GB up to 4 TB.</div><br/>
+                                    <div class="ms-date"><sup>**</sup>Backup storage will not be charged until September 1, 2019.</div>
+                                </div>
+                            <!-- END: Tab level 2 content 3-1-->
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
                 </div>
                 <!-- END: TAB-CONTAINER-2 -->
             </div>

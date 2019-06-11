@@ -84,12 +84,14 @@
 							<span class="selected-item">弹性数据库</span>
 							<i class="icon"></i>
 							<ol class="tab-items">
-								<li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database">弹性数据库</a></li>
+                                <li class="active"><a href="javascript:void(0)" data-href="#tabContent3" id="home_managed_instance">托管实例</a></li>
+								<li><a href="javascript:void(0)" data-href="#tabContent1" id="home_elastic_database">弹性数据库</a></li>
 								<li><a href="javascript:void(0)" data-href="#tabContent2" id="home_single_database">单个数据库</a></li>
 							</ol>
 						</div>
 						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
-							<option selected="selected" data-href="#tabContent1" value="Elastic Database">弹性数据库</option>
+                            <option selected="selected" data-href="#tabContent3" value="Managed Instance">托管实例</option>
+							<option data-href="#tabContent1" value="Elastic Database">弹性数据库</option>
 							<option data-href="#tabContent2" value="Single database">单个数据库</option>
 						</select>
 					</div>
@@ -881,6 +883,7 @@
                         </div>
                     </div>
                     <!-- END: TAB-CONTAINER-1 -->
+
                     <!-- BEGIN: TAB-CONTAINER-2 -->
                     <div class="tab-panel" id="tabContent2">
                         <!-- BEGIN: Tab level 2 navigator 2 -->
@@ -1838,9 +1841,293 @@
                             </div>
                         </div>
                     </div>
+                    <!-- END: TAB-CONTAINER-2 -->
+
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent3">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+                            <p>SQL 数据库托管实例提供最广泛的 SQL Server 引擎兼容性和本机虚拟网络支持，因此你可以在不更改应用的情况下将 SQL Server 数据库迁移到 SQL 数据库托管实例。它结合了丰富的 SQL Server 界面区域以及智能、完全托管服务的操作和财务效益。将大量现有 SQL Server 数据库从本地或虚拟机迁移到 SQL 数据库时，托管实例是你的最佳目的地。</p>
+                            <!-- BEGIN: Tab level 2 content 2-1 -->
+
+                            <h3>常规用途</h3>
+                                <p>常规用途提供均衡、可缩放的计算和存储选项，是大多数业务工作负荷的理想选择。</p>
+                                <!-- <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                    <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-general-purpose-gen4">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含的存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥7.1126/小时<br/>( 约￥5,291.7744/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥14.2251/小时<br/>( 约￥10,583.4744/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>157</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥21.3377/小时<br/>( 约￥15,875.2488/月 )</td>
+                                        <td>￥13.7083/小时<br/>( 约￥10,198.9752/月 )（~36%）</td>
+                                    </tr>
+                                    
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">在虚拟核心 (vCore) 中预配计算。vCore 表示通过在计算生成间进行选择的选项提供的逻辑 CPU。</div>
+                                </div> -->
+                                
+                                <h4>Gen 5</h4>
+                                <p>生成 5 逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。在第 5 代中，1 vCore = 1 个超线程</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                    <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-general-purpose-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含的存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>40.8</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥7.1126/小时<br/>( 约￥5,291.7744/月 )</td>
+                                        <td>￥4.5694/小时<br/>( 约￥3,399.6336/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>81.6</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥14.2251/小时<br/>( 约￥10,583.4744/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>122.4</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥21.3377/小时<br/>( 约￥15,875.2488/月 )</td>
+                                        <td>￥13.7083/小时<br/>( 约￥10,198.9752/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>163.2</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥28.4502/小时<br/>( 约￥21,166.9488/月 )</td>
+                                        <td>￥18.2777/小时<br/>( 约￥13,598.6088/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>204</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥35.5628/小时<br/>( 约￥26,458.7232/月 )</td>
+                                        <td>￥22.8472/小时<br/>( 约￥16,998.3168/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>64</td>
+                                        <td>326.4</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥56.9005/小时<br/>( 约￥42,333.972/月 )</td>
+                                        <td>￥36.5555/小时<br/>( 约￥27,197.292/月 )（~36%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥71.1256/小时<br/>( 约￥52,917.4464/月 )</td>
+                                        <td>￥45.6943/小时<br/>( 约￥33,996.5592/月 )（~36%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">在虚拟核心 (vCore) 中预配计算。vCore 表示通过在计算生成间进行选择的选项提供的逻辑 CPU。</div>
+                                </div>
+
+                                <h4>存储</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>存储</strong></th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>前 32 GB/月</td>
+                                        <td>包含</td>
+                                    </tr>
+                                    <tr>
+                                        <td>附加存储<sup>*</sup></td>
+                                        <td>0.432 /GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>备份 GB/月<sup>**</sup></td>
+                                        <td>0.75</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>*</sup>存储容量以 32GB 到 8TB 递增</div><br/>
+                                    <div class="ms-date"><sup>**</sup>在 2019 年 9 月 1 日之前，不会收取备份存储费用。</div>
+                                </div>
+
+                                <h3>业务关键</h3>
+                                <p>针对具有快速 IO 和高可用性需求的数据应用程序，提供均衡、可缩放的计算机和存储选项。</p>
+                                <!-- <h4>Gen 4</h4>
+                                <p>第 4 代 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。在第 4 代中，1 vCore = 1 个物理 CPU</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                    <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-business-critical-gen4">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含的存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>56</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥18.6789/小时<br/>( 约￥13,897.1016/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>112</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥37.3578/小时<br/>( 约￥27,794.2032/月 )</td>
+                                        <td>￥18.2778/小时<br/>( 约￥13,598.6832/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>157</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥572.0412/小时<br/>( 约￥425,598.6528/月 )</td>
+                                        <td>￥279.8787/小时<br/>( 约￥208,229.7528/月 )（~51%）</td>
+                                    </tr>
+                                    
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">在虚拟核心 (vCore) 中预配计算。vCore 表示通过在计算生成间进行选择的选项提供的逻辑 CPU。</div>
+                                </div> -->
+                                <h4>Gen 5</h4>
+                                <p>生成 5 逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。在第 5 代中，1 vCore = 1 个超线程</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                    <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-managed-instance-business-critical-gen5">
+                                    <tr>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>包含的存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>40.8</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥18.6789/小时<br/>( 约￥13,897.1016/月 )</td>
+                                        <td>￥9.1389/小时<br/>( 约￥6,799.3416/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>81.6</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥37.3578/小时<br/>( 约￥27,794.2032/月 )</td>
+                                        <td>￥18.2778/小时<br/>( 约￥13,598.6832/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>122.4</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥56.0367/小时<br/>( 约￥41,691.3048/月 )</td>
+                                        <td>￥27.4167/小时<br/>( 约￥20,398.0248/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>163.2</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥74.7156/小时<br/>( 约￥55,588.4064/月 )</td>
+                                        <td>￥36.5556/小时<br/>( 约￥27,197.3664/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>204</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥93.3945/小时<br/>( 约￥69,485.508/月 )</td>
+                                        <td>￥45.6945/小时<br/>( 约￥33,996.708/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>64</td>
+                                        <td>326.4</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥149.4312/小时<br/>( 约￥111,176.8128/月 )</td>
+                                        <td>￥73.1112/小时<br/>( 约￥54,394.7328/月 )（~51%）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>80</td>
+                                        <td>396</td>
+                                        <td>前 32 GB/月</td>
+                                        <td>￥186.789/小时<br/>( 约￥138,971.016/月 )</td>
+                                        <td>￥91.389/小时<br/>( 约￥/月 )（~51%）</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1 </sup>应用到具备有效软件保障（SA）的 SQL Server 许可证。深入了解<a href="/pricing/hybrid-benefit/">面向 SQL Server 的 Azure 混合权益</a>。</div><br/>
+                                    <div class="ms-date">在虚拟核心 (vCore) 中预配计算。vCore 表示通过在计算生成间进行选择的选项提供的逻辑 CPU。</div>
+                                </div>
+                                <h4>存储</h4>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <th align="left"><strong>存储</strong></th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>前 32 GB/月</td>
+                                        <td>包含</td>
+                                    </tr>
+                                    <tr>
+                                        <td>附加存储<sup>*</sup></td>
+                                        <td>0.938 /GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>备份 GB/月<sup>**</sup></td>
+                                        <td>0.75</td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>*</sup>存储容量以 32GB 到 8TB 递增</div><br/>
+                                    <div class="ms-date"><sup>**</sup>在 2019 年 9 月 1 日之前，不会收取备份存储费用。</div>
+                                </div>
+                            <!-- END: Tab level 2 content 3-1-->
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
                 </div>
-                <!-- END: TAB-CONTAINER-2 -->
-            </div>
             <!-- END: TAB-CONTROL -->
             <div>
                 <!-- BEGIN: Table5-Content-->
