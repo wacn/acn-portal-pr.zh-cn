@@ -25899,7 +25899,242 @@ var CalculatorData = {
                     }]
                 }
             ]
-        }
+        },
+        "mariadb": {
+            Name: "Azure Database for MariaDB",
+            Types: [
+                {
+                    Name: "基本",
+                    Features: [{
+                        Name: "包含许可证的价格",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [
+                        {
+                            Name: "vCore 1",
+                            Description: "1 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "0.26988"
+                        },
+                        {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "0.53975"
+                        }]
+                    },
+                    {
+                        Name: "存储",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,5000",
+                            PricePerTier: "0.794",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "GB"
+                        }]
+                    },{
+                        Name: "备份 - LRS",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,5000",
+                            PricePerTier: "0.794",
+                            MinUnit: "0",
+                            MaxUnit: "5000",
+                            PriceUnit: "GB/月"
+                        }]
+                    }]
+                },
+                {
+                Name: "常规用途",
+                Features: [{
+                    Name: "包含许可证的价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                    {
+                        Name: "vCore 2",
+                        Description: "2 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.6675"
+                    },
+                    {
+                        Name: "vCore 4",
+                        Description: "4 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.335"
+                    },
+                    {
+                        Name: "vCore 8",
+                        Description: "8 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.67"
+                    },{
+                        Name: "vCore 16",
+                        Description: "16 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.3402"
+                    },{
+                        Name: "vCore 32",
+                        Description: "32 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.6803"
+                    },{
+                        Name: "vCore 64",
+                        Description: "64 个内核",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "21.3606"
+                    }]
+                },
+                {
+                    Name: "存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.803",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "备份 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.794",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB/月"
+                    }]
+                },
+                {
+                    Name: "备份 - GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.588",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB/月"
+                    }]
+                }]
+            },
+            {
+                Name: "内存优化",
+                Features: [{
+                    Name: "包含许可证的价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [
+                        {
+                            Name: "vCore 2",
+                            Description: "2 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1.8748"
+                        },
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "3.7497"
+                        },
+                        {
+                            Name: "vCore 8",
+                            Description: "8 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "7.4994"
+                        },{
+                            Name: "vCore 16",
+                            Description: "16 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "14.9987"
+                        },{
+                            Name: "vCore 32",
+                            Description: "32 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "29.9974"
+                        }]
+                },
+                {
+                    Name: "存储",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.803",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "备份 - LRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.794",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB/月"
+                    }]
+                },
+                {
+                    Name: "备份 - GRS",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.588",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "GB/月"
+                    }]
+                }]
+            }]
+        },
     }
 };
 //  return CalculatorData;
