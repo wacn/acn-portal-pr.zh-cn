@@ -51,7 +51,6 @@
 			<div class="pricing-page-section">
 				<h2>Pricing Details</h2>
 				<p>HDInsight Cluster is composed of a group of nodes. In the lifecycle of the cluster, customers need to pay for these nodes. Billing starts from creation of the cluster, and ends in deletion of the cluster. Billing is done proportionately every minute. 
-				<p>HDInsight Kafka is now in a preview state, with no other extra fee charged.</p>
 				<!-- 
 				<p>高级版功能仅适用于 Linux Hadoop 群集。</p>
 				--> <!-- 
@@ -82,21 +81,154 @@
 				<table cellpadding="0" cellspacing="0" width="100%">
 					<tr>
 						<th align="left" width="30%"><strong></strong></th>					
-						<th align="left"><strong>Hadoop, HBase, Storm, Spark</strong></th>
+						<th align="left"><strong>Hadoop, HBase, Storm, Spark、KAFKA<sup>1</sup></strong></th>
 						<!--<th align="left"><strong>R Server</strong></th>-->
-						<th align="left"><strong>KAFKA</strong> Preview</th>
 					</tr>
 					<tr>
 						<td>Standard Cluster</td>								
 						<td>Basic price/node-hours</td>
-						<!--<td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>-->
-						<td>Basic price/nodes-hours + ￥ 0/core-hour + Storage<sup>1</sup></td>
 					</tr>							
 					</tr>
 				</table>
 				<div class="tags-date">
-					<div class="ms-date"><sup>1</sup> Kafka needs a Managed Disk. Customers can make a selection of standard Managed Disk or Premium Managed Disk. For the pricing of Managed Disks, please view the <a href="/pricing/details/storage/">Azure Storage Pricing Details</a> page.</div>
+					<div class="ms-date"><sup>1</sup> Kafka needs a Managed Disk, Customers can make a selection of standard Managed Disk. For the pricing of Managed Disks, please view the <a href="/pricing/details/storage/">Azure Storage Pricing Details</a> page.</div>
 				</div>
+				<h3>Memory Optimized nodes for HDInsight</h3>
+				<div class="tags-date">
+					<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+					<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>Instances</strong></th>
+						<th align="left"><strong>Number of cores</strong></th>
+						<th align="left"><strong>RAM</strong></th>
+						<th align="left"><strong>Disk size</strong></th>
+						<th align="left"><strong>Pricing</strong></th>
+					</tr>
+					<tr>
+						<td>E2 v3</td>
+						<td>2</td>
+						<td>16 GB</td>
+						<td>50 GB</td>
+						<td>￥1.31 /hour<br /> （about￥974.64 /month）</td>
+					</tr>
+					<tr>
+						<td>E4 v3</td>
+						<td>4</td>
+						<td>32 GB</td>
+						<td>100 GB</td>
+						<td>￥2.63 /hour<br /> （about￥1,956.72 /month）</td>
+					</tr>
+					<tr>
+						<td>E8 v3</td>
+						<td>8</td>
+						<td>64 GB</td>
+						<td>200 GB</td>
+						<td>￥5.27 /hour<br /> （about￥3,920.88 /month）</td>
+					</tr>
+					<tr>
+						<td>E16 v3</td>
+						<td>16</td>
+						<td>128 GB</td>
+						<td>400 GB</td>
+						<td>￥10.54 /hour<br /> （about￥7,841.76 /month）</td>
+					</tr>
+					<tr>
+						<td>E20 v3</td>
+						<td>20</td>
+						<td>160 GB</td>
+						<td>500 GB</td>
+						<td>￥16.92 /hour<br /> （about￥12,588.48 /month）</td>
+					</tr>
+					<tr>
+						<td>E32 v3</td>
+						<td>32</td>
+						<td>256 GB</td>
+						<td>800 GB</td>
+						<td>￥21.08 /hour<br /> （about￥15,683.52 /month）</td>
+					</tr>
+					<tr>
+						<td>E64i v3</td>
+						<td>64</td>
+						<td>432 GB</td>
+						<td>1,600 GB</td>
+						<td>￥42.14 /hour<br /> （about￥31,352.16 /month）</td>
+					</tr>
+					<tr>
+						<td>E64 v3</td>
+						<td>64</td>
+						<td>432 GB</td>
+						<td>1,600 GB</td>
+						<td>￥42.14 /hour<br /> （about￥31,352.16 /month）</td>
+					</tr>
+				</table>
+
+				<h3>General Purpose nodes for HDInsight</h3>
+				<p>AV2 HDInsight nodes run on Av2 Standard VM, which is the latest generation of A-series virtual machines with similar CPU performance and faster disk.</p>
+				<div class="tags-date">
+					<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+					<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>Instances</strong></th>
+						<th align="left"><strong>Number of cores</strong></th>
+						<th align="left"><strong>RAM</strong></th>
+						<th align="left"><strong>Disk size</strong></th>
+						<th align="left"><strong>Pricing</strong></th>
+					</tr>
+					<tr>
+						<td>A1 v2</td>
+						<td>1</td>
+						<td>2 GB</td>
+						<td>10 GB</td>
+						<td>￥0.545 /hour<br /> （about￥405.48 /month）</td>
+					</tr>
+					<tr>
+						<td>A2 v2</td>
+						<td>2</td>
+						<td>4 GB</td>
+						<td>20 GB</td>
+						<td>￥1.079 /hour<br /> （about￥802.776 /month）</td>
+					</tr>
+					<tr>
+						<td>A2m v2</td>
+						<td>2</td>
+						<td>16 GB</td>
+						<td>20 GB</td>
+						<td>￥2.079 /hour<br /> （about￥1,546.776 /month）</td>
+					</tr>
+					<tr>
+						<td>A4 v2</td>
+						<td>4</td>
+						<td>8 GB</td>
+						<td>40 GB</td>
+						<td>￥2.169 /hour<br /> （about￥1,613.736 /month）</td>
+					</tr>
+					<tr>
+						<td>A4m v2</td>
+						<td>4</td>
+						<td>32 GB</td>
+						<td>40 GB</td>
+						<td>￥4.166 /hour<br /> （about￥3,099.504 /month）</td>
+					</tr>
+					<tr>
+						<td>A8 v2</td>
+						<td>8</td>
+						<td>16 GB</td>
+						<td>80 GB</td>
+						<td>￥4.326 /hour<br /> （about￥3,218.544 /month）</td>
+					</tr>
+					<tr>
+						<td>A8m v2</td>
+						<td>8</td>
+						<td>64 GB</td>
+						<td>80 GB</td>
+						<td>￥8.328 /hour<br /> （about￥6,196.032 /month）</td>
+					</tr>
+				</table>
+
 				<h3>A Series Universal Nodes</h3>
 				<p>A3<!--、A6、A7--> is economical option for meeting universal demands. Customers running basic query applications and modes on Hadoop will benefit from using the A Series.</p>
 				<p>The A1 node can be only used as Storm’s Zookeeper node. The A2 node can be only used as Zookeeper node of HBase and Storm.<!--使用 R Server 的边缘节点仅在 A6、A7 上可用。--></p>

@@ -51,27 +51,159 @@
         	<div class="pricing-page-section">
                 <h2>定价详细信息</h2>
 				<p>HDInsight 群集由一组节点组成。在群集的生命周期内，用户需要付费使用这些节点。计费从创建群集开始，到删除群集结束，每分钟按比例计费。</p>
-				<p>HDInsight Kafka 现处于预览状态，不收取其他额外费用。</p>
 				
 				<h3>定价方式</h3>
 				<table cellpadding="0" cellspacing="0" width="100%">
 					<tr>
 						<th align="left" width="30%"><strong></strong></th>					
-						<th align="left"><strong>Hadoop、HBase、Storm、Spark</strong></th>
+						<th align="left"><strong>Hadoop、HBase、Storm、Spark、KAFKA<sup>1</sup></strong></th>
 						<!--<th align="left"><strong>R Server</strong></th>-->
-						<th align="left"><strong>KAFKA</strong>（预览）</th>
 					</tr>
 					<tr>
 						<td>标准群集</td>								
 						<td>基本价格/节点-小时</td>
-						<!--<td>基本价格/节点-小时 + ￥ 0.52/核-小时</td>-->
-						<td>基本价格/节点-小时 + ￥0/核心-小时 + 存储<sup>1</sup></td>
 					</tr>							
 					</tr>
 				</table>
 				<div class="tags-date">
-					<div class="ms-date"><sup>1</sup> Kafka 需要托管磁盘。客户可在标准托管磁盘或高级托管磁盘间选择，托管磁盘价格请查看<a href="/pricing/details/storage/">Azure 存储价格详情</a>页面。</div>
+					<div class="ms-date"><sup>1</sup> Kafka 需要托管磁盘，客户可选择标准托管磁盘，托管磁盘价格请查看<a href="/pricing/details/storage/">Azure 存储价格详情</a>页面。</div>
 				</div>
+				<h3>HDInsight 内存优化节点</h3>
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>RAM</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>价格</strong></th>
+					</tr>
+					<tr>
+						<td>E2 v3</td>
+						<td>2</td>
+						<td>16 GB</td>
+						<td>50 GB</td>
+						<td>￥1.31 /小时<br /> （约合￥974.64 /月）</td>
+					</tr>
+					<tr>
+						<td>E4 v3</td>
+						<td>4</td>
+						<td>32 GB</td>
+						<td>100 GB</td>
+						<td>￥2.63 /小时<br /> （约合￥1,956.72 /月）</td>
+					</tr>
+					<tr>
+						<td>E8 v3</td>
+						<td>8</td>
+						<td>64 GB</td>
+						<td>200 GB</td>
+						<td>￥5.27 /小时<br /> （约合￥3,920.88 /月）</td>
+					</tr>
+					<tr>
+						<td>E16 v3</td>
+						<td>16</td>
+						<td>128 GB</td>
+						<td>400 GB</td>
+						<td>￥10.54 /小时<br /> （约合￥7,841.76 /月）</td>
+					</tr>
+					<tr>
+						<td>E20 v3</td>
+						<td>20</td>
+						<td>160 GB</td>
+						<td>500 GB</td>
+						<td>￥16.92 /小时<br /> （约合￥12,588.48 /月）</td>
+					</tr>
+					<tr>
+						<td>E32 v3</td>
+						<td>32</td>
+						<td>256 GB</td>
+						<td>800 GB</td>
+						<td>￥21.08 /小时<br /> （约合￥15,683.52 /月）</td>
+					</tr>
+					<tr>
+						<td>E64i v3</td>
+						<td>64</td>
+						<td>432 GB</td>
+						<td>1,600 GB</td>
+						<td>￥42.14 /小时<br /> （约合￥31,352.16 /月）</td>
+					</tr>
+					<tr>
+						<td>E64 v3</td>
+						<td>64</td>
+						<td>432 GB</td>
+						<td>1,600 GB</td>
+						<td>￥42.14 /小时<br /> （约合￥31,352.16 /月）</td>
+					</tr>
+				</table>
+
+				<h3>HDInsight 常规用途节点</h3>
+				<p>AV2 HDInsight 节点在 Av2 标准 VM 上运行，这是最新一代的 A 系列虚拟机，具有类似的 CPU 性能但磁盘速度更快。</p>
+				<div class="tags-date">
+					<div class="ms-date">*以下价格均为含税价格。</div><br />
+					<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+				</div>
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<th align="left"><strong>实例</strong></th>
+						<th align="left"><strong>内核数</strong></th>
+						<th align="left"><strong>RAM</strong></th>
+						<th align="left"><strong>磁盘大小</strong></th>
+						<th align="left"><strong>价格</strong></th>
+					</tr>
+					<tr>
+						<td>A1 v2</td>
+						<td>1</td>
+						<td>2 GB</td>
+						<td>10 GB</td>
+						<td>￥0.545 /小时<br /> （约合￥405.48 /月）</td>
+					</tr>
+					<tr>
+						<td>A2 v2</td>
+						<td>2</td>
+						<td>4 GB</td>
+						<td>20 GB</td>
+						<td>￥1.079 /小时<br /> （约合￥802.776 /月）</td>
+					</tr>
+					<tr>
+						<td>A2m v2</td>
+						<td>2</td>
+						<td>16 GB</td>
+						<td>20 GB</td>
+						<td>￥2.079 /小时<br /> （约合￥1,546.776 /月）</td>
+					</tr>
+					<tr>
+						<td>A4 v2</td>
+						<td>4</td>
+						<td>8 GB</td>
+						<td>40 GB</td>
+						<td>￥2.169 /小时<br /> （约合￥1,613.736 /月）</td>
+					</tr>
+					<tr>
+						<td>A4m v2</td>
+						<td>4</td>
+						<td>32 GB</td>
+						<td>40 GB</td>
+						<td>￥4.166 /小时<br /> （约合￥3,099.504 /月）</td>
+					</tr>
+					<tr>
+						<td>A8 v2</td>
+						<td>8</td>
+						<td>16 GB</td>
+						<td>80 GB</td>
+						<td>￥4.326 /小时<br /> （约合￥3,218.544 /月）</td>
+					</tr>
+					<tr>
+						<td>A8m v2</td>
+						<td>8</td>
+						<td>64 GB</td>
+						<td>80 GB</td>
+						<td>￥8.328 /小时<br /> （约合￥6,196.032 /月）</td>
+					</tr>
+				</table>
+
 				<h3>A 系列通用节点</h3>
 				<p>A3<!--、A6、A7--> 是适合许多通用需求的实惠选择。在 Hadoop 上运行基础查询应用程序和模式的客户将因使用 A 系列而受益。</p>
 				<p>A1 节点只能用作 Storm 的 Zookeeper 节点。A2 节点只能用作 HBase 和 Storm 的 Zookeeper 节点。<!--使用 R Server 的边缘节点仅在 A6、A7 上可用。--></p>
