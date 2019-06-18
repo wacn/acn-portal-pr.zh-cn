@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-06-17T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal" ms.date="11/2017" wacn.date="11/2017" wacn.lang="cn"/></p>
 
-        <h1>Azure 监控器的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2018年4月</div></div>
+        <h1>Azure 监控器的服务级别协议</h1><div class="tags-date"><div class="wacn-date">最后更新时间：2019年6月</div></div>
         <p>使用 Azure 监控器，您可以收集详尽的性能和使用情况数据、活动和诊断日志，并以一致的方式定义 Azure 资源的警报和通知。我们保证，在不少于 99.9% 的时间内，通知会成功送达。</p>
         <h2>引言</h2>
         <p>本 Azure 服务级别协议（以下简称“服务级别协议”）由世纪互联制定，与客户从世纪互联处购买 Azure 服务所依据的协议（以下简称“协议”）相关并构成该协议的一部分。</p>
@@ -127,6 +127,44 @@
         </li>
         </ol>
         <h2>SLA 详细信息</h2>
+        <h3>Azure 监控器警报的每月正常服务时间计算和服务级别</h3>
+        <ol>
+        <li>
+        <p>“<strong>警报规则</strong>”是一组信号标准，用于使用警报服务可分析的监控事件数据生成警报。</p>
+        </li>
+        <li>
+        <p>“<strong>最大可用分钟数</strong>”是指在一个计费月内，客户在指定的 Azure 订阅中部署警报规则所用的总分钟数。</p>
+        </li>
+        <li>
+        <p>“<strong>停机时间</strong>”是指最大可用分钟数中警报规则不可用的总分钟数。如果在某一分钟内，所有旨在分析警报规则中所定义资源的遥测信号的连续尝试均返回错误代码，或者在五分钟内没有返回成功代码，则可以视为在这一分钟内指定的警报规则不可用。</p>
+        </li>
+        <li>
+        <p>“<strong>每月正常服务时间百分比</strong>”是用最大可用分钟减去停机时间，再除以最大可用分钟乘以 100 计算。每月正常服务时间百分比 计算公式如下所示：</p>
+        <pre><code>每月正常服务时间百分比&nbsp;%&nbsp;=&nbsp;&nbsp;&nbsp;(最大可用分钟数&nbsp;−&nbsp;停机时间)&nbsp;/&nbsp;最大可用分钟数&nbsp;X&nbsp;100;<br/></code></pre>
+
+        </li>
+        <li>
+        <p>以下服务级别和服务费抵扣用于客户对 Azure 监控器警报的使用：</p>
+        </li>
+        </ol>
+        <table>
+        <thead>
+        <tr>
+            <th>每月正常服务时间百分比</th>
+            <th>服务费抵扣</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&lt;99.9%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>&lt;99%</td>
+            <td>25%</td>
+        </tr>
+        </tbody>
+        </table>
         <h3>Azure 监控器通知递送的每月正常服务时间计算和服务级别</h3>
         <ol>
         <li>
@@ -168,6 +206,10 @@
         </tr>
         </tbody>
         </table>
+        <h2>版本历史记录</h2>
+        <p><a id="monitor-sla" href="/support/sla/monitor/">1.1</a> 最后更新日期 ：2019 年 6 月</p>
+        <p>发布说明：更新了 Azure 监控器警报的每月正常服务时间计算和服务级别。</p>
+        <p><a id="monitor-sla-1.0pdf" href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/azure_monitor_sla_chinese1.0.pdf">1.0</a> 最后更新日期：2018 年 4 月</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
