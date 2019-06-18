@@ -13068,7 +13068,7 @@ var CalculatorData = {
                         Description: "default",
                         PriceTier: "0,8192",
                         PricePerTier: "0.432",
-                        MinUnit: "0",
+                        MinUnit: "32",
                         MaxUnit: "8192",
                         PriceUnit: "GB"
                     }]
@@ -13193,7 +13193,7 @@ var CalculatorData = {
                         Description: "default",
                         PriceTier: "0,8192",
                         PricePerTier: "0.938",
-                        MinUnit: "0",
+                        MinUnit: "32",
                         MaxUnit: "8192",
                         PriceUnit: "GB"
                     }]
