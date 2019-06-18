@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-06-17T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="11/2017" wacn.date="11/2017" wacn.lang="en"/></p>
-        <h1>SLA for Azure Monitor</h1><div class="tags-date"><div class="ms-date">Updated: 4/2018</div></div>
+        <h1>SLA for Azure Monitor</h1><div class="tags-date"><div class="ms-date">Updated: 6/2019</div></div>
         <p>Azure Monitor allows you to collect granular performance and utilization data, activity and diagnostics logs, and define alerts and notifications from your Azure resources in a consistent manner. We guarantee that 99.9% of the time notifications will be successfully delivered.</p>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this “SLA”) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the “Agreement”).</p>
@@ -126,6 +126,44 @@
         </li>
         </ol>
         <h2>The SLA details</h2>
+        <h3>Monthly Uptime Calculation and Service Levels for the Azure Monitor Alerts</h3>
+        <ol>
+        <li>
+        <p>&quot;<strong>Alert Rule</strong>&quot; is a collection of signal criteria used to generate alerts using monitoring event data already available to Alert Service for analysis.</p>
+        </li>
+        <li>
+        <p>&quot;<strong>Maximum Available Minutes</strong>&quot; is the total number of minutes which Alert Rule(s) are deployed by Customer in a given Azure subscription during a billing month.</p>
+        </li>
+        <li>
+        <p>&quot;<strong>Downtime</strong>&quot; is the total number of minutes within Maximum Available Minutes during which the Alert Rule is unavailable. A minute is considered unavailable for a given Alert Rule if all continuous attempts to analyze telemetry signals for resources defined within the Alert Rule throughout the minute either return an Error Code or do not result in a Success Code within five minutes from scheduled Alert Rule start time.</p>
+        </li>
+        <li>
+        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes multiplied by 100. Monthly Uptime Percentage is represented by the following formula:</p>
+        <pre><code>Monthly&nbsp;Uptime&nbsp;%&nbsp;=&nbsp;&nbsp;&nbsp;(Maximum&nbsp;Available&nbsp;Minutes&nbsp;−&nbsp;Downtime)&nbsp;/&nbsp;Maximum&nbsp;Available&nbsp;Minutes&nbsp;X&nbsp;100<br/></code></pre>
+
+        </li>
+        <li>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of Azure Monitor Alerts:</p>
+        </li>
+        </ol>
+        <table>
+        <thead>
+        <tr>
+            <th>Monthly Uptime Percentage</th>
+            <th>Service Credit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&lt;99.9%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>&lt;99%</td>
+            <td>25%</td>
+        </tr>
+        </tbody>
+        </table>
         <h3>Monthly Uptime Calculation and Service Levels for the Azure Monitor Notification Delivery</h3>
         <ol>
         <li>
@@ -167,6 +205,10 @@
         </tr>
         </tbody>
         </table>
+        <h2>Version History</h2>
+        <p><a id="monitor-sla" href="/support/sla/monitor/">1.1</a> Last updated：June 2019</p>
+        <p>Release notes: Update Monthly Uptime Calculation and Service Levels for the Azure Monitor Alerts.</p>
+        <p><a id="monitor-sla-1.0pdf" href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/azure_monitor_sla_english1.0.pdf">1.0</a> Last updated：April 2018</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
