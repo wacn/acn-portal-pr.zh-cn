@@ -24006,6 +24006,7 @@ var CalculatorData = {
                 }]
             }]
         },
+
         "dns": {
             Name: "DNS",
             Types: [
@@ -24590,6 +24591,30 @@ var CalculatorData = {
                 }]
             }]
         },
+        "security-center": {
+            Name: "安全中心",
+            Types: [
+                {
+                Name: "标准",
+                Features: [
+                    {
+                        Name: "标准 - 每个节点价格",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "rules pricing",
+                            Description: "每条规则每小时的价格",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "0.2",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "每个"
+                        }]
+                    }]
+            }]
+        }
     }
 };
 //  return CalculatorData;
