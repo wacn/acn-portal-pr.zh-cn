@@ -22683,6 +22683,25 @@ var CalculatorData = {
                         PricePerTier: "0",
                     }]
                 }]
+            },
+            {
+                Name: "标准",
+                Features: [
+                    {
+                    Name: "default",
+                    PricePerTier:PricePeriodEnum.Monthly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "15.26",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每 1000 个事务"
+                    }]
+                }]
             }
         ]
         },
