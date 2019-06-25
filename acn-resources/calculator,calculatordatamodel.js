@@ -23108,6 +23108,43 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "Application Insights",
+                    Features: [{
+                        Name: "数据引入",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,5120000",
+                            PricePerTier: "23.4",
+                            MinUnit: "0",
+                            MaxUnit: "5120000",
+                            PriceUnit: "GB"
+                        }]
+                    }
+                    // ,
+                    // {
+                    //     Name: "数据保留",
+                    //     PricePeriod: PricePeriodEnum.Monthly,
+                    //     PriceUnit: "个",
+                    //     MinUnit: "0",
+                    //     MaxUnit: "20",
+                    //     Sizes: [{
+                    //         Name: "default",
+                    //         Description: "引入 Azure Log Analytics 工作区的每 GB 数据均可免费保存 90 天",
+                    //         PriceTier: "0,5120000",
+                    //         PricePerTier: "1.02",
+                    //         MinUnit: "0",
+                    //         MaxUnit: "5120000",
+                    //         PriceUnit: "月"
+                    //     }]
+                    // }
+                ]
+                },
+                {
                 Name: "度量值",
                 Features: [{
                     Name: "指标查询（免费包含 1,000,000 个标准 API 调用）",
@@ -24633,6 +24670,653 @@ var CalculatorData = {
                         }]
                     }]
             }]
+        },
+        "data-factory":{
+            Name: "数据工厂",
+            Types: [
+            {
+                Name: "数据管道 - 业务流程",
+                Features: [
+                    {
+                        Name: "数据管道 - 业务流程",
+                        PricePerTier:PricePeriodEnum.Monthly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "10.176",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每 1000 次运行"
+                        }]
+                    },{
+                        Name: "数据管道 - 业务流程 - 自承载集成运行时",
+                        PricePerTier:PricePeriodEnum.Monthly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "15.264",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每 1000 次运行"
+                        }]
+                    },{
+                        Name: "数据管道 - 执行 - Azure 集成运行时 - 数据移动活动",
+                        PricePerTier:PricePeriodEnum.Hourly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "2.544",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每小时"
+                        }]
+                    },{
+                        Name: "数据管道 - 执行 - Azure 集成运行时 - 管道活动",
+                        PricePerTier:PricePeriodEnum.Hourly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.0509",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每小时"
+                        }]
+                    },{
+                        Name: "数据管道 - 执行 - Azure 集成运行时 - 外部",
+                        PricePerTier:PricePeriodEnum.Hourly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.00254",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每小时"
+                        }]
+                    },{
+                        Name: "数据管道 - 执行 - 自动集成运行时 - 数据移动活动",
+                        PricePerTier:PricePeriodEnum.Hourly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "1.018",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每小时"
+                        }]
+                    },{
+                        Name: "数据管道 - 执行 - 自动集成运行时 - 管道活动",
+                        PricePerTier:PricePeriodEnum.Hourly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.0204",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每小时"
+                        }]
+                    },{
+                        Name: "数据管道 - 执行 - 自动集成运行时 - 外部",
+                        PricePerTier:PricePeriodEnum.Hourly,
+                        MinUnit:"0",
+                        MaxUnit:"100000",
+                        Sizes: [{
+                            Name: "default",
+                            Description:"default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.00102",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "每小时"
+                        }]
+                    }]
+            },
+            {
+                Name: "SQL Server Integration Services",
+                Features: [
+                    {
+                    Name: "SSIS 标准 Av2 系列虚拟机",
+                    Description: "标准 Av2 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.A4v2Size,
+                        Description: CalculatorConst.A4v2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.341",
+                    },
+                    {
+                        Name: CalculatorConst.A8mv2Size,
+                        Description: CalculatorConst.A8mv2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.009",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Av2 系列虚拟机混合优惠价格",
+                    Description: "标准 Av2 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.A4v2Size,
+                        Description: CalculatorConst.A4v2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.86",
+                    },
+                    {
+                        Name: CalculatorConst.A8mv2Size,
+                        Description: CalculatorConst.A8mv2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.97",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Av2 系列虚拟机",
+                    Description: "企业 Av2 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.A4v2Size,
+                        Description: CalculatorConst.A4v2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.162",
+                    },
+                    {
+                        Name: CalculatorConst.A8mv2Size,
+                        Description: CalculatorConst.A8mv2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.612",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Av2 系列虚拟机混合优惠价格",
+                    Description: "企业 Av2 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.A4v2Size,
+                        Description: CalculatorConst.A4v2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.86",
+                    },
+                    {
+                        Name: CalculatorConst.A8mv2Size,
+                        Description: CalculatorConst.A8mv2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.97",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Dv2 系列虚拟机",
+                    Description: "标准 Dv2 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.763",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.052",
+                    },{
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.624",
+                    },{
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "15.248",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Dv2 系列虚拟机混合优惠价格",
+                    Description: "标准 Dv2 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.282",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.572",
+                    },{
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.144",
+                    },{
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.287",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Dv2 系列虚拟机",
+                    Description: "企业 Dv2 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.584",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.874",
+                    },{
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.445",
+                    },{
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "28.89",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Dv2 系列虚拟机混合优惠价格",
+                    Description: "企业 Dv2 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D1V2Size,
+                        Description: CalculatorConst.D1V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.282",
+                    },
+                    {
+                        Name: CalculatorConst.D2V2Size,
+                        Description: CalculatorConst.D2V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.572",
+                    },{
+                        Name: CalculatorConst.D3V2Size,
+                        Description: CalculatorConst.D3V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.144",
+                    },{
+                        Name: CalculatorConst.D4V2Size,
+                        Description: CalculatorConst.D4V2SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.287",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Dv3 系列虚拟机",
+                    Description: "标准 Dv3 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D2V3Size,
+                        Description: CalculatorConst.D2V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.325",
+                    },
+                    {
+                        Name: CalculatorConst.D4V3Size,
+                        Description: CalculatorConst.D4V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.164",
+                    },{
+                        Name: CalculatorConst.D8V3Size,
+                        Description: CalculatorConst.D8V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.326",
+                    },{
+                        Name: CalculatorConst.D16V3Size,
+                        Description: CalculatorConst.D16V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.645",
+                    },{
+                        Name: CalculatorConst.D32V3Size,
+                        Description: CalculatorConst.D32V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "49.297",
+                    },{
+                        Name: CalculatorConst.D64V3Size,
+                        Description: CalculatorConst.D64V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "98.594",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Dv3 系列虚拟机混合优惠价格",
+                    Description: "标准 Dv3 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D2V3Size,
+                        Description: CalculatorConst.D2V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.845",
+                    },
+                    {
+                        Name: CalculatorConst.D4V3Size,
+                        Description: CalculatorConst.D4V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.683",
+                    },{
+                        Name: CalculatorConst.D8V3Size,
+                        Description: CalculatorConst.D8V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.365",
+                    },{
+                        Name: CalculatorConst.D16V3Size,
+                        Description: CalculatorConst.D16V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.724",
+                    },{
+                        Name: CalculatorConst.D32V3Size,
+                        Description: CalculatorConst.D32V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "29.454",
+                    },{
+                        Name: CalculatorConst.D64V3Size,
+                        Description: CalculatorConst.D64V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "58.907",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Dv3 系列虚拟机",
+                    Description: "企业 Dv3 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D2V3Size,
+                        Description: CalculatorConst.D2V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.15",
+                    },
+                    {
+                        Name: CalculatorConst.D4V3Size,
+                        Description: CalculatorConst.D4V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.987",
+                    },{
+                        Name: CalculatorConst.D8V3Size,
+                        Description: CalculatorConst.D8V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.969",
+                    },{
+                        Name: CalculatorConst.D16V3Size,
+                        Description: CalculatorConst.D16V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "51.93",
+                    },{
+                        Name: CalculatorConst.D32V3Size,
+                        Description: CalculatorConst.D32V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "103.86",
+                    },{
+                        Name: CalculatorConst.D64V3Size,
+                        Description: CalculatorConst.D64V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "207.73",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Dv3 系列虚拟机混合优惠价格",
+                    Description: "企业 Dv3 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.D2V3Size,
+                        Description: CalculatorConst.D2V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.845",
+                    },
+                    {
+                        Name: CalculatorConst.D4V3Size,
+                        Description: CalculatorConst.D4V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.683",
+                    },{
+                        Name: CalculatorConst.D8V3Size,
+                        Description: CalculatorConst.D8V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.365",
+                    },{
+                        Name: CalculatorConst.D16V3Size,
+                        Description: CalculatorConst.D16V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.724",
+                    },{
+                        Name: CalculatorConst.D32V3Size,
+                        Description: CalculatorConst.D32V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "29.454",
+                    },{
+                        Name: CalculatorConst.D64V3Size,
+                        Description: CalculatorConst.D64V3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "58.907",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Ev3 系列虚拟机",
+                    Description: "标准 Ev3 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.E2v3Size,
+                        Description: CalculatorConst.E2v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.006",
+                    },
+                    {
+                        Name: CalculatorConst.E4v3Size,
+                        Description: CalculatorConst.E4v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.53",
+                    },{
+                        Name: CalculatorConst.E8v3Size,
+                        Description: CalculatorConst.E8v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "15.061",
+                    },{
+                        Name: CalculatorConst.E16v3Size,
+                        Description: CalculatorConst.E16v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "30.122",
+                    },{
+                        Name: CalculatorConst.E32v3Size,
+                        Description: CalculatorConst.E32v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "60.236",
+                    },{
+                        Name: CalculatorConst.E64v3Size,
+                        Description: CalculatorConst.E64v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "115.83",
+                    }]
+                },
+                {
+                    Name: "SSIS 标准 Ev3 系列虚拟机混合优惠价格",
+                    Description: "标准 Ev3 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.E2v3Size,
+                        Description: CalculatorConst.E2v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.525",
+                    },
+                    {
+                        Name: CalculatorConst.E4v3Size,
+                        Description: CalculatorConst.E4v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.05",
+                    },{
+                        Name: CalculatorConst.E8v3Size,
+                        Description: CalculatorConst.E8v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.1",
+                    },{
+                        Name: CalculatorConst.E16v3Size,
+                        Description: CalculatorConst.E16v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "20.2",
+                    },{
+                        Name: CalculatorConst.E32v3Size,
+                        Description: CalculatorConst.E32v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "40.393",
+                    },{
+                        Name: CalculatorConst.E64v3Size,
+                        Description: CalculatorConst.E64v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "76.144",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Ev3 系列虚拟机",
+                    Description: "企业 Ev3 系列虚拟机",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.E2v3Size,
+                        Description: CalculatorConst.E2v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.824",
+                    },
+                    {
+                        Name: CalculatorConst.E4v3Size,
+                        Description: CalculatorConst.E4v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.349",
+                    },{
+                        Name: CalculatorConst.E8v3Size,
+                        Description: CalculatorConst.E8v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "28.703",
+                    },{
+                        Name: CalculatorConst.E16v3Size,
+                        Description: CalculatorConst.E16v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "57.406",
+                    },{
+                        Name: CalculatorConst.E32v3Size,
+                        Description: CalculatorConst.E32v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "114.86",
+                    },{
+                        Name: CalculatorConst.E64v3Size,
+                        Description: CalculatorConst.E64v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "224.97",
+                    }]
+                },
+                {
+                    Name: "SSIS 企业 Ev3 系列虚拟机混合优惠价格",
+                    Description: "企业 Ev3 系列虚拟机混合优惠价格",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.E2v3Size,
+                        Description: CalculatorConst.E2v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.525",
+                    },
+                    {
+                        Name: CalculatorConst.E4v3Size,
+                        Description: CalculatorConst.E4v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.05",
+                    },{
+                        Name: CalculatorConst.E8v3Size,
+                        Description: CalculatorConst.E8v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.1",
+                    },{
+                        Name: CalculatorConst.E16v3Size,
+                        Description: CalculatorConst.E16v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "20.2",
+                    },{
+                        Name: CalculatorConst.E32v3Size,
+                        Description: CalculatorConst.E32v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "40.393",
+                    },{
+                        Name: CalculatorConst.E64v3Size,
+                        Description: CalculatorConst.E64v3SizeDesc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "76.144",
+                    }]
+                }
+            ]
+            }
+        ]
         }
     }
 };
