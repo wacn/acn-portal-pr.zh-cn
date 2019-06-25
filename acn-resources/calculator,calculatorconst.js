@@ -275,7 +275,21 @@ var CalculatorConst = {
 	Number2500: "2500",
 	Number3000: "3000",
 	Number3500: "3500",
-	Number4000: "4000",
+    Number4000: "4000",
+    
+    D2V3Size:"D2 v3",
+    D4V3Size:"D4 v3",
+    D8V3Size:"D8 v3",
+    D16V3Size:"D16 v3",
+    D32V3Size:"D32 v3",
+    D64V3Size:"D64 v3",
+
+    D2V3SizeDesc:"内核数 2，内存数 8GB，磁盘大小 50GB ",
+    D4V3SizeDesc:"内核数 4，内存数 16GB，磁盘大小 100GB ",
+    D8V3SizeDesc:"内核数 8，内存数 32GB，磁盘大小 200GB ",
+    D16V3SizeDesc:"内核数 16，内存数 64GB，磁盘大小 400GB ",
+    D32V3SizeDesc:"内核数 32，内存数 128GB，磁盘大小 800GB ",
+    D64V3SizeDesc:"内核数 64，内存数 256GB，磁盘大小 1,600GB ",
 	
 	
 	Sql11SizeDesc: "最大存储空间 5 GB ,最大 DB 100",
