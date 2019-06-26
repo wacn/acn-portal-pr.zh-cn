@@ -67,6 +67,42 @@
 						<div class="ms-date">2.引入 Azure Log Analytics 工作区的每 GB 数据均可免费保存 31 天。</div><br data-filtered="filtered">
 					</div>
 
+                    <h3>Application Insights</h3>
+                    <p>根据应用程序发送的遥测数据量和选择运行的 Web 测试数对 Application Insights 计费。遥测数据按 Azure Log Analytics 数据引入费率计费。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>功能</strong></th>
+                            <th align="left"><strong>内附免费单位数</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">数据引入</td>
+                                <td class="left_align">每个客户每月 5 GB<sup>1</sup></td>
+                                <td class="left_align">¥23.4/GB</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">数据保留</td>
+                                <td class="left_align">90 天</td>
+                                <td class="left_align">N/A</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">Ping Web 测试<sup>2</sup></td>
+                                <td class="left_align">无限制</td>
+                                <td class="left_align">免费</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date">1.Application Insights 引入的每 GB 数据将免费保留 90 天。</div><br data-filtered="filtered">
+						<div class="ms-date">2.通知按照下方定价单独收费。</div><br data-filtered="filtered">
+					</div>
+
                     <h3>度量值</h3>
                     <p>指标表示一系列时间序列。按监测到的时间序列数和进行的 API 调用次数计费。</p>
                     <p>2018 年 8 月 1 日之前的指标查询免费。指标查询的费用将按照下面的定价计划于 2018 年 8 月 1 日开始生效。</p>
@@ -276,21 +312,120 @@
                 <!-- END: TAB-CONTAINER-1 -->
             </div>
             <!-- END: TAB-CONTROL -->
-<!-- 
+
             <div class="pricing-page-section">
-                <h2>上市地区</h2>
-                <p>Azure 监控器在以下区域中提供：</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>地域</strong></th>
-                        <th align="left"><strong>区域</strong></th>
-                    </tr>
-                    <tr>
-                        <td>中国大陆</td>
-                        <td>中国东部数据中心 , 中国北部数据中心</td>
-                    </tr>
-                </table>
-            </div> -->    
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <h3>Log Analytics 常见问题解答</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_log_analytics_question1" aria-label="home_monitor_log_analytics_question1">如果我正在使用按节点计价的见解和分析定价模型，我可以继续在该定价模型上使用 Log Analytics 吗？</a>
+                                <section>
+                                     <p>可以。你可以继续在按节点计价的见解和分析定价模型上使用 Log Analytics。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_log_analytics_question2" aria-label="home_monitor_log_analytics_question2">如果我正在使用按节点计价的见解和分析定价计划，我如何知道按 GB 计价的新定价模型是否更适合我？</a>
+                                <section>
+                                     <p>若要预估按 GB 计价的定价模型的影响，请访问<a href="https://docs.azure.cn/azure-monitor/platform/usage-estimated-costs">使用情况和预估成本</a>页面上的文档。请注意，在新的定价模型中，数据引入和保留的计费都不相同，具体取决于 Log Analytics 工作区所在的区域。进行任何预估成本比较时请务必注意这一点。另外，如果购买了 OMS 套件，请务必与客户代表交流，充分了解任何更改会造成的影响。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_log_analytics_question3" aria-label="home_monitor_log_analytics_question3">如果我正在使用按节点计价的见解和分析定价模型，可以对新订阅使用按节点计价的定价计划吗？</a>
+                                <section>
+                                     <p>可以。对于使用按节点计价的见解和分析定价模型的企业协议 (EA) 客户，其链接到现有 EA 的任何新订阅可继续使用按节点计价的定价模型。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_log_analytics_question4" aria-label="home_monitor_log_analytics_question4">如何计算数据保留成本？</a>
+                                <section>
+                                     <p>可以选择 30 天至 730 天的保留期。计算保留期成本时应除开 31 天的内附保留期，并按照根据每月每 GB 价格计算得出的每日粒度计算。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>警报常见问题解答</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_alert_question1" aria-label="home_monitor_alert_question1">以上定价适用于活动日志、服务运行状况和资源运行状况预警规则吗？</a>
+                                <section>
+                                     <p>活动日志、服务运行状况和资源运行状况预警规则将继续免费提供。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_alert_question2" aria-label="home_monitor_alert_question2">警报通知（通过 Azure 操作组）费用是否包含在预警规则费用中？</a>
+                                <section>
+                                     <p>警报通知根据使用的通知类型单独收费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_alert_question3" aria-label="home_monitor_alert_question3">如果我是经典警报平台的现有客户，上面的预警规则定价是否对我适用？</a>
+                                <section>
+                                     <p>上面列出的定价适用于新的警报平台。如果将现有预警规则从经典警报平台转到新的平台，则适用上面列出的定价。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>Application Insights 常见问题解答</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_application_insights_cost_application_insights_billing" aria-label="如何控制或限制 Application Insights 的成本？">如何控制或限制 Application Insights 的成本？</a>
+                                <section>
+                                     <p>可以在 Application Insights 从应用程序接收的数据量中设置每日上限，以便控制成本。达到每日上限后，当天（UTC 时间）余下的时间内将忽略超额数据，并在次日开始时恢复正常。</p>
+                                     <p>此外，可使用<a href="https://docs.azure.cn/application-insights/app-insights-sampling">采样</a>来减少应用程序发送到 Application Insights 的数据量。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_monitor_application_insights_application_insights_nodes" aria-label="什么是节点？如何根据 Application Insights Enterprise 定价选项应用每节点数据限额？">什么是节点？如何根据 Application Insights Enterprise 定价选项应用每节点数据限额？</a>
+                                <section>
+                                     <p>节点可以是托管应用的物理计算机、虚拟机或平台即服务 (PaaS) 实例。例如，如果应用程序在3个 Azure 应用服务实例和1台虚拟机上运行，则有4个托管应用程序的节点。每小时对发送遥测数据的不同节点进行。如果某节点在特定小时内未发送任何遥测数据，则不计入该节点。上述每月每节点定价假定节点在该月的每个小时都在发送遥测数据，因此，如果应用程序在一个月中有停止活动的时间段，则实际收费会更低。</p>
+                                     <p>随着应用程序的扩展或缩减（例如在活动高峰期添加额外的 Web 服务器），Application Insights Enterprise 费用也会相应地增加或减少。</p>
+                                     <p>下述几种情况不纳入节点计数中（尽管始终对数据量计数）：</p>
+                                     <ul>
+                                        <li>调试期间运行应用程序的开发人员工作站不被计为节点。</li>
+                                        <li>使用 JavaScript 浏览器客户端 SDK（或其他某些不报告“roleInstance”的 SDK）时，最终用户的计算机将不计为节点。</li>
+                                        <li>使用 HockeyApp Bridge 应用时，HockeyApp 监视的移动设备均不计为节点。</li>
+                                     </ul>
+                                     <p>如果将同一节点用于正在监视的多个应用程序，会出现什么情况？没有任何问题。仅对 Azure 订阅中发送遥测数据的唯一节点计数（计费帐户）。例如，如果同一物理服务器上运行 5 个单独的网站，且每个网站均配置有 Application Insights Enterprise（按节点收费），则总共记为 1 个节点。</p>
+                                     <p>此外，同一 Azure 订阅中还可存在使用 Application Insights Basic（按 GB 收费）的应用程序，这不会影响使用 Application Insights Enterprise 的应用程序的节点计数。</p>
+                                     <p>Application Insights Enterprise 中如何使用每日 200 MB 的数据？选择 Enterprise 级定价选项时，将根据发送遥测的节点数为应用程序提供每日限额。如果有 5 个节点发送数据，则应用程序将获得每天 1GB 的池化限额（根据设置的 Application Insights 资源定义）。无所谓某些节点是否比其他节点发送更多数据，因为给定的 Azure 订阅的所有节点均共享已包含的数据。如果某天发送的数据多于每日数据池包含的数据，则按 GB 对超额数据收费。每日限额中未使用的数据不会累计。</p>
+                                     <p>每日池化数据限额的计算方式为所有节点在一天中发送遥测的小时数除以 24 再乘以 200 MB。因此，如果有 4 个节点一天 24 小时中有 15 个小时在发送遥测，则当天包括的数据为 ((4 x 15) / 24) x 200 MB = 500 MB。</p>
+                                     <p>如果在同一 Azure 订阅中为多个应用程序选择 Enterprise 定价选项，这些应用程序会共享每日数据限额。选择 Basic 定价选项时，应用程序不共享每日数据限额。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+  
             <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="monitor-contact-page"> Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
