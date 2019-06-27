@@ -25317,7 +25317,93 @@ var CalculatorData = {
             ]
             }
         ]
-        }
+        },
+        "data-explorer": {
+            Name: "Azure 数据资源管理器",
+            Types: [
+                {
+                Name: "Azure 数据资源管理器",
+                Features: [
+                    {
+                        Name: "组件 - Azure 数据资源管理器加价",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每个核心每小时的价格",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "0.7",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "每个"
+                        }]
+                    },{
+                        Name: "实例 - 计算优化实例 - Dv2 系列",
+                        Description: "Dv2 系列",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "台",
+                        MinUnit: "0",
+                        MaxUnit: "100",
+                        Sizes: [
+                            {
+                                Name: CalculatorConst.D11V2Size,
+                                Description: CalculatorConst.D11V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "1.73"
+                            },
+                            {
+                                Name: CalculatorConst.D12V2Size,
+                                Description: CalculatorConst.D12V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "3.46"
+                            },
+                            {
+                                Name: CalculatorConst.D13V2Size,
+                                Description: CalculatorConst.D13V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "6.92"
+                            },{
+                                Name: CalculatorConst.D14V2Size,
+                                Description: CalculatorConst.D14V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "13.83"
+                            }]
+                    },{
+                        Name: "实例 - Azure 资源管理器 - 计算优化实例 - Dv2 系列",
+                        Description: "Dv2 系列",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "台",
+                        MinUnit: "0",
+                        MaxUnit: "100",
+                        Sizes: [
+                            {
+                                Name: CalculatorConst.D11V2Size,
+                                Description: CalculatorConst.D11V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "1.4"
+                            },
+                            {
+                                Name: CalculatorConst.D12V2Size,
+                                Description: CalculatorConst.D12V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "2.8"
+                            },
+                            {
+                                Name: CalculatorConst.D13V2Size,
+                                Description: CalculatorConst.D13V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "5.6"
+                            },{
+                                Name: CalculatorConst.D14V2Size,
+                                Description: CalculatorConst.D14V2SizeDesc,
+                                PriceTier: PriceTierEnum.Fixed,
+                                PricePerTier: "11.2"
+                            }]
+                    }]
+            }]
+        },
     }
 };
 //  return CalculatorData;
