@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage id="19341" parentID="11978" level="2" writerID="106" creatorID="94" nodeType="1059" template="16" sortOrder="14" createDate="2013-10-29T16:12:26" updateDate="2019-06-24T17:00:00" nodeName="What Is New" urlName="what-is-new" writerName="content" creatorName="xunfan" path="-1,11978,19341" isDoc="">
+  <umbTextpage id="19341" parentID="11978" level="2" writerID="106" creatorID="94" nodeType="1059" template="16" sortOrder="14" createDate="2013-10-29T16:12:26" updateDate="2019-07-01T17:00:00" nodeName="What Is New" urlName="what-is-new" writerName="content" creatorName="xunfan" path="-1,11978,19341" isDoc="">
     <bodyText>
       <![CDATA[
          <div class="section-component">
             <div class="more-detail">
             	 <h1>重要通知</h1>
+				 <h3>2019年7月</h3>
+					 <ul>
+					 	<li>
+							<i class="icon icon-plus"></i>
+								<div>
+									<a href="#" id="service-fabric_year_2019-July-webapps-python-update"><span>7/1</span>Linux 内核 TCP SACK 拒绝服务漏洞<i class="icon icon-update"></i></a>
+									<section>
+										<p>新近披露的安全漏洞（<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11477">CVE-2019-11477</a>，<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11478">CVE-2019-11478</a>，<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11479">CVE-2019-11479</a>）可能会导致 Linux 操作系统面临“拒绝服务（DoS）”攻击的风险。对于运行 IaaS Linux 虚拟机的客户，请联系各 Linux 发行版本的提供方获取指导建议；对于使用 Azure Kubernetes Service（AKS）和 HDInsight 的客户，请参考如下文档：</p>
+										<ul>
+											<li>Azure Kubernetes Service（AKS）: <a href="https://github.com/Azure/AKS/issues/1065">https://github.com/Azure/AKS/issues/1065</a></li>
+											<li>HDInsight: <a href="https://azure.microsoft.com/en-us/updates/security-advisory-on-linux-kernel-tcp-vulnerabilities-for-hdinsight-clusters/">https://azure.microsoft.com/en-us/updates/security-advisory-on-linux-kernel-tcp-vulnerabilities-for-hdinsight-clusters/</a></li>
+										</ul>
+										<p>更多内容请参阅<a href="https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV190020">Microsoft 安全通告 190020</a>。</p>
+									</section>
+								</div>
+							</li>
+					 </ul>
 				 <h3>2019年1月</h3>
 				 		<ul>
 						 	<li>
@@ -37,7 +54,7 @@
 					   		<li>
 								<i class="icon icon-plus"></i>
 								<div>
-									<a href="#" id="service-fabric_year_2018-december-IoThub-operations-monitoring-retirement"><span>12/18</span>Azure IoT Hub (IoT 中心)中的诊断设置将取代操作监视功能，请在 2019 年 3 月 10 日前迁移<i class="icon icon-update"></i></a>
+									<a href="#" id="service-fabric_year_2018-december-IoThub-operations-monitoring-retirement"><span>12/18</span>Azure IoT Hub (IoT 中心)中的诊断设置将取代操作监视功能，请在 2019 年 3 月 10 日前迁移</a>
 									<section>
 										<p>Azure 监控器中的诊断设置提供单一简化的监视和日志记录体验。Azure 监控器与 Azure IoT Hub 完全集成，可帮助您将物联网解决方案保持在健康状态。 由于诊断设置取代了 Azure IoT Hub 中的操作监视功能，因此操作监视将于 2019 年 3 月 10 日停用。</p>
 										<p>如果需要在 Azure IoT Hub 中继续收集日志而不中断，请在 2019 年 3 月 10 日之前<a href="https://docs.azure.cn/zh-cn/iot-hub/iot-hub-migrate-to-diagnostics-settings">迁移到诊断设置</a>，此时将从所有 Hub 中删除操作监控，并且对其的支持将结束。</p>
@@ -208,12 +225,73 @@
             	
                 <h1>产品更新</h1>
                 <a href="#" id="new_control_bexpend" class="folded-link"><em>全部展开</em></a>
+                <h3>2019年7月</h3>
+                <ul>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2019-july-time-series-insights"><span>7/2</span>Azure 时序见解在中国东部 2 与中国北部 2 数据中心现已正式发布<i class="icon icon-update"></i></a>
+							<section>
+								<p>Azure 时序见解是一种分析和可视化托管服务，通过简化 IoT 时序数据的探索和分析，实现物联网（IoT）的普及。该服务可帮助发现隐藏的趋势和异常，并近乎实时地进行根本原因分析，因此用户可以快速验证 IoT 解决方案和避免任务关键型设备停机。Azure 时序见解还可提供多达 400 天的时序数据实时分析和存储，帮助组织发现和了解其 IoT 数据的长期趋势。提供功能强大的数据浏览和遥测工具，有助于改进运营分析。</p>
+								
+								<p>欲了解此服务及定价的更多信息，请访问<a href="/home/features/time-series-insights/" id="what-is-new_year_2019-july-features-time-series-insights">Azure 时序见解服务功能</a>页面和<a href="/pricing/details/time-series-insights/" id="what-is-new_year_2019-july-pricing-time-series-insights">Azure 时序见解价格详情</a>页面；更多详细信息请访问<a href="//docs.azure.cn/zh-cn/time-series-insights/" id="what-is-new_year_2019-july-docs-time-series-insights">Azure 时序见解文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2019-july-expressroute"><span>7/1</span>上海电信在中国东部 2，北京电信在中国北部 2 提供 ExpressRoute 连接服务<i class="icon icon-update"></i></a>
+							<section>
+								<p>您可以联系上海电信和北京电信在中国东部 2 及中国北部 2 建立 ExpressRoute 专用网络连接。ExpressRoute 连接不通过公共互联网，并且与互联网连接相比，提供更高的可靠性、更快的速度以及更低的延迟。</p>
+								
+								<p>要了解此服务及定价的更多信息，请访问<a href="/home/features/expressroute/" id="what-is-new_year_2019-july-features-expressroute">ExpressRoute 服务功能</a>页面和<a href="/pricing/details/expressroute/" id="what-is-new_year_2019-july-pricing-expressroute">ExpressRoute 价格详情</a>页面；更多详细信息请访问<a href="//docs.azure.cn/zh-cn/expressroute/" id="what-is-new_year_2019-july-docs-expressroute">ExpressRoute 文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+					<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2019-july-pricing-drop"><span>7/1</span>数据传入站流量，虚拟机，CDN，Cosmos DB，和存储服务降价<i class="icon icon-update"></i></a>
+							<section>
+								<p>自 2019 年 7 月 1 日起，数据传入站流量，虚拟机，CDN，Cosmos DB，和存储服务降价。</p>
+								<p>数据传入站流量价格均为免费， 欲了解此服务定价的更多信息，请访问<a href="/pricing/details/bandwidth/" id="what-is-new_year_2019-july-pricing-bandwidth">Azure 数据传输价格详情</a>页面，</p>
+								<p>Azure 虚拟机价格最大降幅高达 73%，欲了解此服务及定价的更多信息，请访问<a href="/home/features/virtual-machines/" id="what-is-new_year_2019-july-features-virtual-machines">Azure虚拟机服务功能</a>页面和<a href="/pricing/details/virtual-machines/" id="what-is-new_year_2019-july-pricing-virtual-machines">Azure 虚拟机价格详情</a>页面，</p>
+								<p>CDN 内容分发网络价格最大降幅高达 41%，欲了解此服务及定价的更多信息，请访问<a href="/home/features/cdn/" id="what-is-new_year_2019-july-features-cdn">CDN 内容分发网路服务功能</a>页面和<a href="/pricing/details/cdn/" id="what-is-new_year_2019-july-pricing-cdn">CDN 内容分发网络价格详情</a>页面，</p>
+								<p>Azure Cosmos DB 价格最大降幅高达 38%，欲了解此服务及定价的更多信息，请访问<a href="/home/features/cosmos-db/" id="what-is-new_year_2019-july-features-cosmos-db">Azure Cosmos DB 服务功能</a>页面和<a href="/pricing/details/cosmos-db/" id="what-is-new_year_2019-july-pricing-cosmos-db">Azure Cosmos DB 价格详情</a>页面，</p>
+								<p>存储价格最大降幅高达 21%，欲了解此服务及定价的更多信息，请访问 <a href="/home/features/storage/" id="what-is-new_year_2019-july-features-storage">存储服务功能</a>页面和<a href="/pricing/details/storage/" id="what-is-new_year_2019-july-pricing-storage">存储价格详情</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                </ul>
                 <h3>2019年6月</h3>
                 <ul>
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2019-june-monitor"><span>6/26</span>Azure Application Insights 在中国东部 2 数据中心现已正式发布<i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2019-june-media-services"><span>6/28</span>Azure 媒体服务在中国东部 2 与中国北部 2 数据中心现已正式发布</a>
+							<section>
+								<p>Azure 媒体服务是一个基于云的媒体工作流平台，使开发人员能够生成可缩放的媒体管理和传送应用程序。通过 Azure 媒体服务，可轻松使用高清视频编码和流式处理服务，在当今最受欢迎的设备上向受众进行市场宣传。您可创建端到端媒体工作流，安全地上传、存储、编码和打包视频或音频内容，以供点播和通过实时流形式传送到各种客户端（例如，电视、电脑和移动设备）。</p>
+								
+								<p>欲了解此服务及定价的更多信息，请访问<a href="/home/features/media-services/" id="what-is-new_year_2019-june-features-media-services">Azure 媒体服务功能</a>页面和<a href="/pricing/details/media-services/" id="what-is-new_year_2019-june-pricing-media-services">Azure 媒体服务价格详情</a>页面；更多详细信息请访问<a href="//docs.azure.cn/zh-cn/media-services/" id="what-is-new_year_2019-june-docs-media-services">Azure 媒体服务文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2019-june-data-explorer"><span>6/27</span>Azure 数据资源管理器正式发布</a>
+							<section>
+								<p>Azure 数据资源管理器是一项高度可缩放且安全的数据分析服务，可实时分析从应用程序、网站和 IoT 设备等流式传输的海量数据。进行提问并以迭代方式动态浏览数据，从而改进产品、改善客户体验、监视设备并帮助操作。快速识别数据中的模式、异常和趋势，探索新问题并在几分钟内获得答案。Azure 数据资源管理器可以轻松地引入此数据，并使您能够在几秒钟内对数据执行复杂的查询。</p>
+								
+								<p>欲了解此服务及定价的更多信息，请访问<a href="/home/features/data-explorer/" id="what-is-new_year_2019-june-features-data-explorer">Azure 数据资源管理器服务功能</a>页面和<a href="/pricing/details/data-explorer/" id="what-is-new_year_2019-june-pricing-data-explorer">Azure 数据资源管理器价格详情</a>页面；更多详细信息请访问<a href="//docs.azure.cn/zh-cn/data-explorer/" id="what-is-new_year_2019-june-docs-data-explorer">Azure 数据资源管理器文档</a>页面。</p>
+							</section>
+						</div>
+					</li>
+                	<li>
+						<i class="icon icon-plus"></i>
+						<div>
+							<a href="#" id="service-fabric_year_2019-june-monitor"><span>6/26</span>Azure Application Insights 在中国东部 2 数据中心现已正式发布</a>
 							<section>
 								<p>Azure Application Insights 是 Azure 监控器的一部分，是多个平台上面向 Web 开发人员的可扩展应用程序性能管理（APM）服务，能够实时监视 Web 应用程序并自动检测性能异常。 其中包含强大的分析工具帮助诊断问题，了解用户在应用中实际执行了哪些操作，适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。</p>
 								
@@ -224,7 +302,7 @@
                 	<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2019-june-security-center"><span>6/25</span>Azure 安全中心正式发布<i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2019-june-security-center"><span>6/25</span>Azure 安全中心正式发布</a>
 							<section>
 								<p>Azure 安全中心跨混合云工作负荷提供全面的安全管理和高级威胁防护，帮助客户保护在 Azure 和本地运行的工作负载不受网络威胁。通过使用 Azure 全球威胁情报和专业知识，自动收集和分析 Azure 部署中与安全相关的事件，以识别即时威胁并减少误报，提供快速修复的解决方案。</p>
 								
@@ -236,7 +314,7 @@
 					<li>
 						<i class="icon icon-plus"></i>
 						<div>
-							<a href="#" id="service-fabric_year_2019-june-data-factory"><span>6/25</span>Azure 数据工厂正式发布<i class="icon icon-update"></i></a>
+							<a href="#" id="service-fabric_year_2019-june-data-factory"><span>6/25</span>Azure 数据工厂正式发布</a>
 							<section>
 								<p>Azure 数据工厂是一种基于云的数据集成服务，用于在云中创建数据驱动型工作流，以便协调并自动完成数据移动和数据转换。在直观的视觉环境中不用代码即可轻松构建 ETL 和 ELT 进程，也可自行编写代码。借助超过 80 个本机构建且免维护的连接器直观集成数据源，这些连接器均无额外费用，只需关注您的数据，剩余操作由无服务器集成服务负责。</p>
 								
