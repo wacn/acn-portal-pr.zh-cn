@@ -423,13 +423,13 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.17"
+                        PricePerTier: "0.125"
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.66"
+                        PricePerTier: "0.451"
                     }]
                 },
                 {
@@ -443,25 +443,25 @@ var CalculatorData = {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.28"
+                        PricePerTier: "0.225"
                     },
                     {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.12"
+                        PricePerTier: "0.852"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.23"
+                        PricePerTier: "1.704"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.46"
+                        PricePerTier: "3.408"
                     }]
                 },
                 {
@@ -649,61 +649,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "33.02"
+                        PricePerTier: "27.056"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "63.33"
+                        PricePerTier: "54.112"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.42"
+                        PricePerTier: "14.569"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.73"
+                        PricePerTier: "29.139"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "69.56"
+                        PricePerTier: "58.278"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "119.94"
+                        PricePerTier: "116.56"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "298.71"
+                        PricePerTier: "233.11"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "84.03"
+                        PricePerTier: "67.64"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "168.08"
+                        PricePerTier: "135.28"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "31.71"
+                        PricePerTier: "25.703"
                     }]
                 },
                 {
@@ -717,25 +717,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.6"
+                        PricePerTier: "1.521"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.21"
+                        PricePerTier: "3.042"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.41"
+                        PricePerTier: "6.085"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.84"
+                        PricePerTier: "12.17"
                     }]
                 },
                 {
@@ -749,13 +749,13 @@ var CalculatorData = {
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "16"
+                        PricePerTier: "15.211"
                     },
                     {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "25.66"
+                        PricePerTier: "24.34"
                     }]
                 },
                 {
@@ -769,13 +769,13 @@ var CalculatorData = {
                         Name: "E64i v3/E64is v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "51.33"
+                        PricePerTier: "43.811"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "51.33"
+                        PricePerTier: "43.811"
                     }]
                 },
                 {
@@ -873,19 +873,19 @@ var CalculatorData = {
                         Name: "F2 v2/FS2 v2",
                         Description: "2 vCPU，4 GiB RAM，16 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.166"
+                        PricePerTier: "1.108"
                     },
                     {
                         Name: "F4 v2/FS4 v2",
                         Description: "4 vCPU，8 GiB RAM，32 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.332"
+                        PricePerTier: "2.215"
                     },
                     {
                         Name: "F8 v2/FS8 v2",
                         Description: "8 vCPU，16 GiB RAM，64 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.664"
+                        PricePerTier: "4.431"
                     }]
                 },
                 {
@@ -899,13 +899,13 @@ var CalculatorData = {
                         Name: "F16 v2/FS16 v2",
                         Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.328"
+                        PricePerTier: "8.861"
                     },
                     {
                         Name: "F32 v2/FS32 v2",
                         Description: "32 vCPU，64 GiB RAM，256 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.656"
+                        PricePerTier: "17.721"
                     }]
                 },
                 {
@@ -919,13 +919,13 @@ var CalculatorData = {
                         Name: "F64 v2/FS64 v2",
                         Description: "64 vCPU，128 GiB RAM，512 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "69.312"
+                        PricePerTier: "35.442"
                     },
                     {
                         Name: "F72 v2/FS72 v2",
                         Description: "72 vCPU，144 GiB RAM，576 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "138.624"
+                        PricePerTier: "39.874"
                     }]
                 },
                 {
@@ -1015,25 +1015,25 @@ var CalculatorData = {
                         Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "26.16"
+                        PricePerTier: "25.105"
                     },
                     {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "52.32"
+                        PricePerTier: "50.211"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "104.65"
+                        PricePerTier: "100.42"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "115.11"
+                        PricePerTier: "109.76"
                     }]
                 }]
             }]
@@ -1150,13 +1150,13 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.12",
+                        PricePerTier: "0.1",
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.48",
+                        PricePerTier: "0.4",
                     }]
                 },
                 {
@@ -1170,25 +1170,25 @@ var CalculatorData = {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.23"
+                        PricePerTier: "0.2"
                     },
                     {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.96"
+                        PricePerTier: "0.801"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.89"
+                        PricePerTier: "1.602"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.79"
+                        PricePerTier: "3.205"
                     }]
                 },
                 {
@@ -1378,61 +1378,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23.66"
+                        PricePerTier: "19.566"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.14"
+                        PricePerTier: "39.133"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "15.07"
+                        PricePerTier: "12.229"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "30.5"
+                        PricePerTier: "24.458"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "60.2"
+                        PricePerTier: "48.916"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "101.22"
+                        PricePerTier: "97.832"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "261.26"
+                        PricePerTier: "195.66"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "65.31"
+                        PricePerTier: "48.916"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "130.63"
+                        PricePerTier: "97.832"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22.34"
+                        PricePerTier: "18.588"
                     }]
                 },
                 {
@@ -1446,25 +1446,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.07"
+                        PricePerTier: "0.936"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.15"
+                        PricePerTier: "1.872"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.3"
+                        PricePerTier: "3.745"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.61"
+                        PricePerTier: "7.489"
                     }]
                 },
                 {
@@ -1478,13 +1478,13 @@ var CalculatorData = {
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM，500GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "14.5"
+                        PricePerTier: "9.36"
                     },
                     {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.21"
+                        PricePerTier: "14.978"
                     }]
                 },
                 {
@@ -1498,13 +1498,13 @@ var CalculatorData = {
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.41"
+                        PricePerTier: "26.96"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.41"
+                        PricePerTier: "26.96"
                     }]
                 },
                 {
@@ -1603,19 +1603,19 @@ var CalculatorData = {
                         Name: "F2 v2/FS2 v2",
                         Description: "2 vCPU，4 GiB RAM，16 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.083"
+                        PricePerTier: "0.522"
                     },
                     {
                         Name: "F4 v2/FS4 v2",
                         Description: "4 vCPU，8 GiB RAM，32 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.166"
+                        PricePerTier: "1.045"
                     },
                     {
                         Name: "F8 v2/FS8 v2",
                         Description: "8 vCPU，16 GiB RAM，64 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.332"
+                        PricePerTier: "2.09"
                     }]
                 },
                 {
@@ -1629,13 +1629,13 @@ var CalculatorData = {
                         Name: "F16 v2/FS16 v2",
                         Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.664"
+                        PricePerTier: "4.18"
                     },
                     {
                         Name: "F32 v2/FS32 v2",
                         Description: "32 vCPU，64 GiB RAM，256 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.328"
+                        PricePerTier: "8.359"
                     }]
                 },
                 {
@@ -1649,13 +1649,13 @@ var CalculatorData = {
                         Name: "F64 v2/FS64 v2",
                         Description: "64 vCPU，128 GiB RAM，512 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.656"
+                        PricePerTier: "16.718"
                     },
                     {
                         Name: "F72 v2/FS72 v2",
                         Description: "72 vCPU，144 GiB RAM，576 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "69.312"
+                        PricePerTier: "18.81"
                     }]
                 },
                 {
@@ -1669,31 +1669,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.43"
+                        PricePerTier: "0.359"
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.9"
+                        PricePerTier: "0.719"
                     },
                     {
                         Name: "F4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8"
+                        PricePerTier: "1.437"
                     },
                     {
                         Name: "F8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.61"
+                        PricePerTier: "2.874"
                     },
                     {
                         Name: "F16",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.19"
+                        PricePerTier: "5.747"
                     }]
                 },
                 {
@@ -1707,31 +1707,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.43"
+                        PricePerTier: "0.359"
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.9"
+                        PricePerTier: "0.719"
                     },
                     {
                         Name: CalculatorConst.F4sSize,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8"
+                        PricePerTier: "1.437"
                     },
                     {
                         Name: CalculatorConst.F8sSize,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.61"
+                        PricePerTier: "2.874"
                     },
                     {
                         Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.19"
+                        PricePerTier: "5.747"
                     }]
                 },
                 {
@@ -1751,19 +1751,19 @@ var CalculatorData = {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "46.71"
+                        PricePerTier: "46.7"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "93.42"
+                        PricePerTier: "93.4"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "102.76"
+                        PricePerTier: "102.74"
                     }]
                 }]
             }]
@@ -1878,19 +1878,19 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.3735",
+                        PricePerTier: "0.32852",
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.8635",
+                        PricePerTier: "0.65452",
                     },
                     {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.4835"
+                        PricePerTier: "0.42852"
                     }]
                 },
                 {
@@ -1904,19 +1904,19 @@ var CalculatorData = {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.3235"
+                        PricePerTier: "1.05552"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.4335"
+                        PricePerTier: "1.90752"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.867"
+                        PricePerTier: "3.81504"
                     }]
                 },
                 {
@@ -2210,61 +2210,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.82"
+                        PricePerTier: "28.68416"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "66.93"
+                        PricePerTier: "57.36832"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.827"
+                        PricePerTier: "14.97604"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "35.544"
+                        PricePerTier: "29.95308"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "71.36"
+                        PricePerTier: "59.90616"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "123.54"
+                        PricePerTier: "119.81632"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "305.91"
+                        PricePerTier: "239.62264"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "87.63"
+                        PricePerTier: "70.89632"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "175.28"
+                        PricePerTier: "141.79264"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "33.51"
+                        PricePerTier: "27.33116"
                     }]
                 },
                 {
@@ -2278,25 +2278,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8"
+                        PricePerTier: "1.72452"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.41"
+                        PricePerTier: "3.24552"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.82"
+                        PricePerTier: "6.49204"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13.65"
+                        PricePerTier: "12.98408"
                     }]
                 },
                 {
@@ -2310,19 +2310,19 @@ var CalculatorData = {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "27.46"
+                        PricePerTier: "25.96816"
                     },
                     {
                         Name: "E64i v3/E64is v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "54.93"
+                        PricePerTier: "47.06732"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "54.93"
+                        PricePerTier: "47.06732"
                     }]
                 },
                 {
@@ -2376,25 +2376,25 @@ var CalculatorData = {
                         Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "26.5"
+                        PricePerTier: "25.41028"
                     },
                     {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "52.99"
+                        PricePerTier: "50.82156"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "106"
+                        PricePerTier: "101.64112"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "116.46"
+                        PricePerTier: "110.98112"
                     }]
                 }]
             },
@@ -2506,19 +2506,19 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.714",
+                        PricePerTier: "2.669",
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.204",
+                        PricePerTier: "2.995",
                     },
                     {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.824"
+                        PricePerTier: "2.769"
                     }]
                 },
                 {
@@ -2532,19 +2532,19 @@ var CalculatorData = {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.664"
+                        PricePerTier: "3.396"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.774"
+                        PricePerTier: "4.248"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.548"
+                        PricePerTier: "8.496"
                     }]
                 },
                 {
@@ -2838,61 +2838,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "53.372"
+                        PricePerTier: "47.408"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "107.41"
+                        PricePerTier: "94.816"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22.508"
+                        PricePerTier: "19.657"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "44.906"
+                        PricePerTier: "39.315"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "89.912"
+                        PricePerTier: "78.63"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "164.02"
+                        PricePerTier: "157.264"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "386.87"
+                        PricePerTier: "314.518"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "128.11"
+                        PricePerTier: "108.344"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "256.24"
+                        PricePerTier: "216.688"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "52.062"
+                        PricePerTier: "46.055"
                     }]
                 },
                 {
@@ -2906,25 +2906,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.14"
+                        PricePerTier: "4.065"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.75"
+                        PricePerTier: "5.586"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.5"
+                        PricePerTier: "11.173"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23.02"
+                        PricePerTier: "22.346"
                     }]
                 },
                 {
@@ -2938,19 +2938,19 @@ var CalculatorData = {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "46.012"
+                        PricePerTier: "44.692"
                     },
                     {
                         Name: "E64i v3/E64is v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "95.41"
+                        PricePerTier: "84.515"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "95.41"
+                        PricePerTier: "84.515"
                     }]
                 },
                 
@@ -3004,25 +3004,25 @@ var CalculatorData = {
                         Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "30.29"
+                        PricePerTier: "28.921"
                     },
                     {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "60.59"
+                        PricePerTier: "57.843"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "121.18"
+                        PricePerTier: "115.684"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "131.64"
+                        PricePerTier: "125.024"
                     }]
                 }]
             },
@@ -3134,19 +3134,19 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.71",
+                        PricePerTier: "9.665",
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.2",
+                        PricePerTier: "9.991",
                     },
                     {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.82"
+                        PricePerTier: "9.765"
                     }]
                 },
                 {
@@ -3160,19 +3160,19 @@ var CalculatorData = {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.66"
+                        PricePerTier: "10.392"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.77"
+                        PricePerTier: "11.244"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23.54"
+                        PricePerTier: "22.488"
                     }]
                 },
                 {
@@ -3466,61 +3466,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "109.34"
+                        PricePerTier: "103.376"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "215.97"
+                        PricePerTier: "206.752"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "36.5"
+                        PricePerTier: "33.649"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "72.89"
+                        PricePerTier: "67.299"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "145.88"
+                        PricePerTier: "134.598"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "272.58"
+                        PricePerTier: "269.2"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "603.99"
+                        PricePerTier: "538.39"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "236.67"
+                        PricePerTier: "220.28"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "473.36"
+                        PricePerTier: "440.56"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "108.03"
+                        PricePerTier: "102.023"
                     }]
                 },
                 {
@@ -3534,25 +3534,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.14"
+                        PricePerTier: "11.061"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.75"
+                        PricePerTier: "12.582"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "25.49"
+                        PricePerTier: "25.165"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "51"
+                        PricePerTier: "50.33"
                     }]
                 },
                 {
@@ -3566,19 +3566,19 @@ var CalculatorData = {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "101.98"
+                        PricePerTier: "100.66"
                     },
                     {
                         Name: "E64i v3/E64is v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "203.97"
+                        PricePerTier: "196.451"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "203.97"
+                        PricePerTier: "196.451"
                     }]
                 },
                 {
@@ -3631,25 +3631,25 @@ var CalculatorData = {
                         Name: "NC6s v3",
                         Description: "6 个核心，112 GiB RAM，336 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "41.80"
+                        PricePerTier: "39.415"
                     },
                     {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "83.6"
+                        PricePerTier: "78.831"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "167.2"
+                        PricePerTier: "157.66"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "177.66"
+                        PricePerTier: "167"
                     }]
                 }]
             }]
@@ -3916,31 +3916,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.6335",
+                        PricePerTier: "0.56252",
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.1035",
+                        PricePerTier: "0.92252",
                     },
                     {
                         Name: CalculatorConst.F4Size,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.003",
+                        PricePerTier: "1.64052",
                     },
                     {
                         Name: CalculatorConst.F8Size,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.017",
+                        PricePerTier: "3.28104",
                     }
                         , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.004",
+                        PricePerTier: "6.56108",
                     }]
                 },
                 {
@@ -3954,31 +3954,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.6335",
+                        PricePerTier: "0.56252",
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.1035",
+                        PricePerTier: "0.92252",
                     },
                     {
                         Name: CalculatorConst.F4sSize,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.0035",
+                        PricePerTier: "1.64052",
                     },
                     {
                         Name: CalculatorConst.F8sSize,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.0170",
+                        PricePerTier: "3.28104",
                     }
                         , {
                         Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.004",
+                        PricePerTier: "6.56108",
                     }]
                 },
                 {
@@ -4031,61 +4031,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "25.288"
+                        PricePerTier: "21.19416"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "47.856"
+                        PricePerTier: "42.38932"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "15.477"
+                        PricePerTier: "12.63604"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "31.314"
+                        PricePerTier: "25.27208"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "61.828"
+                        PricePerTier: "50.54416"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "104.476"
+                        PricePerTier: "101.08832"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "267.772"
+                        PricePerTier: "202.17264"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "68.566"
+                        PricePerTier: "52.17232"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "137.142"
+                        PricePerTier: "104.34464"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23.968"
+                        PricePerTier: "20.21616"
                     }]
                 },
             ]
@@ -4350,31 +4350,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.974",
+                        PricePerTier: "2.903",
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.444",
+                        PricePerTier: "3.263",
                     },
                     {
                         Name: CalculatorConst.F4Size,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.344",
+                        PricePerTier: "3.981",
                     },
                     {
                         Name: CalculatorConst.F8Size,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.698",
+                        PricePerTier: "7.962",
                     }
                         , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.366",
+                        PricePerTier: "15.923",
                     }]
                 },
                 {
@@ -4388,31 +4388,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.974",
+                        PricePerTier: "2.903",
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.444",
+                        PricePerTier: "3.263",
                     },
                     {
                         Name: CalculatorConst.F4sSize,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.344",
+                        PricePerTier: "3.981",
                     },
                     {
                         Name: CalculatorConst.F8sSize,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.698",
+                        PricePerTier: "7.962",
                     }
                         , {
                         Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.366",
+                        PricePerTier: "15.923",
                     }]
                 },
                 {
@@ -4465,61 +4465,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "44.012"
+                        PricePerTier: "39.918"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "85.304"
+                        PricePerTier: "79.837"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "20.158"
+                        PricePerTier: "17.317"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "40.676"
+                        PricePerTier: "34.634"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "80.552"
+                        PricePerTier: "69.268"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "141.924"
+                        PricePerTier: "138.536"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "342.668"
+                        PricePerTier: "277.068"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "106.014"
+                        PricePerTier: "89.62"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "212.038"
+                        PricePerTier: "179.24"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "42.692"
+                        PricePerTier: "38.94"
                     }]
                 },
             ]
@@ -4784,31 +4784,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.97",
+                        PricePerTier: "9.899",
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.44",
+                        PricePerTier: "10.259",
                     },
                     {
                         Name: CalculatorConst.F4Size,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.34",
+                        PricePerTier: "10.977",
                     },
                     {
                         Name: CalculatorConst.F8Size,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22.69",
+                        PricePerTier: "21.954",
                     }
                         , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "45.35",
+                        PricePerTier: "43.907",
                     }]
                 },
                 {
@@ -4822,31 +4822,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.97",
+                        PricePerTier: "9.899",
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.44",
+                        PricePerTier: "10.259",
                     },
                     {
                         Name: CalculatorConst.F4sSize,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.34",
+                        PricePerTier: "10.977",
                     },
                     {
                         Name: CalculatorConst.F8sSize,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22.69",
+                        PricePerTier: "21.954",
                     }
                         , {
                         Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "45.35",
+                        PricePerTier: "43.907",
                     }]
                 },
                 {
@@ -4899,61 +4899,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "99.98"
+                        PricePerTier: "95.886"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "197.24"
+                        PricePerTier: "191.773"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.15"
+                        PricePerTier: "31.309"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "68.66"
+                        PricePerTier: "62.618"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "136.52"
+                        PricePerTier: "125.236"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "253.86"
+                        PricePerTier: "250.472"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "566.54"
+                        PricePerTier: "500.94"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "217.95"
+                        PricePerTier: "201.556"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "435.91"
+                        PricePerTier: "403.112"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "98.66"
+                        PricePerTier: "94.908"
                     }]
                 },
             ]
@@ -5259,31 +5259,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.86",
+                        PricePerTier: "9.899",
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.33",
+                        PricePerTier: "10.259",
                     },
                     {
                         Name: CalculatorConst.F4Size,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.23",
+                        PricePerTier: "10.977",
                     },
                     {
                         Name: CalculatorConst.F8Size,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24.46",
+                        PricePerTier: "21.954",
                     }
                         , {
                         Name: CalculatorConst.F16Size,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "48.89",
+                        PricePerTier: "43.907",
                     }]
                 },
                 {
@@ -5297,31 +5297,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "10.86",
+                        PricePerTier: "9.899",
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.33",
+                        PricePerTier: "10.259",
                     },
                     {
                         Name: CalculatorConst.F4sSize,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.23",
+                        PricePerTier: "10.977",
                     },
                     {
                         Name: CalculatorConst.F8sSize,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24.46",
+                        PricePerTier: "21.954",
                     }
                         , {
                         Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "48.89",
+                        PricePerTier: "43.907",
                     }]
                 }
             ]
@@ -5439,13 +5439,13 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.12",
+                        PricePerTier: "0.1",
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.48",
+                        PricePerTier: "0.4",
                     }]
                 },
                 {
@@ -5459,25 +5459,25 @@ var CalculatorData = {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.23"
+                        PricePerTier: "0.2"
                     },
                     {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.96"
+                        PricePerTier: "0.801"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.89"
+                        PricePerTier: "1.602"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.79"
+                        PricePerTier: "3.205"
                     }]
                 },
                 {
@@ -5667,61 +5667,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "23.66"
+                        PricePerTier: "19.566"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.14"
+                        PricePerTier: "39.133"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "15.07"
+                        PricePerTier: "12.229"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "30.5"
+                        PricePerTier: "24.458"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "60.2"
+                        PricePerTier: "48.916"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "101.22"
+                        PricePerTier: "97.832"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "261.26"
+                        PricePerTier: "195.66"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "65.31"
+                        PricePerTier: "48.916"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "130.63"
+                        PricePerTier: "97.832"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22.34"
+                        PricePerTier: "18.588"
                     }]
                 },
                 {
@@ -5735,25 +5735,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.07"
+                        PricePerTier: "0.936"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.15"
+                        PricePerTier: "1.872"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.3"
+                        PricePerTier: "3.745"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.61"
+                        PricePerTier: "7.489"
                     }]
                 },
                 {
@@ -5767,13 +5767,13 @@ var CalculatorData = {
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM，500GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "14.5"
+                        PricePerTier: "9.36"
                     },
                     {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.21"
+                        PricePerTier: "14.978"
                     }]
                 },
                 {
@@ -5787,13 +5787,13 @@ var CalculatorData = {
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.41"
+                        PricePerTier: "26.96"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.41"
+                        PricePerTier: "26.96"
                     }]
                 },
                 {
@@ -5892,19 +5892,19 @@ var CalculatorData = {
                         Name: "F2 v2/FS2 v2",
                         Description: "2 vCPU，4 GiB RAM，16 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.083"
+                        PricePerTier: "0.522"
                     },
                     {
                         Name: "F4 v2/FS4 v2",
                         Description: "4 vCPU，8 GiB RAM，32 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.166"
+                        PricePerTier: "1.045"
                     },
                     {
                         Name: "F8 v2/FS8 v2",
                         Description: "8 vCPU，16 GiB RAM，64 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.332"
+                        PricePerTier: "2.09"
                     }]
                 },
                 {
@@ -5918,13 +5918,13 @@ var CalculatorData = {
                         Name: "F16 v2/FS16 v2",
                         Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "8.664"
+                        PricePerTier: "4.18"
                     },
                     {
                         Name: "F32 v2/FS32 v2",
                         Description: "32 vCPU，64 GiB RAM，256 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.328"
+                        PricePerTier: "8.359"
                     }]
                 },
                 {
@@ -5938,13 +5938,13 @@ var CalculatorData = {
                         Name: "F64 v2/FS64 v2",
                         Description: "64 vCPU，128 GiB RAM，512 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "34.656"
+                        PricePerTier: "16.718"
                     },
                     {
                         Name: "F72 v2/FS72 v2",
                         Description: "72 vCPU，144 GiB RAM，576 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "69.312"
+                        PricePerTier: "18.81"
                     }]
                 },
                 {
@@ -5958,31 +5958,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.43"
+                        PricePerTier: "0.359"
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.9"
+                        PricePerTier: "0.719"
                     },
                     {
                         Name: "F4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8"
+                        PricePerTier: "1.437"
                     },
                     {
                         Name: "F8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.61"
+                        PricePerTier: "2.874"
                     },
                     {
                         Name: "F16",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.19"
+                        PricePerTier: "5.747"
                     }]
                 },
                 {
@@ -5996,31 +5996,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.43"
+                        PricePerTier: "0.359"
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.9"
+                        PricePerTier: "0.719"
                     },
                     {
-                        Name: CalculatorConst.F4sSize,
+                        Name: "F4s",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.8"
+                        PricePerTier: "1.437"
                     },
                     {
-                        Name: CalculatorConst.F8sSize,
+                        Name: "F8s",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.61"
+                        PricePerTier: "2.874"
                     },
                     {
-                        Name: CalculatorConst.F16sSize,
+                        Name: "F16s",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.19"
+                        PricePerTier: "5.747"
                     }]
                 },
                 {
@@ -6040,19 +6040,19 @@ var CalculatorData = {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "46.71"
+                        PricePerTier: "46.7"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "93.42"
+                        PricePerTier: "93.4"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "102.76"
+                        PricePerTier: "102.74"
                     }]
                 }]
             }]
@@ -6169,13 +6169,13 @@ var CalculatorData = {
                         Name: "B1/B1S",
                         Description: "1个内核，1GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.201",
+                        PricePerTier: "1.181",
                     },
                     {
                         Name: "B2/B2S",
                         Description: "2个内核，4GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.561",
+                        PricePerTier: "1.481",
                     }]
                 },
                 {
@@ -6189,25 +6189,25 @@ var CalculatorData = {
                         Name: "B1M/B1MS",
                         Description: "1个内核，2GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.311"
+                        PricePerTier: "1.281"
                     },
                     {
                         Name: "B2M/B2MS",
                         Description: "2个内核，8GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.041"
+                        PricePerTier: "1.882"
                     },
                     {
                         Name: "B4M/B4MS",
                         Description: "4个内核，16GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.052"
+                        PricePerTier: "3.764"
                     },
                     {
                         Name: "B8M/B8MS",
                         Description: "8个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.398"
+                        PricePerTier: "5.813"
                     }]
                 },
                 {
@@ -6397,61 +6397,61 @@ var CalculatorData = {
                         Name: "M32ls",
                         Description: CalculatorConst.M32lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "26.268"
+                        PricePerTier: "22.174"
                     },
                     {
                         Name: "M64ls",
                         Description: CalculatorConst.M64lsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "47.208"
+                        PricePerTier: "41.741"
                     },
                     {
                         Name: "M8ms",
                         Description: CalculatorConst.M8msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.678"
+                        PricePerTier: "14.837"
                     },
                     {
                         Name: "M16ms",
                         Description: CalculatorConst.M16msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "33.108"
+                        PricePerTier: "27.066"
                     },
                     {
                         Name: "M32ms",
                         Description: CalculatorConst.M32msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "62.808"
+                        PricePerTier: "51.524"
                     },
                     {
                         Name: "M64ms",
                         Description: CalculatorConst.M64msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "103.828"
+                        PricePerTier: "100.44"
                     },
                     {
                         Name: "M128ms",
                         Description: CalculatorConst.M128msSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "263.868"
+                        PricePerTier: "198.268"
                     },
                     {
                         Name: "M64s",
                         Description: CalculatorConst.M64sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "67.918"
+                        PricePerTier: "51.524"
                     },
                     {
                         Name: "M128s",
                         Description: CalculatorConst.M128sSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "133.238"
+                        PricePerTier: "100.44"
                     },
                     {
                         Name: "M32ts",
                         Description: CalculatorConst.M32tsSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24.948"
+                        PricePerTier: "21.196"
                     }]
                 },
                 {
@@ -6465,25 +6465,25 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.151"
+                        PricePerTier: "2.017"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.312"
+                        PricePerTier: "4.034"
                     },
                     {
                         Name: "E8 v3/E8s v3",
                         Description: "8个内核，64GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.908"
+                        PricePerTier: "6.353"
                     },
                     {
                         Name: "E16 v3/E16s v3",
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.218"
+                        PricePerTier: "10.097"
                     }]
                 },
                 {
@@ -6497,13 +6497,13 @@ var CalculatorData = {
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM，500GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "17.108"
+                        PricePerTier: "11.968"
                     },
                     {
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "19.818"
+                        PricePerTier: "17.586"
                     }]
                 },
                 {
@@ -6517,13 +6517,13 @@ var CalculatorData = {
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "37.018"
+                        PricePerTier: "29.568"
                     },
                     {
                         Name: "E64 v3/E64s v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "37.018"
+                        PricePerTier: "29.568"
                     }]
                 },
                 {
@@ -6622,19 +6622,19 @@ var CalculatorData = {
                         Name: "F2 v2/FS2 v2",
                         Description: "2 vCPU，4 GiB RAM，16 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "2.164"
+                        PricePerTier: "1.603"
                     },
                     {
                         Name: "F4 v2/FS4 v2",
                         Description: "4 vCPU，8 GiB RAM，32 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "4.328"
+                        PricePerTier: "3.207"
                     },
                     {
                         Name: "F8 v2/FS8 v2",
                         Description: "8 vCPU，16 GiB RAM，64 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.94"
+                        PricePerTier: "4.698"
                     }]
                 },
                 {
@@ -6648,13 +6648,13 @@ var CalculatorData = {
                         Name: "F16 v2/FS16 v2",
                         Description: "16 vCPU，32 GiB RAM，128 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "11.272"
+                        PricePerTier: "6.788"
                     },
                     {
                         Name: "F32 v2/FS32 v2",
                         Description: "32 vCPU，64 GiB RAM，256 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "19.936"
+                        PricePerTier: "10.967"
                     }]
                 },
                 {
@@ -6668,13 +6668,13 @@ var CalculatorData = {
                         Name: "F64 v2/FS64 v2",
                         Description: "64 vCPU，128 GiB RAM，512 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "37.264"
+                        PricePerTier: "19.326"
                     },
                     {
                         Name: "F72 v2/FS72 v2",
                         Description: "72 vCPU，144 GiB RAM，576 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "71.92"
+                        PricePerTier: "21.418"
                     }]
                 },
                 {
@@ -6688,31 +6688,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1Size,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.511"
+                        PricePerTier: "1.44"
                     },
                     {
                         Name: CalculatorConst.F2Size,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.981"
+                        PricePerTier: "1.8"
                     },
                     {
                         Name: "F4",
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.962"
+                        PricePerTier: "3.599"
                     },
                     {
                         Name: "F8",
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.218"
+                        PricePerTier: "5.482"
                     },
                     {
                         Name: "F16",
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.798"
+                        PricePerTier: "8.355"
                     }]
                 },
                 {
@@ -6726,31 +6726,31 @@ var CalculatorData = {
                         Name: CalculatorConst.F1sSize,
                         Description: CalculatorConst.F1SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.511"
+                        PricePerTier: "1.44"
                     },
                     {
                         Name: CalculatorConst.F2sSize,
                         Description: CalculatorConst.F2SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.981"
+                        PricePerTier: "1.8"
                     },
                     {
                         Name: CalculatorConst.F4sSize,
                         Description: CalculatorConst.F4SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.962"
+                        PricePerTier: "3.599"
                     },
                     {
                         Name: CalculatorConst.F8sSize,
                         Description: CalculatorConst.F8SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.218"
+                        PricePerTier: "5.482"
                     },
                     {
                         Name: CalculatorConst.F16sSize,
                         Description: CalculatorConst.F16SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.798"
+                        PricePerTier: "8.355"
                     }]
                 },
                 {
@@ -6770,19 +6770,19 @@ var CalculatorData = {
                         Name: "NC12s v3",
                         Description: "12 个核心，224 GiB RAM，672 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "49.318"
+                        PricePerTier: "49.308"
                     },
                     {
                         Name: "NC24s v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "96.028"
+                        PricePerTier: "96.008"
                     },
                     {
                         Name: "NC24rs v3",
                         Description: "24 个核心，448 GiB RAM，1344 GiB 临时存储空间",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "105.368"
+                        PricePerTier: "105.348"
                     }]
                 }]
             }]
@@ -6846,6 +6846,64 @@ var CalculatorData = {
                         Description: "内存密集型虚拟机 (8个内核、56GB RAM、2,040GB 存储)",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "6.85",
+                    }]
+                },
+                {
+                    Name: "Av2 系列  - 仅适用于中国东部2和中国北部2",
+                    Description: "Av2 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.A1v2Size,
+                        Description: "1个内核，2GB RAM，10GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.5405",
+                    },
+                    {
+                        Name: CalculatorConst.A2v2Size,
+                        Description: "2个内核，4GB RAM，20GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.081",
+                    },
+                    {
+                        Name: CalculatorConst.A4v2Size,
+                        Description: "4个内核，8GB RAM，40GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.162",
+                    },
+                    {
+                        Name: CalculatorConst.A8v2Size,
+                        Description: "8个内核，16GB RAM，80GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.3333",
+                    }]
+                },
+                {
+                    Name: "Av2 系列 - 仅适用于中国东部2和中国北部 2",
+                    Description: "Av2 系列",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.A2mv2Size,
+                        Description: "2个内核，16GB RAM，20GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.967",
+                    },
+                    {
+                        Name: CalculatorConst.A4mv2Size,
+                        Description: "4个内核，32GB RAM，40GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.9394",
+                    },
+                    {
+                        Name: CalculatorConst.A8mv2Size,
+                        Description: "8个内核，64GB RAM，80GB 磁盘",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.878",
                     }]
                 },
                 {
@@ -7101,25 +7159,25 @@ var CalculatorData = {
                         Name: "E2 v3",
                         Description: "2个 vCPU，16GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.6"
+                        PricePerTier: "1.521"
                     },
                     {
                         Name: "E4 v3",
                         Description: "4个 vCPU，32GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.21"
+                        PricePerTier: "3.042"
                     },
                     {
                         Name: "E8 v3",
                         Description: "8个 vCPU，64GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.41"
+                        PricePerTier: "6.085"
                     },
                     {
                         Name: "E16 v3",
                         Description: "16个 vCPU，128GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.84"
+                        PricePerTier: "12.17"
                     }]
                 },
                 {
@@ -7133,19 +7191,19 @@ var CalculatorData = {
                         Name: "E32 v3",
                         Description: "32个 vCPU，256GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "25.66"
+                        PricePerTier: "24.34"
                     },
                     {
                         Name: "E64i v3",
                         Description: "64个 vCPU，432GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "51.33"
+                        PricePerTier: "43.811"
                     },
                     {
                         Name: "E64 v3",
                         Description: "64个 vCPU，432GB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "51.33"
+                        PricePerTier: "43.811"
                     }]
                 },
                 {
@@ -7429,7 +7487,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5120000",
-                        PricePerTier: "0.279",
+                        PricePerTier: "0.275",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -7445,7 +7503,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,102400,102401,1024000,1024001,1024000",
-                        PricePerTier: "0.378,0.3648,0.3643",
+                        PricePerTier: "0.3725,0.3594,0.3589",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -8059,7 +8117,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5120000",
-                        PricePerTier: "0.279",
+                        PricePerTier: "0.275",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -8075,7 +8133,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,102400,102401,1024000,1024001,1024000",
-                        PricePerTier: "0.378,0.3648,0.3643",
+                        PricePerTier: "0.3725,0.3594,0.3589",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -9039,7 +9097,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 32GB，磁盘读写 (IOPS)120，磁盘吞吐 25MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "47.53",
+                        PricePerTier: "42.302",
                     }]
                 }]
             },
@@ -9055,7 +9113,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 64GB，磁盘读写 (IOPS)240，磁盘吞吐 50MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "91.9",
+                        PricePerTier: "81.791",
                     }]
                 }]
             },
@@ -9071,7 +9129,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "132.15",
+                        PricePerTier: "117.61",
                     }]
                 }]
             },
@@ -9087,7 +9145,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 256GB，磁盘读写 (IOPS)1100，磁盘吞吐 125MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "254.86",
+                        PricePerTier: "226.83",
                     }]
                 }]
             },
@@ -9103,7 +9161,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 512GB，磁盘读写 (IOPS)2300，磁盘吞吐 150MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "490.93",
+                        PricePerTier: "436.93",
                     }]
                 }]
             },
@@ -9119,7 +9177,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 1TB，磁盘读写 (IOPS)5000，磁盘吞吐 200MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "906.29",
+                        PricePerTier: "806.6",
                     }]
                 }]
             },
@@ -9135,7 +9193,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 2TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1736.83",
+                        PricePerTier: "1545.78",
                     }]
                 }]
             },
@@ -9151,7 +9209,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 4TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3322.63",
+                        PricePerTier: "2957.14",
                     }]
                 }]
             },
@@ -9167,7 +9225,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 8TB，磁盘读写 (IOPS)16000，磁盘吞吐 500MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6645.26",
+                        PricePerTier: "5914.28",
                     }]
                 }]
             },
@@ -9183,7 +9241,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 16TB，磁盘读写 (IOPS)18000，磁盘吞吐 750MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13290.52",
+                        PricePerTier: "11828.56",
                     }]
                 }]
             },
@@ -9199,7 +9257,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 32TB，磁盘读写 (IOPS)20000，磁盘吞吐 900MB/sec ",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "26581.04",
+                        PricePerTier: "23657.13",
                     }]
                 }]
             }]
@@ -9265,7 +9323,7 @@ var CalculatorData = {
                             Name: "default",
                             Description: "磁盘大小 32 GB",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "24.4225",
+                            PricePerTier: "19.2",
                         }]
                     }]
                 },
@@ -9281,7 +9339,7 @@ var CalculatorData = {
                             Name: "default",
                             Description: "磁盘大小 64 GB",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "48.845",
+                            PricePerTier: "38.4",
                         }]
                     }]
                 }, 
@@ -9297,7 +9355,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 128 GB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "97.69",
+                        PricePerTier: "76.8",
                     }]
                 }]
             },
@@ -9313,7 +9371,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 256GB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "195.379",
+                        PricePerTier: "153.6",
                     }]
                 }]
             },
@@ -9329,7 +9387,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 512 GB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "390.758",
+                        PricePerTier: "307.2",
                     }]
                 }]
             },
@@ -9345,7 +9403,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 1 TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "781.517",
+                        PricePerTier: "614.4",
                     }]
                 }]
             },
@@ -9361,7 +9419,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 2TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1563.034",
+                        PricePerTier: "1228.8",
                     }]
                 }]
             },
@@ -9377,7 +9435,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 4TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3126.067",
+                        PricePerTier: "2457.6",
                     }]
                 }]
             },
@@ -9393,7 +9451,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 8TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6252.13",
+                        PricePerTier: "4915.2",
                     }]
                 }]
             },
@@ -9409,7 +9467,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 16TB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12504.27",
+                        PricePerTier: "9830.4",
                     }]
                 }]
             }
@@ -9426,7 +9484,7 @@ var CalculatorData = {
                               Name: "default",
                               Description: "磁盘大小 32TB",
                               PriceTier: PriceTierEnum.Fixed,
-                              PricePerTier: "25008.54",
+                              PricePerTier: "19660.8",
                           }]
                       }]
                 }
@@ -17195,7 +17253,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "Azure 站点恢复到 Azure",
                         PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "342.55",
+                        PricePerTier: "254.4",
                         MinUnit: "0",
                         MaxUnit: "20",
                         PriceUnit: "个"
@@ -20294,68 +20352,10 @@ var CalculatorData = {
                         PriceUnit: "GB"
                     }]
                 }]
-            },
-            {
-                Name: "高级版",
-                Features: [{
-                    Name: "Zone 1",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-                        PricePerTier: "0.45,0.42,0.39,0.36",
-                        MinUnit: "0",
-                        MaxUnit: "5000000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
+            }
+            ]
         },
-        // "cdn": {
-        //     Name: "CDN",
-        //     Types: [{
-        //         Name: " 标准版",
-        //         Features: [{
-        //             Name: "default",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.19,0.16,0.13,0.1",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         }]
-        //     },
-        //     {
-        //         Name: "高级版",
-        //         Features: [{
-        //             Name: "default",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "个",
-        //             MinUnit: "0",
-        //             MaxUnit: "20",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "default",
-        //                 PriceTier: "0,10000,10001,50000,50001,100000,100001,5000000",
-        //                 PricePerTier: "0.45,0.42,0.39,0.36",
-        //                 MinUnit: "0",
-        //                 MaxUnit: "5000000",
-        //                 PriceUnit: "GB"
-        //             }]
-        //         }]
-        //     }]
-        // },
+        
         "schedule": {
             Name: "计划程序",
             Types: [{
@@ -21177,28 +21177,28 @@ var CalculatorData = {
                 }]
             }]
         },
-        "data-transferenter": {
-            Name: "数据传输 - 传入数据中心",
-            Types: [{
-                Name: "default",
-                Features: [{
-                    Name: "default",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,1024,1025,2000",
-                        PricePerTier: "0,0.67",
-                        MinUnit: "0",
-                        MaxUnit: "2000",
-                        PriceUnit: "GB"
-                    }]
-                }]
-            }]
-        },
+        // "data-transferenter": {
+        //     Name: "数据传输 - 传入数据中心",
+        //     Types: [{
+        //         Name: "default",
+        //         Features: [{
+        //             Name: "default",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,1024,1025,2000",
+        //                 PricePerTier: "0,0.67",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "2000",
+        //                 PriceUnit: "GB"
+        //             }]
+        //         }]
+        //     }]
+        // },
 
         "virtual-network": {
             Name: "虚拟网络",
@@ -22166,7 +22166,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: PriceTierEnum.Linear,
-                        PricePerTier: "0.082",
+                        PricePerTier: "0.051",
                         MinUnit: "0",
                         MaxUnit: "1000",
                         PriceUnit: "百个 RU"
@@ -24276,10 +24276,10 @@ var CalculatorData = {
                     Sizes: [{
                         Name: "default",
                         Description: "default",
-                        PriceTier: "0,100",
-                        PricePerTier: "0.41",
+                        PriceTier: "0,10000000",
+                        PricePerTier: "299.3",
                         MinUnit: "0",
-                        MaxUnit: "100",
+                        MaxUnit: "10000000",
                         PriceUnit: "GB/月"
                     }]
                 },
@@ -24299,7 +24299,7 @@ var CalculatorData = {
                         PriceUnit: "GB"
                     }]
                 },{
-                    Name: "元素据存储",
+                    Name: "元数据存储",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -24343,73 +24343,103 @@ var CalculatorData = {
                         MaxUnit: "100000",
                         PriceUnit: "GB"
                     }]
+                },{
+                    Name: "S1",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "1526.4",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "个"
+                    }]
+                },{
+                    Name: "S2",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "13737.6",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "个"
+                    }]
                 }]
             }]
         },
         "active-directory-b2c":{
             Name: "Azure Active Directory B2C",
             Types: [
+                {
+                    Name:"default",
+                    Features:[
+                    {
+                    Name: "身份验证",
+                    PriceTier: PriceTierEnum.Fixed,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        PriceTier:"0,50000,50001,1000000,1000001,10000000,10000001,50000000,50000001,100000000",
+                        PricePerTier: "0,0.0285,0.0214,0.0142,0.00712",
+                        MaxUnit:"100000000",
+                        MinUnit:"0",
+                        PriceUnit:"个"                            
+                    }]
+                    },{
+                        Name: "多重身份验证",
+                        Description:"多重身份验证将按每个身份验证的固定费率收费",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            PriceTier:"0,100000000",
+                            PricePerTier: "0.305",
+                            MaxUnit:"100000000",
+                            MinUnit:"0",
+                            PriceUnit:"个"
+                            
+                        }]
+                    }
+                    ]
+                }
+                
                 // {
-                //     Name:"default",
-                //     Features:[
-                //     {
                 //     Name: "身份验证",
-                //     PriceTier: PriceTierEnum.Fixed,
-                //     PriceUnit: "个",
-                //     MinUnit: "0",
-                //     MaxUnit: "20",
-                //     Sizes: [{
+                //     Features: [{
                 //         Name: "default",
-                //         PriceTier:"0,50000,50001,1000000,1000001,10000000,10000001,50000000,50000001,100000000",
-                //         PricePerTier: "0,0.0285,0.0214,0.0142,0.00712",
-                //         MaxUnit:"100000000",
-                //         MinUnit:"0",
-                //         PriceUnit:"个"                            
-                //     }]
-                //     },{
-                //         Name: "多重身份验证",
-                //         Description:"多重身份验证将按每个身份验证的固定费率收费",
-                //         PriceTier: PriceTierEnum.Fixed,
-                //         PriceUnit: "个",
-                //         MinUnit: "0",
-                //         MaxUnit: "20",
                 //         Sizes: [{
                 //             Name: "default",
-                //             PriceTier:"0,100000000",
-                //             PricePerTier: "0.305",
-                //             MaxUnit:"100000000",
-                //             MinUnit:"0",
-                //             PriceUnit:"个"
-                            
+                //             Description: "预览期间免费",
+                //             PriceTier: PriceTierEnum.Free,
+                //             PricePerTier: "0",
                 //         }]
-                //     }
-                //     ]
+                //     }]
                 // },
-                
-                {
-                    Name: "身份验证",
-                    Features: [{
-                        Name: "default",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "预览期间免费",
-                            PriceTier: PriceTierEnum.Free,
-                            PricePerTier: "0",
-                        }]
-                    }]
-                },
-                {
-                    Name: "多重身份验证",
-                    Features: [{
-                        Name: "default",
-                        Sizes: [{
-                            Name: "default",
-                            Description: "预览期间免费",
-                            PriceTier: PriceTierEnum.Free,
-                            PricePerTier: "0",
-                        }]
-                    }]
-                }
+                // {
+                //     Name: "多重身份验证",
+                //     Features: [{
+                //         Name: "default",
+                //         Sizes: [{
+                //             Name: "default",
+                //             Description: "预览期间免费",
+                //             PriceTier: PriceTierEnum.Free,
+                //             PricePerTier: "0",
+                //         }]
+                //     }]
+                // }
             ]
         },
         "mariadb": {
@@ -25317,8 +25347,7 @@ var CalculatorData = {
             ]
             }
         ]
-        },
-        "data-explorer": {
+        },"data-explorer": {
             Name: "Azure 数据资源管理器",
             Types: [
                 {
