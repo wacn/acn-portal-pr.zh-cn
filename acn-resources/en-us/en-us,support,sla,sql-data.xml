@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2017-12-04T11:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-07-02T11:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="09/2016" wacn.date="09/2016" wacn.lang="en"/></p>
 
-        <h1>SLA for SQL Database</h1><div class="tags-date"><div class="ms-date">Updated: 09/2016</div></div>
-        <p><strong>Basic, Standard and Premium Tiers</strong></p>
-        <p>We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Azure SQL Database and our Internet gateway. </p>
-        <p><strong>Web and Business Tiers (retired)</strong></p>
-        <p>We guarantee at least 99.9% of the time customers will have connectivity between their Web or Business Azure SQL Database and our Internet gateway.</p>
+        <h1>SLA for SQL Database</h1><div class="tags-date"><div class="ms-date">Updated: 07/2019</div></div>
+        <p>Azure SQL Database is a fully managed relational database with built-in regional high availability and turnkey geo-replication to any Azure region. It includes intelligence to support self-driving features such as performance tuning, threat monitoring, and vulnerability assessments and provides fully automated patching and updating of the code base.</p>
+        <ul>
+            <li>Azure SQL Database Business Critical or Premium tiers configured as Zone Redundant Deployments have an availability guarantee of at least 99.995%.</li>
+            <li>Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee of at least 99.99%.</li>
+            <li>Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas.</li>
+        </ul>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this “SLA”) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the “Agreement”).</p>
         <p>We provide financial backing to our commitment to achieve and maintain Service Levels for our Services. If we do not achieve and maintain the Service Levels for each Service as described in this SLA, then you may be eligible for a credit towards a portion of your monthly service fees. These terms will be fixed for term of your Agreement. If a subscription is renewed, the version of this SLA that is current at the time the renewal term commences will apply throughout the renewal term. We will provide at least 90 days' notice for adverse material changes to this SLA. You can review the most current version of this SLA at any time by visiting <a href="/support/legal/sla/">https://www.azure.cn/support/legal/sla/</a>.</p>
@@ -131,21 +133,26 @@
         </ol>
         <h2>The SLA details</h2>
         <h3>Additional Definitions</h3>
-        <p>&quot;<strong>Database</strong>&quot; means any Web, Business, single or elastic Basic, Standard, or Premium Azure SQL Database.</p>
-        <h3>Monthly Uptime Calculation and Service Levels for Azure SQL Database Service (single or elastic Basic, Standard, and Premium Tiers)</h3>
+        <p>&quot;<strong>Availability Zone</strong>&quot; is a fault-isolated area within an Azure region, providing redundant power, cooling, and networking.</p>
+        <p>&quot;<strong>Database</strong>&quot; means any Azure SQL Database created in any of the Service tiers and deployed either as a single database or in an Elastic Pool or Managed Instance.</p>
+        <p>&quot;<strong>Zone Redundant Deployment</strong>&quot; is a Database that includes multiple synchronized replicas provisioned in different Availability Zones.</p>
+        <h3>Monthly Uptime Calculation and Service Levels for Azure SQL Database Service</h3>
         <ol>
         <li>
-        <p>&quot;<strong>Maximum Available Minutes</strong>&quot;  is the total number of minutes that a given single or elastic Basic, Standard, or Premium Database has been deployed in Azure during a billing month in a given Azure subscription. </p>
+        <p>&quot;<strong>Deployment Minutes</strong>&quot; is the total number of minutes that a given Database has been operational in Azure during a billing month. </p>
         </li>
         <li>
-        <p>&quot;<strong>Downtime</strong>&quot;  is the total accumulated minutes during a billing month for a given Azure subscription during which a given single or elastic Basic, Standard, or Premium Database is unavailable. A minute is considered unavailable for a given Database if all continuous attempts by Customer to establish a connection to the Database within the minute fail.</p>
+        <p>&quot;<strong>Maximum Available Minutes</strong>&quot; is the sum of all Deployment Minutes for a given Microsoft Azure subscription during a billing month. </p>
         </li>
         <li>
-        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; for a given single or elastic Basic, Standard, or Premium Tier of the SQL Database Service is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes in a billing month for a given Azure subscription. Monthly Uptime Percentage is represented by the following formula:</p>
-        <p>Monthly Uptime % = (Maximum Available Minutes − Downtime) ÷ Maximum Available Minutes </p>
+        <p>&quot;<strong>Downtime</strong>&quot; is the total accumulated Deployment Minutes across all Databases in a given Azure subscription during which the Database is unavailable. A minute is considered unavailable for a given Database if all continuous attempts by Customer to establish a connection to the Database within the minute fail.</p>
         </li>
         <li>
-        <p>The following Service Levels and Service Credits are applicable to Customer’s use of the Basic, Standard, and Premium Tiers of the Azure SQL Database Service:</p>
+        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; for a given Database is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes in a billing month for a given Azure subscription. Monthly Uptime Percentage is represented by the following formula:</p>
+        <p>Monthly Uptime % = 100 * (Maximum Available Minutes-Downtime) / Maximum Available Minutes</p>
+        </li>
+        <li>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of the Business critical or Premium tiers of the SQL Database Service configured for Zone Redundant Deployments:</p>
         <table>
         <thead>
         <tr>
@@ -155,7 +162,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>&lt;99.99%</td>
+            <td>&lt; 99.995%</td>
             <td>10%</td>
         </tr>
         <tr>
@@ -165,24 +172,8 @@
         </tbody>
         </table>
         </li>
-        </ol>
-        <h3>Monthly Uptime Calculation and Service Levels for Azure SQL Database Service (Web and Business Tiers)</h3>
-        <ol>
         <li>
-        <p>&quot;<strong>Deployment Minutes</strong>&quot; is the total number of minutes that a given Web or Business Database has been deployed in Azure during a billing month. </p>
-        </li>
-        <li>
-        <p>&quot;<strong>Maximum Available Minutes</strong>&quot; &quot; is the sum of all Deployment Minutes across all Web and Business Databases for a given Azure subscription during a billing month.</p>
-        </li>
-        <li>
-        <p>&quot;<strong>Downtime</strong>&quot;  is the total accumulated Deployment Minutes across all Web and Business Databases deployed by Customer in a given Azure subscription during which the Database is unavailable. A minute is considered unavailable for a given Database if all continuous attempts by Customer to establish a connection to the Database within the minute fail. </p>
-        </li>
-        <li>
-        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; for the Web and Business Tiers of the SQL Database Service is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes in a billing month for a given Azure subscription. Monthly Uptime Percentage is represented by the following formula:</p>
-        <p>Monthly Uptime % = (Maximum Available Minutes-Downtime) / Maximum Available Minutes</p>
-        </li>
-        </ol>
-        <p>5.The following Service Levels and Service Credits are applicable to Customer’s use of the Web and Business Tiers of the Azure SQL Database Service:</p>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of the Business critical or Premium tiers of the SQL Database Service not configured for Zone Redundant Deployments:</p>
         <table>
         <thead>
         <tr>
@@ -192,7 +183,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>&lt;99.9%</td>
+            <td>&lt; 99.99%</td>
             <td>10%</td>
         </tr>
         <tr>
@@ -201,10 +192,77 @@
         </tr>
         </tbody>
         </table>
+        </li>
+        <li>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of the General purpose, Standard or Basic tiers of the SQL Database Service:</p>
+        <table>
+        <thead>
+        <tr>
+            <th>Monthly Uptime Percentage</th>
+            <th>Service Credit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&lt; 99.99%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>&lt;99%</td>
+            <td>25%</td>
+        </tr>
+        </tbody>
+        </table>
+        </li>
+        <li>
+        <p>The following Service Levels and Service Credits are applicable to Customer’s use of the Hyperscale tier of the SQL Database Service not configured for Zone Redundant Deployments:</p>
+        <table>
+        <thead>
+        <tr>
+            <th>Provisioned Replicas</th>
+            <th>Monthly Uptime Percentage</th>
+            <th>Service Credit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>0</td>
+            <td>&lt; 99.9%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&lt; 99%</td>
+            <td>25%</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>&lt; 99.95%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&lt; 99%</td>
+            <td>25%</td>
+        </tr>
+        <tr>
+            <td>2+</td>
+            <td>&lt; 99.99%</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&lt; 99%</td>
+            <td>25%</td>
+        </tr>
+        </table>
+        </li>
         <h1>Version History</h1>
-        <p><a href="/support/sla/sql-data/">1.1</a>  Last updated: Sep 2016  
-        Release notes: Revised to reflect the general availability of Elastic Database on 9/1/2016  
-        <a href="/support/sla/sql-data-v1/">1.0</a>  Last updated: May 2016</p>
+        <p><a href="/support/sla/sql-data/">1.2</a>  Last updated: July 2019   </p> 
+        <p>Release notes: Expanded SLA to cover Business Critical, Premium, and Hyperscale tiers of SQL Database. Removed references to Web and Business Tiers, since they have been retired.</p> 
+        <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/sql_database_sla_english1.1.pdf">1.1</a>  Last updated: Sep 2016  </p>
+        <p>Release notes: Revised to reflect the general availability of Elastic Database on 9/1/2016  </p>
+        <p><a href="/support/sla/sql-data-v1/">1.0</a>  Last updated: May 2016</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>

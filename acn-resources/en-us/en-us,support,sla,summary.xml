@@ -28,8 +28,8 @@
         <p>We guarantee that at least 99.9% of jobs will start within 30 minutes of their planned start times. </p>
         <p><a href="/support/sla/automation-en/" id="abstract-en_auttomation-en">See the full details</a></p>  
         <h2>Application Gateway</h2>
-        <p>We guarantee that each Application Gateway Cloud Service having two or more medium or larger instances will be available at least 99.9% of the time. We do not provide Service Level Agreement for Application Gateway Cloud Service that have only one instance or have small instance(s). </p>
-        <p><a href="/support/sla/application-gateway-en/" id="abstract-en_application-gateway-en">See the full details</a></p>  
+        <p>We guarantee that each Application Gateway Cloud Service having two or more medium or larger instances, or deployments capable of supporting autoscale or zone redundancy, will be available at least 99.95% of the time.</p>
+        <p><a href="/support/sla/application-gateway/" id="abstract-en_application-gateway-en">See the full details</a></p>  
         <h2>Azure IoT Hub</h2>
         <p>For IoT Hub, we promise that at least 99.9% of the time deployed IoT hubs will be able to send messages to and receive messages from registered devices and the Service will able to perform create, read, update, and delete operations on IoT hubs.</p>
         <p>No SLA is provided for the Free Tier of IoT Hub. </p>
@@ -105,11 +105,13 @@
         <p>Managed Disks does not have a financially backed SLA itself. The availability of Managed Disks is based on the SLA of the underlying storage used and virtual machine to which it is attached. </p>
         <p><a href="/support/sla/managed-disks-en/" id="abstract-en_managed-disks-en">See the full details</a></p>
         <h2>SQL Database</h2>
-        <p><strong>Basic, Standard and Premium</strong></p>
-        <p>We guarantee at least 99.99% of the time customers will have connectivity between their Basic, Standard, or Premium Azure SQL Database and our Internet gateway. Availability is calculated by monthly billing cycle. </p>
-        <p><strong>Web and Business (retired)</strong></p>
-        <p>We guarantee at least 99.9% of the time customers will have connectivity between their Web or Business Azure SQL Database and our Internet gateway. Availability is calculated by monthly billing cycle.</p>
-        <p><a href="/support/sla/sql-data-en/" id="abstract-en_sql-data-en">See the full details</a></p>
+        <p>Azure SQL Database is a fully managed relational database with built-in regional high availability and turnkey geo-replication to any Azure region. It includes intelligence to support self-driving features such as performance tuning, threat monitoring, and vulnerability assessments and provides fully automated patching and updating of the code base.</p>
+        <ul>
+            <li>Azure SQL Database Business Critical or Premium tiers configured as Zone Redundant Deployments have an availability guarantee of at least 99.995%.</li>
+            <li>Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee of at least 99.99%.</li>
+            <li>Azure SQL Database Hyperscale tier with one replica has an availability guarantee of at least 99.95% and 99.9% for zero replicas.</li>
+        </ul>
+        <p><a href="/support/sla/sql-data/" id="abstract-en_sql-data">See the full details</a></p>
         <h2>SQL Data Warehouse</h2>
         <p>We guarantee that, at least 99.9% of the time client operations executed on a SQL Data Warehouse database will succeed.</p>
         <p><a href="/support/sla/sql-data-warehouse-en/" id="abstract-en_sql-data-warehouse-en">See the full details</a></p>

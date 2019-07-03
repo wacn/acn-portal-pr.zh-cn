@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2018-11-02T19:34:25">
+  <umbTextpage template="21" createDate="2017-12-04T11:20:07" updateDate="2019-07-02T19:34:25">
     <bodyText>
     <![CDATA[
         <p><tags ms.service="legal-en" ms.date="03/2016" wacn.date="03/2016" wacn.lang="en"/></p>
 
        
-        <h1>SLA for Application Gateway</h1><div class="tags-date"><div class="ms-date">Updated: 11/2018</div></div>
-        <p>We guarantee that each Application Gateway Cloud Service having two or more medium or larger instances will be available at least 99.9% of the time. We do not provide Service Level Agreement for Application Gateway Cloud Service that have only one instance or have small instance(s).</p>
+        <h1>SLA for Application Gateway</h1><div class="tags-date"><div class="ms-date">Updated: 07/2019</div></div>
+        <p>We guarantee that each Application Gateway Cloud Service having two or more medium or larger instances, or deployments capable of supporting autoscale or zone redundancy, will be available at least 99.95% of the time.</p>
         <h2>Introduction</h2>
         <p>This Service Level Agreement for Azure (this “SLA”) is made by 21Vianet in connection with, and is a part of, the agreement under which Customer has purchased Azure Services from 21Vianet (the “Agreement”).</p>
         <p>We provide financial backing to our commitment to achieve and maintain Service Levels for our Services. If we do not achieve and maintain the Service Levels for each Service as described in this SLA, then you may be eligible for a credit towards a portion of your monthly service fees. These terms will be fixed for term of your Agreement. If a subscription is renewed, the version of this SLA that is current at the time the renewal term commences will apply throughout the renewal term. We will provide at least 90 days' notice for adverse material changes to this SLA. You can review the most current version of this SLA at any time by visiting <a href="/support/legal/sla/">https://www.azure.cn/support/legal/sla</a>.</p>
@@ -152,24 +152,23 @@
         </ol>
         <h2>The SLA details</h2>
         <h3>Additional Definitions</h3>
-        <p>&quot;<strong>Application Gateway Cloud Service</strong>&quot; refers to a collection of one or more Application Gateway instances configured to perform HTTP load balancing services.</p>
-        <h3>Monthly Uptime Calculation and Service Levels for Application Gateway</h3>
         <ol>
         <li>
-        <p>&quot;<strong>Maximum Available Minutes</strong>&quot; is the total accumulated minutes during a billing month during which an Application Gateway Cloud Service comprising two or more medium or larger Application Gateway instances has been deployed in a Azure subscription.  
-        </p>
+        <p>&quot;<strong>Application Gateway Cloud Service</strong>&quot; refers to a collection of two or more medium or larger Application Gateway instances or deployments capable of supporting autoscale or zone redundancy, configured to perform HTTP load balancing services. </p>
         </li>
         <li>
-        <p>&quot;<strong>Downtime</strong>&quot; is the total accumulated Maximum Available Minutes during a billing month for a given Application Gateway Cloud Service during which the Application Gateway Cloud Service is unavailable. A given minute is considered unavailable if all attempts to connect to the Application Gateway Cloud Service throughout the minute are unsuccessful.  
-        </p>
+        <p>&quot;<strong>Maximum Available Minutes</strong>&quot; is the total accumulated minutes during a billing month during which an Application Gateway Cloud Service has been deployed in a Azure subscription.</p>
         </li>
         <li>
-        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; for a given Application Gateway Cloud Service is calculated as Maximum Available Minutes less Downtime divided by Maximum Available Minutes in a billing month for the Application Gateway Cloud Service. Monthly Uptime Percentage is represented by the following formula:</p>
-        <pre><code>Monthly&nbsp;Uptime&nbsp;%&nbsp;=&nbsp;&nbsp;&nbsp;(Maximum&nbsp;Available&nbsp;Minutes&nbsp;-&nbsp;Downtime)/&nbsp;Maximum&nbsp;Available&nbsp;Minutes&nbsp;<br/></code></pre>
+        <p>&quot;<strong>Downtime</strong>&quot; is the total accumulated Maximum Available Minutes during a billing month for a given Application Gateway Cloud Service during which the Application Gateway Cloud Service is unavailable. A given minute is considered unavailable if all attempts to connect to the Application Gateway Cloud Service throughout the minute are unsuccessful.</p>
+        </li>
+        <li>
+        <p>&quot;<strong>Monthly Uptime Percentage</strong>&quot; The Monthly Uptime Percentage is calculated using the following formula:</p>
+        <pre><code>(Maximum&nbsp;Available&nbsp;Minutes&nbsp;-&nbsp;Downtime)/&nbsp;Maximum&nbsp;Available&nbsp;Minutes&nbsp;*&nbsp;100<br/></code></pre>
 
         </li>
         <li>
-        <p>The following Service Levels and Service Credits are applicable to Customer's use of each Application Gateway Cloud Service.</p>
+        <p>Service Credit</p>
         </li>
         </ol>
         <table>
@@ -190,6 +189,10 @@
         </tr>
         </tbody>
         </table>
+        <h1>Version History</h1>
+        <p><a href="/support/sla/application-gateway/">1.1</a> Last updated: July 2019 </p>
+        <p>Release notes: Expanded SLA to include the Application Gateway v2 SKUs thta support autoscaling and zone redundancy.</p>
+        <p><a href="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/media/sla/application_gateway_sla_english1.0.pdf">1.0</a> Last updated:：November 2018</p>
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
