@@ -18,7 +18,7 @@ var CalculatorData = {
                 Features: [{
                     Name: "default",
                     Sizes: [{
-                        Name: "default",
+                        Name: CalculatorConst.appservice_Free_Shared_F1,
                         Description: "在多租户环境中每个子区域免费运行多达 10 个 Web 应用。根据流量增长情况无缝升级到付费的共享多租户模型或保留实例模型。",
                         PriceTier: PriceTierEnum.Free,
                         PricePerTier: "0",
@@ -34,7 +34,7 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
-                        Name: "default",
+                        Name: CalculatorConst.appservice_Free_Shared_D1,
                         Description: "共享功能：在多租户环境中每个子区域免费运行多达 100 个 Web 应用，存储空间 1GB，出站数据传输为无限。",//this text need to be changed.
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.11",
@@ -50,19 +50,19 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
-                        Name: CalculatorConst.SmallSize,
+                        Name: CalculatorConst.appservice_Basic_B1,
                         Description: CalculatorConst.SmallSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.45",
                     },
                     {
-                        Name: CalculatorConst.MediumSize,
+                        Name: CalculatorConst.appservice_Basic_B2,
                         Description: CalculatorConst.MediumSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.89",
                     },
                     {
-                        Name: CalculatorConst.LargeSize,
+                        Name: CalculatorConst.appservice_Basic_B3,
                         Description: CalculatorConst.LargeSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.79",
@@ -78,19 +78,19 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
-                        Name: CalculatorConst.SmallSize,
+                        Name: CalculatorConst.appservice_Standard_S1,
                         Description: CalculatorConst.SmallSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.6",
                     },
                     {
-                        Name: CalculatorConst.MediumSize,
+                        Name: CalculatorConst.appservice_Standard_S2,
                         Description: CalculatorConst.MediumSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.19",
                     },
                     {
-                        Name: CalculatorConst.LargeSize,
+                        Name: CalculatorConst.appservice_Standard_S3,
                         Description: CalculatorConst.LargeSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.38",
@@ -142,7 +142,7 @@ var CalculatorData = {
                 Features: [{
                     Name: "default",
                     Sizes: [{
-                        Name: "default",
+                        Name: CalculatorConst.appservice_Free_Shared_F1,
                         Description: "在多租户环境中每个子区域免费运行多达 10 个 Web、移动或 API 应用。根据流量增长情况无缝升级到付费的共享多租户模型或保留实例模型。",
                         PriceTier: PriceTierEnum.Free,
                         PricePerTier: "0",
@@ -157,8 +157,9 @@ var CalculatorData = {
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "100",
-                    Sizes: [{
-                        Name: "default",
+                    Sizes: [
+                        {
+                        Name: CalculatorConst.appservice_Free_Shared_D1,
                         Description: "共享功能：在多租户环境中每个子区域免费运行多达 100 个 Web、移动或 API 应用，存储空间 1GB，出站数据传输为无限。",//this text need to be changed.
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.0827",
@@ -174,19 +175,19 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.SmallSize,
+                        Name: CalculatorConst.appservice_Basic_B1,
                         Description: CalculatorConst.SmallSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.45",
                     },
                     {
-                        Name: CalculatorConst.MediumSize,
+                        Name: CalculatorConst.appservice_Basic_B2,
                         Description: CalculatorConst.MediumSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.89",
                     },
                     {
-                        Name: CalculatorConst.LargeSize,
+                        Name: CalculatorConst.appservice_Basic_B3,
                         Description: CalculatorConst.LargeSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.79",
@@ -203,19 +204,19 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.SmallSize,
+                        Name: CalculatorConst.appservice_Standard_S1,
                         Description: CalculatorConst.SmallSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "0.60",
                     },
                     {
-                        Name: CalculatorConst.MediumSize,
+                        Name: CalculatorConst.appservice_Standard_S2,
                         Description: CalculatorConst.MediumSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.19",
                     },
                     {
-                        Name: CalculatorConst.LargeSize,
+                        Name: CalculatorConst.appservice_Standard_S3,
                         Description: CalculatorConst.LargeSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.38",
@@ -231,19 +232,19 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.SmallSize,
+                        Name: CalculatorConst.appservice_Permium_P1,
                         Description: CalculatorConst.SmallSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "1.9716",
                     },
                     {
-                        Name: CalculatorConst.MediumSize,
+                        Name: CalculatorConst.appservice_Permium_P2,
                         Description: CalculatorConst.MediumSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "3.943",
                     },
                     {
-                        Name: CalculatorConst.LargeSize,
+                        Name: CalculatorConst.appservice_Permium_P3,
                         Description: CalculatorConst.LargeSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "7.8864",
