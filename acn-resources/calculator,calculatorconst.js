@@ -341,6 +341,18 @@ var CalculatorConst = {
     mysqlMS6SizeDesc: "100 GB 免费数据库容量，最大支持同时连接数为 2000。",
     mysqlMP1SizeDesc: "125 GB 免费数据库容量，最大支持同时连接数为 4000。",
     mysqlMP2SizeDesc: "125 GB 免费数据库容量，最大支持同时连接数为 6000。",
+
+    appservice_Free_Shared_F1:"F1 免费",
+    appservice_Free_Shared_D1:"D1 共享(预览)",
+    appservice_Basic_B1:"B1",
+    appservice_Basic_B2:"B2",
+    appservice_Basic_B3:"B3",
+    appservice_Standard_S1:"S1",
+    appservice_Standard_S2:"S2",
+    appservice_Standard_S3:"S3",
+    appservice_Permium_P1:"P1",
+    appservice_Permium_P2:"P2",
+    appservice_Permium_P3:"P3",
 	
 	/* \\10.186.11.30\ka2\FY17\Microsoft\Bill\ACN Maintenance\Content\17.3.9 XML acom staging access
 	Sql1SizeDesc: "最大存储空间 10 GB ,最大 DB 200",

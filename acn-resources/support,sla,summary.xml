@@ -30,7 +30,7 @@
         <p>我们保证至少 99.9% 的作业将在预定的开始时间 30 分钟内开始。 </p>
         <p><a href="/support/sla/automation/" id="abstract_automation">查看完整的详细信息</a></p>
         <h2>应用程序网关</h2>
-        <p>我们保证每个具有两个或更多中型或更大型实例的应用程序网关云服务至少在 99.9% 的时间内都可用。我们不为只有一个实例或小型实例的应用程序网关云服务提供服务级别协议。 </p>
+        <p>我们保证至少在 99.95% 的时间里，各应用程序网关云服务（包含两个或多个大中型实例）或能支持自动缩放或区域冗余的部署可供使用。</p>
         <p><a href="/support/sla/application-gateway/" id="abstract_application-gateway">查看完整的详细信息</a></p>
         <h2>Azure IoT 中心</h2>
         <p>对于 IoT 中心，我们保证在 99.9% 的时间里，已部署的 IoT 中心能够向已注册的设备发送信息并从中接收信息，并且该服务能够在 IoT 中心上执行创建、读取、更新和删除操作。</p>
@@ -107,10 +107,12 @@
         <p>托管磁盘本身不提供有财务方面支持的服务级别协议。托管磁盘的可用性取决于所使用的基础存储和其所依附的虚拟机的服务级别协议。</p>
         <p><a href="/support/sla/managed-disks/" id="abstract_managed-disks">查看完整的详细信息</a></p>
         <h2>SQL 数据库</h2>
-        <p><strong>基本、标准和高级层级</strong></p>
-        <p>我们保证单一或弹性的基本、标准或高级 Azure SQL 数据库与我们的 Internet 网关之间不低于 99.99% 的连接时间。</p>
-        <p><strong>Web 和企业版（已停用）</strong></p>
-        <p>我们保证至少在 99.9% 的时间内客户将能够在其 Web 版或企业版 Azure SQL 数据库与我们的 Internet 网关之间保持连接。</p>
+        <p>Azure SQL 数据库是一个全面管理的关系数据库，在任意 Azure 地区内提供，并且提供统包数据异地复制。它包括支持自动驾驶功能的智能功能，比如性能调试、威胁监控和漏洞评估，还提供代码库全自动修补和更新。</p>
+        <ul>
+            <li>配置为区域冗余部署的 Azure SQL 数据库业务关键或高级层级可用性保证至少达到 99.995%。</li>
+            <li>区域冗余部署未配置的 Azure SQL 数据库业务关键或高级层级、通用目的、标准或基本层级或超大规模层级，若拥有两个或以上副本，可用性保证至少达到 99.99%。</li>
+            <li>有一个副本的 Azure SQL 数据库超大规模层级可用性保证至少达到 99.95%，零个副本则为 99.9%。</li>
+        </ul>
         <p><a href="/support/sla/sql-data/" id="abstract_sql-data">查看完整的详细信息</a></p>
         <h2>SQL 数据仓库</h2>
         <p>我们保证，至少在 99.9% 的时间内，在 SQL 数据仓库数据库上执行的客户端操作都会成功。</p>
@@ -186,7 +188,6 @@
         <h2>Azure 时序见解</h2>
         <p>我们保证在不少于 99.9% 的时间内成功地处理针对时序见解数据平面 API 的请求。</p>
         <p><a href="/support/sla/time-series-insights/" id="abstract_time-series-insights">查看完整的详细信息</a></p>
-
     ]]>
     </bodyText>
     <umbracoNaviHide>0</umbracoNaviHide>
