@@ -235,19 +235,19 @@ var CalculatorData = {
                         Name: CalculatorConst.appservice_Permium_P1,
                         Description: CalculatorConst.SmallSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.9716",
+                        PricePerTier: "2.035",
                     },
                     {
                         Name: CalculatorConst.appservice_Permium_P2,
                         Description: CalculatorConst.MediumSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.943",
+                        PricePerTier: "4.07",
                     },
                     {
                         Name: CalculatorConst.appservice_Permium_P3,
                         Description: CalculatorConst.LargeSizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.8864",
+                        PricePerTier: "8.141",
                     }]
                 }]
             }]
