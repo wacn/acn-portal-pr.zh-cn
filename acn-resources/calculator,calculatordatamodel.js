@@ -8935,8 +8935,9 @@ var CalculatorData = {
             }]
         },
         "storage-manager-disk-gpv1-premium": {
-            Name: "存储 - 高级托管磁盘 - 常规用途 v1",
-            Types: [{
+            Name: "存储 - 高级托管磁盘 - 常规用途 v1 - 仅适用于中国东部2和中国北部2",
+            Types: [
+                {
                 Name: "P4",
                 Features: [{
                     Name: "default",
@@ -9114,6 +9115,187 @@ var CalculatorData = {
             }]
         },
 
+        "storage-manager-disk-gpv1-premium-region1": {
+            Name: "存储 - 高级托管磁盘 - 常规用途 v1",
+            Types: [
+                {
+                Name: "P4",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 32GB，磁盘读写 (IOPS)120，磁盘吞吐 25MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "47.53",
+                    }]
+                }]
+            },
+            {
+                Name: "P6",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 64GB，磁盘读写 (IOPS)240，磁盘吞吐 50MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "91.9",
+                    }]
+                }]
+            },
+            {
+                Name: "P10",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "254.8611",
+                    }]
+                }]
+            },
+            {
+                Name: "P15",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 256GB，磁盘读写 (IOPS)1100，磁盘吞吐 125MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "226.83",
+                    }]
+                }]
+            },
+            {
+                Name: "P20",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 512GB，磁盘读写 (IOPS)2300，磁盘吞吐 150MB/sec",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "490.9284",
+                    }]
+                }]
+            },
+            {
+                Name: "P30",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 1TB，磁盘读写 (IOPS)5000，磁盘吞吐 200MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "906.2894",
+                    }]
+                }]
+            },
+            {
+                Name: "P40",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 2TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1736.8312",
+                    }]
+                }]
+            },
+            {
+                Name: "P50",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 4TB，磁盘读写 (IOPS)7500，磁盘吞吐 250MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3322.6336",
+                    }]
+                }]
+            },
+            {
+                Name: "P60",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 8TB，磁盘读写 (IOPS)16000，磁盘吞吐 500MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6645.26",
+                    }]
+                }]
+            },
+            {
+                Name: "P70",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 16TB，磁盘读写 (IOPS)18000，磁盘吞吐 750MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "13290.52",
+                    }]
+                }]
+            },
+            {
+                Name: "P80",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 32TB，磁盘读写 (IOPS)20000，磁盘吞吐 900MB/sec ",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "26581.04",
+                    }]
+                }]
+            }]
+        },
+
         "storage-manager-disk-gpv1-premium-snapshots": {
             Name: "存储 - 高级托管磁盘 - 常规用途 v1 - 快照",
             Types: [{
@@ -9160,7 +9342,7 @@ var CalculatorData = {
         },
 
         "storage-ssd-manager-disk-gpv1-standard": {
-            Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1",
+            Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1 - 仅适用于中国东部2和中国北部2",
             Types: [
                 {
                     Name: "E4",
@@ -9336,6 +9518,189 @@ var CalculatorData = {
                               Description: "磁盘大小 32TB",
                               PriceTier: PriceTierEnum.Fixed,
                               PricePerTier: "19660.8",
+                          }]
+                      }]
+                }
+            ]
+        },
+
+        "storage-ssd-manager-disk-gpv1-standard-region1": {
+            Name: "存储 - 标准 SSD 托管磁盘 - 常规用途 v1",
+            Types: [
+                {
+                    Name: "E4",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "磁盘大小 32 GB",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "24.4224",
+                        }]
+                    }]
+                },
+                {
+                    Name: "E6",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "磁盘大小 64 GB",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "48.8448",
+                        }]
+                    }]
+                }, 
+            {
+                Name: "E10",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 128 GB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "97.6896",
+                    }]
+                }]
+            },
+            {
+                Name: "E15",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 256GB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "195.3792",
+                    }]
+                }]
+            },
+            {
+                Name: "E20",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 512 GB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "390.7584",
+                    }]
+                }]
+            },
+            {
+                Name: "E30",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 1 TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "781.5168",
+                    }]
+                }]
+            },
+            {
+                Name: "E40",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 2TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1563.0336",
+                    }]
+                }]
+            },
+            {
+                Name: "E50",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 4TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3126.0672",
+                    }]
+                }]
+            },
+            {
+                Name: "E60",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 8TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6252.13",
+                    }]
+                }]
+            },
+            {
+                Name: "E70",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "磁盘大小 16TB",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12504.27",
+                    }]
+                }]
+            }
+                 ,
+                   {
+                      Name: "E80",
+                      Features: [{
+                          Name: "default",
+                          PricePeriod: PricePeriodEnum.Monthly,
+                          PriceUnit: "个",
+                          MinUnit: "0",
+                          MaxUnit: "20",
+                          Sizes: [{
+                              Name: "default",
+                              Description: "磁盘大小 32TB",
+                              PriceTier: PriceTierEnum.Fixed,
+                              PricePerTier: "25008.54",
                           }]
                       }]
                 }
