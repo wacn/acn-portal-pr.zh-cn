@@ -2,7 +2,7 @@
 <localize>
   <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="data-transfer" writerName="content" creatorName="content">
     <bodyText><![CDATA[
-			<tags ms.service="storage" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+			<tags ms.service="storage-managed-disks" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
       		<style type="text/css">
 			.pricing-detail-tab .tab-nav{
 				padding-left: 0!important;
@@ -51,8 +51,11 @@
 			background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
 			}
 		</style>
-            
-            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
+		<div class="hide-info" style="display:none;">
+      <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+      <div class="msg-box"><div class="pricing-unavailable-message">Not available in the selected region</div></div>
+    </div>
+						<div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                     	<img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage@2x.png" />
@@ -62,334 +65,525 @@
                     </div>
                 </div>
             </div>
+            
 			<div class="pricing-page-section">
 				<p>Azure Managed Disks is a new and recommended disk storage product for Azure Virtual Machines that facilitates persistent data storage. Multiple Managed Disks can be used with each virtual machine. We offer two types of Managed Disks - Premium and Standard.</p>
 				<p>If you’re interested in the pricing details of Non-Managed Disk, please refer to the <a href="/pricing/details/storage/page-blobs/">Non-Managed Disk and Page Blob</a> pricing details page.</p>
 			
-                <h2>Pricing Details</h2>
-                <div class="technical-azure-selector pricing-detail-tab">
-					<ul class="tab-nav" style="display:none">
-						<li class="active">
-							<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">General Purpose v1</a>
-						</li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-panel" id="tabContent2">
-			                <h4>Premium Hosting Disk</h4>
-							<p>Premium Managed Disk, based on high-performance solid state drive (SSD), aims to support I/O intensive workloads, with extremely high throughput and low delay. With the help of Premium Managed Disk, we can set a permanent disk and configure its size and performance characteristics.</p>
-							<p>The total cost of Premium Managed Disks depends on the size and number of the disks, and will be affected by the number of <a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">outbound data transfers</a>. These disk sizes provide different input/output operations per second (IOPS), throughput caps, and monthly price per GB. You can choose the option that best meets your required storage size, IOPS, and throughput. Attach several persistent disks to a VM and you can configure up to PB of storage per VM, and achieve 80,000 input/output operations per second and 1,600 MB per second disk throughput per VM at less than one millisecond latency for read operations. Premium Managed Disks are supported by DS-series, DSv2-series, and FS-series VM sizes which are specifically targeted for Premium Disks.</p>
-							<div class="tags-date">
-								<div class="ms-date">*The following prices are tax-inclusive.</div><br />
-								<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-								<p>The pricing of screenshots is charged at the rate of RMB 2.35/GB per month.</p>
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong>Disk Types</strong></th>
-									<th align="left"><strong>P4</strong></th>
-									<th align="left"><strong>P6</strong></th>
-									<th align="left"><strong>P10</strong></th>
-									<th align="left"><strong>P15</strong></th>
-									<th align="left"><strong>P20</strong></th>
-									<th align="left"><strong>P30</strong></th>
-									<th align="left"><strong>P40</strong></th>
-									<th align="left"><strong>P50</strong></th>
-									<th align="left"><strong>P60</strong></th>
-									<th align="left"><strong>P70</strong></th>
-									<th align="left"><strong>P80</strong></th>
-								</tr>
-								<tr>
-									<td>Disk sizes</td>
-									<td>32 GB</td>
-									<td>64 GB</td>
-									<td>128 GB</td>
-									<td>256 GB</td>
-									<td>512 GB</td>
-									<td>1 TB</td>
-									<td>2 TB</td>
-									<td>4 TB</td>
-									<td>8 TB</td>
-									<td>16 TB</td>
-									<td>32 TB (32767 GB)</td>
-								</tr>
-								<tr>
-									<td>Monthly pricing</td>
-									<td>￥42.302</td>
-									<td>￥81.791</td>
-									<td>￥117.61</td>
-									<td>￥226.83</td>
-									<td>￥436.93</td>
-									<td>￥806.6</td>
-									<td>￥1,545.78</td>
-									<td>￥2,957.14</td>
-									<td>￥5,914.28</td>
-									<td>￥11,828.56</td>
-									<td>￥23,657.13</td>
-								</tr>
-								<tr>
-									<td>IOPS per disk</td>
-									<td>120</td>
-									<td>240</td>
-									<td>500</td>
-									<td>1,100</td>
-									<td>2,300</td>
-									<td>5,000</td>
-									<td>7,500</td>
-									<td>7,500</td>
-									<td>16,000</td>
-									<td>18,000</td>
-									<td>20,000</td>
-								</tr>
-								<tr>
-									<td>Throughput of every disk</td>
-									<td>25 MB /second</td>
-									<td>50 MB /second</td>
-									<td>100 MB /second</td>
-									<td>125 MB /second</td>
-									<td>150 MB /second</td>
-									<td>200 MB /second</td>
-									<td>250 MB /second</td>
-									<td>250 MB /second</td>
-									<td>500 MB /second</td>
-									<td>750 MB /second</td>
-									<td>900 MB /second</td>
-								</tr>
-							</table>
-										
-							<div class="tags-date">
-								<div class="ms-date">Premium Disk has no transaction processing expenses.</div>
-							</div>
-							<p>The aforementioned pricing are also suitable for Premium Non-Managed Disk.</p>
+        <div class="pricing-page-section">
+					<h2>Pricing details</h2>
+				</div>
 
-							<h4>Standard SSD Managed Disks</h4>
-							<p>Standard SSD Managed Disks, a low-cost SSD offering, are optimized for test and entry-level production workloads requiring consistent latency. Standard SSD Managed Disks can also be used for big data workloads that require high throughput. Standard SSD Managed Disks deliver lower latency compared to Standard HDDs, while improving reliability and scalability for your applications, and are available with all Azure VM sizes. Standard SSD Managed Disks can be easily upgraded to Premium SSD Managed Disks for more demanding and latency-sensitive enterprise workloads. Offered as a managed disk solution, Standard SSD Managed Disks come with the same industry leading durability and availability that you expect from Premium SSD Managed Disks.</p>
-							<p>The total cost of Standard SSD Managed Disk storage depends on the disk’s size and quantity, transaction amount and <a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">outgoing Data Transfer</a>.</p>
-							<div class="tags-date">
-								<div class="ms-date">*The following prices are tax-inclusive.</div><br />
-								<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-								<p>The pricing of screenshots is charged at the rate of RMB 1.22112/GB per month.</p>
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong>Disk Types</strong></th>
-									<th align="left"><strong>E4</strong></th>
-									<th align="left"><strong>E6</strong></th>
-									<th align="left"><strong>E10</strong></th>
-									<th align="left"><strong>E15</strong></th>
-									<th align="left"><strong>E20</strong></th>
-									<th align="left"><strong>E30</strong></th>
-									<th align="left"><strong>E40</strong></th>
-									<th align="left"><strong>E50</strong></th>
-									<th align="left"><strong>E60</strong></th>
-									<th align="left"><strong>E70</strong></th>
-									<th align="left"><strong>E80</strong></th>
-								</tr>
-								<tr>
-									<td>Disk sizes</td>
-									<td>32 GB</td>
-									<td>64 GB</td>
-									<td>128 GB</td>
-									<td>256 GB</td>
-									<td>512 GB</td>
-									<td>1 TB</td>
-									<td>2 TB</td>
-									<td>4 TB</td>
-									<td>8 TB</td>
-									<td>16 TB</td>
-									<td>32 TB (32767 GB)</td>
-								</tr>
-								<tr>
-									<td>Monthly pricing</td>
-									<td>￥19.2</td>
-									<td>￥38.4</td>
-									<td>￥76.8</td>
-									<td>￥153.6</td>
-									<td>￥307.2</td>
-									<td>￥614.4</td>
-									<td>￥1,228.8</td>
-									<td>￥2,457.6</td>
-									<td>￥4,915.2</td>
-									<td>￥9,830.4</td>
-									<td>￥19,660.8</td>
-								</tr>
-								<tr>
-									<td>IOPS per disk</td>
-									<td>Up to 120</td>
-									<td>Up to 240</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 2,000</td>
-									<td>Up to 4,000</td>
-									<td>Up to 6,000</td>
-								</tr>
-								<tr>
-									<td>Throughput per disk</td>
-									<td>Up to 25 MB/second</td>
-									<td>Up to 50 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 400 MB/second</td>
-									<td>Up to 600 MB/second</td>
-									<td>Up to 750 MB/second</td>
-								</tr>
-							</table>
-							<div class="tags-date">
-								<div class="ms-date">We charge RMB 0.020352 for every 10,000 Standard SSD Managed Disk transaction. Any type of operations for storage are considered to be transactions, including: reads, writes and deletions.</div>
-							</div>
-					
-							<h4>Standard Managed Disk</h4>
-							<p>Standard Managed Disks employ a hard disk drive (HDD)-based storage medium. They are most suitable for development/testing not sensitive to performance changes and other non-frequent access workloads.</p>
-							<p>The total cost of Standard Managed Disk storage depends on the disk’s size and quantity, transaction amount and <a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">outgoing Data Transfer</a>. There is no difference between different Standard Disk sizes in IOPS and throughput.</p>
-							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
-							<div class="tags-date">
-								<div class="ms-date">*The following prices are tax-inclusive.</div><br />
-								<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-								<p>The pricing of screenshots is charged at the rate of RMB 0.3/GB per month.</p>
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong>Disk Types</strong></th>
-									<th align="left"><strong>S4</strong></th>
-									<th align="left"><strong>S6</strong></th>
-									<th align="left"><strong>S10</strong></th>
-									<th align="left"><strong>S15</strong></th>
-									<th align="left"><strong>S20</strong></th>
-									<th align="left"><strong>S30</strong></th>
-									<th align="left"><strong>S40</strong></th>
-									<th align="left"><strong>S50</strong></th>
-									<th align="left"><strong>S60</strong></th>
-									<th align="left"><strong>S70</strong></th>
-									<th align="left"><strong>S80</strong></th>
-								</tr>
-								<tr>
-									<td>Disk sizes</td>
-									<td>32 GB</td>
-									<td>64 GB</td>
-									<td>128 GB</td>
-									<td>256 GB</td>
-									<td>512 GB</td>
-									<td>1 TB</td>
-									<td>2 TB</td>
-									<td>4 TB</td>
-									<td>8 TB</td>
-									<td>16 TB</td>
-									<td>32 TB (32767 GB)</td>
-								</tr>
-								<tr>
-									<td>Monthly pricing</td>
-									<td>RMB 8.64</td>
-									<td>RMB 17.28</td>
-									<td>RMB 34.56</td>
-									<td>RMB 69.12</td>
-									<td>RMB 138.24</td>
-									<td>RMB 276.48</td>
-									<td>RMB 552.96</td>
-									<td>RMB 1105.92</td>
-									<td>RMB 2211.84</td>
-									<td>RMB 4423.68</td>
-									<td>RMB 8847.36</td>
-								</tr>
-								<tr>
-									<td>IOPS per disk</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 500</td>
-									<td>Up to 1,300</td>
-									<td>Up to 2,000</td>
-									<td>Up to 2,000</td>
-								</tr>
-								<tr>
-									<td>Throughput per disk</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 60 MB/second</td>
-									<td>Up to 300 MB/second</td>
-									<td>Up to 500 MB/second</td>
-									<td>Up to 500 MB/second</td>
-								</tr>
-							</table>
-							<div class="tags-date">
-								<div class="ms-date">We charge RMB 0.0044 for every 10,000 Standard Managed Disk transaction. Any type of operations for storage are considered to be transactions, including: reads, writes and deletions.</div>
-							</div>
-							<h4>Locally Redundant Storage (LRS)</h4>								
-							<p>Create multiple synchronous copies of data in a Data Center.</p>
-							<p>To learn more about the redundancy options and how to use these options to obtain high availability, please view the <a id="pricing_storage_documentation-storage-redundancy" href="/documentation/articles/storage-redundancy/">Azure Storage Space Replication Page</a>.</p>
-							
-		
-							<!-- END: TAB-CONTROL -->
-	            		</div>
-		            </div>
-	            </div>
-            </div>
-            <div class="pricing-page-section">
-		    	<div class="more-detail">
-			        <h2>FAQ</h2>
-			        <em>Expand All</em>
-			        <ul>
-						<li>
-							<i class="icon icon-plus"></i>
-							<div>
-								<a  id="Storage_question14">If I add an S10 or P10 disk to the virtual machine, will I be charged the cost of the total amount shown above or just the cost of the storage space I used?</a>
-								<section>
-			                        <p>The allocated disks are charged at the same rate, irrespective of the disk space used.</p>
-			                    </section>
-							</div>
-						</li>
-						<li>
-							<i class="icon icon-plus"></i>
-							<div>
-								<a  id="Storage_question15">The pricing shown is the monthly price. How do you charge if the Managed Disk is used less than one month?</a>
-								<section>
-			                        <p>The charge uses the monthly pricing according to the hours and proportional cost.</p>
-			                    </section>
-							</div>
-						</li>
-					</ul>
-			    </div>
-			</div>
-            <!-- <div class="pricing-page-section">
-			    <h2>Region</h2>
-			    <p>Storage services are available in the following regions:</p>
-			    <table cellpadding="0" cellspacing="0" class="table-col6">
-			        <tr>
-			            <th align="left"><strong>Territory</strong></th>
-			            <th align="left"><strong>Region</strong></th>
-			        </tr>
-			        <tr>
-			            <td>Mainland China</td>
-			            <td>China North, China East</td>
-			        </tr>
-    			</table>
-    		</div> -->
+				<!-- BEGIN: TAB-CONTROL -->
+        <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/SoftWare:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Managed Disks</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                  <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_managed-disks">Managed Disks</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Managed Disks">Managed Disks</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>Region:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">China East 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >China East 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >China North 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >China East</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >China North</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">China East 2</option>
+							<option data-href="#north-china2" value="north-china2">China North 2</option>
+							<option data-href="#east-china" value="east-china">China East</option>
+							<option data-href="#north-china" value="north-china">China North</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+												<ul class="tab-nav" style="display:none">
+													<li class="active">
+														<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">General Purpose v1</a>
+													</li>
+												</ul>
+                        <div class="tab-content">
+													<div class="tab-panel" id="tabContent2">
+														<h4>Premium Hosting Disk</h4>
+														<p>Premium Managed Disk, based on high-performance solid state drive (SSD), aims to support I/O intensive workloads, with extremely high throughput and low delay. With the help of Premium Managed Disk, we can set a permanent disk and configure its size and performance characteristics.</p>
+														<p>The total cost of Premium Managed Disks depends on the size and number of the disks, and will be affected by the number of <a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">outbound data transfers</a>. These disk sizes provide different input/output operations per second (IOPS), throughput caps, and monthly price per GB. You can choose the option that best meets your required storage size, IOPS, and throughput. Attach several persistent disks to a VM and you can configure up to PB of storage per VM, and achieve 80,000 input/output operations per second and 1,600 MB per second disk throughput per VM at less than one millisecond latency for read operations. Premium Managed Disks are supported by DS-series, DSv2-series, and FS-series VM sizes which are specifically targeted for Premium Disks.</p>
+														<div class="tags-date">
+															<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+															<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+															<p>The pricing of screenshots is charged at the rate of RMB 2.35/GB per month.</p>
+														</div>
+														<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-premium-region2">
+															<tr>
+																<th align="left"><strong>Disk Types</strong></th>
+																<th align="left"><strong>P4</strong></th>
+																<th align="left"><strong>P6</strong></th>
+																<th align="left"><strong>P10</strong></th>
+																<th align="left"><strong>P15</strong></th>
+																<th align="left"><strong>P20</strong></th>
+																<th align="left"><strong>P30</strong></th>
+																<th align="left"><strong>P40</strong></th>
+																<th align="left"><strong>P50</strong></th>
+																<th align="left"><strong>P60</strong></th>
+																<th align="left"><strong>P70</strong></th>
+																<th align="left"><strong>P80</strong></th>
+															</tr>
+															<tr>
+																<td>Disk sizes</td>
+																<td>32 GB</td>
+																<td>64 GB</td>
+																<td>128 GB</td>
+																<td>256 GB</td>
+																<td>512 GB</td>
+																<td>1 TB</td>
+																<td>2 TB</td>
+																<td>4 TB</td>
+																<td>8 TB</td>
+																<td>16 TB</td>
+																<td>32 TB (32767 GB)</td>
+															</tr>
+															<tr>
+																<td>Monthly pricing</td>
+																<td>￥42.302</td>
+																<td>￥81.791</td>
+																<td>￥117.61</td>
+																<td>￥226.83</td>
+																<td>￥436.93</td>
+																<td>￥806.6</td>
+																<td>￥1,545.78</td>
+																<td>￥2,957.14</td>
+																<td>￥5,914.28</td>
+																<td>￥11,828.56</td>
+																<td>￥23,657.13</td>
+															</tr>
+															<tr>
+																<td>IOPS per disk</td>
+																<td>120</td>
+																<td>240</td>
+																<td>500</td>
+																<td>1,100</td>
+																<td>2,300</td>
+																<td>5,000</td>
+																<td>7,500</td>
+																<td>7,500</td>
+																<td>16,000</td>
+																<td>18,000</td>
+																<td>20,000</td>
+															</tr>
+															<tr>
+																<td>Throughput of every disk</td>
+																<td>25 MB /second</td>
+																<td>50 MB /second</td>
+																<td>100 MB /second</td>
+																<td>125 MB /second</td>
+																<td>150 MB /second</td>
+																<td>200 MB /second</td>
+																<td>250 MB /second</td>
+																<td>250 MB /second</td>
+																<td>500 MB /second</td>
+																<td>750 MB /second</td>
+																<td>900 MB /second</td>
+															</tr>
+														</table>
 
+														<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-premium">
+															<tr>
+																<th align="left"><strong>Disk Types</strong></th>
+																<th align="left"><strong>P4</strong></th>
+																<th align="left"><strong>P6</strong></th>
+																<th align="left"><strong>P10</strong></th>
+																<th align="left"><strong>P15</strong></th>
+																<th align="left"><strong>P20</strong></th>
+																<th align="left"><strong>P30</strong></th>
+																<th align="left"><strong>P40</strong></th>
+																<th align="left"><strong>P50</strong></th>
+																<th align="left"><strong>P60</strong></th>
+																<th align="left"><strong>P70</strong></th>
+																<th align="left"><strong>P80</strong></th>
+															</tr>
+															<tr>
+																<td>Disk sizes</td>
+																<td>32 GB</td>
+																<td>64 GB</td>
+																<td>128 GB</td>
+																<td>256 GB</td>
+																<td>512 GB</td>
+																<td>1 TB</td>
+																<td>2 TB</td>
+																<td>4 TB</td>
+																<td>8 TB</td>
+																<td>16 TB</td>
+																<td>32 TB (32767 GB)</td>
+															</tr>
+															<tr>
+															<td>Monthly pricing</td>
+																<td>￥47.53</td>
+																<td>￥91.9</td>
+																<td>￥254.8611</td>
+																<td>￥226.83</td>
+																<td>￥490.9284</td>
+																<td>￥906.2894</td>
+																<td>￥1,736.8312</td>
+																<td>￥3,322.6336</td>
+																<td>￥6,645.26</td>
+																<td>￥13,290.52</td>
+																<td>￥26,581.04</td>																		
+															</tr>
+															<tr>
+																<td>IOPS per disk</td>
+																<td>120</td>
+																<td>240</td>
+																<td>500</td>
+																<td>1,100</td>
+																<td>2,300</td>
+																<td>5,000</td>
+																<td>7,500</td>
+																<td>7,500</td>
+																<td>16,000</td>
+																<td>18,000</td>
+																<td>20,000</td>
+															</tr>
+															<tr>
+																<td>Throughput of every disk</td>
+																<td>25 MB /second</td>
+																<td>50 MB /second</td>
+																<td>100 MB /second</td>
+																<td>125 MB /second</td>
+																<td>150 MB /second</td>
+																<td>200 MB /second</td>
+																<td>250 MB /second</td>
+																<td>250 MB /second</td>
+																<td>500 MB /second</td>
+																<td>750 MB /second</td>
+																<td>900 MB /second</td>
+															</tr>
+														</table>
+																	
+														<div class="tags-date">
+															<div class="ms-date">Premium Disk has no transaction processing expenses.</div>
+														</div>
+														<p>The aforementioned pricing are also suitable for Premium Non-Managed Disk.</p>
+
+														<h4>Standard SSD Managed Disks</h4>
+														<p>Standard SSD Managed Disks, a low-cost SSD offering, are optimized for test and entry-level production workloads requiring consistent latency. Standard SSD Managed Disks can also be used for big data workloads that require high throughput. Standard SSD Managed Disks deliver lower latency compared to Standard HDDs, while improving reliability and scalability for your applications, and are available with all Azure VM sizes. Standard SSD Managed Disks can be easily upgraded to Premium SSD Managed Disks for more demanding and latency-sensitive enterprise workloads. Offered as a managed disk solution, Standard SSD Managed Disks come with the same industry leading durability and availability that you expect from Premium SSD Managed Disks.</p>
+														<p>The total cost of Standard SSD Managed Disk storage depends on the disk’s size and quantity, transaction amount and <a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">outgoing Data Transfer</a>.</p>
+														<div class="tags-date">
+															<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+															<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+															<p>The pricing of screenshots is charged at the rate of RMB 1.22112/GB per month.</p>
+														</div>
+														<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-standard-ssd-region2">
+															<tr>
+																<th align="left"><strong>Disk Types</strong></th>
+																<th align="left"><strong>E4</strong></th>
+																<th align="left"><strong>E6</strong></th>
+																<th align="left"><strong>E10</strong></th>
+																<th align="left"><strong>E15</strong></th>
+																<th align="left"><strong>E20</strong></th>
+																<th align="left"><strong>E30</strong></th>
+																<th align="left"><strong>E40</strong></th>
+																<th align="left"><strong>E50</strong></th>
+																<th align="left"><strong>E60</strong></th>
+																<th align="left"><strong>E70</strong></th>
+																<th align="left"><strong>E80</strong></th>
+															</tr>
+															<tr>
+																<td>Disk sizes</td>
+																<td>32 GB</td>
+																<td>64 GB</td>
+																<td>128 GB</td>
+																<td>256 GB</td>
+																<td>512 GB</td>
+																<td>1 TB</td>
+																<td>2 TB</td>
+																<td>4 TB</td>
+																<td>8 TB</td>
+																<td>16 TB</td>
+																<td>32 TB (32767 GB)</td>
+															</tr>
+															<tr>
+																<td>Monthly pricing</td>
+																<td>￥19.2</td>
+																<td>￥38.4</td>
+																<td>￥76.8</td>
+																<td>￥153.6</td>
+																<td>￥307.2</td>
+																<td>￥614.4</td>
+																<td>￥1,228.8</td>
+																<td>￥2,457.6</td>
+																<td>￥4,915.2</td>
+																<td>￥9,830.4</td>
+																<td>￥19,660.8</td>
+															</tr>
+															<tr>
+																<td>IOPS per disk</td>
+																<td>Up to 120</td>
+																<td>Up to 240</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 2,000</td>
+																<td>Up to 4,000</td>
+																<td>Up to 6,000</td>
+															</tr>
+															<tr>
+																<td>Throughput per disk</td>
+																<td>Up to 25 MB/second</td>
+																<td>Up to 50 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 400 MB/second</td>
+																<td>Up to 600 MB/second</td>
+																<td>Up to 750 MB/second</td>
+															</tr>
+														</table>
+
+														<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-standard-ssd">
+															<tr>
+																<th align="left"><strong>Disk Types</strong></th>
+																<th align="left"><strong>E4</strong></th>
+																<th align="left"><strong>E6</strong></th>
+																<th align="left"><strong>E10</strong></th>
+																<th align="left"><strong>E15</strong></th>
+																<th align="left"><strong>E20</strong></th>
+																<th align="left"><strong>E30</strong></th>
+																<th align="left"><strong>E40</strong></th>
+																<th align="left"><strong>E50</strong></th>
+																<th align="left"><strong>E60</strong></th>
+																<th align="left"><strong>E70</strong></th>
+																<th align="left"><strong>E80</strong></th>
+															</tr>
+															<tr>
+																<td>Disk sizes</td>
+																<td>32 GB</td>
+																<td>64 GB</td>
+																<td>128 GB</td>
+																<td>256 GB</td>
+																<td>512 GB</td>
+																<td>1 TB</td>
+																<td>2 TB</td>
+																<td>4 TB</td>
+																<td>8 TB</td>
+																<td>16 TB</td>
+																<td>32 TB (32767 GB)</td>
+															</tr>
+															<tr>
+																<td>Monthly pricing</td>
+																<td>￥24.4224</td>
+																<td>￥48.8448</td>
+																<td>￥97.6896</td>
+																<td>￥195.3792</td>
+																<td>￥390.7584</td>
+																<td>￥781.5168</td>
+																<td>￥1,563.0336</td>
+																<td>￥3,126.0672</td>
+																<td>￥6,252.13</td>
+																<td>￥12,504.27</td>
+																<td>￥25,008.54</td>
+															</tr>
+															<tr>
+																<td>IOPS per disk</td>
+																<td>Up to 120</td>
+																<td>Up to 240</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 2,000</td>
+																<td>Up to 4,000</td>
+																<td>Up to 6,000</td>
+															</tr>
+															<tr>
+																<td>Throughput per disk</td>
+																<td>Up to 25 MB/second</td>
+																<td>Up to 50 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 400 MB/second</td>
+																<td>Up to 600 MB/second</td>
+																<td>Up to 750 MB/second</td>
+															</tr>
+														</table>
+
+
+
+														<div class="tags-date">
+															<div class="ms-date">We charge RMB 0.020352 for every 10,000 Standard SSD Managed Disk transaction. Any type of operations for storage are considered to be transactions, including: reads, writes and deletions.</div>
+														</div>
+												
+														<h4>Standard Managed Disk</h4>
+														<p>Standard Managed Disks employ a hard disk drive (HDD)-based storage medium. They are most suitable for development/testing not sensitive to performance changes and other non-frequent access workloads.</p>
+														<p>The total cost of Standard Managed Disk storage depends on the disk’s size and quantity, transaction amount and <a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">outgoing Data Transfer</a>. There is no difference between different Standard Disk sizes in IOPS and throughput.</p>
+														<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
+														<div class="tags-date">
+															<div class="ms-date">*The following prices are tax-inclusive.</div><br />
+															<div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
+															<p>The pricing of screenshots is charged at the rate of RMB 0.3/GB per month.</p>
+														</div>
+														<table cellpadding="0" cellspacing="0" width="100%">
+															<tr>
+																<th align="left"><strong>Disk Types</strong></th>
+																<th align="left"><strong>S4</strong></th>
+																<th align="left"><strong>S6</strong></th>
+																<th align="left"><strong>S10</strong></th>
+																<th align="left"><strong>S15</strong></th>
+																<th align="left"><strong>S20</strong></th>
+																<th align="left"><strong>S30</strong></th>
+																<th align="left"><strong>S40</strong></th>
+																<th align="left"><strong>S50</strong></th>
+																<th align="left"><strong>S60</strong></th>
+																<th align="left"><strong>S70</strong></th>
+																<th align="left"><strong>S80</strong></th>
+															</tr>
+															<tr>
+																<td>Disk sizes</td>
+																<td>32 GB</td>
+																<td>64 GB</td>
+																<td>128 GB</td>
+																<td>256 GB</td>
+																<td>512 GB</td>
+																<td>1 TB</td>
+																<td>2 TB</td>
+																<td>4 TB</td>
+																<td>8 TB</td>
+																<td>16 TB</td>
+																<td>32 TB (32767 GB)</td>
+															</tr>
+															<tr>
+																<td>Monthly pricing</td>
+																<td>RMB 8.64</td>
+																<td>RMB 17.28</td>
+																<td>RMB 34.56</td>
+																<td>RMB 69.12</td>
+																<td>RMB 138.24</td>
+																<td>RMB 276.48</td>
+																<td>RMB 552.96</td>
+																<td>RMB 1105.92</td>
+																<td>RMB 2211.84</td>
+																<td>RMB 4423.68</td>
+																<td>RMB 8847.36</td>
+															</tr>
+															<tr>
+																<td>IOPS per disk</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 500</td>
+																<td>Up to 1,300</td>
+																<td>Up to 2,000</td>
+																<td>Up to 2,000</td>
+															</tr>
+															<tr>
+																<td>Throughput per disk</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 60 MB/second</td>
+																<td>Up to 300 MB/second</td>
+																<td>Up to 500 MB/second</td>
+																<td>Up to 500 MB/second</td>
+															</tr>
+														</table>
+														<div class="tags-date">
+															<div class="ms-date">We charge RMB 0.0044 for every 10,000 Standard Managed Disk transaction. Any type of operations for storage are considered to be transactions, including: reads, writes and deletions.</div>
+														</div>
+														<h4>Locally Redundant Storage (LRS)</h4>								
+														<p>Create multiple synchronous copies of data in a Data Center.</p>
+														<p>To learn more about the redundancy options and how to use these options to obtain high availability, please view the <a id="pricing_storage_documentation-storage-redundancy" href="/documentation/articles/storage-redundancy/">Azure Storage Space Replication Page</a>.</p>
+														
+									
+														<!-- END: TAB-CONTROL -->
+																</div>
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+            <!-- END: TAB-CONTROL -->
+
+				<div class="pricing-page-section">
+							<div class="more-detail">
+									<h2>FAQ</h2>
+									<em>Expand All</em>
+									<ul>
+										<li>
+											<i class="icon icon-plus"></i>
+											<div>
+												<a  id="Storage_question14">If I add an S10 or P10 disk to the virtual machine, will I be charged the cost of the total amount shown above or just the cost of the storage space I used?</a>
+												<section>
+																			<p>The allocated disks are charged at the same rate, irrespective of the disk space used.</p>
+																	</section>
+											</div>
+										</li>
+										<li>
+											<i class="icon icon-plus"></i>
+											<div>
+												<a  id="Storage_question15">The pricing shown is the monthly price. How do you charge if the Managed Disk is used less than one month?</a>
+												<section>
+																			<p>The charge uses the monthly pricing according to the hours and proportional cost.</p>
+																	</section>
+											</div>
+										</li>
+									</ul>
+							</div>
+						</div>
+				
     		<div class="pricing-page-section">
-                <h2>Support &amp; SLA</h2>
-                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="storage-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
-				<p>We guarantee that we can successfully process data reading requests from an Read-access Redundant Storage (RA-GRS) account at least 99.99% of the time (99.9% for the Cool Access Tier), provided that we will retry in the secondary zone from the data writing failure from the primary zone.</p>
-				<p>We guarantee that we can successfully process data reading from Locally redundant storage (LRS) and Geo Redundant Storage (GRS) accounts at least 99.9% of the time (99% for the Cool Access Tier)</p>
-				<p>We guarantee that we can successfully process data writing requests into Locally redundant storage (LRS) and geo-redundant storage (GRS) accounts and read and access Read-access Redundant Storage (RA-GRS) accounts at least 99.9% of the time (99% for the Cool Access Tier).</p>
-				<p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/storage/" id="pricing_storage_sla">Service Level Agreements</a> page.</p>
-				<p>The Managed Disk itself doesn’t provide a Service Level Agreement with financial support. The availability of a Managed Disk depends on the Service Level Agreement governing the basic storage used and the Virtual Machine it’s attached to. To learn more about the details of the Service Level Agreement of the Managed Disk, please visit the <a href="/support/sla/managed-disks/">Managed Disk Service Level Agreements</a> page.</p>
-			</div> 
-            <!--BEGIN: Support and service code chunk--> <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        --> <!--END: Support and service code chunk-->                         
+          <h2>Support &amp; SLA</h2>
+          <p>If you have any questions or need help, please visit <a href="/support/contact/" id="storage-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+					<p>We guarantee that we can successfully process data reading requests from an Read-access Redundant Storage (RA-GRS) account at least 99.99% of the time (99.9% for the Cool Access Tier), provided that we will retry in the secondary zone from the data writing failure from the primary zone.</p>
+					<p>We guarantee that we can successfully process data reading from Locally redundant storage (LRS) and Geo Redundant Storage (GRS) accounts at least 99.9% of the time (99% for the Cool Access Tier)</p>
+					<p>We guarantee that we can successfully process data writing requests into Locally redundant storage (LRS) and geo-redundant storage (GRS) accounts and read and access Read-access Redundant Storage (RA-GRS) accounts at least 99.9% of the time (99% for the Cool Access Tier).</p>
+					<p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/storage/" id="pricing_storage_sla">Service Level Agreements</a> page.</p>
+					<p>The Managed Disk itself doesn’t provide a Service Level Agreement with financial support. The availability of a Managed Disk depends on the Service Level Agreement governing the basic storage used and the Virtual Machine it’s attached to. To learn more about the details of the Service Level Agreement of the Managed Disk, please visit the <a href="/support/sla/managed-disks/">Managed Disk Service Level Agreements</a> page.</p>
+				</div> 
+            <!--BEGIN: Support and service code chunk-->
+						<!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" /> --> 
+						<!--END: Support and service code chunk-->                         
     
     ]]></bodyText>
     <pageTitle>Pricing Details - Storage - Managed Disks - Azure Cloud Computing</pageTitle>
