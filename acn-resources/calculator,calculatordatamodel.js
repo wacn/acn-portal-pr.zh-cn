@@ -7225,8 +7225,9 @@ var CalculatorData = {
             }]
         },
         "storage-general-purpose-v2-cold-hot-block-blob": {
-            Name: "存储 - 块 Blob - 常规用途 v2 - “热”和“冷”访问层 - 数据存储价格",
-            Types: [{
+            Name: "存储 - 块 Blob - 常规用途 v2 - “热”和“冷”访问层 - 数据存储价格 - 仅适用于中国东部2和中国北部2",
+            Types: [
+                {
                 Name: "LRS",
                 Features: [{
                     Name: "块 blob（冷）",
@@ -7355,6 +7356,160 @@ var CalculatorData = {
                         Description: "default",
                         PriceTier: "0,102400,102401,1024000,1024001,1024000",
                         PricePerTier: "0.3725,0.3594,0.3589",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "Archive",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,1024000",
+                        PricePerTier: "0.022938",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+        "storage-general-purpose-v2-cold-hot-block-blob-region1": {
+            Name: "存储 - 块 Blob - 常规用途 v2 - “热”和“冷”访问层 - 数据存储价格",
+            Types: [
+                {
+                Name: "LRS",
+                Features: [{
+                    Name: "块 blob（冷）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.11",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "块 blob（热）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,102400,102401,1024000,1024001,5120000",
+                        PricePerTier: "0.149,0.1438,0.1436",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "Archive",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.011469",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: " GRS",
+                Features: [{
+                    Name: "块 blob（冷）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.22",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "块 blob（热）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,102400,102401,1024000,1024001,5120000",
+                        PricePerTier: "0.298,0.2876,0.2872",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },{
+                    Name: "Archive",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.022938",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "块 blob（冷）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.275",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "块 blob（热）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,102400,102401,1024000,1024001,1024000",
+                        PricePerTier: "0.378,0.3648,0.3643",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -7885,7 +8040,7 @@ var CalculatorData = {
             }]
         },
         "storage-cold-hot-block-blob": {
-            Name: "存储 - Blob 存储 - “热”和“冷”访问层 - 数据存储价格",
+            Name: "存储 - Blob 存储 - “热”和“冷”访问层 - 数据存储价格 - 仅适用于中国东部2和中国北部2",
             Types: [{
                 Name: "LRS",
                 Features: [{
@@ -7985,6 +8140,115 @@ var CalculatorData = {
                         Description: "default",
                         PriceTier: "0,102400,102401,1024000,1024001,1024000",
                         PricePerTier: "0.3725,0.3594,0.3589",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+        "storage-cold-hot-block-blob-region1": {
+            Name: "存储 - Blob 存储 - “热”和“冷”访问层 - 数据存储价格",
+            Types: [{
+                Name: "LRS",
+                Features: [
+                    {
+                    Name: "块 blob（冷）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.11",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "块 blob（热）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,102400,102401,1024000,1024001,5120000",
+                        PricePerTier: "0.149,0.1438,0.1436",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: " GRS",
+                Features: [{
+                    Name: "块 blob（冷）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.22",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "块 blob（热）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,102400,102401,1024000,1024001,5120000",
+                        PricePerTier: "0.298,0.2876,0.2872",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            },
+            {
+                Name: "RA-GRS",
+                Features: [{
+                    Name: "块 blob（冷）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5120000",
+                        PricePerTier: "0.275",
+                        MinUnit: "0",
+                        MaxUnit: "5120000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "块 blob（热）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,102400,102401,1024000,1024001,1024000",
+                        PricePerTier: "0.378,0.3648,0.3643",
                         MinUnit: "0",
                         MaxUnit: "5120000",
                         PriceUnit: "GB"
@@ -13248,42 +13512,48 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [
                     {
+                        Name: "vCore 4",
+                        Description: "4 个内核，20.4 GB 内存",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.1126"
+                    },
+                    {
                         Name: "vCore 8",
                         Description: "8 个内核，40.8 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "7.1126"
+                        PricePerTier: "14.2251"
                     },
                     {
                         Name: "vCore 16",
                         Description: "16 个内核，81.6 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "14.2251"
+                        PricePerTier: "28.4503"
                     },
                     {
                         Name: "vCore 24",
                         Description: "24 个内核，122.4 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "21.3377"
+                        PricePerTier: "42.6754"
                     },{
                         Name: "vCore 32",
                         Description: "24 个内核，163.2 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "28.4502"
+                        PricePerTier: "56.9005"
                     },{
                         Name: "vCore 40",
                         Description: "24 个内核，204 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "35.5628"
+                        PricePerTier: "71.12564"
                     },{
                         Name: "vCore 64",
                         Description: "24 个内核，326.4 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "56.9005"
+                        PricePerTier: "113.801024"
                     },{
                         Name: "vCore 80",
                         Description: "24 个内核，396 GB 内存",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "71.1256"
+                        PricePerTier: "142.25128"
                     }]
                 },{
                     Name: "混合优惠价格",
@@ -13293,42 +13563,48 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [
                         {
+                        Name: "vCore 4",
+                        Description: "4 个内核，20.4 GB 内存",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.5694"
+                        },
+                        {
                             Name: "vCore 8",
                             Description: "8 个内核，40.8 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "4.5694"
+                            PricePerTier: "9.1388"
                         },
                         {
                             Name: "vCore 16",
                             Description: "16 个内核，81.6 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "9.1389"
+                            PricePerTier: "18.2778"
                         },
                         {
                             Name: "vCore 24",
                             Description: "24 个内核，122.4 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "13.7083"
+                            PricePerTier: "27.4166"
                         },{
                             Name: "vCore 32",
                             Description: "24 个内核，163.2 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.2777"
+                            PricePerTier: "36.5554"
                         },{
                             Name: "vCore 40",
                             Description: "24 个内核，204 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "22.8472"
+                            PricePerTier: "45.6944"
                         },{
                             Name: "vCore 64",
                             Description: "24 个内核，326.4 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "36.5555"
+                            PricePerTier: "73.111"
                         },{
                             Name: "vCore 80",
                             Description: "24 个内核，396 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "45.6943"
+                            PricePerTier: "91.3886"
                         }]
                 },
                 {
@@ -13341,7 +13617,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,8192",
-                        PricePerTier: "0.432",
+                        PricePerTier: "0.863",
                         MinUnit: "32",
                         MaxUnit: "8192",
                         PriceUnit: "GB"
@@ -13356,7 +13632,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.75",
+                        PricePerTier: "1.5",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB/月"
@@ -13373,42 +13649,48 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [
                         {
+                        Name: "vCore 4",
+                        Description: "4 个内核，20.4 GB 内存",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "18.6789"
+                        },
+                        {
                             Name: "vCore 8",
                             Description: "8 个内核，40.8 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.6789"
+                            PricePerTier: "37.3578"
                         },
                         {
                             Name: "vCore 16",
                             Description: "16 个内核，81.6 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "37.3578"
+                            PricePerTier: "74.7156"
                         },
                         {
                             Name: "vCore 24",
                             Description: "24 个内核，122.4 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "56.0367"
+                            PricePerTier: "112.0734"
                         },{
                             Name: "vCore 32",
                             Description: "24 个内核，163.2 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "74.7156"
+                            PricePerTier: "149.4312"
                         },{
                             Name: "vCore 40",
                             Description: "24 个内核，204 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "93.3945"
+                            PricePerTier: "186.789"
                         },{
                             Name: "vCore 64",
                             Description: "24 个内核，326.4 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "149.4312"
+                            PricePerTier: "298.8624"
                         },{
                             Name: "vCore 80",
                             Description: "24 个内核，396 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "186.789"
+                            PricePerTier: "373.578"
                         }]
                 },{
                     Name: "混合优惠价格",
@@ -13418,42 +13700,48 @@ var CalculatorData = {
                     MaxUnit: "20",
                     Sizes: [
                         {
+                        Name: "vCore 4",
+                        Description: "4 个内核，20.4 GB 内存",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.1389"
+                        },
+                        {
                             Name: "vCore 8",
                             Description: "8 个内核，40.8 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "9.1389"
+                            PricePerTier: "18.2778"
                         },
                         {
                             Name: "vCore 16",
                             Description: "16 个内核，81.6 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "18.2778"
+                            PricePerTier: "36.5556"
                         },
                         {
                             Name: "vCore 24",
                             Description: "24 个内核，122.4 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "27.4167"
+                            PricePerTier: "54.8334"
                         },{
                             Name: "vCore 32",
                             Description: "24 个内核，163.2 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "36.5556"
+                            PricePerTier: "73.1112"
                         },{
                             Name: "vCore 40",
                             Description: "24 个内核，204 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "45.6945"
+                            PricePerTier: "91.389"
                         },{
                             Name: "vCore 64",
                             Description: "24 个内核，326.4 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "73.1112"
+                            PricePerTier: "146.2224"
                         },{
                             Name: "vCore 80",
                             Description: "24 个内核，396 GB 内存",
                             PriceTier: PriceTierEnum.Fixed,
-                            PricePerTier: "91.389"
+                            PricePerTier: "182.778"
                         }]
                 },
                 {
@@ -13466,7 +13754,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,8192",
-                        PricePerTier: "0.938",
+                        PricePerTier: "1.876",
                         MinUnit: "32",
                         MaxUnit: "8192",
                         PriceUnit: "GB"
@@ -13482,7 +13770,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "default",
                         PriceTier: "0,5000",
-                        PricePerTier: "0.75",
+                        PricePerTier: "1.5",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "GB/月"
