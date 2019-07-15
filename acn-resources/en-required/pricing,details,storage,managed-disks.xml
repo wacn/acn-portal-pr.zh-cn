@@ -52,7 +52,10 @@
 			background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
 			}
 		</style>
-            
+    <div class="hide-info" style="display:none;">
+      <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+      <div class="msg-box"><div class="pricing-unavailable-message">所选区域不可用</div></div>
+    </div>
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/storage.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
@@ -68,332 +71,521 @@
 				<p>Azure 托管磁盘是用于 Azure 虚拟机的新的和推荐的磁盘存储产品，方便永久存储数据。可对每个虚拟机使用多个托管磁盘。我们提供两种类型的托管磁盘 - 高级和标准。</p>
 				<p>如果对非托管磁盘的定价详情感兴趣，请参阅<a href="/pricing/details/storage/page-blobs/">非托管磁盘和页面 Blob </a>价格详情页面。</p>
 			
-	            <h2>定价详细信息</h2>
-				<div class="technical-azure-selector pricing-detail-tab">
-					<ul class="tab-nav" style="display:none">
-							<li class="active">
-								<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">常规用途 v1</a>
-							</li>
-						</ul>
-					<div class="tab-content">
-						<div class="tab-panel" id="tabContent2">
-			                <h4>高级托管磁盘</h4>
-							<p>高级托管磁盘是基于高性能固态驱动器 (SSD) 的存储，旨在支持 I/O 密集型工作负荷，具有非常高的吞吐量和低延迟。借助高级托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
-							<p>高级托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOPS)、吞吐量上限和每 GB 每月价格。可以选择最符合所需存储大小、IOPS 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对每个 VM 配置最多 PB 的存储空间，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、FS 系列 VM 大小的支持。</p>
-							<div class="tags-date">
-								<div class="ms-date">*以下价格均为含税价格。</div><br />
-								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-								<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong>磁盘类型</strong></th>
-									<th align="left"><strong>P4</strong></th>
-									<th align="left"><strong>P6</strong></th>
-									<th align="left"><strong>P10</strong></th>
-									<th align="left"><strong>P15</strong></th>
-									<th align="left"><strong>P20</strong></th>
-									<th align="left"><strong>P30</strong></th>
-									<th align="left"><strong>P40</strong></th>
-									<th align="left"><strong>P50</strong></th>
-									<th align="left"><strong>P60</strong></th>
-									<th align="left"><strong>P70</strong></th>
-									<th align="left"><strong>P80</strong></th>
-								</tr>
-								<tr>
-									<td>磁盘大小</td>
-									<td>32 GB</td>
-									<td>64 GB</td>
-									<td>128 GB</td>
-									<td>256 GB</td>
-									<td>512 GB</td>
-									<td>1 TB</td>
-									<td>2 TB</td>
-									<td>4 TB</td>
-									<td>8 TB</td>
-									<td>16 TB</td>
-									<td>32 TB (32767 GB)</td>
-								</tr>
-								<tr>
-									<td>每月价格</td>
-									<td>￥42.302</td>
-									<td>￥81.791</td>
-									<td>￥117.61</td>
-									<td>￥226.83</td>
-									<td>￥436.93</td>
-									<td>￥806.6</td>
-									<td>￥1,545.78</td>
-									<td>￥2,957.14</td>
-									<td>￥5,914.28</td>
-									<td>￥11,828.56</td>
-									<td>￥23,657.13</td>
-								</tr>
-								<tr>
-									<td>每个磁盘的 IOPS</td>
-									<td>120</td>
-									<td>240</td>
-									<td>500</td>
-									<td>1,100</td>
-									<td>2,300</td>
-									<td>5,000</td>
-									<td>7,500</td>
-									<td>7,500</td>
-									<td>16,000</td>
-									<td>18,000</td>
-									<td>20,000</td>
-								</tr>
-								<tr>
-									<td>每个磁盘的吞吐量</td>
-									<td>25 MB / 秒</td>
-									<td>50 MB / 秒</td>
-									<td>100 MB / 秒</td>
-									<td>125 MB / 秒</td>
-									<td>150 MB / 秒</td>
-									<td>200 MB / 秒</td>
-									<td>250 MB / 秒</td>
-									<td>250 MB / 秒</td>
-									<td>500 MB / 秒</td>
-									<td>750 MB / 秒</td>
-									<td>900 MB / 秒</td>
-								</tr>
-							</table>
-										
-							<div class="tags-date">
-								<div class="ms-date">高级磁盘没有事务处理费用。</div>
-							</div>
-							<p>上述价格也适用于高级非托管磁盘。</p>
+	      <div class="pricing-page-section">
+					<h2>定价详细信息</h2>
+				</div>
 
-							<h4>标准 SSD 托管磁盘</h4>
-							<p>标准 SSD 托管磁盘是一款低成本的 SSD 服务，已针对需要一致延迟性的测试和入门级生产工作负荷进行优化。标准 SSD 托管磁盘还可用于需要高吞吐量的大数据工作负荷。与标准 HDD 相比，标准 SSD 托管磁盘可实现更低的延迟，同时提升应用程序的可靠性和可扩展性，并可用于各种 Azure VM 大小。标准 SSD 托管磁盘可轻松升级到高级 SSD 托管磁盘，满足更苛刻和延迟敏感型的企业工作负荷。标准 SSD 托管磁盘是一种托管磁盘解决方案，提供高级 SSD 托管磁盘所具备的行业领先的持续性和可用性。</p>
-							<p>标准 SSD 托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
-							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
-							<div class="tags-date">
-								<div class="ms-date">*以下价格均为含税价格。</div><br />
-								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-								<p>快照价格按每月 ￥ 1.22112/GB 的费率计费。</p>
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong>磁盘类型</strong></th>
-									<th align="left"><strong>E4</strong></th>
-									<th align="left"><strong>E6</strong></th>
-									<th align="left"><strong>E10</strong></th>
-									<th align="left"><strong>E15</strong></th>
-									<th align="left"><strong>E20</strong></th>
-									<th align="left"><strong>E30</strong></th>
-									<th align="left"><strong>E40</strong></th>
-									<th align="left"><strong>E50</strong></th>
-									<th align="left"><strong>E60</strong></th>
-									<th align="left"><strong>E70</strong></th>
-									<th align="left"><strong>E80</strong></th>
-								</tr>
-								<tr>
-									<td>磁盘大小</td>
-									<td>32 GB</td>
-									<td>64 GB</td>
-									<td>128 GB</td>
-									<td>256 GB</td>
-									<td>512 GB</td>
-									<td>1 TB</td>
-									<td>2 TB</td>
-									<td>4 TB</td>
-									<td>8 TB</td>
-									<td>16 TB</td>
-									<td>32 TB (32767 GB)</td>
-								</tr>
-								<tr>
-									<td>每月价格</td>
-									<td>￥19.2</td>
-									<td>￥38.4</td>
-									<td>￥76.8</td>
-									<td>￥153.6</td>
-									<td>￥307.2</td>
-									<td>￥614.4</td>
-									<td>￥1,228.8</td>
-									<td>￥2,457.6</td>
-									<td>￥4,915.2</td>
-									<td>￥9,830.4</td>
-									<td>￥19,660.8</td>
-								</tr>
-								<tr>
-									<td>每个磁盘的 IOPS</td>
-									<td>最多 120</td>
-									<td>最多 240</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 2,000</td>
-									<td>最多 4,000</td>
-									<td>最多 6,000</td>
-								</tr>
-								<tr>
-									<td>每个磁盘的吞吐量</td>
-									<td>最多 25 MB/秒</td>
-									<td>最多 50 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 400 MB/秒</td>
-									<td>最多 600 MB/秒</td>
-									<td>最多 750 MB/秒</td>
-								</tr>
-							</table>
-							<div class="tags-date">
-								<div class="ms-date">我们对每 10,000 个标准 SSD 托管磁盘的事务收取 ￥0.020352 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</div>
-							</div>
-					
-							<h4>标准托管磁盘</h4>
-							<p>标准托管磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
-							<p>标准托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
-							<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
-							<div class="tags-date">
-								<div class="ms-date">*以下价格均为含税价格。</div><br />
-								<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-								<p>快照价格按每月 ￥0.3/GB 的费率计费。</p>
-							</div>
-							<table cellpadding="0" cellspacing="0" width="100%">
-								<tr>
-									<th align="left"><strong>磁盘类型</strong></th>
-									<th align="left"><strong>S4</strong></th>
-									<th align="left"><strong>S6</strong></th>
-									<th align="left"><strong>S10</strong></th>
-									<th align="left"><strong>S15</strong></th>
-									<th align="left"><strong>S20</strong></th>
-									<th align="left"><strong>S30</strong></th>
-									<th align="left"><strong>S40</strong></th>
-									<th align="left"><strong>S50</strong></th>
-									<th align="left"><strong>S60</strong></th>
-									<th align="left"><strong>S70</strong></th>
-									<th align="left"><strong>S80</strong></th>
-								</tr>
-								<tr>
-									<td>磁盘大小</td>
-									<td>32 GB</td>
-									<td>64 GB</td>
-									<td>128 GB</td>
-									<td>256 GB</td>
-									<td>512 GB</td>
-									<td>1 TB</td>
-									<td>2 TB</td>
-									<td>4 TB</td>
-									<td>8 TB</td>
-									<td>16 TB</td>
-									<td>32 TB (32767 GB)</td>
-								</tr>
-								<tr>
-									<td>每月价格</td>
-									<td>￥8.64</td>
-									<td>￥17.28</td>
-									<td>￥34.56</td>
-									<td>￥69.12</td>
-									<td>￥138.24</td>
-									<td>￥276.48</td>
-									<td>￥552.96</td>
-									<td>￥1105.92</td>
-									<td>￥2211.84</td>
-									<td>￥4423.68</td>
-									<td>￥8847.36</td>
-								</tr>
-								<tr>
-									<td>每个磁盘的 IOPS</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 500</td>
-									<td>最多 1,300</td>
-									<td>最多 2,000</td>
-									<td>最多 2,000</td>
-								</tr>
-								<tr>
-									<td>每个磁盘的吞吐量</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 60 MB/秒</td>
-									<td>最多 300 MB/秒</td>
-									<td>最多 500 MB/秒</td>
-									<td>最多 500 MB/秒</td>
-								</tr>
-							</table>
-							<div class="tags-date">
-								<div class="ms-date">我们对每 10,000 个标准托管磁盘的事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</div>
-							</div>
-							<h4>本地冗余存储 (LRS)</h4>								
-							<p>在一个数据中心内创建数据的多个同步副本。</p>
-							<p>若要深入了解冗余选项以及如何使用这些选项以获取高可用性，请查看 <a id="pricing_storage_documentation-storage-redundancy" href="/documentation/articles/storage-redundancy/">Azure 存储空间复制页</a>。请注意，并非所有冗余类型对所有存储类型都适用。</p>
-							
-				
-							<!-- END: TAB-CONTROL -->
-			            </div>
-		            </div>
-	            </div>
-            </div>
-            <div class="pricing-page-section">
+
+				<!-- BEGIN: TAB-CONTROL -->
+        <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+								<div class="tab-container-container">
+                    <div class="tab-container-box">
+                        <div class="tab-container">
+                            <div class="dropdown-container software-kind-container" style="display:none;">
+                                <label>OS/软件:</label>
+                                <div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+                                    <span class="selected-item">Managed Disks</span>
+                                    <i class="icon"></i>
+                                    <ol class="tab-items">
+                                        <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_managed-disks">Managed Disks</a></li>
+                                    </ol>
+                                </div>
+                                <select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                                    <option selected="selected" data-href="#tabContent1" value="Managed Disks">Managed Disks</option>
+                                </select>
+                            </div>
+                            <div class="dropdown-container region-container">
+                                <label>地区:</label>
+                                <div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+                                    <span class="selected-item">中国东部 2</span>
+                                    <i class="icon"></i>
+                                    <ol class="tab-items">
+                                        <li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+                                        <li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+                                        <li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+                                        <li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+                                    </ol>
+                                </div>
+                                <select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+                                    <option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+                                    <option data-href="#north-china2" value="north-china2">中国北部 2</option>
+                                    <option data-href="#east-china" value="east-china">中国东部</option>
+                                    <option data-href="#north-china" value="north-china">中国北部</option>
+                                </select>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- BEGIN: TAB-CONTAINER-1 -->
+                    <div class="tab-content">
+                        <!-- BEGIN: TAB-CONTENT-1 -->
+                        <div class="tab-panel" id="tabContent1">
+                            <!-- BEGIN: Tab level 2 navigator 2 -->
+                            <!-- BEGIN: Tab level 2 content 3 --> 
+														<ul class="tab-nav" style="display:none">
+															<li class="active">
+																<a href="javascript:void(0)" data-href="#tabContent2" id="gpv1" data-toggle="tab">常规用途 v1</a>
+															</li>
+														</ul>
+                            <div class="tab-content">
+                                <!-- BEGIN: Table1-Content-->
+                                <div class="tab-panel" id="tabContent2">
+																	<h4>高级托管磁盘</h4>
+																	<p>高级托管磁盘是基于高性能固态驱动器 (SSD) 的存储，旨在支持 I/O 密集型工作负荷，具有非常高的吞吐量和低延迟。借助高级托管磁盘，可以设置永久磁盘，并配置其大小和性能特征。</p>
+																	<p>高级托管磁盘的总费用取决于磁盘的大小和数量，并且受到<a id="pricing_storage_data-transfer-1" href="/pricing/details/data-transfer/">出站数据传输</a>量的影响。这些磁盘大小提供不同的每秒输入/输出操作数 (IOPS)、吞吐量上限和每 GB 每月价格。可以选择最符合所需存储大小、IOPS 和吞吐量的选项。可以将若干个永久磁盘附加到 VM 并对每个 VM 配置最多 PB 的存储空间，每个 VM 的磁盘吞吐量可达到 80,000（每秒输入/输出操作数）和 1600 MB/秒，读取操作的延迟少于 1 毫秒。高级托管磁盘受专门针对高级磁盘的 DS 系列、DSv2 系列、FS 系列 VM 大小的支持。</p>
+																	<div class="tags-date">
+																		<div class="ms-date">*以下价格均为含税价格。</div><br />
+																		<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+																		<p>快照价格按每月 ￥2.35/GB 的费率计费。</p>
+																	</div>
+																	<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-premium-region2">
+																		<tr>
+																			<th align="left"><strong>磁盘类型</strong></th>
+																			<th align="left"><strong>P4</strong></th>
+																			<th align="left"><strong>P6</strong></th>
+																			<th align="left"><strong>P10</strong></th>
+																			<th align="left"><strong>P15</strong></th>
+																			<th align="left"><strong>P20</strong></th>
+																			<th align="left"><strong>P30</strong></th>
+																			<th align="left"><strong>P40</strong></th>
+																			<th align="left"><strong>P50</strong></th>
+																			<th align="left"><strong>P60</strong></th>
+																			<th align="left"><strong>P70</strong></th>
+																			<th align="left"><strong>P80</strong></th>
+																		</tr>
+																		<tr>
+																			<td>磁盘大小</td>
+																			<td>32 GB</td>
+																			<td>64 GB</td>
+																			<td>128 GB</td>
+																			<td>256 GB</td>
+																			<td>512 GB</td>
+																			<td>1 TB</td>
+																			<td>2 TB</td>
+																			<td>4 TB</td>
+																			<td>8 TB</td>
+																			<td>16 TB</td>
+																			<td>32 TB (32767 GB)</td>
+																		</tr>
+																		<tr>
+																			<td>每月价格</td>
+																			<td>￥42.302</td>
+																			<td>￥81.791</td>
+																			<td>￥117.61</td>
+																			<td>￥226.83</td>
+																			<td>￥436.93</td>
+																			<td>￥806.6</td>
+																			<td>￥1,545.78</td>
+																			<td>￥2,957.14</td>
+																			<td>￥5,914.28</td>
+																			<td>￥11,828.56</td>
+																			<td>￥23,657.13</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的 IOPS</td>
+																			<td>120</td>
+																			<td>240</td>
+																			<td>500</td>
+																			<td>1,100</td>
+																			<td>2,300</td>
+																			<td>5,000</td>
+																			<td>7,500</td>
+																			<td>7,500</td>
+																			<td>16,000</td>
+																			<td>18,000</td>
+																			<td>20,000</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的吞吐量</td>
+																			<td>25 MB / 秒</td>
+																			<td>50 MB / 秒</td>
+																			<td>100 MB / 秒</td>
+																			<td>125 MB / 秒</td>
+																			<td>150 MB / 秒</td>
+																			<td>200 MB / 秒</td>
+																			<td>250 MB / 秒</td>
+																			<td>250 MB / 秒</td>
+																			<td>500 MB / 秒</td>
+																			<td>750 MB / 秒</td>
+																			<td>900 MB / 秒</td>
+																		</tr>
+																	</table>
+
+																	<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-premium">
+																		<tr>
+																			<th align="left"><strong>磁盘类型</strong></th>
+																			<th align="left"><strong>P4</strong></th>
+																			<th align="left"><strong>P6</strong></th>
+																			<th align="left"><strong>P10</strong></th>
+																			<th align="left"><strong>P15</strong></th>
+																			<th align="left"><strong>P20</strong></th>
+																			<th align="left"><strong>P30</strong></th>
+																			<th align="left"><strong>P40</strong></th>
+																			<th align="left"><strong>P50</strong></th>
+																			<th align="left"><strong>P60</strong></th>
+																			<th align="left"><strong>P70</strong></th>
+																			<th align="left"><strong>P80</strong></th>
+																		</tr>
+																		<tr>
+																			<td>磁盘大小</td>
+																			<td>32 GB</td>
+																			<td>64 GB</td>
+																			<td>128 GB</td>
+																			<td>256 GB</td>
+																			<td>512 GB</td>
+																			<td>1 TB</td>
+																			<td>2 TB</td>
+																			<td>4 TB</td>
+																			<td>8 TB</td>
+																			<td>16 TB</td>
+																			<td>32 TB (32767 GB)</td>
+																		</tr>
+																		<tr>
+																			<td>每月价格</td>
+																			<td>￥47.53</td>
+																			<td>￥91.9</td>
+																			<td>￥254.8611</td>
+																			<td>￥226.83</td>
+																			<td>￥490.9284</td>
+																			<td>￥906.2894</td>
+																			<td>￥1,736.8312</td>
+																			<td>￥3,322.6336</td>
+																			<td>￥6,645.26</td>
+																			<td>￥13,290.52</td>
+																			<td>￥26,581.04</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的 IOPS</td>
+																			<td>120</td>
+																			<td>240</td>
+																			<td>500</td>
+																			<td>1,100</td>
+																			<td>2,300</td>
+																			<td>5,000</td>
+																			<td>7,500</td>
+																			<td>7,500</td>
+																			<td>16,000</td>
+																			<td>18,000</td>
+																			<td>20,000</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的吞吐量</td>
+																			<td>25 MB / 秒</td>
+																			<td>50 MB / 秒</td>
+																			<td>100 MB / 秒</td>
+																			<td>125 MB / 秒</td>
+																			<td>150 MB / 秒</td>
+																			<td>200 MB / 秒</td>
+																			<td>250 MB / 秒</td>
+																			<td>250 MB / 秒</td>
+																			<td>500 MB / 秒</td>
+																			<td>750 MB / 秒</td>
+																			<td>900 MB / 秒</td>
+																		</tr>
+																	</table>
+
+																	<div class="tags-date">
+																		<div class="ms-date">高级磁盘没有事务处理费用。</div>
+																	</div>
+																	<p>上述价格也适用于高级非托管磁盘。</p>
+
+																	<h4>标准 SSD 托管磁盘</h4>
+																	<p>标准 SSD 托管磁盘是一款低成本的 SSD 服务，已针对需要一致延迟性的测试和入门级生产工作负荷进行优化。标准 SSD 托管磁盘还可用于需要高吞吐量的大数据工作负荷。与标准 HDD 相比，标准 SSD 托管磁盘可实现更低的延迟，同时提升应用程序的可靠性和可扩展性，并可用于各种 Azure VM 大小。标准 SSD 托管磁盘可轻松升级到高级 SSD 托管磁盘，满足更苛刻和延迟敏感型的企业工作负荷。标准 SSD 托管磁盘是一种托管磁盘解决方案，提供高级 SSD 托管磁盘所具备的行业领先的持续性和可用性。</p>
+																	<p>标准 SSD 托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
+																	<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
+																	<div class="tags-date">
+																		<div class="ms-date">*以下价格均为含税价格。</div><br />
+																		<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+																		<p>快照价格按每月 ￥ 1.22112/GB 的费率计费。</p>
+																	</div>
+																	<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-standard-ssd-region2">
+																		<tr>
+																			<th align="left"><strong>磁盘类型</strong></th>
+																			<th align="left"><strong>E4</strong></th>
+																			<th align="left"><strong>E6</strong></th>
+																			<th align="left"><strong>E10</strong></th>
+																			<th align="left"><strong>E15</strong></th>
+																			<th align="left"><strong>E20</strong></th>
+																			<th align="left"><strong>E30</strong></th>
+																			<th align="left"><strong>E40</strong></th>
+																			<th align="left"><strong>E50</strong></th>
+																			<th align="left"><strong>E60</strong></th>
+																			<th align="left"><strong>E70</strong></th>
+																			<th align="left"><strong>E80</strong></th>
+																		</tr>
+																		<tr>
+																			<td>磁盘大小</td>
+																			<td>32 GB</td>
+																			<td>64 GB</td>
+																			<td>128 GB</td>
+																			<td>256 GB</td>
+																			<td>512 GB</td>
+																			<td>1 TB</td>
+																			<td>2 TB</td>
+																			<td>4 TB</td>
+																			<td>8 TB</td>
+																			<td>16 TB</td>
+																			<td>32 TB (32767 GB)</td>
+																		</tr>
+																		<tr>
+																			<td>每月价格</td>
+																			<td>￥19.2</td>
+																			<td>￥38.4</td>
+																			<td>￥76.8</td>
+																			<td>￥153.6</td>
+																			<td>￥307.2</td>
+																			<td>￥614.4</td>
+																			<td>￥1,228.8</td>
+																			<td>￥2,457.6</td>
+																			<td>￥4,915.2</td>
+																			<td>￥9,830.4</td>
+																			<td>￥19,660.8</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的 IOPS</td>
+																			<td>最多 120</td>
+																			<td>最多 240</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 2,000</td>
+																			<td>最多 4,000</td>
+																			<td>最多 6,000</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的吞吐量</td>
+																			<td>最多 25 MB/秒</td>
+																			<td>最多 50 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 400 MB/秒</td>
+																			<td>最多 600 MB/秒</td>
+																			<td>最多 750 MB/秒</td>
+																		</tr>
+																	</table>
+
+																	<table cellpadding="0" cellspacing="0" width="100%" id="managed-disks-standard-ssd">
+																		<tr>
+																			<th align="left"><strong>磁盘类型</strong></th>
+																			<th align="left"><strong>E4</strong></th>
+																			<th align="left"><strong>E6</strong></th>
+																			<th align="left"><strong>E10</strong></th>
+																			<th align="left"><strong>E15</strong></th>
+																			<th align="left"><strong>E20</strong></th>
+																			<th align="left"><strong>E30</strong></th>
+																			<th align="left"><strong>E40</strong></th>
+																			<th align="left"><strong>E50</strong></th>
+																			<th align="left"><strong>E60</strong></th>
+																			<th align="left"><strong>E70</strong></th>
+																			<th align="left"><strong>E80</strong></th>
+																		</tr>
+																		<tr>
+																			<td>磁盘大小</td>
+																			<td>32 GB</td>
+																			<td>64 GB</td>
+																			<td>128 GB</td>
+																			<td>256 GB</td>
+																			<td>512 GB</td>
+																			<td>1 TB</td>
+																			<td>2 TB</td>
+																			<td>4 TB</td>
+																			<td>8 TB</td>
+																			<td>16 TB</td>
+																			<td>32 TB (32767 GB)</td>
+																		</tr>
+																		<tr>
+																			<td>每月价格</td>
+																			<td>￥24.4224</td>
+																			<td>￥48.8448</td>
+																			<td>￥97.6896</td>
+																			<td>￥195.3792</td>
+																			<td>￥390.7584</td>
+																			<td>￥781.5168</td>
+																			<td>￥1,563.0336</td>
+																			<td>￥3,126.0672</td>
+																			<td>￥6,252.13</td>
+																			<td>￥12,504.27</td>
+																			<td>￥25,008.54</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的 IOPS</td>
+																			<td>最多 120</td>
+																			<td>最多 240</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 2,000</td>
+																			<td>最多 4,000</td>
+																			<td>最多 6,000</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的吞吐量</td>
+																			<td>最多 25 MB/秒</td>
+																			<td>最多 50 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 400 MB/秒</td>
+																			<td>最多 600 MB/秒</td>
+																			<td>最多 750 MB/秒</td>
+																		</tr>
+																	</table>
+
+																	<div class="tags-date">
+																		<div class="ms-date">我们对每 10,000 个标准 SSD 托管磁盘的事务收取 ￥0.020352 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</div>
+																	</div>
+															
+																	<h4>标准托管磁盘</h4>
+																	<p>标准托管磁盘使用基于硬盘驱动器 (HDD) 的存储介质。它们最适合于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。</p>
+																	<p>标准托管磁盘存储的总成本取决于磁盘的大小和数量、事务数量以及<a id="pricing_storage_data-transfer-2" href="/pricing/details/data-transfer/">出站数据传输</a>量。</p>
+																	<!-- <p>以下价格反映了 50% 的促销折扣。促销活动将持续至 2017 年 9 月 30 日。</p> -->
+																	<div class="tags-date">
+																		<div class="ms-date">*以下价格均为含税价格。</div><br />
+																		<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+																		<p>快照价格按每月 ￥0.3/GB 的费率计费。</p>
+																	</div>
+																	<table cellpadding="0" cellspacing="0" width="100%">
+																		<tr>
+																			<th align="left"><strong>磁盘类型</strong></th>
+																			<th align="left"><strong>S4</strong></th>
+																			<th align="left"><strong>S6</strong></th>
+																			<th align="left"><strong>S10</strong></th>
+																			<th align="left"><strong>S15</strong></th>
+																			<th align="left"><strong>S20</strong></th>
+																			<th align="left"><strong>S30</strong></th>
+																			<th align="left"><strong>S40</strong></th>
+																			<th align="left"><strong>S50</strong></th>
+																			<th align="left"><strong>S60</strong></th>
+																			<th align="left"><strong>S70</strong></th>
+																			<th align="left"><strong>S80</strong></th>
+																		</tr>
+																		<tr>
+																			<td>磁盘大小</td>
+																			<td>32 GB</td>
+																			<td>64 GB</td>
+																			<td>128 GB</td>
+																			<td>256 GB</td>
+																			<td>512 GB</td>
+																			<td>1 TB</td>
+																			<td>2 TB</td>
+																			<td>4 TB</td>
+																			<td>8 TB</td>
+																			<td>16 TB</td>
+																			<td>32 TB (32767 GB)</td>
+																		</tr>
+																		<tr>
+																			<td>每月价格</td>
+																			<td>￥8.64</td>
+																			<td>￥17.28</td>
+																			<td>￥34.56</td>
+																			<td>￥69.12</td>
+																			<td>￥138.24</td>
+																			<td>￥276.48</td>
+																			<td>￥552.96</td>
+																			<td>￥1105.92</td>
+																			<td>￥2211.84</td>
+																			<td>￥4423.68</td>
+																			<td>￥8847.36</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的 IOPS</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 500</td>
+																			<td>最多 1,300</td>
+																			<td>最多 2,000</td>
+																			<td>最多 2,000</td>
+																		</tr>
+																		<tr>
+																			<td>每个磁盘的吞吐量</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 60 MB/秒</td>
+																			<td>最多 300 MB/秒</td>
+																			<td>最多 500 MB/秒</td>
+																			<td>最多 500 MB/秒</td>
+																		</tr>
+																	</table>
+																	<div class="tags-date">
+																		<div class="ms-date">我们对每 10,000 个标准托管磁盘的事务收取 ￥0.0044 的费用。针对存储的任何类型的操作均视为事务，包括读取、写入和删除。</div>
+																	</div>
+																	<h4>本地冗余存储 (LRS)</h4>								
+																	<p>在一个数据中心内创建数据的多个同步副本。</p>
+																	<p>若要深入了解冗余选项以及如何使用这些选项以获取高可用性，请查看 <a id="pricing_storage_documentation-storage-redundancy" href="/documentation/articles/storage-redundancy/">Azure 存储空间复制页</a>。请注意，并非所有冗余类型对所有存储类型都适用。</p>
+													
+																</div>
+                                <!-- END: Table1-Content-->
+                            
+                            </div>
+                        </div>
+                        <!-- END: TAB-CONTENT-3 -->
+                    </div>
+                    <!-- END: TAB-CONTAINER-1 -->
+        </div>
+        <!-- END: TAB-CONTROL -->
+
+        <div class="pricing-page-section">
 		    	<div class="more-detail">
 			        <h2>常见问题</h2>
 			        <em>全部展开</em>
 			        <ul>
-						<li>
-							<i class="icon icon-plus"></i>
-							<div>
-								<a  id="Storage_question14">如果我将 S10 或 P10 磁盘附加到虚拟机，将向我收取上面显示的整个数量的费用，还是只收取我使用的存储空间的费用？</a>
-								<section>
-			                        <p>无论使用的磁盘空间有多少，都将针对配置的磁盘收取相同的费率。</p>
-			                    </section>
-							</div>
-						</li>
-						<li>
-							<i class="icon icon-plus"></i>
-							<div>
-								<a  id="Storage_question15">显示的价格是每月价格。如果使用托管磁盘不到一个月，将怎样收费？</a>
-								<section>
-			                        <p>将使用每月价格按小时和比例收费。</p>
-			                    </section>
-							</div>
-						</li>
-					</ul>
+								<li>
+									<i class="icon icon-plus"></i>
+									<div>
+										<a  id="Storage_question14">如果我将 S10 或 P10 磁盘附加到虚拟机，将向我收取上面显示的整个数量的费用，还是只收取我使用的存储空间的费用？</a>
+										<section>
+																	<p>无论使用的磁盘空间有多少，都将针对配置的磁盘收取相同的费率。</p>
+															</section>
+									</div>
+								</li>
+								<li>
+									<i class="icon icon-plus"></i>
+									<div>
+										<a  id="Storage_question15">显示的价格是每月价格。如果使用托管磁盘不到一个月，将怎样收费？</a>
+										<section>
+																	<p>将使用每月价格按小时和比例收费。</p>
+															</section>
+									</div>
+								</li>
+							</ul>
 			    </div>
 			</div>
-            <!-- <div class="pricing-page-section">
-			    <h2>上市地区</h2>
-			    <p>存储服务在以下区域中提供：</p>
-			    <table cellpadding="0" cellspacing="0" class="table-col6">
-			        <tr>
-			            <th align="left"><strong>地域</strong></th>
-			            <th align="left"><strong>区域</strong></th>
-			        </tr>
-			        <tr>
-			            <td>中国大陆</td>
-			            <td>中国东部数据中心 , 中国北部数据中心</td>
-			        </tr>
-    			</table>
-    		</div> -->
 
     		<div class="pricing-page-section">
-                <h2>支持和服务级别协议</h2>
-                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="storage-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
-				<p>我们保证至少在 99.99%（对于冷访问层为 99.9%）的时间成功地处理从读取访问异地冗余存储 (RA-GRS) 帐户读取数据的请求，但前提是在次要区域重试从主要区域读取数据的失败尝试</p>
-				<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理从本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户读取数据的请求。</p>
-				<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理将数据写入本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户，以及读取访问异地冗余存储 (RA-GRS) 帐户的请求。</p>
-				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/storage/" id="pricing_storage_sla">服务级别协议</a>页。</p>
-				<p>托管磁盘本身不提供有财务方面支持的服务级别协议。托管磁盘的可用性取决于所使用的基础存储和其所依附的虚拟机的服务级别协议。若要了解更多有关托管磁盘的服务级别协议的详细信息，请访问<a href="/support/sla/managed-disks/">托管磁盘服务级别协议</a>页。</p>
-			</div> 
+          <h2>支持和服务级别协议</h2>
+          <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="storage-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+					<p>我们保证至少在 99.99%（对于冷访问层为 99.9%）的时间成功地处理从读取访问异地冗余存储 (RA-GRS) 帐户读取数据的请求，但前提是在次要区域重试从主要区域读取数据的失败尝试</p>
+					<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理从本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户读取数据的请求。</p>
+					<p>我们保证至少在 99.9%（对于冷访问层为 99%）的时间成功地处理将数据写入本地冗余存储 (LRS) 和地理冗余存储 (GRS) 帐户，以及读取访问异地冗余存储 (RA-GRS) 帐户的请求。</p>
+					<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/storage/" id="pricing_storage_sla">服务级别协议</a>页。</p>
+					<p>托管磁盘本身不提供有财务方面支持的服务级别协议。托管磁盘的可用性取决于所使用的基础存储和其所依附的虚拟机的服务级别协议。若要了解更多有关托管磁盘的服务级别协议的详细信息，请访问<a href="/support/sla/managed-disks/">托管磁盘服务级别协议</a>页。</p>
+				</div> 
             <!--BEGIN: Support and service code chunk-->
-            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  -->
             <!--END: Support and service code chunk-->                         
     ]]>
     </bodyText>
