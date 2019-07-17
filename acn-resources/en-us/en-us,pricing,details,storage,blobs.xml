@@ -126,14 +126,14 @@
 														<div class="category-container">
 															<span class="category-title hidden-lg hidden-md">Type：</span>
 															<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
-																<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-0" id="home_storage_gpv2">General Purpose v2</a></li>
-																<li><a href="javascript:void(0)" data-href="#tabContent1-1" id="home_storage_blobs">Blob storage</a></li>
-																<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="home_storage_gpv1">General Purpose v1</a></li>
+																<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-1" id="home_storage_gpv2">General Purpose v2</a></li>
+																<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="home_storage_blobs">Blob storage</a></li>
+																<li><a href="javascript:void(0)" data-href="#tabContent1-3" id="home_storage_gpv1">General Purpose v1</a></li>
 															</ul>
 															<select class="dropdown-select category-tabs hidden-lg hidden-md">
-																<option data-href="#tabContent1-0" id="home_storage_gpv2" value="General Purpose v2">General Purpose v2</option>
-																<option data-href="#tabContent1-1" id="home_storage_blobs" value="Blob storage">Blob storage</option>
-																<option data-href="#tabContent1-2" id="home_storage_gpv1" value="General Purpose v1">General Purpose v1</option>
+																<option data-href="#tabContent1-1" id="home_storage_gpv2" value="General Purpose v2">General Purpose v2</option>
+																<option data-href="#tabContent1-2" id="home_storage_blobs" value="Blob storage">Blob storage</option>
+																<option data-href="#tabContent1-3" id="home_storage_gpv1" value="General Purpose v1">General Purpose v1</option>
 															</select>
 														</div>
 													</div>
@@ -142,7 +142,7 @@
                         <!-- BEGIN: Tab level 2 content -->
                         <div class="tab-content">
                             <!-- BEGIN: Tab level 2 content 1-1 -->
-                            <div class="tab-panel" id="tabContent1-0">
+                            <div class="tab-panel" id="tabContent1-1">
 															<p>General Purpose v2 provides access to the latest Azure storage features, including Cool and Archive storage, with pricing optimized for the lowest GB storage prices. These accounts provide access to Block Blobs, Page Blobs, Files, and Queues.</p>
 															<h4>Cool and Archive early deletion</h4>
 															<p>In addition to the per-GB, per-month charge, any blob that is moved to Archive is subject to an Archive early deletion period of 180 days. Additionally, for General Purpose v2 accounts, any blob that is moved to Cool is subject to a Cool early deletion period of 30 days. This charge is prorated. For example, if a blob is moved to Archive and then deleted or moved to the Hot tier after 45 days, the customer is charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in Archive.</p>
@@ -410,7 +410,7 @@
 
 															<!-- END: Table1-Content-1 -->
 														</div>
-                            <div class="tab-panel" id="tabContent1-1">
+                            <div class="tab-panel" id="tabContent1-2">
 															<p>Blob Storage accounts provide access to the latest features, but not to Page Blobs, Files, Queues, or Tables. </p>
 															<h4>Data storage prices</h4>
 															<p>These are the costs of storage data in Block Blob. The pricing shown below are monthly billing by the data size (GB) of storage. These pricing may vary from the access tier of Block Blob Storage (“hot” or “cool”) and the redundancy options you select as well as the data size of storage.</p>
@@ -608,7 +608,7 @@
 															
 															<!-- END: Table1-Content-1 -->
 														</div>
-														<div class="tab-panel" id="tabContent1-2">
+														<div class="tab-panel" id="tabContent1-3">
 															<p>General Purpose v1 enables access to Block Blobs, Page Blobs, Files, Queues, and Tables—offering our lowest transaction prices but with higher storage prices. General Purpose v1 accounts do not provide access to Cool and Archive storage.</p>
 															<h4>Data Storage Pricing</h4>
 																<!-- BEGIN: Table-Content-->

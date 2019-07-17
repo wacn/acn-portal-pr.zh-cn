@@ -127,14 +127,14 @@
 														<div class="category-container">
 															<span class="category-title hidden-lg hidden-md">类别：</span>
 															<ul class="os-tab-nav category-tabs hidden-xs hidden-sm">
-																<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-0" id="home_storage_gpv2">常规用途 v2</a></li>
-																<li><a href="javascript:void(0)" data-href="#tabContent1-1" id="home_storage_blobs">Blob 存储</a></li>
-																<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="home_storage_gpv1">常规用途 v1</a></li>
+																<li class="active"><a href="javascript:void(0)" data-href="#tabContent1-1" id="home_storage_gpv2">常规用途 v2</a></li>
+																<li><a href="javascript:void(0)" data-href="#tabContent1-2" id="home_storage_blobs">Blob 存储</a></li>
+																<li><a href="javascript:void(0)" data-href="#tabContent1-3" id="home_storage_gpv1">常规用途 v1</a></li>
 															</ul>
 															<select class="dropdown-select category-tabs hidden-lg hidden-md">
-																<option data-href="#tabContent1-0" id="home_storage_gpv2" value="all">常规用途 v2</option>
-																<option data-href="#tabContent1-1" id="home_storage_blobs" value="vCore">Blob 存储</option>
-																<option data-href="#tabContent1-2" id="home_storage_gpv1" value="DTU">常规用途 v1</option>
+																<option data-href="#tabContent1-1" id="home_storage_gpv2" value="General Purpose v2">常规用途 v2</option>
+																<option data-href="#tabContent1-2" id="home_storage_blobs" value="Blob storage">Blob 存储</option>
+																<option data-href="#tabContent1-3" id="home_storage_gpv1" value="General Purpose v1">常规用途 v1</option>
 															</select>
 														</div>
 													</div>
@@ -142,15 +142,16 @@
                         <!-- END: Tab level 2 navigator 1 -->
                         <!-- BEGIN: Tab level 2 content -->
                         <div class="tab-content">
+
                             <!-- BEGIN: Tab level 2 content 1-1 -->
-                            <div class="tab-panel" id="tabContent1-0">
+                            <div class="tab-panel" id="tabContent1-1">
 															<p>常规用途 v2 的定价针对 GB 存储最低价格进行了优化，通过它可以访问最新的 Azure 存储功能，包括冷存储和存档存储。使用这些帐户可访问块 Blob、页 Blob、文件和队列。</p>
 															<h4>“冷”和“存档”提前删除</h4>
 															<p>除每月每 GB 的费用之外，移动到“存档”层的任何 blob 还需计入 180 天的“存档”层提前删除期费用。此外，对于常规用途 v2 帐户，移动到“冷”层的任何 blob 还需计入 30 天的“冷”层提前删除期费用。此费用按比例收取。例如，如果某个 blob 移动到“存档”层，然后在 45 天后被删除或移动到“热”层，则客户需要支付在“存档”中存储该 blob 135（180 减 45）天的提前删除费用。</p>
 																			
 															<!-- BEGIN: Table-Content-->
 															<div class="tags-date">
-																<div class="ms-date">*以下价格均为含税价格。</div><br />
+																<div class="ms-date">*以下价格均为含税价格。</div>
 															</div>
 															<table cellpadding="0" cellspacing="0" width="100%">
 																<tr>
@@ -179,139 +180,141 @@
 															<h4>数据存储价格</h4>
 															<p>所有价格均按每 GB、每月计费。</p>
 															<div class="tags-date">
-																<div class="ms-date">*以下价格均为含税价格。</div><br />
+																<div class="ms-date">*以下价格均为含税价格。</div>
 															</div>
 															<table cellpadding="0" cellspacing="0" width="100%" id="storage-blobs-gpv2-data-storage-region2">
-																<tbody><tr>
-																	<th align="left"><strong data-filtered="filtered"></strong></th>
-																	<th align="center" colspan="3"><strong>本地冗余存储 (LRS)</strong></th>
-																	<th align="center" colspan="3"><strong>异地冗余存储 (GRS)</strong></th>
-																	<th align="center" colspan="3"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
-																</tr>
-																<tr>
-																	<td></td>
-																	<td align="center">冷</td>
-																	<td align="center">热</td>
-																	<td align="center">存档</td>
-																	<td align="center">冷</td>
-																	<td align="center">热</td>
-																	<td align="center">存档</td>
-																	<td align="center">冷</td>
-																	<td align="center">热</td>
-																	<td align="center">存档</td>
-																</tr>
-																<tr>
-																	<td>前 100 TB /月</td>
-																	<td align="center">￥0.11</td>
-																	<td align="center">￥0.149</td>
-																	<td align="center">￥0.011469</td>
-																	<td align="center">￥0.22</td>
-																	<td align="center">￥0.298</td>
-																	<td align="center">￥0.022938</td>
-																	<td align="center">￥0.275</td>
-																	<td align="center">￥0.3725</td>
-																	<td align="center">￥0.022938</td>
-																</tr>
-																<tr>
-																	<td>后 900 TB /月</td>
-																	<td align="center">￥0.11</td>
-																	<td align="center">￥0.1438</td>
-																	<td align="center">￥0.011469</td>
-																	<td align="center">￥0.22</td>
-																	<td align="center">￥0.2876</td>
-																	<td align="center">￥0.022938</td>
-																	<td align="center">￥0.275</td>
-																	<td align="center">￥0.3594</td>
-																	<td align="center">￥0.022938</td>
-																</tr>
-																<tr>
-																	<td>后  4000 TB /月</td>
-																	<td align="center">￥0.11</td>
-																	<td align="center">￥0.1436</td>
-																	<td align="center">￥0.011469</td>
-																	<td align="center">￥0.22</td>
-																	<td align="center">￥0.2872</td>
-																	<td align="center">￥0.022938</td>
-																	<td align="center">￥0.275</td>
-																	<td align="center">￥0.3589</td>
-																	<td align="center">￥0.022938</td>
-																</tr>
-																<tr>
-																	<td>超过 5000 TB /月</td>
-																	<td align="center" colspan="3"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-																	<td align="center" colspan="3"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-																	<td align="center" colspan="3"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-																</tr>
+																<tbody>
+																	<tr>
+																		<th align="left"><strong data-filtered="filtered"></strong></th>
+																		<th align="center" colspan="3"><strong>本地冗余存储 (LRS)</strong></th>
+																		<th align="center" colspan="3"><strong>异地冗余存储 (GRS)</strong></th>
+																		<th align="center" colspan="3"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+																	</tr>
+																	<tr>
+																		<td></td>
+																		<td align="center">冷</td>
+																		<td align="center">热</td>
+																		<td align="center">存档</td>
+																		<td align="center">冷</td>
+																		<td align="center">热</td>
+																		<td align="center">存档</td>
+																		<td align="center">冷</td>
+																		<td align="center">热</td>
+																		<td align="center">存档</td>
+																	</tr>
+																	<tr>
+																		<td>前 100 TB /月</td>
+																		<td align="center">￥0.11</td>
+																		<td align="center">￥0.149</td>
+																		<td align="center">￥0.011469</td>
+																		<td align="center">￥0.22</td>
+																		<td align="center">￥0.298</td>
+																		<td align="center">￥0.022938</td>
+																		<td align="center">￥0.275</td>
+																		<td align="center">￥0.3725</td>
+																		<td align="center">￥0.022938</td>
+																	</tr>
+																	<tr>
+																		<td>后 900 TB /月</td>
+																		<td align="center">￥0.11</td>
+																		<td align="center">￥0.1438</td>
+																		<td align="center">￥0.011469</td>
+																		<td align="center">￥0.22</td>
+																		<td align="center">￥0.2876</td>
+																		<td align="center">￥0.022938</td>
+																		<td align="center">￥0.275</td>
+																		<td align="center">￥0.3594</td>
+																		<td align="center">￥0.022938</td>
+																	</tr>
+																	<tr>
+																		<td>后  4000 TB /月</td>
+																		<td align="center">￥0.11</td>
+																		<td align="center">￥0.1436</td>
+																		<td align="center">￥0.011469</td>
+																		<td align="center">￥0.22</td>
+																		<td align="center">￥0.2872</td>
+																		<td align="center">￥0.022938</td>
+																		<td align="center">￥0.275</td>
+																		<td align="center">￥0.3589</td>
+																		<td align="center">￥0.022938</td>
+																	</tr>
+																	<tr>
+																		<td>超过 5000 TB /月</td>
+																		<td align="center" colspan="3"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+																		<td align="center" colspan="3"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+																		<td align="center" colspan="3"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+																	</tr>
 																</tbody>
 															</table>
 
 															<table cellpadding="0" cellspacing="0" width="100%" id="storage-blobs-gpv2-data-storage">
-																<tbody><tr>
-																	<th align="left"><strong data-filtered="filtered"></strong></th>
-																	<th align="center" colspan="3"><strong>本地冗余存储 (LRS)</strong></th>
-																	<th align="center" colspan="3"><strong>异地冗余存储 (GRS)</strong></th>
-																	<th align="center" colspan="3"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
-																</tr>
-																<tr>
-																	<td></td>
-																	<td align="center">冷</td>
-																	<td align="center">热</td>
-																	<td align="center">存档</td>
-																	<td align="center">冷</td>
-																	<td align="center">热</td>
-																	<td align="center">存档</td>
-																	<td align="center">冷</td>
-																	<td align="center">热</td>
-																	<td align="center">存档</td>
-																</tr>
-																<tr>
-																	<td>前 100 TB /月</td>
-																	<td align="center">￥0.11</td>
-																	<td align="center">￥0.149</td>
-																	<td align="center">￥0.011469</td>
-																	<td align="center">￥0.22</td>
-																	<td align="center">￥0.298</td>
-																	<td align="center">￥0.022938</td>
-																	<td align="center">￥0.279</td>
-																	<td align="center">￥0.378</td>
-																	<td align="center">￥0.022938</td>
-																</tr>
-																<tr>
-																	<td>后 900 TB /月</td>
-																	<td align="center">￥0.11</td>
-																	<td align="center">￥0.1438</td>
-																	<td align="center">￥0.011469</td>
-																	<td align="center">￥0.22</td>
-																	<td align="center">￥0.2876</td>
-																	<td align="center">￥0.022938</td>
-																	<td align="center">￥0.279</td>
-																	<td align="center">￥0.3648</td>
-																	<td align="center">￥0.022938</td>
-																</tr>
-																<tr>
-																	<td>后  4000 TB /月</td>
-																	<td align="center">￥0.11</td>
-																	<td align="center">￥0.1436</td>
-																	<td align="center">￥0.011469</td>
-																	<td align="center">￥0.22</td>
-																	<td align="center">￥0.2872</td>
-																	<td align="center">￥0.022938</td>
-																	<td align="center">￥0.279</td>
-																	<td align="center">￥0.3643</td>
-																	<td align="center">￥0.022938</td>
-																</tr>
-																<tr>
-																	<td>超过 5000 TB /月</td>
-																	<td align="center" colspan="3"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-																	<td align="center" colspan="3"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-																	<td align="center" colspan="3"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
-																</tr>
+																<tbody>
+																	<tr>
+																		<th align="left"><strong data-filtered="filtered"></strong></th>
+																		<th align="center" colspan="3"><strong>本地冗余存储 (LRS)</strong></th>
+																		<th align="center" colspan="3"><strong>异地冗余存储 (GRS)</strong></th>
+																		<th align="center" colspan="3"><strong>读取访问跨异地冗余存储 (RA-GRS)</strong></th>
+																	</tr>
+																	<tr>
+																		<td></td>
+																		<td align="center">冷</td>
+																		<td align="center">热</td>
+																		<td align="center">存档</td>
+																		<td align="center">冷</td>
+																		<td align="center">热</td>
+																		<td align="center">存档</td>
+																		<td align="center">冷</td>
+																		<td align="center">热</td>
+																		<td align="center">存档</td>
+																	</tr>
+																	<tr>
+																		<td>前 100 TB /月</td>
+																		<td align="center">￥0.11</td>
+																		<td align="center">￥0.149</td>
+																		<td align="center">￥0.011469</td>
+																		<td align="center">￥0.22</td>
+																		<td align="center">￥0.298</td>
+																		<td align="center">￥0.022938</td>
+																		<td align="center">￥0.279</td>
+																		<td align="center">￥0.378</td>
+																		<td align="center">￥0.022938</td>
+																	</tr>
+																	<tr>
+																		<td>后 900 TB /月</td>
+																		<td align="center">￥0.11</td>
+																		<td align="center">￥0.1438</td>
+																		<td align="center">￥0.011469</td>
+																		<td align="center">￥0.22</td>
+																		<td align="center">￥0.2876</td>
+																		<td align="center">￥0.022938</td>
+																		<td align="center">￥0.279</td>
+																		<td align="center">￥0.3648</td>
+																		<td align="center">￥0.022938</td>
+																	</tr>
+																	<tr>
+																		<td>后  4000 TB /月</td>
+																		<td align="center">￥0.11</td>
+																		<td align="center">￥0.1436</td>
+																		<td align="center">￥0.011469</td>
+																		<td align="center">￥0.22</td>
+																		<td align="center">￥0.2872</td>
+																		<td align="center">￥0.022938</td>
+																		<td align="center">￥0.279</td>
+																		<td align="center">￥0.3643</td>
+																		<td align="center">￥0.022938</td>
+																	</tr>
+																	<tr>
+																		<td>超过 5000 TB /月</td>
+																		<td align="center" colspan="3"><a id="pricing_storage_blob_lrs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+																		<td align="center" colspan="3"><a id="pricing_storage_blob_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+																		<td align="center" colspan="3"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
+																	</tr>
 																</tbody>
 															</table>
 
 															<h4>操作和数据传输价格</h4>
 															<div class="tags-date">
-																<div class="ms-date">*以下价格均为含税价格。</div><br />
+																<div class="ms-date">*以下价格均为含税价格。</div>
 															</div>
 															<table cellpadding="0" cellspacing="0" width="100%">
 																<tbody>
@@ -408,8 +411,10 @@
 																	<td>￥0.67/GB</td>
 																</tr>
 															</table>
+
 														</div>
-                            <div class="tab-panel" id="tabContent1-1">
+
+                            <div class="tab-panel" id="tabContent1-2">
 															<p>Blob 存储帐户可用于访问最新的功能，但无法访问页 blob、文件、队列或表。</p>
 															<h4>数据存储价格</h4>
 															<p>这些是在块 Blob 中存储数据的成本。以下所示的价格按存储的数据大小 (GB) 按月收费。这些价格根据块 Blob 存储的访问层（“热”或“冷”）和你所选择的冗余选项以及存储的数据量而有所不同。</p>
@@ -517,6 +522,7 @@
 																	<td align="center" colspan="2"><a id="pricing_storage_blobra_grs_contact" style="color: #00a8d9;" href="/support/contact/">联系我们</a></td>
 																</tr>
 															</table>
+
 															<p><strong><sup>1 </sup></strong>1 TB = 1,024 GB</p>
 															<h4>操作和数据传输价格</h4>
 															<p>以下是针对块 Blob 数据的 HTTP 操作成本以及从块 Blob 检索数据或将数据写入到块 Blob 的成本。这些价格根据块 Blob 存储的访问层（“热”或“冷”）和你所选择的冗余选项而有所不同。</p>
@@ -604,7 +610,8 @@
 															</table>
 															<!-- END: Table1-Content-1 -->
 														</div>
-														<div class="tab-panel" id="tabContent1-2">
+
+														<div class="tab-panel" id="tabContent1-3">
 															<p>常规用途 v1 的事务价格最低，存储价格较高，通过它可以访问块 Blob、页 Blob、文件、队列和表。常规用途 v1 帐户不支持访问冷存储和存档存储。</p>
 															<h4>数据存储价格</h4>
 																			
