@@ -9426,7 +9426,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 128GB，磁盘读写 (IOPS)500，磁盘吞吐 100MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "254.8611",
+                        PricePerTier: "132.1502",
                     }]
                 }]
             },
@@ -9442,7 +9442,7 @@ var CalculatorData = {
                         Name: "default",
                         Description: "磁盘大小 256GB，磁盘读写 (IOPS)1100，磁盘吞吐 125MB/sec",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "226.83",
+                        PricePerTier: "254.8611",
                     }]
                 }]
             },
