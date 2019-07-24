@@ -224,7 +224,7 @@ var CalculatorData = {
                 }]
             },
             {
-                Name: "高级",
+                Name: "高级P",
                 Features: [{
                     Name: "default",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -232,20 +232,48 @@ var CalculatorData = {
                     MinUnit: "0",
                     MaxUnit: "100",
                     Sizes: [{
-                        Name: CalculatorConst.appservice_Permium_P1,
-                        Description: CalculatorConst.SmallSizeDesc,
+                        Name: CalculatorConst.appservice_Premium_P1,
+                        Description: CalculatorConst.appservice_Premium_P1Desc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.9716",
+                    },
+                    {
+                        Name: CalculatorConst.appservice_Premium_P2,
+                        Description: CalculatorConst.appservice_Premium_P2Desc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.9432",
+                    },
+                    {
+                        Name: CalculatorConst.appservice_Premium_P3,
+                        Description: CalculatorConst.appservice_Premium_P3Desc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.8864",
+                    }]
+                }]
+            },
+            {
+                Name: "高级PV2",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.appservice_Premium_P1V2,
+                        Description: CalculatorConst.appservice_Premium_P1V2Desc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "2.035",
                     },
                     {
-                        Name: CalculatorConst.appservice_Permium_P2,
-                        Description: CalculatorConst.MediumSizeDesc,
+                        Name: CalculatorConst.appservice_Premium_P2V2,
+                        Description: CalculatorConst.appservice_Premium_P2V2Desc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "4.07",
                     },
                     {
-                        Name: CalculatorConst.appservice_Permium_P3,
-                        Description: CalculatorConst.LargeSizeDesc,
+                        Name: CalculatorConst.appservice_Premium_P3V2,
+                        Description: CalculatorConst.appservice_Premium_P3V2Desc,
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "8.141",
                     }]
