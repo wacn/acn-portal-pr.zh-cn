@@ -350,9 +350,19 @@ var CalculatorConst = {
     appservice_Standard_S1:"S1",
     appservice_Standard_S2:"S2",
     appservice_Standard_S3:"S3",
-    appservice_Permium_P1:"P1 v2",
-    appservice_Permium_P2:"P2 v2",
-    appservice_Permium_P3:"P3 v2",
+    appservice_Premium_P1V2:"P1 V2",
+    appservice_Premium_P2V2:"P2 V2",
+    appservice_Premium_P3V2:"P3 V2",
+    appservice_Premium_P1:"P1",
+    appservice_Premium_P2:"P2",
+    appservice_Premium_P3:"P3",
+    appservice_Premium_P1V2Desc:"3.5 GB 内存，250 GB 存储",
+    appservice_Premium_P2V2Desc:"7 GB 内存，250 GB 存储",
+    appservice_Premium_P3V2Desc:"14 GB 内存，250 GB 存储",
+    appservice_Premium_P1Desc:"1.75 GB 内存，500 GB 存储",
+    appservice_Premium_P2Desc:"3.5 GB 内存，500 GB 存储",
+    appservice_Premium_P3Desc:"7 GB 内存，500 GB 存储",
+
 	
 	/* \\10.186.11.30\ka2\FY17\Microsoft\Bill\ACN Maintenance\Content\17.3.9 XML acom staging access
 	Sql1SizeDesc: "最大存储空间 10 GB ,最大 DB 200",
