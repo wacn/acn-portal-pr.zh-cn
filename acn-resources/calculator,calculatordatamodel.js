@@ -25879,7 +25879,8 @@ var CalculatorData = {
             ]
             }
         ]
-        },"data-explorer": {
+        },
+        "data-explorer": {
             Name: "Azure 数据资源管理器",
             Types: [
                 {
@@ -25965,6 +25966,211 @@ var CalculatorData = {
                     }]
             }]
         },
+        "azure-functions":{
+            Name: "Azure Functions",
+            Types: [
+                {
+                Name: "资源消耗",
+                Features: [
+                    {
+                        Name: "128 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "50804.8",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },
+                    {
+                        Name: "256 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "101609.6",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "384 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "152414.4",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "512 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "203219.2",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "640 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "254024",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "768 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "304808.8",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "896 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "355633.6",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "1024 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "406438.4",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "1152 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "457243.2",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "1280 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "508048",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "1408 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "558852.8",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "1536 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月执行持续时间 60 秒 - 资源消耗计费计算",
+                            PriceTier: "0,10000000",
+                            PricePerTier: "609657.6",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    },{
+                        Name: "执行次数计费计算",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "执行次数计费计算",
+                            PriceTier: "0,1,2,10000000",
+                            PricePerTier: "0,1.3",
+                            MinUnit: "0",
+                            MaxUnit: "10000000",
+                            PriceUnit: "百万次"
+                        }]
+                    }]
+            }]
+        }
     }
 };
 //  return CalculatorData;
