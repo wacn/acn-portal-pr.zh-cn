@@ -26170,7 +26170,31 @@ var CalculatorData = {
                         }]
                     }]
             }]
-        }
+        },
+        "event-grid": {
+            Name: "Azure 事件网格",
+            Types: [
+                {
+                Name: "Azure 事件网格消耗",
+                Features: [
+                    {
+                        Name: "事件网格消耗",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每月操作数",
+                            PriceTier: "0,1,2,1000000000",
+                            PricePerTier: "0,0.611",
+                            MinUnit: "0",
+                            MaxUnit: "1000000000",
+                            PriceUnit: "每十万次操作"
+                        }]
+                    }]
+            }]
+        },
     }
 };
 //  return CalculatorData;
