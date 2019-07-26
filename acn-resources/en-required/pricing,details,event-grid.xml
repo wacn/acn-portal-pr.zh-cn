@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-30T10:15:59" urlName="event-grid" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="event-grid" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/event-grid_banner.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/event-grid_icon@2x.svg" />
+                        <h2>事件网格</h2>
+                        <h4>实现大规模的可靠事件交付</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_mysql_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_event-grid_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>事件网格是一种完全托管的事件路由服务，提供大规模的可靠消息传递。开发人员使用事件网格在新式无服务器计算体系结构中生成事件驱动型响应式应用，消除轮询及其相关的成本和延迟。一对多映射（其中，一个事件可触发多个操作）提供统一的事件消耗体验。按操作付费模式对无服务器解决方案给予补充和延伸，使你专注于创新而非基础结构。</p>
+            </div>
+            <div class="pricing-page-section">
+                <h2>事件网格消耗定价</h2>
+                <p>事件网格基于执行的操作按使用量计费。这些操作包括事件引入域或主题、高级匹配、交付尝试和管理调用。计划定价包括每月免费授予的 100,000 个操作数。</p>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th align="left">每百万个操作的价格</th>
+                            <th align="left">每月免费使用量</th>
+                        </tr>
+                        <tr>
+                            <td align="left">￥ 0.611</td>
+                            <td align="left">100,000 个操作</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>事件网格定价示例 1</h2>
+                <p><a href="https://www.azure.cn/home/features/azure-functions">Azure 函数</a>通过事件网格连接到 <a href="https://www.azure.cn/home/features/storage/blobs">Blob 存储</a>，在每次添加新图像时处理图像。BLOB 存储容器中创建了 5 百万个图像，每一个都通过事件网格触发函数。</p>
+                <ul>
+                    <li>一个月向事件网格发布 5 百万个事件。</li>
+                    <li>所有事件都发布到 1 个 https 终结点。</li>
+                </ul>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th align="left"><strong>操作数量</strong></th>
+                            <th align="left"></th>
+                        </tr>
+                        <tr>
+                            <td align="left">已发布事件</td>
+                            <td align="left">5 百万个操作</td>
+                        </tr>
+                        <tr>
+                            <td align="left">交付尝试</td>
+                            <td align="left">5 百万个操作</td>
+                        </tr>
+                        <tr>
+                            <td align="left">每月免费授予量</td>
+                            <td align="left">- 100,000 个操作</td>
+                        </tr>
+                        <tr>
+                            <td align="left">总操作数 <br/>每百万个操作的价格</td>
+                            <td align="left">9.9 百万 <br/>￥ 0.611</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><strong>每月总成本</strong></td>
+                            <td align="left">￥ 6.0489</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>事件网格定价示例 2</h2>
+                <p>通过<a href="https://www.azure.cn/home/features/event-hubs">事件中心</a>捕获，将事件中心的传入日志发送到存储。事件网格将五百万个日志批处理事件推送到<a href="https://www.azure.cn/home/features/logic-apps">逻辑应用</a>，供其监视。同时，还根据事件类型（在某些情况下根据事件来源），将所有事件推送到一个自定义的监视终结点。其中一百万个事件需要高级匹配。其中一个终结点出现中断，必须重试才能成功交付事件。</p>
+                <ul>
+                    <li>一个月向事件网格发布 5 百万个事件。</li>
+                    <li>所有事件都发布到 2 个 https 终结点。</li>
+                    <li>其中 1 百万个事件需要高级匹配。</li>
+                    <li>其中 1 百万个事件需要 2 次交付尝试。</li>
+                </ul>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th align="left"><strong>操作数量</strong></th>
+                            <th align="left"></th>
+                        </tr>
+                        <tr>
+                            <td align="left">已发布事件</td>
+                            <td align="left">5 百万个操作</td>
+                        </tr>
+                        <tr>
+                            <td align="left">交付尝试</td>
+                            <td align="left">11 百万个操作（第二次交付尝试为 1 百万个）</td>
+                        </tr>
+                        <tr>
+                            <td align="left">高级匹配</td>
+                            <td align="left">1 百万个操作</td>
+                        </tr>
+                        <tr>
+                            <td align="left">每月免费授予量</td>
+                            <td align="left">- 100,000 个操作</td>
+                        </tr>
+                        <tr>
+                            <td align="left">总操作数 <br/>每百万个操作的价格</td>
+                            <td align="left">16.9 百万  <br/>￥ 0.611</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><strong>每月总成本</strong></td>
+                            <td align="left">￥ 10.3259</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+
+                    <h3>综合</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_what-are-operations-and-how-are-they-billed" aria-label="什么是操作以及如何对它们计费？">什么是操作以及如何对它们计费？</a>
+                                <section>
+                                     <p>事件网格中的操作包括所有入口事件、高级匹配、交付尝试和管理调用。按照每百万个操作收费，每个月前 100,000 个操作免费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_how-many-Event-Subscriptions-can-I-have-for-each-account" aria-label="每个帐户可以有多少个事件订阅？">每个帐户可以有多少个事件订阅？</a>
+                                <section>
+                                     <p>根据事件网格限制文档，默认情况下每个主题最多可有 500 个事件订阅。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_how-many-custom-Topics-can-I-have-for-each-account" aria-label="每个帐户可以有多少个自定义主题？">每个帐户可以有多少个自定义主题？</a>
+                                <section>
+                                     <p>自定义主题的默认限制是每个 Azure 订阅 100 个主题</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_how-many-Event-Grid-subscriptions-can-I-have-for-each-account" aria-label="每个帐户可以有多少个事件网格订阅？">每个帐户可以有多少个事件网格订阅？</a>
+                                <section>
+                                     <p>在预览期间，最多可以有 1,000 个事件网格订阅。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_which-endpoints-are-supported-in-Event-Grid" aria-label="事件网格中支持哪些终结点？">事件网格中支持哪些终结点？</a>
+                                <section>
+                                     <p>目前，我们支持 https 终结点。之后会支持其他终结点。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_Is-there-a-limit-on-delivery-attempts" aria-label="交付尝试次数是否有限制？">交付尝试次数是否有限制？</a>
+                                <section>
+                                     <p>事件网格将对所有交付执行指数退避。如果 WebHook 不返回 2xx，重试将立即开始。当退避间隔达到一小时的时候，将每小时进行重试。24 小时后，服务将停止尝试交付事件。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_What-is-the-maximum-retention-period" aria-label="最长的保留期是多久？">最长的保留期是多久？</a>
+                                <section>
+                                     <p>事件网格将缓冲数据最多 24 小时。在此时间结束时，事件将被删除。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_How-is-Event-Grid-event-size-calculated-and-charged" aria-label="如何计算事件网格事件的大小，如何根据事件大小收费？">如何计算事件网格事件的大小，如何根据事件大小收费？</a>
+                                <section>
+                                     <p>交付数据区块每 64KB 按 1 个请求计费。例如，256KB 的一个事件将按 4 个事件计费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_Is-there-a-separate-charge-for-using-Event-Domains" aria-label="使用事件域是否会单独收费？">使用事件域是否会单独收费？</a>
+                                <section>
+                                     <p>不会，域和主题采用相同的计费方式。事件引入 Azure 事件网格系统是一个操作，与入口点无关。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-page-section">
+                    <h2>支持和服务级别协议</h2>
+                    <p>如有任何疑问或需要帮助，请访问<a href="https://support.azure.cn/support/contact" id="event-grid-contact-page" aria-label="event-grid-contact-page" target="_blank">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+    				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/event-grid/" id="pricing_event-grid_sla" aria-label="pricing_event-grid_sla">服务级别协议</a>页。</p>
+                </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <!-- END: TAB-CONTROL -->
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
+            <!--END: Support and service code chunk-->                                                                                
+    ]]>
+    </bodyText>
+    <pageTitle>定价 - 事件网格 - Azure 云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>Event Grid</linkid>
+    <metaKeywords>事件处理程序, 事件处理, 发布订阅, 发布订阅模型, pubsub, 反应式编程, 基于事件的编程</metaKeywords>
+    <metaDescription><![CDATA[了解 Azure 事件网格定价，它是一款完全托管的“发布-订阅”事件处理程序。它基于操作数进行计费，每月前 100,000 个操作免费。]]></metaDescription>
+    <urlDisplayName>Azure 事件网格</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

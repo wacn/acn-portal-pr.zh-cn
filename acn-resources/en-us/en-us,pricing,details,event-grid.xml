@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-05-30T10:15:59" urlName="event-grid" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+            <tags ms.service="event-grid" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/event-grid_banner.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/event-grid_icon@2x.svg" />
+                        <h2>Event Grid</h2>
+                        <h4>Get reliable event delivery at massive scale</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_mysql_trial">Apply for 1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_event-grid_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <p>Event Grid is a fully managed event routing service that provides reliable message delivery at massive scale. Developers use Event Grid to build reactive, event-driven apps in a modern, serverless compute architecture—eliminating polling and its associated cost and latency. One-to-many mapping, in which a single event can trigger multiple actions, provides a uniform event consumption experience. A pay-per-operation model complements and extends your serverless solutions and lets you focus on innovation rather than infrastructure.</p>
+            </div>
+            <div class="pricing-page-section">
+                <h2>Event Grid consumption pricing</h2>
+                <p>Event Grid is priced as pay-per-use based on operations performed. Operations include ingress of events to Domains or Topics, advanced matches, delivery attempts, and management calls. Plan pricing includes a monthly free grant of 100,000 operations.</p>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th align="left">Price per million operations</th>
+                            <th align="left">Free usage per month</th>
+                        </tr>
+                        <tr>
+                            <td align="left">￥ 0.611</td>
+                            <td align="left">100,000 operations</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Event Grid pricing example 1</h2>
+                <p><a href="https://www.azure.cn/home/features/azure-functions">Azure Function</a> is connected to <a href="https://www.azure.cn/home/features/storage/blobs">Blob Storage</a> through Event Grid, to process images each time a new image is added. In the blob storage container 5 million images are created—each one triggering the Function through Event Grid.</p>
+                <ul>
+                    <li>You publish 5 million events to Event Grid in a month.</li>
+                    <li>All events are published to 1 https endpoint.</li>
+                </ul>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th align="left"><strong>NUMBER OF OPERATIONS</strong></th>
+                            <th align="left"></th>
+                        </tr>
+                        <tr>
+                            <td align="left">Published events</td>
+                            <td align="left">5 million operations</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Delivery attempts</td>
+                            <td align="left">5 million operations</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Monthly free grant</td>
+                            <td align="left">- 100,000 operations</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Total operations  <br/>Price per million operations</td>
+                            <td align="left">9.9 million <br/>￥ 0.611</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><strong>Total monthly cost</strong></td>
+                            <td align="left">￥ 6.0489</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Event Grid pricing example 2</h2>
+                <p>Incoming logs to Event Hubs are being sent to storage through <a href="https://www.azure.cn/home/features/event-hubs">Event Hubs</a> Capture. Five million log batch events are pushed by Event Grid to <a href="https://www.azure.cn/home/features/logic-apps">Logic Apps</a> for monitoring. All events are also pushed to one of several custom-monitoring endpoints based on the event type, and in some cases the origin of the event. One million of these events require advanced matching. One of the endpoints experiences outages and retries are necessary to successfully deliver the events.</p>
+                <ul>
+                    <li>You publish 5 million events to Event Grid in a month.</li>
+                    <li>All events are published to 2 https endpoints.</li>
+                    <li>1 million of the events require advanced matching.</li>
+                    <li>1 million of the events required 2 delivery attempts.</li>
+                </ul>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <th align="left"><strong>NUMBER OF OPERATIONS</strong></th>
+                            <th align="left"></th>
+                        </tr>
+                        <tr>
+                            <td align="left">Published events</td>
+                            <td align="left">5 million operations</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Delivery attempts</td>
+                            <td align="left">11 million operations (1 million for second delivery attempt)</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Advanced match</td>
+                            <td align="left">1 million operations</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Monthly free grant</td>
+                            <td align="left">- 100,000 operations</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Total operations  <br/>Price per million operations</td>
+                            <td align="left">16.9 million   <br/>￥ 0.611</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><strong>Total monthly cost</strong></td>
+                            <td align="left">￥ 10.3259</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQs</h2>
+                    <em>Expand All</em>
+
+                    <h3>General</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_what-are-operations-and-how-are-they-billed" aria-label="What are operations and how are they billed?">What are operations and how are they billed?</a>
+                                <section>
+                                     <p>Operations in Event Grid include all ingress events, advanced match, delivery attempt, and management calls. You’re charged per million operations with the first 100,000 operations free each month.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_how-many-Event-Subscriptions-can-I-have-for-each-account" aria-label="How many Event Subscriptions can I have for each account?">How many Event Subscriptions can I have for each account?</a>
+                                <section>
+                                     <p>By default, you can have up to 500 Event Subscriptions per topic as per the Event Grid limits documentation.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_how-many-custom-Topics-can-I-have-for-each-account" aria-label="How many custom Topics can I have for each account?">How many custom Topics can I have for each account?</a>
+                                <section>
+                                     <p>The default limit for custom topics is 100 per Azure Subscription</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_how-many-Event-Grid-subscriptions-can-I-have-for-each-account" aria-label="How many Event Grid subscriptions can I have for each account?">How many Event Grid subscriptions can I have for each account?</a>
+                                <section>
+                                     <p>You can have up to 1,000 Event Grid subscriptions during the preview period.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_which-endpoints-are-supported-in-Event-Grid" aria-label="Which endpoints are supported in Event Grid?">Which endpoints are supported in Event Grid?</a>
+                                <section>
+                                     <p>Currently, we support https endpoints. Other endpoints will be supported later.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_Is-there-a-limit-on-delivery-attempts" aria-label="Is there a limit on delivery attempts?">Is there a limit on delivery attempts?</a>
+                                <section>
+                                     <p>Event Grid will perform an exponential back off for all deliveries. If your WebHook does not return a 2xx, the retry begins immediately. When the back off interval reaches one hour, retries will be performed every hour. After 24 hours, the service will stop attempting to deliver events.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_What-is-the-maximum-retention-period" aria-label="What is the maximum retention period?">What is the maximum retention period?</a>
+                                <section>
+                                     <p>Event Grid will buffer data for a maximum of 24 hours. At the end of this time, events will be deleted.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_How-is-Event-Grid-event-size-calculated-and-charged" aria-label="How is Event Grid event size calculated and charged?">How is Event Grid event size calculated and charged?</a>
+                                <section>
+                                     <p>Each 64KB chunk of delivered data is billed as 1 request. For example, a single event of 256KB will be billed as 4 events.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="home_event-grid_faq_Is-there-a-separate-charge-for-using-Event-Domains" aria-label="Is there a separate charge for using Event Domains?">Is there a separate charge for using Event Domains?</a>
+                                <section>
+                                     <p>No, Domains and Topics are treated the same way from a billing perspective. Ingress of an event to Azure Event Grid system is one operation regardless of entry point.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="https://support.azure.cn/support/contact" id="event-grid-contact-page" aria-label="event-grid-contact-page" target="_blank">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+                <p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/event-grid/" id="pricing_event-grid_sla" aria-label="pricing_event-grid_sla">Service Level Agreements</a> page.</p>
+            </div>
+
+            <!-- BEGIN: TAB-CONTROL -->
+            <!-- END: TAB-CONTROL -->
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
+            <!--END: Support and service code chunk-->                                                                                
+    ]]>
+    </bodyText>
+    <pageTitle>Pricing – Event Grid - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>Event Grid</linkid>
+    <metaKeywords>event handler, event handling, publish subscribe, publish subscribe model, pubsub, reactive programming, event-based programming</metaKeywords>
+    <metaDescription><![CDATA[Explore pricing for Azure Event Grid, a fully managed publish-subscribe event handler. Billing based on operations with first 100,000 operations/month free.]]></metaDescription>
+    <urlDisplayName>Azure Event Grid</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
