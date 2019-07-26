@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-10-26T14:00:00" urlName="data-factory" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+	<tags ms.service="data-factory" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+	      	<style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style> 
+            
+			<div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">所选区域不可用</div></div>
+            </div>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/data-factory_banner.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/data-factory_icon@2x.svg" />
+                        <h2>数据工厂<span>Data Factory</span></h2>
+                        <h4>可大规模简化 ETL 的混合数据集成服务</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_data-factory_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_data-factory_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>			
+			<div class="pricing-page-section">
+                <p>数据工厂集成运行时（仅限于云托管）提供完全托管的执行环境以运行 <a href="https://docs.microsoft.com/zh-cn/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview">SQL Server Integration Services 包</a>。按小时计费使用，并且支持使用 A-series、D-series、和 E-series 虚拟机 (VM) 的 SQL Server Integration Services Standard 和 Enterprise <a href="https://docs.microsoft.com/zh-cn/sql/integration-services/integration-services-features-supported-by-the-editions-of-sql-server">功能</a>。了解有关 <a href="https://www.azure.cn/pricing/details/virtual-machines">A-series、D-series 和 E-series VM</a> 的详细信息。下述价格是每个计算机节点的单价。</p>
+                <h2>SQL Server Integration Services 定价</h2>
+            </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Data Factory SSIS</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                                <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_data-factory-ssis">Data Factory SSIS</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Data Factory SSIS">Data Factory SSIS</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<h3>SQL Server Integration Services 标准 Av2 系列虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-a1v2-a8v2">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<!-- <tr>
+										<td>A1 v2</td>
+                                        <td>1</td>
+                                        <td>2 GB</td>
+                                        <td>10 GB</td>
+                                        <td>￥3.13/小时<br/>( 约￥2,328.72/月 )</td>
+                                        <td>￥0.649/小时<br/>( 约￥482.856/月 )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>A2 v2</td>
+                                        <td>2</td>
+                                        <td>4 GB</td>
+                                        <td>20 GB</td>
+                                        <td>￥3.843/小时<br/>( 约￥2,859.192/月 )</td>
+                                        <td>￥1.362/小时<br/>( 约￥1,013.328/月 )（~79%）</td>
+                                    </tr> -->
+                                    <tr>
+										<td>A4 v2</td>
+                                        <td>4</td>
+                                        <td>8 GB</td>
+                                        <td>40 GB</td>
+                                        <td>￥5.341/小时<br/>( 约￥3,973.704/月 )</td>
+                                        <td>￥2.86/小时<br/>( 约￥2,127.84/月 )（~79%）</td>
+                                    </tr>
+                                    <tr>
+										<td>A8 v2</td>
+                                        <td>8</td>
+                                        <td>16 GB</td>
+                                        <td>80 GB</td>
+                                        <td>￥6.009/小时<br/>( 约￥4,470.696/月 )</td>
+                                        <td>￥10.97/小时<br/>( 约￥8,161.68/月 )（~79%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services 企业 Av2 系列虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-a1v2-a8v2">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<!-- <tr>
+										<td>A1 v2</td>
+                                        <td>1</td>
+                                        <td>2 GB</td>
+                                        <td>10 GB</td>
+                                        <td>￥9.951/小时<br/>( 约￥7,403.544/月 )</td>
+                                        <td>￥0.649/小时<br/>( 约￥482.856/月 )（~93%）</td>
+                                    </tr>
+									<tr>
+										<td>A2 v2</td>
+                                        <td>2</td>
+                                        <td>4 GB</td>
+                                        <td>20 GB</td>
+                                        <td>￥10.664/小时<br/>( 约￥7,934.016/月 )</td>
+                                        <td>￥1.362/小时<br/>( 约￥1,013.328/月 )（~93%）</td>
+                                    </tr> -->
+                                    <tr>
+										<td>A4 v2</td>
+                                        <td>4</td>
+                                        <td>8 GB</td>
+                                        <td>40 GB</td>
+                                        <td>￥12.162/小时<br/>( 约￥9,048.528/月 )</td>
+                                        <td>￥2.86/小时<br/>( 约￥2,127.84/月 )（~93%）</td>
+                                    </tr>
+                                    <tr>
+										<td>A8 v2</td>
+                                        <td>8</td>
+                                        <td>16 GB</td>
+                                        <td>80 GB</td>
+                                        <td>￥24.612/小时<br/>( 约￥18,311.328/月 )</td>
+                                        <td>￥10.97/小时<br/>( 约￥8,161.68/月 )（~93%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services 标准 Dv2 系列虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-d1v2-d4v2">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<tr>
+										<td>D1 v2</td>
+                                        <td>1</td>
+                                        <td>3.5 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥3.763/小时<br/>( 约￥2,799.672/月 )</td>
+                                        <td>￥1.282/小时<br/>( 约￥953.808/月 )（~66%）</td>
+                                    </tr>
+									<tr>
+										<td>D2 v2</td>
+                                        <td>2</td>
+                                        <td>7 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥5.052/小时<br/>( 约￥3,758.688/月 )</td>
+                                        <td>￥2.572/小时<br/>( 约￥1,913.568/月 )（~66%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D3 v2</td>
+                                        <td>4</td>
+                                        <td>14 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥7.624/小时<br/>( 约￥5,672.256/月 )</td>
+                                        <td>￥5.144/小时<br/>( 约￥3,827.136/月 )（~66%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D4 v2</td>
+                                        <td>8</td>
+                                        <td>28 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥15.248/小时<br/>( 约￥11,344.512/月 )</td>
+                                        <td>￥10.287/小时<br/>( 约￥7,653.528/月 )（~66%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services 企业 Dv2 系列虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-d1v2-d4v2">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<tr>
+										<td>D1 v2</td>
+                                        <td>1</td>
+                                        <td>3.5 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥10.584/小时<br/>( 约￥7,874.496/月 )</td>
+                                        <td>￥1.282/小时<br/>( 约￥953.808/月 )（~88%）</td>
+                                    </tr>
+									<tr>
+										<td>D2 v2</td>
+                                        <td>2</td>
+                                        <td>7 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥11.874/小时<br/>( 约￥8,834.256/月 )</td>
+                                        <td>￥2.572/小时<br/>( 约￥1,913.568/月 )（~88%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D3 v2</td>
+                                        <td>4</td>
+                                        <td>14 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥14.445/小时<br/>( 约￥10,747.08/月 )</td>
+                                        <td>￥5.144/小时<br/>( 约￥3,827.136/月 )（~88%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D4 v2</td>
+                                        <td>8</td>
+                                        <td>28 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥28.89/小时<br/>( 约￥21,494.16/月 )</td>
+                                        <td>￥10.287/小时<br/>( 约￥7,653.528/月 )（~88%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services 标准 Dv3 系列虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-d2v3-d64v3">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<tr>
+										<td>D2 v3</td>
+                                        <td>2</td>
+                                        <td>8 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥4.325/小时<br/>( 约￥3,217.8/月 )</td>
+                                        <td>￥1.845/小时<br/>( 约￥1,372.68/月 )（~57%）</td>
+                                    </tr>
+									<tr>
+										<td>D4 v3</td>
+                                        <td>4</td>
+                                        <td>16 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥6.164/小时<br/>( 约￥4,586.016/月 )</td>
+                                        <td>￥3.683/小时<br/>( 约￥2,740.152/月 )（~57%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D8 v3</td>
+                                        <td>8</td>
+                                        <td>32 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥12.326/小时<br/>( 约￥9,170.544/月 )</td>
+                                        <td>￥7.365/小时<br/>( 约￥5,479.56/月 )（~57%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D16 v3</td>
+                                        <td>16</td>
+                                        <td>64 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥24.645/小时<br/>( 约￥18,335.88/月 )</td>
+                                        <td>￥14.724/小时<br/>( 约￥10,954.656/月 )（~57%）</td>
+                                    </tr>
+									<tr>
+										<td>D32 v3</td>
+                                        <td>32</td>
+                                        <td>128 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥49.297/小时<br/>( 约￥36,676.968/月 )</td>
+                                        <td>￥29.454/小时<br/>( 约￥21,913.776/月 )（~57%）</td>
+                                    </tr>
+									<tr>
+										<td>D64 v3</td>
+                                        <td>64</td>
+                                        <td>256 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥98.594/小时<br/>( 约￥73,353.936/月 )</td>
+                                        <td>￥58.907/小时<br/>( 约￥43,826.808/月 )（~57%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services 企业 Dv3 系列虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-d2v3-d64v3">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<tr>
+										<td>D2 v3</td>
+                                        <td>2</td>
+                                        <td>8 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥11.15/小时<br/>( 约￥8,295.6/月 )</td>
+                                        <td>￥1.845/小时<br/>( 约￥1,372.68/月 )（~83%）</td>
+                                    </tr>
+									<tr>
+										<td>D4 v3</td>
+                                        <td>4</td>
+                                        <td>16 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥12.987/小时<br/>( 约￥9,662.328/月 )</td>
+                                        <td>￥3.683/小时<br/>( 约￥2,740.152/月 )（~83%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D8 v3</td>
+                                        <td>8</td>
+                                        <td>32 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥25.969/小时<br/>( 约￥19,320.936/月 )</td>
+                                        <td>￥7.365/小时<br/>( 约￥5,479.56/月 )（~83%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D16 v3</td>
+                                        <td>16</td>
+                                        <td>64 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥51.93/小时<br/>( 约￥38,635.92/月 )</td>
+                                        <td>￥14.724/小时<br/>( 约￥10,954.656/月 )（~83%）</td>
+                                    </tr>
+									<tr>
+										<td>D32 v3</td>
+                                        <td>32</td>
+                                        <td>128 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥103.86/小时<br/>( 约￥77,271.84/月 )</td>
+                                        <td>￥29.454/小时<br/>( 约￥21,913.776/月 )（~83%）</td>
+                                    </tr>
+									<tr>
+										<td>D64 v3</td>
+                                        <td>64</td>
+                                        <td>256 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥207.73/小时<br/>( 约￥154,551.12/月 )</td>
+                                        <td>￥58.907/小时<br/>( 约￥43,826.808/月 )（~83%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services 标准 Ev3 虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-e2v3-e64v3">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<tr>
+										<td>E2 v3</td>
+                                        <td>2</td>
+                                        <td>16 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥5.006/小时<br/>( 约￥3,724.464/月 )</td>
+                                        <td>￥2.525/小时<br/>( 约￥1,878.6/月 )（~50%）</td>
+                                    </tr>
+									<tr>
+										<td>E4 v3</td>
+                                        <td>4</td>
+                                        <td>32 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥7.53/小时<br/>( 约￥5,602.32/月 )</td>
+                                        <td>￥5.05/小时<br/>( 约￥3,757.2/月 )（~50%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E8 v3</td>
+                                        <td>8</td>
+                                        <td>64 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥15.061/小时<br/>( 约￥11,205.384/月 )</td>
+                                        <td>￥10.1/小时<br/>( 约￥7,514.4/月 )（~50%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E16 v3</td>
+                                        <td>16</td>
+                                        <td>128 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥30.122/小时<br/>( 约￥22,410.768/月 )</td>
+                                        <td>￥20.2/小时<br/>( 约￥15,028.8/月 )（~50%）</td>
+                                    </tr>
+									<tr>
+										<td>E32 v3</td>
+                                        <td>32</td>
+                                        <td>256 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥60.236/小时<br/>( 约￥44,815.584/月 )</td>
+                                        <td>￥40.393/小时<br/>( 约￥30,052.392/月 )（~50%）</td>
+                                    </tr>
+									<tr>
+										<td>E64 v3</td>
+                                        <td>64</td>
+                                        <td>432 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥115.83/小时<br/>( 约￥86,177.52/月 )</td>
+                                        <td>￥76.144/小时<br/>( 约￥56,651.136/月 )（~50%）</td>
+                                    </tr>
+                                </table>
+							
+							<h3>SQL Server Integration Services 企业 Ev3 虚拟机</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 31 天的使用量。</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-e2v3-e64v3">
+                                    <tr>
+										<th align="left"><strong>实例</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>内存（GB）</strong></th>
+                                        <th align="left"><strong>临时存储</strong></th>
+                                        <th align="left"><strong>包含许可证的价格</strong></th>
+                                        <th align="left"><strong>Azure 混合优惠<sup> 1</sup><br/>价格（节省率）</strong></th>
+                                    </tr>
+									<tr>
+										<td>E2 v3</td>
+                                        <td>2</td>
+                                        <td>16 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥11.824/小时<br/>( 约￥8,797.056/月 )</td>
+                                        <td>￥2.525/小时<br/>( 约￥1,878.6/月 )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>E4 v3</td>
+                                        <td>4</td>
+                                        <td>32 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥14.349/小时<br/>( 约￥10,675.656/月 )</td>
+                                        <td>￥5.05/小时<br/>( 约￥3,757.2/月 )（~79%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E8 v3</td>
+                                        <td>8</td>
+                                        <td>64 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥28.703/小时<br/>( 约￥21,355.032/月 )</td>
+                                        <td>￥10.1/小时<br/>( 约￥7,514.4/月 )（~79%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E16 v3</td>
+                                        <td>16</td>
+                                        <td>128 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥57.406/小时<br/>( 约￥42,710.064/月 )</td>
+                                        <td>￥20.2/小时<br/>( 约￥15,028.8/月 )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>E32 v3</td>
+                                        <td>32</td>
+                                        <td>256 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥114.86/小时<br/>( 约￥85,455.84/月 )</td>
+                                        <td>￥40.393/小时<br/>( 约￥30,052.392/月 )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>E64 v3</td>
+                                        <td>64</td>
+                                        <td>432 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥224.97/小时<br/>( 约￥167,377.68/月 )</td>
+                                        <td>￥76.144/小时<br/>( 约￥56,651.136/月 )（~79%）</td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+            <!-- END: TAB-CONTROL -->
+            
+
+            <div class="pricing-page-section">
+			    <div class="more-detail">
+			        <h2>常见问题</h2>
+			        <em>全部展开</em>
+			        <ul>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_prepare-ssis">预配 SQL Server Integration Services (SSIS) 的集成运行时需要在 Azure SQL 数据库实例上创建一个 SSIS 目录。是否需要为该 SSIS 目录的 SQL 数据库实例单独付费？</a>
+			                    <section>
+			                        <p>可以。必须单独为用于在 Azure 上承载 SSIS 目录的 SQL 数据库实例进行付费。可以使用现有的 SQL 数据库服务器或者在 Azure 订阅下新建一个。</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_can-I-use-sqlserver-hybrid">面向 SQL Server 的 Azure 混合权益是什么？我有资格使用它吗？</a>
+			                    <section>
+			                        <p>面向 SQL Server 的 Azure 混合权益是旨在帮助你从 Azure SQL Server Integration Services 上的 SQL Server 许可证中收获更多价值的服务。如果客户具有有效软件保障 Enterprise 版和 Standard 版的每核心许可证并选择将这些许可证移动到云，那么他们就有资格使用此服务。面向 SQL Server 的 Azure 混合权益不限于任何特定许可计划，但客户必须具备有效的软件保障范围。</p>
+									<p>通过 Azure 门户证明你的软件保障带有足够的有效许可证，即可激活 Azure 混合权益。</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_face-to-sqlserver-bybrid">能否以追溯方式应用面向 SQL Server 的 Azure 混合权益？</a>
+			                    <section>
+			                        <p>否。Azure 混合权益不能以追溯方式进行应用。</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_overdue-for-hybrid">如果软件保障到期，面向 SQL Server 的 Azure 混合权益会发生什么情况？</a>
+			                    <section>
+			                        <p>若要使用面向 SQL Server 的 Azure 混合权益，需要有效的软件保障。如果软件保障到期并且没有续订，系统会将你转到相应 SKU 的“包含许可证”的定价。</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_">能否同时在本地和云中使用 SQL Server 许可证？</a>
+			                    <section>
+			                        <p>为了便于进行迁移，Azure 提供了 180 天在本地和云中均可使用许可证的宽限期。在此之后，许可证必须只能在本地或云中使用。</p>
+			                    </section>
+			                </div>
+			            </li>
+					</ul>
+		        </div>
+	        </div>
+
+    		<div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+                <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="data-factory-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+				<p>若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/data-factory/" id="pricing_data-factory_sla">服务级别协议</a>页。</p>
+			</div>
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>价格详情 - 数据工厂 - SQL Server Integration Services | Azure云计算</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-data-factory-ssis</linkid>
+    <metaKeywords>Azure, 微软云, Data Factory SQL Server Integration Services, 价格详情, 定价, 计费</metaKeywords>
+    <metaDescription><![CDATA[Azure SQL Server Integration Services, SQL Server Integration Services, SQL Server Integration Services 定价, SQL Server Integration 常见问题解答, SQL Server 集成问题]]></metaDescription>
+    <urlDisplayName>价格详情 - 数据工厂 - SQL Server Integration Services</urlDisplayName>
+  </TextpageLeftNav>
+</localize>

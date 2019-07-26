@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-10-26T14:00:00" urlName="data-factory" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+	<tags ms.service="data-factory" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+	      	<style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style> 
+            
+			<div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">Not available in the selected region</div></div>
+            </div>
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/data-factory_banner.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/data-factory_icon@2x.svg" />
+                        <h2>Data Factory<span>Data Factory</span></h2>
+                        <h4>Hybrid data integration service that simpliflies ETL at scale</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_data-factory_trial">Apply for 1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_data-factory_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+			<div class="pricing-page-section">
+                <p>The Data Factory integration runtime (cloud-hosted only) provides a fully-managed execution environment for running <a href="https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview">SQL Server Integration Services packages</a>. Usage is charged by the hour and supports SQL Server Integration Services Standard and Enterprise <a href="https://docs.microsoft.com/en-us/sql/integration-services/integration-services-features-supported-by-the-editions-of-sql-server">capabilities</a> using <a href="https://www.azure.cn/pricing/details/virtual-machines">A-series, D-series, and E-series virtual machines (VMs)</a>. Learn more about A-series, D-series, and E-series VMs. Prices listed below are per machine node.</p>
+                <h2>SQL Server Integration Services pricing</h2>
+            </div>
+			<!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/Software:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Data Factory SSIS</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                            <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_data-factory-ssis">Data Factory SSIS</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Data Factory SSIS">Data Factory SSIS</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>Region:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">China East 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >China East 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >China North 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >China East</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >China North</a></li>	
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">China East 2</option>
+							<option data-href="#north-china2" value="north-china2">China North 2</option>
+							<option data-href="#east-china" value="east-china">China East</option>
+							<option data-href="#north-china" value="north-china">China North</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<h3>SQL Server Integration Services Standard A-series V2 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-a1v2-a8v2">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<!-- <tr>
+										<td>A1 v2</td>
+                                        <td>1</td>
+                                        <td>2 GB</td>
+                                        <td>10 GB</td>
+                                        <td>￥3.13/hour<br/>( about￥2,328.72/month )</td>
+                                        <td>￥0.649/hour<br/>( about￥482.856/month )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>A2 v2</td>
+                                        <td>2</td>
+                                        <td>4 GB</td>
+                                        <td>20 GB</td>
+                                        <td>￥3.843/hour<br/>( about￥2,859.192/month )</td>
+                                        <td>￥1.362/hour<br/>( about￥1,013.328/month )（~79%）</td>
+                                    </tr> -->
+                                    <tr>
+										<td>A4 v2</td>
+                                        <td>4</td>
+                                        <td>8 GB</td>
+                                        <td>40 GB</td>
+                                        <td>￥5.341/hour<br/>( about￥3,973.704/month )</td>
+                                        <td>￥2.86/hour<br/>( about￥2,127.84/month )（~79%）</td>
+                                    </tr>
+                                    <tr>
+										<td>A8 v2</td>
+                                        <td>8</td>
+                                        <td>16 GB</td>
+                                        <td>80 GB</td>
+                                        <td>￥6.009/hour<br/>( about￥4,470.696/month )</td>
+                                        <td>￥10.97/hour<br/>( about￥8,161.68/month )（~79%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services Enterprise A-series V2 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-a1v2-a8v2">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<!-- <tr>
+										<td>A1 v2</td>
+                                        <td>1</td>
+                                        <td>2 GB</td>
+                                        <td>10 GB</td>
+                                        <td>￥9.951/hour<br/>( about￥7,403.544/month )</td>
+                                        <td>￥0.649/hour<br/>( about￥482.856/month )（~93%）</td>
+                                    </tr>
+									<tr>
+										<td>A2 v2</td>
+                                        <td>2</td>
+                                        <td>4 GB</td>
+                                        <td>20 GB</td>
+                                        <td>￥10.664/hour<br/>( about￥7,934.016/month )</td>
+                                        <td>￥1.362/hour<br/>( about￥1,013.328/month )（~93%）</td>
+                                    </tr> -->
+                                    <tr>
+										<td>A4 v2</td>
+                                        <td>4</td>
+                                        <td>8 GB</td>
+                                        <td>40 GB</td>
+                                        <td>￥12.162/hour<br/>( about￥9,048.528/month )</td>
+                                        <td>￥2.86/hour<br/>( about￥2,127.84/month )（~93%）</td>
+                                    </tr>
+                                    <tr>
+										<td>A8 v2</td>
+                                        <td>8</td>
+                                        <td>16 GB</td>
+                                        <td>80 GB</td>
+                                        <td>￥24.612/hour<br/>( about￥18,311.328/month )</td>
+                                        <td>￥10.97/hour<br/>( about￥8,161.68/month )（~93%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services Standard D-series V2 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-d1v2-d4v2">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<tr>
+										<td>D1 v2</td>
+                                        <td>1</td>
+                                        <td>3.5 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥3.763/hour<br/>( about￥2,799.672/month )</td>
+                                        <td>￥1.282/hour<br/>( about￥953.808/month )（~66%）</td>
+                                    </tr>
+									<tr>
+										<td>D2 v2</td>
+                                        <td>2</td>
+                                        <td>7 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥5.052/hour<br/>( about￥3,758.688/month )</td>
+                                        <td>￥2.572/hour<br/>( about￥1,913.568/month )（~66%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D3 v2</td>
+                                        <td>4</td>
+                                        <td>14 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥7.624/hour<br/>( about￥5,672.256/month )</td>
+                                        <td>￥5.144/hour<br/>( about￥3,827.136/month )（~66%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D4 v2</td>
+                                        <td>8</td>
+                                        <td>28 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥15.248/hour<br/>( about￥11,344.512/month )</td>
+                                        <td>￥10.287/hour<br/>( about￥7,653.528/month )（~66%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services Enterprise D-series V2 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-d1v2-d4v2">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<tr>
+										<td>D1 v2</td>
+                                        <td>1</td>
+                                        <td>3.5 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥10.584/hour<br/>( about￥7,874.496/month )</td>
+                                        <td>￥1.282/hour<br/>( about￥953.808/month )（~88%）</td>
+                                    </tr>
+									<tr>
+										<td>D2 v2</td>
+                                        <td>2</td>
+                                        <td>7 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥11.874/hour<br/>( about￥8,834.256/month )</td>
+                                        <td>￥2.572/hour<br/>( about￥1,913.568/month )（~88%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D3 v2</td>
+                                        <td>4</td>
+                                        <td>14 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥14.445/hour<br/>( about￥10,747.08/month )</td>
+                                        <td>￥5.144/hour<br/>( about￥3,827.136/month )（~88%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D4 v2</td>
+                                        <td>8</td>
+                                        <td>28 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥28.89/hour<br/>( about￥21,494.16/month )</td>
+                                        <td>￥10.287/hour<br/>( about￥7,653.528/month )（~88%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services Standard D-series V3 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-d2v3-d64v3">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<tr>
+										<td>D2 v3</td>
+                                        <td>2</td>
+                                        <td>8 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥4.325/hour<br/>( about￥3,217.8/month )</td>
+                                        <td>￥1.845/hour<br/>( about￥1,372.68/month )（~57%）</td>
+                                    </tr>
+									<tr>
+										<td>D4 v3</td>
+                                        <td>4</td>
+                                        <td>16 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥6.164/hour<br/>( about￥4,586.016/month )</td>
+                                        <td>￥3.683/hour<br/>( about￥2,740.152/month )（~57%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D8 v3</td>
+                                        <td>8</td>
+                                        <td>32 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥12.326/hour<br/>( about￥9,170.544/month )</td>
+                                        <td>￥7.365/hour<br/>( about￥5,479.56/month )（~57%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D16 v3</td>
+                                        <td>16</td>
+                                        <td>64 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥24.645/hour<br/>( about￥18,335.88/month )</td>
+                                        <td>￥14.724/hour<br/>( about￥10,954.656/month )（~57%）</td>
+                                    </tr>
+									<tr>
+										<td>D32 v3</td>
+                                        <td>32</td>
+                                        <td>128 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥49.297/hour<br/>( about￥36,676.968/month )</td>
+                                        <td>￥29.454/hour<br/>( about￥21,913.776/month )（~57%）</td>
+                                    </tr>
+									<tr>
+										<td>D64 v3</td>
+                                        <td>64</td>
+                                        <td>256 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥98.594/hour<br/>( about￥73,353.936/month )</td>
+                                        <td>￥58.907/hour<br/>( about￥43,826.808/month )（~57%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services Enterprise D-series V3 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-d2v3-d64v3">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<tr>
+										<td>D2 v3</td>
+                                        <td>2</td>
+                                        <td>8 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥11.15/hour<br/>( about￥8,295.6/month )</td>
+                                        <td>￥1.845/hour<br/>( about￥1,372.68/month )（~83%）</td>
+                                    </tr>
+									<tr>
+										<td>D4 v3</td>
+                                        <td>4</td>
+                                        <td>16 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥12.987/hour<br/>( about￥9,662.328/month )</td>
+                                        <td>￥3.683/hour<br/>( about￥2,740.152/month )（~83%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D8 v3</td>
+                                        <td>8</td>
+                                        <td>32 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥25.969/hour<br/>( about￥19,320.936/month )</td>
+                                        <td>￥7.365/hour<br/>( about￥5,479.56/month )（~83%）</td>
+                                    </tr>
+                                    <tr>
+										<td>D16 v3</td>
+                                        <td>16</td>
+                                        <td>64 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥51.93/hour<br/>( about￥38,635.92/month )</td>
+                                        <td>￥14.724/hour<br/>( about￥10,954.656/month )（~83%）</td>
+                                    </tr>
+									<tr>
+										<td>D32 v3</td>
+                                        <td>32</td>
+                                        <td>128 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥103.86/hour<br/>( about￥77,271.84/month )</td>
+                                        <td>￥29.454/hour<br/>( about￥21,913.776/month )（~83%）</td>
+                                    </tr>
+									<tr>
+										<td>D64 v3</td>
+                                        <td>64</td>
+                                        <td>256 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥207.73/hour<br/>( about￥154,551.12/month )</td>
+                                        <td>￥58.907/hour<br/>( about￥43,826.808/month )（~83%）</td>
+                                    </tr>
+                                </table>
+
+							<h3>SQL Server Integration Services Standard E-series V3 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-standard-e2v3-e64v3">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<tr>
+										<td>E2 v3</td>
+                                        <td>2</td>
+                                        <td>16 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥5.006/hour<br/>( about￥3,724.464/month )</td>
+                                        <td>￥2.525/hour<br/>( about￥1,878.6/month )（~50%）</td>
+                                    </tr>
+									<tr>
+										<td>E4 v3</td>
+                                        <td>4</td>
+                                        <td>32 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥7.53/hour<br/>( about￥5,602.32/month )</td>
+                                        <td>￥5.05/hour<br/>( about￥3,757.2/month )（~50%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E8 v3</td>
+                                        <td>8</td>
+                                        <td>64 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥15.061/hour<br/>( about￥11,205.384/month )</td>
+                                        <td>￥10.1/hour<br/>( about￥7,514.4/month )（~50%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E16 v3</td>
+                                        <td>16</td>
+                                        <td>128 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥30.122/hour<br/>( about￥22,410.768/month )</td>
+                                        <td>￥20.2/hour<br/>( about￥15,028.8/month )（~50%）</td>
+                                    </tr>
+									<tr>
+										<td>E32 v3</td>
+                                        <td>32</td>
+                                        <td>256 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥60.236/hour<br/>( about￥44,815.584/month )</td>
+                                        <td>￥40.393/hour<br/>( about￥30,052.392/month )（~50%）</td>
+                                    </tr>
+									<tr>
+										<td>E64 v3</td>
+                                        <td>64</td>
+                                        <td>432 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥115.83/hour<br/>( about￥86,177.52/month )</td>
+                                        <td>￥76.144/hour<br/>( about￥56,651.136/month )（~50%）</td>
+                                    </tr>
+                                </table>
+							
+							<h3>SQL Server Integration Services Enterprise E-series V3 VM</h3>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="data-factory-ssis-enterprise-e2v3-e64v3">
+                                    <tr>
+										<th align="left"><strong>Instance</strong></th>
+                                        <th align="left"><strong>vCore</strong></th>
+                                        <th align="left"><strong>RAM（GB）</strong></th>
+                                        <th align="left"><strong>Temporary Storage</strong></th>
+                                        <th align="left"><strong>License Included Price</strong></th>
+                                        <th align="left"><strong>Azure Hybrid Benefit<sup> 1</sup> Price (% Savings)</strong></th>
+                                    </tr>
+									<tr>
+										<td>E2 v3</td>
+                                        <td>2</td>
+                                        <td>16 GB</td>
+                                        <td>50 GB</td>
+                                        <td>￥11.824/hour<br/>( about￥8,797.056/month )</td>
+                                        <td>￥2.525/hour<br/>( about￥1,878.6/month )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>E4 v3</td>
+                                        <td>4</td>
+                                        <td>32 GB</td>
+                                        <td>100 GB</td>
+                                        <td>￥14.349/hour<br/>( about￥10,675.656/month )</td>
+                                        <td>￥5.05/hour<br/>( about￥3,757.2/month )（~79%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E8 v3</td>
+                                        <td>8</td>
+                                        <td>64 GB</td>
+                                        <td>200 GB</td>
+                                        <td>￥28.703/hour<br/>( about￥21,355.032/month )</td>
+                                        <td>￥10.1/hour<br/>( about￥7,514.4/month )（~79%）</td>
+                                    </tr>
+                                    <tr>
+										<td>E16 v3</td>
+                                        <td>16</td>
+                                        <td>128 GB</td>
+                                        <td>400 GB</td>
+                                        <td>￥57.406/hour<br/>( about￥42,710.064/month )</td>
+                                        <td>￥20.2/hour<br/>( about￥15,028.8/month )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>E32 v3</td>
+                                        <td>32</td>
+                                        <td>256 GB</td>
+                                        <td>800 GB</td>
+                                        <td>￥114.86/hour<br/>( about￥85,455.84/month )</td>
+                                        <td>￥40.393/hour<br/>( about￥30,052.392/month )（~79%）</td>
+                                    </tr>
+									<tr>
+										<td>E64 v3</td>
+                                        <td>64</td>
+                                        <td>432 GB</td>
+                                        <td>1,600 GB</td>
+                                        <td>￥224.97/hour<br/>( about￥167,377.68/month )</td>
+                                        <td>￥76.144/hour<br/>( about￥56,651.136/month )（~79%）</td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+                <!-- END: TAB-CONTAINER-2 -->
+            
+            <!-- END: TAB-CONTROL -->
+
+            <div class="pricing-page-section">
+			    <div class="more-detail">
+			        <h2>FAQ</h2>
+        			<em>Expand all</em>
+			        <ul>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_prepare-ssis">Provisioning the integration runtime for SQL Server Integration Services (SSIS) requires that an SSIS catalog be created on an Azure SQL Database instance. Do I pay for the SQL Database instance for the SSIS catalog separately?</a>
+			                    <section>
+			                        <p>Yes. The SQL Database instance for hosting the SSIS catalog on Azure must be paid for separately. You can either use an existing SQL Database server or create a new one under your Azure subscription.</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_can-I-use-sqlserver-hybrid">What is the Azure Hybrid Benefit for SQL Server? Am I eligible for it?</a>
+			                    <section>
+			                        <p>Azure Hybrid Benefit for SQL Server is an offer designed to help you gain more value from your SQL Server licenses on Azure SQL Server Integration Services. Customers with active Software Assurance on Enterprise and Standard edition per-core licenses are eligible for the offer if they choose to move these licenses to the cloud. Azure Hybrid Benefit for SQL Server is not restricted to any specific licensing program, but you must have active Software Assurance coverage.</p>
+									<p>You can activate Azure Hybrid Benefit via the Azure portal by attesting you have sufficient active licenses with Software Assurance.</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_face-to-sqlserver-bybrid">Can I apply Azure Hybrid Benefit for SQL Server retroactively?</a>
+			                    <section>
+			                        <p>No. Azure Hybrid Benefit cannot be applied retroactively.</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_overdue-for-hybrid">What happens to my Azure Hybrid Benefit for SQL Server if my Software Assurance expires?</a>
+			                    <section>
+			                        <p>You need active Software Assurance to use Azure Hybrid Benefit for SQL Server. If your Software Assurance expires, and you don’t renew it, you’ll be moved to the license-included pricing of the relevant SKU.</p>
+			                    </section>
+			                </div>
+			            </li>
+						<li>
+			                <i class="icon icon-plus"></i>
+			                <div>
+			                    <a id="data-factory-ssis_">Can I use my SQL Server license both on-premises and in the cloud?</a>
+			                    <section>
+			                        <p>To facilitate migration, Microsoft provides a 180-day grace period for using licenses both on-premises and in the cloud. After this period, licenses must be used either on-premises or in the cloud.</p>
+			                    </section>
+			                </div>
+			            </li>
+					</ul>
+		        </div>
+	        </div>
+
+    		<div class="pricing-page-section">
+                <h2>Support &amp; SLA</h2>
+                <p>If you have any questions or need help, please visit <a href="/support/contact/" id="data-factory-ssis-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+				<p>To learn more about the details of the Service Level Agreement, please visit the <a href="/support/sla/data-factory/" id="pricing_data-factory_sla">Service Level Agreements</a> page.</p>
+			</div>
+
+            <!--BEGIN: Support and service code chunk-->
+            <!-- <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        -->
+            <!--END: Support and service code chunk-->                         
+    ]]>
+    </bodyText>
+    <pageTitle>Data Factory - SQL Server Integration Services - Pricing Details - Azure Cloud Computing</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-details-data-factory-ssis</linkid>
+    <metaKeywords>Azure, Azure Cloud Computing, Data Factory SQL Server Integration Services, pricing details, pricing, billing</metaKeywords>
+    <metaDescription><![CDATA[Azure SQL Server Integration Services, SQL Server Integration Services, SQL Server Integration Services Pricing, SQL Server Integration FAQ, SQL Server Integration Questions]]></metaDescription>
+    <urlDisplayName>Pricing Detail - Data Factory - SQL Server Integration Services</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
+
