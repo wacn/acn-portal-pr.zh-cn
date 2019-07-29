@@ -140,6 +140,52 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
+                                <a id="CDN_Peak_Value_Bandwidth_Billing_Explanation">带宽峰值计费说明？</a>
+                                <section>
+                                <br/>
+                                <p>带宽峰值计费主要包含月 95 计费和平均峰计费，需联系世纪互联进行设置。具体如下：</p>
+                                <p><strong>1.月 95 计费</strong></p>
+                                <p>按自然月作为计费周期。在一个自然月内，对计费订阅号取每一个有效天（>1Kbps）的每 5 分钟粒度的带宽值，并进行降序排序，去掉前 5% 的统计点，剩下的最大的统计点，即为计费带宽。产生的带宽 > 1Kbps 记为有效天。</p>
+                                <p>以一月 30 天为例，有效天数为 20 天：每 5 分钟取一个带宽值，每小时取 12 个点，有效点数为 12 x 24 x 20 = 5760 个点；将所有的点按带宽值降序排列，去掉前 5% 的点 5760 x 5% = 288 个点，即第 289 个点为计费点（Max95），计费为 Max95 x 单价 x 20 / 30 。</p>
+                                <p><strong>2.平均峰计费</strong></p>
+                                <p>按自然月为计费周期。在一个自然月内，对计费订阅号取每一个有效天（ > 1Kbps）的峰值取平均，得到计费带宽。产生的带宽 > 1Kbps 记为有效天。</p>
+                                <p>以一月 30 天为例，有效天是 20，取有效天峰值作为当日的有效带宽。以此类推取所有有效天的带宽。然后取值有效天之和，除去有效天，计费为(Peak1 + Peak2 + ...+ Peak 20)/20。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="CDN_price_What_is_the_relationship_between_Content_Delivery_Network_flow_and_back-to-source_flow">CDN流量和回源流量关系？</a>
+                                <section>
+                                <br/>
+                                    <ul>
+                                        <li>CDN 流量表示缓存命中</li>
+                                        <li>回原流量表示 MISS 部分</li>
+                                    </ul>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="CDN_price_What_is_the_difference_between_log_traffic_and_paid_traffic">日志流量和计费流量的区别？</a>
+                                <section>
+                                <br/>
+                                <p>CDN 加速域名实际产生的网络流量数据比日志流量数据高出 7%-15%。此差异是因为日志流量数据属于应用层统计的流量，互联网传输过程除了应用日志统计的流量之外，还会有 TCP/IP 包头和 TCP 重传等带来的额外网络消耗。</p>
+                                    <ul>
+                                        <li>TCP/IP 包头的消耗：基于 HTTP 协议的互联网数据包大小是 1500 个字节，其中包含 TCP 和 IP 协议的 40 个字节的包头长度。包头部分产生的流量，无法被应用层统计到，所以应用层日志记录到的流量就只有 1460 个字节。因此，包头部分的流量占到应用层日志统计流量的 2.74%（40/1460），也就是 3% 左右数据误差。</li>
+                                        <li>TCP 重传：由于互联网网络负载的波动，会导致 3-10% 左右的数据包会被互联网丢弃。但是服务器会根据 TCP 协议的重传机制对丢包数据进行重传。重传的数据流量也不会被应用层统计到。</li>
+                                    </ul>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
                                 <a id="CDN_price_question4">哪些因素会影响 CDN 本地缓存中内容的可用性，如何降低对频繁发出原始请求的需求？ </a>
                                 <section>
                                     <p>CDN 本地缓存中内容的可用性（通常称为“缓存功效”或“卸载”）会受到许多因素的影响，其中包括：</p>
@@ -200,20 +246,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- <div class="pricing-page-section">
-                <h2>上市地区</h2>
-                <p>CDN 服务在以下区域中提供：</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>地域</strong></th>
-                        <th align="left"><strong>区域</strong></th>
-                    </tr>
-                    <tr>
-                        <td>中国大陆</td>
-                        <td>中国东部数据中心 , 中国北部数据中心</td>
-                    </tr>
-                </table>
-            </div> -->
+           
            <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="cdn-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
