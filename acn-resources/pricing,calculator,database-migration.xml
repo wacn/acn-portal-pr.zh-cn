@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<localize>
+  <TextpageLeftNav template="6" createDate="2016-06-29T18:44:24" updateDate="2016-06-29T18:44:24" urlName="database-migration" writerName="content" creatorName="content">
+    <bodyText>
+      <![CDATA[
+           <tags ms.service="database-migration" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+
+            <!-- BEGIN: Product-Detail-TopBanner -->
+            <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/database-migration_banner.png','imageHeight':'auto'}">
+                <div class="common-banner-image">
+                    <div class="common-banner-title">
+                        <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/database-migration_icon@2x.svg" />
+                        <h2>Azure 数据库迁移服务<span>Azure Database Migration Service</span></h2>
+                        <h4>加速转换到云</h4>
+                        <em><a href="/pricing/1rmb-trial/" id="home_mysql_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
+                        <a href="/pricing/pia/" id="home_database-migration_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Product-Detail-TopBanner -->
+            <!-- BEGIN: Pricing calculator -->
+            <div class="pricing-page-section">                      
+                <div id="calculator" data-service="database-migration data-transferenter data-transfer support" data-addService=""></div>
+
+                <!-- BEGIN: Pricing calculator Sidebar-->                      
+                <div class="sidebar-win calculator empty hide">
+                    <div class="control">
+                        <a href="#" class="close" id="closeCalculator"></a>
+                    </div>
+                    <ul class="calcul-list">
+                        <span class="nothing">您还没有选择要估算价格的服务，调整左边数量进行添加</span>
+                    </ul>
+                    <div class="summary">
+                        <div class="total">
+                            总价
+                            <p>
+                                <span class="num">￥0.00</span>
+                                <span class="unit">/月</span>
+                            </p>
+                        </div>
+                        <div class="btn-group">
+                            <a class="calcul-btn buy" href="/pricing/pia/" id="sidebarWinCalculBuy">去购买</a>
+                            <a class="calcul-btn-white export" href="#" id="sidebarWinCalculExport">导出清单</a>
+                            <a class="calcul-btn-white reset" href="#" id="sidebarWinCalculReset">重置</a>
+                        </div>
+                        <p class="summary-text">
+                            还在犹豫不决？先<a href="/pricing/1rmb-trial/" id="sidebarWinCalculTry">试用</a>这些功能
+                        </p>
+                    </div>
+                </div>
+             
+                <!-- start calculator modal -->
+                <div class="preload">
+                    <img src="//wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/css/img/right.png">
+                </div>
+                <div class="modal modal-calculator hide">
+                    <div class="container">
+                        <a href="#" class="close" id="closeCalculatorModal"></a>
+                        <p>我们将会把不同页面选择的服务项目添加到右边列表合并计算。您也可以手动删除或清空。</p>
+                        <span class="checkbox-rect"></span>下次不再提示
+                        <a class="btn btn-continue" href="#">知道了</a>
+                    </div>
+                </div>
+                <!-- end calculator modal -->
+                <!-- start calculator shopinglist template -->
+                <script type="text/template" id="templPricingShopingList">
+                    <% _.each(shopingList, function(item){%>
+                    <li class="calcul-item">
+                        <img src="<%= item.logoUrl %>">
+                        <a class="delete" href="#"></a>
+                        <div class="info">
+                            <div class="name">
+                                <span class="short" title="<%= item.name %>"><%= item.name %></span>
+                                <% if(item.name.length > 10) { %>
+                                <span>...</span>
+                                <% } %>
+                            </div>
+                            <span class="type">
+                                <% _.each(item.details, function(detail){ %>
+                                <%= detail  %>&nbsp;&nbsp;
+                                <% }) %>
+                            </span>
+                        </div>
+                        <div class="time">
+                            <%= item.number %><%= item.unit %>
+                        </div>
+                        <div class="detail">
+                            <div class="price">
+                                <span class="num">￥<%= item.currentMoney %></span>
+                                <span class="unit">/月</span>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                    <% if(shopingList.length == 0){ %>
+                    <span class="nothing">您还没有选择要估算价格的服务，调整左边数量进行添加</span>
+                    <% } %>
+                </script>
+                <!-- end calculator shopinglist template -->
+                <!-- start calculator animation layer -->
+                <div class="anima-calculator hide">
+                    +1
+                </div>
+                <!-- end calculator animation layer -->
+                <div class="azsidebar"></div>  
+                <!-- END: Pricing calculator Sidebar-->                  
+            </div>
+            <!-- END: Pricing calculator -->
+            <!--BEGIN: Support and service code chunk-->
+            <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />                                                                        
+            <!--END: Support and service code chunk-->                
+    ]]>
+    </bodyText>
+    <pageTitle>价格估算器 - Azure 数据库迁移服务 | Azure</pageTitle>
+    <sitemapHide>0</sitemapHide>
+    <linkid>pricing-calculator-database-migration</linkid>
+     <metaKeywords>Azure, 微软云, Azure 数据库迁移服务定价价格</metaKeywords>
+    <metaDescription><![CDATA[针对您的方案，估算 Azure 数据库迁移服务的使用成本。可任意选择各种所需服务，及其不同的类型、级别、配置、实例等，轻松查看单价和总价，估算所需费用；也可导出清单，易于报价。1元试用即获1500元人民币的服务使用额度，也可直接购买成为 Azure 预付费客户。]]></metaDescription>
+    <urlDisplayName>价格估算器 - Azure 数据库迁移服务</urlDisplayName>
+  </TextpageLeftNav>
+</localize>
+

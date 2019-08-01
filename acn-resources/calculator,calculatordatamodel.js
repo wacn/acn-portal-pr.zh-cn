@@ -26195,6 +26195,54 @@ var CalculatorData = {
                     }]
             }]
         },
+        "database-migration": {
+            Name: "Azure 数据库迁移服务",
+            Types: [
+                {
+                    Name: "标准",
+                    Features: [{
+                        Name: "default",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "Azure DMS 标准版支持离线迁移，可自由使用。",
+                            PriceTier: PriceTierEnum.Free,
+                            PricePerTier: "0",
+                        }]
+                    }]
+                },
+                {
+                    Name: "高级",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [
+                        {
+                            Name: "vCore 4",
+                            Description: "4 个内核",
+                            PriceTier: PriceTierEnum.Fixed,
+                            PricePerTier: "1.9"
+                        }
+                        // ,
+                        // {
+                        //     Name: "vCore 8",
+                        //     Description: "8 个内核",
+                        //     PriceTier: PriceTierEnum.Fixed,
+                        //     PricePerTier: "3.8"
+                        // },
+                        // {
+                        //     Name: "vCore 16",
+                        //     Description: "16 个内核",
+                        //     PriceTier: PriceTierEnum.Fixed,
+                        //     PricePerTier: "7.59"
+                        // }
+                    ]
+                    }]
+                },
+            ]
+        },
     }
 };
 //  return CalculatorData;
