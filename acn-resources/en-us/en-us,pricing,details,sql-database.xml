@@ -205,6 +205,7 @@
                                     <div class="ms-date"><sup>1 </sup>Applies to SQL Server Licenses with active Software Assurance (SA). Learn more about<a href="/pricing/hybrid-benefit/">Azure Hybrid benefit for SQL Server</a>.</div><br/>
                                     <div class="ms-date">Compute is provisioned in virtual cores (vCores) with an option to choose between compute generations.</div>
                                 </div>
+
                                 <h4>Gen 5</h4>
                                 <p>Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. In Gen 5, 1 vCore = 1 hyper thread</p>
                                 <table cellpadding="0" cellspacing="0" width="100%" id="sqldb-elastic-vcore-general-purpose-gen5">
@@ -290,29 +291,10 @@
                                         <td>￥ 0.8631</td>
                                     </tr>
                                 </table>
-                                <h4>Backup Storage</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
-                                    <tr>
-                                        <th align="left"> </th>
-                                        <th align="left"><strong>Price</strong></th>
-                                    </tr>
-                                    <tr>
-                                        <td>RA-GRS</td>
-                                        <td>￥ 2.0352</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ZRS</td>
-                                        <td>￥ 1.272</td>
-                                    </tr>
-                                    <tr>
-                                        <td>LRS</td>
-                                        <td>￥ 0.7505</td>
-                                    </tr>
-                                </table>
 
+                                <h4>Backup Storage</h4>
                                 <h4>Point-In-Time Restore</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <p>By default, seven days of database backups are stored in RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every five minutes. The backup cost depends on the size of the database and the rate of change. The storage amount up to 100 percent of database size is provided at no extra charge. Additional backup storage consumption will be charged in GB/month.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -333,6 +315,7 @@
                                 </table>
 
                                 <h4>Long Term Retention Storage</h4>
+                                <p>Many applications have regulatory, compliance, or other business purposes that require you to retain database backups for longer periods of time. By using the long-term retention (LTR) feature, you can store full backups for up to 10 years. You can then restore any backup as a new database.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
@@ -499,8 +482,10 @@
                                         <td>￥ 1.8762</td>
                                     </tr>
                                 </table>
+
                                 <h4>Backup Storage</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <h4>Point-In-Time Restore</h4>
+                                <p>By default, seven days of database backups are stored in RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every five minutes. The backup cost depends on the size of the database and the rate of change. The storage amount up to 100 percent of database size is provided at no extra charge. Additional backup storage consumption will be charged in GB/month.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -508,19 +493,20 @@
                                     </tr>
                                     <tr>
                                         <td>RA-GRS</td>
-                                        <td>￥ 2.0352</td>
+                                        <td>￥ 1.501/GB/month</td>
                                     </tr>
                                     <tr>
                                         <td>ZRS</td>
-                                        <td>￥ 1.272</td>
+                                        <td>￥ 0.938/GB/month</td>
                                     </tr>
                                     <tr>
                                         <td>LRS</td>
-                                        <td>￥ 0.7505</td>
+                                        <td>￥ 0.75/GB/month</td>
                                     </tr>
                                 </table>
 
                                 <h4>Long Term Retention Storage</h4>
+                                <p>Many applications have regulatory, compliance, or other business purposes that require you to retain database backups for longer periods of time. By using the long-term retention (LTR) feature, you can store full backups for up to 10 years. You can then restore any backup as a new database.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
@@ -978,8 +964,9 @@
                                     </tr>
                                 </table> -->
 
+                                <h4>Backup Storage</h4>
                                 <h4>Point-In-Time Restore</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <p>By default, seven days of database backups are stored in RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every five minutes. The backup cost depends on the size of the database and the rate of change. The storage amount up to 100 percent of database size is provided at no extra charge. Additional backup storage consumption will be charged in GB/month.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -1000,6 +987,7 @@
                                 </table>
                                 
                                 <h4>Long Term Retention Storage</h4>
+                                <p>Many applications have regulatory, compliance, or other business purposes that require you to retain database backups for longer periods of time. By using the long-term retention (LTR) feature, you can store full backups for up to 10 years. You can then restore any backup as a new database.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
@@ -1173,29 +1161,10 @@
                                         <td>￥ 0.8631</td>
                                     </tr>
                                 </table>
-                                <h4>Backup Storage</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
-                                <table cellpadding="0" cellspacing="0" width="100%">
-                                    <tr>
-                                        <th align="left"> </th>
-                                        <th align="left"><strong>Price</strong></th>
-                                    </tr>
-                                    <tr>
-                                        <td>RA-GRS</td>
-                                        <td>￥  2.0352</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ZRS</td>
-                                        <td>￥ 1.272</td>
-                                    </tr>
-                                    <tr>
-                                        <td>LRS</td>
-                                        <td>￥ 0.7505</td>
-                                    </tr>
-                                </table>
 
+                                <h4>Backup Storage</h4>
                                 <h4>Point-In-Time Restore</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <p>By default, seven days of database backups are stored in RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every five minutes. The backup cost depends on the size of the database and the rate of change. The storage amount up to 100 percent of database size is provided at no extra charge. Additional backup storage consumption will be charged in GB/month.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -1216,6 +1185,7 @@
                                 </table>
                                 
                                 <h4>Long Term Retention Storage</h4>
+                                <p>Many applications have regulatory, compliance, or other business purposes that require you to retain database backups for longer periods of time. By using the long-term retention (LTR) feature, you can store full backups for up to 10 years. You can then restore any backup as a new database.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
@@ -1385,7 +1355,8 @@
                                 </table>
 
                                 <h4>Backup Storage</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <h4>Point-In-Time Restore</h4>
+                                <p>By default, seven days of database backups are stored in RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every five minutes. The backup cost depends on the size of the database and the rate of change. The storage amount up to 100 percent of database size is provided at no extra charge. Additional backup storage consumption will be charged in GB/month.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -1393,19 +1364,20 @@
                                     </tr>
                                     <tr>
                                         <td>RA-GRS</td>
-                                        <td>￥ 2.0352</td>
+                                        <td>￥ 1.501/GB/month</td>
                                     </tr>
                                     <tr>
                                         <td>ZRS</td>
-                                        <td>￥ 1.272</td>
+                                        <td>￥ 0.938/GB/month</td>
                                     </tr>
                                     <tr>
                                         <td>LRS</td>
-                                        <td>￥ 0.7505</td>
+                                        <td>￥ 0.75/GB/month</td>
                                     </tr>
                                 </table>
 
                                 <h4>Long Term Retention Storage</h4>
+                                <p>Many applications have regulatory, compliance, or other business purposes that require you to retain database backups for longer periods of time. By using the long-term retention (LTR) feature, you can store full backups for up to 10 years. You can then restore any backup as a new database.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left">
@@ -1576,7 +1548,8 @@
                                 </table>
 
                                 <h4>Backup Storage</h4>
-                                <p>7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The backup cost depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.</p>
+                                <h4>Point-in-time restore</h4>
+                                <p>By default, seven days of database backups are stored in RA-GRS Standard blob storage. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every five minutes. The backup cost depends on the size of the database and the rate of change. The storage amount up to 100 percent of database size is provided at no extra charge. Additional backup storage consumption will be charged in GB/month.</p>
                                 <table cellpadding="0" cellspacing="0" width="100%">
                                     <tr>
                                         <th align="left"> </th>
@@ -1584,15 +1557,15 @@
                                     </tr>
                                     <tr>
                                         <td>RA-GRS</td>
-                                        <td>￥ 2.0352</td>
+                                        <td>￥ 1.501/GB/month</td>
                                     </tr>
                                     <tr>
                                         <td>ZRS</td>
-                                        <td>￥ 1.272</td>
+                                        <td>￥ 0.938/GB/month</td>
                                     </tr>
                                     <tr>
                                         <td>LRS</td>
-                                        <td>￥ 0.7505</td>
+                                        <td>￥ 0.75/GB/month</td>
                                     </tr>
                                 </table>
 
@@ -2558,7 +2531,11 @@
                 <p>We ensure customers will be able to establish a connection between the Web Edition or Enterprise Edition Azure SQL Database and our Internet Gateway at least 99.9% of the time.</p>
                 <p>To learn more about the details of our Service Level Agreement, please visit the <a href="/support/sla/sql-data/" id="pricing_database_sla">Service Level Agreements</a> page.</p>
             </div>
-                <!--BEGIN: Support and service code chunk--> <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  <!--END: Support and service code chunk-->                                                                                    
+                <!--BEGIN: Support and service code chunk--> 
+                <!--<?UMBRACO_MACRO chunkpath="production" chunkname="support-and-service" macroAlias="blankCodeChunk" />--> 
+                <!--END: Support and service code chunk--> <!--BEGIN: Support and service code chunk--> 
+                <?UMBRACO_MACRO chunkpath="production" chunkname="production-bottom-banner" macroAlias="blankCodeChunk" />  
+                <!--END: Support and service code chunk-->                                                                          
     
     ]]></bodyText>
     <pageTitle>Azure SQL Database Pricing Details - Azure Cloud Computing</pageTitle>
