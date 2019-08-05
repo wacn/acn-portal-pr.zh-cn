@@ -22628,13 +22628,13 @@ var CalculatorData = {
                         Name: "S2",
                         Description: "消费总数每天为 6000000，消费计算大小为 4KB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3888",
+                        PricePerTier: "2544",
                     },
                     {
                         Name: "S3",
                         Description: "消费总数每天为 300000000，消费计算大小为 4KB",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "38880",
+                        PricePerTier: "25440",
                     }]
                 }]
             }]
