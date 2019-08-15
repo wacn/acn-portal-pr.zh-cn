@@ -3,7 +3,7 @@
   <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-10-26T14:00:00" urlName="storage-blobs" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
-					<tags ms.service="storage-blobs" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+		<tags ms.service="storage-blobs" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
 	      	<style type="text/css">
 	            .pricing-detail-tab .tab-nav{
 	                padding-left: 0!important;
@@ -353,13 +353,13 @@
 																		<td align="center">￥0.09</td>
 																	</tr>
 																	<tr>
-																		<td>读取操作（按 10,000 计）<sup>3</sup></td>
-																		<td align="center">￥0.015</td>
-																		<td align="center">￥0.03</td>
-																		<td align="center">￥31.825</td>
-																		<td align="center">￥0.015</td>
-																		<td align="center">￥0.03</td>
-																		<td align="center">￥31.825</td>							   
+																		<td>读取操作（按 10,000 计）<sup>3</sup><p>存档优先级读取（按 10,000 计<sup>5</sup></p></td>
+																		<td align="center">￥0.015<p>N/A</p></td>
+																		<td align="center">￥0.03<p>N/A</p></td>
+																		<td align="center">￥31.825<p>￥254.4</p></td>
+																		<td align="center">￥0.015<p>N/A</p></td>
+																		<td align="center">￥0.03<p>N/A</p></td>
+																		<td align="center">￥31.825<p>￥254.4</p></td>							   
 																	</tr>
 																	<tr>
 																		<td>除删除（此操作免费）之外的其他操作（按10,000计）</td>
@@ -371,13 +371,13 @@
 																		<td align="center">￥0.040704</td>
 																	</tr>
 																	<tr>
-																		<td>数据检索 (GB) <sup>4</sup></td>
-																		<td align="center">免费</td>
-																		<td align="center">￥0.0657</td>
-																		<td align="center">￥0.127</td>
-																		<td align="center">免费</td>
-																		<td align="center">￥0.0657</td>
-																		<td align="center">￥0.127</td>
+																		<td>数据检索 (GB) <sup>4</sup><p>存档优先级检索（按 GB 计）<sup>5</sup></p></td>
+																		<td align="center">免费<p>N/A</p></td>
+																		<td align="center">￥0.0657<p>N/A</p></td>
+																		<td align="center">￥0.127<p>￥0.5088</p></td>
+																		<td align="center">免费<p>N/A</p></td>
+																		<td align="center">￥0.0657<p>N/A</p></td>
+																		<td align="center">￥0.127<p>￥0.5088</p></td>
 																	</tr>
 																	<tr>
 																		<td>数据写入 (GB) <sup>4</sup></td>
@@ -395,6 +395,7 @@
 																<div class="ms-date"><sup>2</sup> 以下 API 调用视为列表和创建容器操作: ListBlobs, ListContainers, and CreateContainer.</div><br />
 																<div class="ms-date"><sup>3</sup> 以下 API 调用视为读取操作：GetBlob 和 SetBlobTier（将 blob 从“存档”移到“冷”，从“冷”移到“热”或从“存档”移到“热”。）。</div><br />
 																<div class="ms-date"><sup>4</sup> 单独收取<a style="font-size:12px;" href="https://www.azure.cn/pricing/details/bandwidth">网络费用</a>。</div><br />
+																<div class="ms-date"><sup>5</sup> 优先级请求限时提供公开预览版。当前显示的价格是公开预览版价格。<a style="font-size:12px;" href="https://docs.azure.cn/storage/blobs/storage-blob-storage-tiers">详细了解优先级存档</a></div><br />
 																<div class="ms-date">对于“存档”中的 blob，仅以下操作有效：GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。将“存档”层设置为“热”层或“冷”层通常需要 15 小时才能完成。</div>
 															</div>
 
@@ -534,7 +535,6 @@
 																	<th align="left"><strong></strong></th>
 																	<th align="center" colspan="2"><strong>本地冗余存储 (LRS)</strong></th>
 																	<th align="center" colspan="2"><strong>异地冗余存储 (GRS) 和 读取访问跨异地冗余存储(RA-GRS)</strong></th>
-																	
 																</tr>
 																<tr>
 																	<td></td>
@@ -558,7 +558,7 @@
 																	<td align="center">￥0.09</td>
 																</tr>
 																<tr>
-																	<td>读取操作（按 10,000 计）<sup>3</sup></td>
+																	<td>读取操作（按 10,000 计）<sup>3</sup><p>存档优先级读取（按 10,000 计）<sup>5</sup></p></td>
 																	<td align="center">￥0.03</td>
 																	<td align="center">￥0.015</td>
 																	<td align="center">￥0.03</td>
@@ -573,7 +573,7 @@
 																
 																</tr>
 																<tr>
-																	<td>数据检索 (GB) <sup>4</sup></td>
+																	<td>数据检索 (GB) <sup>4</sup><p>存档优先级检索（按 GB 计）<sup>5</sup></p></td>
 																	<td align="center">￥0.0657</td>
 																	<td align="center">免费</td>
 																	<td align="center">￥0.0657</td>
@@ -592,6 +592,7 @@
 																<div class="ms-date"><sup>2</sup> 以下 API 调用视为列表和创建容器操作: ListBlobs, ListContainers, and CreateContainer.</div><br />
 																<div class="ms-date"><sup>3</sup> 以下 API 调用视为读取操作：GetBlob 和 SetBlobTier（将 blob 从“存档”移到“冷”，从“冷”移到“热”或从“存档”移到“热”。）。</div><br />
 																<div class="ms-date"><sup>4</sup> 单独收取<a style="font-size:12px;" href="https://www.azure.cn/pricing/details/bandwidth">网络费用</a>。</div><br />
+																<!-- <div class="ms-date"><sup>5</sup> 优先级请求限时提供公开预览版。当前显示的价格是公开预览版价格。<a style="font-size:12px;" href="https://docs.azure.cn/storage/blobs/storage-blob-storage-tiers">详细了解优先级存档</a>。</div><br /> -->
 																<div class="ms-date">对于“存档”中的 blob，仅以下操作有效：GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。将“存档”层设置为“热”层或“冷”层通常需要 15 小时才能完成。</div>
 															</div>
 
