@@ -833,13 +833,13 @@ var CalculatorData = {
                         Name: "E2 v3/E2s v3",
                         Description: "2个内核，16 GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.、521"
+                        PricePerTier: "1.521"
                     },
                     {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32 GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.043"
+                        PricePerTier: "3.042"
                     },
                     {
                         Name: "E8 v3/E8s v3",
@@ -2479,7 +2479,7 @@ var CalculatorData = {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.2465"
+                        PricePerTier: "3.2455"
                     },
                     {
                         Name: "E8 v3/E8s v3",
@@ -3156,7 +3156,7 @@ var CalculatorData = {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.587"
+                        PricePerTier: "5.586"
                     },
                     {
                         Name: "E8 v3/E8s v3",
@@ -3816,7 +3816,7 @@ var CalculatorData = {
                         Name: "E4 v3/E4s v3",
                         Description: "4个内核，32GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "12.583"
+                        PricePerTier: "12.582"
                     },
                     {
                         Name: "E8 v3/E8s v3",
