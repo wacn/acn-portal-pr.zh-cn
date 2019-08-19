@@ -385,7 +385,8 @@ var CalculatorData = {
             },
             {
                 Name: "标准",
-                Features: [{
+                Features: [
+                    {
                     Name: "A 系列",
                     Description: "A 系列",
                     PricePeriod: PricePeriodEnum.Hourly,
@@ -791,16 +792,7 @@ var CalculatorData = {
                         Description: "16个内核，128 GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "12.84"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列 / ESv3 系列",
-                    Description: "Ev3 系列/ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160 GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
@@ -815,17 +807,8 @@ var CalculatorData = {
                         Name: "E48 v3/E48s v3",
                         Description: "48个内核，384 GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "24.34"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列 /ESv3 系列",
-                    Description: "Ev3 系列/ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                        PricePerTier: "36.51"
+                    },{
                         Name: "E64i v3/E64is v3",
                         Description: "64个内核，432 GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
@@ -838,6 +821,67 @@ var CalculatorData = {
                         PricePerTier: "51.33"
                     }]
                 },
+                
+                {
+                    Name: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列/ESv3 系列  - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.、521"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.043"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.085"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.17"
+                    },{
+                        Name: "E20 v3/ES20 v3",
+                        Description: "20个内核，160 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "15.211"
+                    },
+                    {
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "24.34"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "36.51"
+                    },{
+                        Name: "E64i v3/E64is v3",
+                        Description: "64个内核，432 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "43.811"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432 GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "43.811"
+                    }]
+                },
+                
                 {
                     Name: "Dv2系列/DSv2系列",
                     Description: "Dv2系列/DSv2系列",
@@ -1518,16 +1562,7 @@ var CalculatorData = {
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.67"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列/ESv3 系列",
-                    Description: "Ev3 系列 / ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM，500GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -1543,16 +1578,7 @@ var CalculatorData = {
                         Description: "48个内核，384GiB RAM，1200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "22.467"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列/ ESv3 系列",
-                    Description: "Ev3 系列 / ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -1563,6 +1589,65 @@ var CalculatorData = {
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "46.66"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列 / ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列 / ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16GiB RAM，50GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.936"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32GiB RAM，100GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.872"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64GiB RAM，200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.75"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128GiB RAM，400GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.49"
+                    },{
+                        Name: "E20 v3/ES20 v3",
+                        Description: "20个内核，160GiB RAM，500GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.36"
+                    },
+                    {
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256GiB RAM，800GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.978"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384GiB RAM，1200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "22.467"
+                    },{
+                        Name: "E64 v3/E64is v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "26.96"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "26.96"
                     }]
                 },
                 {
@@ -2353,22 +2438,12 @@ var CalculatorData = {
                         Description: "20个内核，160GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "16.2286"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列 / ESv3 系列",
-                    Description: "Ev3 系列/ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "27.28816"
-                    },
-                    {
+                    },{
                         Name: "E48 v3/E48s v3",
                         Description: "48个内核，384GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
@@ -2387,6 +2462,66 @@ var CalculatorData = {
                         PricePerTier: "54.58632"
                     }]
                 },
+                {
+                    Name: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.7245"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.2465"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.492"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.9841"
+                    },{
+                        Name: "E20 v3/E20s v3",
+                        Description: "20个内核，160GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "16.2286"
+                    },{
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.9682"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "38.9522"
+                    },
+                    {
+                        Name: "E64i v3/E64is v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "47.0673"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "47.0673"
+                    }]
+                },
+                
                 {
                     Name: "Dv2 系列/DS v2 系列",
                     Description: "Dv2 系列",
@@ -2980,16 +3115,7 @@ var CalculatorData = {
                         Description: "20个内核，160GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "27.931"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列 / ESv3 系列",
-                    Description: "Ev3 系列/ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
@@ -3013,7 +3139,65 @@ var CalculatorData = {
                         PricePerTier: "92.034"
                     }]
                 },
-                
+                {
+                    Name: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.065"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "5.587"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.173"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "22.346"
+                    },{
+                        Name: "E20 v3/E20s v3",
+                        Description: "20个内核，160GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "27.931"
+                    },{
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "44.692"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "67.038"
+                    },
+                    {
+                        Name: "E64i v3/E64is v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "84.515"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "84.515"
+                    }]
+                },
                 {
                     Name: "Dv2 / Dsv2 系列",
                     Description: "D11-15 v2系列/Ds11-15 v2系列",
@@ -3591,22 +3775,12 @@ var CalculatorData = {
                         Description: "20个内核，160GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "62.911"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列 / ESv3 系列",
-                    Description: "Ev3 系列/ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E32 v3/E32s v3",
                         Description: "32个内核，256GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "101.98"
-                    },
-                    {
+                    },{
                         Name: "E48 v3/E48s v3",
                         Description: "48个内核，384GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
@@ -3623,6 +3797,65 @@ var CalculatorData = {
                         Description: "64个内核，432GiB RAM",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "203.97"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列/ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.061"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.583"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.165"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "50.33"
+                    },{
+                        Name: "E20 v3/E20s v3",
+                        Description: "20个内核，160GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "62.911"
+                    },{
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "100.66"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "150.99"
+                    },
+                    {
+                        Name: "E64i v3/E64is v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "196.451"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432GiB RAM",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "196.451"
                     }]
                 },
                 {
@@ -5826,16 +6059,7 @@ var CalculatorData = {
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "11.67"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列/ESv3 系列",
-                    Description: "Ev3 系列 / ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM，500GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -5851,16 +6075,7 @@ var CalculatorData = {
                         Description: "48个内核，384GiB RAM，1,200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "22.467"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列/ ESv3 系列",
-                    Description: "Ev3 系列 / ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -5871,6 +6086,65 @@ var CalculatorData = {
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "46.66"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列 / ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列 / ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16GiB RAM，50GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "0.936"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32GiB RAM，100GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "1.872"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64GiB RAM，200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.745"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128GiB RAM，400GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "7.489"
+                    },{
+                        Name: "E20 v3/ES20 v3",
+                        Description: "20个内核，160GiB RAM，500GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "9.36"
+                    },
+                    {
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256GiB RAM，800GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "14.978"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384GiB RAM，1,200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "22.467"
+                    },{
+                        Name: "E64 v3/E64is v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "26.96"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "26.96"
                     }]
                 },
                 {
@@ -6592,16 +6866,7 @@ var CalculatorData = {
                         Description: "16个内核，128GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "14.278"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列/ESv3 系列",
-                    Description: "Ev3 系列 / ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E20 v3/ES20 v3",
                         Description: "20个内核，160GiB RAM，500GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -6617,16 +6882,7 @@ var CalculatorData = {
                         Description: "48个内核，384GiB RAM，1,200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "25.075"
-                    }]
-                },
-                {
-                    Name: "Ev3 系列/ ESv3 系列",
-                    Description: "Ev3 系列 / ESv3 系列",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "台",
-                    MinUnit: "0",
-                    MaxUnit: "100",
-                    Sizes: [{
+                    },{
                         Name: "E64 v3/E64is v3",
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
@@ -6637,6 +6893,65 @@ var CalculatorData = {
                         Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "49.268"
+                    }]
+                },
+                {
+                    Name: "Ev3 系列 / ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    Description: "Ev3 系列 / ESv3 系列 - 仅适用于中国东部2和中国北部2",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "台",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: "E2 v3/E2s v3",
+                        Description: "2个内核，16GiB RAM，50GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "2.017"
+                    },
+                    {
+                        Name: "E4 v3/E4s v3",
+                        Description: "4个内核，32GiB RAM，100GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "4.034"
+                    },
+                    {
+                        Name: "E8 v3/E8s v3",
+                        Description: "8个内核，64GiB RAM，200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.353"
+                    },
+                    {
+                        Name: "E16 v3/E16s v3",
+                        Description: "16个内核，128GiB RAM，400GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "10.097"
+                    },{
+                        Name: "E20 v3/ES20 v3",
+                        Description: "20个内核，160GiB RAM，500GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "11.968"
+                    },
+                    {
+                        Name: "E32 v3/E32s v3",
+                        Description: "32个内核，256GiB RAM，800GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "17.586"
+                    },{
+                        Name: "E48 v3/E48s v3",
+                        Description: "48个内核，384GiB RAM，1,200GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "25.075"
+                    },{
+                        Name: "E64 v3/E64is v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "29.568"
+                    },
+                    {
+                        Name: "E64 v3/E64s v3",
+                        Description: "64个内核，432GiB RAM，1,600GiB 临时存储",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "29.568"
                     }]
                 },
                 {
