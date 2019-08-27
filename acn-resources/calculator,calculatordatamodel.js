@@ -22099,8 +22099,8 @@ var CalculatorData = {
             Types: [{
                 Name: "基本",
                 Features: [{
-                    Name: "Mbp",
-                    Description: "Mbp",
+                    Name: "Mbps",
+                    Description: "Mbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22131,8 +22131,8 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "Gbp",
-                    Description: "Gbp",
+                    Name: "Gbps",
+                    Description: "Gbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22166,8 +22166,8 @@ var CalculatorData = {
             {
                 Name: "高级",
                 Features: [{
-                    Name: "Mbp",
-                    Description: "Mbp",
+                    Name: "Mbps",
+                    Description: "Mbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22198,8 +22198,8 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "Gbp",
-                    Description: "Gbp",
+                    Name: "Gbps",
+                    Description: "Gbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22239,7 +22239,7 @@ var CalculatorData = {
             Types: [{
                 Name: "基本",
                 Features: [{
-                    Name: "Mbp",
+                    Name: "Mbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22270,7 +22270,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "Gbp",
+                    Name: "Gbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22304,7 +22304,7 @@ var CalculatorData = {
             {
                 Name: "高级",
                 Features: [{
-                    Name: "Mbp ",
+                    Name: "Mbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -22335,7 +22335,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "Gbp ",
+                    Name: "Gbps",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -26603,6 +26603,20 @@ var CalculatorData = {
                     }]
                 },
             ]
+        },"information-protection": {
+            Name: "Azure 信息保护",
+            Types: [{
+                Name: "免费",
+                Features: [{
+                    Name: "default",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "当前免费",
+                        PriceTier: PriceTierEnum.Free,
+                        PricePerTier: "0",
+                    }]
+                }]
+            }]
         },
     }
 };
