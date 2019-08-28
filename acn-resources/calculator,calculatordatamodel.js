@@ -21634,9 +21634,9 @@ var CalculatorData = {
                     MaxUnit: "1000",
                     Sizes: [{
                         Name: "default",
-                        Description: "前 5 个与正在使用的云服务关联的保留 IP 地址:免费,其他：¥0.026/小时",
+                        Description: "第一个 5: 免费,其他：¥ 0.0366/小时",
                         PriceTier: "0,5,6,10000",
-                        PricePerTier: "0,0.026",
+                        PricePerTier: "0,0.0366",
                         MinUnit: "0",
                         MaxUnit: "1000",
                         PriceUnit: "个"
@@ -21679,24 +21679,25 @@ var CalculatorData = {
                         PriceUnit: "个"
                     }]
 
-                },
-                {
-                    Name: "静态 IP 地址（保留 + 使用）",
-                    PricePeriod: PricePeriodEnum.Hourly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "1000",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "前 5 个静态 IP 不收取保留费用但收取使用费用;其他:使用+保留,¥0.052/小时（¥38.688/月）",
-                        PriceTier: "0,5,6,10000",
-                        PricePerTier: "0.026,0.052",
-                        MinUnit: "0",
-                        MaxUnit: "1000",
-                        PriceUnit: "个"
-                    }]
+                }
+                // {
+                //     Name: "静态 IP 地址（保留 + 使用）",
+                //     PricePeriod: PricePeriodEnum.Hourly,
+                //     PriceUnit: "个",
+                //     MinUnit: "0",
+                //     MaxUnit: "1000",
+                //     Sizes: [{
+                //         Name: "default",
+                //         Description: "前 5 个静态 IP 不收取保留费用但收取使用费用;其他:使用+保留,¥0.052/小时（¥38.688/月）",
+                //         PriceTier: "0,5,6,10000",
+                //         PricePerTier: "0.026,0.052",
+                //         MinUnit: "0",
+                //         MaxUnit: "1000",
+                //         PriceUnit: "个"
+                //     }]
 
-                }]
+                // }
+            ]
             },
             {
                 Name:"标准(ARM)",
