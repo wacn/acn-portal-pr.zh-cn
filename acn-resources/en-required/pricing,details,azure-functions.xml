@@ -4,6 +4,59 @@
     <bodyText>
       <![CDATA[
             <tags ms.service="azure-functions" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style>
+
+            <div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">所选区域不可用</div></div>
+            </div>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product_banner_functions.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -26,7 +79,7 @@
                                 <polygon class="azure-functions2" points="24.3,14 33.5,0 26.3,0 18.7,17.3 27.7,17.4 14.3,41.5 33.7,14   "/>
                             </g>
                         </svg>
-                        <h2>Azure Functions</h2>
+                        <h2>Azure Functions<span>Azure Functions</span></h2>
                         <h4>使用无服务器代码处理事件</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_functions_trial">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
                         <a href="/pricing/pia/" id="home_functions_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
@@ -34,13 +87,247 @@
                 </div>
             </div>
             <!-- END: Product-Detail-TopBanner -->
+
             <div class="pricing-page-section">
-                <p>目前，Azure Functions 只能托管在<a href="//docs.azure.cn/zh-cn/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/">应用服务计划</a>中。 每个计划都要求您定义区域、区域中的 VM 实例数量以及必须专用于应用程序的 VM 大小。 如果您有消费计划，请联系您的客户经理进行咨询。</p>
-                <p>基本监控可通过门户中的 Azure Functions 日志和监控选项卡实现。 Azure Application Insights 可用后将有更丰富的分析选项体验。</p>
+                <p>Azure Functions 提供无需服务器的开发体验，支持一系列可靠的事件触发器和数据绑定。</p>
+                <h2>Azure Functions 定价</h2>
             </div>
+
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Azure Functions</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                                <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_azure-functions">Azure Functions</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Azure Functions">Azure Functions</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<p>Azure Functions 使用计划根据每秒资源使用和执行次数计费。消费计划定价包括每月免费授予的 1 百万个请求和每个订阅每月 400,000 GB-s 的资源消耗，包含在订阅中所有函数应用之间的定价中。客户还可在其应用服务计划内运行 Functions，以常规应用服务计划<a href="https://www.azure.cn/pricing/details/app-service/">费率</a>计费。</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br>
+                                <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-rate-per-second">
+                                <tbody>
+                                    <tr>
+                                        <th align="left"><strong>计量</strong></th>
+                                        <th align="left"><strong>价格</strong></th>
+                                        <th align="left"><strong>免费授予（每月）</strong></th>
+                                    </tr>
+                                        <tr>
+                                            <td align="left">执行时间<sup>*</sup></td>
+                                            <td align="left">￥ 0.000113/GB-s</td>
+                                            <td align="left">400,000 GB-s</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td align="left">总执行数<sup>*</sup></td>
+                                            <td align="left">￥ 1.30 /百万次执行</td>
+                                            <td align="left">1 百万次执行</td>
+                                            
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup>*</sup> 免费授予仅适用于付费消耗性订阅。</div>
+                            </div>
+                            <p><strong>注意</strong> - 每个 Functions 应用都默认创建一个存储帐户。免费授予中不包含存储帐户。如果适用，将按标准<a href="https://www.azure.cn/pricing/details/storage/files/">存储费率</a>和<a href="https://www.azure.cn/pricing/details/bandwidth">网络费率</a>收费。</p>
+                            <p>查看有关<a href="https://www.azure.cn/home/features/products-by-region">区域可用性</a>的详细信息</p>
+                            <h2>定价详细信息</h2>
+                            <h3>执行</h3>
+                            <p>基于所有函数的每月请求执行总次数，对 Functions 进行计费。每当为响应事件而触发执行绑定的函数时，计算一次执行。每月前一百万次执行免费。</p>
+
+                            <h3>资源消耗</h3>
+                            <p>基于观察到的资源消耗量（十亿字节 (GB) 为单位）对 Functions 进行计费。将平均内存大小 (GB) 乘以执行函数所花费的时间（毫秒），计算观察到的资源消耗。函数所用内存按四舍五入到最近的 128 MB 计算，最大内存大小高达 1,536 MB，执行时间按四舍五入到最近的 1 ms 计算。单个函数执行的最小执行时间和内存分别为 100 ms 和 128 mb。Functions 定价包括每月免费授予的 400,000 GB。</p>
+
+                            <h3>定价示例</h3>
+                            <p>观察到内存消耗为 512 MB 的函数在本月执行 3,000,000 次，执行持续时间为 1 秒。每月费用按以下方式计算：</p>
+
+                            <h3>资源消耗计费计算</h3>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-resource-consumption">
+                                <tbody>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>资源消耗（秒）</strong><br />
+                                            执行<br />
+                                            执行持续时间（秒）
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            3 百万次执行<br />
+                                        x 1 秒
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">资源总消耗</th>
+                                        <th align="left">3 百万秒</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>资源消耗 (GB)</strong><br />
+                                            资源消耗转换为 GB<br />
+                                            执行时间（秒）
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            512 MB / 1,024 MB<br />
+                                        x 3 百万秒
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">GB 总计</th>
+                                        <th align="left">1.5 百万 GB</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>可计费资源消耗</strong><br />
+                                            资源消耗<br />
+                                            每月免费授予量
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            1.5 百万 GB<br />
+                                        - 400,000 GB-s
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">可计费总消耗</th>
+                                        <th align="left">1.1 百万 GB</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>每月资源消耗费用</strong><br />
+                                            可计费资源消耗<br />
+                                            资源消耗价格
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            1.1 百万 GB-s<br />
+                                        x ￥ 0.000113/GB-s
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">总成本</th>
+                                        <th align="left">￥ 124.3</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h3>执行次数计费计算</h3>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-execute-times">
+                                <tbody>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>可计费执行次数</strong><br />
+                                            每月总执行次数<br />
+                                            每月免费执行次数
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            3 百万次执行<br />
+                                        - 1 百万次执行
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">每月可计费执行次数</th>
+                                        <th align="left">2 百万次执行</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>每月执行费用</strong><br />
+                                            每月可计费执行次数<br />
+                                            每百万次执行的价格
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            2 百万次执行<br />
+                                        x ￥ 1.3
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">每月执行费用</th>
+                                        <th align="left">￥ 2.6</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h3>总消耗计费计算</h3>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-total-resource-consumption">
+                                <tbody>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>每月总成本</strong><br />
+                                            每月资源消耗费用<br />
+                                            每月执行费用
+                                        </th>
+                                        <th align="left"><br />￥ 124.3<br />+ ￥ 2.6
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">每月总成本</th>
+                                        <th align="left">￥ 126.9</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+            <!-- END: TAB-CONTROL -->
+
             <div class="pricing-page-section">
-                <h2>定价详细信息</h2>
-                <p>在<a href="/pricing/details/app-service/">应用服务虚拟机</a>上托管 Azure Functions。</p>
+                <h3>详细信息</h3>
+                <ul>
+                    <li>也可在<a href="https://www.azure.cn/pricing/details/app-service/">应用服务虚拟机</a>上托管 Functions</li>
+                    <li>查看 <a href="https://docs.azure.cn/azure-functions/">Azure Functions</a> 文档，了解最新信息</li>
+                    <li>Azure Functions <a href="https://docs.azure.cn/azure-functions/functions-reference">开发人员参考</a></li>
+                </ul>
+            </div>
+
+            <div class="pricing-page-section">
+                <h2>支持和服务级别协议</h2>
+    			<p>如有任何疑问或需要帮助，请访问 <a href="https://support.azure.cn/zh-cn/support/contact">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
+                <p>我们保证客户订阅中运行的应用将在 99.95% 的时间可用，若要了解有关我们的服务器级别协议的详细信息，请访问<a href="https://www.azure.cn/zh-cn/support/sla/functions">服务级别协议页</a>。</p>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <!-- END: TAB-CONTROL -->
