@@ -21634,9 +21634,9 @@ var CalculatorData = {
                     MaxUnit: "1000",
                     Sizes: [{
                         Name: "default",
-                        Description: "第一个 5: 免费,其他：¥ 0.0366/小时",
+                        Description: "第一个 5: 免费,其他：¥ 0.026/小时",
                         PriceTier: "0,5,6,10000",
-                        PricePerTier: "0,0.0366",
+                        PricePerTier: "0,0.026",
                         MinUnit: "0",
                         MaxUnit: "1000",
                         PriceUnit: "个"
