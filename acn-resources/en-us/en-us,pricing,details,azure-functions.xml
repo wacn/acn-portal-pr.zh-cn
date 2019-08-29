@@ -4,6 +4,59 @@
     <bodyText>
       <![CDATA[
             <tags ms.service="azure-functions" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style>
+
+            <div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">Not available in the selected region</div></div>
+            </div>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product_banner_functions.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -26,20 +79,259 @@
                                 <polygon class="azure-functions2" points="24.3,14 33.5,0 26.3,0 18.7,17.3 27.7,17.4 14.3,41.5 33.7,14   "/>
                             </g>
                         </svg>
-                        <h2>Azure Functions</h2>
+                        <h2>Azure Functions<span>Azure Functions</span></h2>
                         <h4>Process events with serverless code</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_functions_trial">Apply for 1RMB Trial<i class="icon icon-arrow-right-thin"></i></a></em> <a href="/pricing/pia/" id="home_functions_pia">Buy Now<i class="icon icon-arrow-right-thin"></i></a>
                     </div>
                 </div>
             </div>
             <!-- END: Product-Detail-TopBanner -->
+
             <div class="pricing-page-section">
-                <p>Currently, Azure Functions can only be hosted in an<a href="//docs.azure.cn/zh-cn/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/"> App Service Plan</a>. Each plan requires you to define a specific region, number of VM instances in that region and size of the VMs that must be dedicated to your apps. If your scenario requires the consumption plan, please contact your account  manager.</p>
-                <p>Basic monitoring is available through the functions logs and the monitoring tab in the portal. A richer experience with more analytics options will be available once Azure Application Insights is available.  </p>
+                <p>Azure Functions provide a serverless development experience supporting a robust set of event triggers and data bindings.</p>
+                <h2>Azure Functions pricing</h2>
             </div>
+
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/Software:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Azure Functions</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                            <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_azure-functions">Azure Functions</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Azure Functions">Azure Functions</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>Region:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">China East 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >China East 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >China North 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >China East</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >China North</a></li>	
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">China East 2</option>
+							<option data-href="#north-china2" value="north-china2">China North 2</option>
+							<option data-href="#east-china" value="east-china">China East</option>
+							<option data-href="#north-china" value="north-china">China North</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<p>Azure Functions consumption plan is billed based on per-second resource consumption and executions. Consumption plan pricing includes a monthly free grant of 1 million requests and 400,000 GB-s of resource consumption per month per subscription in pricing across all function apps in that subscription. Customers can also run Functions within their App Service plan at regular App Service plan <a href="https://www.azure.cn/pricing/details/app-service/">rates</a>.</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                                <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-rate-per-second">
+                                <tbody>
+                                    <tr>
+                                        <th align="left"><strong>METER</strong></th>
+                                        <th align="left"><strong>PRICE</strong></th>
+                                        <th align="left"><strong>	FREE GRANT (PER MONTH)</strong></th>
+                                    </tr>
+                                        <tr>
+                                            <td align="left">Execution Time<sup>*</sup></td>
+                                            <td align="left">￥ 0.000113/GB-s</td>
+                                            <td align="left">400,000 GB-s</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td align="left">Total Executions<sup>*</sup></td>
+                                            <td align="left">￥ 1.30 per million executions行</td>
+                                            <td align="left">1 million executions</td>
+                                            
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup>*</sup> Free grants apply to paid, consumption subscriptions only.</div>
+                            </div>
+                            <p><strong>Note</strong> - A storage account is created by default with each Functions app. The storage account is not included in the free grant. Standard <a href="https://www.azure.cn/pricing/details/storage/files/">storage rates</a> and <a href="https://www.azure.cn/pricing/details/bandwidth">networking rates</a> charged separately as applicable.</p>
+                            <p>View details on <a href="https://www.azure.cn/home/features/products-by-region">region availability</a></p>
+                            <h2>Pricing details</h2>
+                            <h3>Executions</h3>
+                            <p>Functions are billed based on total number of requested executions each month for all functions. Executions are counted each time a function is executed in response to an event, triggered by a binding. The first million executions are included free each month.</p>
+
+                            <h3>Resource consumption</h3>
+                            <p>Functions are billed based on observed resource consumption measured in gigabyte seconds (GB-s). Observed resource consumption is calculated by multiplying average memory size in gigabytes by the time in milliseconds it takes to execute the function. Memory used by a function is measured by rounding up to the nearest 128 MB, up to the maximum memory size of 1,536 MB, with execution time calculated by rounding up to the nearest 1 ms. The minimum execution time and memory for a single function execution is 100 ms and 128 mb respectively. Functions pricing includes a monthly free grant of 400,000 GB-s.</p>
+
+                            <h3>Pricing example</h3>
+                            <p>A function with observed memory consumption of 512 MB executes 3,000,000 times during the month and has an execution duration of one second. Monthly billing would be calculated as follows:</p>
+
+                            <h3>Resource Consumption Billing Calculation</h3>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-resource-consumption">
+                                <tbody>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Resource consumption (seconds)</strong><br />
+                                            Executions<br />
+                                            Execution duration (seconds)
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            3 million executions<br />
+                                        x 1 second
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Resource consumption Total</th>
+                                        <th align="left">3 million seconds</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Resource consumption (GB-s)</strong><br />
+                                            Resource consumption converted to GBs<br />
+                                            Execution time (seconds)
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            512 MB / 1,024 MB<br />
+                                        x 3 million seconds
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Total GB-s</th>
+                                        <th align="left">1.5 million GB-s</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Billable resource consumption</strong><br />
+                                            Resource consumption<br />
+                                            Monthly free grant
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            1.5 million GB-s<br />
+                                        - 400,000 GB-s
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Total billable consumption</th>
+                                        <th align="left">1.1 million GB-s</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Monthly resource consumption cost</strong><br />
+                                            Billable resource consumption<br />
+                                            Resource consumption price
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            1.1 million GB-s<br />
+                                        x ￥ 0.000113/GB-s
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Total cost</th>
+                                        <th align="left">￥ 124.3</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h3>Executions billing calculation</h3>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-execute-times">
+                                <tbody>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Billable executions</strong><br />
+                                            Total monthly executions<br />
+                                            Monthly free executions
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            3 million executions<br />
+                                        - 1 million executions
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Monthly billable executions</th>
+                                        <th align="left">2 million executions</th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Monthly executions cost</strong><br />
+                                            Monthly billable executions<br />
+                                            Price per million executions
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            2 million executions<br />
+                                        x ￥ 1.3
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Monthly execution cost</th>
+                                        <th align="left">￥ 2.6</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h3>Total consumption billing calculation</h3>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="azure-functions-table-total-resource-consumption">
+                                <tbody>
+                                    <tr>
+                                        <th align="left">
+                                            <strong>Total monthly cost</strong><br />
+                                            Monthly resource consumption cost<br />
+                                            Monthly executions cost
+                                        </th>
+                                        <th align="left">
+                                            <br />
+                                            ￥ 124.3<br />
+                                        + ￥ 2.6
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th align="left">Total monthly cost</th>
+                                        <th align="left">￥ 126.9</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+                <!-- END: TAB-CONTAINER-2 -->
+            
+            <!-- END: TAB-CONTROL -->
+
             <div class="pricing-page-section">
-                <h2>Pricing details</h2>
-                <p>Azure Functions can be hosted on<a href="/pricing/details/app-service/"> App Service Virtual Machines</a>.</p>
+                <h3>More information</h3>
+                <ul>
+                    <li>Functions can also be hosted on <a href="https://www.azure.cn/pricing/details/app-service/">App Service Virtual Machines</a></li>
+                    <li>Check out <a href="https://docs.azure.cn/azure-functions/">Azure Functions documentation</a> for the latest information</li>
+                    <li>Azure Functions <a href="https://docs.azure.cn/azure-functions/functions-reference">developer reference</a></li>
+                </ul>
+            </div>
+
+            <div class="pricing-page-section">
+                <h2>Support & SLA</h2>
+    			<p>If you have any questions or need help, please visit <a href="https://support.azure.cn/en-us/support/contact">Azure Support</a> and select self-help service or any other method to contact us for support.</p>
+                <p>We guarantee that apps running in a customer subscription will be available 99.95% of the time. To learn more about the details of our Service Level Agreement, please visit the <a href="https://www.azure.cn/en-us/support/sla/functions">Service Level Agreements</a> page.</p>
             </div>
             <!-- BEGIN: TAB-CONTROL -->
             <!-- END: TAB-CONTROL -->

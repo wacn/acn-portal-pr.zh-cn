@@ -26335,7 +26335,7 @@ var CalculatorData = {
                 Name: "资源消耗",
                 Features: [
                     {
-                        Name: "128 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "128MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26351,7 +26351,7 @@ var CalculatorData = {
                         }]
                     },
                     {
-                        Name: "256 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "256MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26366,7 +26366,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "384 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "384MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26381,7 +26381,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "512 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "512MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26396,7 +26396,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "640 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "640MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26411,7 +26411,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "768 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "768MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26426,7 +26426,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "896 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "896MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26441,7 +26441,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "1024 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "1024MB - 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26456,7 +26456,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "1152 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "1152MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26471,7 +26471,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "1280 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "1280MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26486,7 +26486,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "1408 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "1408MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -26501,7 +26501,7 @@ var CalculatorData = {
                             PriceUnit: "百万次"
                         }]
                     },{
-                        Name: "1536 MB - 每月执行持续时间 60 秒 - 资源消耗计费计算",
+                        Name: "1536MB 执行持续时间 60 秒/月资源消耗",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
