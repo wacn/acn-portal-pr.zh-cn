@@ -26604,7 +26604,8 @@ var CalculatorData = {
                     }]
                 },
             ]
-        },"information-protection": {
+        },
+        "information-protection": {
             Name: "Azure 信息保护",
             Types: [{
                 Name: "免费",
@@ -26617,6 +26618,30 @@ var CalculatorData = {
                         PricePerTier: "0",
                     }]
                 }]
+            }]
+        },
+        "azure-firewall": {
+            Name: "Azure 防火墙",
+            Types: [
+                {
+                Name: "Azure 防火墙",
+                Features: [
+                    {
+                        Name: "防火墙部署",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "每小时/逻辑防火墙单元",
+                            PriceTier: "0,1000000000",
+                            PricePerTier: "12.72",
+                            MinUnit: "0",
+                            MaxUnit: "1000000000",
+                            PriceUnit: "逻辑防火墙单元"
+                        }]
+                    }]
             }]
         },
     }
