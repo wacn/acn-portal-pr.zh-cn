@@ -11931,7 +11931,7 @@ var CalculatorData = {
             Types: [{
                 Name: "LRS",
                 Features: [{
-                    Name: "放置表、创建容器操作（按 10,000 计）",
+                    Name: "写入操作（按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -11947,7 +11947,39 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "批处理放置表、创建容器操作 （按 10,000 计）",
+                    Name: "批量写入操作（按 10,000 计）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.02",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "10000 个"
+                    }]
+                },
+                // {
+                //     Name: "列出容器操作（按 10,000 计）",
+                //     PricePeriod: PricePeriodEnum.Monthly,
+                //     PriceUnit: "个",
+                //     MinUnit: "0",
+                //     MaxUnit: "20",
+                //     Sizes: [{
+                //         Name: "default",
+                //         Description: "default",
+                //         PriceTier: "0,5000",
+                //         PricePerTier: "0.02",
+                //         MinUnit: "0",
+                //         MaxUnit: "5000",
+                //         PriceUnit: "10000 个"
+                //     }]
+                // },
+                {
+                    Name: "读取操作（按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -11963,39 +11995,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "列出容器操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.02",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "表读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.02",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "扫描容器操作 （按 10,000 计）",
+                    Name: "扫描操作 （按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12011,7 +12011,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "表删除操作 （按 10,000 计）",
+                    Name: "删除操作 （按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12030,7 +12030,7 @@ var CalculatorData = {
             {
                 Name: "GRS",
                 Features: [{
-                    Name: "放置表、创建容器操作（按 10,000 计）",
+                    Name: "写入操作（按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12046,7 +12046,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "批处理放置表、创建容器操作 （按 10,000 计）",
+                    Name: "批量写入操作（按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12061,8 +12061,24 @@ var CalculatorData = {
                         PriceUnit: "10000 个"
                     }]
                 },
+                // {
+                //     Name: "列出容器操作（按 10,000 计）",
+                //     PricePeriod: PricePeriodEnum.Monthly,
+                //     PriceUnit: "个",
+                //     MinUnit: "0",
+                //     MaxUnit: "20",
+                //     Sizes: [{
+                //         Name: "default",
+                //         Description: "default",
+                //         PriceTier: "0,5000",
+                //         PricePerTier: "0.02",
+                //         MinUnit: "0",
+                //         MaxUnit: "5000",
+                //         PriceUnit: "10000 个"
+                //     }]
+                // },
                 {
-                    Name: "列出容器操作（按 10,000 计）",
+                    Name: "读取操作（按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12078,23 +12094,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "表读取操作（按 10,000 计）",
-                    PricePeriod: PricePeriodEnum.Monthly,
-                    PriceUnit: "个",
-                    MinUnit: "0",
-                    MaxUnit: "20",
-                    Sizes: [{
-                        Name: "default",
-                        Description: "default",
-                        PriceTier: "0,5000",
-                        PricePerTier: "0.02",
-                        MinUnit: "0",
-                        MaxUnit: "5000",
-                        PriceUnit: "10000 个"
-                    }]
-                },
-                {
-                    Name: "扫描容器操作 （按 10,000 计）",
+                    Name: "扫描操作 （按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
@@ -12110,7 +12110,7 @@ var CalculatorData = {
                     }]
                 },
                 {
-                    Name: "表删除操作 （按 10,000 计）",
+                    Name: "删除操作 （按 10,000 计）",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
                     MinUnit: "0",
