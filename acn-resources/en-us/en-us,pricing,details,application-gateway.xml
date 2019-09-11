@@ -2,8 +2,62 @@
 <localize>
   <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-10-29T18:00:00" urlName="application-gateway" writerName="content" creatorName="content">
     <bodyText><![CDATA[
-      
-            <tags ms.service="application-gateway" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <tags ms.service="application-gateway" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> 
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style> 
+            
+			<div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">Not available in the selected region</div></div>
+            </div>
+            
+            <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/app_gateway.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
@@ -17,138 +71,237 @@
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
                 <p>By providing HTTP load balancing and delivery control, Azure Application Gateway permits you to build highly scalable and highly available websites.</p>
+                <h2>Pricing Details</h2>
             </div>
+
             <!-- BEGIN: TAB-CONTROL -->
-            <div class="technical-azure-selector tab-control-selector">
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/Software:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Application Gateway</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                            <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_application-gateway">Application Gateway</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Application Gateway">Application Gateway</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>Region:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">China East 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >China East 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >China North 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >China East</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >China North</a></li>	
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">China East 2</option>
+							<option data-href="#north-china2" value="north-china2">China North 2</option>
+							<option data-href="#east-china" value="east-china">China East</option>
+							<option data-href="#north-china" value="north-china">China North</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				</div>
+				</div>
                 <!-- BEGIN: TAB-CONTAINER-1 -->
-                <div class="tab-control-container tab-active" id="tabContent1">
-                    <!-- BEGIN: Table1-Content-->
-                    <h2>Pricing Details</h2>
-                    <h3>Application Gateway</h3>
-                    <p>We charge for Application Gateway based on the settings and the quantity of time providing the gateway, as well as the amount of data processed by Application Gateway.</p>
-                    <!-- <p>从2016年4月1日起，价格会下调 25.5%，以下是下调后的新价格：</p> -->
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly price estimation is based on a usage of 744 hours every month.</div><br />
-						<div class="ms-date">* When using multiple instances, you are charged per instance.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>Application Gateway Types</strong></th>
-                            <th align="left"><strong>Basic Application Gateway</strong></th>
-							<th align="left"><strong>Web Application Firewall (WAF) Application Gateway</strong></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                Small
-                            </td>
-
-                            <td>
-                                ￥0.16 per gateway/instance/hour (about ￥119.04/month)
-                            </td>
-							
-							<td>
-                                Not available
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>
-                                Medium
-                            </td>
-
-                            <td>
-                                ￥0.45 per gateway/instance/hour (about ￥334.80/month)
-                            </td>
-							
-							<td>
-                                ￥1.80 per gateway/instance/hour (about ￥1,339.20/month)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Large
-                            </td>
-
-                            <td>
-                                ￥2.01 per gateway/instance/hour (about ￥1,495.44/month)
-                            </td>
-							
-							<td>
-                                ￥6.38 per gateway/instance/hour (about ￥4,746.72/month)
-                            </td>
-                        </tr>
-                    </table>
-                    <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
-                    <h3>Data processing</h3>
-                    <p>The charges for data processing are based on the amount of data processed by the Application Gateway.</p>
-                    <!-- <p>从2016年4月1日起，数据处理的价格会下调 25.5%，以下是下调后的新价格：</p> -->
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left">Data processing</th>
-                            <th align="left">Small</th>
-                            <th align="left">Medium</th>
-                            <th align="left">Large</th>
-                        </tr>
-                        <tr>
-                            <td style="min-width:100px;">
-                                First 10 TB/month
-                            </td>
-                            <td style="min-width:100px;">
-                                ￥0.05/GB
-                            </td>
-                            <td style="min-width:50px;">
-                                Free
-                            </td>
-                            <td style="min-width:50px;">
-                                Free
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="min-width:100px;">
-                                Last 30TB (10 - 40 TB)/month
-                            </td>
-                            <td style="min-width:100px;">
-                                ￥0.05/GB
-                            </td>
-                            <td style="min-width:50px;">
-                                ￥0.04/GB
-                            </td>
-                            <td style="min-width:50px;">
-                                Free
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="min-width:100px;">
-                                Over 40 TB/month
-                            </td>
-                            <td style="min-width:100px;">
-                                ￥0.05/GB
-                            </td>
-                            <td style="min-width:50px;">
-                                ￥0.04/GB
-
-                            </td>
-                            <td style="min-width:50px;">
-                                ￥0.02/GB
-                            </td>
-                        </tr>
-                    </table>
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+						<!-- BEGIN: Table1-Content-->
                     
-                    <!-- END: Table2-Content--> <!-- BEGIN: Table3-Content-->
-                    <h3>Inbound data transfers</h3>
-                    <p>(Namely, data transmission into the Azure Datacenter): data transmitted into the Azure Datacenter via Application Gateway will be charged at the standard <a class="rolecashLink" id="redis_roleCaching_datacenter" href="/pricing/details/data-transfer/" target="_blank">Data Transmission Rate</a>.</p>
-                    <!-- END: Table3-Content--> <!-- BEGIN: Table4-Content-->
-                    <h3>Outbound data transfers</h3>
-                    <p>(Namely, data transmission from Azure Datacenter): data transmitted from Azure Datacenter via Application Gateway will be charged at the standard <a class="rolecashLink" id="redis_roleCaching_cloudService" href="/pricing/details/data-transfer/" target="_blank">Data Transmission Rate</a>.</p>
-                    <!-- END: Table4-Content-->
+                        <h3>Application Gateway</h3>
+                        <p>We charge for Application Gateway based on the settings and the quantity of time providing the gateway, as well as the amount of data processed by Application Gateway.</p>
+                        <!-- <p>从2016年4月1日起，价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                            <div class="ms-date">*Monthly price estimation is based on a usage of 744 hours every month.</div><br />
+                            <div class="ms-date">* When using multiple instances, you are charged per instance.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left"><strong>Application Gateway Types</strong></th>
+                                <th align="left"><strong>Basic Application Gateway</strong></th>
+                                <th align="left"><strong>Web Application Firewall (WAF) Application Gateway</strong></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Small
+                                </td>
+
+                                <td>
+                                    ￥0.16 per gateway/instance/hour (about ￥119.04/month)
+                                </td>
+                                
+                                <td>
+                                    Not available
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    Medium
+                                </td>
+
+                                <td>
+                                    ￥0.45 per gateway/instance/hour (about ￥334.80/month)
+                                </td>
+                                
+                                <td>
+                                    ￥1.80 per gateway/instance/hour (about ￥1,339.20/month)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Large
+                                </td>
+
+                                <td>
+                                    ￥2.01 per gateway/instance/hour (about ￥1,495.44/month)
+                                </td>
+                                
+                                <td>
+                                    ￥6.38 per gateway/instance/hour (about ￥4,746.72/month)
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
+                        <h3>Data processing</h3>
+                        <p>The charges for data processing are based on the amount of data processed by the Application Gateway.</p>
+                        <!-- <p>从2016年4月1日起，数据处理的价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                        <div class="tags-date">
+                            <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                            <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <th align="left">Data processing</th>
+                                <th align="left">Small</th>
+                                <th align="left">Medium</th>
+                                <th align="left">Large</th>
+                            </tr>
+                            <tr>
+                                <td style="min-width:100px;">
+                                    First 10 TB/month
+                                </td>
+                                <td style="min-width:100px;">
+                                    ￥0.05/GB
+                                </td>
+                                <td style="min-width:50px;">
+                                    Free
+                                </td>
+                                <td style="min-width:50px;">
+                                    Free
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="min-width:100px;">
+                                    Last 30TB (10 - 40 TB)/month
+                                </td>
+                                <td style="min-width:100px;">
+                                    ￥0.05/GB
+                                </td>
+                                <td style="min-width:50px;">
+                                    ￥0.04/GB
+                                </td>
+                                <td style="min-width:50px;">
+                                    Free
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="min-width:100px;">
+                                    Over 40 TB/month
+                                </td>
+                                <td style="min-width:100px;">
+                                    ￥0.05/GB
+                                </td>
+                                <td style="min-width:50px;">
+                                    ￥0.04/GB
+
+                                </td>
+                                <td style="min-width:50px;">
+                                    ￥0.02/GB
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <!-- END: Table2-Content--> 
+                        <!-- BEGIN: Table3-Content-->
+                        <h3>Inbound data transfers</h3>
+                        <p>(i.e. data going into Azure data centers) - <b>Free</b></p>
+                        <!-- END: Table3-Content--> 
+                        <!-- BEGIN: Table4-Content-->
+                        <h3>Outbound data transfers</h3>
+                        <p>(Namely, data transmission from Azure Datacenter): data transmitted from Azure Datacenter via Application Gateway will be charged at the standard <a class="rolecashLink" id="redis_roleCaching_cloudService" href="/pricing/details/data-transfer/" target="_blank">Data Transmission Rate</a>.</p>
+                        <!-- END: Table4-Content-->
+
+                        <h3>Application Gateway Standard_v2 and WAF_v2 SKU</h3>
+                        <p>Azure Application Gateway Standard_v2 and WAF_v2 SKU offer additional support for autoscaling, zone redundancy, and Static VIP. These gateways also offer enhanced performance, better provisioning, and configuration update time, Header rewrites, and WAF custom rules. Please refer to <a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant">documentation</a> for additional product detail, as well as the FAQ section below for pricing and billing information</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                            <div class="ms-date">*Monthly price estimation is based on a usage of 744 hours every month.</div><br />
+                                <div class="ms-date">*The pricing as below will be effective starting from November 1st, 2019.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="application-gateway-table-standard-v2">
+                                <tr>
+                                    <th align="left"><strong></strong></th>
+                                    <th align="left"><strong>APPLICATION GATEWAY</strong></th>
+                                    <th align="left"><strong>WEB APPLICATION FIREWALL APPLICATION GATEWAY</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Fixed
+                                    </td>
+
+                                    <td>
+                                        ¥2.035 per gateway-hour
+                                    </td>
+                                    
+                                    <td>
+                                        ¥3.663 per gateway-hour
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Capacity Unit<sup>1</sup>
+                                    </td>
+
+                                    <td>
+                                        ¥0.081 per capacity unit-hour
+                                    </td>
+                                    
+                                    <td>
+                                        ¥0.147 per capacity unit-hour
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup>1</sup> For more information on Capacity Unit, please refer to the FAQ section at the bottom of the page.</div>                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
                 </div>
-                <!-- END: TAB-CONTAINER-1 -->
-            </div>
+                <!-- END: TAB-CONTAINER-2 -->
+            
+            <!-- END: TAB-CONTROL -->
           
             <div class="pricing-page-section">
                 <div class="more-detail">
@@ -175,23 +328,19 @@
 
                             </div>
                         </li>
-                      
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="pricing_faq_application-gateway">What is Capacity Units?</a>
+                                <section>
+                                    <p>Capacity Units measure consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Please refer to our <a href="https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing">documentation page</a>.</p>
+                                </section>
+
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <!-- <div class="pricing-page-section">
-                <h2>Region</h2>
-                <p>Application Gateway services are available in the following regions:</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>Territory</strong></th>
-                        <th align="left"><strong>Region</strong></th>
-                    </tr>
-                    <tr>
-                        <td>Mainland China</td>
-                        <td>China North, China East</td>
-                    </tr>
-                </table> -->
                 
             <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>

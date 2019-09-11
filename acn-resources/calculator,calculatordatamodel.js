@@ -21996,6 +21996,7 @@ var CalculatorData = {
             }]
         },
 
+
         "application-gateway-waf": {
             Name: "应用程序网关 - Web 应用程序防火墙 (WAF) ",
             Types: [{
@@ -22094,6 +22095,92 @@ var CalculatorData = {
             }]
         },
 
+        "application-gateway-standard-v2": {
+            Name: "应用程序网关 - 标准版 V2",
+            Types: [
+                {
+                    Name: "固定",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "2.035",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "小时/网关"
+                        }]
+                    }]
+                },
+                {
+                    Name: "容量单位",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.081",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "小时/容量单位"
+                        }]
+                    }]
+                }
+           ]
+        },
+
+        "application-gateway-waf-v2": {
+            Name: "应用程序网关 - Web 应用程序防火墙 (WAF) V2",
+            Types: [
+                {
+                    Name: "固定",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "3.663",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "小时/网关"
+                        }]
+                    }]
+                },
+                {
+                    Name: "容量单位",
+                    Features: [{
+                        Name: "default",
+                        PricePeriod: PricePeriodEnum.Monthly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "default",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.147",
+                            MinUnit: "0",
+                            MaxUnit: "100000",
+                            PriceUnit: "小时/容量单位"
+                        }]
+                    }]
+                }]
+        },
 
         "expressroute-unlimited": {
             Name: "ExpressRoute - 无限数据计划",
