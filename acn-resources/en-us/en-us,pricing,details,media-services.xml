@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="virtual-machines" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="media-services" writerName="content" creatorName="content">
     <bodyText>
                       <![CDATA[
       
@@ -120,48 +120,51 @@
                     <!-- END: Table2-Content-->
                      
                 </div>
-                <!-- END: TAB-CONTAINER-1 --> <!-- BEGIN: TAB-CONTAINER-2 -->
+                <!-- END: TAB-CONTAINER-1 --> 
+                <!-- BEGIN: TAB-CONTAINER-2 -->
                 <div class="tab-control-container" id="tabContent2">
                     <!-- BEGIN: Table1-Content-->
-                    <h3>Live Channels</h3>
-                    <p>Live Channels can stream contents to the audience in a near real-time. There are 2 types of live channels: live channels without encoding and a live channels with live encoding. For all live channel, billing is based on the amount of time the channel is in running state and not based on the incoming and processed data. Please refer to FAQ for further details on channel status and billing.</p>
-                    <!-- <p>从2016年4月1日起，实时频道的价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                    <h3>Live Events</h3>
+                    <p><a style="margin-left:0px;" href="https://docs.azure.cn/media-services/latest/live-streaming-overview">Live Events</a> (also known as Channels in legacy APIs) enable you to stream content to your audience in near real time. Live Events are used in conjunction with streaming units to provide live streaming service. For details on streaming unit pricing please refer to the streaming section of this page. <a href="https://docs.azure.cn/media-services/latest/live-event-types-comparison">Your options</a> for Live Events are the following.</p>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
                         <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
                     </div>
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <th align="left"><strong>Live Channels without Encoding <sup>1</sup></strong></th>
-                            <th align="left"><strong>Live Channels</strong></th>
+                            <th align="left"><strong>LIVE ENCODING TYPE</strong></th>
+                            <th align="left"><strong>PASS-THROUGH (NONE)</strong></th>
+                            <th align="left"><strong>STANDARD LIVE ENCODING</strong></th>
+                            <th align="left"><strong>PREMIUM LIVE ENCODING</strong></th>
                         </tr>
                         <tr>
-                            <td>Price (per channel)</td>
+                            <td>Maximum resolution of output stream</td>
+                            <td>Up to 4K at 60 frames/sec</td>
+                            <td>Up to 720p at 30 frames/sec</td>
+                            <td>Up to 1080p at 30 frames/sec</td>
+                        </tr>
+                        <tr>
+                            <td>Multi-bitrate encoding</td>
+                            <td>Not Available</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
                             <td>￥6.40/hour</td>
-                        </tr>
-                    </table>
-                    <p><sup>1</sup> Live Channels are used in conjunction with streaming units to provide live streaming services. Please refer to this page for details of pricing for streaming units.</p>
-                    <p>Billing is prorated per minute. Billing is based on the amount of time the channel is in a running state. Stop channels when not in use to avoid unnecessary costs.</p>
-                    <p>There may also be <a id="Media_serivce_storage2" href="/pricing/details/storage/" target="_blank">Storage</a> and <a id="Media_serivce_data2" style="color: #008fbf;" href="/pricing/details/data-transfer/" target="_blank">Data Transmission Rates</a> that will be charged at standard Azure rates.</p>
-                    <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content-->
-                    <h3>Live Channels with Live Encoding</h3>
-                    <p>Live Channels with Live Encoding is officially released. </p>
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
-                        <div class="ms-date">*Monthly pricing estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>LIVE CHANNELS WITH LIVE ENCODING <sup>1</sup></strong></th>
-                            <th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>Encoding</td>
                             <td>￥20.25/hour</td>
+                            <td>￥31.057/hour <sup>1</sup></td>
                         </tr>
                     </table>
-                    <p><sup>1</sup> Billing is prorated per minute. Billing is based on the amount of time the channel is in a running state. Stop channels when not in use to avoid unnecessary costs.</p>
-                    <p>There may also be <a href="/pricing/details/storage/">Storage Space</a> and <a href="/pricing/details/data-transfer/">Data Transmission Rates</a> that will be billed at standard Azure rates.</p>
+                    <div class="tags-date">
+                        <div class="ms-date"><sup>1</sup> Billing is prorated per second. Billing is based on the amount of time the Live Event entity is in a running state,whether or not there is any video flowing through the service. Stop the Live Event entity when not in use to avoid unnecessary charges.</div>
+                    </div>
+                    <p>For all Live Event types, billing is based on the amount of time it is in <a href="https://docs.azure.cn/media-services/latest/live-event-states-billing">running state</a>, whether there is video being streamed through the service. For details on Live Event states and billing, please refer to the FAQ below.</p>
+                    <p><a style="margin-left:0px;" href="https://www.azure.cn/pricing/details/storage/">Storage</a> and <a href="https://www.azure.cn/pricing/details/bandwidth/">data transfer</a> rates may also apply and will be charged at standard Azure rates.</p>
+
+                    <!-- END: Table1-Content--> 
+
+                    <!-- BEGIN: Table2-Content-->
                     <!-- END: Table2-Content-->
                 </div>
                 <!-- END: TAB-CONTAINER-2 --> <!-- BEGIN: TAB-CONTAINER-3 -->
@@ -469,7 +472,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que5">Can I buy multiple streaming units?</a>
+                                <a id="Media_faq_que5">Can I purchase multiple streaming units?</a>
                                 <section>
                                     <p>Yes, you can buy multiple streaming units for content streaming.</p>
                                 </section>
@@ -478,50 +481,45 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que8">If I use two streaming units in a certain period in a day and then use four streaming units on the same day, how do you charge me for that? </a>
+                                <a id="Media_faq_que8">If I use two streaming units for a portion of a day, and four streaming units later that day, how am I charged?</a>
                                 <section>
-                                    <p>You will be charged for the maximum number of streaming units configured per day. In this example, you will be charged for four streaming units for that day.</p>
+                                    <p>You are charged based on the highest number of streaming units that are provisioned each day. In this example, you will be charged for four streaming units for that day.</p>
                                 </section>
                             </div>
                         </li>
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que12">What is the charge for live streaming? </a>
+                                <a id="Media_faq_que12">How do I get billed for live streaming?</a>
                                 <section>
-                                    <p>The possible value of the current channel may include:</p>
+                                    <p>It depends on the current state of a Live Event. Possible <a href="https://docs.azure.cn/media-services/latest/live-event-states-billing">values</a> include:</p>
                                     <ul> 
-                                        <li><strong>Stopped. </strong> This is the initial state of the channel after it was created. In this state, channel attributes can be updated but streaming is not allowed.</li> 
-                                        <li><strong>Starting Up. </strong> The channel is starting up. In this state, any updating or streaming is not allowed. In the event of error, the channel will return to the "Suspended" state.</li> 
-                                        <li><strong>Running. </strong>The channel can handle live streaming data.</li> 
-                                        <li><strong>Stopping. </strong> The channel is stopped. In this state, no updating or streaming is allowed.</li> 
-                                        <li><strong>Deleting. </strong> The channel is deleting. In this state, no updating or streaming is allowed.</li> 
+                                        <li><strong>Stopped. </strong> This is the initial state of the Live Event after its creation. In this state, the Live Event properties can be updated but streaming is not allowed.</li> 
+                                        <li><strong>Starting. </strong> The Live Event is being started. No updates or streaming are allowed during this state. If an error occurs, the Live Event returns to the "Stopped" state.</li> 
+                                        <li><strong>Running. </strong>The Live Event is capable of processing live streams.</li> 
+                                        <li><strong>Stopping. </strong> The Live Event is being stopped. No updates or streaming are allowed during this state.</li> 
+                                        <li><strong>Deleting. </strong> The Live Event is being deleted. No updates or streaming are allowed during this state.</li> 
                                     </ul> 
-                                    <p>The following table shows how to map the channel status to the charging mode.</p> 
+                                    <p>The following table shows how the states map to the billing mode.</p> 
                                     <table cellpadding="0" cellspacing="0" width="100%"> 
                                         <tr> 
-                                            <td>Channel status</td>
-                                            <td>Portal UI tags</td> 
-                                            <td>Billed?</td> 
+                                            <th>Live Event state</th>
+                                            <th>Billed?</th> 
                                         </tr>
                                         <tr> 
-                                            <td><strong>Starting Up</strong></td> 
-                                            <td>Starting Up</td> 
-                                            <td>No (transition state)</td> 
+                                            <td><strong>Starting</strong></td> 
+                                            <td>No (transient state)</td> 
                                         </tr> 
                                         <tr> 
                                             <td><strong>Running</strong></td> 
-                                            <td>Ready (no running program)<br/>or<br/>Streaming (at least one program is running)</td> 
                                             <td>Yes</td> 
                                         </tr>
                                         <tr> 
                                             <td><strong>Stopping</strong></td> 
-                                            <td>Stopping</td> 
-                                            <td>No (transition state)</td> 
+                                            <td>No (transient state)</td> 
                                         </tr> 
                                         <tr> 
                                             <td><strong>Stopped</strong></td> 
-                                            <td>Stopped</td> 
                                             <td>No</td> 
                                         </tr> 
                                     </table>
@@ -531,17 +529,18 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que13">Can you provide some examples of live channel costs? </a>
+                                <a id="Media_faq_que13">Can you provide an example for the cost of a live streaming an event?</a>
                                 <section>
-                                    <p>Joe wants to stream a 2-hour sporting event and plans to use live channels for encoding...</p>
+                                    <p>Scenario: Stella wants to stream a 2-hour sporting event and intends to use a Live Event with Standard Live Encoding-</p>
                                     <ol> 
-                                        <li>Joe sets up the channel and starts it 20 minutes before the start of the event. The Channel remains in the “Starting up" state for 5 minutes</li> 
-                                        <li>After starting up, the channel enters the “Running" state and is ready to receive data streams. The channel will be in the “Running" state (the portal UI indicates the channel is"ready") for 15 minutes.</li> <li>The event will start to be streamed on time, which will last for 2 hours or 120 minutes (the portal UI indicates "Streaming").</li> 
-                                        <li>Joe stops the streaming but does not suspend the channel (the portal UI indicates "Ready"). Joe leaves the channel in this mode for 5 minutes.</li> <li>Joe then streams a post-game show for 30 minutes (the portal UI indicates “Streaming").</li> 
-                                        <li>After the show, Joe immediately stops the channel and deletes it.</li> 
+                                        <li>Stella sets up the Live Event and starts it 20 minutes before the event begins. The Live Event is in the “Starting” state for 5 minutes.<ul><li>Stella is not billed during this time</li></ul></li> 
+                                        <li>After starting, the Live Event moves into the “Running” state ready to receive a stream. The Live Event remains in the "Running” state for 15 minutes.<ul><li>Stella does get billed for this period</li></ul></li> 
+                                        <li>The event begins streaming on-time and lasts 2 hours or 120 minutes.<ul><li>Stella gets billed for this period</li></ul></li> 
+                                        <li>Stella stops the video feed but does not stop the Live Event, Stella leaves the Live Event in this mode for 5 minutes.<ul><li>Stella does get billed for this period</li></ul></li> 
+                                        <li>Stella then streams a post-game show for 30 minutes.<ul><li>Stella gets billed for this period</li></ul></li> 
+                                        <li>After the post-game show, Stella immediately stops the Live Event and deletes it.<ul><li>Stella is not billed during this time</li></ul></li> 
                                     </ol>
-                                    <p><img src="//resource.cdn.azure.cn/marketing-resource/css/images/pricing/faq/media_service_faq01.png" alt="" /></p>
-                                    <p>The channel remains in the “Running" state for 170 minutes in total (15 minutes before the event + 120 minutes during the event+ 5 minutes with no streaming after the event+ 30 minutes for the post game show).</p>
+                                    <p>In total the Live Event was in the “Running” state for 170 minutes (15 minutes with no stream before the event + 120 minute event + 5 minutes with no stream after event + 30 minute post-game show). The charges are:</p>
                                     <p>170 minutes x ￥40.50/60 = ￥114.75</p>
                                 </section>
                             </div>
@@ -558,19 +557,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- <div class="pricing-page-section">
-                <h2>Region</h2>
-                <p>Media Services are available in the following areas:</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>Territory</strong></th>
-                        <th align="left"><strong>Region</strong></th>
-                    </tr>
-                    <tr>
-                        <td>Mainland China</td>
-                        <td>China North, China East</td>
-                    </tr>
-                </table> -->
+            
            <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>
                 <p>If you have any questions or need help, please visit <a href="/support/contact/" id="media-contact-page">Azure Support</a> and select self-help service or any other method to contact us for support.</p>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <localize>
-  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="virtual-machines" writerName="content" creatorName="content">
+  <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="media-services" writerName="content" creatorName="content">
     <bodyText>
       <![CDATA[
             <tags ms.service="media-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
@@ -129,46 +129,46 @@
                 <!-- BEGIN: TAB-CONTAINER-2 -->
                 <div class="tab-control-container" id="tabContent2">
                     <!-- BEGIN: Table1-Content-->
-                    <h3>实时频道</h3>
-                    <p>实时频道可用于以几乎实时的方式向受众流式传输内容。有 2 种类型的实时频道：未编码的实时频道和使用实时编码的实时频道。对于所有实时频道类型，都将按处于运行状态的频道时间量计费，而非按传入和处理的数据计费。有关频道状态和计费的详细信息，请参阅常见问题解答。</p>
-                    <!-- <p>从2016年4月1日起，实时频道的价格会下调 25.5%，以下是下调后的新价格：</p> -->
+                    <h3>直播活动</h3>
+                    <p><a style="margin-left:0px;" href="https://docs.azure.cn/media-services/latest/live-streaming-overview">直播活动</a> （也称为旧 API 中的频道）可用于以几乎实时的方式向受众流式传输内容。直播活动可与流式处理单元配合使用，共同提供实时流式传输服务。有关流式处理单元定价的详细信息，请参阅此页的流式传输部分。提供以下直播活动<a href="https://docs.azure.cn/media-services/latest/live-event-types-comparison">选项</a>。</p>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div><br />
                         <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
                     </div>
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                            <th align="left"><strong>未编码的实时频道 <sup>1</sup></strong></th>
-                            <th align="left"><strong>实时频道</strong></th>
+                            <th align="left"><strong>实时编码类型</strong></th>
+                            <th align="left"><strong>直通（无）	</strong></th>
+                            <th align="left"><strong>标准实时编码</strong></th>
+                            <th align="left"><strong>高级实时编码</strong></th>
                         </tr>
                         <tr>
-                            <td>每频道价格</td>
-                            <td>¥6.40/小时</td>
+                            <td>输出流最大分辨率</td>
+                            <td>最多 4K，60 帧/秒</td>
+                            <td>最多 720p，30 帧/秒</td>
+                            <td>最多 1080p，30 帧/秒</td>
+                        </tr>
+                        <tr>
+                            <td>多比特率编码</td>
+                            <td>不可用</td>
+                            <td>是</td>
+                            <td>是</td>
+                        </tr>
+                        <tr>
+                            <td>价格</td>
+                            <td>￥6.40/小时</td>
+                            <td>￥20.25/小时</td>
+                            <td>￥31.057/小时 <sup>1</sup></td>
                         </tr>
                     </table>
-                    <p><sup>1</sup> 实时频道可与流单元配合使用，共同提供实时流式传输服务。有关流单元定价的详细信息，请参阅此页的流式传输部分。</p>
-                    <p>按分钟数分摊费用。按处于运行状态的频道时间量计费。不用时停止频道，以避免产生不必要的费用。</p>
-                    <p>还可能会存在<a id="Media_serivce_storage2" href="/pricing/details/storage/" target="_blank">存储</a>和<a id="Media_serivce_data2" style="color: #008fbf;" href="/pricing/details/data-transfer/" target="_blank">数据传输</a>费率，将按标准 Azure 费率收费。</p>
+                    <div class="tags-date">
+                        <div class="ms-date"><sup>1</sup> 费用是按秒计算的。费用是基于直播活动实体处于运行状态的时间量来计算的，无论服务中是否产生视频流均是如此。在不使用时停止直播活动主体，可避免产生不必要的费用。</div>
+                    </div>
+                    <p>所有直播活动类型均基于其处于<a href="https://docs.azure.cn/media-services/latest/live-event-states-billing">运行状态</a>中的时间量来计费，不管是否通过该服务进行了视频流式传输均是如此。有关直播活动状态和计费的详细信息，请参阅以下常见问题解答。</p>
+                    <p>还可能会出现相应于<a href="https://www.azure.cn/pricing/details/storage/">存储空间</a>和<a href="https://www.azure.cn/pricing/details/bandwidth/">数据传输</a>的速率，这会按标准 Azure 费率计费。</p>
                     <!-- END: Table1-Content-->
+
                     <!-- BEGIN: Table2-Content-->
-                    <h3>使用实时编码的实时频道</h3>
-                    <p>具有实时编码的实时频道正式发布。</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>使用实时编码的实时频道 <sup>1</sup></strong></th>
-                            <th align="left"><strong>价格</strong></th>
-                        </tr>
-                        <tr>
-                            <td>编码</td>
-                            <td>¥20.25/小时</td>
-                        </tr>
-                    </table>
-                    <p><sup>1</sup> 按分钟分摊费用。按处于运行状态的频道时间量计费。不用时停止频道，以避免产生不必要的费用。</p>
-                    <p>还可能会存在<a href="/pricing/details/storage/">存储空间</a>和<a href="/pricing/details/data-transfer/">数据传输</a>费率，将按标准 Azure 费率计费。</p>
                     <!-- END: Table2-Content-->
                 </div>
                 <!-- END: TAB-CONTAINER-2 -->
@@ -463,7 +463,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que7">如果使用媒体保留单元和/或流式处理单元的时间不足一个月，是否将按整月收费？</a>
+                                <a id="Media_faq_que7">如果使用媒体预留单位和/或流式处理单元的时间不足一个月，是否将按整月收费？</a>
                                 <section>
                                     <p>不，媒体保留单元的费用按分钟分摊，而流单元的费用按天分摊。</p>
                                     <p>若要了解编码项目的成本，请查看<a href="/pricing/calculator/media-services">媒体服务计算器</a>页面。</p>
@@ -483,7 +483,7 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que5">能否购买多个流式处理单元？ </a>
+                                <a id="Media_faq_que5">能否购买多个流式处理单元？</a>
                                 <section>
                                     <p>是的，可购买多个流式处理单元用于内容流式处理。</p>
                                 </section>
@@ -503,39 +503,34 @@
                             <div>
                                 <a id="Media_faq_que12">实时流式处理如何进行计费？ </a>
                                 <section>
-                                    <p>频道的当前状态可能值包括：</p>
+                                    <p>它取决于直播活动的当前状态。可能<a href="https://docs.azure.cn/media-services/latest/live-event-states-billing">值</a>包括：</p>
                                     <ul> 
-                                        <li><strong>已停止。</strong> 这是频道在其创建后的初始状态。在这种状态下，可以更新频道属性，但不允许进行流式处理。</li> 
-                                        <li><strong>正在启动。</strong> 正在启动频道。此状态不允许进行更新或流式处理。如果发生错误，频道将返回到“已停止”状态。</li> 
-                                        <li><strong>正在运行。</strong> 频道可以处理实时流。</li> 
-                                        <li><strong>正在停止。</strong> 正在停止频道。此状态不允许进行更新或流式处理。</li> 
-                                        <li><strong>正在删除。</strong> 正在删除频道。此状态不允许进行更新或流式处理。</li> 
+                                        <li><strong>已停止。</strong> 这是直播活动在其创建后的初始状态。在此状态下，可以更新直播活动属性，但不允许进行流式处理。</li> 
+                                        <li><strong>正在启动。</strong> 正在启动直播活动。此状态不允许进行更新或流式处理。如果发生错误，直播活动会返回到“已停止”状态。</li> 
+                                        <li><strong>正在运行。</strong> 直播活动能够处理实时流。</li> 
+                                        <li><strong>正在停止。</strong> 正在停止直播活动。此状态不允许进行更新或流式处理。</li> 
+                                        <li><strong>正在删除。</strong> 正在删除直播活动。此状态不允许进行更新或流式处理。</li> 
                                     </ul> 
-                                    <p>下表演示了如何将频道状态映射到计费模式。</p> 
+                                    <p>下表演示了如何将状态映射到计费模式。</p> 
                                     <table cellpadding="0" cellspacing="0" width="100%"> 
                                         <tr> 
-                                            <td>频道状态</td>
-                                            <td>门户 UI 标记</td> 
-                                            <td>已计费？</td> 
+                                            <th>直播活动状态</th>
+                                            <th>已计费？</th> 
                                         </tr>
                                         <tr> 
                                             <td><strong>正在启动</strong></td> 
-                                            <td>正在启动</td> 
                                             <td>否（过渡状态）</td> 
                                         </tr> 
                                         <tr> 
                                             <td><strong>正在运行</strong></td> 
-                                            <td>就绪（无正在运行的程序）<br/>或<br/>流式处理（至少一个程序正在运行）</td> 
                                             <td>是</td> 
                                         </tr>
                                         <tr> 
                                             <td><strong>正在停止</strong></td> 
-                                            <td>正在停止</td> 
                                             <td>否（过渡状态）</td> 
                                         </tr> 
                                         <tr> 
                                             <td><strong>已停止</strong></td> 
-                                            <td>已停止</td> 
                                             <td>否</td> 
                                         </tr> 
                                     </table>
@@ -545,17 +540,18 @@
                         <li>
                             <i class="icon icon-plus"></i>
                             <div>
-                                <a id="Media_faq_que13">可否提供实时频道成本的相关示例？</a>
+                                <a id="Media_faq_que13">可否提供实时流式传输赛事的费用的相关示例？</a>
                                 <section>
-                                    <p>乔想要流式传输一个 2 小时的体育赛事，并计划使用实时频道进行编码…</p>
+                                    <p>方案：Stella 想要流式传输一个 2 小时的体育赛事，并计划配合使用直播活动和标准实时编码-</p>
                                     <ol> 
-                                        <li>乔设置频道，并在赛事开始前 20 分钟就启动了它。频道处于“启动”状态 5 分钟</li> 
-                                        <li>启动后，频道进入“运行”状态，准备接收数据流。频道将处于“运行”状态（门户 UI 指示频道“就绪”）15 分钟。</li> <li>赛事将按时开始流式传输，并持续 2 小时或 120 分钟（门户 UI 指示“流式传输”）。</li> 
-                                        <li>乔 停止流式传输，但未暂停频道（门户 UI 指示“就绪”）。乔将频道留在此模式 5 分钟。</li> <li>然后，乔用 30 分钟流式传输了一场赛后秀（门户 UI 指示“流式传输”）。</li> 
-                                        <li>赛后秀之后，乔立即停止该频道并将其删除。</li> 
+                                        <li>Stella 设置直播活动，并在赛事开始前 20 分钟就启动了它。直播活动处于“启动”状态 5 分钟。<ul><li>在此时间段期间，系统不对 Stella 计费</li></ul></li> 
+                                        <li>启动后，直播活动进入“运行”状态，准备接收数据流。直播活动处于“运行”状态 15 分钟。<ul><li>在此时间段期间，系统会对 Stella 计费</li></ul></li> 
+                                        <li>赛事将按时开始流式传输，并持续 2 小时或 120 分钟。<ul><li>在此期间，系统会对 Stella 计费</li></ul></li> 
+                                        <li>Stella 停止了视频馈送，但未停止直播活动，Stella 让直播活动在该模式下持续了 5 分钟。<ul><li>在此时间段期间，系统会对 Stella 计费</li></ul></li> 
+                                        <li>之后 Stella 流式传输了一个时长 30 分钟的赛后秀。<ul><li>在此期间，系统会对 Stella 计费</li></ul></li> 
+                                        <li>赛后秀之后，Stella 立即停止了直播活动并将其删除。<ul><li>在此时间段期间，系统不对 Stella 计费</li></ul></li> 
                                     </ol>
-                                    <p><img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/pricing/faq/media_service_faq01.png" alt="" /></p>
-                                    <p>频道总共处于“运行”状态 170 分钟（赛事前无流式传输的 15 分钟 + 120 分钟赛事 + 赛事后无流式传输的 5 分钟 + 30 分钟赛后秀）。</p>
+                                    <p>直播活动总共处于“运行”状态 170 分钟（赛事前无流式传输的 15 分钟 + 120 分钟赛事 + 赛事后无流式传输的 5 分钟 + 30 分钟赛后秀）。所产生的费用为：</p>
                                     <p>170 分钟 x ￥40.50/60 = ￥114.75</p>
                                 </section>
                             </div>
@@ -572,19 +568,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- <div class="pricing-page-section">
-                <h2>上市地区</h2>
-                <p>媒体服务在以下区域中提供：</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>地域</strong></th>
-                        <th align="left"><strong>区域</strong></th>
-                    </tr>
-                    <tr>
-                        <td>中国大陆</td>
-                        <td>中国东部数据中心 , 中国北部数据中心</td>
-                    </tr>
-                </table> -->
+            
            <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="media-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
