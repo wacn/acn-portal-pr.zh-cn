@@ -17800,39 +17800,54 @@ var CalculatorData = {
             }]
         },
         "media-services-channels": {
-            Name: "媒体服务 - 实时频道",
+            Name: "媒体服务 - 实时视频",
             Types: [{
                 Name: "default",
                 Features: [
                     {
-                        Name: "未编码的实时频道",
-                        PricePeriod: PricePeriodEnum.Monthly,
+                        Name: "直通（无）",
+                        PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
                         MaxUnit: "20",
                         Sizes: [{
                             Name: "default",
-                            Description: "未编码的实时频道",
-                            PriceTier: PriceTierEnum.Linear,
+                            Description: "直通（无）",
+                            PriceTier: "0,1000000",
                             PricePerTier: "6.4",
                             MinUnit: "0",
-                            MaxUnit: "1000",
+                            MaxUnit: "1000000",
                             PriceUnit: "小时"
                         }]
                     },
                     {
-                        Name: "使用实时编码的实时频道",
-                        PricePeriod: PricePeriodEnum.Monthly,
+                        Name: "标准实时编码",
+                        PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
                         MaxUnit: "20",
                         Sizes: [{
                             Name: "default",
-                            Description: "使用实时编码的实时频道",
-                            PriceTier: "0,1000",
+                            Description: "标准实时编码",
+                            PriceTier: "0,1000000",
                             PricePerTier: "20.25",
                             MinUnit: "0",
-                            MaxUnit: "1000",
+                            MaxUnit: "1000000",
+                            PriceUnit: "小时"
+                        }]
+                    },{
+                        Name: "高级实时编码",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "高级实时编码",
+                            PriceTier: "0,1000000",
+                            PricePerTier: "31.057",
+                            MinUnit: "0",
+                            MaxUnit: "1000000",
                             PriceUnit: "小时"
                         }]
                     }]
@@ -23825,7 +23840,27 @@ var CalculatorData = {
                         PricePerTier: "30.52",
                     }]
                 }]
-            }]
+            },
+            // {
+            //     Name: "流量分析",
+            //     Features: [{
+            //         Name: "default",
+            //         PricePeriod: PricePeriodEnum.Monthly,
+            //         PriceUnit: "个",
+            //         MinUnit: "0",
+            //         MaxUnit: "20",
+            //         Sizes: [{
+            //             Name: "default",
+            //             Description: "收集的日志 (GB)",
+            //             PriceTier: "0,100000",
+            //             PricePerTier: "23.405",
+            //             MinUnit: "0",
+            //             MaxUnit: "2000",
+            //             PriceUnit: "GB"
+            //         }]
+            //     }]
+            // }
+            ]
         },
         "azure-monitor": {
             Name: "Azure 监控器",
