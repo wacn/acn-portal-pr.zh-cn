@@ -4,6 +4,59 @@
     <bodyText>
       <![CDATA[
             <tags ms.service="analysis-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style> 
+            
+			<div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">所选区域不可用</div></div>
+            </div>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/service/product_banner_analysis-services.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -16,210 +69,307 @@
                     </div>
                 </div>
             </div>
-            <!-- END: Product-Detail-TopBanner -->        
-            <!-- BEGIN: TAB-CONTROL -->
-            <div class="technical-azure-selector tab-control-selector">
-                <!-- BEGIN: TAB-CONTAINER-1 -->
-                <div class="tab-control-container tab-active" id="tabContent1">
-                    <!-- BEGIN: Table1-Content-->
-					<div class="pricing-page-section">
-						<h2>经过验证的分析引擎</h2>
-						<p>Azure 分析服务提供具有可伸缩性、灵活性和云管理优势的企业级 BI 语义建模功能。Azure 分析服务有助于将复杂数据转换为可操作见解。Azure 分析服务基于 Microsoft SQL Server Analysis Services 中经认证的分析引擎构建。</p>
-                    </div>
-					<h2>定价详细信息</h2>
-					<p>Azure 分析服务的总成本取决于所选的层和实例。</p>
-					<!-- <p>可在开发人员层、基本层和标准层使用 Azure 分析服务。层之间的主要特征差异如下表所示：</p> -->	
-                    <p>可在基本层和标准层使用 Azure 分析服务。层之间的主要特征差异如下表所示：</p>
-                    <table  cellpadding="0" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                            <th align="left"><strong>功能</strong></th>
-                            <!-- <th align="left"><strong>开发人员</strong></th> -->
-                            <th align="left"><strong>基本</strong></th>
-                            <th align="left"><strong>标准</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="left_align">透视</td>
-                                <!-- <td class="left_align">√</td> -->
-                                <td class="left_align"></td>
-                                <td class="left_align">√</td>
-                            </tr>
-                            <tr>
-                                <td class="left_align">多个分区</td>
-                                <!-- <td class="left_align">√</td> -->
-                                <td class="left_align"></td>
-                                <td class="left_align">√</td>
-                            </tr>
-                            <tr>
-                                <td class="left_align">DirectQuery Storage 模式</td>                                
-                                <!-- <td class="left_align">√</td> -->
-                                <td class="left_align"></td>
-                                <td class="left_align">√</td>
-                            </tr>
-                            <tr>
-                                <td class="left_align">翻译</td>
-								<!-- <td class="left_align">√</td> -->
-                                <td class="left_align">√</td>
-                                <td class="left_align">√</td>
-                            </tr>
-							<tr>
-                                <td class="left_align">DAX 计算</td>
-								<!-- <td class="left_align">√</td> -->
-                                <td class="left_align">√</td>
-                                <td class="left_align">√</td>
-                            </tr>
-                            <tr>
-                                <td class="left_align">行级安全</td>
-								<!-- <td class="left_align">√</td> -->
-                                <td class="left_align">√</td>
-                                <td class="left_align">√</td>
-                            </tr>
-							<tr>
-                                <td class="left_align">In-mem 存储</td>
-								<!-- <td class="left_align">√</td> -->
-                                <td class="left_align">√</td>
-                                <td class="left_align">√</td>
-                            </tr>
-							<tr>
-                                <td class="left_align">备份和还原</td>
-								<!-- <td class="left_align">√</td> -->
-                                <td class="left_align">√</td>
-                                <td class="left_align">√</td>
-                            </tr>
-                        </tbody>
-                    </table>
-					
-                    <p>在每个层中，实例的价格会因处理能力、QPU 和内存大小而异。</p>					
-					<!-- <h3>开发人员层</h3>							                   <p>对于评估、开发和测试方案，建议使用开发人员层。它包含标准层的全部功能，但处理能力、QPU 和内存大小有限制。开发人员层不提供服务级别协议。</p>
-                    <div class="tags-date">                       
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-						<div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>
-					<table  cellpadding="0" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                            <th align="left"><strong>实例</strong></th>
-                            <th align="left"><strong>QPU</strong></th>
-                            <th align="left"><strong>内存 (GB)</strong></th>
-                            <th align="left"><strong>服务级别协议</strong></th>
-                            <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
-                            </tr>
-                        </thead>
-					    <tbody>
-						    <tr>
-                                <td class="left_align">开发人员</td>
-                                <td class="left_align">20</td>
-                                <td class="left_align">3</td>
-                                <td class="left_align">无</td>
-                                <td class="left_align">￥ 0.8395/小时<br/>（~￥ 624.588/月）</td>
-                            </tr>
-						</tbody>
-					</table>
-					<div class="tags-date">
-                        <div class="ms-date"><sup style="font-weight: normal;">1 </sup></strong>收取标准数据传输费率。</div>                       
-                    </div> -->
-					
-					<h3>基本级别</h3>
-					<p>基本层是常规用途层，建议在具有小型表格模型的生产解决方案、限制用户并发和要求简单数据刷新的情况中使用该层。</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>					                 															
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>实例</strong></th>
-                            <th align="left"><strong>QPU</strong></th>
-                            <th align="left"><strong>内存 (GB)</strong></th>
-                            <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
-                        </tr>
-                        <tr>
-                            <td>B1</td>
-                            <td>40</td>
-                            <td>10</td>
-                            <td>￥2.4475/小时<br>(~￥1,820.94 /月)</td>                            
-                        </tr>
-                        <tr>
-                            <td>B2</td>
-                            <td>80</td>
-                            <td>20</td>
-                            <td>￥4.895/小时<br>(~￥3,641.88 /月)</td>                            
-                        </tr>
-                    </table>
-					<div class="tags-date">
-                        <div class="ms-date"><sup style="font-weight: normal;">1 </sup></strong>收取标准数据传输费率。</div>                       
-                    </div>
-					
-					<h3>标准级别</h3>						
-					<p>对于需求弹性用户并发，且拥有不断发展的数据模型的任务关键生产应用程序而言，最适合选择标准层。标准层的高级数据刷新功能有助于客户实现几乎实时的数据模型更新。</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*以下价格均为含税价格。</div><br />
-                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
-                    </div>					                 															
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>实例</strong></th>
-                            <th align="left"><strong>QPU</strong></th>
-                            <th align="left"><strong>内存 (GB)</strong></th>
-                            <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
-                        </tr>
-                        <tr>
-                            <td>S0</td>
-                            <td>40</td>
-                            <td>10</td>
-                            <td>￥12.948/小时<br>(~￥9,633.312 /月)</td>                            
-                        </tr>
-                        <tr>
-                            <td>S1</td>
-                            <td>100</td>
-                            <td>25</td>
-                            <td>￥21.58/小时<br>(~￥16,055.52 /月)</td>                            
-                        </tr>
-						<tr>
-                            <td>S2</td>
-                            <td>200</td>
-                            <td>50</td>
-                            <td>￥43.16/小时<br>(~￥32,111.04 /月)</td>                            
-                        </tr>
-						<tr>
-                            <td>S4</td>
-                            <td>400</td>
-                            <td>100</td>
-                            <td>￥86.32/小时<br>(~￥64,222.08 /月)</td>                            
-                        </tr>
-                    </table>
-					<div class="tags-date">
-                        <div class="ms-date"><sup style="font-weight: normal;">1 </sup></strong>收取标准数据传输费率。</div>                       
-                    </div>
-                    <!-- <h3>标准级别 - 横向扩展</h3>
-                    <p>扩展实例可以添加到主实例，实现更快的数据和查询处理。 扩展实例的定价如下：</p>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left" width="30%"><strong>实例</strong></th>
-                            <th align="left"><strong>价格</strong></th>
-                        </tr>
-                        <tr>
-                            <td>S0</td>
-                            <td>￥9.71/小时(~￥7,224.24 /月)</td>                            
-                        </tr>
-                        <tr>
-                            <td>S1</td>
-                            <td>￥16.19/小时(~￥12,041.36 /月)</td>                            
-                        </tr>
-                        <tr>
-                            <td>S2</td>
-                            <td>￥32.37/小时(~￥24,083.28 /月)</td>                            
-                        </tr>
-                        <tr>
-                            <td>S4</td>
-                            <td>￥64.74/小时(~￥48,166.56 /月)</td>                            
-                        </tr>
-                    </table> -->
-                    <!-- END: Table2-Content-->
-                </div>
-                <!-- END: TAB-CONTAINER-1 -->
+            <!-- END: Product-Detail-TopBanner -->
+             <div class="pricing-page-section">
+                <h2>经过验证的分析引擎</h2>
+                <p>Azure 分析服务提供具有可伸缩性、灵活性和云管理优势的企业级 BI 语义建模功能。Azure 分析服务有助于将复杂数据转换为可操作见解。Azure 分析服务基于 Microsoft SQL Server Analysis Services 中经认证的分析引擎构建。</p>
+                <h2>定价详细信息</h2>
+                <p>Azure 分析服务的总成本取决于所选的层和实例。</p>
             </div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Analysis Services</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                                <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_analysis-services">Analysis Services</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Analysis Services">Analysis Services</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+               
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<!-- BEGIN: Table1-Content-->
+                            
+                            <!-- <p>可在开发人员层、基本层和标准层使用 Azure 分析服务。层之间的主要特征差异如下表所示：</p> -->	
+                            <p>可在基本层和标准层使用 Azure 分析服务。层之间的主要特征差异如下表所示：</p>
+                            <table  cellpadding="0" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <!-- <th align="left"><strong>开发人员</strong></th> -->
+                                    <th align="left"><strong>基本</strong></th>
+                                    <th align="left"><strong>标准</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left_align">透视</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align"></td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">多个分区</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align"></td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">DirectQuery Storage 模式</td>                                
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align"></td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">翻译</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align">√</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">DAX 计算</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align">√</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">行级安全</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align">√</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">In-mem 存储</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align">√</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left_align">备份和还原</td>
+                                        <!-- <td class="left_align">√</td> -->
+                                        <td class="left_align">√</td>
+                                        <td class="left_align">√</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <p>在每个层中，实例的价格会因处理能力、QPU 和内存大小而异。</p>					
+                            <!-- <h3>开发人员层</h3>							                   
+                            <p>对于评估、开发和测试方案，建议使用开发人员层。它包含标准层的全部功能，但处理能力、QPU 和内存大小有限制。开发人员层不提供服务级别协议。</p>
+                            <div class="tags-date">                       
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                            </div>
+                            <table  cellpadding="0" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>QPU</strong></th>
+                                    <th align="left"><strong>内存 (GB)</strong></th>
+                                    <th align="left"><strong>服务级别协议</strong></th>
+                                    <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left_align">开发人员</td>
+                                        <td class="left_align">20</td>
+                                        <td class="left_align">3</td>
+                                        <td class="left_align">无</td>
+                                        <td class="left_align">￥ 0.8395/小时<br/>（~￥ 624.588/月）</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup style="font-weight: normal;">1 </sup></strong>收取标准数据传输费率。</div>                       
+                            </div> -->
+                            
+                            <h3>基本级别</h3>
+                            <p>基本层是常规用途层，建议在具有小型表格模型的生产解决方案、限制用户并发和要求简单数据刷新的情况中使用该层。</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                            </div>					                 															
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>QPU</strong></th>
+                                    <th align="left"><strong>内存 (GB)</strong></th>
+                                    <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
+                                </tr>
+                                <tr>
+                                    <td>B1</td>
+                                    <td>40</td>
+                                    <td>10</td>
+                                    <td>￥2.4475/小时<br>(~￥1,820.94 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>B2</td>
+                                    <td>80</td>
+                                    <td>20</td>
+                                    <td>￥4.895/小时<br>(~￥3,641.88 /月)</td>                            
+                                </tr>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup style="font-weight: normal;">1 </sup></strong>收取标准数据传输费率。</div>                       
+                            </div>
+                            
+                            <h3>标准级别</h3>						
+                            <p>对于需求弹性用户并发，且拥有不断发展的数据模型的任务关键生产应用程序而言，最适合选择标准层。标准层的高级数据刷新功能有助于客户实现几乎实时的数据模型更新。</p>
+                            <h3>水平横向扩展</h3>						
+                            <p>可将横向扩展实例添加到主实例，实现更快的数据和查询处理。横向扩展实例的定价与主实例的定价费率相同。</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                            </div>					                 															
+                            <table cellpadding="0" cellspacing="0" width="100%" id="analysis-services-standard-tier-region2">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>QPU</strong></th>
+                                    <th align="left"><strong>内存 (GB)</strong></th>
+                                    <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
+                                </tr>
+                                <tr>
+                                    <td>S0</td>
+                                    <td>40</td>
+                                    <td>10</td>
+                                    <td>￥12.948/小时<br>(~￥9,633.312 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>100</td>
+                                    <td>25</td>
+                                    <td>￥21.58/小时<br>(~￥16,055.52 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>200</td>
+                                    <td>50</td>
+                                    <td>￥43.16/小时<br>(~￥32,111.04 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S4</td>
+                                    <td>400</td>
+                                    <td>100</td>
+                                    <td>￥86.32/小时<br>(~￥64,222.08 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S8 v2</td>
+                                    <td>640</td>
+                                    <td>200</td>
+                                    <td>￥ 106.7/小时<br>(~￥79,384.8/月)</td>
+                                </tr>
+                                <tr>
+                                    <td>S9 v2</td>
+                                    <td>1280</td>
+                                    <td>400</td>
+                                    <td>￥ 208.23/小时<br>(~￥154,923.12/月)</td>
+                                </tr>
+                            </table>
+
+                            <table cellpadding="0" cellspacing="0" width="100%" id="analysis-services-standard-tier-region">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>QPU</strong></th>
+                                    <th align="left"><strong>内存 (GB)</strong></th>
+                                    <th align="left"><strong>价格<sup style="font-weight: normal;">1</sup></strong></th>
+                                </tr>
+                                <tr>
+                                    <td>S0</td>
+                                    <td>40</td>
+                                    <td>10</td>
+                                    <td>￥12.948/小时<br>(~￥9,633.312 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>100</td>
+                                    <td>25</td>
+                                    <td>￥21.58/小时<br>(~￥16,055.52 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>200</td>
+                                    <td>50</td>
+                                    <td>￥43.16/小时<br>(~￥32,111.04 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S4</td>
+                                    <td>400</td>
+                                    <td>100</td>
+                                    <td>￥86.32/小时<br>(~￥64,222.08 /月)</td>                            
+                                </tr>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup style="font-weight: normal;">1 </sup></strong>收取标准数据传输费率。</div>                       
+                            </div>
+                            <!-- <h3>标准级别 - 横向扩展</h3>
+                            <p>扩展实例可以添加到主实例，实现更快的数据和查询处理。 扩展实例的定价如下：</p>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left" width="30%"><strong>实例</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>S0</td>
+                                    <td>￥9.71/小时(~￥7,224.24 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>￥16.19/小时(~￥12,041.36 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>￥32.37/小时(~￥24,083.28 /月)</td>                            
+                                </tr>
+                                <tr>
+                                    <td>S4</td>
+                                    <td>￥64.74/小时(~￥48,166.56 /月)</td>                            
+                                </tr>
+                            </table> -->
+                            <!-- END: Table2-Content-->
+                                    
+                                </div>
+                            </div>
+                            <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
             <!-- END: TAB-CONTROL -->
 			
             <div class="pricing-page-section">
