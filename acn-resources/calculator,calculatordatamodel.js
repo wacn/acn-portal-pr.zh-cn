@@ -23076,7 +23076,7 @@ var CalculatorData = {
 
 
         "cognitive-services-face": {
-            Name: "认知服务 - 人脸 API",
+            Name: "认知服务 - 人脸",
             Types: [{
                 Name: "免费",
                 Features: [{
@@ -23175,7 +23175,7 @@ var CalculatorData = {
         // },
 
         "cognitive-services-computer-vision": {
-            Name: "认知服务 - 计算机影像 API",
+            Name: "认知服务 - 计算机影像",
             Types: [{
                 Name: "免费",
                 Features: [{
@@ -23244,7 +23244,7 @@ var CalculatorData = {
             }]
         },
         "cognitive-services-content-moderator": {
-            Name: "认知服务 - 内容审查 API",
+            Name: "认知服务 - 内容审查",
             Types: [{
                 Name: "免费",
                 Features: [{
@@ -23294,7 +23294,7 @@ var CalculatorData = {
         ]
         },
         "cognitive-services-text-analytics": {
-            Name: "认知服务 - 文本分析 API",
+            Name: "认知服务 - 文本分析",
             Types: [
             {
                 Name: "免费",
@@ -23350,7 +23350,7 @@ var CalculatorData = {
         ]
         },
         "cognitive-services-translator-text-api": {
-            Name: "认知服务 - 文本翻译 API",
+            Name: "认知服务 - 文本翻译",
             Types: [
             {
                 Name: "免费",
@@ -23441,7 +23441,7 @@ var CalculatorData = {
         },
 
         "cognitive-services-luis-api": {
-            Name: "认知服务 - 语言理解 API",
+            Name: "认知服务 - 语言理解",
             Types: [
             {
                 Name: "免费",
@@ -23596,6 +23596,36 @@ var CalculatorData = {
                         Description: "S4 标准级别",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "86.32",
+                    }]
+                }]
+            },{
+                Name: "S8 v2",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "S8 v2 标准级别",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "106.7",
+                    }]
+                }]
+            },{
+                Name: "S9 v2",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "2000",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "S9 v2 标准级别",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "208.23",
                     }]
                 }]
             }]
@@ -23841,25 +23871,25 @@ var CalculatorData = {
                     }]
                 }]
             },
-            // {
-            //     Name: "流量分析",
-            //     Features: [{
-            //         Name: "default",
-            //         PricePeriod: PricePeriodEnum.Monthly,
-            //         PriceUnit: "个",
-            //         MinUnit: "0",
-            //         MaxUnit: "20",
-            //         Sizes: [{
-            //             Name: "default",
-            //             Description: "收集的日志 (GB)",
-            //             PriceTier: "0,100000",
-            //             PricePerTier: "23.405",
-            //             MinUnit: "0",
-            //             MaxUnit: "2000",
-            //             PriceUnit: "GB"
-            //         }]
-            //     }]
-            // }
+            {
+                Name: "流量分析",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "收集的日志 (GB)",
+                        PriceTier: "0,100000",
+                        PricePerTier: "23.405",
+                        MinUnit: "0",
+                        MaxUnit: "2000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }
             ]
         },
         "azure-monitor": {
@@ -24114,6 +24144,22 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "短信 - 奥地利（+ 43）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.88",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
                     Name: "短信 - 比利时 (+32)",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -24146,6 +24192,38 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "短信 - 智利（+ 56）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.316",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
+                    Name: "短信 - 捷克共和国（+ 420）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.535",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
                     Name: "短信 - 丹麦 (+45)",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -24156,6 +24234,22 @@ var CalculatorData = {
                         Description: "",
                         PriceTier: "0,5000",
                         PricePerTier: "0.269",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
+                    Name: "短信 - 爱沙尼亚 (+372)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.722",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "每条短信"
@@ -24290,6 +24384,54 @@ var CalculatorData = {
                     }]
                 },
                 {
+                    Name: "短信 - 约旦（+ 962）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "1.241",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
+                    Name: "短信 - 卢森堡（+ 352）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.392",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
+                    Name: "短信 - 马来西亚（+ 60）",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.611",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
                     Name: "短信 - 墨西哥 (+52)",
                     PricePeriod: PricePeriodEnum.Monthly,
                     PriceUnit: "个",
@@ -24364,6 +24506,22 @@ var CalculatorData = {
                         Description: "",
                         PriceTier: "0,5000",
                         PricePerTier: "0.221",
+                        MinUnit: "0",
+                        MaxUnit: "5000",
+                        PriceUnit: "每条短信"
+                    }]
+                },
+                {
+                    Name: "短信 - 罗马尼亚 (+40)",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "",
+                        PriceTier: "0,5000",
+                        PricePerTier: "0.545",
                         MinUnit: "0",
                         MaxUnit: "5000",
                         PriceUnit: "每条短信"
@@ -26762,6 +26920,49 @@ var CalculatorData = {
                             MinUnit: "0",
                             MaxUnit: "1000000000",
                             PriceUnit: "逻辑防火墙单元"
+                        }]
+                    }]
+            }]
+        },
+        "virtual-wan": {
+            Name: "虚拟 WAN",
+            Types: [
+                {
+                Name: "VPN 缩放单元",
+                Features: [
+                    {
+                        Name: "VPN 缩放单元",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "缩放单元/小时",
+                            PriceTier: "0,1000000000",
+                            PricePerTier: "3.674",
+                            MinUnit: "0",
+                            MaxUnit: "1000000000",
+                            PriceUnit: "缩放单元"
+                        }]
+                    }]
+            },{
+                Name: "VPN S2S 连接单元",
+                Features: [
+                    {
+                        Name: "VPN S2S 连接单元",
+                        PricePeriod: PricePeriodEnum.Hourly,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "20",
+                        Sizes: [{
+                            Name: "default",
+                            Description: "连接单元/小时",
+                            PriceTier: "0,1000000000",
+                            PricePerTier: "0.814",
+                            MinUnit: "0",
+                            MaxUnit: "1000000000",
+                            PriceUnit: "连接单元"
                         }]
                     }]
             }]
