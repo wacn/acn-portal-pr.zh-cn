@@ -4,6 +4,59 @@
     <bodyText>
       <![CDATA[
             <tags ms.service="network-watcher" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+	        </style> 
+            
+			<div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">所选区域不可用</div></div>
+            </div>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/network-watcher.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -19,63 +72,128 @@
             <!-- END: Product-Detail-TopBanner -->
             <div class="pricing-page-section">
                 <p>使用网络观察程序可监视和诊断网络的运行状况和性能。例如，网络观察程序诊断和可视化工具可帮助捕获虚拟机上的数据包，验证是否接受或拒绝某个 IP 流。还可以标识数据包将从虚拟机路由到的位置，并深入了解整个网络拓扑。</p>
-            </div>
-			
-			
-			<div class="pricing-page-section">
                 <h2>定价详细信息</h2>
-                <div class="tags-date">
-                    <div class="ms-date">*以下价格均为含税价格。</div><br />
-                    <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+            </div>
+
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Network Watcher</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                                <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_network-watcher">Network Watcher</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Network Watcher">Network Watcher</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							
+                            <div class="tags-date">
+                                <div class="ms-date">*以下价格均为含税价格。</div><br />
+                                <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="network-watcher-region">
+                                    <tr>
+                                        <th align="left"><strong>功能</strong></th>
+                                        <th align="left"><strong>内附免费单位数</strong></th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>收集的网络日志<sup> 1</sup></td>
+                                        <td>每月 5GB</td>
+                                        <td>￥5.09/GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>网络诊断工具<sup> 2</sup></td>
+                                        <td>1,000 次检查/月</td>
+                                        <td>￥10.00/1,000 次检查</td>
+                                    </tr>
+                                    <tr>
+                                        <td>连接监控</td>
+                                        <td>——</td>
+                                        <td>每月每个连接 ￥30.52</td>
+                                    </tr>
+                                </table>
+                                <table cellpadding="0" cellspacing="0" width="100%" id="network-watcher-region2">
+                                    <tr>
+                                        <th align="left"><strong>功能</strong></th>
+                                        <th align="left"><strong>内附免费单位数</strong></th>
+                                        <th align="left"><strong>价格</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td>收集的网络日志<sup> 1</sup></td>
+                                        <td>每月 5GB</td>
+                                        <td>￥5.09/GB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>网络诊断工具<sup> 2</sup></td>
+                                        <td>1,000 次检查/月</td>
+                                        <td>￥10.00/1,000 次检查</td>
+                                    </tr>
+                                    <tr>
+                                        <td>连接监控</td>
+                                        <td>——</td>
+                                        <td>每月每个连接 ￥30.52</td>
+                                    </tr>
+                                    <tr>
+                                        <td>流量分析</td>
+                                        <td>——</td>
+                                        <td>每处理 1GB ￥23.405<sup> 3</sup></td>
+                                    </tr>
+                                </table>
+                                <div class="tags-date">
+                                    <div class="ms-date"><sup>1</sup> 网络日志存储在存储帐户内，并且具有可设置为 1 至 365 天的保留策略。如果未设置保留策略，日志将一直保留。将分别对存储和事件中心收取相应的费用。</div><br />
+                                    <div class="ms-date"><sup>2</sup> 对网络观察程序诊断工具和拓扑功能的收费基于 Azure 门户、PowerShell、CLI 或 Rest 发起的网络诊断检查次数。</div><br/>
+                                    <div class="ms-date"><sup>3</sup> 流量分析功能针对服务处理的日志数据和引入 Azure Log Analytics 服务的结果数据计费。还会对引入 <a href="https://www.azure.cn/pricing/details/monitor/">Azure Log Analytics</a> 服务的日志收取相应费用。</div>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
                 </div>
-				<table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>功能</strong></th>
-                            <th align="left"><strong>内附免费单位数</strong></th>
-                            <th align="left"><strong>价格</strong></th>
-                        </tr>
-                        
-                        <tr>
-                            <td>收集的网络日志<sup> 1</sup></td>
-                            <td>每月 5GB</td>
-                            <td>￥5.09/GB</td>
-                        </tr>
-                        <tr>
-                            <td>网络诊断工具<sup> 2</sup></td>
-                            <td>1,000 次检查/月</td>
-                            <td>￥10.00/1,000 次检查</td>
-                        </tr>
-                        <tr>
-                            <td>连接监控</td>
-                            <td>——</td>
-                            <td>每月每个连接 ￥30.52</td>
-                        </tr>
-                    </table>
-            </div>
-            <div class="tags-date">
-                <div class="ms-date"><sup>1</sup> 网络日志存储在存储帐户内，并且具有可设置为 1 至 365 天的保留策略。如果未设置保留策略，日志将一直保留。将分别对存储和事件中心收取相应的费用。</div><br />
-                <div class="ms-date"><sup>2</sup>对网络观察程序诊断工具和拓扑功能的收费基于 Azure 门户、PowerShell、CLI 或 Rest 发起的网络诊断检查次数。</div>
-            </div>
+            <!-- END: TAB-CONTROL -->
 			
             <!-- END: TAB-CONTROL -->
-			<!-- <div class="pricing-page-section">
-                <h2>上市地区</h2>
-                <p>网络观察程序在以下区域中提供：</p>
-                <table cellpadding="0" cellspacing="0" class="table-col6">
-                    <tr>
-                        <th align="left"><strong>地域</strong></th>
-                        <th align="left"><strong>区域</strong></th>
-                    </tr>
-                    <tr>
-                        <td>中国大陆</td>
-                        <td>中国东部数据中心 , 中国北部数据中心</td>
-                    </tr>
-                </table>
-            </div> -->
+			
 			<div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="network-watcher-contact-page"> Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
-				
 				<p>我们保证在 99.9％ 的时间内，网络诊断工具会成功执行并返回响应。若要了解有关我们的服务器级别协议的详细信息，请访问<a href="/support/sla/network-watcher/" id="pricing_network-watcher-watcher_sla">服务级别协议</a>页。</p>
 				
             </div>
