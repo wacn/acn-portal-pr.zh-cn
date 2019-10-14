@@ -25171,16 +25171,32 @@ var CalculatorData = {
                 Name: "标准",
                 Features: [
                     {
-                        Name: "每条规则价格",
+                        Name: "1-5 条规则",
+                        PricePeriod: PricePeriodEnum.Fixed,
+                        PriceUnit: "个",
+                        MinUnit: "0",
+                        MaxUnit: "1",
+                        Sizes: [{
+                            Name: "1-5条规则",
+                            Description: "创建1-5条规则，收费是一样的 ￥0.159",
+                            PriceTier: "0,1,2,5",
+                            PricePerTier: "0.159,0",
+                            MinUnit: "0",
+                            MaxUnit: "5",
+                            PriceUnit: "条规则"
+                        }]
+                    },
+                    {
+                        Name: "超过5条规则价格",
                         PricePeriod: PricePeriodEnum.Hourly,
                         PriceUnit: "个",
                         MinUnit: "0",
                         MaxUnit: "20",
                         Sizes: [{
-                            Name: "rules pricing",
-                            Description: "每条规则每小时的价格",
-                            PriceTier: "0,5,6,100000",
-                            PricePerTier: "0.159,0.0636",
+                            Name: "超过5条规则价格",
+                            Description: "￥ 0.0636/规则/小时",
+                            PriceTier: "0,100000",
+                            PricePerTier: "0.0636",
                             MinUnit: "0",
                             MaxUnit: "100000",
                             PriceUnit: "每条规则/小时"
@@ -25204,18 +25220,18 @@ var CalculatorData = {
                 },
                 {
                     Name: "每个 NAT 的价格",
-                    PricePeriod: PricePeriodEnum.Fixed,
+                    PricePeriod: PricePeriodEnum.Hourly,
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
                         Name: "nat pricing",
-                        Description: "每个 NAT 的价格",
-                        PriceTier: "0,100000",
-                        PricePerTier: "0.0636",
+                        Description: "前100条免费，从第101条开始按照￥ 0.0636/规则/小时计费",
+                        PriceTier: "0,100,101,100000",
+                        PricePerTier: "0,0.0636",
                         MinUnit: "0",
                         MaxUnit: "100000",
-                        PriceUnit: "每个"
+                        PriceUnit: "每个规则/小时"
                     }]
                 }]
             },
