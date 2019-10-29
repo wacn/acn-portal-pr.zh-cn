@@ -26983,6 +26983,59 @@ var CalculatorData = {
                     }]
             }]
         },
+        "active-directory": {
+            Name: "Azure Active Directory",
+            Types: [
+                // {
+                //     Name: "免费",
+                //     Features: [{
+                //         Name: "default",
+                //         Sizes: [{
+                //             Name: CalculatorConst.appservice_Free_Shared_F1,
+                //             Description: "在多租户环境中每个子区域免费运行多达 10 个 Web 应用。根据流量增长情况无缝升级到付费的共享多租户模型或保留实例模型。",
+                //             PriceTier: PriceTierEnum.Free,
+                //             PricePerTier: "0",
+                //         }]
+                //     }]
+                // },
+            {
+                Name: "高级 P1",
+                Features: [{
+                    Name: "高级 P1",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000000",
+                        PricePerTier: "45.58",
+                        MinUnit: "0",
+                        MaxUnit: "5000000",
+                        PriceUnit: "用户/月"
+                    }]
+                }]
+            },{
+                Name: "高级 P2",
+                Features: [{
+                    Name: "高级 P2",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,5000000",
+                        PricePerTier: "68.9",
+                        MinUnit: "0",
+                        MaxUnit: "5000000",
+                        PriceUnit: "用户/月"
+                    }]
+                }]
+            }]
+        },
     }
 };
 //  return CalculatorData;
