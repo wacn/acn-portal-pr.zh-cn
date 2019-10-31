@@ -278,6 +278,33 @@ var CalculatorData = {
                         PricePerTier: "8.141",
                     }]
                 }]
+            },{
+                Name: "独立服务计划",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Hourly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "100",
+                    Sizes: [{
+                        Name: CalculatorConst.appservice_Isolate_I1,
+                        Description: CalculatorConst.appservice_Isolate_I1Desc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "3.053",
+                    },
+                    {
+                        Name: CalculatorConst.appservice_Isolate_I2,
+                        Description: CalculatorConst.appservice_Isolate_I2Desc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "6.106",
+                    },
+                    {
+                        Name: CalculatorConst.appservice_Isolate_I3,
+                        Description: CalculatorConst.appservice_Isolate_I3Desc,
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "12.211",
+                    }]
+                }]
             }]
         },
 
