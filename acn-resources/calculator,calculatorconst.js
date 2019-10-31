@@ -395,12 +395,18 @@ var CalculatorConst = {
     appservice_Premium_P1:"P1",
     appservice_Premium_P2:"P2",
     appservice_Premium_P3:"P3",
+    appservice_Isolate_I1:"I1",
+    appservice_Isolate_I2:"I2",
+    appservice_Isolate_I3:"I3",
     appservice_Premium_P1V2Desc:"3.5 GB 内存，250 GB 存储",
     appservice_Premium_P2V2Desc:"7 GB 内存，250 GB 存储",
     appservice_Premium_P3V2Desc:"14 GB 内存，250 GB 存储",
     appservice_Premium_P1Desc:"1.75 GB 内存，500 GB 存储",
     appservice_Premium_P2Desc:"3.5 GB 内存，500 GB 存储",
     appservice_Premium_P3Desc:"7 GB 内存，500 GB 存储",
+    appservice_Isolate_I1Desc:"3.5 GB 内存，1TB 存储",
+    appservice_Isolate_I2Desc:"7 GB 内存，1TB 存储",
+    appservice_Isolate_I3Desc:"14 GB 内存，1TB 存储",
 
 	
 	/* \\10.186.11.30\ka2\FY17\Microsoft\Bill\ACN Maintenance\Content\17.3.9 XML acom staging access
