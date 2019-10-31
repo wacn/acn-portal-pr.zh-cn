@@ -465,8 +465,42 @@
                                                 <td>250 GB</td>
                                                 <td>￥8.141/hour<br>(about ￥6,056.904/month)</td>
                                             </tr>
-                                            
                                         </table>
+
+                                        <h3>Isolated Service Plan</h3>
+                                        <p>The Isolated service plan is designed to run mission critical workloads, that are required to run in a virtual network. The Isolated plan allows customers to run their apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard. The private environment used with an Isolated plan is called the App Service Environment. The plan can scale to 100 instances with more available upon request. You can find more details on the Isolated plan.</p>
+                                        <!-- and <a href="https://docs.azure.cn/app-service/environment/app-service-app-service-environment-intro" style="font-size:16px;">App Service Environments</a> -->
+                                        <table cellpadding="0" cellspacing="0" width="100%" id="app-service-service-plan-isolated">
+                                            <tr>
+                                                <th align="left"><strong>Instances</strong></th>
+                                                <th align="left"><strong>Number of Cores</strong></th>
+                                                <th align="left"><strong>RAM</strong></th>
+                                                <th align="left"><strong>Storage</strong></th>
+                                                <th align="left"><strong>Price</strong></th>
+                                            </tr>
+                                            <tr>
+                                                <td>I1</td>
+                                                <td>1</td>
+                                                <td>3.5 GB</td>
+                                                <td>1 TB</td>
+                                                <td>￥3.053/hour<br>(~￥2,271.432 /month)</td>                            
+                                            </tr>
+                                            <tr>
+                                                <td>I2</td>
+                                                <td>2</td>
+                                                <td>7 GB</td>
+                                                <td>1 TB</td>
+                                                <td>￥6.106/hour<br>(~￥4,542.864 /month)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>I3</td>
+                                                <td>4</td>
+                                                <td>14 GB</td>
+                                                <td>I TB</td>
+                                                <td>￥12.211/hour<br>(~￥9,084.984 /month)</td>
+                                            </tr>
+                                        </table>
+
                                         
                                         <h3>SSL Connections</h3>
                                         <p>App Service supports two types of SSL connections: Server Name Indication (SNI) SSL connections and IP address SSL connections. SNI-based SSL is suitable for modern browsers while IP-based SSL is suitable for all browsers.</p>
