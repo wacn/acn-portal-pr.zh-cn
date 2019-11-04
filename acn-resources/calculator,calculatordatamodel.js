@@ -1379,19 +1379,19 @@ var CalculatorData = {
                         Name: "D2 v3/DS2 v3",
                         Description: "2个内核，8GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.85"
+                        PricePerTier: "0.719"
                     },
                     {
                         Name: "D4 v3/DS4 v3",
                         Description: "4个内核，16GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.68"
+                        PricePerTier: "1.437"
                     },
                     {
                         Name: "D8 v3/DS8 v3",
                         Description: "8个内核，32GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.36"
+                        PricePerTier: "2.87"
                     }]
                 },
                 {
@@ -1405,25 +1405,25 @@ var CalculatorData = {
                         Name: "D16 v3/DS16 v3",
                         Description: "16个内核，64GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.73"
+                        PricePerTier: "5.747"
                     },
                     {
                         Name: "D32 v3/DS32 v3",
                         Description: "32个内核，128GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13.46"
+                        PricePerTier: "11.49"
                     },
                     {
                         Name: CalculatorConst.D48v3Size,
                         Description: CalculatorConst.D48v3SizeDesc,
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "20.19"
+                        PricePerTier: "17.24"
                     },
                     {
                         Name: "D64 v3/DS64 v3",
                         Description: "64个内核，256GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "26.91"
+                        PricePerTier: "22.99"
                     }]
                 },
                 {
@@ -5876,19 +5876,19 @@ var CalculatorData = {
                         Name: "D2 v3/DS2 v3",
                         Description: "2个内核，8GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "0.85"
+                        PricePerTier: "0.719"
                     },
                     {
                         Name: "D4 v3/DS4 v3",
                         Description: "4个内核，16GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.68"
+                        PricePerTier: "1.437"
                     },
                     {
                         Name: "D8 v3/DS8 v3",
                         Description: "8个内核，32GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.36"
+                        PricePerTier: "2.87"
                     }]
                 },
                 {
@@ -5902,25 +5902,25 @@ var CalculatorData = {
                         Name: "D16 v3/DS16 v3",
                         Description: "16个内核，64GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "6.73"
+                        PricePerTier: "5.747"
                     },
                     {
                         Name: "D32 v3/DS32 v3",
                         Description: "32个内核，128GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "13.46"
+                        PricePerTier: "11.49"
                     },
                     {
                         Name: "D48 v3/DS48 v3",
                         Description: "48个内核，192GiB RAM，1200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "20.19"
+                        PricePerTier: "17.24"
                     },
                     {
                         Name: "D64 v3/DS64 v3",
                         Description: "64个内核，256GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "26.91"
+                        PricePerTier: "22.99"
                     }]
                 },
                 {
@@ -6683,19 +6683,19 @@ var CalculatorData = {
                         Name: "D2 v3/DS2 v3",
                         Description: "2个内核，8GiB RAM，50GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "1.931"
+                        PricePerTier: "1.8"
                     },
                     {
                         Name: "D4 v3/DS4 v3",
                         Description: "4个内核，16GiB RAM，100GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "3.842"
+                        PricePerTier: "3.599"
                     },
                     {
                         Name: "D8 v3/DS8 v3",
                         Description: "8个内核，32GiB RAM，200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "5.968"
+                        PricePerTier: "5.478"
                     }]
                 },
                 {
@@ -6709,25 +6709,25 @@ var CalculatorData = {
                         Name: "D16 v3/DS16 v3",
                         Description: "16个内核，64GiB RAM，400GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "9.338"
+                        PricePerTier: "8.355"
                     },
                     {
                         Name: "D32 v3/DS32 v3",
                         Description: "32个内核，128GiB RAM，800GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "16.068"
+                        PricePerTier: "14.098"
                     },
                     {
                         Name: "D48 v3/DS48 v3",
                         Description: "48个内核，192GiB RAM，1200GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "22.798"
+                        PricePerTier: "19.848"
                     },
                     {
                         Name: "D64 v3/DS64 v3",
                         Description: "64个内核，256GiB RAM，1,600GiB 临时存储",
                         PriceTier: PriceTierEnum.Fixed,
-                        PricePerTier: "29.518"
+                        PricePerTier: "25.598"
                     }]
                 },
                 {
