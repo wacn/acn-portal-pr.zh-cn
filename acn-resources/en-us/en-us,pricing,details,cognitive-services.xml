@@ -3,7 +3,63 @@
   <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2019-01-14T16:00:00" urlName="cognitive-services" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
-            <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> 
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+            .speech-services-table tr,.speech-services-table td{
+                background-color:white;
+            }
+	        </style> 
+            <div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">Not available in the selected region</div></div>
+            </div>
+            <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/css/images/cognitive-slice-01.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
@@ -15,587 +71,724 @@
                     </div>
                 </div>
             </div>
-            <!-- END: Product-Detail-TopBanner --> <!-- BEGIN: TAB-CONTROL -->
-<div class="technical-azure-selector tab-control-selector">
-    <!-- BEGIN: TAB-CONTAINER-1 -->
-    <h2>Pricing Details</h2>
-    <div class="tab-control-container tab-active" id="tabContent1">
-        <!-- BEGIN: Table1-Content-->
-        <h3>Face API</h3>
-			<p>The Face API uses uses state-of-the-art cloud-based face algorithms to detect and recognize human faces in images. Capabilities include features like face detection, face verification, and face grouping to organize faces into groups based on their visual similarity.</p>
-			<div class="tags-date">
-				<div class="ms-date">*The following prices are tax-inclusive.</div>
+            <!-- END: Product-Detail-TopBanner -->
+            <div class="pricing-page-section">
+                <h2>Cognitive Services Pricing</h2>
             </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>Tier</strong></th>
-				<th align="left"><strong>Feature</strong></th>
-                <th align="left"><strong>Price</strong></th>
-            </tr>
-            <tr>
-                <td>Face API – free</td>
-                <td>Up to 20 transactions/minute</td>
-                <td>30,000 transactions free per month</td>
-            </tr>
-            <tr>
-				<td>Face API – standard</td>
-				<td>Up to 10 transactions per second</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>0-1,000,000 transactions</td>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/Software:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Cognitive Services</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                            <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_cognitive-services">Cognitive Services</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Cognitive Services">Cognitive Services</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>Region:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">China East 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >China East 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >China North 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >China East</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >China North</a></li>	
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">China East 2</option>
+							<option data-href="#north-china2" value="north-china2">China North 2</option>
+							<option data-href="#east-china" value="east-china">China East</option>
+							<option data-href="#north-china" value="north-china">China North</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<!-- BEGIN: Table1-Content-->
+                            <h3>Face</h3>
+                                <p>The Face API uses uses state-of-the-art cloud-based face algorithms to detect and recognize human faces in images. Capabilities include features like face detection, face verification, and face grouping to organize faces into groups based on their visual similarity.</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div>
+                                </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>Tier</strong></th>
+                                    <th align="left"><strong>Feature</strong></th>
+                                    <th align="left"><strong>Price</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Face API – free</td>
+                                    <td>Up to 20 transactions/minute</td>
+                                    <td>30,000 transactions free per month</td>
+                                </tr>
+                                <tr>
+                                    <td>Face API – standard</td>
+                                    <td>Up to 10 transactions per second</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>0-1,000,000 transactions</td>
 
-                <td>￥ 6.36 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                    <td>￥ 6.36 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
 
-            </tr>
-            <tr>
-                <td></td>
-                <td>1,000,001-5,000,000 transactions</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>1,000,001-5,000,000 transactions</td>
 
-                <td>￥ 5.09 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>5,000,001-100,000,000 transactions</td>
-                <td>￥ 3.82 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                    <td>￥ 5.09 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>5,000,001-100,000,000 transactions</td>
+                                    <td>￥ 3.82 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
 
-            </tr>
-            <tr>
-                <td></td>
-                <td>Over 100,000,000 transactions</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Over 100,000,000 transactions</td>
 
-                <td>￥2.54 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-			<tr>
-				<td>Face Storage</td>
-				<td>Stores images sized up to 4 MB each</td>
+                                    <td>￥2.54 per 1,000 transactions <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Face Storage</td>
+                                    <td>Stores images sized up to 4 MB each</td>
 
-                <td>￥ 1.59 per month per 1,000 images <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                    <td>￥ 1.59 per month per 1,000 images <sup style="color:#e66102; font-weight: bold">new</sup></td>
 
-            </tr>
+                                </tr>
+                                
+                            </table>
+                            <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content--> <!-- <h3>情绪识别 API<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h3>
+                            <p>借助 Azure 基于云的前沿情绪识别算法（预览版）可生成更人性化的应用。该 API 基于普遍存在的面部表情识别自然环境中的情绪。</p>
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格反映了 50% 的预览版折扣；</div><br />
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>级别</strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>单位</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费版</td>
+                                    <td>每月 30,000 个免费事务 <br/>3,000 个状态查询/每月（限制为 5 个/分钟）</td>
+                                    <td>事务</td>
+                                    <td>免费</td>
+                                </tr>
+                                <tr>
+                                    <td>基本版</td>
+                                    <td>每秒最多 10 个事务 （指定的面部矩形）</td>
+                                    <td>事务</td>
+                                    <td>每 1,000 个事务 ¥ 0.75</td>
+                                </tr>
+                                <tr>
+                                    <td>标准版</td>
+                                    <td>每秒 10 个事务 <br/>30,000 个状态查询/每月（限制为 10 个/分钟）</td>
+                                    <td>事务</td>
+                                    <td>每 1,000 个事务 ¥ 1.85</td>
+                                </tr>
+                            </table> --> <!-- END: Table2-Content--> 
+                            <!-- BEGIN: Table3-Content-->
+                            <h3>Computer Vision</h3>
+                            <p>This state-of-the-art, cloud-based API provides developers with access to advanced algorithms that allow you to extract rich information from images to categorize and process visual data. Capabilities include image analysis, tagging, recognition celebrities, text extraction, and smart thumbnail generation.</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>Tier</strong></th>
+                                    <th align="left"><strong>Features</strong></th>
+                                    <th align="left"><strong>Pricing</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Computer Vision API—free</td>
+                                    <td></td>
+                                    <td>5,000 transactions free per month</td>
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>Tag, Face, Get Thumbnail Color, and Image Types</td>
+                                    <td>0-1 million transactions - ￥ 6.36 per 1,000 transactions </td>
+
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>1 million-5 million transactions - ￥ 5.088 per 1,000 transactions</td>
+
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td>5 million+ transactions - ￥ 4.134 per 1,000 transactions </td>
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>OCR (printed), Adult, Celebrity, and Landmark</td>
+                                    <td>0-1 million transactions - ￥ 9.54 per 1,000 transactions </td>
+
+                            
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td>1 million-5 million transactions - ￥ 6.36 per 1,000 transactions</td>
+
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td>5 million+ transactions - ￥ 4.13 per 1,000 transactions </td>
+                                </tr>
+                                <tr>
+                                    <td>S3</td>
+                                    <td>Describe and OCR (handwriting)</td>
+                                    <td>￥ 15.90 per 1,000 transactions</td>
+
+                                </tr>
+                                
+                            </table>
+                            <!-- END: Table3-Content-->
+
+                            <!-- BEGIN: Table4-Content-->
+                            <h3>Content Moderator</h3>
+                            <p>Content moderator enhances your ability to detect potentially offensive or unwanted images through machine-learning based classifiers, custom blacklists, and optical character recognition (OCR). It helps you detect potential profanity in more than 100 languages and match text against your custom lists automatically. Content Moderator also checks for possible personally identifiable information (PII). Each Text API call can contain up to 1,024 characters each. Scan images (minimum 128 pixels, maximum 4MB size) for adult and racy content, optical character recognition (OCR) and face detection. You can also match against custom image lists. Each API call is a transaction.</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>INSTANCE</strong></th>
+                                    <th align="left"><strong>TRANSACTIONS PER SECOND (TPS)</strong></th>
+                                    <th align="left"><strong>FEATURES</strong></th>
+                                    <th align="left"><strong>PRICE</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Free</td>
+                                    <td>1 TPS</td>
+                                    <td>Moderate</td>
+                                    <td>5,000 transactions free per month</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>1 TPS</td>
+                                    <td>Review</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard</td>
+                                    <td>10 TPS</td>
+                                    <td>Moderate</td>
+                                    <td>
+                                        0-1M transactions - ￥10.18 per 1,000 transactions<br/>
+                                        1M-5M transactions - ￥7.63 per 1,000 transactions<br/>
+                                        5M-10M transactions - ￥6.11 per 1,000 transactions<br/>
+                                        10M+ transactions - ￥4.07 per 1,000 transactions<br/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- END: Table4-Content-->
+
+                            <!-- BEGIN: Table5-Content-->
+                            <h3>Text Analytics</h3>
+                            <p>Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions—sentiment analysis, key phrase extraction, and language detection.</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>INSTANCE</strong></th>
+                                    <th align="left"><strong>FEATURES</strong></th>
+                                    <th align="left"><strong>PRICE</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Free - Web/Container</td>
+                                    <td>Sentiment Analysis<br/>Key Phrase Extraction<br/>Language Detection<br/>Entity Extraction</td>
+                                    <td>5,000 transactions free per month</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard<br/>up to 100 requests per second and 1,000 requests per minute</td>
+                                    <td>Sentiment Analysis<br/>Key Phrase Extraction<br/>Language Detection<br/>Entity Extraction</td>
+                                    <td>
+                                        0-500,000 text records — ￥20.35 per 1,000 text records <br/>
+                                        0.5M-2.5M text records — ￥10.18 per 1,000 text records <br/>
+                                        2.5M-10.0M text records — ￥5.09 per 1,000 text records <br/>
+                                        10M+ text records — ￥2.54 per 1,000 text records </td>
+                                </tr>
+                            </table>
+                            <!-- END: Table5-Content-->
+
+                            <!-- BEGIN: Table6-Content-->
+                            <h3>Translator Text</h3>
+                            <p>Translator Text API is a cloud-based machine translation service supporting multiple languages, reaching more than 95% of world's gross domestic product (GDP). Use Translator to build applications, websites, tools, or any solution requiring multi-language support.</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>INSTANCE</strong></th>
+                                    <th align="left"><strong>FEATURES</strong></th>
+                                    <th align="left"><strong>PRICE</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Free</td>
+                                    <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
+                                    <td>2M chars free per month</td>
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
+                                    <td>￥102 per million chars </td>
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
+                                    <td>￥20,912 / month / Up to 250M chars per month, Overage : ￥84 per million chars</td>
+                                </tr>
+                                <tr>
+                                    <td>S3</td>
+                                    <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
+                                    <td>￥61,056 / month / Up to 1B chars per month, Overage : ￥61 per million chars </td>
+                                </tr>
+                                <tr>
+                                    <td>S4</td>
+                                    <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
+                                    <td>￥457,920 / month / Up to 10B chars per month, Overage : ￥46 per million chars</td>
+                                </tr>
+                            </table>
+                            <!-- END: Table6-Content-->
+
+                            <!-- BEGIN: Table7-Content-->
+                            <h3>Language Understanding</h3>
+                            <p>Language Understanding (LUIS) offers a fast and effective way of adding language understanding to applications. With LUIS, you can use pre-existing, world-class, pre-built models whenever they suit your purposes. When you need specialized models, LUIS guides you through the process of quickly building them.</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*The following prices are tax-inclusive.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>INSTANCE</strong></th>
+                                    <th align="left"><strong>TRANSACTIONS PER SECOND (TPS)<sup>1</sup></strong></th>
+                                    <th align="left"><strong>FEATURES</strong></th>
+                                    <th align="left"><strong>PRICE</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Free<sup>2</sup> - <br/>Web/Container</td>
+                                    <td>5 TPS</td>
+                                    <td>Text Requests</td>
+                                    <td>10,000 transactions* free per month<sup>*</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Standard - <br/>Web/Container</td>
+                                    <td>50 TPS</td>
+                                    <td>Text Requests</td>
+                                    <td>￥15.26 per 1000 transactions per month<sup>*</sup></td>
+                                </tr>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup>1</sup> TPS only applies to web endpoint.</div><br/>
+                                <div class="ms-date"><sup>2</sup> Free Tier includes only text as an input.</div><br/>
+                                <div class="ms-date"><sup>*</sup> Dispatch will do two text transactions per request.</div>
+                            </div>
+                            <!-- END: Table7-Content-->
+
+                            <!-- BEGIN: Table8-Content-->
+                                        <h3>Speech Services</h3>
+                                        <div class="tags-date">
+                                                <div class="ms-date">*The following prices are tax-inclusive.</div>
+                                        </div>
+                                        <table class="speech-services-table" cellpadding="0" cellspacing="0" width="100%" id="cognitive-services-table-speech-services">
+                                            <tr>
+                                                <th align="left"><strong>INSTANCE</strong></th>
+                                                <th align="left"><strong>CATEGORY</th>
+                                                <th align="left"><strong>FEATURES</strong></th>
+                                                <th align="left"><strong>PRICE</strong></th>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="4">Free - Web/Container1 concurrent request<sup>1</sup></td>
+                                                <td rowspan="4">Speech to Text</td>
+                                                <td>Standard</td>
+                                                <td>5 audio hours free per month</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Custom Speech</td>
+                                                <td>5 audio hours free per month</td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>Custom Speech endpoint hosting</td>
+                                                <td>1 model free per month</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Conversation Transcription Multichannel Audio</td>
+                                                <td>5 audio hours free per month</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td rowspan="3">Standard - Web/Container 20 concurrent request<sup>1</sup></td>
+                                                <td rowspan="3">Speech to Text</td>
+                                                <td>Standard</td>
+                                                <td>&yen;3 per audio hour</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Custom Speech</td>
+                                                <td>&yen;14.5 per audio hour</td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>Custom Speech endpoint hosting</td>
+                                                <td>&yen;407.65 per model per month</td>
+                                            </tr>
+                                        </table>
+                                        <div class="tags-date">
+                                            <div class="ms-date"><sup>1</sup> The concurrent requests applied to web endpoints only.</div>
+                                        </div>
+                                        <!-- END: Table8-Content-->
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+                <!-- END: TAB-CONTAINER-2 -->
             
-        </table>
-        <!-- END: Table1-Content--> <!-- BEGIN: Table2-Content--> <!-- <h3>情绪识别 API<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h3>
-        <p>借助 Azure 基于云的前沿情绪识别算法（预览版）可生成更人性化的应用。该 API 基于普遍存在的面部表情识别自然环境中的情绪。</p>
-        <div class="tags-date">
-				<div class="ms-date">*以下价格反映了 50% 的预览版折扣；</div><br />
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-                <th align="left"><strong>级别</strong></th>
-                <th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>单位</strong></th>
-                <th align="left"><strong>价格</strong></th>
-			</tr>
-            <tr>
-                <td>免费版</td>
-                <td>每月 30,000 个免费事务 <br/>3,000 个状态查询/每月（限制为 5 个/分钟）</td>
-                <td>事务</td>
-                <td>免费</td>
-            </tr>
-            <tr>
-                <td>基本版</td>
- 				<td>每秒最多 10 个事务 （指定的面部矩形）</td>
-                <td>事务</td>
-                <td>每 1,000 个事务 ¥ 0.75</td>
-            </tr>
-            <tr>
-                <td>标准版</td>
- 				<td>每秒 10 个事务 <br/>30,000 个状态查询/每月（限制为 10 个/分钟）</td>
-                <td>事务</td>
-                <td>每 1,000 个事务 ¥ 1.85</td>
-            </tr>
-        </table> --> <!-- END: Table2-Content--> 
-        <!-- BEGIN: Table3-Content-->
-        <h3>Computer Vision API</h3>
-        <p>This state-of-the-art, cloud-based API provides developers with access to advanced algorithms that allow you to extract rich information from images to categorize and process visual data. Capabilities include image analysis, tagging, recognition celebrities, text extraction, and smart thumbnail generation.</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*The following prices are tax-inclusive.</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>Tier</strong></th>
-				<th align="left"><strong>Features</strong></th>
-                <th align="left"><strong>Pricing</strong></th>
-            </tr>
-            <tr>
-                <td>Computer Vision API—free</td>
-                <td></td>
-                <td>5,000 transactions free per month</td>
-            </tr>
-            <tr>
-                <td>S1</td>
-				<td>Tag, Face, Get Thumbnail Color, and Image Types</td>
-                <td>0-1 million transactions - ￥ 6.36 per 1,000 transactions </td>
+            <!-- END: TAB-CONTROL -->
 
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>1 million-5 million transactions - ￥ 5.088 per 1,000 transactions</td>
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>FAQ</h2>
+                    <em>Expand all</em>
+                    <h3>Common</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question1">How are the Cognitive Services APIs billed?</a>
+                                <section>
+                                    <p>The Face API and Computer Vision API are billed per 1,000 API transaction calls when a production API call is being actively executed.</p>
+                                </section>
 
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question2">What will happen if I exceed the transaction limit at the Standard tier?</a>
+                                <section>
+                                    <p>If the usage on a standard tier is exceeded, the account starts to accrue overages. These overages are billed on a monthly basis, and are calculated at the rate specified for each tier.</p>
+                                </section>
 
-                <td>5 million+ transactions - ￥ 4.134 per 1,000 transactions </td>
-            </tr>
-            <tr>
-                <td>S2</td>
-                <td>OCR (printed), Adult, Celebrity, and Landmark</td>
-                <td>0-1 million transactions - ￥ 9.54 per 1,000 transactions </td>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question3">Can I change the service tier I subscribed to?</a>
+                                <section>
+                                    <p>You can upgrade to a higher tier at any time. The billing rate corresponding to the higher tier and the amounts included will take effect immediately.</p>
+                                </section>
 
-          
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>Face</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question4">What is Face Storage? What can it be used for?</a>
+                                <section>
+                                    <p>Face Storage allows a subscription to store additional persisted faces when using person objects and face lists for identification, or for similarity matching with the Face API.</p>
+                                </section>
 
-                <td>1 million-5 million transactions - ￥ 6.36 per 1,000 transactions</td>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question5">How are the number of stored faces calculated for billing if it varies throughout the month?</a>
+                                <section>
+                                    <p>Stored images are charged at ￥1.59 per 1,000 faces. This rate is prorated on a daily basis. For example, if your account used 10,000 persisted faces each day for the first half of the month and none during the second half, you would only be billed for the number of days the 10,000 faces were stored for. This would be calculated as (￥1.59/1,000) x (10,000 x 15 + 0 x 16)/31 = ￥7.69. Alternatively, if you retained 1,000 faces for a few hours each day during a month and then deleted them every night, you would still be billed for the 1,000 persisted faces each day.</p>
+                                </section>
 
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question6">What is the capacity of Face Storage?</a>
+                                <section>
+                                    <p>The quota for stored person groups is currently 1,000. Each person group or FaceList can have a maximum of 1,000 people.</p>
+                                </section>
 
-                <td>5 million+ transactions - ￥ 4.13 per 1,000 transactions </td>
-            </tr>
-            <tr>
-                <td>S3</td>
-                <td>Describe and OCR (handwriting)</td>
-                <td>￥ 15.90 per 1,000 transactions</td>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>Computer Vision</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question7">What operations can be completed with Computer Vision API?</a>
+                                <section>
+                                    <p><strong>Tag </strong>- The Computer Vision API returns tags based on more than 2,000 recognizable objects, living beings, types of scenery, and actions. If tags are ambiguous or unusual, the API response will provide 'hints' to clarify the meaning of the tag.</p>
+                                    <p><strong>Face</strong> - Detects human faces within a picture.</p>
+                                    <p><strong>GetThumbnail</strong> - GetThumbnail generates high quality thumbnails after images are uploaded. The Computer Vision API algorithm analyzes objects within images, then crops images according to the requirements for the region of interest (ROI).</p>
+                                    <p><strong>Color</strong> - The Computer Vision algorithm extracts colors from an image. The colors are analyzed in three different contexts (foreground, background, and whole). They are grouped into 12 dominant accent colors.</p>
+                                    <p><strong>Image Type</strong> - The Computer Vision API can set a Boolean flag to indicate whether an image is black and white or color. It can use the same method to indicate whether an image is a line drawing. It can also indicate whether an image is clip art, along with its quality.</p>
+                                    <p><strong>OCR</strong> - Optical Character Recognition (OCR) technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the results for searches and numerous other purposes, from medical records to security and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to simply take photos of text instead of transcribing it. Please refer to the <a href="https://docs.azure.cn/zh-cn/cognitive-services/computer-vision/">Computer Vision Documentation</a> page for supported languages.</p>
+                                    <p><strong>Adult</strong> - Apply adult/racy settings to automatically restrict adult content in images.</p>
+                                    <p><strong>Celebrities</strong> - Azure’s celebrity recognition model can recognize 200,000 celebrities from business, politics, sports, and entertainment around the world.</p>
+                                </section>
 
-            </tr>
-            
-        </table>
-        <!-- END: Table3-Content-->
+                            </div>
+                        </li>
+                    </ul>
 
-        <!-- BEGIN: Table4-Content-->
-        <h3>Content Moderator API</h3>
-        <p>Content moderator enhances your ability to detect potentially offensive or unwanted images through machine-learning based classifiers, custom blacklists, and optical character recognition (OCR). It helps you detect potential profanity in more than 100 languages and match text against your custom lists automatically. Content Moderator also checks for possible personally identifiable information (PII). Each Text API call can contain up to 1,024 characters each. Scan images (minimum 128 pixels, maximum 4MB size) for adult and racy content, optical character recognition (OCR) and face detection. You can also match against custom image lists. Each API call is a transaction.</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*The following prices are tax-inclusive.</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>INSTANCE</strong></th>
-				<th align="left"><strong>TRANSACTIONS PER SECOND (TPS)</strong></th>
-                <th align="left"><strong>FEATURES</strong></th>
-                <th align="left"><strong>PRICE</strong></th>
-            </tr>
-            <tr>
-                <td>Free</td>
-                <td>1 TPS</td>
-                <td>Moderate</td>
-                <td>5,000 transactions free per month</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>1 TPS</td>
-                <td>Review</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Standard</td>
-                <td>10 TPS</td>
-                <td>Moderate</td>
-                <td>
-                    0-1M transactions - ￥10.18 per 1,000 transactions<br/>
-                    1M-5M transactions - ￥7.63 per 1,000 transactions<br/>
-                    5M-10M transactions - ￥6.11 per 1,000 transactions<br/>
-                    10M+ transactions - ￥4.07 per 1,000 transactions<br/>
-                </td>
-            </tr>
-        </table>
-        <!-- END: Table4-Content-->
+                    <h3>Content Moderator</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question8">What are the limits/restrictions of the content that can be moderated by using the API?</a>
+                                <section>
+                                    <p>When using the API, images need to have a minimum of 128 pixels and a maximum file size of 4MB. Text can be at most 1024 characters long.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question9">What happens if the content passed to the text API or the image API exceeds the size limits?</a>
+                                <section>
+                                    <p>The text API will return an error code that informs that the text is longer than permitted. The image API will also return an error code that informs that the image does not meet the size requirements.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question10">Is there an extra cost to using Human review tool?</a>
+                                <section>
+                                    <p>Human review tool is included in your subscription.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
 
-        <!-- BEGIN: Table5-Content-->
-        <h3>Text Analytics API</h3>
-        <p>Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions—sentiment analysis, key phrase extraction, and language detection.</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*The following prices are tax-inclusive.</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>INSTANCE</strong></th>
-                <th align="left"><strong>FEATURES</strong></th>
-                <th align="left"><strong>PRICE</strong></th>
-            </tr>
-            <tr>
-                <td>Free - Web/Container</td>
-                <td>Sentiment Analysis<br/>Key Phrase Extraction<br/>Language Detection<br/>Entity Extraction</td>
-                <td>5,000 transactions free per month</td>
-            </tr>
-            <tr>
-                <td>Standard<br/>up to 100 requests per second and 1,000 requests per minute</td>
-                <td>Sentiment Analysis<br/>Key Phrase Extraction<br/>Language Detection<br/>Entity Extraction</td>
-                <td>
-                    0-500,000 text records — ￥20.35 per 1,000 text records <br/>
-                    0.5M-2.5M text records — ￥10.18 per 1,000 text records <br/>
-                    2.5M-10.0M text records — ￥5.09 per 1,000 text records <br/>
-                    10M+ text records — ￥2.54 per 1,000 text records </td>
-            </tr>
-        </table>
-        <!-- END: Table5-Content-->
+                    <h3>Text Analytics</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question11">How does billing for the Text Analytics API work?</a>
+                                <section>
+                                    <p>The Text Analytics API can be purchased in units of the S0-S4 tier at a fixed price. Each unit of a tier comes with included quantities of API transactions. If the user exceeds the included quantities, overages are charged at the rate specified in the pricing table above. These overages are prorated and the service is billed on a monthly basis. The included quantities in a tier are reset each month. In the S tier, the service is billed for only the amount of Text Records submitted to the service.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question12">What happens if I exceed the transaction limit on my free tier for Text Analytics?</a>
+                                <section>
+                                    <p>Usage is throttled if the transaction limit is reached on the Free tier. Customers cannot accrue overages on the free tier.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question13">What constitutes a transaction in the S0-S4 tiers of the Text Analytics API?</a>
+                                <section>
+                                    <p>Any annotation to a document counts as a transaction. Batch scoring calls will also take into consideration the number of documents that need to be scored in that transaction. So for instance, if 1,000 documents are sent for sentiment analysis in a single API call, that will count for 1,000 transactions. If an API supports more than one annotation operation, that will also be considered. Let’s say an API call performs both sentiment analysis and key-phrase extraction on 1,000 documents, that will count for 2,000 transactions (2 annotations × 1,000 documents).</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question14">What happens if I exceed the transaction limit on the S0-S4 tier?</a>
+                                <section>
+                                    <p>If the usage on the S0-S4 tier is exceeded, the account starts to accrue overages. These overages are billed on a monthly basis and are calculated at the rate specified for each tier.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question15">Can I change the tier of service I subscribed to?</a>
+                                <section>
+                                    <p>You may upgrade to a higher tier at any time. Billing rate and included quantities corresponding to the higher tier will begin immediately.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question16">What constitutes a Text Record in the S Tier?</a>
+                                <section>
+                                    <p>A text record in the S tier contains up to 1,000 characters as measured by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string.length?view=netframework-4.7.2">String.Length</a>. If an input document into the text analytics API is more than 1,000 characters, it counts as one text record for each unit of 1,000 characters. For instance, if an input document sent to the API contains 7,500 characters, it would count as 8 text records. If an input document sent to the API contains 500 characters, it would count as 1 text record. If two documents are submitted, one document of 500 characters and one document of 1,200 characters, then the service would be billed for three text records in total: one record for the 500 character document and two text records for the 1,200 character document.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
 
-        <!-- BEGIN: Table6-Content-->
-        <h3>Translator Text API</h3>
-        <p>Translator Text API is a cloud-based machine translation service supporting multiple languages, reaching more than 95% of world's gross domestic product (GDP). Use Translator to build applications, websites, tools, or any solution requiring multi-language support.</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*The following prices are tax-inclusive.</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>INSTANCE</strong></th>
-                <th align="left"><strong>FEATURES</strong></th>
-                <th align="left"><strong>PRICE</strong></th>
-            </tr>
-            <tr>
-                <td>Free</td>
-                <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
-                <td>2M chars free per month</td>
-            </tr>
-            <tr>
-                <td>S1</td>
-                <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
-                <td>￥102 per million chars </td>
-            </tr>
-            <tr>
-                <td>S2</td>
-                <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
-                <td>￥20,912 / month / Up to 250M chars per month, Overage : ￥84 per million chars</td>
-            </tr>
-            <tr>
-                <td>S3</td>
-                <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
-                <td>￥61,056 / month / Up to 1B chars per month, Overage : ￥61 per million chars </td>
-            </tr>
-            <tr>
-                <td>S4</td>
-                <td>Text Translation<br/>Language Detection<br/>Bilingual Dictionary<br/>Transliteration<br/></td>
-                <td>￥457,920 / month / Up to 10B chars per month, Overage : ￥46 per million chars</td>
-            </tr>
-        </table>
-        <!-- END: Table6-Content-->
+                    <h3>Translator Text</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_billing_amount">How do I calculate monthly volume?</a>
+                                <section>
+                                    <p>For the Microsoft Translator Text API, the volume you are billed for is the number of characters in the input. Every Unicode code point counts as a character. Every character of the input counts. Each translation of a text to a new language counts as a separate translation. The number of queries, words, bytes, or sentences is irrelevant.</p>
+                                    <p>To estimate your monthly volume, take the total characters to translate, multiply it by the number of languages you want to have it translated into, then take the number and spread it over the maximum number of hours or days you are able to wait for completion.</p>
+                                    <p>More information on how we count characters for the Translator Text API can be found in our <a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/character-counts">documentation</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_billing_limit">What happens if I reach the limit of the free subscription plan?</a>
+                                <section>
+                                    <p>If you subscribe to the free subscription plan, the Microsoft Translator service will stop if you reach 2 million characters during a subscription month for the Text Translation API. The Microsoft Translator service will start again at the beginning of your next subscription month or when you change your subscription to a paid plan.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_support_language">What languages does Microsoft Translator support?</a>
+                                <section>
+                                    <p>See the <a href="https://www.microsoft.com/en-us/translator/business/languages/">language list</a> for text translation using the Microsoft Translator Text API.</p>
+                                    <p>Developer oriented language lists, including language codes can be found in our <a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/language-support">documentation</a>.</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_customed">Can I customize my translations?</a>
+                                <section>
+                                    <p>Customization currently is not available with subscriptions on Azure.cn.</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
 
-        <!-- BEGIN: Table7-Content-->
-        <h3>Language Understanding API</h3>
-        <p>Language Understanding (LUIS) offers a fast and effective way of adding language understanding to applications. With LUIS, you can use pre-existing, world-class, pre-built models whenever they suit your purposes. When you need specialized models, LUIS guides you through the process of quickly building them.</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*The following prices are tax-inclusive.</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>INSTANCE</strong></th>
-                <th align="left"><strong>TRANSACTIONS PER SECOND (TPS)<sup>1</sup></strong></th>
-                <th align="left"><strong>FEATURES</strong></th>
-                <th align="left"><strong>PRICE</strong></th>
-            </tr>
-            <tr>
-                <td>Free<sup>2</sup> - <br/>Web/Container</td>
-                <td>5 TPS</td>
-                <td>Text Requests</td>
-                <td>10,000 transactions* free per month<sup>*</sup></td>
-            </tr>
-            <tr>
-                <td>Standard - <br/>Web/Container</td>
-                <td>50 TPS</td>
-                <td>Text Requests</td>
-                <td>￥15.26 per 1000 transactions per month<sup>*</sup></td>
-            </tr>
-        </table>
-        <div class="tags-date">
-			<div class="ms-date"><sup>1</sup> TPS only applies to web endpoint.</div><br/>
-            <div class="ms-date"><sup>2</sup> Free Tier includes only text as an input.</div><br/>
-            <div class="ms-date"><sup>*</sup> Dispatch will do two text transactions per request.</div>
-        </div>
-        <!-- END: Table7-Content-->
-        
-    </div>
-    <!-- END: TAB-CONTAINER-1 -->
-</div>
-<!-- END: TAB-CONTROL -->
+                    <h3>Language Understanding</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_luis_what-is-transation">What is a transaction?</a>
+                                <section>
+                                    <p>For text requests, a transaction is an API call with query length up to 500 characters.</p>
+                                    <p>For speech requests, a transaction is an utterance with query length up to 15 seconds long.</p>
+                                </section>
 
-<div class="pricing-page-section">
-    <div class="more-detail">
-        <h2>FAQ</h2>
-        <em>Expand all</em>
-        <h3>Common</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question1">How are the Cognitive Services APIs billed?</a>
-                    <section>
-                        <p>The Face API and Computer Vision API are billed per 1,000 API transaction calls when a production API call is being actively executed.</p>
-                    </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_luis_is-speech-requests-included-in-the-free-tier">Is speech requests included in the free tier?</a>
+                                <section>
+                                    <p>No, the free tier only includes text requests with max length 500 characters.</p>
+                                </section>
 
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question2">What will happen if I exceed the transaction limit at the Standard tier?</a>
-                    <section>
-                        <p>If the usage on a standard tier is exceeded, the account starts to accrue overages. These overages are billed on a monthly basis, and are calculated at the rate specified for each tier.</p>
-                    </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_luis-what-is-dispatch">What is a Dispatch?</a>
+                                <section>
+                                    <p>Dispatch is a feature that enables processing two models/applications with one API call.</p>
+                                </section>
 
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question3">Can I change the service tier I subscribed to?</a>
-                    <section>
-                        <p>You can upgrade to a higher tier at any time. The billing rate corresponding to the higher tier and the amounts included will take effect immediately.</p>
-                    </section>
+                            </div>
+                        </li>
+                    </ul>
 
-                </div>
-            </li>
-        </ul>
-        <h3>Face API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question4">What is Face Storage? What can it be used for?</a>
-                    <section>
-                        <p>Face Storage allows a subscription to store additional persisted faces when using person objects and face lists for identification, or for similarity matching with the Face API.</p>
-                    </section>
+                    <h3>Speech Services</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_how_does_billing_work">How does billing work?</a>
+                                <section>
+                                    <p>For Speech Translation, Speech to Text, and Speech to Text with Custom Speech Model : usage is billed in one-second increments</p>
+                                    <p>For Text to Speech and Text To Speech with Custom Voice Font: usage is billed per character</p>
+                                    <p>For Custom Speech Model Hosting: usage is billed hourly; For Custom Voice Font Hosting: usage is billed daily</p>
+                                </section>
 
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question5">How are the number of stored faces calculated for billing if it varies throughout the month?</a>
-                    <section>
-                        <p>Stored images are charged at ￥1.59 per 1,000 faces. This rate is prorated on a daily basis. For example, if your account used 10,000 persisted faces each day for the first half of the month and none during the second half, you would only be billed for the number of days the 10,000 faces were stored for. This would be calculated as (￥1.59/1,000) x (10,000 x 15 + 0 x 16)/31 = ￥7.69. Alternatively, if you retained 1,000 faces for a few hours each day during a month and then deleted them every night, you would still be billed for the 1,000 persisted faces each day.</p>
-                    </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_what_is_a_Custom_speech_model">What is a "Custom Speech Model"?</a>
+                                <section>
+                                    <p>The Speech service enables users to adapt baseline models based on their own acoustic and language data, leading to custom speech models that can be used against both Speech to Text and Speech Translation.</p>
+                                </section>
 
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question6">What is the capacity of Face Storage?</a>
-                    <section>
-                        <p>The quota for stored person groups is currently 1,000. Each person group or FaceList can have a maximum of 1,000 people.</p>
-                    </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_what_is_a_language_model_and_why_customize_it">What is a language model and why customize it?</a>
+                                <section>
+                                    <p>The language model is a probability distribution over sequences of words. The language model helps the system decide among sequences of words that sound similar, based on the likelihood of the word sequences themselves. For example, "recognize speech" and "wreck a nice beach" sound alike but the first hypothesis is far more likely to occur, and therefore will be assigned a higher score by the language model. If you expect voice queries to your application to contain particular vocabulary items, such as product names or jargon that rarely occur in typical speech, it is likely that you can obtain improved performance by customizing the language model. For example, if you were building an app to search MSDN by voice, it`s likely that terms like "object-oriented" or "namespace" or "dot net" will appear more frequently than in typical voice applications. Customizing the language model will enable the system to learn this.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_what_is_an_acoustic_model_and_why_customize_it">What is an acoustic model and why customize it?</a>
+                                <section>
+                                    <p>The acoustic model is a classifier that labels short fragments of audio into one of several phonemes, or sound units, in each language. These phonemes can then be stitched together to form words. For example, the word "speech" is comprised of four phonemes "s p iy ch". These classifications are made on the order of 100 times per second. Customizing the acoustic model can enable the system to learn to do a better job recognizing speech in atypical environments. For example, if you have an app designed to be used by workers in a warehouse or factory, a customized acoustic model can more accurately recognize speech in the presence of the noises found in these environments.</p>
+                                </section>
+
+                            </div>
+                        </li>
+                    </ul>
 
                 </div>
-            </li>
-        </ul>
-        <h3>Computer Vision API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question7">What operations can be completed with Computer Vision API?</a>
-                    <section>
-                        <p><strong>Tag </strong>- The Computer Vision API returns tags based on more than 2,000 recognizable objects, living beings, types of scenery, and actions. If tags are ambiguous or unusual, the API response will provide 'hints' to clarify the meaning of the tag.</p>
-                        <p><strong>Face</strong> - Detects human faces within a picture.</p>
-                        <p><strong>GetThumbnail</strong> - GetThumbnail generates high quality thumbnails after images are uploaded. The Computer Vision API algorithm analyzes objects within images, then crops images according to the requirements for the region of interest (ROI).</p>
-                        <p><strong>Color</strong> - The Computer Vision algorithm extracts colors from an image. The colors are analyzed in three different contexts (foreground, background, and whole). They are grouped into 12 dominant accent colors.</p>
-                        <p><strong>Image Type</strong> - The Computer Vision API can set a Boolean flag to indicate whether an image is black and white or color. It can use the same method to indicate whether an image is a line drawing. It can also indicate whether an image is clip art, along with its quality.</p>
-                        <p><strong>OCR</strong> - Optical Character Recognition (OCR) technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the results for searches and numerous other purposes, from medical records to security and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to simply take photos of text instead of transcribing it. Please refer to the <a href="https://docs.azure.cn/zh-cn/cognitive-services/computer-vision/">Computer Vision Documentation</a> page for supported languages.</p>
-                        <p><strong>Adult</strong> - Apply adult/racy settings to automatically restrict adult content in images.</p>
-                        <p><strong>Celebrities</strong> - Azure’s celebrity recognition model can recognize 200,000 celebrities from business, politics, sports, and entertainment around the world.</p>
-                    </section>
-
-                </div>
-            </li>
-        </ul>
-
-        <h3>Content Moderator API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question8">What are the limits/restrictions of the content that can be moderated by using the API?</a>
-                    <section>
-                        <p>When using the API, images need to have a minimum of 128 pixels and a maximum file size of 4MB. Text can be at most 1024 characters long.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question9">What happens if the content passed to the text API or the image API exceeds the size limits?</a>
-                    <section>
-                        <p>The text API will return an error code that informs that the text is longer than permitted. The image API will also return an error code that informs that the image does not meet the size requirements.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question10">Is there an extra cost to using Human review tool?</a>
-                    <section>
-                        <p>Human review tool is included in your subscription.</p>
-                    </section>
-                </div>
-            </li>
-        </ul>
-
-        <h3>Text Analytics API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question11">How does billing for the Text Analytics API work?</a>
-                    <section>
-                        <p>The Text Analytics API can be purchased in units of the S0-S4 tier at a fixed price. Each unit of a tier comes with included quantities of API transactions. If the user exceeds the included quantities, overages are charged at the rate specified in the pricing table above. These overages are prorated and the service is billed on a monthly basis. The included quantities in a tier are reset each month. In the S tier, the service is billed for only the amount of Text Records submitted to the service.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question12">What happens if I exceed the transaction limit on my free tier for Text Analytics?</a>
-                    <section>
-                        <p>Usage is throttled if the transaction limit is reached on the Free tier. Customers cannot accrue overages on the free tier.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question13">What constitutes a transaction in the S0-S4 tiers of the Text Analytics API?</a>
-                    <section>
-                        <p>Any annotation to a document counts as a transaction. Batch scoring calls will also take into consideration the number of documents that need to be scored in that transaction. So for instance, if 1,000 documents are sent for sentiment analysis in a single API call, that will count for 1,000 transactions. If an API supports more than one annotation operation, that will also be considered. Let’s say an API call performs both sentiment analysis and key-phrase extraction on 1,000 documents, that will count for 2,000 transactions (2 annotations × 1,000 documents).</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question14">What happens if I exceed the transaction limit on the S0-S4 tier?</a>
-                    <section>
-                        <p>If the usage on the S0-S4 tier is exceeded, the account starts to accrue overages. These overages are billed on a monthly basis and are calculated at the rate specified for each tier.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question15">Can I change the tier of service I subscribed to?</a>
-                    <section>
-                        <p>You may upgrade to a higher tier at any time. Billing rate and included quantities corresponding to the higher tier will begin immediately.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question16">What constitutes a Text Record in the S Tier?</a>
-                    <section>
-                        <p>A text record in the S tier contains up to 1,000 characters as measured by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string.length?view=netframework-4.7.2">String.Length</a>. If an input document into the text analytics API is more than 1,000 characters, it counts as one text record for each unit of 1,000 characters. For instance, if an input document sent to the API contains 7,500 characters, it would count as 8 text records. If an input document sent to the API contains 500 characters, it would count as 1 text record. If two documents are submitted, one document of 500 characters and one document of 1,200 characters, then the service would be billed for three text records in total: one record for the 500 character document and two text records for the 1,200 character document.</p>
-                    </section>
-                </div>
-            </li>
-        </ul>
-
-        <h3>Translator Text API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_billing_amount">How do I calculate monthly volume?</a>
-                    <section>
-                        <p>For the Microsoft Translator Text API, the volume you are billed for is the number of characters in the input. Every Unicode code point counts as a character. Every character of the input counts. Each translation of a text to a new language counts as a separate translation. The number of queries, words, bytes, or sentences is irrelevant.</p>
-                        <p>To estimate your monthly volume, take the total characters to translate, multiply it by the number of languages you want to have it translated into, then take the number and spread it over the maximum number of hours or days you are able to wait for completion.</p>
-                        <p>More information on how we count characters for the Translator Text API can be found in our <a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/character-counts">documentation</a>.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_billing_limit">What happens if I reach the limit of the free subscription plan?</a>
-                    <section>
-                        <p>If you subscribe to the free subscription plan, the Microsoft Translator service will stop if you reach 2 million characters during a subscription month for the Text Translation API. The Microsoft Translator service will start again at the beginning of your next subscription month or when you change your subscription to a paid plan.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_support_language">What languages does Microsoft Translator support?</a>
-                    <section>
-                        <p>See the <a href="https://www.microsoft.com/en-us/translator/business/languages/">language list</a> for text translation using the Microsoft Translator Text API.</p>
-                        <p>Developer oriented language lists, including language codes can be found in our <a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/language-support">documentation</a>.</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_customed">Can I customize my translations?</a>
-                    <section>
-                        <p>Customization currently is not available with subscriptions on Azure.cn.</p>
-                    </section>
-                </div>
-            </li>
-        </ul>
-
-        <h3>Language Understanding API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_luis_what-is-transation">What is a transaction?</a>
-                    <section>
-                        <p>For text requests, a transaction is an API call with query length up to 500 characters.</p>
-                        <p>For speech requests, a transaction is an utterance with query length up to 15 seconds long.</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_luis_is-speech-requests-included-in-the-free-tier">Is speech requests included in the free tier?</a>
-                    <section>
-                        <p>No, the free tier only includes text requests with max length 500 characters.</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_luis-what-is-dispatch">What is a Dispatch?</a>
-                    <section>
-                        <p>Dispatch is a feature that enables processing two models/applications with one API call.</p>
-                    </section>
-
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-<!-- <div class="pricing-page-section">
-    <h2>Region</h2>
-    <p>Cognitive Services are available in the following regions:</p>
-    <table cellpadding="0" cellspacing="0" class="table-col6">
-        <tr>
-            <th align="left"><strong>Territory</strong></th>
-            <th align="left"><strong>Region</strong></th>
-        </tr>
-        <tr>
-            <td>Mainland China</td>
-            <td>China North, China East</td>
-        </tr>
-    </table> -->
+            </div>
                 
                <div class="pricing-page-section">
                 <h2>Support &amp; SLA</h2>
