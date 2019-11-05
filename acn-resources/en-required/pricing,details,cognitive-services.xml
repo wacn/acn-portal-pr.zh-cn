@@ -4,12 +4,67 @@
     <bodyText>
       <![CDATA[
             <tags ms.service="cognitive-services" ms.date="09/30/2015" wacn.date="11/27/2015"></tags>
+            <style type="text/css">
+            .pricing-detail-tab .tab-nav{
+                padding-left: 0!important;
+                margin-top: 5px;
+                margin-bottom: 0;
+                overflow: hidden;
+            }
+            .pricing-detail-tab .tab-nav li {
+                list-style: none;
+                float: left;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-nav li.active a:hover {
+                border-bottom: 4px solid #00a3d9;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel{
+                display: none;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel.show-md{
+                display: block;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a{
+                padding-left: 5px;
+                padding-right: 5px;
+                color: #00a3d9;
+                background-color: #FFF;
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li.active a{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+
+            .pricing-detail-tab .tab-content .tab-panel .tab-nav li a:hover{
+                color: #FFF;
+                background-color: #00a3d9;              
+            }
+            .pure-content .technical-azure-selector .tags-date a,.pure-content .technical-azure-selector p a,.pure-content .technical-azure-selector table a{
+            background: 0 0;padding: 0;margin: 0 6px;height: 21px;line-height: 22px;font-size: 14px;color: #00a3d9;float: none;display: inline;
+            }
+            .speech-services-table tr,.speech-services-table td{
+                background-color:white;
+            }
+	        </style> 
+            <div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">所选区域不可用</div></div>
+            </div>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/cognitive-slice-01.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
                         <img src="//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/images/home,features,cognitive-services.svg"/>
-                        <h2>认知服务<span>Cognitive Services APIs</span></h2>
+                        <h2>认知服务<span>Cognitive Services</span></h2>
 						<h4>添加智能 API 功能以启用上下文交互</h4>
                         <em><a href="/pricing/1rmb-trial/" id="home_cognitive-services">申请试用<i class="icon icon-arrow-right-thin"></i></a></em>
                         <a href="/pricing/pia/" id="home_cognitive-services-calculator_pia">立即购买<i class="icon icon-arrow-right-thin"></i></a>
@@ -17,569 +72,674 @@
                 </div>
             </div>
             <!-- END: Product-Detail-TopBanner -->
-			
-<!-- BEGIN: TAB-CONTROL -->
-<div class="technical-azure-selector tab-control-selector">
-    <!-- BEGIN: TAB-CONTAINER-1 -->
-    <h2>定价详细信息</h2>
-    <div class="tab-control-container tab-active" id="tabContent1">
-        <!-- BEGIN: Table1-Content-->
-        <h3>人脸 API</h3>
-			<p>人脸 API 使用基于云的先进人脸算法来检测和识别图像中的人脸。相关功能包括人脸检测、人脸验证和人脸分组，可根据面部影像相似性将人脸整理到组中。</p>
-			<div class="tags-date">
-				<div class="ms-date">*以下价格均为含税价格。</div>
+            <div class="pricing-page-section">
+                <h2>认知服务定价</h2>
             </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>级别</strong></th>
-				<th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>价格</strong></th>
-            </tr>
-            <tr>
-                <td>免费版</td>
-                <td>最多 20 个事务/分钟</td>
-                <td>每月 30,000 个免费事务</td>
-            </tr>
-            <tr>
-				<td>标准版</td>
-				<td>每秒最多 10 个事务</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>0–1,000,000 个事务</td>
-                <td>每 1,000 个事务 ¥ 6.36 <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>1,000,001–5,000,000 个事务</td>
-                <td>每 1,000 个事务 ¥ 5.09 <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>5,000,001–100,000,000 个事务</td>
-                <td>每 1,000 个事务 ¥ 3.82 <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>超过 100,000,000 个事务</td>
-                <td>每 1,000 个事务 ¥ 2.54 <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-			<tr>
-				<td>人脸识别存储</td>
-				<td>每张图片最大 4 MB</td>
-                <td>¥ 1.59/每月每 1,000 张图片 <sup style="color:#e66102; font-weight: bold">new</sup></td>
-            </tr>
-            
-        </table>
-        <!-- END: Table1-Content-->
-		
-        <!-- BEGIN: Table2-Content-->
-        <!-- <h3>情感 API<span style="font-family: '微软雅黑',regular;font-weight:normal;">（预览）</span></h3>
-        <p>借助 Azure 基于云的前沿情绪识别算法（预览版）可生成更人性化的应用。该 API 基于普遍存在的面部表情识别自然环境中的情绪。</p>
-        <div class="tags-date">
-				<div class="ms-date">*以下价格反映了 50% 的预览版折扣；</div><br />
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-                <th align="left"><strong>级别</strong></th>
-                <th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>单位</strong></th>
-                <th align="left"><strong>价格</strong></th>
-			</tr>
-            <tr>
-                <td>免费版</td>
-                <td>每月 30,000 个免费事务 <br/>3,000 个状态查询/每月（限制为 5 个/分钟）</td>
-                <td>事务</td>
-                <td>免费</td>
-            </tr>
-            <tr>
-                <td>基本版</td>
- 				<td>每秒最多 10 个事务 （指定的面部矩形）</td>
-                <td>事务</td>
-                <td>每 1,000 个事务 ¥ 0.75</td>
-            </tr>
-            <tr>
-                <td>标准版</td>
- 				<td>每秒 10 个事务 <br/>30,000 个状态查询/每月（限制为 10 个/分钟）</td>
-                <td>事务</td>
-                <td>每 1,000 个事务 ¥ 1.85</td>
-            </tr>
-        </table> -->
-        <!-- END: Table2-Content-->
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/软件:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Cognitive Services</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                                <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_cognitive-services">Cognitive Services</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Cognitive Services">Cognitive Services</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>地区:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">中国东部 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >中国东部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >中国北部 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >中国东部</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >中国北部</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">中国东部 2</option>
+							<option data-href="#north-china2" value="north-china2">中国北部 2</option>
+							<option data-href="#east-china" value="east-china">中国东部</option>
+							<option data-href="#north-china" value="north-china">中国北部</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+                
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+							<!-- BEGIN: Table1-Content-->
+                            <h3>人脸</h3>
+                                <p>人脸 API 使用基于云的先进人脸算法来检测和识别图像中的人脸。相关功能包括人脸检测、人脸验证和人脸分组，可根据面部影像相似性将人脸整理到组中。</p>
+                                <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                                </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>级别</strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费版</td>
+                                    <td>最多 20 个事务/分钟</td>
+                                    <td>每月 30,000 个免费事务</td>
+                                </tr>
+                                <tr>
+                                    <td>标准版</td>
+                                    <td>每秒最多 10 个事务</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>0–1,000,000 个事务</td>
+                                    <td>每 1,000 个事务 ¥ 6.36 <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>1,000,001–5,000,000 个事务</td>
+                                    <td>每 1,000 个事务 ¥ 5.09 <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>5,000,001–100,000,000 个事务</td>
+                                    <td>每 1,000 个事务 ¥ 3.82 <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>超过 100,000,000 个事务</td>
+                                    <td>每 1,000 个事务 ¥ 2.54 <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>人脸识别存储</td>
+                                    <td>每张图片最大 4 MB</td>
+                                    <td>¥ 1.59/每月每 1,000 张图片 <sup style="color:#e66102; font-weight: bold">new</sup></td>
+                                </tr>
+                                
+                            </table>
+                            <!-- END: Table1-Content-->
 
-   
+                            <!-- BEGIN: Table3-Content-->
+                            <h3>计算机影像</h3>
+                            <p>这种最先进的、基于云的 API 可以让开发人员访问高级算法，允许从图像中提取丰富的信息，从而对视觉数据进行分类和处理。 功能包括图像分析、标记、名人识别、文本提取和智能缩略图生成。</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>级别</strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费版</td>
+                                    <td></td>
+                                    <td>每月 5,000 个免费事务</td>
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>标签、人脸、获取缩略图颜色和图像类型</td>
+                                    <td>0-1 百万个事务 — 每 1,000 个事务 ¥ 6.36 </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>1-5 百万个事务 — 每 1,000 个事务 ¥ 5.088</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>5 百万 + 个事务 — 每 1,000 个事务 ¥ 4.134 </td>
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>OCR（印刷）、成人、名人和地标</td>
+                                    <td>0-1 百万个事务 — 每 1,000 个事务 ¥ 9.54 </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>1-5 百万个事务 — 每 1,000 个事务 ¥ 6.36</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>5百万 + 个事务 — 每 1,000 个事务 ¥ 4.13 </td>
+                                </tr>
+                                <tr>
+                                    <td>S3</td>
+                                    <td>描述和 OCR（手写）</td>
+                                    <td>每 1,000 个事务 ¥ 15.9</td>
+                                </tr>
+                                
+                            </table>
+                            <!-- END: Table3-Content-->
 
-        <!-- BEGIN: Table3-Content-->
-        <h3>计算机影像 API</h3>
-        <p>这种最先进的、基于云的 API 可以让开发人员访问高级算法，允许从图像中提取丰富的信息，从而对视觉数据进行分类和处理。 功能包括图像分析、标记、名人识别、文本提取和智能缩略图生成。</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>级别</strong></th>
-				<th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>价格</strong></th>
-            </tr>
-            <tr>
-                <td>免费版</td>
-                <td></td>
-                <td>每月 5,000 个免费事务</td>
-            </tr>
-            <tr>
-                <td>S1</td>
-				<td>标签、人脸、获取缩略图颜色和图像类型</td>
-                <td>0-1 百万个事务 — 每 1,000 个事务 ¥ 6.36 </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>1-5 百万个事务 — 每 1,000 个事务 ¥ 5.088</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>5 百万 + 个事务 — 每 1,000 个事务 ¥ 4.134 </td>
-            </tr>
-            <tr>
-                <td>S2</td>
-                <td>OCR（印刷）、成人、名人和地标</td>
-                <td>0-1 百万个事务 — 每 1,000 个事务 ¥ 9.54 </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>1-5 百万个事务 — 每 1,000 个事务 ¥ 6.36</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>5百万 + 个事务 — 每 1,000 个事务 ¥ 4.13 </td>
-            </tr>
-            <tr>
-                <td>S3</td>
-                <td>描述和 OCR（手写）</td>
-                <td>每 1,000 个事务 ¥ 15.9</td>
-            </tr>
-            
-        </table>
-        <!-- END: Table3-Content-->
+                            <!-- BEGIN: Table4-Content-->
+                            <h3>内容审查器</h3>
+                            <p>内容审查器通过基于机器学习的分类器、自定义阻止列表和光学字符识别技术 (OCR) 来增强检测可能的冒犯图像或不想要图像的功能。它可帮助在 100 多种语言中检测潜在的猥亵词语，并可针对自定义列表自动匹配文本。内容审查器还可检查可能的个人身份信息 (PII)。每个文本 API 调用均可包含多达 1,024 个字符。扫描图像（至少 128 像素且大小不超过 4MB）是否存在色情和低俗内容，还有光学字符识别 (OCR) 和人脸检测。还可针对自定义图像列表进行匹配。每个 API 调用都是一个事务。</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>每秒事务数 (TPS)</strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费</td>
+                                    <td>1 TPS</td>
+                                    <td>检查</td>
+                                    <td>每月 5,000 个免费事务</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>1 TPS</td>
+                                    <td>审阅</td>
+                                    <td>暂不支持此功能</td>
+                                </tr>
+                                <tr>
+                                    <td>标准</td>
+                                    <td>10 TPS</td>
+                                    <td>检查</td>
+                                    <td>
+                                        0 到 100 万个事务 - ￥10.18 / 1,000 个事务<br/>
+                                        100 万到 500 万个事务 - ￥7.63 / 1,000 个事务<br/>
+                                        500 万到 1000 万个事务 - ￥6.11 / 每 1,000 个事务<br/>
+                                        超过 1000 万个事务 - ￥4.07 / 1,000 个事务
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- END: Table4-Content-->
 
-        <!-- BEGIN: Table4-Content-->
-        <h3>内容审查器 API</h3>
-        <p>内容审查器通过基于机器学习的分类器、自定义阻止列表和光学字符识别技术 (OCR) 来增强检测可能的冒犯图像或不想要图像的功能。它可帮助在 100 多种语言中检测潜在的猥亵词语，并可针对自定义列表自动匹配文本。内容审查器还可检查可能的个人身份信息 (PII)。每个文本 API 调用均可包含多达 1,024 个字符。扫描图像（至少 128 像素且大小不超过 4MB）是否存在色情和低俗内容，还有光学字符识别 (OCR) 和人脸检测。还可针对自定义图像列表进行匹配。每个 API 调用都是一个事务。</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>实例</strong></th>
-				<th align="left"><strong>每秒事务数 (TPS)</strong></th>
-                <th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>价格</strong></th>
-            </tr>
-            <tr>
-                <td>免费</td>
-                <td>1 TPS</td>
-                <td>检查</td>
-                <td>每月 5,000 个免费事务</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>1 TPS</td>
-                <td>审阅</td>
-                <td>暂不支持此功能</td>
-            </tr>
-            <tr>
-                <td>标准</td>
-                <td>10 TPS</td>
-                <td>检查</td>
-                <td>
-                    0 到 100 万个事务 - ￥10.18 / 1,000 个事务<br/>
-                    100 万到 500 万个事务 - ￥7.63 / 1,000 个事务<br/>
-                    500 万到 1000 万个事务 - ￥6.11 / 每 1,000 个事务<br/>
-                    超过 1000 万个事务 - ￥4.07 / 1,000 个事务
-                </td>
-            </tr>
-        </table>
-        <!-- END: Table4-Content-->
+                            <!-- BEGIN: Table5-Content-->
+                            <h3>文本分析</h3>
+                            <p>文本分析 API 是一项基于云的服务，可对原始文本提供高级的自然语言处理，它包括三个主要功能：情绪分析、关键短语提取和语言检测。</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费 - Web/容器</td>
+                                    <td>情绪分析<br/>关键短语提取<br/>语言检测<br/>实体提取<br/></td>
+                                    <td>每月 5,000 个免费事务</td>
+                                </tr>
+                                <tr>
+                                    <td>标准<br/>每秒最多 100 个请求，每分钟最多 1,000 个请求</td>
+                                    <td>情绪分析<br/>关键短语提取<br/>语言检测<br/>实体提取<br/></td>
+                                    <td>
+                                        0-500,000 个文本记录 — 每 1,000 个文本记录 ￥20.35 <br/>
+                                        0.5M-2.5M 的文本记录 — 每 1,000 个文本记录 ￥10.18 <br/>
+                                        2.5M-10.0M 的文本记录 — 每 1,000 个文本记录 ￥5.09 <br/>
+                                        10M 以上的文本记录 — 每 1,000 个文本记录 ￥2.54 </td>
+                                </tr>
+                            </table>
+                            <!-- END: Table5-Content-->
 
-        <!-- BEGIN: Table5-Content-->
-        <h3>文本分析 API</h3>
-        <p>文本分析 API 是一项基于云的服务，可对原始文本提供高级的自然语言处理，它包括三个主要功能：情绪分析、关键短语提取和语言检测。</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>实例</strong></th>
-                <th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>价格</strong></th>
-            </tr>
-            <tr>
-                <td>免费 - Web/容器</td>
-                <td>情绪分析<br/>关键短语提取<br/>语言检测<br/>实体提取<br/></td>
-                <td>每月 5,000 个免费事务</td>
-            </tr>
-            <tr>
-                <td>标准<br/>每秒最多 100 个请求，每分钟最多 1,000 个请求</td>
-                <td>情绪分析<br/>关键短语提取<br/>语言检测<br/>实体提取<br/></td>
-                <td>
-                    0-500,000 个文本记录 — 每 1,000 个文本记录 ￥20.35 <br/>
-                    0.5M-2.5M 的文本记录 — 每 1,000 个文本记录 ￥10.18 <br/>
-                    2.5M-10.0M 的文本记录 — 每 1,000 个文本记录 ￥5.09 <br/>
-                    10M 以上的文本记录 — 每 1,000 个文本记录 ￥2.54 </td>
-            </tr>
-        </table>
-        <!-- END: Table5-Content-->
+                            <!-- BEGIN: Table6-Content-->
+                            <h3>文本翻译</h3>
+                            <p>文本翻译 API 是一项基于云的机器翻译服务，支持多种语言，其支持的语言覆盖全球国内生产总值 (GDP) 95% 以上的区域。使用 Translator 可构建应用程序、网站、工具或任何需要多语言支持的解决方案。</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费</td>
+                                    <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
+                                    <td>每月免费 200 万个字符</td>
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
+                                    <td>￥102 / 100 万个字符 </td>
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
+                                    <td>￥20,912 / 月 / 2.5 亿个字符，超出部分 ￥84 / 一百万个字符 </td>
+                                </tr>
+                                <tr>
+                                    <td>S3</td>
+                                    <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
+                                    <td>￥61,056 / 月 / 10 亿个字符，超出部分 ￥61 / 一百万个字符</td>
+                                </tr>
+                                <tr>
+                                    <td>S4</td>
+                                    <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
+                                    <td>￥457,920 / 月 / 100 亿个字符，超出部分 ￥46 / 一百万个字符</td>
+                                </tr>
+                            </table>
+                            <!-- END: Table6-Content-->
 
-        <!-- BEGIN: Table6-Content-->
-        <h3>文本翻译 API</h3>
-        <p>文本翻译 API 是一项基于云的机器翻译服务，支持多种语言，其支持的语言覆盖全球国内生产总值 (GDP) 95% 以上的区域。使用 Translator 可构建应用程序、网站、工具或任何需要多语言支持的解决方案。</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>实例</strong></th>
-                <th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>价格</strong></th>
-            </tr>
-            <tr>
-                <td>免费</td>
-                <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
-                <td>每月免费 200 万个字符</td>
-            </tr>
-            <tr>
-                <td>S1</td>
-                <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
-                <td>￥102 / 100 万个字符 </td>
-            </tr>
-            <tr>
-                <td>S2</td>
-                <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
-                <td>￥20,912 / 月 / 2.5 亿个字符，超出部分 ￥84 / 一百万个字符 </td>
-            </tr>
-            <tr>
-                <td>S3</td>
-                <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
-                <td>￥61,056 / 月 / 10 亿个字符，超出部分 ￥61 / 一百万个字符</td>
-            </tr>
-            <tr>
-                <td>S4</td>
-                <td>文本翻译<br/>语言检测<br/>双语字典<br/>音译<br/></td>
-                <td>￥457,920 / 月 / 100 亿个字符，超出部分 ￥46 / 一百万个字符</td>
-            </tr>
-        </table>
-        <!-- END: Table6-Content-->
+                            <!-- BEGIN: Table7-Content-->
+                            <h3>语言理解</h3>
+                            <p>语言理解 (LUIS) 可让你快速高效地将语言理解添加到应用程序。在 LUIS 的帮助下，你可以随时使用预先存在的世界级预建模型，只要这些模型适合你的目的。当你需要专门的模型时，LUIS 将引导你完成快速构建它们的过程。</p>
+                        
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>每秒事务数（TPS）<sup>1</sup></strong></th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>免费<sup>2</sup> - <br/>Web/容器</td>
+                                    <td>5 TPS</td>
+                                    <td>文本请求</td>
+                                    <td>每月 10,000 个免费事务<sup>*</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>标准 - <br/>Web/容器</td>
+                                    <td>50 TPS</td>
+                                    <td>文本请求</td>
+                                    <td>每月 1000 个事务 ￥15.26<sup>*</sup></td>
+                                </tr>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup>1</sup> TPS 仅应用于 Web 终结点。</div><br/>
+                                <div class="ms-date"><sup>2</sup> 免费层仅包括文本输入。</div><br/>
+                                <div class="ms-date"><sup>*</sup> 分派会对每个请求执行两次文本事务。</div>
+                            </div>
+                            <!-- END: Table7-Content-->
 
-        <!-- BEGIN: Table7-Content-->
-        <h3>语言理解 API</h3>
-        <p>语言理解 (LUIS) 可让你快速高效地将语言理解添加到应用程序。在 LUIS 的帮助下，你可以随时使用预先存在的世界级预建模型，只要这些模型适合你的目的。当你需要专门的模型时，LUIS 将引导你完成快速构建它们的过程。</p>
-       
-        <div class="tags-date">
-				<div class="ms-date">*以下价格均为含税价格。</div>
-        </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-				<th align="left"><strong>实例</strong></th>
-                <th align="left"><strong>每秒事务数（TPS）<sup>1</sup></strong></th>
-                <th align="left"><strong>功能</strong></th>
-                <th align="left"><strong>价格</strong></th>
-            </tr>
-            <tr>
-                <td>免费<sup>2</sup> - <br/>Web/容器</td>
-                <td>5 TPS</td>
-                <td>文本请求</td>
-                <td>每月 10,000 个免费事务<sup>*</sup></td>
-            </tr>
-            <tr>
-                <td>标准 - <br/>Web/容器</td>
-                <td>50 TPS</td>
-                <td>文本请求</td>
-                <td>每月 1000 个事务 ￥15.26<sup>*</sup></td>
-            </tr>
-        </table>
-        <div class="tags-date">
-			<div class="ms-date"><sup>1</sup> TPS 仅应用于 Web 终结点。</div><br/>
-            <div class="ms-date"><sup>2</sup> 免费层仅包括文本输入。</div><br/>
-            <div class="ms-date"><sup>*</sup> 分派会对每个请求执行两次文本事务。</div>
-        </div>
-        <!-- END: Table7-Content-->
+                            <!-- BEGIN: Table8-Content-->
+                            <h3>语音识别</h3>
+                            <div class="tags-date">
+                                    <div class="ms-date">*以下价格均为含税价格。</div>
+                            </div>
+                            <table class="speech-services-table" cellpadding="0" cellspacing="0" width="100%" id="cognitive-services-table-speech-services">
+                                <tr>
+                                    <th align="left"><strong>实例</strong></th>
+                                    <th align="left"><strong>类型</th>
+                                    <th align="left"><strong>功能</strong></th>
+                                    <th align="left"><strong>价格</strong></th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">免费 - Web/容器 1 并发请求<sup>1</sup></td>
+                                    <td rowspan="4">语音转文本</td>
+                                    <td>标准</td>
+                                    <td>每月 5 小时免费音频</td>
+                                </tr>
+                                <tr>
+                                    <td>自定义语音</td>
+                                    <td>每月 5 小时免费音频</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>自定义语音终结点托管</td>
+                                    <td>每月 1 个模型免费</td>
+                                </tr>
+                                <tr>
+                                    <td>对话听录多声道音频</td>
+                                    <td>每月 5 小时免费音频</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">标准 - Web/容器 20 并发请求<sup>1</sup></td>
+                                    <td rowspan="3">语音转文本</td>
+                                    <td>标准</td>
+                                    <td>每小时音频 ￥3</td>
+                                </tr>
+                                <tr>
+                                    <td>自定义语音</td>
+                                    <td>每小时音频 ￥14.5</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>自定义语音终结点托管</td>
+                                    <td>￥407.65/模型/月</td>
+                                </tr>
+                            </table>
+                            <div class="tags-date">
+                                <div class="ms-date"><sup>1</sup> 仅应用于 Web 终结点的并发请求。</div>
+                            </div>
+                            <!-- END: Table8-Content-->
+                        </div>
+                    </div>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
+                </div>
+            <!-- END: TAB-CONTROL -->
 
-    </div>
-    <!-- END: TAB-CONTAINER-1 -->
-</div>
-<!-- END: TAB-CONTROL -->
 
-<div class="pricing-page-section">
-    <div class="more-detail">
-        <h2>常见问题</h2>
-        <em>全部展开</em>
-        <h3>常规</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question1">认知服务 API 如何计费？</a>
-                    <section>
-                        <p>如果有效执行了认知服务的 API 调用，则按每 1,000 个事务对人脸 API、情感识别 API、计算机影像 API 计费。</p>
-                    </section>
+            <div class="pricing-page-section">
+                <div class="more-detail">
+                    <h2>常见问题</h2>
+                    <em>全部展开</em>
+                    <h3>常规</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question1">认知服务 API 如何计费？</a>
+                                <section>
+                                    <p>如果有效执行了认知服务的 API 调用，则按每 1,000 个事务对人脸 API、情感识别 API、计算机影像 API 计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question2">如果我在标准级别超出了调用限制，会发生什么情况？</a>
+                                <section>
+                                    <p>如果在标准级别超额使用，则帐户开始累加超额量。这些超额部分将按为每个级别指定的费率按月计费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question3">我可以更改我订阅的服务级别吗？</a>
+                                <section>
+                                    <p>你可以随时升级到较高级别。较高级别对应的计费费率和包括的量将立即生效。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>人脸</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question4">什么是人脸存储？ 它可用于哪些方面？</a>
+                                <section>
+                                    <p>通过人脸存储，可在使用人脸 API 结合人员对象和人脸列表进行标识或相似性匹配时，存储额外的持久性人脸。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question5">如果当月中存储的图像数量改变，如何计算该数量进行计费？</a>
+                                <section>
+                                    <p>存储的图像按每 1,000 张人脸 ¥1.59 收费，每天按比例分配此费率。例如，如果你的帐户在上半月每天使用了 10,000 张持久性人脸，下半月未使用人脸，则仅对 10,000 张人脸存储的天数收取费用。则计算为 (¥1.59/1,000) * (10,000*15+0*16)/31 = ¥7.69 另一个示例，如果某个月每天仅保留 1,000 张人脸且仅保留几个小时，每晚予以删除，那么每天仍将对保留的这 1,000 张人脸进行收费。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question6">人脸存储的容量是多少？</a>
+                                <section>
+                                    <p>存储的人员组的数量配额现为 1,000，每个人员组或人脸列表最多 1,000 人。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>计算机影像</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question7">通过计算机影像 API 可完成哪些操作？</a>
+                                <section>
+                                    <p><strong>标记</strong>-计算机影像 API 在超过 2,000 个可识别对象、生物、风景和操作的基础上返回标记。如果标记含混不清或者不常见，API 响应会提供“提示”，明确标记的含义。</p>
+                                    <p><strong>人脸</strong> - 检测图片中的人脸。</p>
+                                    <p><strong>获取缩略图</strong> - 图像上传后，“获取缩略图“（GetTumbnail）可生成高质量的缩略图。计算机影像 API 算法分析图像中的对象，然后根据感兴趣区域（ROI）的需求对图像进行裁剪。</p>
+                                    <p><strong>颜色</strong> - 计算机视觉算法从映像中提取颜色。在三种不同的上下文（前景、背景和整体）中分析颜色。颜色可组合为 12 种主要的主题色。</p>
+                                    <p><strong>图像类型</strong> - 计算机影像 API 可以设置一个布尔标志，指示图像为黑白色还是彩色，并可以使用相同的方法来指示图像是否为线图。图像类型还指示图像是否为剪贴画及其质量。</p>
+                                    <p><strong>OCR</strong> - 光学字符识别 (OCR) 技术检测映像中的文本内容。识别的文本被提取到计算机可读的字符流，用于搜索和许多其他用途，从用于医疗记录到用于安全和银行。它自动检测语言。OCR 可以节省时间，允许用户简单地拍摄文本而非转录文本，从而为用户提供方便。有关支持语言，请参阅<a href="https://docs.azure.cn/zh-cn/cognitive-services/computer-vision/">计算机视觉文档</a>页面。</p>
+                                    <p><strong>成人</strong> - 应用成人/ 不雅设置，自动限制图片中的成人内容。</p>
+                                    <p><strong>名人</strong> - Azure 的名人识别模型可识别全世界 200,000 位商业、政治、体育和娱乐界名人。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>内容审查器</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question8">可使用 API 审查的内容有什么限制？</a>
+                                <section>
+                                    <p>使用 API 时，图像需至少为 128 像素且文件大小不超过 4MB。文本长度不可超过 1024 个字符。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question9">如果传递到文本 API 或图像 API 的内容超过大小限制，会发生什么？</a>
+                                <section>
+                                    <p>文本 API 将返回一个错误代码，指出文本超过允许长度。图像 API 也会返回一个错误代码，指出图像不符合大小要求。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question10">使用人工审阅工具是否需额外付费？</a>
+                                <section>
+                                    <p>你的订阅中包含人工审阅工具。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>文本分析</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question11">文本分析 API 是如何进行计费的？</a>
+                                <section>
+                                    <p>对于文本分析 API，可以按 S0-S4 层计价单位以固定价格购买。每个单位的级别都包含一定数量的 API 事务。如果用户使用的数量超出了包含的数量，则超出部分将按上面的定价表中指定的费率收费。这些超出部分按比例计算，而服务按月计费。一个级别中包含的数量会每月重置。在 S 层中，服务仅针对提交给服务的文本记录的数量进行计费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question12">如果我在免费级别使用文本分析超出了事务限制，会发生什么情况？</a>
+                                <section>
+                                    <p>如果达到免费级别的事务限制，则使用会受到限制。客户无法在免费级别超额使用。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question13">文本分析 API 中 S0-S4 层的事务由什么构成？</a>
+                                <section>
+                                    <p>文档的任何注释都算作事务。批处理评分调用也会考虑该事务中需评分的文档数。因此，如果通过一次 API 调用发送 1,000 份文档供情绪分析，则记为 1,000 个事务。API 支持多于一个注释操作的情况也会考虑在内。假如一个 API 调用为 1,000 份文档执行了情绪分析和关键短语提取，则记为 2,000 个事务（2 个注释 × 1,000 份文档）。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question14">如果我在 S0-S4 层超出了事务限制，会发生什么情况？</a>
+                                <section>
+                                    <p>如果在 S0-S4 层超额使用，则帐户开始累加超额量。这些超额部分按照为每个级别指定的费率按月计费。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question15">我可以更改我订阅的服务级别吗？</a>
+                                <section>
+                                    <p>你可以随时升级到较高级别。较高级别对应的计费费率和包括的量将立即生效。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_question16">S 层文本记录由什么构成？</a>
+                                <section>
+                                    <p>S 层中的文本记录根据 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.string.length?view=netframework-4.7.2">String.Length</a> 测量，最多包含 1,000 个字符。如果文本分析 API 中的输入文档超过 1,000 个字符，则将每 1,000 个字符单元计为一个文本记录。例如，如果发送到 API 的输入文档包含 7,500 个字符，则它将计为 8 个文本记录。如果发送到 API 的输入文档包含 500 个字符，则它将计为 1 个文本记录。如果提交了两份文件，一份 500 字符的文件和一份 1,200 字符的文件，那么该服务将收取 3 个文本记录的费用：500 字符文档计为 1 个记录，1,200 字符文档计为 2 个文本记录。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>文本翻译</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_billing_amount">我如何计算每月用量？</a>
+                                <section>
+                                    <p>对于 Microsoft Translator Text API，您每个月被收费的费用为你输入字符的数量。每个 Unicode 代码点都算作一个字符。您输入的每个字符都会被计算。每次文本被翻译成新的语言时都算作一次单独的翻译，无关乎您查询、单词、字节或句子的数量。</p>
+                                    <p>要估算您的每月用量，请将要翻译的总字符数乘以您希望将其翻译成的语言数，然后取此数字并将其分摊到您可以等待完成的最长小时数或天数。</p>
+                                    <p>有关如何计算 Translator Text API 字符的更多信息，请参阅我们的<a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/character-counts">文档</a>。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_billing_limit">如果我达到免费订阅计划的上限会发生什么?</a>
+                                <section>
+                                    <p>如果您订阅了免费订阅计划，那么如果您在订阅月份内的 Text Translation API 达到200万个字符，则 Microsoft Translator 服务将停止。 Microsoft Translator 服务将在您下一个订阅月的开始时或您将订阅更改为付费计划时再次激活。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_support_language">Microsoft Translator 支持哪些语言？</a>
+                                <section>
+                                    <p>请参阅使用 Microsoft Translator Text API 进行文本转换的<a href="https://www.microsoft.com/zh-cn/translator/business/languages/">语言列表</a>。</p>
+                                    <p>面向开发人员的语言列表，包括语言代码，可在我们的<a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/language-support">文档</a>中找到。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_translator-text-api_customed">我可以自定义翻译吗？</a>
+                                <section>
+                                    <p>目前中国区 Azure 上的订阅暂时无法支持自定义翻译。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>语言理解</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_luis_what-is-transation">什么是事务？</a>
+                                <section>
+                                    <p>对于文本请求，事务是查询长度最长为 500 个字符的 API 调用。</p>
+                                    <p>对于语音请求，事务是查询长度最长为 15 秒的陈述。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_luis_is-speech-requests-included-in-the-free-tier">免费层是否包括语音请求？</a>
+                                <section>
+                                    <p>否，免费层仅包括最大长度为 500 个字符的文本请求。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_luis-what-is-dispatch">什么是分派？</a>
+                                <section>
+                                    <p>分派是一种能够实现通过一次 API 调用就可处理两个模型/应用程序的功能。</p>
+                                </section>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>语音服务</h3>
+                    <ul>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_how_does_billing_work">计费方式是怎样的？</a>
+                                <section>
+                                    <p>对于语音翻译、语音转文本以及使用自定义语音模型的语音转文本服务：使用费用是按秒数计算的</p>
+                                    <p>对于文本转语音以及使用自定义语音字体的文本转语音服务：使用费用是按字符数计算的</p>
+                                    <p>对于自定义语音模型托管服务：按小时计算使用费；对于自定义语音字体托管服务：按天计费使用费</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_what_is_a_Custom_speech_model">什么是“自定义语音模型”？</a>
+                                <section>
+                                    <p>用户借助语音服务可以根据自己的声学和语言数据采用合适的基准模型，形成可同时用于语音转文本和语音翻译的自定义语音模型。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_what_is_a_language_model_and_why_customize_it">什么是语言模型，为什么要对其进行自定义？</a>
+                                <section>
+                                    <p>语言模型是词语序列的概率分布。语言模型帮助系统根据词语序列本身发生的可能性，从发音类似的单词序列中做出选择。例如，“recognize speech”和“wreck a nice beach”发音类似，但前者的可能性要高得多，因此语言模型会给“recognize speech”分配更高的分值。如果希望应用程序的语音查询包含特定词汇项（例如日常语言中少用的产品名称或专用术语），那么很可能可以通过自定义语言模型获得更好的效果。例如，假如你正在构建通过语音搜索 MSDN 的应用，那么相较于一般语音应用程序，该应用用到“面向对象”、“命名空间”或“.Net”等术语的几率则很可能提升。自定义语言模型能让系统掌握这种差异。</p>
+                                </section>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon icon-plus"></i>
+                            <div>
+                                <a id="cognitive-services_speech-services_what_is_an_acoustic_model_and_why_customize_it">什么是声学模型，为什么要对其进行自定义？</a>
+                                <section>
+                                    <p>在每种语言中，声学模型是一个分类器，将短小声音片段标识为若干不同音素或声音单位中的一种。这些音素可以结合形成词语。例如，“speech”由四个音素“s p iy ch”组成。这些分类约按每秒 100 次的速度进行。自定义声学模型使系统能够学习更好地识别非典型环境中的语音。例如，如果研制了一款面向仓库或工厂工人的应用，那么相应的自定义声学模型可以在这类嘈杂的环境中更准确地识别语音。</p>
+                                </section>
+                            </div>
+                        </li>
+                    </ul>
 
                 </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question2">如果我在标准级别超出了调用限制，会发生什么情况？</a>
-                    <section>
-                        <p>如果在标准级别超额使用，则帐户开始累加超额量。这些超额部分将按为每个级别指定的费率按月计费。</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question3">我可以更改我订阅的服务级别吗？</a>
-                    <section>
-                        <p>你可以随时升级到较高级别。较高级别对应的计费费率和包括的量将立即生效。</p>
-                    </section>
-
-                </div>
-            </li>
-        </ul>
-
-        <h3>人脸 API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question4">什么是人脸存储？ 它可用于哪些方面？</a>
-                    <section>
-                        <p>通过人脸存储，可在使用人脸 API 结合人员对象和人脸列表进行标识或相似性匹配时，存储额外的持久性人脸。</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question5">如果当月中存储的图像数量改变，如何计算该数量进行计费？</a>
-                    <section>
-                        <p>存储的图像按每 1,000 张人脸 ¥1.59 收费，每天按比例分配此费率。例如，如果你的帐户在上半月每天使用了 10,000 张持久性人脸，下半月未使用人脸，则仅对 10,000 张人脸存储的天数收取费用。则计算为 (¥1.59/1,000) * (10,000*15+0*16)/31 = ¥7.69 另一个示例，如果某个月每天仅保留 1,000 张人脸且仅保留几个小时，每晚予以删除，那么每天仍将对保留的这 1,000 张人脸进行收费。</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question6">人脸存储的容量是多少？</a>
-                    <section>
-                        <p>存储的人员组的数量配额现为 1,000，每个人员组或人脸列表最多 1,000 人。</p>
-                    </section>
-
-                </div>
-            </li>
-        </ul>
-
-        <h3>计算机影像 API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question7">通过计算机影像 API 可完成哪些操作？</a>
-                    <section>
-                        <p><strong>标记</strong>-计算机影像 API 在超过 2,000 个可识别对象、生物、风景和操作的基础上返回标记。如果标记含混不清或者不常见，API 响应会提供“提示”，明确标记的含义。</p>
-                        <p><strong>人脸</strong> - 检测图片中的人脸。</p>
-                        <p><strong>获取缩略图</strong> - 图像上传后，“获取缩略图“（GetTumbnail）可生成高质量的缩略图。计算机影像 API 算法分析图像中的对象，然后根据感兴趣区域（ROI）的需求对图像进行裁剪。</p>
-                        <p><strong>颜色</strong> - 计算机视觉算法从映像中提取颜色。在三种不同的上下文（前景、背景和整体）中分析颜色。颜色可组合为 12 种主要的主题色。</p>
-                        <p><strong>图像类型</strong> - 计算机影像 API 可以设置一个布尔标志，指示图像为黑白色还是彩色，并可以使用相同的方法来指示图像是否为线图。图像类型还指示图像是否为剪贴画及其质量。</p>
-                        <p><strong>OCR</strong> - 光学字符识别 (OCR) 技术检测映像中的文本内容。识别的文本被提取到计算机可读的字符流，用于搜索和许多其他用途，从用于医疗记录到用于安全和银行。它自动检测语言。OCR 可以节省时间，允许用户简单地拍摄文本而非转录文本，从而为用户提供方便。有关支持语言，请参阅<a href="https://docs.azure.cn/zh-cn/cognitive-services/computer-vision/">计算机视觉文档</a>页面。</p>
-                        <p><strong>成人</strong> - 应用成人/ 不雅设置，自动限制图片中的成人内容。</p>
-                        <p><strong>名人</strong> - Azure 的名人识别模型可识别全世界 200,000 位商业、政治、体育和娱乐界名人。</p>
-                    </section>
-
-                </div>
-            </li>
-        </ul>
-
-        <h3>内容审查器 API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question8">可使用 API 审查的内容有什么限制？</a>
-                    <section>
-                        <p>使用 API 时，图像需至少为 128 像素且文件大小不超过 4MB。文本长度不可超过 1024 个字符。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question9">如果传递到文本 API 或图像 API 的内容超过大小限制，会发生什么？</a>
-                    <section>
-                        <p>文本 API 将返回一个错误代码，指出文本超过允许长度。图像 API 也会返回一个错误代码，指出图像不符合大小要求。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question10">使用人工审阅工具是否需额外付费？</a>
-                    <section>
-                        <p>你的订阅中包含人工审阅工具。</p>
-                    </section>
-                </div>
-            </li>
-        </ul>
-
-        <h3>文本分析 API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question11">文本分析 API 是如何进行计费的？</a>
-                    <section>
-                        <p>对于文本分析 API，可以按 S0-S4 层计价单位以固定价格购买。每个单位的级别都包含一定数量的 API 事务。如果用户使用的数量超出了包含的数量，则超出部分将按上面的定价表中指定的费率收费。这些超出部分按比例计算，而服务按月计费。一个级别中包含的数量会每月重置。在 S 层中，服务仅针对提交给服务的文本记录的数量进行计费。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question12">如果我在免费级别使用文本分析超出了事务限制，会发生什么情况？</a>
-                    <section>
-                        <p>如果达到免费级别的事务限制，则使用会受到限制。客户无法在免费级别超额使用。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question13">文本分析 API 中 S0-S4 层的事务由什么构成？</a>
-                    <section>
-                        <p>文档的任何注释都算作事务。批处理评分调用也会考虑该事务中需评分的文档数。因此，如果通过一次 API 调用发送 1,000 份文档供情绪分析，则记为 1,000 个事务。API 支持多于一个注释操作的情况也会考虑在内。假如一个 API 调用为 1,000 份文档执行了情绪分析和关键短语提取，则记为 2,000 个事务（2 个注释 × 1,000 份文档）。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question14">如果我在 S0-S4 层超出了事务限制，会发生什么情况？</a>
-                    <section>
-                        <p>如果在 S0-S4 层超额使用，则帐户开始累加超额量。这些超额部分按照为每个级别指定的费率按月计费。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question15">我可以更改我订阅的服务级别吗？</a>
-                    <section>
-                        <p>你可以随时升级到较高级别。较高级别对应的计费费率和包括的量将立即生效。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_question16">S 层文本记录由什么构成？</a>
-                    <section>
-                        <p>S 层中的文本记录根据 <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.string.length?view=netframework-4.7.2">String.Length</a> 测量，最多包含 1,000 个字符。如果文本分析 API 中的输入文档超过 1,000 个字符，则将每 1,000 个字符单元计为一个文本记录。例如，如果发送到 API 的输入文档包含 7,500 个字符，则它将计为 8 个文本记录。如果发送到 API 的输入文档包含 500 个字符，则它将计为 1 个文本记录。如果提交了两份文件，一份 500 字符的文件和一份 1,200 字符的文件，那么该服务将收取 3 个文本记录的费用：500 字符文档计为 1 个记录，1,200 字符文档计为 2 个文本记录。</p>
-                    </section>
-                </div>
-            </li>
-        </ul>
-
-        <h3>文本翻译 API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_billing_amount">我如何计算每月用量？</a>
-                    <section>
-                        <p>对于 Microsoft Translator Text API，您每个月被收费的费用为你输入字符的数量。每个 Unicode 代码点都算作一个字符。您输入的每个字符都会被计算。每次文本被翻译成新的语言时都算作一次单独的翻译，无关乎您查询、单词、字节或句子的数量。</p>
-                        <p>要估算您的每月用量，请将要翻译的总字符数乘以您希望将其翻译成的语言数，然后取此数字并将其分摊到您可以等待完成的最长小时数或天数。</p>
-                        <p>有关如何计算 Translator Text API 字符的更多信息，请参阅我们的<a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/character-counts">文档</a>。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_billing_limit">如果我达到免费订阅计划的上限会发生什么?</a>
-                    <section>
-                        <p>如果您订阅了免费订阅计划，那么如果您在订阅月份内的 Text Translation API 达到200万个字符，则 Microsoft Translator 服务将停止。 Microsoft Translator 服务将在您下一个订阅月的开始时或您将订阅更改为付费计划时再次激活。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_support_language">Microsoft Translator 支持哪些语言？</a>
-                    <section>
-                        <p>请参阅使用 Microsoft Translator Text API 进行文本转换的<a href="https://www.microsoft.com/zh-cn/translator/business/languages/">语言列表</a>。</p>
-                        <p>面向开发人员的语言列表，包括语言代码，可在我们的<a href="https://docs.azure.cn/zh-cn/cognitive-services/translator/language-support">文档</a>中找到。</p>
-                    </section>
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_translator-text-api_customed">我可以自定义翻译吗？</a>
-                    <section>
-                        <p>目前中国区 Azure 上的订阅暂时无法支持自定义翻译。</p>
-                    </section>
-                </div>
-            </li>
-        </ul>
-
-        <h3>语言理解 API</h3>
-        <ul>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_luis_what-is-transation">什么是事务？</a>
-                    <section>
-                        <p>对于文本请求，事务是查询长度最长为 500 个字符的 API 调用。</p>
-                        <p>对于语音请求，事务是查询长度最长为 15 秒的陈述。</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_luis_is-speech-requests-included-in-the-free-tier">免费层是否包括语音请求？</a>
-                    <section>
-                        <p>否，免费层仅包括最大长度为 500 个字符的文本请求。</p>
-                    </section>
-
-                </div>
-            </li>
-            <li>
-                <i class="icon icon-plus"></i>
-                <div>
-                    <a id="cognitive-services_luis-what-is-dispatch">什么是分派？</a>
-                    <section>
-                        <p>分派是一种能够实现通过一次 API 调用就可处理两个模型/应用程序的功能。</p>
-                    </section>
-
-                </div>
-            </li>
-        </ul>
-
-    </div>
-</div>
+            </div>
             <div class="pricing-page-section">
                 <h2>支持和服务级别协议</h2>
                 <p>如有任何疑问或需要帮助，请访问<a href="/support/contact/" id="cognitive-contact-page">Azure 支持</a>选择自助服务或者其他任何方式联系我们获得支持。</p>
@@ -593,7 +753,7 @@
             <!--END: Support and service code chunk-->                                                                                 
     ]]>
     </bodyText>
-    <pageTitle>认知服务价格详情_价格估算–Azure云计算</pageTitle>
+    <pageTitle>认知服务价格详情_价格估算 – Azure 云计算</pageTitle>
     <sitemapHide>0</sitemapHide>
     <linkid>pricing-details-cognitive-servicess</linkid>
     <metaKeywords>认知服务价格,服务报价,价格估算</metaKeywords>

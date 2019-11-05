@@ -23152,55 +23152,7 @@ var CalculatorData = {
                 }]
             }]
         },
-
-        // "cognitive-services-emotion": {
-        //     Name: "认知服务 - 情绪识别 API",
-        //     Types: [{
-        //         Name: "免费",
-        //         Features: [{
-        //             Name: "default",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "每月 30,000 个免费事务，3,000 个状态查询/每月（限制为 5 个/分钟）",
-        //                 PriceTier: PriceTierEnum.Free,
-        //                 PricePerTier: "0",
-        //             }]
-        //         }]
-        //     },
-        //     {
-        //         Name: "基本",
-        //         Features: [{
-        //             Name: "default",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "千个事务",
-        //             MinUnit: "0",
-        //             MaxUnit: "100000",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "每秒最多 10 个事务 （指定的面部矩形）",
-        //                 PriceTier: PriceTierEnum.Fixed,
-        //                 PricePerTier: "0.75",
-        //             }]
-        //         }]
-        //     },
-        //     {
-        //         Name: "标准",
-        //         Features: [{
-        //             Name: "default",
-        //             PricePeriod: PricePeriodEnum.Monthly,
-        //             PriceUnit: "千个事务",
-        //             MinUnit: "0",
-        //             MaxUnit: "100000",
-        //             Sizes: [{
-        //                 Name: "default",
-        //                 Description: "每秒最多 10 个事务",
-        //                 PriceTier: PriceTierEnum.Fixed,
-        //                 PricePerTier: "1.85",
-        //             }]
-        //         }]
-        //     }]
-        // },
-
+        
         "cognitive-services-computer-vision": {
             Name: "认知服务 - 计算机影像",
             Types: [{
@@ -23504,6 +23456,60 @@ var CalculatorData = {
             }
         ]
         },
+
+        "cognitive-services-speech-services": {
+            Name: "认知服务 - 语音识别",
+            Types: [
+            {
+                Name: "标准 - 语音转文本",
+                Features: [
+                    {
+                    Name: "标准",
+                    PricePerTier:PricePeriodEnum.Hourly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "default",
+                        Description:"default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "3",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每小时音频"
+                    }]
+                },{
+                    Name: "标准 - 语音转文本",
+                    PricePerTier:PricePeriodEnum.Hourly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "自定义语音",
+                        Description:"default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "14.5",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每小时音频"
+                    }]
+                },{
+                    Name: "标准 - 语音转文本",
+                    PricePerTier:PricePeriodEnum.Hourly,
+                    MinUnit:"0",
+                    MaxUnit:"100000",
+                    Sizes: [{
+                        Name: "自定义语音终结点托管",
+                        Description:"default",
+                        PriceTier: "0,100000",
+                        PricePerTier: "407.65",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "每模型/月"
+                    }]
+                }]
+            }
+        ]
+        },
+
 
         // "analysis-services-devp": {
         //     Name: "Azure 分析服务 - 开发人员层",
