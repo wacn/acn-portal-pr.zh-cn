@@ -35,7 +35,49 @@
                     
                     <h2>Pricing Details</h2>
                     <h3>Log Analytics</h3>
-                    <p>Log Analytics is billed per gigabyte (GB) of data ingested into the service.</p>
+                    <p>There are two ways to pay for the Azure Monitor Log Analytics service: Capacity Reservations and Pay-As-You-Go.</p>
+
+                    <h3>Capacity Reservations</h3>
+                    <p>With Capacity Reservations you are billed a fixed predictable fee based on your selected capacity reservation.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>CAPACITY<sup>1</sup></strong></th>
+                            <th align="left"><strong>PRICE</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">100 GB per day</td>
+                                <td class="left_align">&yen; 1994.5 per day</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">200 GB per day</td>
+                                <td class="left_align">&yen 3744.77 per day</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">300 GB per day</td>
+                                <td class="left_align">&yen 5495.04 per day</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">400 GB per day</td>
+                                <td class="left_align">&yen; 7163.9 per day</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">500 GB per day</td>
+                                <td class="left_align">&yen; 8802.24 per day</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date"><sup>1</sup>If amount of data ingested into your workspace exceeds selected daily capacity Reservation, then additional data is charged at Pay-As-You-Go rates listed below.</div>
+					</div>
+
+                    <h3>Pay-As-You-Go</h3>
+                    <p>With Pay-As-You-Go pricing, you are billed per gigabyte (GB) of data ingested into the Log Analytics workspace.</p>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div>
                     </div>
@@ -50,20 +92,41 @@
                         <tbody>
                             <tr>
                                 <td class="left_align">Data Ingestion</td>
-                                <td class="left_align">5 GB per customer per month<sup>1</sup></td>
+                                <td class="left_align">5 GB per customer per month<sup>3</sup></td>
                                 <td class="left_align">¥23.4/GB</td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date"><sup>3</sup>The first 5 GB of data ingested per customer to the Azure Monitor Log Analytics service every month is offered free.</div>
+					</div>
+
+                    <h3>Data Retention</h3>
+                    <p>Every GB of data ingested into your Azure Monitor Log Analytics workspace can be retained at no charge for up to first 31 days. Data retained beyond first 31 days will be charged per the data retention prices listed below.</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>Features</strong></th>
+                            <th align="left"><strong>Free units included</strong></th>
+                            <th align="left"><strong>Price</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td class="left_align">Data Retention</td>
-                                <td class="left_align">31 days<sup>2</sup></td>
+                                <td class="left_align">31 days<sup>4</sup></td>
                                 <td class="left_align">¥1.02/month</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="tags-date">
-						<div class="ms-date">1.The first 5 GB of data ingested per customer to the Azure Log Analytics service every month is offered free.</div><br data-filtered="filtered">
-						<div class="ms-date">2.Every GB of data ingested into your Azure Log Analytics workspace is retained at no charge for the first 31 days.</div><br data-filtered="filtered">
+						<div class="ms-date"><sup>4</sup>For Azure Sentinel enabled workspaces the data is retained for free for 90 days.</div>
 					</div>
+
+
 
                     <h3>Application Insights</h3>
                     <p>Application Insights is billed based on the volume of telemetry data that your application sends and the number of web tests that you choose to run. The telemetry data is billed per Azure Log Analytics data ingestion rates.</p>

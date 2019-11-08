@@ -37,7 +37,50 @@
                     
                     <h2>定价详细信息</h2>
                     <h3>Log Analytics</h3>
-                    <p>针对引入的数据对 Log Analytics 服务按每十亿字节 (GB) 计费。</p>
+                    <p>可以通过两种方式来支付 Azure Monitor Log Analytics 服务的费用：产能预留和即用即付。</p>
+
+                    <h3>产能预留</h3>
+                    <p>使用产能预留时，我们将根据你所选的产能预留向你收取固定、可预测的费用。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>容量<sup>1</sup></strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="left_align">100 GB/天</td>
+                                <td class="left_align">&yen; 1994.5/天</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">200 GB/天</td>
+                                <td class="left_align">&yen 3744.77/天</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">300 GB/天</td>
+                                <td class="left_align">&yen 5495.04/天</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">400 GB/天</td>
+                                <td class="left_align">&yen; 7163.9/天</td>
+                            </tr>
+                            <tr>
+                                <td class="left_align">500 GB/天</td>
+                                <td class="left_align">&yen; 8802.24/天</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date"><sup>1</sup>如果引入到工作区中的数据量超出了所选的每日产能预留，则按下面列出的即用即付费率对超出的额外数据进行收费。</div>
+					</div>
+
+
+                    <h3>即用即付</h3>
+                    <p>使用即用即付定价时，对于引入到 Log Analytics 工作区中的数据，我们将按每十亿字节 (GB) 进行收费。</p>
                     <div class="tags-date">
                         <div class="ms-date">*以下价格均为含税价格。</div>
                     </div>
@@ -52,20 +95,40 @@
                         <tbody>
                             <tr>
                                 <td class="left_align">数据引入</td>
-                                <td class="left_align">每个客户每月 5 GB<sup>1</sup></td>
+                                <td class="left_align">每个客户每月 5 GB<sup>3</sup></td>
                                 <td class="left_align">¥23.4/GB</td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <div class="tags-date">
+						<div class="ms-date"><sup>3</sup>每个客户每月引入 Azure Log Analytics 服务的前 5 GB 数据免费。</div>
+					</div>
+
+                    <h3>数据保留</h3>
+                    <p>引入到 Azure Monitor Log Analytics 工作区中的每 GB 数据在前 31 天是免费保留的。对于前 31 天过后仍然保留的数据，我们将按下面列出的数据保留价格进行收费。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div>
+                    </div>
+                    <table  cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                            <th align="left"><strong>功能</strong></th>
+                            <th align="left"><strong>内附免费单位数</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td class="left_align">数据保留</td>
-                                <td class="left_align">31 天<sup>2</sup></td>
+                                <td class="left_align">31 天<sup>4</sup></td>
                                 <td class="left_align">¥1.02/月</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="tags-date">
-						<div class="ms-date">1.每个客户每月引入 Azure Log Analytics 服务的前 5 GB 数据免费。</div><br data-filtered="filtered">
-						<div class="ms-date">2.引入 Azure Log Analytics 工作区的每 GB 数据均可免费保存 31 天。</div><br data-filtered="filtered">
+						<div class="ms-date"><sup>4</sup>对于启用了 Azure Sentinel 的工作区，数据将免费保留 90 天。</div>
 					</div>
+
 
                     <h3>Application Insights</h3>
                     <p>根据应用程序发送的遥测数据量和选择运行的 Web 测试数对 Application Insights 计费。遥测数据按 Azure Log Analytics 数据引入费率计费。</p>
