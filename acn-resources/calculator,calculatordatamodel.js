@@ -21167,7 +21167,7 @@ var CalculatorData = {
                 }]
             },
             {
-                Name: "大于 500 GB",
+                Name: "大于 500 GB 数据的实例",
                 Features: [{
                     Name: "default",
                     PricePeriod: PricePeriodEnum.Monthly,
@@ -21183,7 +21183,82 @@ var CalculatorData = {
                 }]
             }]
         },
+        
         "backup-backup-storage": {
+            Name: "备份存储空间 ",
+            Types: [{
+                Name: "default",
+                Features: [{
+                    Name: "LRS 块 blob ",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.18",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                },
+                {
+                    Name: "GRS 块 blob ",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "default",
+                        PriceTier: "0,512000",
+                        PricePerTier: "0.36",
+                        MinUnit: "0",
+                        MaxUnit: "100000",
+                        PriceUnit: "GB"
+                    }]
+                }]
+            }]
+        },
+
+        "backup-sqlserver": {
+            Name: "备份 - Azure VM 上的 SQL Server 备份",
+            Types: [{
+                Name: "0 至 500 GB （含500 GB ） 数据的实例",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "0 至 500 GB （含500 GB ） 数据的实例",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "254.4",
+                    }]
+                }]
+            },
+            {
+                Name: "大于 500 GB 数据的实例",
+                Features: [{
+                    Name: "default",
+                    PricePeriod: PricePeriodEnum.Monthly,
+                    PriceUnit: "个",
+                    MinUnit: "0",
+                    MaxUnit: "20",
+                    Sizes: [{
+                        Name: "default",
+                        Description: "大于 500 GB 数据的实例",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "254.4",
+                    }]
+                }]
+            }]
+        },
+        "backup-sqlserver-backup-storage": {
             Name: "备份存储空间",
             Types: [{
                 Name: "default",
@@ -21221,6 +21296,7 @@ var CalculatorData = {
                 }]
             }]
         },
+
         "service-bus": {
             Name: "服务总线",
             Types: [{

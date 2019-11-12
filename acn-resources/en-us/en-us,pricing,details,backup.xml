@@ -3,7 +3,12 @@
   <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-07-06T16:00:00" urlName="backup" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
-            <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <tags ms.service="backup" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> 
+            <div class="hide-info" style="display:none;">
+                <div class="bg-box"><div class="cover-bg">&nbsp;</div></div>
+                <div class="msg-box"><div class="pricing-unavailable-message">Not available in the selected region</div></div>
+            </div>
+            <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/media/images/production/backup.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
@@ -18,55 +23,151 @@
             <div class="pricing-page-section">
                 <p>Azure Backup is a reliable, low-cost, and scalable solution, allowing for backup of local data onto the cloud. Without any capital investment, you can protect your key business data with the lowest operating expenses.</p>
                 <p>Azure Backup now enables backup of virtual machines on Azure through a few simple steps, and also permits placing the restore points on the cloud storage. Whenever necessary, you can respond from the restore points to meet various demands for protecting Azure Virtual Machines.</p>
+                <h2>Pricing Details</h2>
             </div>
-            <!-- BEGIN: TAB-CONTROL -->
-            <div class="technical-azure-selector tab-control-selector">
-                <div class="tab-control-container tab-active">
-                    <h2>Pricing Details</h2>
-                    <p>Backup services are charged by the size of every protected instance, at an increment of 500 GB. In addition, Azure storage space is charged individually, allowing for reduction in long-lasting storage cost. Customers can make a flexible selection between LRS or GRS Block Blob Storage .</p>
-                    <h4>Backup for Azure VMs and on-premises servers</h4>
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
-                    </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>Data stored per protected instance per month</strong></th>
-                            <th align="left"><strong>Price</strong></th>
-                        </tr>
-                        <tr>
-                            <td>Instances with 0 to 50 GB (including 50 GB) of data</td>
-                            <td>￥31.65/protected instance + storage used</td>
-                        </tr>
-                        <tr>
-                            <td>Instances with 50 GB to 500 GB (including 500 GB) of data</td>
-                            <td>￥63.29/protected instance + storage used</td>
-                        </tr>
-                        <tr>
-                            <td>Instances with more than 500 GB of data</td>
-                            <td>Increments of ￥63.29 every 500 GB + storage used</td>
-                        </tr>
-                    </table>
 
-                    <h4>Backup Storage</h4>
-                    <p>Azure Backup uses Block Blob storage for backing up your instances. You have the flexibility to choose between locally redundant storage (LRS) or geo-redundant storage (GRS). Both LRS and GRS are Block Blob Storage.</p>
-                    <div class="tags-date">
-                        <div class="ms-date">*The following prices are tax-inclusive.</div><br>
-                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+            <!-- BEGIN: TAB-CONTROL -->
+            <div class="technical-azure-selector pricing-detail-tab tab-dropdown">
+				<div class="tab-container-container">
+				<div class="tab-container-box">
+				<div class="tab-container">
+					<div class="dropdown-container software-kind-container" style="display:none;">
+						<label>OS/Software:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">Backup</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+                            <li class="active"><a href="javascript:void(0)" data-href="#tabContent1" id="home_backup">Backup</a></li>
+							</ol>
+						</div>
+						<select class="dropdown-select software-box hidden-lg hidden-md" id="software-box">
+                            <option selected="selected" data-href="#tabContent1" value="Backup">Backup</option>
+						</select>
+					</div>
+					<div class="dropdown-container region-container">
+						<label>Region:</label>
+						<div class="dropdown-box os-tab-nav hidden-sm hidden-xs">
+							<span class="selected-item">China East 2</span>
+							<i class="icon"></i>
+							<ol class="tab-items">
+								<li class="active"><a href="javascript:void(0)" data-href="#east-china2" id="east-china2" >China East 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china2" id="north-china2" >China North 2</a></li>
+								<li><a href="javascript:void(0)" data-href="#east-china" id="east-china" >China East</a></li>
+								<li><a href="javascript:void(0)" data-href="#north-china" id="north-china" >China North</a></li>	
+							</ol>
+						</div>
+						<select class="dropdown-select region-box hidden-lg hidden-md" id="region-box">
+							<option selected="selected" data-href="#east-china2" value="east-china2">China East 2</option>
+							<option data-href="#north-china2" value="north-china2">China North 2</option>
+							<option data-href="#east-china" value="east-china">China East</option>
+							<option data-href="#north-china" value="north-china">China North</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				</div>
+				</div>
+                <!-- BEGIN: TAB-CONTAINER-1 -->
+                <div class="tab-content">
+                    <!-- BEGIN: TAB-CONTAINER-3 -->
+                    <div class="tab-panel" id="tabContent1">
+                        <!-- BEGIN: Tab level 2 navigator 2 -->
+                        <!-- BEGIN: Tab level 2 content 3 --> 
+                        <div class="tab-content">
+                            <p>Backup services are charged by the size of every protected instance, at an increment of 500 GB. In addition, Azure storage space is charged individually, allowing for reduction in long-lasting storage cost. Customers can make a flexible selection between LRS or GRS Block Blob Storage .</p>
+                            <h4>Backup for Azure VMs and on-premises servers</h4>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                                <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="backup-table-vm-backup">
+                                <tr>
+                                    <th align="left"><strong>Data stored per protected instance per month</strong></th>
+                                    <th align="left"><strong>Price</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Instances with 0 to 50 GB (including 50 GB) of data</td>
+                                    <td>￥31.65/protected instance + storage used</td>
+                                </tr>
+                                <tr>
+                                    <td>Instances with 50 GB to 500 GB (including 500 GB) of data</td>
+                                    <td>￥63.29/protected instance + storage used</td>
+                                </tr>
+                                <tr>
+                                    <td>Instances with more than 500 GB of data</td>
+                                    <td>Increments of ￥63.29 every 500 GB + storage used</td>
+                                </tr>
+                            </table>
+
+                            <h4>Backup Storage</h4>
+                            <p>Azure Backup uses Block Blob storage for backing up your instances. You have the flexibility to choose between locally redundant storage (LRS) or geo-redundant storage (GRS). Both LRS and GRS are Block Blob Storage.</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                                <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="backup-table-vm-backup-space">
+                                <tr>
+                                    <th align="left"><strong>LRS </strong></th>
+                                    <th align="left"><strong>GRS</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>￥0.18/GB</td>
+                                    <td>￥0.36/GB</td>
+                                </tr>
+                            </table>
+
+                            <h4>Backup for SQL Server on Azure VMs</h4>
+                            <p>The size of the backed-up data before compression and encryption determines the pricing for using Azure Backup for SQL Server on Azure VMs.</p>
+                            <ul>
+                                <li>When backing-up SQL Server running on an Azure VM, the size of the databases configured for backup determines the size of each instance.</li>
+                                <li>When backing-up SQL Server availability groups, the size of the databases configured for backup on an availability group determines the size of each instance.</li>
+                            </ul>
+                            <p>ou have the flexibility to choose between locally redundant storage (LRS) or geo-redundant storage (GRS). Both LRS and GRS are Block Blob Storage. Charges for storage are separate from the cost of Azure Backup.</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                                <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="backup-table-sqlserver-backup">
+                                <tr>
+                                    <th align="left"><strong>Data stored per protected instance per month</strong></th>
+                                    <th align="left"><strong>Price</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>Instances with 0 to 500 GB (including 500 GB) of data</td>
+                                    <td>&yen; 254.4/protected instance + storage used</td>
+                                </tr>
+                                <tr>
+                                    <td>Instances with more than 500 GB of data</td>
+                                    <td>&yen; 254.4 for each 500 GB increment+ storage used</td>
+                                </tr>
+                            </table>
+
+                            <h4>Backup Storage</h4>
+                            <p>Azure Backup uses Block Blob storage for backing up your instances. You have the flexibility to choose between locally redundant storage (LRS) or geo-redundant storage (GRS). Both LRS and GRS are Block Blob Storage.</p>
+                            <div class="tags-date">
+                                <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                                <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%" id="backup-table-sqlserver-backup-space">
+                                <tr>
+                                    <th align="left"><strong>LRS </strong></th>
+                                    <th align="left"><strong>GRS</strong></th>
+                                </tr>
+                                <tr>
+                                    <td>￥0.18/GB</td>
+                                    <td>￥0.36/GB</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <th align="left"><strong>LRS </strong></th>
-                            <th align="left"><strong>GRS</strong></th>
-                        </tr>
-                        <tr>
-                            <td>￥0.18/GB</td>
-                            <td>￥0.36/GB</td>
-                        </tr>
-                    </table>
+                    <!-- END: TAB-CONTAINER-3 -->
+                    </div>
                 </div>
-            </div>
+                <!-- END: TAB-CONTAINER-2 -->
+            
             <!-- END: TAB-CONTROL -->
+
+
             <div class="pricing-page-section">
                 <div class="more-detail">
                     <h2>FAQs</h2>
