@@ -3,7 +3,7 @@
   <TextpageLeftNav template="5" createDate="2014-08-05T07:49:24" updateDate="2018-06-12T16:00:00" urlName="cosmos-db" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
-            <tags ms.service="cosmos-db" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
+            <tags ms.service="en-us-cosmos-db" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//wacnppe.blob.core.chinacloudapi.cn/marketing-resource/css/cosmos-db_banner.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
                     <div class="common-banner-title">
@@ -155,7 +155,8 @@
                         </tr>
                     </table>
                     <p>For transactional storage, there is no additional charge for IOPS (input/output operations per second). For analytical (preview) storage, storage transactions are billed as below:</p>
-                    <h3>Analytical storage transactions<sup>Preview</sup></h3>
+                    
+                    <!-- <h3>Analytical storage transactions<sup>Preview</sup></h3>
                     <div class="tags-date">
                         <div class="ms-date">*The following prices are tax-inclusive.</div><br />
                         <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
@@ -173,7 +174,7 @@
                             <td>Read Operations (per 10,000 operations)</td>
                             <td>&yen 0.015</td>
                         </tr>
-                    </table>
+                    </table> -->
 
                     <h3>Elastically scaling reads and writes across the globe</h3>
                     <p>You can add/remove Azure regions anywhere in the world to your Cosmos DB database account at any time. The throughput that you have configured for various Cosmos DB databases and containers is guaranteed to be reserved in each of the Azure regions associated with your Cosmos DB database account.</p>
@@ -219,7 +220,34 @@
                     <p>For high-throughput and high-storage workloads, you can create <a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-partition-data/">unlimited containers</a> by defining a partition key when a collection is created. A partitioned container will seamlessly scale out as the quantity of stored data grows and provisioned throughput increases.</p>  
                     
                     <h3>Multi-regional scale with geo-replication</h3>
-                    <p>Azure Cosmos DB containers can be <a id="pricing-cosmos-db_docs-distribute-data-globally-2" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/distribute-data-globally/">distributed</a>, which means all your data can be automatically replicated to the regions you specify. Your app continues to work using a logical endpoint, while your data is automatically extracted and served to users from their nearest region using an intuitive programming model for <a id="pricing-cosmos-db_docs-documentdb-consistency-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-consistency-levels/">data consistency</a> and <a id="pricing-cosmos-db_sla-cosmos-db-2" style="color: #00a8d9;" href="/support/sla/cosmos-db/">99.99%</a> availability. Distributed containers are billed based on the storage consumed in each region and the throughput provisioned for each Azure Cosmos DB container multiplied by the number of regions associated with an Azure Cosmos DB database account. Standard <a id="pricing-cosmos-db_pricing-data-transfer" style="color: #00a8d9;" href="/pricing/details/data-transfer/">data transfer rates</a> apply for replication data transfer between regions. For example, suppose a user has a database account that spans three Azure regions and two containers that are provisioned with 1 million RUs and 2 million RUs respectively. The total provisioned RUs for the first container will be 3 million RUs (1 million RUs x 3 regions), and the total provisioned RUs for the second container will be 6 million RUs (2 million RUs x 3 regions).</p>
+                    <p>Azure Cosmos DB is a fully managed database service with <a href="https://docs.azure.cn/cosmos-db/distribute-data-globally">turnkey global distribution</a> and transparent <a href="https://docs.azure.cn/cosmos-db/global-dist-under-the-hood">multi-master replication</a>. You can add and remove regions to your Azure Cosmos account at any time. The throughput that you configure for various Azure Cosmos databases and containers is reserved in each region associated with your Cosmos account.</p>
+                    <p>In addition to multi-region configuration, you can now enable zone redundancy, when selecting a region to associate with your Azure Cosmos database. Zone redundancy provides additional redundancy within a given region by replicating data across multiple zones in that region. Availability zones redundancy is available for single region accounts, and multi-region accounts with multi-region writes enabled.</p>
+                     <div class="tags-date">
+                        <div class="ms-date">*The following prices are tax-inclusive.</div><br />
+                        <div class="ms-date">*Monthly price estimates are based on 744 hours of usage per month.</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>Throughput – Unit (100 RU/s per hour)</strong></th>
+                            <th align="left"><strong>	Price</strong></th>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s, single region account</td>
+                            <td>1 x ¥0.051/hour</td>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s, N>1 regions, single writeable region</td>
+                            <td>N x ¥0.051/hour</td>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s, N>1 regions, all regions writeable</td>
+                            <td>(N + 1) x ¥0.102/hour</td>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s, N>1 regions, all regions writeable, with availability zones enabled</td>
+                            <td>(N + 1) x ¥0.102/hour</td>
+                        </tr>
+                    </table>
                     
                     <h3>High throughput and low-latency queries</h3>
                     <p>When writing a sustained amount of data with Azure Cosmos DB, the data is indexed synchronously to provide consistent SQL queries using a write-optimized, latch-free database engine designed for solid-state drives (SSDs) and low-latency access. When data is distributed, read and write requests always originate from the local region. Performance can be further optimized by <a id="pricing-cosmos-db_docs-documentdb-indexing-policies" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-indexing-policies/">customizing automatic index behavior</a>.</p>
