@@ -157,7 +157,8 @@
                         </tr>
                     </table>
                     <p>对于事务存储，IOPS（每秒输入/输出操作）不会额外收费。对于分析（预览版）存储，存储事务按以下方式计费：</p>
-                    <h3>分析存储事务<sup>预览</sup></h3>
+                    
+                    <!-- <h3>分析存储事务<sup>预览</sup></h3>
                     <p>Azure Cosmos DB 提供了无限制事务和分析（预览版）存储。存储在你使用 Azure Cosmos DB 的所有区域，根据数据和索引所使用的每 GB 本地 SSD 逻辑存储进行计费。例如，如果跨三个区域复制 Azure Cosmos DB 帐户，则将为这三个区域中的每个区域支付总存储成本。</p>
                     <p>你的数据在两个不同的存储层（事务和分析（预览版））中进行管理，工作负荷在相同的逻辑数据上运行，彼此之间互不干扰。默认始终启用事务存储，但必须在 Cosmos 容器上显式启用分析（预览版）存储。</p>
                     <div class="tags-date">
@@ -177,7 +178,7 @@
                             <td>读取操作（每 10,000 次操作）</td>
                             <td>&yen 0.015</td>
                         </tr>
-                    </table>
+                    </table> -->
 
                     <h3>全球范围内弹性缩放读取和写入</h3>
                     <p>可随时随地向 Cosmos DB 数据库帐户添加/删除 Azure 区域。对于为不同 Cosmos DB 数据库和容器配置的吞吐量，我们保证可在与 Cosmos DB 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。</p>
@@ -226,7 +227,34 @@
                     <p>对于高吞吐量和高存储空间工作负荷，可通过在创建集合时定义分区键来创建<a id="pricing-cosmos-db_docs-documentdb-partition-data" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-partition-data/">无限存储容器</a>。随着存储数据的数量增多和保留吞吐量增加，分区容器和将无缝扩展。</p>  
                     
                     <h3>多区域规模，兼备异地复制</h3>
-                    <p>Azure Cosmos DB 容器可<a id="pricing-cosmos-db_docs-distribute-data-globally-2" style="color: #00a8d9;" href="//docs.azure.cn/cosmos-db/distribute-data-globally/">分布</a>，这意味着所有数据均可自动复制到所指定的区域。应用继续使用一个逻辑终结点，而采用可实现<a id="pricing-cosmos-db_docs-documentdb-consistency-levels" style="color: #00a8d9;" href="//docs.azure.cn/documentdb/documentdb-consistency-levels/">数据一致性</a>和<a id="pricing-cosmos-db_sla-cosmos-db-2" style="color: #00a8d9;" href="/support/sla/cosmos-db/">99.99 可用性</a>的直观编程模型从最近区域提取数据自动提供给用户。按每个区域中占用的存储空间和所保留的吞吐量，以及为每个 Azure Cosmos DB 容器保留的吞吐量 x 与 Azure Cosmos DB 数据库帐户关联的区域数量，对分布的容器进行计费。标准<a id="pricing-cosmos-db_pricing-data-transfer" style="color: #00a8d9;" href="/pricing/details/data-transfer/">数据传输费率</a>适用于区域之间的复制数据传输。例如，假设用户有一个跨越三个 Azure 区域的数据库帐户，以及两个分别预配了 1M RU 和 2M RU 的容器。第一个容器的总预配 RU 将是 3M RU（1M RU x 3 个区域），第二个容器的总预配 RU 将是 6M RU（2M RU x 3 个区域）。</p>
+                    <p>Azure Cosmos DB 是完全托管的数据库服务，具有<a href="https://docs.azure.cn/cosmos-db/distribute-data-globally">统包全球分布</a>和透明<a href="https://docs.azure.cn/cosmos-db/global-dist-under-the-hood">多主数据库复制</a>功能。 可随时对 Azure Cosmos 帐户添加或删除区域。在与 Cosmos 帐户关联的每个区域中会保留为各种 Azure Cosmos 数据库和容器配置的吞吐量。</p>
+                    <p>选择与 Azure Cosmos 数据库相关联的区域时，除多区域配置外，现在还可以启用区域冗余。区域冗余即在给定地区中的多个区域复制数据，从而在该地区内提供额外的冗余。可用性区域冗余可用于单区域帐户和启用多区域写入的多区域帐户。</p>
+                    <div class="tags-date">
+                        <div class="ms-date">*以下价格均为含税价格。</div><br />
+                        <div class="ms-date">*每月价格估算基于每个月 744 小时的使用量。</div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <th align="left"><strong>吞吐量 - 单位（每小时 100 RU/s）</strong></th>
+                            <th align="left"><strong>价格</strong></th>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s，单区域帐户</td>
+                            <td>1 x ¥0.051/小时</td>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s，N > 1 个区域，可写入单个区域</td>
+                            <td>N x ¥0.051/小时</td>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s，N > 1 个区域，可写入所有区域</td>
+                            <td>(N + 1) x ¥0.102/小时</td>
+                        </tr>
+                        <tr>
+                            <td>100 RU/s，N > 1 个区域，可写入所有区域，且启用了可用性区域</td>
+                            <td>(N + 1) x ¥0.102/小时</td>
+                        </tr>
+                    </table>
                     
                     <h3>高吞吐量和低延迟查询</h3>
                     <p>借助 Azure Cosmos DB，在写入持续的数据量时，将通过为固态硬盘 (SSD) 和低延迟访问而设计的写入优化、免闩锁数据库引擎，同步对这些数据进行索引以提供一致的 SQL 查询。当数据分布时，读取和写入请求总是源自本地区域。通过<a id="pricing-cosmos-db_docs-documentdb-indexing-policies" style="color: #00a8d9;" href="//docs.azure.cn/zh-cn/documentdb/documentdb-indexing-policies/">自定义自动索引行为</a>，可进一步优化性能。</p>
