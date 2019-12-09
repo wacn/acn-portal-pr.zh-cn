@@ -3,7 +3,12 @@
   <TextpageLeftNav template="5" createDate="2019-05-28T07:49:24" updateDate="2019-05-28T16:00:00" urlName="active-directory-b2c" writerName="content" creatorName="content">
     <bodyText><![CDATA[
       
-            <tags ms.service="active-directory-b2c" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> 
+            <tags ms.service="en-us-active-directory-b2c" ms.date="09/30/2015" wacn.date="11/27/2015"></tags> 
+            <style>
+                #aad-b2c-table-mau tr,#aad-b2c-table-separate tr{
+                    background-color:rgb(255,255,255) !important;
+                }
+            </style>
             <!-- BEGIN: Product-Detail-TopBanner -->
             <div class="common-banner col-top-banner" data-config="{'backgroundColor':'#e3f4ff', 'backgroundImage':'//resource.cdn.azure.cn/marketing-resource/media/images/production/activity_directory_b2c.png','imageHeight':'auto'}">
                 <div class="common-banner-image">
@@ -22,37 +27,65 @@
             <!-- BEGIN: TAB-CONTROL -->
             <div class="technical-azure-selector tab-control-selector">
                 <h2>Pricing details</h2>
-                <p>Azure Active Directory (Azure AD) B2C usage will be billed monthly based on the number of authentications. An authentication is a token issued either in response to a sign-in request initiated by a user, or initiated by an application on behalf of a user (e.g. token refresh, where the refresh interval is configurable).</p>
-                <!-- <p>A separate fee will apply if you choose to provide higher levels of assurance using the <strong>per application Multi-Factor Authentication</strong> for Azure AD B2C option.</p> -->
-                <p>Usage will be billed using a volume-based tiered model, as shown below.</p>
-                <table cellpadding="0" cellspacing="0" width="100%">
+                <h4>Monthly Active Users (MAU)</h4>
+                <p>Azure Active Directory B2C is priced on a <b>Monthly Active User (MAU)</b> basis, helping customers to reduce costs and plan ahead with confidence. A MAU is counted when a unique user authenticates within a given calendar month.</p>
+                <p>Azure AD B2C is billed at the following standard tier rates.* Enterprise Agreement customers will be billed at a low, flat rate.</p>
+                <div class="tags-date">
+                    <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                </div>
+                <table cellpadding="0" cellspacing="0" id="aad-b2c-table-mau">
                         <tr>
-                            <th align="left"><strong>AUTHENTICATIONS/MONTH</strong></th>
-                            <th align="left"><strong>GENERAL AVAILABILITY PRICE</strong></th>
+                            <th align="left" width="33%"><strong>MONTHLY ACTIVE USERS/MONTH</strong></th>
+                            <th align="left" width="33%"><strong>GENERAL AVAILABILITY PRICE</strong></th>
+                            <th align="left" width="33%"><strong>ENTERPRISE AGREEMENT PRICE</strong></th>
                         </tr>
                         <tr>
                             <td>First 50,000</td>
                             <td>Free</td>
+                            <td rowspan="5">Enterprise Agreement customers are eligible to switch to MAU-based billing which includes the Free tier of 50,000 MAUs. Subsequent Azure AD B2C usage will be billed at a low, flat rate per MAU. For more information, please contact your partner or Microsoft representative.</td>
                         </tr>
                         <tr>
-                            <td>Next 950,000</td>
-                            <td>&yen;0.0285</td>
+                            <td>Next 50,000</td>
+                            <td>&yen;0.056</td>
+                        </tr>
+                        <tr>
+                            <td>Next 900,000</td>
+                            <td>&yen;0.0468</td>
                         </tr>
                         <tr>
                             <td>Next 9,000,000</td>
-                            <td>&yen;0.0214</td>
+                            <td>&yen;0.0331</td>
                         </tr>
                         <tr>
-                            <td>Next 40,000,000</td>
-                            <td>&yen;0.0142</td>
+                            <td>Greater than 10,000,000</td>
+                            <td>&yen;0.0254</td>
                         </tr>
+                </table>
+
+                <h4>Separate Charges:</h4>
+                    <div class="tags-date">
+                    <div class="ms-date">*The following prices are tax-inclusive.</div><br>
+                    <div class="ms-date">*Monthly price estimation is based on a usage of 31 days per month.</div>
+                </div>
+                    <table cellpadding="0" cellspacing="0" width="100%" id="aad-b2c-table-separate">
                         <tr>
-                            <td>Greater than 50,000,000</td>
-                            <td>&yen;0.00712</td>
+                            <th align="left">MFA and SMS/Phone Events</th>
+                            <th align="left">&yen; 0.305 per SMS/Phone event</th>
                         </tr>
                     </table>
-                    <p>Azure Multi-Factor Authentication for Azure AD B2C users will be charged at a flat fee of &yen;0.305 per authentication.</p>
-                    <p>For all other customers, Azure AD B2C usage will be billed at a low flat rate for each authentication, with no free tier. Azure Multi-Factor Authentication for B2C users will also be charged at a flat rate. For pricing, please contact your partner or 21Vianet.</p>
+                    <p>We listened carefully to customers about their needs regarding predictable, intuitive, and cost-efficient billing for customer identity solutions. With MAU-based billing, customers benefit from:</p>
+                    <ul>
+                        <li><b>Expanded Free tier:</b> The new Free tier stretches further by granting customers 50,000 MAUs per month-enabling more authentications per unique user than under the previous free allotment of 50,000 authentications. Most customers-with 50,000 or fewer MAUs per month-will be able to use Azure AD B2C for free.</li>
+                        <li><b>Predictable forecasting:</b> Estimating monthly billing on a per MAU basis is simpler and more predictable than trying to forecast the number of monthly authentications.</li>
+                        <li>
+                            <b>Usage-based billing:</b> Pay only for your MAUs. Customers are not charged for a MAU`s subsequent authentications or for storing inactive users within that calendar month.
+                            <p>For example, if you have 100,000 monthly active users (MAUs) using standard features, your monthly bill would be &yen; 2,800 regardless of how many times each MAU authenticates:</p>
+                            <p>(50,000  MAUs x &yen;0(Free tier)) + (50,000 MAUs x &yen;0.056) = &yen;2800</p>
+                            <p>A worldwide flat fee of &yen;0.305 is billed for each MFA attempt or SMS/Phone event.</p>
+                        </li>
+                    </ul>
+
             </div>
             <!-- END: TAB-CONTROL -->
             <div class="pricing-page-section">

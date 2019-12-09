@@ -25646,22 +25646,22 @@ var CalculatorData = {
                     Name:"default",
                     Features:[
                     {
-                    Name: "身份验证",
+                    Name: "月度活跃用户 (MAU)",
                     PriceTier: PriceTierEnum.Fixed,
                     PriceUnit: "个",
                     MinUnit: "0",
                     MaxUnit: "20",
                     Sizes: [{
                         Name: "default",
-                        PriceTier:"0,50000,50001,1000000,1000001,10000000,10000001,50000000,50000001,100000000",
-                        PricePerTier: "0,0.0285,0.0214,0.0142,0.00712",
+                        PriceTier:"0,50000,50001,100000,100001,1000000,1000001,10000000,10000001,100000000",
+                        PricePerTier: "0,0.056,0.0468,0.0331,0.00254",
                         MaxUnit:"100000000",
                         MinUnit:"0",
                         PriceUnit:"个"                            
                     }]
                     },{
-                        Name: "多重身份验证",
-                        Description:"多重身份验证将按每个身份验证的固定费率收费",
+                        Name: "单独收费",
+                        Description:"",
                         PriceTier: PriceTierEnum.Fixed,
                         PriceUnit: "个",
                         MinUnit: "0",
@@ -25672,7 +25672,7 @@ var CalculatorData = {
                             PricePerTier: "0.305",
                             MaxUnit:"100000000",
                             MinUnit:"0",
-                            PriceUnit:"个"
+                            PriceUnit:"个SMS/电话事件"
                             
                         }]
                     }
@@ -27109,6 +27109,29 @@ var CalculatorData = {
                 }]
             }]
         },
+        // "signalr-service": {
+        //     Name: "Azure Signalr 服务",
+        //     Types: [
+        //     {
+        //         Name: "标准",
+        //         Features: [{
+        //             Name: "标准",
+        //             PricePeriod: PricePeriodEnum.Monthly,
+        //             PriceUnit: "个",
+        //             MinUnit: "0",
+        //             MaxUnit: "20",
+        //             Sizes: [{
+        //                 Name: "default",
+        //                 Description: "default",
+        //                 PriceTier: "0,5000000",
+        //                 PricePerTier: "507.78",
+        //                 MinUnit: "0",
+        //                 MaxUnit: "5000000",
+        //                 PriceUnit: "单位/月"
+        //             }]
+        //         }]
+        //     }]
+        // },
     }
 };
 //  return CalculatorData;
