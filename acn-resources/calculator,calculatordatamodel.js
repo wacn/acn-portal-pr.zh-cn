@@ -18186,6 +18186,11 @@ var CalculatorData = {
                         Description: "32 个 vCore",
                         PriceTier: PriceTierEnum.Fixed,
                         PricePerTier: "10.6816",
+                    },{
+                        Name: "vCore 64",
+                        Description: "64 个 vCore",
+                        PriceTier: PriceTierEnum.Fixed,
+                        PricePerTier: "21.3632",
                     }]
                 },
                 {
